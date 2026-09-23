@@ -1,8 +1,6 @@
 # Contributing
 
-This document defines how we collaborate on ABC Fashion AI Assistant. Keep the
-process lightweight, communicate early, and prefer small changes that are easy
-to review.
+This document defines how we collaborate on ABC Fashion AI Assistant. Keep the process lightweight, communicate early, and prefer small changes that are easy to review.
 
 ## Getting started
 
@@ -19,6 +17,12 @@ secrets.
 `main` must remain deployable. Do not push directly to it; all changes should
 arrive through a pull request.
 
+`dev` branch is the branch that you guys are going to push to.
+
+`main`    <-     `dev`   <-------- `feat/landing` && `feat/produc_details`
+   |.              |
+   V               V
+`abc.com` <- `abc-testing.com`
 Create short-lived branches from the latest `main` using:
 
 ```text
@@ -30,8 +34,7 @@ test/catalog-query
 chore/update-dependencies
 ```
 
-Use lowercase kebab-case after the prefix. Keep branches focused on one task
-and delete them after merging.
+Use lowercase kebab-case after the prefix. Keep branches focused on one task and delete them after merging.
 
 Before opening a pull request, update your branch with the latest `main` and
 resolve conflicts locally.
@@ -61,6 +64,7 @@ Common commit types:
 - `test`: test additions or corrections
 - `chore`: maintenance, tooling, or dependency work
 
+
 ## Pull requests
 
 Open a draft pull request early when feedback or coordination would help. Mark
@@ -74,7 +78,7 @@ Each pull request should:
 - State how the change was tested.
 - Include screenshots or recordings for visible UI changes.
 - Call out migrations, environment changes, known limitations, and follow-up
-  work.
+work.
 - Pass all required checks.
 - Receive at least one approval from another contributor.
 
@@ -101,12 +105,12 @@ Treat the migration files as the source of truth for the database schema.
 - Put every schema change in a new file under `supabase/migrations/`.
 - Create migrations with `npx supabase migration new <descriptive_name>`.
 - Never edit a migration after it has been applied to a shared environment.
-  Add a new migration instead.
+Add a new migration instead.
 - Coordinate before making concurrent schema changes.
 - Enable Row Level Security on every table exposed through the Data API.
 - Add policies that grant only the access the application needs.
 - Keep public catalog access read-only unless the team explicitly approves a
-  different access model.
+different access model.
 - Never expose or commit a Supabase service-role or secret key.
 - Regenerate `lib/database.types.ts` after changing the schema.
 - Keep seed or demo data separate from production data.
@@ -126,13 +130,15 @@ A change is complete when:
 - Database access remains protected by appropriate grants and RLS policies.
 - Another contributor has approved the pull request.
 
+
+
 ## Communication
 
 - Share ownership of a task before starting substantial work.
 - Raise blockers and breaking changes early.
 - Avoid rewriting or force-pushing another contributor's branch without their
-  agreement.
+agreement.
 - For urgent production fixes, open a focused `fix/` branch and still use a
-  pull request. Document any checks skipped because of the urgency and follow
-  up afterward.
+pull request. Document any checks skipped because of the urgency and follow
+up afterward.
 

@@ -1,29 +1,55 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Cormorant_Garamond, Inter } from "next/font/google";
+import { BottomNavBar } from "@/components/layout/BottomNavBar";
+import { SiteFooter } from "@/components/layout/SiteFooter";
+import { SiteHeader } from "@/components/layout/SiteHeader";
+import { StylistLauncher } from "@/components/stylist/StylistLauncher";
+import { StylistProvider } from "@/components/stylist/StylistProvider";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
 });
 
 export const metadata: Metadata = {
-  title: "ABC Fashion AI Assistant",
-  description: "Personal styling assistant powered by AI",
+  title: "ABC Fashion",
+  description:
+    "Refined simplicity in every thread. Autumn Winter 2024 from ABC Fashion.",
+  icons: {
+    icon: "/logo.svg",
+  },
+};
+
+// viewport-fit=cover so the bottom nav can pad itself with the iOS safe-area inset.
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${cormorant.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="flex min-h-full flex-col bg-background pb-[calc(52px+env(safe-area-inset-bottom))] font-sans text-foreground lg:pb-0">
+        <StylistProvider>
+          <SiteHeader />
+          <main className="flex-1">{children}</main>
+          <SiteFooter />
+          <BottomNavBar />
+          <StylistLauncher />
+        </StylistProvider>
+      </body>
     </html>
   );
 }
