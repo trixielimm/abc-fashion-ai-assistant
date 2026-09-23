@@ -2,25 +2,83 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #111111;
+  --muted: #6b6b6b;
+  --border: #e8e8e8;
+  --surface: #f3f2ef;
+  /* Hairline + near-white used by app chrome (bottom nav, stylist modal). */
+  --hairline: #c6c6c8;
+  --panel: #f9f9f9;
 }
+
+/* Touch devices never fire `hover:`/`group-hover:` (Tailwind gates them behind
+   `(hover: hover)`), so `no-hover:` lets those cards rest in their rich state. */
+@custom-variant no-hover (@media (hover: none));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-surface: var(--surface);
+  --color-hairline: var(--hairline);
+  --color-panel: var(--panel);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-cormorant);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+::selection {
+  background: #111111;
+  color: #ffffff;
+}
+
+@keyframes stylist-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes stylist-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stylist-bounce {
+  animation: stylist-bounce 0.85s ease-in-out infinite;
+}
+
+.stylist-reveal {
+  animation: stylist-reveal 0.55s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stylist-bounce,
+  .stylist-reveal {
+    animation: none;
+  }
 }
