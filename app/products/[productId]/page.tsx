@@ -1,8 +1,12 @@
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/layout/Container";
 import { cn } from "@/lib/cn";
+import { featuredProducts } from "@/lib/mock-data";
 import { productDetailMocks } from "@/lib/product-detail-mock";
+import { ProductAccordion } from "@/components/product/ProductAccordion";
+import { ProductGallery } from "@/components/product/ProductGallery";
+import { ProductInfo } from "@/components/product/ProductInfo";
+import { RelatedProducts } from "@/components/product/RelatedProducts";
 
 export default async function ProductDetailPage({
   params,
@@ -13,51 +17,65 @@ export default async function ProductDetailPage({
   const product = productDetailMocks.find(
     (item) => item.product_id === productId,
   );
+  const listingProduct = featuredProducts.find((item) => item.id === productId);
+  const productName = listingProduct?.name ?? product?.product_name;
 
-  if (
-    !product ||
-    !product.product_name ||
-    product.price_aud === null ||
-    !product.image_key
-  ) {
-    notFound();
-  }
+  if (!product || !productName) notFound();
 
-  const price = new Intl.NumberFormat("en-AU", {
-    style: "currency",
-    currency: "AUD",
-  }).format(product.price_aud);
+  const breadcrumbs = product.category
+    ? [
+        product.gender,
+        product.category,
+        product.subcategory,
+        productName,
+      ].filter((part): part is string => Boolean(part))
+    : [productName];
 
   return (
-    <Container className={cn("py-8 lg:py-12")}>
-      <div className="grid gap-8 md:grid-cols-2 md:gap-12">
-        <div className="relative aspect-[3/4] overflow-hidden bg-surface">
-          <Image
-            src={product.image_key}
-            alt={product.product_name}
-            fill
-            priority
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover"
+    <div className="min-h-full bg-panel">
+      <Container
+        className={cn(
+          "max-w-[1240px] px-5 pb-16 pt-5 sm:px-8 lg:px-10 lg:pb-20",
+        )}
+      >
+        <nav aria-label="Breadcrumb" className="text-[12px] text-muted">
+          <ol className="flex flex-wrap items-center gap-2">
+            {breadcrumbs.map((part, index) => (
+              <li key={`${part}-${index}`} className="flex items-center gap-2">
+                {index > 0 ? <span aria-hidden="true">/</span> : null}
+                <span
+                  className={
+                    index === breadcrumbs.length - 1
+                      ? "text-foreground"
+                      : undefined
+                  }
+                >
+                  {part}
+                </span>
+              </li>
+            ))}
+          </ol>
+        </nav>
+
+        <div className="mt-6 grid gap-8 md:grid-cols-[1.15fr_1fr] md:gap-10 lg:gap-14">
+          <ProductGallery
+            product={product}
+            fallbackImage={listingProduct?.image}
+            productName={productName}
           />
+          <div>
+            <ProductInfo
+              product={product}
+              listingProduct={listingProduct}
+              productName={productName}
+              productId={productId}
+            />
+            <ProductAccordion product={product} />
+          </div>
         </div>
-        <section className="flex flex-col items-start justify-center py-4">
-          {product.category ? (
-            <p className="text-[11px] tracking-[0.2em] text-muted uppercase">
-              {product.category}
-            </p>
-          ) : null}
-          <h1 className="mt-4 font-serif text-3xl text-foreground">
-            {product.product_name}
-          </h1>
-          <p className="mt-4 text-sm text-foreground">{price}</p>
-          {product.description ? (
-            <p className="mt-6 max-w-prose text-sm leading-6 text-muted">
-              {product.description}
-            </p>
-          ) : null}
-        </section>
-      </div>
-    </Container>
+
+        <RelatedProducts currentProductId={productId} />
+      </Container>
+    </div>
   );
 }
