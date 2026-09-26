@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
-import { MarkIcon } from "@/components/ui/icons";
 import {
   footerConnect,
   footerDepartments,
@@ -15,7 +14,14 @@ export function SiteFooter() {
       <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
         <div>
           <p className="flex items-center gap-2 font-serif text-[15px] italic">
-            <MarkIcon className="text-foreground" />
+            <Image
+              src="/logo.svg"
+              alt=""
+              width={22}
+              height={22}
+              aria-hidden
+              className="h-[22px] w-[22px] shrink-0"
+            />
             ABC Fashion
           </p>
           <p className="mt-6 text-[10px] leading-5 tracking-[0.16em] text-muted uppercase">
@@ -98,13 +104,13 @@ export function SiteFooter() {
       </Container>
 
       <Container className="flex flex-col gap-3 border-t border-border py-5 text-[10px] tracking-[0.14em] text-muted uppercase sm:flex-row sm:items-center sm:justify-between">
-        <p>© 2024 ABC Fashion Inc. All rights reserved.</p>
+        <p>© 2026 ABC Fashion Inc. All rights reserved.</p>
         <p className="flex gap-4">
-          <Link href="#" className="hover:text-foreground">
-            Terms
+          <Link href="/terms-of-service" className="hover:text-foreground">
+            AI Terms
           </Link>
-          <Link href="#" className="hover:text-foreground">
-            Privacy
+          <Link href="/terms-of-service#privacy" className="hover:text-foreground">
+            AI Privacy
           </Link>
           <Link href="#" className="hover:text-foreground">
             Cookies

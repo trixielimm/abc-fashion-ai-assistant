@@ -1,23 +1,19 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { StylistAgreement } from "@/components/stylist/StylistAgreement";
+import { useEffect, useRef, useState } from "react";
 import { StylistChat } from "@/components/stylist/StylistChat";
 
 type StylistModalProps = {
   open: boolean;
-  consented: boolean;
-  onConsent: () => void;
   onClose: () => void;
 };
 
 export function StylistModal({
   open,
-  consented,
-  onConsent,
   onClose,
 }: StylistModalProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const [chatVersion, setChatVersion] = useState(0);
 
   // A native dialog gives us the focus trap, Escape handling and inert
   // background for free; we only mirror the open state onto it.
@@ -53,11 +49,11 @@ export function StylistModal({
       }}
       className="m-auto w-[min(920px,calc(100vw-2rem))] border border-hairline bg-background p-0 text-foreground backdrop:bg-black/40"
     >
-      {consented ? (
-        <StylistChat onClose={onClose} />
-      ) : (
-        <StylistAgreement onAgree={onConsent} onDecline={onClose} />
-      )}
+      <StylistChat
+        key={chatVersion}
+        onClose={onClose}
+        onReset={() => setChatVersion((version) => version + 1)}
+      />
     </dialog>
   );
 }
