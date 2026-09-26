@@ -1,6 +1,7 @@
 import { cn } from "@/lib/cn";
 import { formatPrice, type Product } from "@/lib/mock-data";
 import type { ProductDetailMock } from "@/lib/product-detail-mock";
+import { ProductControls } from "@/components/product/ProductControls";
 
 const colourSwatches: Record<string, string> = {
   black: "bg-black",
@@ -26,10 +27,6 @@ export function ProductInfo({
     product.size_stock && Object.keys(product.size_stock).length > 0
       ? Object.keys(product.size_stock)
       : (product.sizes_available ?? []);
-  const selectedSize = sizes.find((size) => {
-    const stock = product.size_stock?.[size];
-    return stock === undefined ? true : stock > 0;
-  });
   const swatchClass = product.colour
     ? (colourSwatches[product.colour.toLowerCase()] ?? "bg-surface")
     : undefined;
@@ -63,67 +60,12 @@ export function ProductInfo({
         </div>
       ) : null}
 
-      {sizes.length > 0 ? (
-        <div className="mt-7 w-full">
-          <p className="mb-3 text-[12px] text-foreground">
-            Size <span className="text-muted">— Select a size</span>
-          </p>
-          <div className="flex flex-wrap gap-2" aria-label="Available sizes">
-            {sizes.map((size) => {
-              const stock = product.size_stock?.[size];
-              const available =
-                stock === undefined
-                  ? (product.sizes_available?.includes(size) ?? true)
-                  : stock > 0;
-              const selected = size === selectedSize;
-
-              return (
-                <span
-                  key={size}
-                  aria-label={`${size}${available ? "" : ", out of stock"}`}
-                  className={cn(
-                    "flex h-10 min-w-11 items-center justify-center border px-3 text-[13px]",
-                    !available &&
-                      "border-border bg-background text-muted line-through",
-                    available &&
-                      !selected &&
-                      "border-border bg-background text-foreground",
-                    available &&
-                      selected &&
-                      "border-foreground bg-foreground text-background",
-                  )}
-                >
-                  {size}
-                </span>
-              );
-            })}
-          </div>
-        </div>
-      ) : null}
-
-      <div className="mt-7 flex w-full gap-3">
-        <div className="flex h-11 shrink-0 items-center border border-border bg-background">
-          <span
-            aria-hidden="true"
-            className="flex w-9 justify-center text-[15px] text-muted"
-          >
-            −
-          </span>
-          <span className="w-8 text-center text-[14px]">1</span>
-          <span
-            aria-hidden="true"
-            className="flex w-9 justify-center text-[15px] text-muted"
-          >
-            +
-          </span>
-        </div>
-        <button
-          type="button"
-          className="flex h-11 flex-1 items-center justify-center gap-2 bg-foreground px-4 text-[13px] text-background transition-opacity hover:opacity-80"
-        >
-          Add to Cart <span aria-hidden="true">→</span>
-        </button>
-      </div>
+      <ProductControls
+        sizes={sizes}
+        availableSizes={product.sizes_available ?? []}
+        sizeStock={product.size_stock ?? null}
+        stockQty={product.stock_qty}
+      />
       <button
         type="button"
         className="mt-3 h-11 w-full border border-border bg-transparent text-[12px] tracking-[0.05em] text-foreground uppercase"
