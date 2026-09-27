@@ -14,11 +14,6 @@ export function ProductControls({
   sizeStock: Record<string, number> | null;
   stockQty: number | null;
 }) {
-  const [selectedSize, setSelectedSize] = useState<string | null>(null);
-  const [quantity, setQuantity] = useState(1);
-  const [feedback, setFeedback] = useState("");
-  const hasSizes = sizes.length > 0;
-
   function getStock(size: string | null) {
     if (size) {
       const sizeQuantity = sizeStock?.[size];
@@ -29,6 +24,13 @@ export function ProductControls({
     return stockQty;
   }
 
+  const [selectedSize, setSelectedSize] = useState<string | null>(() => {
+    const inStockSizes = sizes.filter((size) => getStock(size) !== 0);
+    return inStockSizes.length === 1 ? inStockSizes[0] : null;
+  });
+  const [quantity, setQuantity] = useState(1);
+  const [feedback, setFeedback] = useState("");
+  const hasSizes = sizes.length > 0;
   const selectedStock = getStock(selectedSize);
 
   useEffect(() => {

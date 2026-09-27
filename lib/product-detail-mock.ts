@@ -80,6 +80,7 @@ export const productDetailMocks: ProductDetailMock[] = [
     cross_sell_category: "Clothing",
     image_key: "/images/product-necklace.jpg",
     is_available: true,
+    size_stock: { "One Size": 8 },
   },
   {
     product_id: "structured-blazer",
