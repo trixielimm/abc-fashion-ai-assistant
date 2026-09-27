@@ -1,7 +1,7 @@
 import { extractPreferences } from "@/lib/ai/extractPreferences";
 import { z } from "zod";
 
-const RequestSchema = z.object({ message: z.string().trim().min(1) });
+const RequestSchema = z.object({ message: z.string().trim().min(1).max(2000) });
 
 export async function POST(request: Request) {
   let body: unknown;
@@ -14,7 +14,7 @@ export async function POST(request: Request) {
   const result = RequestSchema.safeParse(body);
   if (!result.success) {
     return Response.json(
-      { error: "message must be a non-empty string." },
+      { error: "message must be between 1 and 2000 characters." },
       { status: 400 },
     );
   }

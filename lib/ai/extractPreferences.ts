@@ -89,6 +89,7 @@ export async function extractPreferences(
   const openai = new OpenAI({ apiKey, timeout: 30_000, maxRetries: 1 });
   const response = await openai.responses.parse({
     model: "gpt-5.6-luna",
+    store: false,
 
     reasoning: {
       effort: "low",
