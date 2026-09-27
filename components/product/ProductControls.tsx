@@ -93,19 +93,23 @@ export function ProductControls({
                   aria-pressed={selected}
                   aria-label={`${size}${available ? "" : ", out of stock"}`}
                   onClick={() => chooseSize(size)}
-                  className={cn(
-                    "flex h-10 min-w-11 items-center justify-center border px-3 text-[13px]",
-                    !available &&
-                      "cursor-not-allowed border-border bg-background text-muted line-through",
-                    available &&
-                      !selected &&
-                      "border-border bg-background text-foreground",
-                    available &&
-                      selected &&
-                      "border-foreground bg-foreground text-background",
-                  )}
+                  className="flex h-[44px] min-w-[44px] items-center justify-center"
                 >
-                  {size}
+                  <span
+                    className={cn(
+                      "flex h-10 min-w-11 items-center justify-center border px-3 text-[13px]",
+                      !available &&
+                        "cursor-not-allowed border-border bg-background text-muted line-through",
+                      available &&
+                        !selected &&
+                        "border-border bg-background text-foreground",
+                      available &&
+                        selected &&
+                        "border-foreground bg-foreground text-background",
+                    )}
+                  >
+                    {size}
+                  </span>
                 </button>
               );
             })}
@@ -115,7 +119,7 @@ export function ProductControls({
 
       <div className="mt-7 flex w-full gap-3">
         <div
-          className="flex h-11 shrink-0 items-center border border-border bg-background"
+          className="flex h-[44px] shrink-0 items-center border border-border bg-background"
           aria-label={`Quantity: ${quantity}`}
         >
           <button
@@ -123,7 +127,7 @@ export function ProductControls({
             aria-label="Decrease quantity"
             disabled={quantity <= 1}
             onClick={() => setQuantity((current) => Math.max(1, current - 1))}
-            className="flex h-full w-9 items-center justify-center text-[15px] text-muted disabled:cursor-not-allowed disabled:opacity-50"
+            className="flex h-[44px] w-[44px] shrink-0 items-center justify-center text-[15px] text-muted disabled:cursor-not-allowed disabled:opacity-50"
           >
             −
           </button>
@@ -141,7 +145,7 @@ export function ProductControls({
                   : Math.min(current + 1, selectedStock),
               )
             }
-            className="flex h-full w-9 items-center justify-center text-[15px] text-muted disabled:cursor-not-allowed disabled:opacity-50"
+            className="flex h-[44px] w-[44px] shrink-0 items-center justify-center text-[15px] text-muted disabled:cursor-not-allowed disabled:opacity-50"
           >
             +
           </button>
