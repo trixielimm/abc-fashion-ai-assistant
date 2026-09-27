@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import { BottomNavBar } from "@/components/layout/BottomNavBar";
+import { OverlayScrollbar } from "@/components/layout/OverlayScrollbar";
+import { PageLoadingOverlay } from "@/components/layout/PageLoadingOverlay";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { StylistLauncher } from "@/components/stylist/StylistLauncher";
@@ -38,10 +40,16 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
+      id="page-scroll"
       lang="en"
       className={`${inter.variable} ${cormorant.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background pb-[calc(52px+env(safe-area-inset-bottom))] font-sans text-foreground lg:pb-0">
+        <PageLoadingOverlay />
+        <OverlayScrollbar />
+        <noscript>
+          <style>{".site-page-loader { display: none !important; }"}</style>
+        </noscript>
         <StylistProvider>
           <SiteHeader />
           <main className="flex-1">{children}</main>
