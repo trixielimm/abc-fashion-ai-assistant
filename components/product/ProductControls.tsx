@@ -2,13 +2,17 @@
 
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/cn";
+import { addToCart } from "@/lib/cart";
+
 
 export function ProductControls({
+  productId,
   sizes,
   availableSizes,
   sizeStock,
   stockQty,
 }: {
+  productId: string;
   sizes: string[];
   availableSizes: string[];
   sizeStock: Record<string, number> | null;
@@ -54,13 +58,28 @@ export function ProductControls({
   }
 
   function addToBag() {
+    if (!productId) {
+      showFeedback("Could not identify this product.");
+      return;
+    }
+
     if (hasSizes && !selectedSize) {
       showFeedback("Please select a size");
       return;
     }
 
-    // TODO: Connect this action to the shared cart store when one is available.
-    showFeedback("Added to bag");
+    try {
+      addToCart({
+        productId,
+        size: selectedSize ?? "One Size",
+        quantity,
+      });
+
+      showFeedback("Added to bag");
+    } catch (error) {
+      console.error("Add to bag failed:", error);
+      showFeedback("Could not add to bag. Please try again.");
+    }
   }
 
   return (
