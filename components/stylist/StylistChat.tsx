@@ -1,24 +1,42 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { CloseIcon, PersonIcon } from "@/components/ui/icons";
 import { cn } from "@/lib/cn";
-import { stylistRecommendations, stylistSuggestions } from "@/lib/mock-data";
+import { stylistSuggestions } from "@/lib/mock-data";
+import {
+  ShoppingPreferencesSchema,
+  type ShoppingPreferences,
+} from "@/lib/ai/preferenceSchema";
 
 type Entry = {
   id: string;
   from: "stylist" | "you";
   text: string;
-  showRecommendations?: boolean;
+  preferences?: ShoppingPreferences;
 };
 
 const GREETING =
-  "Welcome to ABC Fashion. How can I assist with your wardrobe, silhouette matching, or event styling today?";
+  "Welcome to ABC Fashion. Tell me what you're shopping for, and I'll identify the preferences in your request.";
 
-const REPLY =
-  "For an evening gallery event, I recommend our Sculpted Blazer in Onyx or the Double-Faced Wool Overcoat. Both feature clean architectural lines and pair effortlessly with our charcoal tailored trousers for an understated yet authoritative presence.";
+const preferenceFields: { key: keyof ShoppingPreferences; label: string }[] = [
+  { key: "gender", label: "Collection" },
+  { key: "category", label: "Category" },
+  { key: "subcategory", label: "Subcategory" },
+  { key: "product_type", label: "Product type" },
+  { key: "occasion", label: "Occasion" },
+  { key: "style", label: "Style" },
+  { key: "preferred_colours", label: "Preferred colours" },
+  { key: "excluded_colours", label: "Excluded colours" },
+  { key: "season", label: "Season" },
+  { key: "material", label: "Material" },
+  { key: "fit", label: "Fit" },
+  { key: "size", label: "Size" },
+  { key: "min_price", label: "Minimum price" },
+  { key: "max_price", label: "Maximum price" },
+  { key: "brand_line", label: "Brand line" },
+];
 
 function sleep(ms: number) {
   return new Promise<void>((resolve) => {
@@ -49,30 +67,44 @@ function Avatar({ from }: { from: Entry["from"] }) {
   );
 }
 
-function RecommendationCards() {
+function PreferenceDetails({ preferences }: { preferences: ShoppingPreferences }) {
+  const found = preferenceFields.flatMap(({ key, label }) => {
+    const value = preferences[key];
+    if (value === null || (Array.isArray(value) && value.length === 0)) return [];
+
+    const display = Array.isArray(value)
+      ? value.join(", ")
+      : typeof value === "number"
+        ? new Intl.NumberFormat("en-AU", { style: "currency", currency: "AUD" }).format(value)
+        : value;
+
+    return [{ label, display }];
+  });
+
+  if (found.length === 0) {
+    return (
+      <p>
+        No shopping preferences found in that message. Try adding a colour,
+        size, occasion, or budget.
+      </p>
+    );
+  }
+
   return (
-    <div className="stylist-reveal mt-4 grid gap-3 sm:grid-cols-2">
-      {stylistRecommendations.map((item) => (
-        <Link
-          key={item.id}
-          href={item.href}
-          className="flex items-center gap-3 border border-hairline p-3 transition-opacity hover:opacity-70"
-        >
-          <Image
-            src={item.image}
-            alt={item.name}
-            width={48}
-            height={56}
-            className="h-14 w-12 shrink-0 object-cover"
-          />
-          <span className="min-w-0">
-            <span className="block text-[9px] tracking-[0.14em] text-muted uppercase">
-              {item.category}
-            </span>
-            <span className="mt-1 block text-[13px] font-semibold">{item.name}</span>
-          </span>
-        </Link>
-      ))}
+    <div className="w-full">
+      <p className="text-[10px] font-semibold tracking-[0.14em] uppercase">
+        Preferences found
+      </p>
+      <dl className="mt-3 grid gap-x-5 gap-y-2 sm:grid-cols-2">
+        {found.map(({ label, display }) => (
+          <div key={label}>
+            <dt className="text-[10px] tracking-[0.08em] text-muted uppercase">
+              {label}
+            </dt>
+            <dd className="font-medium">{display}</dd>
+          </div>
+        ))}
+      </dl>
     </div>
   );
 }
@@ -162,8 +194,6 @@ function Message({
   onTyped?: () => void;
 }) {
   const isYou = entry.from === "you";
-  const [typed, setTyped] = useState(!live);
-
   return (
     <div className={cn("flex gap-4", isYou && "flex-row-reverse")}>
       <Avatar from={entry.from} />
@@ -192,32 +222,19 @@ function Message({
               : "border-hairline bg-surface",
           )}
         >
-          {live && onTick && onTyped ? (
+          {entry.preferences ? (
+            <PreferenceDetails preferences={entry.preferences} />
+          ) : live && onTick && onTyped ? (
             <p>
               <TypewriterText
                 text={entry.text}
                 onTick={onTick}
-                onComplete={() => {
-                  setTyped(true);
-                  onTyped();
-                }}
+                onComplete={onTyped}
               />
             </p>
           ) : (
-            <p>
-              {entry.text.split("Double-Faced Wool Overcoat").map((part, index, parts) =>
-                index < parts.length - 1 ? (
-                  <span key={part}>
-                    {part}
-                    <span className="font-semibold">Double-Faced Wool Overcoat</span>
-                  </span>
-                ) : (
-                  <span key={part}>{part}</span>
-                ),
-              )}
-            </p>
+            <p>{entry.text}</p>
           )}
-          {entry.showRecommendations && typed ? <RecommendationCards /> : null}
         </div>
       </div>
     </div>
@@ -238,7 +255,10 @@ export function StylistChat({
   const [tick, setTick] = useState(0);
   const transcriptRef = useRef<HTMLDivElement>(null);
   const replyCount = useRef(0);
+  const requestRef = useRef<AbortController | null>(null);
   const busy = thinking || pending !== null;
+
+  useEffect(() => () => requestRef.current?.abort(), []);
 
   useEffect(() => {
     const transcript = transcriptRef.current;
@@ -274,17 +294,53 @@ export function StylistChat({
     setPending(null);
   }
 
-  async function reply() {
+  async function extract(message: string) {
+    const controller = new AbortController();
+    requestRef.current = controller;
     setThinking(true);
-    await sleep(prefersReducedMotion() ? 160 : 1100);
-    setThinking(false);
-    replyCount.current += 1;
-    setPending({
-      id: `reply-${replyCount.current}`,
-      from: "stylist",
-      text: REPLY,
-      showRecommendations: true,
-    });
+
+    try {
+      const response = await fetch("/api/extraction", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message }),
+        signal: controller.signal,
+      });
+      if (!response.ok) throw new Error("Preference extraction failed.");
+
+      const data: unknown = await response.json();
+      const parsed = ShoppingPreferencesSchema.safeParse(
+        typeof data === "object" && data !== null && "preferences" in data
+          ? data.preferences
+          : undefined,
+      );
+      if (!parsed.success) throw new Error("Invalid preference response.");
+
+      replyCount.current += 1;
+      setEntries((current) => [
+        ...current,
+        {
+          id: `preferences-${replyCount.current}`,
+          from: "stylist",
+          text: "",
+          preferences: parsed.data,
+        },
+      ]);
+    } catch {
+      if (controller.signal.aborted) return;
+      replyCount.current += 1;
+      setEntries((current) => [
+        ...current,
+        {
+          id: `error-${replyCount.current}`,
+          from: "stylist",
+          text: "I couldn't extract preferences from that message. Please try again.",
+        },
+      ]);
+    } finally {
+      if (!controller.signal.aborted) setThinking(false);
+      if (requestRef.current === controller) requestRef.current = null;
+    }
   }
 
   function send() {
@@ -296,7 +352,7 @@ export function StylistChat({
       { id: `you-${current.length}`, from: "you", text: message },
     ]);
     setDraft("");
-    void reply();
+    void extract(message);
   }
 
   return (
@@ -318,7 +374,7 @@ export function StylistChat({
             </span>
           </div>
           <p className="mt-1 text-[12px] text-muted">
-            Tailored wardrobe curation &amp; personal fashion consulting
+            Share what you&apos;re looking for to see your shopping preferences
           </p>
         </div>
         <div className="ml-auto flex shrink-0 items-center gap-2">
@@ -345,7 +401,8 @@ export function StylistChat({
         aria-label="AI Stylist terms notice"
         className="border-b border-hairline bg-background px-6 py-3 text-[11px] leading-5 text-muted sm:px-8"
       >
-        This stylist is a scripted demo. By using it, you agree to the{" "}
+        Your message is sent to OpenAI to extract shopping preferences. By using
+        this stylist, you agree to the{" "}
         <Link
           href="/terms-of-service"
           target="_blank"
@@ -368,6 +425,9 @@ export function StylistChat({
 
       <div
         ref={transcriptRef}
+        role="log"
+        aria-live="polite"
+        aria-relevant="additions"
         aria-busy={busy}
         className="min-h-0 flex-1 space-y-6 overflow-y-auto bg-panel px-6 py-6 sm:px-8"
       >
@@ -409,8 +469,9 @@ export function StylistChat({
         <input
           value={draft}
           onChange={(event) => setDraft(event.target.value)}
+          maxLength={2000}
           aria-label="Message your stylist"
-          placeholder="Ask your stylist anything (e.g., event attire, proportions, tailoring)..."
+          placeholder="e.g. a black dress under $150 for a wedding in size 10"
           className="h-[46px] min-w-0 flex-1 border border-hairline bg-panel px-4 text-[14px] outline-none placeholder:text-muted focus:border-foreground"
         />
         <button

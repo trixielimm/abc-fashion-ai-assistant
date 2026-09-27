@@ -2,6 +2,11 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+Install dependencies, then copy `.env.example` to `.env.local`. Set the
+server-only `OPENAI_API_KEY` value to enable the AI Stylist's preference
+extraction. The chat sends each message to `/api/extraction` and shows the
+extracted preferences; product retrieval is not connected yet.
+
 First, run the development server:
 
 ```bash

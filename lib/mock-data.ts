@@ -103,10 +103,10 @@ export const instagramImages = [
 ];
 
 export const stylistSuggestions = [
-  "Size & fit guide",
-  "Complete the look",
-  "Explore trousers",
-  "Material inquiries",
+  "Black dress under $150",
+  "Men's shoes for work",
+  "Sage for a beach wedding",
+  "Nothing red for date night",
 ];
 
 export const stylistRecommendations = [
