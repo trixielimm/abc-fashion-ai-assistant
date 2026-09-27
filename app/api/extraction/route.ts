@@ -1,4 +1,6 @@
 import { extractPreferences } from "@/lib/ai/extractPreferences";
+import { validatePreferences } from "@/lib/ai/validatePreferences";
+import { loadPreferenceValues } from "@/lib/catalogue/preferenceValues";
 import { z } from "zod";
 
 const RequestSchema = z.object({ message: z.string().trim().min(1).max(2000) });
@@ -21,11 +23,12 @@ export async function POST(request: Request) {
 
   try {
     const preferences = await extractPreferences(result.data.message);
-    return Response.json({ preferences });
+    const catalogue = await loadPreferenceValues();
+    return Response.json(validatePreferences(preferences, catalogue));
   } catch {
     // Never return provider errors: they may contain sensitive request details.
     return Response.json(
-      { error: "Unable to extract shopping preferences. Please try again." },
+      { error: "Unable to extract or validate shopping preferences. Please try again." },
       { status: 500 },
     );
   }
