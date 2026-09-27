@@ -61,6 +61,7 @@ export function ProductInfo({
       ) : null}
 
       <ProductControls
+        productId={productId}
         sizes={sizes}
         availableSizes={product.sizes_available ?? []}
         sizeStock={product.size_stock ?? null}
