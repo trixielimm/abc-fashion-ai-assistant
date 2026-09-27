@@ -126,29 +126,6 @@ export const stylistRecommendations = [
   },
 ];
 
-export const stylistTerms = [
-  {
-    id: "01",
-    title: "Personalized Recommendations",
-    body: "Insights and fit advice are generated algorithmically to assist your shopping experience and do not guarantee stock reservation until checkout.",
-  },
-  {
-    id: "02",
-    title: "Data & Preference Use",
-    body: "Your chat inquiries and size queries are utilized within this session to refine styling suggestions and elevate recommendation relevance.",
-  },
-  {
-    id: "03",
-    title: "Privacy & Protection",
-    body: "We do not sell your personal styling data. Interactions are handled in accordance with the Australian Privacy Principles and ABC Fashion Privacy Policy.",
-  },
-  {
-    id: "04",
-    title: "Human Concierge Option",
-    body: "You may opt out of automated styling at any time to connect with our Melbourne flagship human atelier team.",
-  },
-];
-
 export const footerDepartments = [
   { label: "Women's Collection", href: "#this-season" },
   { label: "Men's Collection", href: "#this-season" },
@@ -157,7 +134,7 @@ export const footerDepartments = [
 
 export const footerConnect = [
   { label: "Shipping", href: "#" },
-  { label: "Privacy Policy", href: "#" },
+  { label: "AI Stylist Privacy", href: "/terms-of-service#privacy" },
   { label: "Contact Us", href: "#" },
 ];
 

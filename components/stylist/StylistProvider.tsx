@@ -21,8 +21,6 @@ export function useStylist() {
 
 export function StylistProvider({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
-  // Consent is remembered for the session, so reopening returns to the chat.
-  const [consented, setConsented] = useState(false);
 
   const value = useMemo(() => ({ openStylist: () => setOpen(true) }), []);
 
@@ -31,8 +29,6 @@ export function StylistProvider({ children }: { children: React.ReactNode }) {
       {children}
       <StylistModal
         open={open}
-        consented={consented}
-        onConsent={() => setConsented(true)}
         onClose={() => setOpen(false)}
       />
     </StylistContext.Provider>

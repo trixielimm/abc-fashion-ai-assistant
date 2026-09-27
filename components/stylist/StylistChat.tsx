@@ -3,11 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import {
-  ChevronUpDownIcon,
-  CloseIcon,
-  PersonIcon,
-} from "@/components/ui/icons";
+import { CloseIcon, PersonIcon } from "@/components/ui/icons";
 import { cn } from "@/lib/cn";
 import { stylistRecommendations, stylistSuggestions } from "@/lib/mock-data";
 
@@ -228,12 +224,17 @@ function Message({
   );
 }
 
-export function StylistChat({ onClose }: { onClose: () => void }) {
+export function StylistChat({
+  onClose,
+  onReset,
+}: {
+  onClose: () => void;
+  onReset: () => void;
+}) {
   const [entries, setEntries] = useState<Entry[]>([]);
   const [pending, setPending] = useState<Entry | null>(null);
   const [thinking, setThinking] = useState(true);
   const [draft, setDraft] = useState("");
-  const [expanded, setExpanded] = useState(false);
   const [tick, setTick] = useState(0);
   const transcriptRef = useRef<HTMLDivElement>(null);
   const replyCount = useRef(0);
@@ -299,12 +300,7 @@ export function StylistChat({ onClose }: { onClose: () => void }) {
   }
 
   return (
-    <div
-      className={cn(
-        "flex flex-col",
-        expanded ? "h-[88vh]" : "h-[min(680px,88vh)]",
-      )}
-    >
+    <div className="flex h-[min(680px,88vh)] flex-col">
       <header className="flex items-start gap-3 border-b border-hairline bg-surface px-6 py-5">
         <span
           aria-hidden
@@ -328,11 +324,11 @@ export function StylistChat({ onClose }: { onClose: () => void }) {
         <div className="ml-auto flex shrink-0 items-center gap-2">
           <button
             type="button"
-            onClick={() => setExpanded((value) => !value)}
-            aria-label={expanded ? "Shrink stylist panel" : "Expand stylist panel"}
-            className="p-2 transition-opacity hover:opacity-60"
+            onClick={onReset}
+            aria-label="Reset chat"
+            className="border border-hairline bg-panel px-3 py-2 text-[10px] font-medium tracking-[0.12em] uppercase transition-opacity hover:opacity-60"
           >
-            <ChevronUpDownIcon />
+            Reset
           </button>
           <button
             type="button"
@@ -344,6 +340,31 @@ export function StylistChat({ onClose }: { onClose: () => void }) {
           </button>
         </div>
       </header>
+
+      <aside
+        aria-label="AI Stylist terms notice"
+        className="border-b border-hairline bg-background px-6 py-3 text-[11px] leading-5 text-muted sm:px-8"
+      >
+        This stylist is a scripted demo. By using it, you agree to the{" "}
+        <Link
+          href="/terms-of-service"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-foreground underline underline-offset-2"
+        >
+          AI Stylist Terms of Service
+        </Link>{" "}
+        and acknowledge the{" "}
+        <Link
+          href="/terms-of-service#privacy"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-foreground underline underline-offset-2"
+        >
+          privacy information
+        </Link>
+        .
+      </aside>
 
       <div
         ref={transcriptRef}
