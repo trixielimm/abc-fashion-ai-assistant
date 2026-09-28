@@ -23,7 +23,7 @@ type NavItem = {
 
 const leadingItems: NavItem[] = [
   { label: "Home", href: "/", Icon: HomeIcon },
-  { label: "Shop", href: "#this-season", Icon: GridIcon },
+  { label: "Shop", href: "/search", Icon: GridIcon },
 ];
 
 const trailingItems: NavItem[] = [

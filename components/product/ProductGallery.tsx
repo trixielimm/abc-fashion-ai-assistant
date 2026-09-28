@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ProductVisual } from "@/components/commerce/ProductVisual";
 import { cn } from "@/lib/cn";
 import type { ProductDetailMock } from "@/lib/product-detail-mock";
 
@@ -14,10 +15,12 @@ export function ProductGallery({
   const images = product.image_gallery?.length
     ? product.image_gallery
     : [fallbackImage ?? product.image_key].filter((image): image is string =>
-        Boolean(image),
+        typeof image === "string" && image.startsWith("/"),
       );
 
-  if (images.length === 0) return null;
+  if (images.length === 0) {
+    return <ProductVisual name={productName} category={product.subcategory ?? product.category} />;
+  }
 
   return (
     <div

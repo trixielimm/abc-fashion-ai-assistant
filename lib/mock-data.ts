@@ -15,10 +15,10 @@ export type Product = {
 };
 
 export const navLinks = [
-  { label: "Shop", href: "#this-season" },
-  { label: "Collections", href: "#featured-categories" },
-  { label: "For him", href: "#this-season" },
-  { label: "For her", href: "#this-season" },
+  { label: "Shop", href: "/search" },
+  { label: "Collections", href: "/#featured-categories" },
+  { label: "For him", href: "/#this-season" },
+  { label: "For her", href: "/#this-season" },
 ] as const;
 
 export const bagItemCount = 3;
@@ -103,33 +103,16 @@ export const instagramImages = [
 ];
 
 export const stylistSuggestions = [
-  "Black dress under $150",
+  "Black dress under $300",
   "Men's shoes for work",
   "Sage for a beach wedding",
   "Nothing red for date night",
 ];
 
-export const stylistRecommendations = [
-  {
-    id: "sculpted-blazer",
-    category: "Tailoring",
-    name: "Sculpted Blazer",
-    image: "/images/product-blazer.jpg",
-    href: "/products/structured-blazer",
-  },
-  {
-    id: "double-faced-coat",
-    category: "Outerwear",
-    name: "Double-Faced Coat",
-    image: "/images/product-jacket.jpg",
-    href: "/products/leather-jacket",
-  },
-];
-
 export const footerDepartments = [
-  { label: "Women's Collection", href: "#this-season" },
-  { label: "Men's Collection", href: "#this-season" },
-  { label: "Accessories", href: "#featured-categories" },
+  { label: "Women's Collection", href: "/#this-season" },
+  { label: "Men's Collection", href: "/#this-season" },
+  { label: "Accessories", href: "/#featured-categories" },
 ];
 
 export const footerConnect = [
