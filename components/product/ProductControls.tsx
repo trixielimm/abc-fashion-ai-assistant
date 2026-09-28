@@ -11,12 +11,20 @@ export function ProductControls({
   availableSizes,
   sizeStock,
   stockQty,
+  productName,
+  productPrice,
+  productImage,
+  productCategory,
 }: {
   productId: string;
   sizes: string[];
   availableSizes: string[];
   sizeStock: Record<string, number> | null;
   stockQty: number | null;
+  productName: string;
+  productPrice: number | null;
+  productImage: string | null;
+  productCategory: string | null;
 }) {
   function getStock(size: string | null) {
     if (size) {
@@ -63,6 +71,11 @@ export function ProductControls({
       return;
     }
 
+    if (productPrice === null) {
+      showFeedback("This product is not available to add to the bag.");
+      return;
+    }
+
     if (hasSizes && !selectedSize) {
       showFeedback("Please select a size");
       return;
@@ -73,6 +86,10 @@ export function ProductControls({
         productId,
         size: selectedSize ?? "One Size",
         quantity,
+        name: productName,
+        price: productPrice,
+        image: productImage,
+        category: productCategory,
       });
 
       showFeedback("Added to bag");
@@ -171,7 +188,7 @@ export function ProductControls({
         </div>
         <button
           type="button"
-          disabled={selectedStock === 0}
+          disabled={selectedStock === 0 || productPrice === null}
           onClick={addToBag}
           className="flex h-11 flex-1 items-center justify-center gap-2 bg-foreground px-4 text-[13px] text-background transition-opacity hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-50"
         >

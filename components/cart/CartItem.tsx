@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ProductVisual } from "@/components/commerce/ProductVisual";
 import { formatPrice } from "@/lib/mock-data";
 import type { CartRow } from "@/lib/cart";
 
@@ -19,15 +20,20 @@ export function CartItem({
     <article className="grid grid-cols-[100px_minmax(0,1fr)] gap-4 border-b border-border py-7 sm:grid-cols-[150px_minmax(0,1fr)] sm:gap-8">
       <Link
         href={row.href}
+        aria-label={`View ${row.name}`}
         className="relative aspect-[3/4] self-start bg-surface"
       >
-        <Image
-          src={row.image}
-          alt={row.name}
-          fill
-          sizes="(max-width: 640px) 100px, 150px"
-          className="object-cover"
-        />
+        {row.image ? (
+          <Image
+            src={row.image}
+            alt={row.name}
+            fill
+            sizes="(max-width: 640px) 100px, 150px"
+            className="object-cover"
+          />
+        ) : (
+          <ProductVisual name={row.name} category={row.category ?? null} />
+        )}
       </Link>
 
       <div className="min-w-0">

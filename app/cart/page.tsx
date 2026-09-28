@@ -53,17 +53,18 @@ export default function CartPage() {
       (p) => p.id === item.productId,
     );
 
-    return product
-      ? [
-          {
-            ...item,
-            name: product.name,
-            price: product.price,
-            image: product.image,
-            href: product.href,
-          },
-        ]
-      : [];
+    const name = product?.name ?? item.name;
+    const price = product?.price ?? item.price;
+
+    if (!name || price === undefined) return [];
+
+    return [{
+      ...item,
+      name,
+      price,
+      image: product?.image ?? item.image ?? null,
+      href: product?.href ?? `/products/${encodeURIComponent(item.productId)}`,
+    }];
   });
 
   const count = rows.reduce(

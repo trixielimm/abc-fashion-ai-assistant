@@ -30,6 +30,10 @@ export function ProductInfo({
   const swatchClass = product.colour
     ? (colourSwatches[product.colour.toLowerCase()] ?? "bg-surface")
     : undefined;
+  const price = listingProduct?.price ?? product.price_aud;
+  const image = listingProduct?.image ?? (
+    product.image_key?.startsWith("/") ? product.image_key : null
+  );
 
   return (
     <section className="flex flex-col items-start pt-1">
@@ -42,7 +46,7 @@ export function ProductInfo({
         {productName}
       </h1>
       <p className="mt-2 text-[17px] text-foreground">
-        {formatPrice(listingProduct?.price ?? product.price_aud ?? 0)}
+        {price === null ? "Price unavailable" : formatPrice(price)}
       </p>
 
       {product.colour ? (
@@ -66,6 +70,10 @@ export function ProductInfo({
         availableSizes={product.sizes_available ?? []}
         sizeStock={product.size_stock ?? null}
         stockQty={product.stock_qty}
+        productName={productName}
+        productPrice={price}
+        productImage={image}
+        productCategory={product.category}
       />
       <button
         type="button"

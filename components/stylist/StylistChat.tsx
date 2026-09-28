@@ -3,22 +3,46 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { CloseIcon, PersonIcon } from "@/components/ui/icons";
+import { ProductVisual } from "@/components/commerce/ProductVisual";
 import { cn } from "@/lib/cn";
-import { stylistSuggestions } from "@/lib/mock-data";
+import { addToCart } from "@/lib/cart";
+import { formatPrice, stylistSuggestions } from "@/lib/mock-data";
 import {
   ShoppingPreferencesSchema,
   type ShoppingPreferences,
 } from "@/lib/ai/preferenceSchema";
+import { z } from "zod";
+
+const StylistProductSchema = z.object({
+  product_id: z.string().min(1),
+  product_name: z.string().min(1),
+  price_aud: z.number().nonnegative(),
+  brand_line: z.string().nullable(),
+  category: z.string().nullable(),
+  subcategory: z.string().nullable(),
+  product_type: z.string().nullable(),
+  colour: z.string().nullable(),
+  sizes_available: z.array(z.string().min(1)).min(1),
+});
+
+const StylistSearchResponseSchema = z.object({
+  status: z.enum(["matches", "partial", "no_match", "needs_more_detail"]),
+  message: z.string(),
+  products: z.array(StylistProductSchema).max(4),
+});
+
+type StylistProduct = z.infer<typeof StylistProductSchema>;
 
 type Entry = {
   id: string;
   from: "stylist" | "you";
   text: string;
   preferences?: ShoppingPreferences;
+  products?: StylistProduct[];
 };
 
 const GREETING =
-  "Welcome to ABC Fashion. Tell me what you're shopping for, and I'll identify the preferences in your request.";
+  "Welcome to ABC Fashion. Tell me what you're shopping for, and I'll find a few items that fit your preferences.";
 
 const preferenceFields: { key: keyof ShoppingPreferences; label: string }[] = [
   { key: "gender", label: "Collection" },
@@ -109,6 +133,126 @@ function PreferenceDetails({ preferences }: { preferences: ShoppingPreferences }
   );
 }
 
+function RecommendationCard({
+  product,
+  onProductOpen,
+}: {
+  product: StylistProduct;
+  onProductOpen: () => void;
+}) {
+  const sizes = product.sizes_available;
+  const [selectedSize, setSelectedSize] = useState(sizes.length === 1 ? sizes[0] : "");
+  const [feedback, setFeedback] = useState("");
+
+  function addProduct() {
+    if (!selectedSize) {
+      setFeedback("Select a size first.");
+      return;
+    }
+
+    try {
+      addToCart({
+        productId: product.product_id,
+        size: selectedSize,
+        quantity: 1,
+        name: product.product_name,
+        price: product.price_aud,
+        image: null,
+        category: product.category,
+      });
+      setFeedback("Added to cart.");
+    } catch {
+      setFeedback("Could not add this item. Please try again.");
+    }
+  }
+
+  return (
+    <article className="grid min-w-0 grid-cols-[72px_minmax(0,1fr)] gap-3 border border-hairline bg-background p-3 sm:grid-cols-[88px_minmax(0,1fr)]">
+      <Link
+        href={`/products/${encodeURIComponent(product.product_id)}`}
+        onClick={onProductOpen}
+        aria-label={`View ${product.product_name}`}
+        className="self-start"
+      >
+        <ProductVisual
+          name={product.product_name}
+          category={product.subcategory ?? product.category}
+          compact
+          className="transition-colors hover:bg-[#e6e0d7]"
+        />
+      </Link>
+      <div className="min-w-0">
+        <p className="truncate text-[9px] tracking-[0.12em] text-muted uppercase">
+          {product.brand_line ?? product.subcategory ?? product.category ?? "ABC Fashion"}
+        </p>
+        <Link
+          href={`/products/${encodeURIComponent(product.product_id)}`}
+          onClick={onProductOpen}
+          className="mt-1 block font-serif text-[15px] leading-5 hover:underline hover:underline-offset-2"
+        >
+          {product.product_name}
+        </Link>
+        <div className="mt-1 flex flex-wrap items-center justify-between gap-x-2 text-[12px]">
+          <span className="text-muted">{product.colour}</span>
+          <span>{formatPrice(product.price_aud)}</span>
+        </div>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {sizes.length === 1 ? (
+            <span className="flex min-h-9 items-center text-[11px] text-muted">
+              Size: {sizes[0]}
+            </span>
+          ) : (
+            <label className="min-w-[90px] flex-1">
+              <span className="sr-only">Size for {product.product_name}</span>
+              <select
+                value={selectedSize}
+                onChange={(event) => {
+                  setSelectedSize(event.target.value);
+                  setFeedback("");
+                }}
+                className="h-9 w-full border border-hairline bg-background px-2 text-[11px]"
+              >
+                <option value="">Select size</option>
+                {sizes.map((size) => (
+                  <option key={size} value={size}>{size}</option>
+                ))}
+              </select>
+            </label>
+          )}
+          <button
+            type="button"
+            onClick={addProduct}
+            className="min-h-9 min-w-[105px] flex-1 bg-foreground px-3 text-[10px] font-medium tracking-[0.08em] text-background uppercase transition-opacity hover:opacity-80"
+          >
+            Add to cart
+          </button>
+        </div>
+        {feedback ? <p role="status" className="mt-2 text-[11px]">{feedback}</p> : null}
+      </div>
+    </article>
+  );
+}
+
+function ProductRecommendations({
+  products,
+  onProductOpen,
+}: {
+  products: StylistProduct[];
+  onProductOpen: () => void;
+}) {
+  return (
+    <div className="mt-4 grid grid-cols-1 gap-3 border-t border-hairline pt-4 lg:grid-cols-2">
+      {products.map((product) => (
+        <RecommendationCard
+          key={product.product_id}
+          product={product}
+          onProductOpen={onProductOpen}
+        />
+      ))}
+    </div>
+  );
+}
+
 function TypingDots() {
   return (
     <div className="flex gap-4" aria-live="polite">
@@ -187,11 +331,13 @@ function Message({
   live,
   onTick,
   onTyped,
+  onProductOpen,
 }: {
   entry: Entry;
   live?: boolean;
   onTick?: () => void;
   onTyped?: () => void;
+  onProductOpen: () => void;
 }) {
   const isYou = entry.from === "you";
   return (
@@ -216,7 +362,8 @@ function Message({
         </div>
         <div
           className={cn(
-            "mt-2 max-w-full border p-4 text-[14px] leading-6 sm:max-w-[74%]",
+            "mt-2 max-w-full border p-4 text-[14px] leading-6",
+            !entry.products?.length && "sm:max-w-[74%]",
             isYou
               ? "border-foreground bg-foreground text-background"
               : "border-hairline bg-surface",
@@ -224,6 +371,11 @@ function Message({
         >
           {entry.preferences ? (
             <PreferenceDetails preferences={entry.preferences} />
+          ) : entry.products?.length ? (
+            <div>
+              <p>{entry.text}</p>
+              <ProductRecommendations products={entry.products} onProductOpen={onProductOpen} />
+            </div>
           ) : live && onTick && onTyped ? (
             <p>
               <TypewriterText
@@ -298,6 +450,7 @@ export function StylistChat({
     const controller = new AbortController();
     requestRef.current = controller;
     setThinking(true);
+    let stage: "extraction" | "search" = "extraction";
 
     try {
       const response = await fetch("/api/extraction", {
@@ -326,6 +479,29 @@ export function StylistChat({
           preferences: parsed.data,
         },
       ]);
+
+      stage = "search";
+      const searchResponse = await fetch("/api/stylist-search", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ preferences: parsed.data }),
+        signal: controller.signal,
+      });
+      if (!searchResponse.ok) throw new Error("Product search failed.");
+
+      const searchData = StylistSearchResponseSchema.safeParse(await searchResponse.json());
+      if (!searchData.success) throw new Error("Invalid product search response.");
+
+      replyCount.current += 1;
+      setEntries((current) => [
+        ...current,
+        {
+          id: `products-${replyCount.current}`,
+          from: "stylist",
+          text: searchData.data.message,
+          products: searchData.data.products,
+        },
+      ]);
     } catch {
       if (controller.signal.aborted) return;
       replyCount.current += 1;
@@ -334,7 +510,9 @@ export function StylistChat({
         {
           id: `error-${replyCount.current}`,
           from: "stylist",
-          text: "I couldn't extract preferences from that message. Please try again.",
+          text: stage === "extraction"
+            ? "I couldn't extract preferences from that message. Please try again."
+            : "I found your preferences, but couldn't search the products right now. Please try again.",
         },
       ]);
     } finally {
@@ -374,7 +552,7 @@ export function StylistChat({
             </span>
           </div>
           <p className="mt-1 text-[12px] text-muted">
-            Share what you&apos;re looking for to see your shopping preferences
+            Share what you&apos;re looking for to find matching items
           </p>
         </div>
         <div className="ml-auto flex shrink-0 items-center gap-2">
@@ -438,6 +616,7 @@ export function StylistChat({
             live={pending?.id === entry.id}
             onTick={() => setTick((value) => value + 1)}
             onTyped={() => commitPending(entry)}
+            onProductOpen={onClose}
           />
         ))}
         {thinking ? <TypingDots /> : null}
@@ -471,7 +650,7 @@ export function StylistChat({
           onChange={(event) => setDraft(event.target.value)}
           maxLength={2000}
           aria-label="Message your stylist"
-          placeholder="e.g. a black dress under $150 for a wedding in size 10"
+          placeholder="e.g. a black dress under $300 in size 10"
           className="h-[46px] min-w-0 flex-1 border border-hairline bg-panel px-4 text-[14px] outline-none placeholder:text-muted focus:border-foreground"
         />
         <button

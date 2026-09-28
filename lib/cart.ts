@@ -13,13 +13,17 @@ export type StoredCartItem = {
   productId: string;
   size: string;
   quantity: number;
+  name?: string;
+  price?: number;
+  image?: string | null;
+  category?: string | null;
 };
 
 // Defines a cart item with product details needed for display.
 export type CartRow = StoredCartItem & {
   name: string;
   price: number;
-  image: string;
+  image: string | null;
   href: string;
 };
 
@@ -41,7 +45,12 @@ export function readCart(): StoredCartItem[] {
         typeof item.productId === "string" &&
         typeof item.size === "string" &&
         Number.isInteger(item.quantity) &&
-        item.quantity > 0,
+        item.quantity > 0 &&
+        (item.name === undefined || typeof item.name === "string") &&
+        (item.price === undefined ||
+          (typeof item.price === "number" && Number.isFinite(item.price) && item.price >= 0)) &&
+        (item.image === undefined || item.image === null || typeof item.image === "string") &&
+        (item.category === undefined || item.category === null || typeof item.category === "string"),
     );
   } catch {
     return [];
@@ -69,6 +78,7 @@ export function addToCart(item: StoredCartItem) {
   } else {
     current[index] = {
       ...current[index],
+      ...item,
       quantity: current[index].quantity + item.quantity,
     };
   }

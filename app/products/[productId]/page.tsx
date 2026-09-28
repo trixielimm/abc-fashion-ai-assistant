@@ -3,6 +3,7 @@ import { Container } from "@/components/layout/Container";
 import { cn } from "@/lib/cn";
 import { featuredProducts } from "@/lib/mock-data";
 import { productDetailMocks } from "@/lib/product-detail-mock";
+import { getCatalogueProductById } from "@/lib/recommendations/catalogue";
 import { ProductAccordion } from "@/components/product/ProductAccordion";
 import { ProductGallery } from "@/components/product/ProductGallery";
 import { ProductInfo } from "@/components/product/ProductInfo";
@@ -14,9 +15,10 @@ export default async function ProductDetailPage({
   params: Promise<{ productId: string }>;
 }) {
   const { productId } = await params;
-  const product = productDetailMocks.find(
+  const mockProduct = productDetailMocks.find(
     (item) => item.product_id === productId,
   );
+  const product = mockProduct ?? await getCatalogueProductById(productId);
   const listingProduct = featuredProducts.find((item) => item.id === productId);
   const productName = listingProduct?.name ?? product?.product_name;
 

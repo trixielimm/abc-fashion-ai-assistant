@@ -58,17 +58,25 @@ export function SiteHeader() {
 
         <div className="ml-auto flex items-center gap-2.5">
           <form
-            action="#this-season"
+            action="/search"
+            method="get"
             className="relative hidden h-9 w-[168px] items-center md:flex"
             role="search"
           >
-            <SearchIcon className="pointer-events-none absolute left-3 text-foreground" />
+            <button
+              type="submit"
+              aria-label="Search products"
+              className="absolute left-2 flex h-8 w-8 items-center justify-center"
+            >
+              <SearchIcon className="text-foreground" />
+            </button>
             <input
               type="search"
               name="q"
+              maxLength={120}
               placeholder="SEARCH"
               aria-label="Search"
-              className="h-9 w-full rounded-full border border-[#d0d0d0] bg-background py-0 pr-4 pl-9 text-[10px] tracking-[0.16em] text-foreground outline-none placeholder:text-muted"
+              className="h-9 w-full rounded-full border border-[#d0d0d0] bg-background py-0 pr-4 pl-10 text-[10px] tracking-[0.16em] text-foreground outline-none placeholder:text-muted"
             />
           </form>
           <IconButton href="#" label="Account">
@@ -110,14 +118,21 @@ export function SiteHeader() {
             >
               AI Stylist
             </button>
-            <form action="#this-season" className="relative md:hidden" role="search">
-              <SearchIcon className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2" />
+            <form action="/search" method="get" className="relative md:hidden" role="search" onSubmit={() => setMenuOpen(false)}>
+              <button
+                type="submit"
+                aria-label="Search products"
+                className="absolute left-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center"
+              >
+                <SearchIcon />
+              </button>
               <input
                 type="search"
                 name="q"
+                maxLength={120}
                 placeholder="SEARCH"
                 aria-label="Search"
-                className="h-10 w-full rounded-full border border-[#d0d0d0] pr-4 pl-9 text-[10px] tracking-[0.16em] outline-none placeholder:text-muted"
+                className="h-10 w-full rounded-full border border-[#d0d0d0] pr-4 pl-11 text-[10px] tracking-[0.16em] outline-none placeholder:text-muted"
               />
             </form>
           </Container>

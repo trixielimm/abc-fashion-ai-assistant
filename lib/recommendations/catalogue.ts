@@ -58,3 +58,22 @@ export async function getCatalogueProducts(): Promise<CatalogueProduct[]> {
 
   return products;
 }
+
+export async function getCatalogueProductById(
+  productId: string
+): Promise<CatalogueProduct | null> {
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("product_catalog")
+    .select(COLUMNS)
+    .eq("product_id", productId)
+    .abortSignal(AbortSignal.timeout(15_000))
+    .maybeSingle();
+
+  if (error) {
+    console.error("Catalogue error code:", error.code || "unknown");
+    throw new Error("Unable to retrieve the product.");
+  }
+
+  return data;
+}
