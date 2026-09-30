@@ -1,5 +1,6 @@
 import type { ShoppingPreferences } from "@/lib/ai/preferenceSchema";
 import type { CatalogueProduct } from "@/lib/recommendations/catalogue";
+import type { StyleMemory, StyleProfile, StyleSize } from "@/lib/style/schema";
 
 export type StylistProduct = {
   product_id: string;
@@ -17,6 +18,7 @@ export type PreferenceSearchResult = {
   status: "matches" | "partial" | "no_match" | "needs_more_detail";
   message: string;
   products: StylistProduct[];
+  applied_memories?: string[];
 };
 
 type AvailableProduct = CatalogueProduct & {
@@ -40,6 +42,7 @@ function words(value: string): string[] {
     .filter(Boolean)
     .map((word) => {
       if (word.endsWith("ies") && word.length > 4) return `${word.slice(0, -3)}y`;
+      if (word.endsWith("sses") && word.length > 4) return word.slice(0, -2);
       if (word.endsWith("s") && !word.endsWith("ss") && word.length > 3) {
         return word.slice(0, -1);
       }
@@ -53,6 +56,15 @@ function labelMatches(actual: string | null, requested: string): boolean {
   if (requestedWords.length === 0) return false;
   const actualWords = new Set(words(actual));
   return requestedWords.every((word) => actualWords.has(word));
+}
+
+function savedSizeMatches(available: string, saved: StyleSize): boolean {
+  const system = saved.size_system.toUpperCase();
+  const labelledSystem = words(available).find((word) => ["au", "uk", "eu", "us"].includes(word));
+  // The existing unqualified catalogue labels are Australian. A saved size
+  // from another system must carry that system in the product's size label.
+  return (labelledSystem ? labelledSystem === system.toLowerCase() : system === "AU") &&
+    labelMatches(available, saved.size_label);
 }
 
 function relatedLabel(actual: string | null, requested: string): boolean {
@@ -89,9 +101,57 @@ function hasText(value: string | null): value is string {
   return typeof value === "string" && value.trim().length > 0;
 }
 
+function productHasScope(product: CatalogueProduct, scope: string | null): boolean {
+  if (!scope) return true;
+  return [product.category, product.subcategory, product.product_type, ...(product.tags ?? [])]
+    .some((label) => relatedLabel(label, scope));
+}
+
+function memoryMatches(product: CatalogueProduct, memory: StyleMemory): boolean {
+  if (!productHasScope(product, memory.item_scope)) return false;
+  if (memory.facet === "note") {
+    const detail = memory.value.replace(/^i\s+(prefer|like|love|avoid|don't like)\s+/i, "").trim();
+    return (product.tags ?? []).some((tag) => relatedLabel(tag, detail));
+  }
+  if (memory.facet === "tag") return (product.tags ?? []).some((tag) => relatedLabel(tag, memory.value));
+  return relatedLabel(product[memory.facet], memory.value);
+}
+
+function explicitlyRequested(preferences: ShoppingPreferences, memory: StyleMemory): boolean {
+  const requested = memory.facet === "colour" ? preferences.preferred_colours
+    : memory.facet === "tag" || memory.facet === "note" ? []
+      : [preferences[memory.facet]];
+  return requested.some((value) => typeof value === "string" && relatedLabel(value, memory.value)) ||
+    (memory.facet === "fit" && hasText(preferences.product_type) && relatedLabel(preferences.product_type, memory.value));
+}
+
+function savedSizeFor(preferences: ShoppingPreferences, profile: StyleProfile | null) {
+  if (!profile || preferences.size) return null;
+  const dress = relatedLabel(preferences.subcategory, "dress") || relatedLabel(preferences.product_type, "dress");
+  const shoes = relatedLabel(preferences.category, "shoes");
+  const itemType = dress ? "dress" : shoes ? "shoes" : null;
+  return itemType ? profile.sizes.find((size) => size.item_type === itemType) ?? null : null;
+}
+
+function memoryRelevantToSearch(
+  catalogue: readonly CatalogueProduct[], preferences: ShoppingPreferences, memory: StyleMemory,
+): boolean {
+  if (!memory.item_scope) return true;
+  const requested = [preferences.category, preferences.subcategory, preferences.product_type]
+    .filter((value): value is string => hasText(value));
+  if (requested.length === 0) return true;
+  return catalogue.some((product) =>
+    productHasScope(product, memory.item_scope) &&
+    (!preferences.category || labelMatches(product.category, preferences.category)) &&
+    (!preferences.subcategory || labelMatches(product.subcategory, preferences.subcategory)) &&
+    (!preferences.product_type || labelMatches(product.product_type, preferences.product_type)),
+  );
+}
+
 export function searchByPreferences(
   catalogue: readonly CatalogueProduct[],
   preferences: ShoppingPreferences,
+  profile: StyleProfile | null = null,
 ): PreferenceSearchResult {
   const preferredColours = preferences.preferred_colours.filter((colour) => colour.trim());
   const excludedColours = preferences.excluded_colours.filter((colour) => colour.trim());
@@ -100,7 +160,15 @@ export function searchByPreferences(
   const productType = hasText(preferences.product_type) ? preferences.product_type : null;
   const brandLine = hasText(preferences.brand_line) ? preferences.brand_line : null;
   const material = hasText(preferences.material) ? preferences.material : null;
-  const size = hasText(preferences.size) ? preferences.size : null;
+  const savedSize = savedSizeFor(preferences, profile);
+  const size = hasText(preferences.size) ? preferences.size : savedSize?.size_label ?? null;
+  const avoid = (profile?.memories ?? []).filter((memory) => memory.kind === "avoid" && !explicitlyRequested(preferences, memory));
+  const likes = (profile?.memories ?? []).filter((memory) => memory.kind === "like" || memory.kind === "note");
+  const appliedMemories = [
+    ...(savedSize ? [`Using saved ${savedSize.size_system} ${savedSize.size_label} ${savedSize.item_type} size`] : []),
+    ...avoid.filter((memory) => memoryRelevantToSearch(catalogue, preferences, memory))
+      .map((memory) => `Avoiding ${memory.value}${memory.item_scope ? ` for ${memory.item_scope}` : ""}`),
+  ];
 
   const productAnchor = Boolean(
     category || subcategory || productType || brandLine || material || preferredColours.length,
@@ -111,8 +179,9 @@ export function searchByPreferences(
       hasText(preferences.season) ||
       hasText(preferences.fit),
   );
+  const memoryAnchor = likes.length > 0;
 
-  if (!productAnchor && !contextAnchor) {
+  if (!productAnchor && !contextAnchor && !memoryAnchor) {
     return {
       status: "needs_more_detail",
       message: "What kind of item are you looking for? Try adding a product, colour, style, or occasion.",
@@ -149,7 +218,9 @@ export function searchByPreferences(
   const candidates = catalogue.filter(validProduct).filter((product) => {
     if (preferences.min_price !== null && product.price_aud < preferences.min_price) return false;
     if (preferences.max_price !== null && product.price_aud > preferences.max_price) return false;
-    if (size && !product.sizes_available?.some((available) => labelMatches(available, size))) {
+    if (size && !product.sizes_available?.some((available) => savedSize
+      ? savedSizeMatches(available, savedSize)
+      : labelMatches(available, size))) {
       return false;
     }
     if (preferences.gender) {
@@ -168,6 +239,9 @@ export function searchByPreferences(
     if (preferredColours.length && !preferredColours.some((colour) => relatedLabel(product.colour, colour))) {
       return false;
     }
+    if (avoid.some((memory) => memoryMatches(product, memory))) return false;
+    // An unlabelled fit cannot be verified against a saved fit exclusion.
+    if (avoid.some((memory) => memory.facet === "fit" && productHasScope(product, memory.item_scope) && !product.fit)) return false;
     return true;
   });
 
@@ -187,7 +261,8 @@ export function searchByPreferences(
       return total + (relatedLabel(product[item.field], requested) ? item.weight : 0);
     }, 0);
     const genderBonus = preferences.gender && labelMatches(product.gender, preferences.gender) ? 1 : 0;
-    return { product, score, genderBonus };
+    const memoryBonus = likes.reduce((total, memory) => total + (memoryMatches(product, memory) ? 1 : 0), 0);
+    return { product, score, genderBonus, memoryBonus };
   });
 
   // When a catalogue item matches the requested context, show only items with
@@ -197,10 +272,13 @@ export function searchByPreferences(
     ? contextMatches
     : productAnchor
       ? ranked
-      : [];
+      : memoryAnchor
+        ? ranked.filter((item) => item.memoryBonus > 0)
+        : [];
   relevant.sort(
     (a, b) =>
       b.score - a.score ||
+      b.memoryBonus - a.memoryBonus ||
       b.genderBonus - a.genderBonus ||
       b.product.stock_qty - a.product.stock_qty ||
       a.product.price_aud - b.product.price_aud ||
@@ -219,8 +297,11 @@ export function searchByPreferences(
   if (selected.length === 0) {
     return {
       status: "no_match",
-      message: "I couldn't find an available item that fits those preferences. Try another size, colour, product type, or budget.",
+      message: savedSize
+        ? `I couldn't find an available item labelled for your saved ${savedSize.size_system} ${savedSize.size_label} ${savedSize.item_type} size. The catalogue does not convert sizes between systems. You can ask for another size or change it in My Style.`
+        : "I couldn't find an available item that fits those preferences. Try another size, colour, product type, or budget.",
       products: [],
+      applied_memories: appliedMemories,
     };
   }
 
@@ -230,6 +311,13 @@ export function searchByPreferences(
     message: partial
       ? "These are the closest available items. Some occasion, style, fit, or season details may differ."
       : "Here are a few available items that fit your preferences.",
+    applied_memories: [
+      ...appliedMemories,
+      ...likes.filter((memory) => selected.some(({ product }) => memoryMatches(product, memory)))
+        .map((memory) => memory.kind === "note"
+          ? `Your note: ${memory.value}${memory.item_scope ? ` for ${memory.item_scope}` : ""}`
+          : `You like ${memory.value}${memory.item_scope ? ` for ${memory.item_scope}` : ""}`),
+    ],
     products: selected.map(({ product }) => ({
       product_id: product.product_id,
       product_name: product.product_name,

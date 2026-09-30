@@ -6,6 +6,9 @@ import { CloseIcon, PersonIcon } from "@/components/ui/icons";
 import { ProductVisual } from "@/components/commerce/ProductVisual";
 import { cn } from "@/lib/cn";
 import { addToCart } from "@/lib/cart";
+import { SaveProductButton } from "@/components/style/SaveProductButton";
+import { signInForSave } from "@/lib/style/pending";
+import { MemorySchema, SizeSchema } from "@/lib/style/schema";
 import { formatPrice, stylistSuggestions } from "@/lib/mock-data";
 import {
   ShoppingPreferencesSchema,
@@ -25,12 +28,6 @@ const StylistProductSchema = z.object({
   sizes_available: z.array(z.string().min(1)).min(1),
 });
 
-const StylistSearchResponseSchema = z.object({
-  status: z.enum(["matches", "partial", "no_match", "needs_more_detail"]),
-  message: z.string(),
-  products: z.array(StylistProductSchema).max(4),
-});
-
 type StylistProduct = z.infer<typeof StylistProductSchema>;
 
 type Entry = {
@@ -39,10 +36,68 @@ type Entry = {
   text: string;
   preferences?: ShoppingPreferences;
   products?: StylistProduct[];
+  appliedMemories?: string[];
+  saveCandidate?: z.infer<typeof SaveCandidateSchema>;
 };
+
+const SaveCandidateSchema = z.discriminatedUnion("type", [
+  z.object({ type: z.literal("memory"), memory: MemorySchema }),
+  z.object({ type: z.literal("size"), size: SizeSchema }),
+]);
+
+const TurnResponseSchema = z.object({
+  message: z.string(),
+  preferences: ShoppingPreferencesSchema,
+  products: z.array(StylistProductSchema).max(4),
+  applied_memories: z.array(z.string()),
+  pending_memory: SaveCandidateSchema.nullable(),
+  preferred_name: z.string(),
+});
+
+const CHAT_KEY = "abc-fashion-stylist-chat";
 
 const GREETING =
   "Welcome to ABC Fashion. Tell me what you're shopping for, and I'll find a few items that fit your preferences.";
+
+function SaveMemoryButton({ candidate }: { candidate: z.infer<typeof SaveCandidateSchema> }) {
+  const [saved, setSaved] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
+
+  async function save() {
+    if (busy || saved) return;
+    setBusy(true);
+    setError("");
+    try {
+      let url = "/api/me/style-memories";
+      let method = "POST";
+      let body: object = candidate.type === "memory" ? candidate.memory : candidate.size;
+      if (candidate.type === "size") {
+        url = "/api/me/style-profile";
+        method = "PATCH";
+        const existing = await fetch(url, { cache: "no-store" });
+        if (existing.status === 401) { signInForSave({ type: "size", ...candidate.size }); return; }
+        if (!existing.ok) throw new Error("Could not load saved sizes.");
+        const data = await existing.json();
+        body = { sizes: [
+          ...(data.profile?.sizes ?? []).filter((size: { item_type: string }) => size.item_type !== candidate.size.item_type),
+          candidate.size,
+        ] };
+      }
+      const response = await fetch(url, { method, headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+      if (response.status === 401) {
+        signInForSave(candidate.type === "memory" ? { type: "memory", memory: candidate.memory } : { type: "size", ...candidate.size });
+        return;
+      }
+      if (!response.ok) throw new Error("Could not save memory.");
+      setSaved(true);
+      window.dispatchEvent(new Event("style-profile-updated"));
+    } catch { setError("Could not save that yet. Please try again."); }
+    finally { setBusy(false); }
+  }
+
+  return <div className="mt-3"><button type="button" onClick={save} disabled={busy || saved} className="border border-foreground px-3 py-2 text-[10px] uppercase disabled:opacity-50">{saved ? "Saved to My Style" : "Save to My Style"}</button>{error ? <p role="status" className="mt-2 text-xs">{error}</p> : null}</div>;
+}
 
 const preferenceFields: { key: keyof ShoppingPreferences; label: string }[] = [
   { key: "gender", label: "Collection" },
@@ -228,6 +283,7 @@ function RecommendationCard({
           </button>
         </div>
         {feedback ? <p role="status" className="mt-2 text-[11px]">{feedback}</p> : null}
+        <SaveProductButton productId={product.product_id} className="mt-2" />
       </div>
     </article>
   );
@@ -374,6 +430,7 @@ function Message({
           ) : entry.products?.length ? (
             <div>
               <p>{entry.text}</p>
+              {entry.appliedMemories?.length ? <p className="mt-2 text-xs text-muted">{entry.appliedMemories.join(" · ")} · <Link href="/my-style" onClick={onProductOpen} className="underline">Change in My Style</Link></p> : null}
               <ProductRecommendations products={entry.products} onProductOpen={onProductOpen} />
             </div>
           ) : live && onTick && onTyped ? (
@@ -387,6 +444,8 @@ function Message({
           ) : (
             <p>{entry.text}</p>
           )}
+          {entry.saveCandidate ? <SaveMemoryButton candidate={entry.saveCandidate} /> : null}
+          {!entry.products?.length && entry.appliedMemories?.length ? <p className="mt-2 text-xs text-muted">{entry.appliedMemories.join(" · ")} · <Link href="/my-style" onClick={onProductOpen} className="underline">Change in My Style</Link></p> : null}
         </div>
       </div>
     </div>
@@ -421,13 +480,32 @@ export function StylistChat({
     let cancelled = false;
 
     async function greet() {
+      try {
+        const stored: unknown = JSON.parse(sessionStorage.getItem(CHAT_KEY) ?? "null");
+        if (Array.isArray(stored) && stored.length) {
+          const valid = stored.filter((entry): entry is Entry =>
+            !!entry && typeof entry === "object" && typeof entry.id === "string" &&
+            (entry.from === "stylist" || entry.from === "you") && typeof entry.text === "string",
+          ).slice(-30);
+          if (valid.length) { replyCount.current = valid.length; setEntries(valid); setThinking(false); return; }
+        }
+      } catch { /* Ignore invalid session chat. */ }
+      let greeting = GREETING;
+      try {
+        const response = await fetch("/api/me/style-profile", { cache: "no-store" });
+        if (response.ok) {
+          const data = await response.json();
+          const name = data.profile?.preferred_name;
+          if (typeof name === "string" && name.trim()) greeting = `Welcome back, ${name.trim()}. What are you looking for today?`;
+        }
+      } catch { /* Guest greeting is still available. */ }
       await sleep(prefersReducedMotion() ? 120 : 900);
       if (cancelled) return;
       setThinking(false);
       setPending({
         id: "welcome",
         from: "stylist",
-        text: GREETING,
+        text: greeting,
       });
     }
 
@@ -437,6 +515,10 @@ export function StylistChat({
       cancelled = true;
     };
   }, []);
+
+  useEffect(() => {
+    if (entries.length) sessionStorage.setItem(CHAT_KEY, JSON.stringify(entries.slice(-30)));
+  }, [entries]);
 
   function commitPending(entry: Entry) {
     setEntries((current) => {
@@ -450,56 +532,31 @@ export function StylistChat({
     const controller = new AbortController();
     requestRef.current = controller;
     setThinking(true);
-    let stage: "extraction" | "search" = "extraction";
-
     try {
-      const response = await fetch("/api/extraction", {
+      const recentTurns = entries.filter((entry) => entry.text.trim()).slice(-6).map((entry) => ({
+        role: entry.from === "you" ? "user" as const : "assistant" as const,
+        content: entry.text.slice(0, 500),
+      }));
+      const response = await fetch("/api/stylist/turn", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message }),
+        body: JSON.stringify({ message, recent_turns: recentTurns }),
         signal: controller.signal,
       });
-      if (!response.ok) throw new Error("Preference extraction failed.");
-
-      const data: unknown = await response.json();
-      const parsed = ShoppingPreferencesSchema.safeParse(
-        typeof data === "object" && data !== null && "preferences" in data
-          ? data.preferences
-          : undefined,
-      );
-      if (!parsed.success) throw new Error("Invalid preference response.");
+      if (!response.ok) throw new Error("Stylist turn failed.");
+      const result = TurnResponseSchema.safeParse(await response.json());
+      if (!result.success) throw new Error("Invalid stylist response.");
 
       replyCount.current += 1;
       setEntries((current) => [
         ...current,
         {
-          id: `preferences-${replyCount.current}`,
+          id: `reply-${replyCount.current}`,
           from: "stylist",
-          text: "",
-          preferences: parsed.data,
-        },
-      ]);
-
-      stage = "search";
-      const searchResponse = await fetch("/api/stylist-search", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ preferences: parsed.data }),
-        signal: controller.signal,
-      });
-      if (!searchResponse.ok) throw new Error("Product search failed.");
-
-      const searchData = StylistSearchResponseSchema.safeParse(await searchResponse.json());
-      if (!searchData.success) throw new Error("Invalid product search response.");
-
-      replyCount.current += 1;
-      setEntries((current) => [
-        ...current,
-        {
-          id: `products-${replyCount.current}`,
-          from: "stylist",
-          text: searchData.data.message,
-          products: searchData.data.products,
+          text: result.data.message,
+          products: result.data.products,
+          appliedMemories: result.data.applied_memories,
+          saveCandidate: result.data.pending_memory ?? undefined,
         },
       ]);
     } catch {
@@ -510,9 +567,7 @@ export function StylistChat({
         {
           id: `error-${replyCount.current}`,
           from: "stylist",
-          text: stage === "extraction"
-            ? "I couldn't extract preferences from that message. Please try again."
-            : "I found your preferences, but couldn't search the products right now. Please try again.",
+          text: "I couldn't complete that request. Nothing was confirmed as saved. Please try again.",
         },
       ]);
     } finally {
@@ -579,7 +634,8 @@ export function StylistChat({
         aria-label="AI Stylist terms notice"
         className="border-b border-hairline bg-background px-6 py-3 text-[11px] leading-5 text-muted sm:px-8"
       >
-        Your message is sent to OpenAI to extract shopping preferences. By using
+        Your message and recent chat context are sent to OpenAI to understand your request.
+        Signed-in customers can choose which style details to save. By using
         this stylist, you agree to the{" "}
         <Link
           href="/terms-of-service"

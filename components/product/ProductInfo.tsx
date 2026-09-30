@@ -2,6 +2,7 @@ import { cn } from "@/lib/cn";
 import { formatPrice, type Product } from "@/lib/mock-data";
 import type { ProductDetailMock } from "@/lib/product-detail-mock";
 import { ProductControls } from "@/components/product/ProductControls";
+import { SaveProductButton } from "@/components/style/SaveProductButton";
 
 const colourSwatches: Record<string, string> = {
   black: "bg-black",
@@ -75,15 +76,7 @@ export function ProductInfo({
         productImage={image}
         productCategory={product.category}
       />
-      <button
-        type="button"
-        className="mt-3 h-11 w-full border border-border bg-transparent text-[12px] tracking-[0.05em] text-foreground uppercase"
-      >
-        <span aria-hidden="true" className="mr-2">
-          ＋
-        </span>
-        Add to Wishlist
-      </button>
+      <SaveProductButton productId={productId} className="mt-3 w-full" />
 
       {product.description ? (
         <p className="mt-7 w-full border-t border-border pt-5 text-[13px] leading-[1.6] text-muted">

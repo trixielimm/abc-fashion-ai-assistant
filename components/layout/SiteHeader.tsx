@@ -79,7 +79,7 @@ export function SiteHeader() {
               className="h-9 w-full rounded-full border border-[#d0d0d0] bg-background py-0 pr-4 pl-10 text-[10px] tracking-[0.16em] text-foreground outline-none placeholder:text-muted"
             />
           </form>
-          <IconButton href="#" label="Account">
+          <IconButton href="/my-style" label="My Style account">
             <UserIcon />
           </IconButton>
           <IconButton href="/cart" label="Bag">

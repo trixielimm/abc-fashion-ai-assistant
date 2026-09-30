@@ -52,7 +52,10 @@ export function StylistModal({
       <StylistChat
         key={chatVersion}
         onClose={onClose}
-        onReset={() => setChatVersion((version) => version + 1)}
+        onReset={() => {
+          sessionStorage.removeItem("abc-fashion-stylist-chat");
+          setChatVersion((version) => version + 1);
+        }}
       />
     </dialog>
   );

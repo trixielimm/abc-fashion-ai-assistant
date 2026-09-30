@@ -34,7 +34,7 @@ export default function TermsOfServicePage() {
             where Australian consumer and privacy protections fit in.
           </p>
           <p className="mt-5 text-[11px] tracking-[0.1em] text-muted uppercase">
-            Last updated 27 September 2026
+            Last updated 29 September 2026
           </p>
         </Container>
       </div>
@@ -71,10 +71,9 @@ export default function TermsOfServicePage() {
             <p>
               Each message is sent to an AI service to identify preferences
               such as category, colour, size, occasion, and budget. The
-              extracted preferences are displayed in the chat after each
-              message. Messages are processed separately. Product retrieval
-              and tailored recommendations are not available in this version,
-              and the stylist is not a conversation with a human adviser.
+              stylist uses recent messages in the current chat to understand
+              follow-up questions and searches the product catalogue for
+              matching items. It is an AI assistant, not a human adviser.
             </p>
           </section>
 
@@ -102,12 +101,14 @@ export default function TermsOfServicePage() {
             <h2>Privacy &amp; personal information</h2>
             <p>
               When you send a message, it goes to the ABC Fashion server and
-              then to OpenAI&apos;s API solely for preference extraction. The
-              message and the extracted fields appear in your browser during
-              the current page session. ABC Fashion does not save this chat
-              history or these preferences to an account or database in the
-              current version. Resetting the chat or reloading the page clears
-              the conversation from your browser.
+              then to OpenAI&apos;s API with up to six recent chat turns to
+              understand your request. The chat is kept in your browser&apos;s
+              session storage for the current tab so follow-up questions work
+              across page navigation. Resetting the chat clears that copy.
+              We do not save full chat transcripts in your account database.
+              Signed-in customers can deliberately save a preferred name,
+              item-specific sizes, likes, avoids, style notes and products.
+              Those details are stored with the account until removed in My Style.
             </p>
             <p>
               We request that OpenAI not store response state, but OpenAI may
@@ -118,9 +119,10 @@ export default function TermsOfServicePage() {
               >
                 API data controls
               </a>
-              . Processing may occur outside Australia. The current stylist
-              does not save preferences for later visits or make automated
-              decisions about your eligibility, rights, or purchases.
+              . Processing may occur outside Australia. Saved style details
+              affect product suggestions; they do not decide eligibility,
+              rights or purchases. You can remove individual memories or clear
+              all saved style data in My Style.
             </p>
             <p>
               Where applicable, the Privacy Act 1988 (Cth) and{" "}
@@ -142,8 +144,8 @@ export default function TermsOfServicePage() {
             <p>
               Extracted preferences may be incomplete or inaccurate. Check
               the fields shown in chat and restate anything the AI missed or
-              misunderstood. The stylist does not currently select products,
-              reserve stock, or create an offer to sell. Check product pages
+              misunderstood. The stylist does not reserve stock or create an
+              offer to sell. Check product pages
               and checkout for current descriptions, sizes, availability,
               prices, and delivery terms before buying.
             </p>

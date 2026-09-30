@@ -12,6 +12,30 @@ export type Database = {
   }
   public: {
     Tables: {
+      style_profiles: {
+        Row: { user_id: string; preferred_name: string; updated_at: string }
+        Insert: { user_id: string; preferred_name?: string; updated_at?: string }
+        Update: { user_id?: string; preferred_name?: string; updated_at?: string }
+        Relationships: []
+      }
+      style_sizes: {
+        Row: { user_id: string; item_type: string; size_system: string; size_label: string; updated_at: string }
+        Insert: { user_id: string; item_type: string; size_system: string; size_label: string; updated_at?: string }
+        Update: { user_id?: string; item_type?: string; size_system?: string; size_label?: string; updated_at?: string }
+        Relationships: []
+      }
+      style_memories: {
+        Row: { id: string; user_id: string; kind: string; facet: string; value: string; item_scope: string | null; created_at: string }
+        Insert: { id?: string; user_id: string; kind: string; facet: string; value: string; item_scope?: string | null; created_at?: string }
+        Update: { id?: string; user_id?: string; kind?: string; facet?: string; value?: string; item_scope?: string | null; created_at?: string }
+        Relationships: []
+      }
+      saved_products: {
+        Row: { user_id: string; product_id: string; created_at: string }
+        Insert: { user_id: string; product_id: string; created_at?: string }
+        Update: { user_id?: string; product_id?: string; created_at?: string }
+        Relationships: []
+      }
       categories: {
         Row: {
           category_id: number

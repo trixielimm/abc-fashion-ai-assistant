@@ -1,41 +1,23 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ABC Fashion AI Stylist
 
-## Getting Started
+The storefront supports guest stylist searches and optional customer style memory. Signed-in customers can save a preferred name, dress and shoe sizes, likes, avoids, personal style notes, and products. The stylist uses those details for its own recommendations and keeps recent chat turns in the current browser tab. Behaviour-based learning and ordinary site search personalization are not part of this release.
 
-Install dependencies, then copy `.env.example` to `.env.local`. Set the
-server-only `OPENAI_API_KEY` value to enable the AI Stylist's preference
-extraction. The chat sends each message to `/api/extraction` and shows the
-extracted preferences; product retrieval is not connected yet.
+## Run locally
 
-First, run the development server:
+1. Run `npm install` and copy `.env.example` to `.env.local`. Set the Supabase URL and publishable key, plus the server-only `OPENAI_API_KEY`.
+2. Apply the Supabase migrations, including `20260928120000_customer_style_memory.sql`, to the development project.
+3. Run `npm run dev` and open `http://127.0.0.1:3000`.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The catalogue view must contain product fit and tags for exclusions such as “skinny jeans” to work. An unknown fit on a relevant jeans product is omitted when the customer has saved a skinny-fit exclusion. The current unqualified catalogue size labels are treated as AU; saved sizes in other systems only match explicitly labelled product sizes, and the stylist does not convert between sizing systems. For example, EU 39 shoes can be saved but will have no matches until EU-labelled stock or a verified product-specific size chart is added.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Authentication setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This app uses Supabase Auth with Google OAuth and email one-time codes. Add the app's `/auth/callback` URL to Supabase's redirect allow list and configure the Google provider with a Google Cloud OAuth client ID and secret. The Google client must authorize the Supabase callback URL displayed in the provider settings. See the [Supabase Google guide](https://supabase.com/docs/guides/auth/social-login/auth-google).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Email codes require the Magic Link email template to contain `{{ .Token }}`. The local template is in `supabase/templates/sign_in_code.html` and selected in `supabase/config.toml`. For a hosted Supabase project, copy that template into **Authentication → Email Templates → Magic Link**. Configure production SMTP before sending codes to customers; Supabase's default mailer is for development. See the [email OTP](https://supabase.com/docs/guides/auth/auth-email-passwordless) and [SMTP](https://supabase.com/docs/guides/auth/auth-smtp) guides.
 
-## Learn More
+Google and SMTP credentials belong in Supabase or environment secrets, never in Git. `OPENAI_API_KEY` remains server only. The account-owned tables use row-level security so one customer cannot read or change another customer's style data.
 
-To learn more about Next.js, take a look at the following resources:
+## Checks
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Run `npm run lint`, `npx tsc --noEmit`, and `node --import tsx scripts/test-style-memory.ts`. The style-memory test checks saved dress and shoe sizes, a current-request size override, skinny-jeans exclusion and override, and unavailable saved sizes.

@@ -7,6 +7,8 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { StylistLauncher } from "@/components/stylist/StylistLauncher";
 import { StylistProvider } from "@/components/stylist/StylistProvider";
+import { PendingStyleAction } from "@/components/style/PendingStyleAction";
+import { SavedProductsProvider } from "@/components/style/SavedProductsProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -50,13 +52,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <noscript>
           <style>{".site-page-loader { display: none !important; }"}</style>
         </noscript>
-        <StylistProvider>
-          <SiteHeader />
-          <main className="flex-1">{children}</main>
-          <SiteFooter />
-          <BottomNavBar />
-          <StylistLauncher />
-        </StylistProvider>
+        <SavedProductsProvider>
+          <StylistProvider>
+            <PendingStyleAction />
+            <SiteHeader />
+            <main className="flex-1">{children}</main>
+            <SiteFooter />
+            <BottomNavBar />
+            <StylistLauncher />
+          </StylistProvider>
+        </SavedProductsProvider>
       </body>
     </html>
   );

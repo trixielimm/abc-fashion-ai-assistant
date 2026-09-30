@@ -2,11 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Product } from "@/lib/mock-data";
 import { formatPrice } from "@/lib/mock-data";
+import { SaveProductButton } from "@/components/style/SaveProductButton";
 
 export function ProductCard({ product }: { product: Product }) {
   return (
-    <Link href={product.href} className="block min-w-0">
-      <article>
+    <article className="min-w-0">
+      <Link href={product.href} className="block">
         <div className="relative aspect-[3/4] overflow-hidden bg-surface">
           <Image
             src={product.image}
@@ -22,7 +23,8 @@ export function ProductCard({ product }: { product: Product }) {
             {formatPrice(product.price)}
           </p>
         </div>
-      </article>
-    </Link>
+      </Link>
+      <SaveProductButton productId={product.id} className="mt-2" />
+    </article>
   );
 }
