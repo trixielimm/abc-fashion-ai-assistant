@@ -31,6 +31,32 @@ const StylistSearchResponseSchema = z.object({
   products: z.array(StylistProductSchema).max(4),
 });
 
+const ExtractionResponseSchema = z.object({
+  preferences: ShoppingPreferencesSchema,
+  issues: z.array(z.object({
+    field: z.string(),
+    value: z.union([z.string(), z.number()]),
+    code: z.enum(["unsupported_value", "category_mismatch", "invalid_budget"]),
+    blocking: z.boolean(),
+  })),
+  needs_clarification: z.boolean(),
+});
+
+type PreferenceIssue = z.infer<typeof ExtractionResponseSchema>["issues"][number];
+
+function describeIssue(issue: PreferenceIssue): string {
+  if (issue.code === "invalid_budget") {
+    return "Your minimum price is higher than your maximum price. Please check your budget.";
+  }
+  if (issue.code === "category_mismatch") {
+    return `The ${issue.value} subcategory does not match the selected category. Please clarify which you want.`;
+  }
+  const field = issue.field.replaceAll("_", " ");
+  return issue.blocking
+    ? `I couldn't find ${issue.value} as a catalogue ${field}. Please choose another ${field}.`
+    : `I couldn't match ${issue.value} to a catalogue ${field}. I'll use your other preferences to search.`;
+}
+
 type StylistProduct = z.infer<typeof StylistProductSchema>;
 
 type Entry = {
@@ -38,6 +64,7 @@ type Entry = {
   from: "stylist" | "you";
   text: string;
   preferences?: ShoppingPreferences;
+  issues?: PreferenceIssue[];
   products?: StylistProduct[];
 };
 
@@ -91,7 +118,7 @@ function Avatar({ from }: { from: Entry["from"] }) {
   );
 }
 
-function PreferenceDetails({ preferences }: { preferences: ShoppingPreferences }) {
+function PreferenceDetails({ preferences, issues = [] }: { preferences: ShoppingPreferences; issues?: PreferenceIssue[] }) {
   const found = preferenceFields.flatMap(({ key, label }) => {
     const value = preferences[key];
     if (value === null || (Array.isArray(value) && value.length === 0)) return [];
@@ -129,6 +156,13 @@ function PreferenceDetails({ preferences }: { preferences: ShoppingPreferences }
           </div>
         ))}
       </dl>
+      {issues.length > 0 ? (
+        <ul className="mt-3 space-y-1 border-t border-hairline pt-3 text-[12px]">
+          {issues.map((issue, index) => (
+            <li key={`${issue.field}-${index}`}>{describeIssue(issue)}</li>
+          ))}
+        </ul>
+      ) : null}
     </div>
   );
 }
@@ -370,7 +404,7 @@ function Message({
           )}
         >
           {entry.preferences ? (
-            <PreferenceDetails preferences={entry.preferences} />
+            <PreferenceDetails preferences={entry.preferences} issues={entry.issues} />
           ) : entry.products?.length ? (
             <div>
               <p>{entry.text}</p>
@@ -461,12 +495,7 @@ export function StylistChat({
       });
       if (!response.ok) throw new Error("Preference extraction failed.");
 
-      const data: unknown = await response.json();
-      const parsed = ShoppingPreferencesSchema.safeParse(
-        typeof data === "object" && data !== null && "preferences" in data
-          ? data.preferences
-          : undefined,
-      );
+      const parsed = ExtractionResponseSchema.safeParse(await response.json());
       if (!parsed.success) throw new Error("Invalid preference response.");
 
       replyCount.current += 1;
@@ -476,15 +505,18 @@ export function StylistChat({
           id: `preferences-${replyCount.current}`,
           from: "stylist",
           text: "",
-          preferences: parsed.data,
+          preferences: parsed.data.preferences,
+          issues: parsed.data.issues,
         },
       ]);
+
+      if (parsed.data.needs_clarification) return;
 
       stage = "search";
       const searchResponse = await fetch("/api/stylist-search", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ preferences: parsed.data }),
+        body: JSON.stringify({ preferences: parsed.data.preferences }),
         signal: controller.signal,
       });
       if (!searchResponse.ok) throw new Error("Product search failed.");
