@@ -1,9 +1,13 @@
 import { extractPreferences } from "@/lib/ai/extractPreferences";
 import { validatePreferences } from "@/lib/ai/validatePreferences";
 import { loadPreferenceValues } from "@/lib/catalogue/preferenceValues";
+import { ShoppingPreferencesSchema } from "@/lib/ai/preferenceSchema";
 import { z } from "zod";
 
-const RequestSchema = z.object({ message: z.string().trim().min(1).max(2000) });
+const RequestSchema = z.strictObject({
+  message: z.string().trim().min(1).max(2000),
+  current_preferences: ShoppingPreferencesSchema.optional(),
+});
 
 export async function POST(request: Request) {
   let body: unknown;
@@ -22,7 +26,10 @@ export async function POST(request: Request) {
   }
 
   try {
-    const preferences = await extractPreferences(result.data.message);
+    const preferences = await extractPreferences(
+      result.data.message,
+      result.data.current_preferences,
+    );
     const catalogue = await loadPreferenceValues();
     return Response.json(validatePreferences(preferences, catalogue));
   } catch {

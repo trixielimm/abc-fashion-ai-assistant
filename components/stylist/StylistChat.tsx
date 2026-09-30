@@ -442,6 +442,7 @@ export function StylistChat({
   const transcriptRef = useRef<HTMLDivElement>(null);
   const replyCount = useRef(0);
   const requestRef = useRef<AbortController | null>(null);
+  const currentPreferencesRef = useRef<ShoppingPreferences | null>(null);
   const busy = thinking || pending !== null;
 
   useEffect(() => () => requestRef.current?.abort(), []);
@@ -490,13 +491,19 @@ export function StylistChat({
       const response = await fetch("/api/extraction", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message }),
+        body: JSON.stringify({
+          message,
+          ...(currentPreferencesRef.current
+            ? { current_preferences: currentPreferencesRef.current }
+            : {}),
+        }),
         signal: controller.signal,
       });
       if (!response.ok) throw new Error("Preference extraction failed.");
 
       const parsed = ExtractionResponseSchema.safeParse(await response.json());
       if (!parsed.success) throw new Error("Invalid preference response.");
+      currentPreferencesRef.current = parsed.data.preferences;
 
       replyCount.current += 1;
       setEntries((current) => [
@@ -611,8 +618,8 @@ export function StylistChat({
         aria-label="AI Stylist terms notice"
         className="border-b border-hairline bg-background px-6 py-3 text-[11px] leading-5 text-muted sm:px-8"
       >
-        Your message is sent to OpenAI to extract shopping preferences. By using
-        this stylist, you agree to the{" "}
+        Your message and current shopping preferences are sent to OpenAI to
+        update your preferences. By using this stylist, you agree to the{" "}
         <Link
           href="/terms-of-service"
           target="_blank"
