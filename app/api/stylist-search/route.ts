@@ -1,4 +1,5 @@
 import { ShoppingPreferencesSchema } from "@/lib/ai/preferenceSchema";
+import { generateRecommendation } from "@/lib/ai/generateRecommendation";
 import { getCatalogueProducts } from "@/lib/recommendations/catalogue";
 import { searchByPreferences } from "@/lib/search/preferenceSearch";
 import { z } from "zod";
@@ -37,8 +38,8 @@ export async function POST(request: Request) {
       return Response.json(preflight, { headers });
     }
 
-    // Chat already extracted these preferences, so this route only retrieves
-    // and ranks catalogue products. It never makes another OpenAI call.
+    // Chat already extracted these preferences. Retrieve real products before
+    // asking OpenAI to choose grounded explanation points from the shortlist.
     const catalogue = await getCatalogueProducts();
     if (catalogue.length === 0) {
       return Response.json(
@@ -47,7 +48,16 @@ export async function POST(request: Request) {
       );
     }
     const result = searchByPreferences(catalogue, parsed.data.preferences);
-    return Response.json(result, { headers });
+    if (result.products.length === 0) return Response.json(result, { headers });
+
+    try {
+      const message = await generateRecommendation(parsed.data.preferences, result.products);
+      return Response.json({ ...result, message }, { headers });
+    } catch (error) {
+      // Recommendation wording must never hide valid catalogue results.
+      console.error("Recommendation wording failed:", error instanceof Error ? error.name : "UnknownError");
+      return Response.json(result, { headers });
+    }
   } catch (error) {
     console.error("Stylist catalogue search failed:", error instanceof Error ? error.name : "UnknownError");
     return Response.json(
