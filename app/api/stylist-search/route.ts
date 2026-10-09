@@ -1,8 +1,11 @@
+import { loadPreferenceValues } from "@/lib/catalogue/preferenceValues";
+import { searchWithValidatedPreferences } from "@/lib/search/validatedPreferenceSearch";
 import { ShoppingPreferencesSchema } from "@/lib/ai/preferenceSchema";
 import { generateRecommendation } from "@/lib/ai/generateRecommendation";
 import { getCatalogueProducts } from "@/lib/recommendations/catalogue";
 import { searchByPreferences } from "@/lib/search/preferenceSearch";
 import { z } from "zod";
+
 
 export const runtime = "nodejs";
 
@@ -40,19 +43,35 @@ export async function POST(request: Request) {
 
     // Chat already extracted these preferences. Retrieve real products before
     // asking OpenAI to choose grounded explanation points from the shortlist.
-    const catalogue = await getCatalogueProducts();
+   const [catalogue, vocabulary] = await Promise.all([
+  getCatalogueProducts(),
+  loadPreferenceValues(),
+]);
     if (catalogue.length === 0) {
       return Response.json(
         { error: "The product catalogue is unavailable. Please try again." },
         { status: 503, headers },
       );
     }
-    const result = searchByPreferences(catalogue, parsed.data.preferences);
+    const { validation, result } = searchWithValidatedPreferences(
+  catalogue,
+  parsed.data.preferences,
+  vocabulary
+);
     if (result.products.length === 0) return Response.json(result, { headers });
 
     try {
-      const message = await generateRecommendation(parsed.data.preferences, result.products);
-      return Response.json({ ...result, message }, { headers });
+      const generatedMessage = await generateRecommendation(
+  validation.preferences,
+  result.products
+);
+
+const message =
+  result.status === "partial" || validation.issues.length > 0
+    ? `${result.message} ${generatedMessage}`
+    : generatedMessage;
+
+return Response.json({ ...result, message }, { headers });
     } catch (error) {
       // Recommendation wording must never hide valid catalogue results.
       console.error("Recommendation wording failed:", error instanceof Error ? error.name : "UnknownError");

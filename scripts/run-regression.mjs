@@ -1,0 +1,144 @@
+import { spawnSync } from "node:child_process";
+
+import {
+  appendFileSync,
+  existsSync,
+  mkdirSync,
+  writeFileSync,
+} from "node:fs";
+
+import { join, relative } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const root = fileURLToPath(new URL("../", import.meta.url));
+
+const outputDirectory = join(
+  root,
+  "docs",
+  "test-evidence"
+);
+
+mkdirSync(outputDirectory, { recursive: true });
+
+const started = new Date().toISOString();
+
+const report = join(
+  outputDirectory,
+  `regression-${started.replace(/[:.]/g, "-")}.txt`
+);
+
+// Create a new report rather than overwriting an earlier run.
+writeFileSync(report, "", { flag: "wx" });
+
+function record(text) {
+  console.log(text);
+  appendFileSync(report, `${text}\n`);
+}
+
+const suites = [
+  ["5,24", "test-preference-validation.ts"],
+  ["9,24", "test-recommendation-contract.ts"],
+  ["11,24", "test-grounded-recommendation.ts"],
+  ["5,7,25", "test-validation-search.mjs"],
+  ["16,17,19,24", "test-guided-follow-ups.mjs"],
+  ["20,25", "test-cross-sell.mjs"],
+  ["21,23,25", "test-cross-sell-client.mjs"],
+  ["22,25", "test-upsell.mjs"],
+  ["22,23,25", "test-upsell-client.mjs"],
+  ["18,23,24", "test-chat-request.mjs"],
+].map(([tasks, file]) => ({
+  tasks,
+  file,
+  result: "NOT RUN",
+}));
+
+record("ABC Fashion - offline regression run");
+record(`Started (UTC): ${started}`);
+record(`Node: ${process.version}; platform: ${process.platform}`);
+
+record(
+  "Scope: listed offline test scripts only. No live/API/browser tests."
+);
+
+for (const suite of suites) {
+  record(
+    `\nRUN: ${suite.file} | Tasks ${suite.tasks}`
+  );
+
+  const script = join(root, "scripts", suite.file);
+
+  if (!existsSync(script)) {
+    suite.result = "FAIL";
+
+    record(
+      `Missing test file: scripts/${suite.file}`
+    );
+
+    process.exitCode = 1;
+    break;
+  }
+
+  const args = ["--import", "tsx", script];
+
+  if (suite.file === "test-grounded-recommendation.ts") {
+    args.unshift("--conditions=react-server");
+  }
+
+  const child = spawnSync(process.execPath, args, {
+    cwd: root,
+    encoding: "utf8",
+    timeout: 90_000,
+    maxBuffer: 4 * 1024 * 1024,
+    windowsHide: true,
+  });
+
+  if (child.stdout?.trim()) {
+    record(child.stdout.trimEnd());
+  }
+
+  if (child.stderr?.trim()) {
+    record(child.stderr.trimEnd());
+  }
+
+  if (child.error) {
+    record(`Execution error: ${child.error.message}`);
+  }
+
+  suite.result =
+    !child.error && child.status === 0
+      ? "PASS"
+      : "FAIL";
+
+  record(
+    `${suite.result}: ${suite.file} (exit: ${child.status})`
+  );
+
+  if (suite.result === "FAIL") {
+    process.exitCode = 1;
+    break;
+  }
+}
+
+record("\nSCRIPT SUMMARY");
+
+for (const suite of suites) {
+  record(`${suite.result}: ${suite.file}`);
+}
+
+const passed = suites.filter(
+  (suite) => suite.result === "PASS"
+).length;
+
+record(
+  `\n${passed}/${suites.length} test scripts completed successfully.`
+);
+
+record(`Finished (UTC): ${new Date().toISOString()}`);
+
+record(
+  "Not covered by this run: live stock, browser journeys, security audit, acceptance testing."
+);
+
+console.log(
+  `Evidence saved: ${relative(root, report)}`
+);

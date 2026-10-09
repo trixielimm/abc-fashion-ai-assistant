@@ -57,7 +57,7 @@ function labelMatches(actual: string | null, requested: string): boolean {
   return requestedWords.every((word) => actualWords.has(word));
 }
 
-function relatedLabel(actual: string | null, requested: string): boolean {
+ export function relatedLabel(actual: string | null, requested: string): boolean {
   if (!actual) return false;
   const actualWords = words(actual);
   const requestedWords = words(requested);
@@ -69,21 +69,30 @@ function relatedLabel(actual: string | null, requested: string): boolean {
     actualWords.every((word) => requestedWords.includes(word))
   );
 }
+function sizeLabelsMatch(actual: string, requested: string): boolean {
+  const normaliseSize = (value: string) =>
+    value.trim().replace(/\s+/g, " ").toLowerCase();
 
+  return normaliseSize(actual) === normaliseSize(requested);
+}
 function validProduct(product: CatalogueProduct): product is AvailableProduct {
   return (
     product.is_available === true &&
     typeof product.product_id === "string" &&
-    product.product_id.length > 0 &&
+    product.product_id.trim().length > 0 &&
     typeof product.product_name === "string" &&
-    product.product_name.length > 0 &&
+    product.product_name.trim().length > 0 &&
     typeof product.price_aud === "number" &&
     Number.isFinite(product.price_aud) &&
     product.price_aud >= 0 &&
     typeof product.stock_qty === "number" &&
+    Number.isSafeInteger(product.stock_qty) &&
     product.stock_qty > 0 &&
     Array.isArray(product.sizes_available) &&
-    product.sizes_available.some((size) => typeof size === "string" && size.trim())
+    product.sizes_available.length > 0 &&
+    product.sizes_available.every(
+      (size) => typeof size === "string" && size.trim().length > 0
+    )
   );
 }
 
@@ -151,9 +160,9 @@ export function searchByPreferences(
   const candidates = catalogue.filter(validProduct).filter((product) => {
     if (preferences.min_price !== null && product.price_aud < preferences.min_price) return false;
     if (preferences.max_price !== null && product.price_aud > preferences.max_price) return false;
-    if (size && !product.sizes_available?.some((available) => labelMatches(available, size))) {
-      return false;
-    }
+    if (size && !product.sizes_available.some((available) => sizeLabelsMatch(available, size))) {
+  return false;
+}
     if (preferences.gender) {
       const requested = words(preferences.gender).join(" ");
       const actual = words(product.gender ?? "").join(" ");
@@ -164,7 +173,14 @@ export function searchByPreferences(
     if (productType && !labelMatches(product.product_type, productType)) return false;
     if (brandLine && !labelMatches(product.brand_line, brandLine)) return false;
     if (material && !labelMatches(product.material, material)) return false;
-    if (excludedColours.some((colour) => relatedLabel(product.colour, colour))) return false;
+   if (excludedColours.length > 0) {
+  // A missing colour cannot be checked against the customer's exclusions.
+  if (!hasText(product.colour)) return false;
+
+  if (excludedColours.some((colour) => relatedLabel(product.colour, colour))) {
+    return false;
+  }
+}
     // A requested colour is central to a fashion recommendation. Don't show
     // a different colour merely because the other attributes happen to match.
     if (preferredColours.length && !preferredColours.some((colour) => relatedLabel(product.colour, colour))) {

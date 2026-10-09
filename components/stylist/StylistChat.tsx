@@ -1,7 +1,18 @@
 "use client";
 
+import {
+  FollowUpKindSchema,
+  type FollowUpKind,
+} from "@/lib/ai/resolveFollowUp";
+import {
+  ChatRequestError,
+  postChatJson,
+} from "@/lib/ai/chatRequest";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { CrossSellConversation } from "@/components/stylist/CrossSellConversation";
+import { UpsellComparison } from "@/components/stylist/UpsellComparison";
+
 import { CloseIcon, PersonIcon } from "@/components/ui/icons";
 import { ProductVisual } from "@/components/commerce/ProductVisual";
 import { cn } from "@/lib/cn";
@@ -40,6 +51,13 @@ const ExtractionResponseSchema = z.object({
     blocking: z.boolean(),
   })),
   needs_clarification: z.boolean(),
+  follow_up_question: z
+  .object({
+    kind: FollowUpKindSchema,
+    message: z.string().min(1),
+  })
+  .nullable()
+  .optional(),
 });
 
 type PreferenceIssue = z.infer<typeof ExtractionResponseSchema>["issues"][number];
@@ -54,7 +72,7 @@ function describeIssue(issue: PreferenceIssue): string {
   const field = issue.field.replaceAll("_", " ");
   return issue.blocking
     ? `I couldn't find ${issue.value} as a catalogue ${field}. Please choose another ${field}.`
-    : `I couldn't match ${issue.value} to a catalogue ${field}. I'll use your other preferences to search.`;
+    : `I couldn't find an exact catalogue label for ${issue.value} (${field}). I have kept this preference, but available results may not match it.`;
 }
 
 type StylistProduct = z.infer<typeof StylistProductSchema>;
@@ -66,8 +84,19 @@ type Entry = {
   preferences?: ShoppingPreferences;
   issues?: PreferenceIssue[];
   products?: StylistProduct[];
+  crossSellPreferences?: ShoppingPreferences;
 };
-
+type ChatAttempt =
+  | {
+      stage: "extraction";
+      message: string;
+      currentPreferences: ShoppingPreferences | null;
+      pendingFollowUp: FollowUpKind | null;
+    }
+  | {
+      stage: "search";
+      preferences: ShoppingPreferences;
+    };
 const GREETING =
   "Welcome to ABC Fashion. Tell me what you're shopping for, and I'll find a few items that fit your preferences.";
 
@@ -366,12 +395,14 @@ function Message({
   onTick,
   onTyped,
   onProductOpen,
+  showUpsell = false,
 }: {
   entry: Entry;
   live?: boolean;
   onTick?: () => void;
   onTyped?: () => void;
   onProductOpen: () => void;
+  showUpsell?: boolean;
 }) {
   const isYou = entry.from === "you";
   return (
@@ -409,6 +440,32 @@ function Message({
             <div>
               <p>{entry.text}</p>
               <ProductRecommendations products={entry.products} onProductOpen={onProductOpen} />
+              {showUpsell && entry.crossSellPreferences ? (
+  <div>
+    <UpsellComparison
+      products={entry.products}
+      preferences={entry.crossSellPreferences}
+      renderProduct={(product) => (
+        <RecommendationCard
+          product={product}
+          onProductOpen={onProductOpen}
+        />
+      )}
+    />
+  </div>
+) : null}
+              {entry.crossSellPreferences ? (
+  <CrossSellConversation
+    products={entry.products}
+    preferences={entry.crossSellPreferences}
+    renderProducts={(products) => (
+      <ProductRecommendations
+        products={products}
+        onProductOpen={onProductOpen}
+      />
+    )}
+  />
+) : null}
             </div>
           ) : live && onTick && onTyped ? (
             <p>
@@ -438,14 +495,20 @@ export function StylistChat({
   const [pending, setPending] = useState<Entry | null>(null);
   const [thinking, setThinking] = useState(true);
   const [draft, setDraft] = useState("");
+  const [retryAttempt, setRetryAttempt] =
+  useState<ChatAttempt | null>(null);
   const [tick, setTick] = useState(0);
   const transcriptRef = useRef<HTMLDivElement>(null);
   const replyCount = useRef(0);
   const requestRef = useRef<AbortController | null>(null);
   const currentPreferencesRef = useRef<ShoppingPreferences | null>(null);
+  const pendingFollowUpRef = useRef<FollowUpKind | null>(null);
   const busy = thinking || pending !== null;
 
-  useEffect(() => () => requestRef.current?.abort(), []);
+  useEffect(() => () => {
+  requestRef.current?.abort();
+  requestRef.current = null;
+}, []);
 
   useEffect(() => {
     const transcript = transcriptRef.current;
@@ -481,88 +544,202 @@ export function StylistChat({
     setPending(null);
   }
 
-  async function extract(message: string) {
-    const controller = new AbortController();
-    requestRef.current = controller;
-    setThinking(true);
-    let stage: "extraction" | "search" = "extraction";
+  async function runChatAttempt(attempt: ChatAttempt) {
+  if (requestRef.current !== null) return;
 
-    try {
-      const response = await fetch("/api/extraction", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          message,
-          ...(currentPreferencesRef.current
-            ? { current_preferences: currentPreferencesRef.current }
+  const controller = new AbortController();
+  requestRef.current = controller;
+
+  setThinking(true);
+  setRetryAttempt(null);
+
+  // After extraction succeeds, retry search rather than extraction.
+  let failedAttempt: ChatAttempt = attempt;
+
+  function isCurrent() {
+    return (
+      requestRef.current === controller &&
+      !controller.signal.aborted
+    );
+  }
+
+  try {
+    let preferences: ShoppingPreferences;
+
+    if (attempt.stage === "search") {
+      preferences = ShoppingPreferencesSchema.parse(
+        attempt.preferences
+      );
+    } else {
+      const data = await postChatJson(
+        "/api/extraction",
+        {
+          message: attempt.message,
+
+          ...(attempt.currentPreferences
+            ? {
+                current_preferences:
+                  attempt.currentPreferences,
+              }
             : {}),
-        }),
-        signal: controller.signal,
-      });
-      if (!response.ok) throw new Error("Preference extraction failed.");
 
-      const parsed = ExtractionResponseSchema.safeParse(await response.json());
-      if (!parsed.success) throw new Error("Invalid preference response.");
-      currentPreferencesRef.current = parsed.data.preferences;
+          ...(attempt.pendingFollowUp
+            ? {
+                pending_follow_up:
+                  attempt.pendingFollowUp,
+              }
+            : {}),
+        },
+        { signal: controller.signal }
+      );
+
+      if (!isCurrent()) return;
+
+      const parsed = ExtractionResponseSchema.safeParse(data);
+
+      if (!parsed.success) {
+        throw new Error("Invalid preference response.");
+      }
+
+      preferences = parsed.data.preferences;
+      currentPreferencesRef.current = preferences;
+
+      const question = parsed.data.follow_up_question ?? null;
+      pendingFollowUpRef.current = question?.kind ?? null;
 
       replyCount.current += 1;
+      const preferenceEntryId =
+        `preferences-${replyCount.current}`;
+
       setEntries((current) => [
         ...current,
         {
-          id: `preferences-${replyCount.current}`,
+          id: preferenceEntryId,
           from: "stylist",
           text: "",
-          preferences: parsed.data.preferences,
+          preferences,
           issues: parsed.data.issues,
         },
       ]);
 
+      if (question) {
+        replyCount.current += 1;
+        const questionId =
+          `clarification-${replyCount.current}`;
+
+        setEntries((current) => [
+          ...current,
+          {
+            id: questionId,
+            from: "stylist",
+            text: question.message,
+          },
+        ]);
+
+        return;
+      }
+
       if (parsed.data.needs_clarification) return;
+    }
 
-      stage = "search";
-      const searchResponse = await fetch("/api/stylist-search", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ preferences: parsed.data.preferences }),
-        signal: controller.signal,
-      });
-      if (!searchResponse.ok) throw new Error("Product search failed.");
+    failedAttempt = {
+      stage: "search",
+      preferences: ShoppingPreferencesSchema.parse(
+        preferences
+      ),
+    };
 
-      const searchData = StylistSearchResponseSchema.safeParse(await searchResponse.json());
-      if (!searchData.success) throw new Error("Invalid product search response.");
+    const data = await postChatJson(
+      "/api/stylist-search",
+      { preferences },
+      { signal: controller.signal }
+    );
 
-      replyCount.current += 1;
-      setEntries((current) => [
-        ...current,
-        {
-          id: `products-${replyCount.current}`,
-          from: "stylist",
-          text: searchData.data.message,
-          products: searchData.data.products,
-        },
-      ]);
-    } catch {
-      if (controller.signal.aborted) return;
-      replyCount.current += 1;
-      setEntries((current) => [
-        ...current,
-        {
-          id: `error-${replyCount.current}`,
-          from: "stylist",
-          text: stage === "extraction"
-            ? "I couldn't extract preferences from that message. Please try again."
-            : "I found your preferences, but couldn't search the products right now. Please try again.",
-        },
-      ]);
-    } finally {
-      if (!controller.signal.aborted) setThinking(false);
-      if (requestRef.current === controller) requestRef.current = null;
+    if (!isCurrent()) return;
+
+    const search = StylistSearchResponseSchema.safeParse(data);
+
+    if (!search.success) {
+      throw new Error("Invalid search response.");
+    }
+
+    const hasMatches =
+      search.data.status === "matches" ||
+      search.data.status === "partial";
+
+    if (hasMatches !== (search.data.products.length > 0)) {
+      throw new Error(
+        "Search status and product list disagree."
+      );
+    }
+
+    replyCount.current += 1;
+    const productEntryId = `products-${replyCount.current}`;
+
+    setEntries((current) => [
+      ...current,
+      {
+        id: productEntryId,
+        from: "stylist",
+        text: search.data.message,
+        products: search.data.products,
+        crossSellPreferences:
+          ShoppingPreferencesSchema.parse(preferences),
+      },
+    ]);
+  } catch (error) {
+    if (!isCurrent()) return;
+
+    setRetryAttempt(failedAttempt);
+
+    const timedOut =
+      error instanceof ChatRequestError &&
+      error.kind === "timeout";
+
+    const step =
+      failedAttempt.stage === "search"
+        ? "searching the catalogue"
+        : "reading your request";
+
+    const message = timedOut
+      ? `The request timed out while ${step}. No new products were returned. Use Retry failed step or send a new message.`
+      : `I couldn't finish ${step}. This is a technical failure, not a no-match result. Use Retry failed step or send a new message.`;
+
+    replyCount.current += 1;
+    const errorId = `error-${replyCount.current}`;
+
+    setEntries((current) => [
+      ...current,
+      {
+        id: errorId,
+        from: "stylist",
+        text: message,
+      },
+    ]);
+  } finally {
+    if (requestRef.current === controller) {
+      requestRef.current = null;
+      setThinking(false);
     }
   }
+}
+
+async function extract(message: string) {
+  await runChatAttempt({
+    stage: "extraction",
+    message,
+    currentPreferences: currentPreferencesRef.current
+      ? ShoppingPreferencesSchema.parse(
+          currentPreferencesRef.current
+        )
+      : null,
+    pendingFollowUp: pendingFollowUpRef.current,
+  });
+}
 
   function send() {
     const message = draft.trim();
-    if (!message || busy) return;
+    if (!message || busy || requestRef.current !== null) return;
 
     setEntries((current) => [
       ...current,
@@ -597,7 +774,12 @@ export function StylistChat({
         <div className="ml-auto flex shrink-0 items-center gap-2">
           <button
             type="button"
-            onClick={onReset}
+            onClick={() => {
+  requestRef.current?.abort();
+  currentPreferencesRef.current = null;
+  pendingFollowUpRef.current = null;
+  onReset();
+}}
             aria-label="Reset chat"
             className="border border-hairline bg-panel px-3 py-2 text-[10px] font-medium tracking-[0.12em] uppercase transition-opacity hover:opacity-60"
           >
@@ -652,6 +834,9 @@ export function StylistChat({
           <Message
             key={entry.id}
             entry={entry}
+            showUpsell={
+  !busy && entry.id === entries[entries.length - 1]?.id
+}
             live={pending?.id === entry.id}
             onTick={() => setTick((value) => value + 1)}
             onTyped={() => commitPending(entry)}
@@ -660,7 +845,28 @@ export function StylistChat({
         ))}
         {thinking ? <TypingDots /> : null}
       </div>
+{retryAttempt ? (
+  <div className="shrink-0 border-t border-hairline bg-background px-6 py-3 text-[12px]">
+    <p className="text-muted">
+      {retryAttempt.stage === "search"
+        ? "Your preferences were saved. Retry only the product search."
+        : "Retry the message using the same earlier shopping context."}
+    </p>
 
+    <button
+      type="button"
+      disabled={busy}
+      onClick={() => {
+        if (retryAttempt) {
+          void runChatAttempt(retryAttempt);
+        }
+      }}
+      className="mt-2 border border-hairline px-3 py-2 disabled:opacity-50"
+    >
+      Retry failed step
+    </button>
+  </div>
+) : null}
       <div className="flex items-center gap-2 overflow-x-auto border-t border-hairline bg-panel px-6 py-2.5">
         <span className="shrink-0 text-[10px] tracking-[0.14em] text-muted uppercase">
           Suggestions:

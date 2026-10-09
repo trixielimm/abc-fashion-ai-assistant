@@ -15,12 +15,34 @@ export function validatePreferences(input: ShoppingPreferences, catalogue: Catal
   const preferences = ShoppingPreferencesSchema.parse(input);
   const issues: PreferenceIssue[] = [];
   const fields = ["gender", "category", "subcategory", "product_type", "occasion", "style", "season", "material", "fit", "size", "brand_line"] as const;
-  const hardFields = new Set<string>(["gender", "category", "subcategory", "product_type", "size", "excluded_colours"]);
-  function check(field: keyof ShoppingPreferences, value: string, allowed: string[]) {
-    const match = allowed.find(candidate => normalise(candidate) === normalise(value));
+   // These fields are required filters in the current website search.
+  const hardFields = new Set<keyof ShoppingPreferences>([
+    "gender",
+    "category",
+    "subcategory",
+    "product_type",
+    "size",
+    "preferred_colours",
+    "excluded_colours",
+    "material",
+    "brand_line",
+  ]);
+    function check(field: keyof ShoppingPreferences, value: string, allowed: string[]) {
+    const match = allowed.find(
+      (candidate) => normalise(candidate) === normalise(value)
+    );
     if (match !== undefined) return match;
-    issues.push({ field, value, code: "unsupported_value", blocking: hardFields.has(field),
-      reason: "Not recognised in the current public catalogue vocabulary. Preserve this preference; do not use it as an exact catalogue filter." });
+
+    const blocking = hardFields.has(field);
+    issues.push({
+      field,
+      value,
+      code: "unsupported_value",
+      blocking,
+      reason: blocking
+        ? "Not recognised in the visible catalogue. Clarify before changing or dropping this required filter."
+        : "Not recognised as an exact catalogue label. Keep the preference and explain any mismatch.",
+    });
     return value;
   }
   for (const field of fields) {
