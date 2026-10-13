@@ -5,7 +5,32 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 Install dependencies, then copy `.env.example` to `.env.local`. Set the
 server-only `OPENAI_API_KEY` value to enable the AI Stylist's preference
 extraction. The chat sends each message to `/api/extraction` and shows the
-extracted preferences; product retrieval is not connected yet.
+extracted preferences and matching catalogue products.
+
+## Product photos
+
+Set the five `S3_*` variables from `.env.example` in `.env.local` using your
+Supabase Storage S3 configuration. Keep the access key and secret server-only.
+`S3_BUCKET_NAME` must be the actual bucket containing your product photos.
+
+Store the bucket-relative object path in `products.image_key`, for example
+`products/ABC001/main.jpg`. Existing public or signed Supabase object URLs are
+also supported if they belong to the configured project and bucket; the app
+extracts the object path and generates a fresh signature. Local `/images/`
+demo photos continue to work.
+
+Search, stylist results, product details and cart items use a stable
+`/api/products/[productId]/image` URL. That server route checks catalogue access
+through the existing RLS policies, then redirects to an S3 URL valid for five
+minutes. It supports public and private buckets without changing bucket
+permissions. Temporary signatures are never saved in the cart. Missing or
+unavailable photos show the existing product placeholder.
+
+Storage photos bypass Next.js image optimization so the browser can follow
+fresh storage signatures without caching them in the optimizer. Upload suitably
+sized product photos (such as 1200px on the longest side). Local demo photos
+still use Next.js optimization. Homepage and related-product lists currently
+use demo catalogue data.
 
 First, run the development server:
 

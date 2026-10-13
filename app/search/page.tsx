@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ProductVisual } from "@/components/commerce/ProductVisual";
+import { ProductImage } from "@/components/commerce/ProductImage";
+import { getProductImageSrc } from "@/lib/product-image";
 import { Container } from "@/components/layout/Container";
 import { SearchIcon } from "@/components/ui/icons";
 import { formatPrice } from "@/lib/mock-data";
@@ -41,9 +42,11 @@ function ResultCard({ product }: { product: SearchProduct }) {
       href={`/products/${encodeURIComponent(product.product_id)}`}
       className="group block min-w-0"
     >
-      <ProductVisual
+      <ProductImage
+        src={getProductImageSrc(product.product_id, product.image_key)}
         name={product.product_name}
         category={category}
+        sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 23vw"
         className="transition-colors duration-300 group-hover:bg-[#e6e0d7]"
       />
       <div className="mt-3 flex items-start justify-between gap-3">

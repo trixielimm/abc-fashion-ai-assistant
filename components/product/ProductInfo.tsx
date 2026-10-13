@@ -2,6 +2,7 @@ import { cn } from "@/lib/cn";
 import { formatPrice, type Product } from "@/lib/mock-data";
 import type { ProductDetailMock } from "@/lib/product-detail-mock";
 import { ProductControls } from "@/components/product/ProductControls";
+import { getProductImageSrc } from "@/lib/product-image";
 
 const colourSwatches: Record<string, string> = {
   black: "bg-black",
@@ -31,9 +32,7 @@ export function ProductInfo({
     ? (colourSwatches[product.colour.toLowerCase()] ?? "bg-surface")
     : undefined;
   const price = listingProduct?.price ?? product.price_aud;
-  const image = listingProduct?.image ?? (
-    product.image_key?.startsWith("/") ? product.image_key : null
-  );
+  const image = listingProduct?.image ?? getProductImageSrc(productId, product.image_key);
 
   return (
     <section className="flex flex-col items-start pt-1">

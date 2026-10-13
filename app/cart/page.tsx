@@ -9,6 +9,7 @@ import { OrderSummary } from "@/components/cart/OrderSummary";
 import { useStylist } from "@/components/stylist/StylistProvider";
 import { CART_UPDATED_EVENT, readCart, writeCart, type CartRow, type StoredCartItem, } from "@/lib/cart";
 import { featuredProducts, formatPrice, } from "@/lib/mock-data";
+import { getProductImageEndpoint } from "@/lib/product-image";
 
 const recommendations = featuredProducts.slice(0, 4);
 
@@ -62,7 +63,7 @@ export default function CartPage() {
       ...item,
       name,
       price,
-      image: product?.image ?? item.image ?? null,
+      image: product?.image ?? item.image ?? getProductImageEndpoint(item.productId),
       href: product?.href ?? `/products/${encodeURIComponent(item.productId)}`,
     }];
   });

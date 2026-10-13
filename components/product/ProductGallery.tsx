@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { ProductVisual } from "@/components/commerce/ProductVisual";
+import { ProductImage } from "@/components/commerce/ProductImage";
+import { getProductImageSrc } from "@/lib/product-image";
 import { cn } from "@/lib/cn";
 import type { ProductDetailMock } from "@/lib/product-detail-mock";
 
@@ -14,13 +14,7 @@ export function ProductGallery({
 }) {
   const images = product.image_gallery?.length
     ? product.image_gallery
-    : [fallbackImage ?? product.image_key].filter((image): image is string =>
-        typeof image === "string" && image.startsWith("/"),
-      );
-
-  if (images.length === 0) {
-    return <ProductVisual name={productName} category={product.subcategory ?? product.category} />;
-  }
+    : [fallbackImage ?? getProductImageSrc(product.product_id, product.image_key)];
 
   return (
     <div
@@ -30,23 +24,14 @@ export function ProductGallery({
       )}
     >
       {images.map((image, index) => (
-        <div
+        <ProductImage
           key={`${image}-${index}`}
-          className="relative aspect-[3/4] overflow-hidden bg-surface"
-        >
-          <Image
-            src={image}
-            alt={`${productName}, view ${index + 1}`}
-            fill
-            priority={index === 0}
-            sizes={
-              images.length === 1
-                ? "(max-width: 768px) 90vw, 55vw"
-                : "(max-width: 768px) 50vw, 30vw"
-            }
-            className="object-cover"
-          />
-        </div>
+          src={image}
+          name={`${productName}, view ${index + 1}`}
+          category={product.subcategory ?? product.category}
+          preload={index === 0}
+          sizes={images.length === 1 ? "(max-width: 768px) 90vw, 55vw" : "(max-width: 768px) 50vw, 30vw"}
+        />
       ))}
     </div>
   );
