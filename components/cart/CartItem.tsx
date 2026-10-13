@@ -1,6 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
-import { ProductVisual } from "@/components/commerce/ProductVisual";
+import { ProductImage } from "@/components/commerce/ProductImage";
 import { formatPrice } from "@/lib/mock-data";
 import type { CartRow } from "@/lib/cart";
 
@@ -23,17 +22,12 @@ export function CartItem({
         aria-label={`View ${row.name}`}
         className="relative aspect-[3/4] self-start bg-surface"
       >
-        {row.image ? (
-          <Image
-            src={row.image}
-            alt={row.name}
-            fill
-            sizes="(max-width: 640px) 100px, 150px"
-            className="object-cover"
-          />
-        ) : (
-          <ProductVisual name={row.name} category={row.category ?? null} />
-        )}
+        <ProductImage
+          src={row.image}
+          name={row.name}
+          category={row.category ?? null}
+          sizes="(max-width: 640px) 100px, 150px"
+        />
       </Link>
 
       <div className="min-w-0">

@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { CloseIcon, PersonIcon } from "@/components/ui/icons";
-import { ProductVisual } from "@/components/commerce/ProductVisual";
+import { ProductImage } from "@/components/commerce/ProductImage";
+import { getProductImageSrc } from "@/lib/product-image";
 import { cn } from "@/lib/cn";
 import { addToCart } from "@/lib/cart";
 import { formatPrice, stylistSuggestions } from "@/lib/mock-data";
@@ -22,6 +23,7 @@ const StylistProductSchema = z.object({
   subcategory: z.string().nullable(),
   product_type: z.string().nullable(),
   colour: z.string().nullable(),
+  image_key: z.string().nullable().optional(),
   sizes_available: z.array(z.string().min(1)).min(1),
 });
 
@@ -157,7 +159,7 @@ function RecommendationCard({
         quantity: 1,
         name: product.product_name,
         price: product.price_aud,
-        image: null,
+        image: getProductImageSrc(product.product_id, product.image_key),
         category: product.category,
       });
       setFeedback("Added to cart.");
@@ -174,9 +176,11 @@ function RecommendationCard({
         aria-label={`View ${product.product_name}`}
         className="self-start"
       >
-        <ProductVisual
+        <ProductImage
+          src={getProductImageSrc(product.product_id, product.image_key)}
           name={product.product_name}
           category={product.subcategory ?? product.category}
+          sizes="(max-width: 640px) 72px, 88px"
           compact
           className="transition-colors hover:bg-[#e6e0d7]"
         />
