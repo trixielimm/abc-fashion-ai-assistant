@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { BottomNavBar } from "@/components/layout/BottomNavBar";
 import { OverlayScrollbar } from "@/components/layout/OverlayScrollbar";
 import { PageLoadingOverlay } from "@/components/layout/PageLoadingOverlay";
@@ -57,6 +58,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <BottomNavBar />
           <StylistLauncher />
         </StylistProvider>
+        <Analytics />
       </body>
     </html>
   );
