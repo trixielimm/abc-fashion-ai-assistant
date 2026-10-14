@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ProductImage } from "@/components/commerce/ProductImage";
+import { SearchPageLink, SearchResults } from "@/components/commerce/SearchPageLink";
 import { getProductImageSrc } from "@/lib/product-image";
 import { Container } from "@/components/layout/Container";
 import { SearchIcon } from "@/components/ui/icons";
@@ -149,7 +150,7 @@ export default async function SearchPage({
             </Link>
           </div>
         ) : (
-          <>
+          <SearchResults>
             <div className="flex flex-wrap items-end justify-between gap-4 py-7">
               <div>
                 <p className="text-[10px] tracking-[0.18em] text-muted uppercase">
@@ -207,15 +208,15 @@ export default async function SearchPage({
             {pageCount > 1 ? (
               <nav aria-label="Search result pages" className="mt-16 flex items-center justify-center gap-6 border-t border-border pt-8 text-xs">
                 {page > 1 ? (
-                  <Link href={searchHref(query, category, page - 1)} className="underline underline-offset-4">Previous</Link>
+                  <SearchPageLink href={searchHref(query, category, page - 1)}>Previous</SearchPageLink>
                 ) : <span className="text-muted">Previous</span>}
                 <span>Page {page} of {pageCount}</span>
                 {page < pageCount ? (
-                  <Link href={searchHref(query, category, page + 1)} className="underline underline-offset-4">Next</Link>
+                  <SearchPageLink href={searchHref(query, category, page + 1)}>Next</SearchPageLink>
                 ) : <span className="text-muted">Next</span>}
               </nav>
             ) : null}
-          </>
+          </SearchResults>
         )}
       </Container>
     </div>

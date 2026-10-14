@@ -103,10 +103,10 @@ export const instagramImages = [
 ];
 
 export const stylistSuggestions = [
-  "Black dress under $300",
-  "Men's shoes for work",
-  "Sage for a beach wedding",
-  "Nothing red for date night",
+  "Lavender wrap dress under $200",
+  "Pink bag under $100",
+  "Beige scarf between $80 and $100",
+  "Black cropped jacket between $100 and $150",
 ];
 
 export const footerDepartments = [
