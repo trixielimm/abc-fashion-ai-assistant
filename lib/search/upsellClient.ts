@@ -61,18 +61,19 @@ export function buildUpsellRequest(
 
   if (!primaryId.trim()) throw new Error("Choose a product first.");
 
-  if (preferences.max_price === null || !preferences.size?.trim()) {
-    throw new Error(
-      "Set a size and maximum price in the main chat, then compare from the new results."
-    );
-  }
+ if (preferences.size !== null && !preferences.size.trim()) {
+  throw new Error("A supplied size cannot be blank.");
+}
 
+if (preferences.max_price !== null) {
   money.parse(preferences.max_price);
+}
 
   if (
-    preferences.min_price !== null &&
-    preferences.min_price > preferences.max_price
-  ) {
+  preferences.min_price !== null &&
+  preferences.max_price !== null &&
+  preferences.min_price > preferences.max_price
+) {
     throw new Error("Clarify the price range in the main chat first.");
   }
 
@@ -124,8 +125,8 @@ export function readUpsellResponse(
   const original = result.primary_price_aud;
 
   if (
-    original === null || max === null || size === null ||
-    original > max || original < min ||
+    original === null ||
+(max !== null && original > max) || original < min ||
     !result.applied_preferences ||
     !samePreferences(result.applied_preferences, request.preferences)
   ) reject();
@@ -137,11 +138,14 @@ export function readUpsellResponse(
     if (
       ids.has(product.product_id) ||
       product.product_id === primary.product_id ||
-      product.price_aud <= original || product.price_aud > max ||
+      product.price_aud <= original ||
+(max !== null && product.price_aud > max) ||
       product.price_aud < min ||
       Math.round(product.extra_cost_aud * 100) !==
         Math.round(product.price_aud * 100) - Math.round(original * 100) ||
-      !product.sizes_available.some((label) => normalise(label) === normalise(size)) ||
+      (size !== null && !product.sizes_available.some(
+  (label) => normalise(label) === normalise(size)
+)) ||
       identity.some((field) =>
         !normalise(primary[field]) ||
         normalise(product[field]) !== normalise(primary[field])

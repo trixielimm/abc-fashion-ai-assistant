@@ -64,11 +64,13 @@ check("Request preserves all preferences without mutating them", () => {
   );
 });
 
-check("Missing size, budget or product and invalid ranges are rejected", () => {
+check("Invalid supplied values and missing reference product are rejected", () => {
   for (const change of [
-    { size: null }, { size: " " }, { max_price: null },
-    { max_price: -1 }, { max_price: 100.001 }, { min_price: 101 },
-  ]) {
+  { size: " " },
+  { max_price: -1 },
+  { max_price: 100.001 },
+  { min_price: 101 },
+]) {
     assert.throws(() =>
       buildUpsellRequest("MAIN", { ...preferences, ...change })
     );

@@ -133,12 +133,12 @@ export function retrieveUpsell(
 
   const maximumCents = cents(preferences.max_price);
 
-  if (maximumCents === null || !preferences.size?.trim()) {
-    return reply(
-      "needs_more_detail",
-      "Specify your size and a maximum per-item price before comparing higher-priced replacements."
-    );
-  }
+  if (preferences.max_price !== null && maximumCents === null) {
+  return reply(
+    "needs_more_detail",
+    "The supplied maximum price must be a valid AUD amount with at most two decimal places."
+  );
+}
 
   if (original.result.products.length === 0) {
     return reply(
@@ -209,7 +209,7 @@ export function retrieveUpsell(
       excluded.has(product.product_id ?? "") ||
       price === null ||
       price <= primaryCents ||
-      price > maximumCents ||
+      (maximumCents !== null && price > maximumCents) ||
       identityFields.some(
         (field) =>
           normalise(product[field]) !==
@@ -255,7 +255,7 @@ export function retrieveUpsell(
   if (result.products.length === 0) {
     return reply(
       "no_upsell",
-      "No higher-priced same-type item adds a requested match without losing an existing one within your budget. Your limits were not increased."
+     "No higher-priced same-type item adds a requested match without losing an existing one. Any supplied limits were kept."
     );
   }
 
@@ -317,9 +317,9 @@ export function retrieveUpsell(
     }
   );
 
-  return reply(
+    return reply(
     "options",
-    "Optional higher-priced replacements within your existing budget. Each adds a requested catalogue-label match; remaining differences are listed. Nothing has been added to your cart.",
+    `Optional higher-priced replacements${preferences.max_price === null ? "" : " within your existing budget"}. Each adds a requested catalogue-label match; remaining differences are listed. Nothing has been added to your cart.`,
     products
   );
 }

@@ -3,13 +3,18 @@ import { searchWithValidatedPreferences } from "@/lib/search/validatedPreference
 import { ShoppingPreferencesSchema } from "@/lib/ai/preferenceSchema";
 import { generateRecommendation } from "@/lib/ai/generateRecommendation";
 import { getCatalogueProducts } from "@/lib/recommendations/catalogue";
+import { PriceReferencesSchema } from "@/lib/stylist/priceContext";
+import { searchCheaper } from "@/lib/search/cheaperSearch";
 import { searchByPreferences } from "@/lib/search/preferenceSearch";
 import { z } from "zod";
 
 
 export const runtime = "nodejs";
 
-const RequestSchema = z.strictObject({ preferences: ShoppingPreferencesSchema });
+const RequestSchema = z.strictObject({
+  preferences: ShoppingPreferencesSchema,
+  cheaper_than: PriceReferencesSchema.optional(),
+});
 const headers = { "Cache-Control": "no-store" };
 
 export async function POST(request: Request) {
@@ -37,7 +42,10 @@ export async function POST(request: Request) {
     // Ask for a more specific request before querying Supabase when the
     // extracted message has no useful product or occasion information.
     const preflight = searchByPreferences([], parsed.data.preferences);
-    if (preflight.status === "needs_more_detail") {
+   if (
+  preflight.status === "needs_more_detail" &&
+  !parsed.data.cheaper_than
+) {
       return Response.json(preflight, { headers });
     }
 
@@ -53,6 +61,16 @@ export async function POST(request: Request) {
         { status: 503, headers },
       );
     }
+    if (parsed.data.cheaper_than) {
+  const result = searchCheaper(
+    catalogue,
+    parsed.data.preferences,
+    parsed.data.cheaper_than,
+    vocabulary
+  );
+
+  return Response.json(result, { headers });
+}
     const { validation, result } = searchWithValidatedPreferences(
   catalogue,
   parsed.data.preferences,

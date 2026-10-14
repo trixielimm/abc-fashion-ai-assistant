@@ -87,7 +87,7 @@ check("Shared preferences and exclusions are copied without mutation", () => {
 });
 
 check("Invalid budgets and empty selections are rejected", () => {
-  for (const value of ["", "-1", "abc", "1e2", "50.999"]) {
+  for (const value of ["-1", "abc", "1e2", "50.999"]) {
     assert.throws(() =>
       buildCrossSellRequest("MAIN", value, null, preferences)
     );

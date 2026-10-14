@@ -4,6 +4,8 @@ import { cn } from "@/lib/cn";
 import { featuredProducts } from "@/lib/mock-data";
 import { productDetailMocks } from "@/lib/product-detail-mock";
 import { getCatalogueProductById } from "@/lib/recommendations/catalogue";
+import { ProductPageContext } from "@/components/stylist/ProductPageContext";
+import { readViewedProduct } from "@/lib/stylist/viewedProduct";
 import { ProductAccordion } from "@/components/product/ProductAccordion";
 import { ProductGallery } from "@/components/product/ProductGallery";
 import { ProductInfo } from "@/components/product/ProductInfo";
@@ -23,6 +25,9 @@ export default async function ProductDetailPage({
   const productName = listingProduct?.name ?? product?.product_name;
 
   if (!product || !productName) notFound();
+  const pageProduct = mockProduct
+  ? null
+  : readViewedProduct(product);
 
   const breadcrumbs = product.category
     ? [
@@ -35,6 +40,9 @@ export default async function ProductDetailPage({
 
   return (
     <div className="min-h-full bg-panel">
+      {pageProduct ? (
+  <ProductPageContext product={pageProduct} />
+) : null}
       <Container
         className={cn(
           "max-w-[1240px] px-5 pb-16 pt-5 sm:px-8 lg:px-10 lg:pb-20",

@@ -16,7 +16,7 @@ const label = z.string().trim().min(1).max(100);
 // These preferences apply to the ADDITIONAL item, not the main item.
 export const CrossSellRequestSchema = z.strictObject({
   primary_product_id: label,
-  max_price: z.number().nonnegative(),
+  max_price: z.number().nonnegative().nullable().default(null),
   size: label.nullable().default(null),
   gender: ShoppingPreferencesSchema.shape.gender.default(null),
   occasion: label.nullable().default(null),
@@ -59,7 +59,8 @@ function normalise(value: string | null): string {
 export function retrieveCrossSell(
   catalogue: readonly CatalogueProduct[],
   input: unknown,
-  vocabulary: CataloguePreferenceValues
+  vocabulary: CataloguePreferenceValues,
+  scopedPreferences?: ShoppingPreferences
 ): CrossSellResult {
   const request = CrossSellRequestSchema.parse(input);
 
@@ -127,18 +128,31 @@ export function retrieveCrossSell(
 
   const target = targets[0];
 
-  if (request.size === null) {
-    return reply(
-      "needs_more_detail",
-      `What size is needed for the additional ${targetCategory} item? Use its own catalogue size label, including One Size where applicable.`
-    );
-  }
+  // Unknown size is allowed during discovery. The cart resolves variants.
 
-  // Build separate preferences for the additional item.
-  const checked = ShoppingPreferencesSchema.safeParse({
+  // The conversation route may supply its complete, scoped preferences.
+const requested = scopedPreferences
+  ? ShoppingPreferencesSchema.parse(scopedPreferences)
+  : null;
+
+if (
+  requested &&
+  (
+    (requested.category !== null &&
+      normalise(requested.category) !== normalise(target.category)) ||
+    (requested.subcategory !== null && target.subcategory !== null &&
+      normalise(requested.subcategory) !== normalise(target.subcategory))
+  )
+) {
+  return reply(
+    "no_rule",
+    `The recorded cross-sell target is ${targetCategory}, not the requested item category. No different category was substituted.`
+  );
+}
+
+const checked = ShoppingPreferencesSchema.safeParse({
+  ...(requested ?? {
     gender: request.gender,
-    category: target.category,
-    subcategory: target.subcategory,
     product_type: null,
     occasion: request.occasion,
     style: request.style,
@@ -151,7 +165,10 @@ export function retrieveCrossSell(
     min_price: null,
     max_price: request.max_price,
     brand_line: null,
-  });
+  }),
+  category: target.category,
+  subcategory: requested?.subcategory ?? target.subcategory,
+});
 
   if (!checked.success) {
     return reply(

@@ -182,16 +182,27 @@ check("Colour, exclusions and material requirements remain enforced", () => {
   );
 });
 
-check("Size and budget must be explicit", () => {
-  assert.equal(
-    run({}, { size: null }).status,
-    "needs_more_detail"
-  );
+check("Unknown size or budget does not block a qualifying replacement", () => {
+  for (const change of [
+    { size: null },
+    { max_price: null },
+    { size: null, max_price: null },
+  ]) {
+    const result = run({}, change);
 
-  assert.equal(
-    run({}, { max_price: null }).status,
-    "needs_more_detail"
-  );
+    assert.equal(result.status, "options");
+    assert.equal(result.products[0].product_id, "OPTION");
+
+    assert.equal(
+      result.applied_preferences.size,
+      "size" in change ? null : "10"
+    );
+
+    assert.equal(
+      result.applied_preferences.max_price,
+      "max_price" in change ? null : 100
+    );
+  }
 });
 
 check("A zero budget is not treated as unlimited", () => {

@@ -45,17 +45,21 @@ export function buildCrossSellRequest(
 ) {
   const saved = ShoppingPreferencesSchema.parse(context);
   const budget = budgetText.trim();
+  const maximum = budget === "" ? null : Number(budget);
 
   if (!primaryId.trim()) {
     throw new Error("Choose the main product first.");
   }
 
   if (
+  budget !== "" &&
+  (
     !/^\d+(?:\.\d{1,2})?$/.test(budget) ||
     !Number.isSafeInteger(Math.round(Number(budget) * 100))
-  ) {
-    throw new Error("Enter a maximum price such as 50 or 50.00.");
-  }
+  )
+) {
+  throw new Error("Enter a maximum price such as 50 or 50.00.");
+}
 
   if (size !== null && !size.trim()) {
     throw new Error("Enter the additional item's own size label.");
@@ -70,7 +74,7 @@ export function buildCrossSellRequest(
 
   return {
     primary_product_id: primaryId.trim(),
-    max_price: Number(budget),
+    max_price: maximum,
     size: size === null ? null : size.trim(),
     gender: saved.gender,
     occasion: saved.occasion,
@@ -88,6 +92,7 @@ export function readCrossSellResponse(
   request: ReturnType<typeof buildCrossSellRequest>
 ): CrossSellReply {
   const result = ResponseSchema.parse(input);
+  const requestedSize = request.size;
 
   const hasMatches =
     result.status === "matches" ||
@@ -105,18 +110,17 @@ export function readCrossSellResponse(
     const ids = result.products.map((product) => product.product_id);
 
     if (
-      request.size === null ||
       !result.target_category ||
       !applied ||
       applied.max_price !== request.max_price ||
-      normalise(applied.size ?? "") !== normalise(request.size) ||
+      normalise(applied.size ?? "") !== normalise(requestedSize ?? "") ||
       new Set(ids).size !== ids.length ||
       result.products.some((product) =>
         product.product_id === request.primary_product_id ||
-        product.price_aud > request.max_price ||
-        !product.sizes_available.some(
-          (label) => normalise(label) === normalise(request.size!)
-        ) ||
+        (request.max_price !== null && product.price_aud > request.max_price) ||
+(requestedSize !== null && !product.sizes_available.some(
+  (label) => normalise(label) === normalise(requestedSize)
+)) ||
         product.category !== applied.category ||
         (
           applied.subcategory !== null &&

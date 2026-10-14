@@ -10,10 +10,25 @@ import {
 } from "@/lib/ai/chatRequest";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { CrossSellConversation } from "@/components/stylist/CrossSellConversation";
-import { UpsellComparison } from "@/components/stylist/UpsellComparison";
+import {
+  automaticCartSize,
+  prepareProductAction,
+  ProductActionInputError,
+  type ProductAction,
+  type ProductActionKind,
+} from "@/lib/stylist/productActions";
 
 import { CloseIcon, PersonIcon } from "@/components/ui/icons";
+import {
+  chooseCheaperContext,
+  preferencesForViewedProduct,
+  type ViewedPageContext,
+} from "@/lib/stylist/viewedProduct";
+import {
+  isCheaperMessage,
+  rememberPriceContext,
+  type PriceContext,
+} from "@/lib/stylist/priceContext";
 import { ProductVisual } from "@/components/commerce/ProductVisual";
 import { cn } from "@/lib/cn";
 import { addToCart } from "@/lib/cart";
@@ -34,6 +49,7 @@ const StylistProductSchema = z.object({
   product_type: z.string().nullable(),
   colour: z.string().nullable(),
   sizes_available: z.array(z.string().min(1)).min(1),
+  explanation: z.string().optional(),
 });
 
 const StylistSearchResponseSchema = z.object({
@@ -96,6 +112,11 @@ type ChatAttempt =
   | {
       stage: "search";
       preferences: ShoppingPreferences;
+      cheaperThan?: PriceContext["references"];
+    }
+  | {
+      stage: "product_action";
+      action: ProductAction;
     };
 const GREETING =
   "Welcome to ABC Fashion. Tell me what you're shopping for, and I'll find a few items that fit your preferences.";
@@ -199,19 +220,39 @@ function PreferenceDetails({ preferences, issues = [] }: { preferences: Shopping
 function RecommendationCard({
   product,
   onProductOpen,
+  preferences,
 }: {
   product: StylistProduct;
   onProductOpen: () => void;
+  preferences?: ShoppingPreferences;
 }) {
   const sizes = product.sizes_available;
-  const [selectedSize, setSelectedSize] = useState(sizes.length === 1 ? sizes[0] : "");
+  const automaticSize = automaticCartSize(sizes);
+
+const knownSize =
+  preferences?.category &&
+  preferences.category === product.category &&
+  preferences.size
+    ? sizes.find(
+        (label) =>
+          label.trim().toLowerCase() ===
+          preferences.size!.trim().toLowerCase()
+      ) ?? ""
+    : "";
+
+const [selectedSize, setSelectedSize] = useState(
+  automaticSize ?? knownSize
+);
+
+const [choosingSize, setChoosingSize] = useState(false);
   const [feedback, setFeedback] = useState("");
 
   function addProduct() {
-    if (!selectedSize) {
-      setFeedback("Select a size first.");
-      return;
-    }
+    if (!selectedSize || !sizes.includes(selectedSize)) {
+  setChoosingSize(true);
+  setFeedback("Choose a size to add this item to your cart.");
+  return;
+}
 
     try {
       addToCart({
@@ -223,6 +264,7 @@ function RecommendationCard({
         image: null,
         category: product.category,
       });
+      setChoosingSize(false);
       setFeedback("Added to cart.");
     } catch {
       setFeedback("Could not add this item. Please try again.");
@@ -259,37 +301,60 @@ function RecommendationCard({
           <span className="text-muted">{product.colour}</span>
           <span>{formatPrice(product.price_aud)}</span>
         </div>
-        <div className="mt-3 flex flex-wrap gap-2">
-          {sizes.length === 1 ? (
-            <span className="flex min-h-9 items-center text-[11px] text-muted">
-              Size: {sizes[0]}
-            </span>
-          ) : (
-            <label className="min-w-[90px] flex-1">
-              <span className="sr-only">Size for {product.product_name}</span>
-              <select
-                value={selectedSize}
-                onChange={(event) => {
-                  setSelectedSize(event.target.value);
-                  setFeedback("");
-                }}
-                className="h-9 w-full border border-hairline bg-background px-2 text-[11px]"
-              >
-                <option value="">Select size</option>
-                {sizes.map((size) => (
-                  <option key={size} value={size}>{size}</option>
-                ))}
-              </select>
-            </label>
-          )}
-          <button
-            type="button"
-            onClick={addProduct}
-            className="min-h-9 min-w-[105px] flex-1 bg-foreground px-3 text-[10px] font-medium tracking-[0.08em] text-background uppercase transition-opacity hover:opacity-80"
-          >
-            Add to cart
-          </button>
-        </div>
+        {product.explanation ? (
+  <p className="mt-2 text-[11px] leading-5 text-muted">
+    {product.explanation}
+  </p>
+) : null}
+
+<div className="mt-3 flex flex-wrap gap-2">
+  {choosingSize ? (
+    <label className="min-w-[90px] flex-1">
+      <span className="sr-only">
+        Size for {product.product_name}
+      </span>
+
+      <select
+        value={selectedSize}
+        onChange={(event) => {
+          setSelectedSize(event.target.value);
+          setFeedback("");
+        }}
+        className="h-9 w-full border border-hairline bg-background px-2 text-[11px]"
+      >
+        <option value="">Select size</option>
+
+        {sizes.map((size) => (
+          <option key={size} value={size}>
+            {size}
+          </option>
+        ))}
+      </select>
+    </label>
+  ) : null}
+
+  <button
+    type="button"
+    onClick={addProduct}
+    className="min-h-9 min-w-[105px] flex-1 bg-foreground px-3 text-[10px] font-medium tracking-[0.08em] text-background uppercase transition-opacity hover:opacity-80"
+  >
+    {choosingSize ? "Confirm add" : "Add to cart"}
+  </button>
+
+  {choosingSize ? (
+    <button
+      type="button"
+      onClick={() => {
+        setChoosingSize(false);
+        setSelectedSize(automaticSize ?? knownSize);
+        setFeedback("");
+      }}
+      className="text-[11px] underline"
+    >
+      Cancel
+    </button>
+  ) : null}
+</div>
         {feedback ? <p role="status" className="mt-2 text-[11px]">{feedback}</p> : null}
       </div>
     </article>
@@ -299,18 +364,47 @@ function RecommendationCard({
 function ProductRecommendations({
   products,
   onProductOpen,
+  onAction,
+  preferences,
 }: {
   products: StylistProduct[];
+  preferences?: ShoppingPreferences;
   onProductOpen: () => void;
+  onAction?: (
+    kind: ProductActionKind,
+    product: StylistProduct
+  ) => void;
 }) {
   return (
     <div className="mt-4 grid grid-cols-1 gap-3 border-t border-hairline pt-4 lg:grid-cols-2">
       {products.map((product) => (
-        <RecommendationCard
-          key={product.product_id}
-          product={product}
-          onProductOpen={onProductOpen}
-        />
+        <div key={product.product_id}>
+          <RecommendationCard
+            product={product}
+            onProductOpen={onProductOpen}
+            preferences={preferences}
+          />
+
+          {onAction ? (
+            <div className="mt-2 flex flex-wrap gap-3 text-[11px]">
+              <button
+                type="button"
+                onClick={() => onAction("cross_sell", product)}
+                className="underline underline-offset-2"
+              >
+                Find an extra
+              </button>
+
+              <button
+                type="button"
+                onClick={() => onAction("upsell", product)}
+                className="underline underline-offset-2"
+              >
+                Compare higher-priced options
+              </button>
+            </div>
+          ) : null}
+        </div>
       ))}
     </div>
   );
@@ -396,6 +490,7 @@ function Message({
   onTyped,
   onProductOpen,
   showUpsell = false,
+  onProductAction,
 }: {
   entry: Entry;
   live?: boolean;
@@ -403,21 +498,29 @@ function Message({
   onTyped?: () => void;
   onProductOpen: () => void;
   showUpsell?: boolean;
+  onProductAction: (
+    kind: ProductActionKind,
+    product: StylistProduct,
+    preferences: ShoppingPreferences
+  ) => void;
 }) {
+  const context = entry.crossSellPreferences;
   const isYou = entry.from === "you";
+
   return (
     <div className={cn("flex gap-4", isYou && "flex-row-reverse")}>
       <Avatar from={entry.from} />
+
       <div
         className={cn(
           "flex min-w-0 flex-1 flex-col",
-          isYou ? "items-end" : "items-start",
+          isYou ? "items-end" : "items-start"
         )}
       >
         <div
           className={cn(
             "flex items-baseline gap-2",
-            isYou && "flex-row-reverse",
+            isYou && "flex-row-reverse"
           )}
         >
           <p className="text-[10px] font-semibold tracking-[0.14em] uppercase">
@@ -425,47 +528,36 @@ function Message({
           </p>
           <p className="text-[10px] text-muted">Just now</p>
         </div>
+
         <div
           className={cn(
             "mt-2 max-w-full border p-4 text-[14px] leading-6",
             !entry.products?.length && "sm:max-w-[74%]",
             isYou
               ? "border-foreground bg-foreground text-background"
-              : "border-hairline bg-surface",
+              : "border-hairline bg-surface"
           )}
         >
           {entry.preferences ? (
-            <PreferenceDetails preferences={entry.preferences} issues={entry.issues} />
+            <PreferenceDetails
+              preferences={entry.preferences}
+              issues={entry.issues}
+            />
           ) : entry.products?.length ? (
             <div>
               <p>{entry.text}</p>
-              <ProductRecommendations products={entry.products} onProductOpen={onProductOpen} />
-              {showUpsell && entry.crossSellPreferences ? (
-  <div>
-    <UpsellComparison
-      products={entry.products}
-      preferences={entry.crossSellPreferences}
-      renderProduct={(product) => (
-        <RecommendationCard
-          product={product}
-          onProductOpen={onProductOpen}
-        />
-      )}
-    />
-  </div>
-) : null}
-              {entry.crossSellPreferences ? (
-  <CrossSellConversation
-    products={entry.products}
-    preferences={entry.crossSellPreferences}
-    renderProducts={(products) => (
-      <ProductRecommendations
-        products={products}
-        onProductOpen={onProductOpen}
-      />
-    )}
-  />
-) : null}
+
+              <ProductRecommendations
+                products={entry.products}
+                preferences={context}
+                onProductOpen={onProductOpen}
+                onAction={
+                  showUpsell && context
+                    ? (kind, product) =>
+                        onProductAction(kind, product, context)
+                    : undefined
+                }
+              />
             </div>
           ) : live && onTick && onTyped ? (
             <p>
@@ -487,9 +579,11 @@ function Message({
 export function StylistChat({
   onClose,
   onReset,
+  viewedPage = null,
 }: {
   onClose: () => void;
   onReset: () => void;
+  viewedPage?: ViewedPageContext | null;
 }) {
   const [entries, setEntries] = useState<Entry[]>([]);
   const [pending, setPending] = useState<Entry | null>(null);
@@ -502,6 +596,8 @@ export function StylistChat({
   const replyCount = useRef(0);
   const requestRef = useRef<AbortController | null>(null);
   const currentPreferencesRef = useRef<ShoppingPreferences | null>(null);
+  const consumedPageKeyRef = useRef<number | null>(null);
+  const activePriceContextRef = useRef<PriceContext | null>(null);
   const pendingFollowUpRef = useRef<FollowUpKind | null>(null);
   const busy = thinking || pending !== null;
 
@@ -552,6 +648,7 @@ export function StylistChat({
 
   setThinking(true);
   setRetryAttempt(null);
+  activePriceContextRef.current = null;
 
   // After extraction succeeds, retry search rather than extraction.
   let failedAttempt: ChatAttempt = attempt;
@@ -564,6 +661,50 @@ export function StylistChat({
   }
 
   try {
+    if (attempt.stage === "product_action") {
+  const prepared = prepareProductAction(attempt.action);
+
+  const data = await postChatJson(
+    prepared.endpoint,
+    prepared.body,
+    { signal: controller.signal }
+  );
+
+  if (!isCurrent()) return;
+
+  const result = prepared.read(data);
+
+  const context =
+    result.preferences ?? attempt.action.preferences;
+    activePriceContextRef.current = rememberPriceContext(
+  result.products,
+  context
+);
+
+  if (result.preferences !== null) {
+    currentPreferencesRef.current =
+      ShoppingPreferencesSchema.parse(result.preferences);
+  }
+
+  pendingFollowUpRef.current = null;
+
+  replyCount.current += 1;
+  const id = `action-result-${replyCount.current}`;
+
+  setEntries((current) => [
+    ...current,
+    {
+      id,
+      from: "stylist",
+      text: result.message,
+      products: result.products,
+      crossSellPreferences:
+        ShoppingPreferencesSchema.parse(context),
+    },
+  ]);
+
+  return;
+}
     let preferences: ShoppingPreferences;
 
     if (attempt.stage === "search") {
@@ -642,18 +783,25 @@ export function StylistChat({
       if (parsed.data.needs_clarification) return;
     }
 
-    failedAttempt = {
-      stage: "search",
-      preferences: ShoppingPreferencesSchema.parse(
-        preferences
-      ),
-    };
+   const cheaperThan =
+  attempt.stage === "search"
+    ? attempt.cheaperThan
+    : undefined;
 
-    const data = await postChatJson(
-      "/api/stylist-search",
-      { preferences },
-      { signal: controller.signal }
-    );
+failedAttempt = {
+  stage: "search",
+  preferences: ShoppingPreferencesSchema.parse(preferences),
+  cheaperThan,
+};
+
+const data = await postChatJson(
+  "/api/stylist-search",
+  {
+    preferences,
+    ...(cheaperThan ? { cheaper_than: cheaperThan } : {}),
+  },
+  { signal: controller.signal }
+);
 
     if (!isCurrent()) return;
 
@@ -675,6 +823,12 @@ export function StylistChat({
 
     replyCount.current += 1;
     const productEntryId = `products-${replyCount.current}`;
+    currentPreferencesRef.current =
+  ShoppingPreferencesSchema.parse(preferences);
+    activePriceContextRef.current = rememberPriceContext(
+  search.data.products,
+  preferences
+);
 
     setEntries((current) => [
       ...current,
@@ -690,18 +844,26 @@ export function StylistChat({
   } catch (error) {
     if (!isCurrent()) return;
 
-    setRetryAttempt(failedAttempt);
+    const invalidAction = error instanceof ProductActionInputError;
+
+if (!invalidAction) {
+  setRetryAttempt(failedAttempt);
+}
 
     const timedOut =
       error instanceof ChatRequestError &&
       error.kind === "timeout";
 
-    const step =
-      failedAttempt.stage === "search"
-        ? "searching the catalogue"
-        : "reading your request";
+   const step =
+  failedAttempt.stage === "product_action"
+    ? "finding options for that product"
+    : failedAttempt.stage === "search"
+      ? "searching the catalogue"
+      : "reading your request";
 
-    const message = timedOut
+    const message = invalidAction
+  ? error.message
+  : timedOut
       ? `The request timed out while ${step}. No new products were returned. Use Retry failed step or send a new message.`
       : `I couldn't finish ${step}. This is a technical failure, not a no-match result. Use Retry failed step or send a new message.`;
 
@@ -725,6 +887,48 @@ export function StylistChat({
 }
 
 async function extract(message: string) {
+  if (isCheaperMessage(message)) {
+    const chosen = chooseCheaperContext(
+  activePriceContextRef.current,
+  viewedPage,
+  consumedPageKeyRef.current,
+  currentPreferencesRef.current
+);
+
+consumedPageKeyRef.current = chosen.pageKey;
+const context = chosen.context;
+
+    setRetryAttempt(null);
+    pendingFollowUpRef.current = null;
+
+    if (!context) {
+      replyCount.current += 1;
+      const id = `price-context-${replyCount.current}`;
+
+      setEntries((current) => [
+        ...current,
+        {
+          id,
+          from: "stylist",
+          text:
+            "I need a recent product result to compare prices. Tell me what item you are looking for, or run the main search again.",
+        },
+      ]);
+
+      return;
+    }
+
+    await runChatAttempt({
+      stage: "search",
+      preferences: ShoppingPreferencesSchema.parse(
+        context.preferences
+      ),
+      cheaperThan: context.references,
+    });
+
+    return;
+  }
+consumedPageKeyRef.current = viewedPage?.key ?? null;
   await runChatAttempt({
     stage: "extraction",
     message,
@@ -736,7 +940,79 @@ async function extract(message: string) {
     pendingFollowUp: pendingFollowUpRef.current,
   });
 }
+function compareViewedProduct() {
+  if (
+    !viewedPage ||
+    busy ||
+    requestRef.current !== null
+  ) {
+    return;
+  }
 
+  const context = rememberPriceContext(
+    [viewedPage.product],
+    preferencesForViewedProduct(
+      viewedPage.product,
+      currentPreferencesRef.current
+    )
+  );
+
+  if (!context) return;
+
+  consumedPageKeyRef.current = viewedPage.key;
+
+  replyCount.current += 1;
+  const id = `page-comparison-${replyCount.current}`;
+
+  setEntries((current) => [
+    ...current,
+    {
+      id,
+      from: "you",
+      text:
+        `Find cheaper alternatives to ${viewedPage.product.product_name}.`,
+    },
+  ]);
+
+  void runChatAttempt({
+    stage: "search",
+    preferences: context.preferences,
+    cheaperThan: context.references,
+  });
+}
+
+function startProductAction(
+  kind: ProductActionKind,
+  product: StylistProduct,
+  preferences: ShoppingPreferences
+) {
+  if (busy || requestRef.current !== null) return;
+  consumedPageKeyRef.current = viewedPage?.key ?? null;
+
+  const action: ProductAction = {
+    kind,
+    product: StylistProductSchema.parse(product),
+    preferences: ShoppingPreferencesSchema.parse(preferences),
+  };
+
+  const text =
+    kind === "cross_sell"
+      ? `Find an optional extra for ${product.product_name}.`
+      : `Compare higher-priced alternatives to ${product.product_name}.`;
+
+  replyCount.current += 1;
+  const id = `action-request-${replyCount.current}`;
+
+  setEntries((current) => [
+    ...current,
+    { id, from: "you", text },
+  ]);
+
+  void runChatAttempt({
+    stage: "product_action",
+    action,
+  });
+}
   function send() {
     const message = draft.trim();
     if (!message || busy || requestRef.current !== null) return;
@@ -778,6 +1054,7 @@ async function extract(message: string) {
   requestRef.current?.abort();
   currentPreferencesRef.current = null;
   pendingFollowUpRef.current = null;
+ activePriceContextRef.current = null;
   onReset();
 }}
             aria-label="Reset chat"
@@ -821,7 +1098,53 @@ async function extract(message: string) {
         </Link>
         .
       </aside>
+{viewedPage ? (
+  <aside
+    aria-label="Current product page context"
+    className="shrink-0 border-b border-hairline bg-background px-6 py-3 text-[12px]"
+  >
+    <p>
+      Page product:{" "}
+      <strong>{viewedPage.product.product_name}</strong>
+      {" · "}
+      {formatPrice(viewedPage.product.price_aud)}
+    </p>
 
+    <p className="mt-1 text-[11px] text-muted">
+      Existing limits and exclusions stay in place.
+      A saved size is reused only within the same category.
+    </p>
+
+    <div className="mt-2 flex flex-wrap gap-4">
+      <button
+        type="button"
+        disabled={busy}
+        onClick={compareViewedProduct}
+        className="underline underline-offset-2 disabled:opacity-50"
+      >
+        Cheaper alternatives to this item
+      </button>
+
+      <button
+        type="button"
+        disabled={busy}
+        onClick={() =>
+          startProductAction(
+            "cross_sell",
+            viewedPage.product,
+            preferencesForViewedProduct(
+              viewedPage.product,
+              currentPreferencesRef.current
+            )
+          )
+        }
+        className="underline underline-offset-2 disabled:opacity-50"
+      >
+        Find an extra for this item
+      </button>
+    </div>
+  </aside>
+) : null}
       <div
         ref={transcriptRef}
         role="log"
@@ -834,6 +1157,7 @@ async function extract(message: string) {
           <Message
             key={entry.id}
             entry={entry}
+            onProductAction={startProductAction}
             showUpsell={
   !busy && entry.id === entries[entries.length - 1]?.id
 }
@@ -848,9 +1172,11 @@ async function extract(message: string) {
 {retryAttempt ? (
   <div className="shrink-0 border-t border-hairline bg-background px-6 py-3 text-[12px]">
     <p className="text-muted">
-      {retryAttempt.stage === "search"
-        ? "Your preferences were saved. Retry only the product search."
-        : "Retry the message using the same earlier shopping context."}
+      {retryAttempt.stage === "product_action"
+  ? "Retry the same product action without changing its preferences."
+  : retryAttempt.stage === "search"
+    ? "Your preferences were saved. Retry only the product search."
+    : "Retry the message using the same earlier shopping context."}
     </p>
 
     <button

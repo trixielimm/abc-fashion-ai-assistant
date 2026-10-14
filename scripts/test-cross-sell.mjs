@@ -142,11 +142,15 @@ check("Subcategory rule does not return a different subcategory", () => {
   );
 });
 
-check("Missing additional-item size asks instead of copying the main size", () => {
+check("Missing additional-item size does not block discovery", () => {
   const result = run(undefined, { size: null });
 
-  assert.equal(result.status, "needs_more_detail");
-  assert.deepEqual(result.products, []);
+  assert.equal(result.status, "matches");
+  assert.equal(result.applied_preferences.size, null);
+  assert.deepEqual(
+    result.products.map((p) => p.product_id),
+    ["BAG"]
+  );
 });
 
 check("A shoe size is supplied independently of clothing size", () => {
@@ -242,13 +246,22 @@ check("Main item is never returned as its own cross-sell", () => {
   noMatch(result);
 });
 
-check("Missing budget and client-supplied target category are rejected", () => {
-  assert.equal(
-    CrossSellRequestSchema.safeParse({
-      primary_product_id: "MAIN",
-    }).success,
-    false
+check("Budget can be omitted but the target category is still server-controlled", () => {
+  const parsed = CrossSellRequestSchema.parse({
+    primary_product_id: "MAIN",
+  });
+
+  assert.equal(parsed.max_price, null);
+  assert.equal(parsed.size, null);
+
+  const result = retrieveCrossSell(
+    [main, bag],
+    parsed,
+    vocabulary
   );
+
+  assert.equal(result.status, "matches");
+  assert.equal(result.applied_preferences.max_price, null);
 
   assert.equal(
     CrossSellRequestSchema.safeParse({
