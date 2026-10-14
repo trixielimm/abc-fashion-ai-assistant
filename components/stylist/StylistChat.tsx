@@ -538,8 +538,8 @@ export function StylistChat({
   }
 
   return (
-    <div className="flex h-[min(680px,88vh)] flex-col">
-      <header className="flex items-start gap-3 border-b border-hairline bg-surface px-6 py-5">
+    <div className="flex h-[min(680px,calc(100dvh-2rem))] min-h-0 flex-col overflow-hidden">
+      <header className="flex shrink-0 items-start gap-3 border-b border-hairline bg-surface px-6 py-5">
         <span
           aria-hidden
           className="mt-[3px] flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full border-2 border-foreground"
@@ -581,7 +581,7 @@ export function StylistChat({
 
       <aside
         aria-label="AI Stylist terms notice"
-        className="border-b border-hairline bg-background px-6 py-3 text-[11px] leading-5 text-muted sm:px-8"
+        className="shrink-0 border-b border-hairline bg-background px-6 py-3 text-[11px] leading-5 text-muted sm:px-8"
       >
         Your message is sent to OpenAI to extract shopping preferences. By using
         this stylist, you agree to the{" "}
@@ -611,7 +611,7 @@ export function StylistChat({
         aria-live="polite"
         aria-relevant="additions"
         aria-busy={busy}
-        className="min-h-0 flex-1 space-y-6 overflow-y-auto bg-panel px-6 py-6 sm:px-8"
+        className="min-h-0 flex-1 space-y-6 overflow-y-auto overscroll-contain bg-panel px-6 py-6 sm:px-8"
       >
         {[...entries, ...(pending ? [pending] : [])].map((entry) => (
           <Message
@@ -626,7 +626,7 @@ export function StylistChat({
         {thinking ? <TypingDots /> : null}
       </div>
 
-      <div className="flex items-center gap-2 overflow-x-auto border-t border-hairline bg-panel px-6 py-2.5">
+      <div className="flex shrink-0 items-center gap-2 overflow-x-auto border-t border-hairline bg-panel px-6 py-2.5">
         <span className="shrink-0 text-[10px] tracking-[0.14em] text-muted uppercase">
           Suggestions:
         </span>
@@ -647,14 +647,14 @@ export function StylistChat({
           event.preventDefault();
           send();
         }}
-        className="flex items-center gap-3 border-t border-hairline bg-surface px-5 py-5"
+        className="flex shrink-0 items-center gap-3 border-t border-hairline bg-surface px-5 py-5"
       >
         <input
           value={draft}
           onChange={(event) => setDraft(event.target.value)}
           maxLength={2000}
           aria-label="Message your stylist"
-          placeholder="e.g. a black dress under $300 in size 10"
+          placeholder={`e.g. ${stylistSuggestions[0].toLowerCase()}`}
           className="h-[46px] min-w-0 flex-1 border border-hairline bg-panel px-4 text-[14px] outline-none placeholder:text-muted focus:border-foreground"
         />
         <button

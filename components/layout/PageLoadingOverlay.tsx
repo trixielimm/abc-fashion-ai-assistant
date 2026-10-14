@@ -1,7 +1,7 @@
 "use client";
 
-import { usePathname, useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { LoadingScreen } from "@/components/layout/LoadingScreen";
 
 const MINIMUM_LOADING_MS = 600;
@@ -17,17 +17,8 @@ function LoadingCycle() {
   return visible ? <LoadingScreen overlay /> : null;
 }
 
-function RouteLoadingOverlay() {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
-  return <LoadingCycle key={`${pathname}?${searchParams.toString()}`} />;
-}
-
 export function PageLoadingOverlay() {
-  return (
-    <Suspense fallback={<LoadingScreen overlay />}>
-      <RouteLoadingOverlay />
-    </Suspense>
-  );
+  const pathname = usePathname();
+
+  return <LoadingCycle key={pathname} />;
 }

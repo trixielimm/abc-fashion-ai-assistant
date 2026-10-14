@@ -31,11 +31,14 @@ export function StylistModal({
   useEffect(() => {
     if (!open) return;
 
-    const previous = document.body.style.overflow;
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousPageOverflow = document.documentElement.style.overflow;
     document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
 
     return () => {
-      document.body.style.overflow = previous;
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow = previousPageOverflow;
     };
   }, [open]);
 
@@ -47,7 +50,7 @@ export function StylistModal({
       onClick={(event) => {
         if (event.target === dialogRef.current) onClose();
       }}
-      className="m-auto w-[min(920px,calc(100vw-2rem))] border border-hairline bg-background p-0 text-foreground backdrop:bg-black/40"
+      className="fixed inset-0 m-auto max-h-[calc(100dvh-2rem)] w-[min(920px,calc(100vw-2rem))] overflow-clip overscroll-none border border-hairline bg-background p-0 text-foreground backdrop:bg-black/40"
     >
       <StylistChat
         key={chatVersion}

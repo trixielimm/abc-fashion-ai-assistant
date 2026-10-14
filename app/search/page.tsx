@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ProductImage } from "@/components/commerce/ProductImage";
-import { SearchPageLink } from "@/components/commerce/SearchPageLink";
+import { SearchPageLink, SearchResults } from "@/components/commerce/SearchPageLink";
 import { getProductImageSrc } from "@/lib/product-image";
 import { Container } from "@/components/layout/Container";
 import { SearchIcon } from "@/components/ui/icons";
@@ -150,7 +150,7 @@ export default async function SearchPage({
             </Link>
           </div>
         ) : (
-          <>
+          <SearchResults>
             <div className="flex flex-wrap items-end justify-between gap-4 py-7">
               <div>
                 <p className="text-[10px] tracking-[0.18em] text-muted uppercase">
@@ -216,7 +216,7 @@ export default async function SearchPage({
                 ) : <span className="text-muted">Next</span>}
               </nav>
             ) : null}
-          </>
+          </SearchResults>
         )}
       </Container>
     </div>
