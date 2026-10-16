@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+
 import type { ViewedPageContext } from "@/lib/stylist/viewedProduct";
-import { StylistChat } from "@/components/stylist/StylistChat";
+
+import { ConversationChat as StylistChat } from "@/components/stylist/ConversationChat";
 
 type StylistModalProps = {
   open: boolean;
@@ -50,14 +52,15 @@ export function StylistModal({
       onClick={(event) => {
         if (event.target === dialogRef.current) onClose();
       }}
-      className="m-auto w-[min(920px,calc(100vw-2rem))] border border-hairline bg-background p-0 text-foreground backdrop:bg-black/40"
+      className="m-auto w-[min(1100px,calc(100vw-1rem))] max-w-none max-h-none overflow-hidden rounded-[20px] border border-hairline bg-background p-0 text-foreground backdrop:bg-black/40"
     >
-      <StylistChat
-        key={chatVersion}
-        viewedPage={viewedPage}
-        onClose={onClose}
-        onReset={() => setChatVersion((version) => version + 1)}
-      />
+     <StylistChat
+  key={chatVersion}
+  open={open}
+  viewedPage={viewedPage}
+  onClose={onClose}
+  onReset={() => setChatVersion((version) => version + 1)}
+/>
     </dialog>
   );
 }

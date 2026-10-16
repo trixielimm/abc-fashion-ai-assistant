@@ -73,10 +73,9 @@ export async function POST(request: Request) {
       { headers }
     );
   } catch (error) {
-    console.error(
-      "Conversation interpretation failed:",
-      error instanceof Error ? error.name : "UnknownError"
-    );
+    console.error("Conversation plan failed:", {
+  type: error instanceof Error ? error.name : "UnknownError",
+});
 
     return Response.json(
       {

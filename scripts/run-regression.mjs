@@ -53,6 +53,10 @@ const suites = [
   ["16,17,19,20,21,24,25", "test-conversation-foundation.mjs"],
   ["9,16,17,19,20,21,24,25", "test-conversation-plan.mjs"],
   ["9,10,12,16,17,18,19,20,21,22,24,25", "test-conversation-search.mjs"],
+  ["9,10,16,17,19,23,24,25", "test-plan-evidence.mjs"],
+["9,10,12,13,16,17,18,19,20,21,22,23,24,25", "test-conversation-integration.mjs"],
+["9,13,14,15,16,18,19,20,21,22,24,25", "test-shopping-presentation.mjs"],
+["15,18,19,20,21,22,24,25", "test-friendly-shopping-message.mjs"],
 ].map(([tasks, file]) => ({
   tasks,
   file,

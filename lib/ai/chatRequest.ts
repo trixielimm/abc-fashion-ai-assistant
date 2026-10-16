@@ -18,11 +18,12 @@ export class ChatRequestError extends Error {
 }
 
 export async function postChatJson(
-  endpoint:
-  | "/api/extraction"
-  | "/api/stylist-search"
-  | "/api/cross-sell"
-  | "/api/upsell",
+    endpoint:
+    | "/api/extraction"
+    | "/api/stylist-search"
+    | "/api/cross-sell"
+    | "/api/upsell"
+    | "/api/conversation-search",
   body: unknown,
   options: {
     signal: AbortSignal;

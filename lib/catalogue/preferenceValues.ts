@@ -21,13 +21,14 @@ export type CataloguePreferenceValues = {
 // Product vocabulary is limited by public RLS visibility. Sizes and category
 // relationships come from reference tables, independently of current stock.
 export async function loadPreferenceValues(): Promise<CataloguePreferenceValues> {
+    const signal = AbortSignal.timeout(15_000);
   const { url, publishableKey } = getSupabaseEnv();
   const db = createClient(url, publishableKey, { auth: { persistSession: false } });
   async function read(table: string, columns: string, order: string) {
     const rows: unknown[] = [];
     for (let offset = 0; ; offset += 500) {
       const { data, error } = await db.from(table).select(columns)
-        .order(order).range(offset, offset + 499);
+        .order(order).range(offset, offset + 499).abortSignal(signal);
       if (error || !data) throw new Error("Unable to load catalogue preference values.");
       rows.push(...data);
       if (data.length < 500) return rows;
