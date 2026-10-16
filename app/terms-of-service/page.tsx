@@ -34,7 +34,7 @@ export default function TermsOfServicePage() {
             where Australian consumer and privacy protections fit in.
           </p>
           <p className="mt-5 text-[11px] tracking-[0.1em] text-muted uppercase">
-            Last updated 30 September 2026
+            Last updated 15 October 2026
           </p>
         </Container>
       </div>
@@ -71,10 +71,12 @@ export default function TermsOfServicePage() {
             <p>
               Each message is sent to an AI service to identify preferences
               such as category, colour, size, occasion, and budget. The
-              current preferences are included with follow-up messages so
-              you can refine them. Updated preferences and matching catalogue
-              products are displayed in the chat. The stylist is not a
-              conversation with a human adviser.
+              extracted preferences are displayed in the chat after each
+              message. The site then searches its catalogue and displays up
+              to four matching or closest available items. Messages are
+              processed separately, so include every requirement in each
+              revised request. The stylist is not a conversation with a human
+              adviser.
             </p>
           </section>
 
@@ -144,10 +146,13 @@ export default function TermsOfServicePage() {
             <p>
               Extracted preferences may be incomplete or inaccurate. Check
               the fields shown in chat and restate anything the AI missed or
-              misunderstood. The stylist suggests catalogue products but does
-              not reserve stock or create an offer to sell. Check product pages
-              and checkout for current descriptions, sizes, availability,
-              prices, and delivery terms before buying.
+              misunderstood. Recommendations may differ in occasion, style,
+              fit, or season when an exact match is unavailable. Check the
+              product details, selected size, availability, and AUD price
+              before adding an item to your bag. Recommendations and cart
+              selections do not reserve stock or place an order. Cart
+              quantity changes do not recheck live stock. Checkout and
+              payment are unavailable in this prototype.
             </p>
             <p>
               The stylist is not a source of medical or other professional

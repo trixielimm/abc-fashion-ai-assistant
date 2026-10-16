@@ -43,7 +43,7 @@ export function OrderSummary({
         title="Checkout is not available yet"
         className="mt-5 flex h-12 w-full items-center justify-center bg-black px-4 text-[11px] font-semibold uppercase tracking-[0.14em] text-white disabled:cursor-not-allowed"
       >
-        Proceed to checkout
+        Checkout coming soon
       </button>
     </aside>
   );

@@ -7,7 +7,7 @@ export function Hero() {
     <section className="pt-6 lg:pt-8">
       <Container>
         <div className="grid overflow-hidden lg:grid-cols-[minmax(0,1.85fr)_minmax(280px,0.82fr)]">
-          <div className="relative min-h-[420px] bg-[#d7d4cf] lg:min-h-[600px]">
+          <div className="relative min-h-[340px] bg-[#d7d4cf] sm:min-h-[420px] lg:min-h-[600px]">
             <Image
               src="/images/hero.jpg"
               alt="Model in a long wool coat"
@@ -21,7 +21,7 @@ export function Hero() {
               aria-hidden
               className="absolute inset-0 bg-[linear-gradient(to_top_right,rgba(0,0,0,0.5)_0%,rgba(0,0,0,0.26)_38%,transparent_68%)]"
             />
-            <div className="absolute bottom-12 left-10 text-[#f7f3ec] lg:bottom-16 lg:left-14">
+            <div className="absolute bottom-8 left-6 text-[#f7f3ec] sm:bottom-12 sm:left-10 lg:bottom-16 lg:left-14">
               <p className="font-serif text-6xl leading-[0.82] italic lg:text-[92px]">
                 VOLUME
               </p>
@@ -31,7 +31,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="flex flex-col justify-center bg-surface px-8 py-12 lg:px-12 lg:py-16">
+          <div className="flex flex-col justify-center bg-surface px-6 py-8 sm:px-8 sm:py-12 lg:px-12 lg:py-16">
             <p className="text-[11px] tracking-[0.28em] text-foreground uppercase">
               Autumn | Winter 2024
             </p>

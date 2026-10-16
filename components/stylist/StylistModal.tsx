@@ -36,11 +36,28 @@ export function StylistModal({
   useEffect(() => {
     if (!open) return;
 
-    const previous = document.body.style.overflow;
+    const dialog = dialogRef.current;
+    const viewport = window.visualViewport;
+    function resizeToViewport() {
+      dialog?.style.setProperty("--stylist-viewport-height", `${viewport?.height ?? window.innerHeight}px`);
+      dialog?.style.setProperty("--stylist-viewport-top", `${viewport?.offsetTop ?? 0}px`);
+    }
+    resizeToViewport();
+    viewport?.addEventListener("resize", resizeToViewport);
+    viewport?.addEventListener("scroll", resizeToViewport);
+    window.addEventListener("resize", resizeToViewport);
+
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousPageOverflow = document.documentElement.style.overflow;
     document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
 
     return () => {
-      document.body.style.overflow = previous;
+      viewport?.removeEventListener("resize", resizeToViewport);
+      viewport?.removeEventListener("scroll", resizeToViewport);
+      window.removeEventListener("resize", resizeToViewport);
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow = previousPageOverflow;
     };
   }, [open]);
 

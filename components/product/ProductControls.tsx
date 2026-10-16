@@ -192,7 +192,7 @@ export function ProductControls({
           onClick={addToBag}
           className="flex h-11 flex-1 items-center justify-center gap-2 bg-foreground px-4 text-[13px] text-background transition-opacity hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-50"
         >
-          Add to Cart <span aria-hidden="true">→</span>
+          Add to bag <span aria-hidden="true">→</span>
         </button>
       </div>
       <p

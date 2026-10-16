@@ -1,17 +1,25 @@
 import Image from "next/image";
 import { cn } from "@/lib/cn";
 
-export function LoadingScreen({ overlay = false }: { overlay?: boolean }) {
+export function LoadingScreen({
+  overlay = false,
+  contained = false,
+}: {
+  overlay?: boolean;
+  contained?: boolean;
+}) {
   return (
     <div
       role="status"
       aria-live="polite"
-      aria-label="Loading page"
+      aria-label={contained ? "Loading products" : "Loading page"}
       className={cn(
-        "flex items-center justify-center bg-background px-6 text-center",
-        overlay
-          ? "site-page-loader fixed inset-0 z-[100]"
-          : "min-h-[calc(100svh-72px)]",
+        "flex items-center justify-center px-6 text-center",
+        contained
+          ? "sticky top-24 h-[min(60svh,420px)]"
+          : overlay
+          ? "site-page-loader fixed inset-0 z-[100] bg-background"
+          : "min-h-[calc(100svh-72px)] bg-background",
       )}
     >
       <div className="w-full max-w-[280px]">
@@ -32,7 +40,7 @@ export function LoadingScreen({ overlay = false }: { overlay?: boolean }) {
           <span className="site-loading-progress block h-full w-1/3 bg-foreground" />
         </div>
         <p className="mt-4 text-[10px] tracking-[0.2em] text-muted uppercase">
-          Preparing your experience
+          {contained ? "Loading your products" : "Preparing your experience"}
         </p>
       </div>
     </div>

@@ -1,6 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
-import { ProductVisual } from "@/components/commerce/ProductVisual";
+import { ProductImage } from "@/components/commerce/ProductImage";
 import { formatPrice } from "@/lib/mock-data";
 import type { CartRow } from "@/lib/cart";
 
@@ -23,22 +22,17 @@ export function CartItem({
         aria-label={`View ${row.name}`}
         className="relative aspect-[3/4] self-start bg-surface"
       >
-        {row.image ? (
-          <Image
-            src={row.image}
-            alt={row.name}
-            fill
-            sizes="(max-width: 640px) 100px, 150px"
-            className="object-cover"
-          />
-        ) : (
-          <ProductVisual name={row.name} category={row.category ?? null} />
-        )}
+        <ProductImage
+          src={row.image}
+          name={row.name}
+          category={row.category ?? null}
+          sizes="(max-width: 640px) 100px, 150px"
+        />
       </Link>
 
       <div className="min-w-0">
-        <div className="flex items-start justify-between gap-4">
-          <div>
+        <div className="flex flex-col items-start gap-2 sm:flex-row sm:justify-between sm:gap-4">
+          <div className="min-w-0 [overflow-wrap:anywhere]">
             <Link
               href={row.href}
               className="font-serif text-xl leading-tight sm:text-2xl"
@@ -66,15 +60,16 @@ export function CartItem({
           <button
             type="button"
             onClick={onRemove}
-            className="shrink-0 text-[10px] uppercase tracking-[0.12em] text-muted hover:text-foreground"
+            aria-label={`Remove ${row.name} from bag`}
+            className="min-h-11 shrink-0 text-[11px] uppercase tracking-[0.12em] text-muted underline underline-offset-4 hover:text-foreground"
           >
             Remove
           </button>
         </div>
 
-        <div className="mt-7 flex items-center justify-between gap-4 border-t border-border pt-5">
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-4 sm:mt-7 sm:pt-5">
           <div
-            className="flex h-10 items-center border border-border"
+            className="flex h-11 shrink-0 items-center border border-border"
             aria-label={`Quantity for ${row.name}`}
           >
             <button
@@ -84,12 +79,12 @@ export function CartItem({
               onClick={() =>
                 onQuantityChange(row.quantity - 1)
               }
-              className="h-full w-10 disabled:text-neutral-300"
+              className="h-full w-11 disabled:text-neutral-300"
             >
               −
             </button>
 
-            <span className="w-8 text-center text-xs">
+            <span className="w-8 text-center text-xs" aria-live="polite">
               {row.quantity}
             </span>
 
@@ -99,7 +94,7 @@ export function CartItem({
               onClick={() =>
                 onQuantityChange(row.quantity + 1)
               }
-              className="h-full w-10"
+              className="h-full w-11"
             >
               +
             </button>

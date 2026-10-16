@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Container } from "@/components/layout/Container";
 import { useStylist } from "@/components/stylist/StylistProvider";
 import { IconButton } from "@/components/ui/IconButton";
@@ -14,15 +15,33 @@ import {
   UserIcon,
 } from "@/components/ui/icons";
 import { navLinks } from "@/lib/mock-data";
+import { useCartCount } from "@/lib/use-cart-count";
 
 export function SiteHeader() {
+  const pathname = usePathname();
+  return <HeaderContent key={pathname} />;
+}
+
+function HeaderContent() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { openStylist } = useStylist();
+  const count = useCartCount();
+
+  useEffect(() => {
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        document.getElementById("mobile-menu-toggle")?.focus();
+      }
+    }
+    if (menuOpen) window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [menuOpen]);
 
   return (
     <header className="relative border-b border-border bg-background">
-      <Container className="flex h-[72px] items-center gap-6">
-        <Link href="/" className="flex items-center gap-2.5">
+      <Container className="flex h-[72px] items-center gap-3 lg:gap-6">
+        <Link href="/" onClick={() => setMenuOpen(false)} className="flex shrink-0 items-center gap-2.5">
           <Image
             src="/logo.svg"
             alt=""
@@ -32,12 +51,12 @@ export function SiteHeader() {
             aria-hidden
             className="h-8 w-8 shrink-0"
           />
-          <span className="font-serif text-[22px] italic leading-none tracking-tight">
+          <span className="whitespace-nowrap font-serif text-[22px] italic leading-none tracking-tight">
             ABC Fashion
           </span>
         </Link>
 
-        <nav className="ml-4 hidden items-center gap-7 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-4 lg:flex xl:ml-4 xl:gap-7" aria-label="Primary">
           {navLinks.map((item) => (
             <Link
               key={item.label}
@@ -56,17 +75,17 @@ export function SiteHeader() {
           </button>
         </nav>
 
-        <div className="ml-auto flex items-center gap-2.5">
+        <div className="ml-auto flex items-center gap-2 lg:gap-2.5">
           <form
             action="/search"
             method="get"
-            className="relative hidden h-9 w-[168px] items-center md:flex"
+            className="relative hidden h-11 w-[168px] items-center md:flex lg:hidden xl:flex"
             role="search"
           >
             <button
               type="submit"
               aria-label="Search products"
-              className="absolute left-2 flex h-8 w-8 items-center justify-center"
+              className="absolute left-0 flex h-11 w-11 items-center justify-center"
             >
               <SearchIcon className="text-foreground" />
             </button>
@@ -76,19 +95,22 @@ export function SiteHeader() {
               maxLength={120}
               placeholder="SEARCH"
               aria-label="Search"
-              className="h-9 w-full rounded-full border border-[#d0d0d0] bg-background py-0 pr-4 pl-10 text-[10px] tracking-[0.16em] text-foreground outline-none placeholder:text-muted"
+              className="h-11 w-full rounded-full border border-[#d0d0d0] bg-background py-0 pr-4 pl-11 text-sm text-foreground outline-none placeholder:text-muted focus-visible:ring-2 focus-visible:ring-foreground"
             />
           </form>
-          <IconButton href="#" label="Account">
+          <button type="button" disabled aria-label="Account coming soon" title="Account coming soon" className="hidden h-11 w-11 items-center justify-center rounded-full border border-border text-muted lg:inline-flex">
             <UserIcon />
-          </IconButton>
-          <IconButton href="/cart" label="Bag">
+          </button>
+          <IconButton href="/cart" label={`Bag, ${count} ${count === 1 ? "item" : "items"}`} onClick={() => setMenuOpen(false)}>
             <BagIcon />
           </IconButton>
           <IconButton
             label={menuOpen ? "Close menu" : "Open menu"}
+            id="mobile-menu-toggle"
             className="lg:hidden"
-            onClick={() => setMenuOpen((open) => !open)}
+            expanded={menuOpen}
+            controls="mobile-menu"
+            onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? <CloseIcon /> : <MenuIcon />}
           </IconButton>
@@ -96,13 +118,13 @@ export function SiteHeader() {
       </Container>
 
       {menuOpen ? (
-        <div className="border-t border-border bg-background lg:hidden">
+        <nav aria-label="Mobile menu" id="mobile-menu" className="absolute inset-x-0 top-full z-50 max-h-[calc(100dvh-132px)] overflow-y-auto border-b border-t border-border bg-background shadow-lg lg:hidden">
           <Container className="flex flex-col gap-5 py-6">
             {navLinks.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-[15px]"
+                className="flex min-h-11 items-center text-[15px]"
                 onClick={() => setMenuOpen(false)}
               >
                 {item.label}
@@ -110,7 +132,7 @@ export function SiteHeader() {
             ))}
             <button
               type="button"
-              className="w-fit cursor-pointer bg-foreground px-3.5 py-2 text-[10px] tracking-[0.18em] text-background uppercase"
+              className="min-h-11 w-fit cursor-pointer bg-foreground px-3.5 py-2 text-[12px] tracking-[0.18em] text-background uppercase"
               onClick={() => {
                 setMenuOpen(false);
                 openStylist();
@@ -132,11 +154,11 @@ export function SiteHeader() {
                 maxLength={120}
                 placeholder="SEARCH"
                 aria-label="Search"
-                className="h-10 w-full rounded-full border border-[#d0d0d0] pr-4 pl-11 text-[10px] tracking-[0.16em] outline-none placeholder:text-muted"
+                className="h-11 w-full rounded-full border border-[#d0d0d0] pr-4 pl-11 text-base outline-none placeholder:text-muted"
               />
             </form>
           </Container>
-        </div>
+        </nav>
       ) : null}
     </header>
   );

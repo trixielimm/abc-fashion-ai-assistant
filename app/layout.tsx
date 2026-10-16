@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { BottomNavBar } from "@/components/layout/BottomNavBar";
 import { OverlayScrollbar } from "@/components/layout/OverlayScrollbar";
 import { PageLoadingOverlay } from "@/components/layout/PageLoadingOverlay";
@@ -44,7 +45,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${inter.variable} ${cormorant.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-background pb-[calc(52px+env(safe-area-inset-bottom))] font-sans text-foreground lg:pb-0">
+      <body className="flex min-h-full flex-col bg-background pb-[calc(64px+env(safe-area-inset-bottom))] font-sans text-foreground lg:pb-0">
         <PageLoadingOverlay />
         <OverlayScrollbar />
         <noscript>
@@ -57,6 +58,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <BottomNavBar />
           <StylistLauncher />
         </StylistProvider>
+        <Analytics />
       </body>
     </html>
   );

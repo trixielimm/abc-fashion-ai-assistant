@@ -10,8 +10,7 @@ export type StylistProduct = {
   subcategory: string | null;
   product_type: string | null;
   colour: string | null;
-  occasion: string | null;
-  style: string | null;
+  image_key: string | null;
   sizes_available: string[];
 };
 
@@ -257,6 +256,7 @@ export function searchByPreferences(
       subcategory: product.subcategory,
       product_type: product.product_type,
       colour: product.colour,
+      image_key: product.image_key,
       occasion: product.occasion,
       style: product.style,
       sizes_available: Array.from(new Set(product.sizes_available

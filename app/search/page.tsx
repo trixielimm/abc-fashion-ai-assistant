@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ProductVisual } from "@/components/commerce/ProductVisual";
+import { ProductImage } from "@/components/commerce/ProductImage";
+import { SearchPageLink, SearchResults } from "@/components/commerce/SearchPageLink";
+import { getProductImageSrc } from "@/lib/product-image";
 import { Container } from "@/components/layout/Container";
 import { SearchIcon } from "@/components/ui/icons";
 import { formatPrice } from "@/lib/mock-data";
@@ -41,17 +43,19 @@ function ResultCard({ product }: { product: SearchProduct }) {
       href={`/products/${encodeURIComponent(product.product_id)}`}
       className="group block min-w-0"
     >
-      <ProductVisual
+      <ProductImage
+        src={getProductImageSrc(product.product_id, product.image_key)}
         name={product.product_name}
         category={category}
+        sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 23vw"
         className="transition-colors duration-300 group-hover:bg-[#e6e0d7]"
       />
-      <div className="mt-3 flex items-start justify-between gap-3">
+      <div className="mt-3 flex flex-col items-start gap-2 sm:flex-row sm:justify-between sm:gap-3">
         <div className="min-w-0">
           <p className="text-[10px] tracking-[0.13em] text-muted uppercase">
             {product.brand_line ?? category ?? "ABC Fashion"}
           </p>
-          <h2 className="mt-1 font-serif text-lg leading-tight text-foreground group-hover:underline group-hover:underline-offset-4">
+          <h2 className="mt-1 font-serif text-lg leading-tight text-foreground [overflow-wrap:anywhere] group-hover:underline group-hover:underline-offset-4">
             {product.product_name}
           </h2>
           {product.colour ? (
@@ -109,7 +113,7 @@ export default async function SearchPage({
           <p className="text-[10px] font-medium tracking-[0.2em] text-muted uppercase">
             ABC Fashion / Discover
           </p>
-          <h1 className="mt-4 font-serif text-[clamp(2.75rem,7vw,5rem)] leading-[0.95] tracking-[-0.035em]">
+          <h1 className="mt-4 font-serif text-[clamp(2.5rem,7vw,5rem)] leading-[0.95] tracking-[-0.035em]">
             Search the collection
           </h1>
           <p className="mt-5 max-w-xl text-sm leading-6 text-muted">
@@ -146,13 +150,13 @@ export default async function SearchPage({
             </Link>
           </div>
         ) : (
-          <>
+          <SearchResults>
             <div className="flex flex-wrap items-end justify-between gap-4 py-7">
-              <div>
+              <div className="min-w-0">
                 <p className="text-[10px] tracking-[0.18em] text-muted uppercase">
                   {query ? "Search results" : "All products"}
                 </p>
-                <p className="mt-1 font-serif text-2xl">
+                <p className="mt-1 font-serif text-2xl [overflow-wrap:anywhere]">
                   {query ? `“${query}”` : "The collection"}
                 </p>
               </div>
@@ -170,7 +174,7 @@ export default async function SearchPage({
                       key={item}
                       href={searchHref(query, item === "All" ? undefined : item)}
                       aria-current={active ? "page" : undefined}
-                      className={`shrink-0 border px-4 py-2 text-[11px] tracking-[0.08em] uppercase ${
+                      className={`flex min-h-11 shrink-0 items-center border px-4 py-2 text-[11px] tracking-[0.08em] uppercase ${
                         active
                           ? "border-foreground bg-foreground text-background"
                           : "border-border text-foreground hover:border-foreground"
@@ -204,15 +208,15 @@ export default async function SearchPage({
             {pageCount > 1 ? (
               <nav aria-label="Search result pages" className="mt-16 flex items-center justify-center gap-6 border-t border-border pt-8 text-xs">
                 {page > 1 ? (
-                  <Link href={searchHref(query, category, page - 1)} className="underline underline-offset-4">Previous</Link>
+                  <SearchPageLink href={searchHref(query, category, page - 1)}>Previous</SearchPageLink>
                 ) : <span className="text-muted">Previous</span>}
                 <span>Page {page} of {pageCount}</span>
                 {page < pageCount ? (
-                  <Link href={searchHref(query, category, page + 1)} className="underline underline-offset-4">Next</Link>
+                  <SearchPageLink href={searchHref(query, category, page + 1)}>Next</SearchPageLink>
                 ) : <span className="text-muted">Next</span>}
               </nav>
             ) : null}
-          </>
+          </SearchResults>
         )}
       </Container>
     </div>

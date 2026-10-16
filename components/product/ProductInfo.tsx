@@ -2,6 +2,7 @@ import { cn } from "@/lib/cn";
 import { formatPrice, type Product } from "@/lib/mock-data";
 import type { ProductDetailMock } from "@/lib/product-detail-mock";
 import { ProductControls } from "@/components/product/ProductControls";
+import { getProductImageSrc } from "@/lib/product-image";
 
 const colourSwatches: Record<string, string> = {
   black: "bg-black",
@@ -31,9 +32,7 @@ export function ProductInfo({
     ? (colourSwatches[product.colour.toLowerCase()] ?? "bg-surface")
     : undefined;
   const price = listingProduct?.price ?? product.price_aud;
-  const image = listingProduct?.image ?? (
-    product.image_key?.startsWith("/") ? product.image_key : null
-  );
+  const image = listingProduct?.image ?? getProductImageSrc(productId, product.image_key);
 
   return (
     <section className="flex flex-col items-start pt-1">
@@ -77,12 +76,13 @@ export function ProductInfo({
       />
       <button
         type="button"
-        className="mt-3 h-11 w-full border border-border bg-transparent text-[12px] tracking-[0.05em] text-foreground uppercase"
+        disabled
+        className="mt-3 h-11 w-full border border-border bg-transparent text-[12px] tracking-[0.05em] text-muted uppercase"
       >
         <span aria-hidden="true" className="mr-2">
           ＋
         </span>
-        Add to Wishlist
+        Wishlist coming soon
       </button>
 
       {product.description ? (
