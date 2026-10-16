@@ -366,7 +366,7 @@ function Message({
         </div>
         <div
           className={cn(
-            "mt-2 max-w-full border p-4 text-[14px] leading-6",
+            "mt-2 max-w-full border p-3 text-[14px] leading-6 [overflow-wrap:anywhere] sm:p-4",
             !entry.products?.length && "sm:max-w-[74%]",
             isYou
               ? "border-foreground bg-foreground text-background"
@@ -538,11 +538,11 @@ export function StylistChat({
   }
 
   return (
-    <div className="flex h-[min(680px,calc(100dvh-2rem))] min-h-0 flex-col overflow-hidden">
-      <header className="flex shrink-0 items-start gap-3 border-b border-hairline bg-surface px-6 py-5">
+    <div className="flex h-full min-h-0 flex-col overflow-hidden pt-[env(safe-area-inset-top)]">
+      <header className="flex shrink-0 items-center gap-3 border-b border-hairline bg-surface px-4 py-3 sm:items-start sm:px-6 sm:py-5">
         <span
           aria-hidden
-          className="mt-[3px] flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full border-2 border-foreground"
+          className="mt-[3px] hidden h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full border-2 border-foreground sm:flex"
         >
           <span className="h-1.5 w-1.5 rounded-full bg-foreground" />
         </span>
@@ -551,11 +551,11 @@ export function StylistChat({
             <p className="font-serif text-[15px] tracking-[0.16em] uppercase">
               AI Stylist
             </p>
-            <span className="border border-hairline bg-panel px-2 py-1 text-[9px] tracking-[0.14em] uppercase">
+            <span className="hidden border border-hairline bg-panel px-2 py-1 text-[9px] tracking-[0.14em] uppercase sm:inline">
               ABC Concierge
             </span>
           </div>
-          <p className="mt-1 text-[12px] text-muted">
+          <p className="mt-1 hidden text-[12px] text-muted sm:block">
             Share what you&apos;re looking for to find matching items
           </p>
         </div>
@@ -564,7 +564,7 @@ export function StylistChat({
             type="button"
             onClick={onReset}
             aria-label="Reset chat"
-            className="border border-hairline bg-panel px-3 py-2 text-[10px] font-medium tracking-[0.12em] uppercase transition-opacity hover:opacity-60"
+            className="min-h-11 border border-hairline bg-panel px-3 py-2 text-[11px] font-medium tracking-[0.12em] uppercase transition-opacity hover:opacity-60"
           >
             Reset
           </button>
@@ -572,7 +572,7 @@ export function StylistChat({
             type="button"
             onClick={onClose}
             aria-label="Close stylist"
-            className="border border-hairline bg-panel p-2 transition-opacity hover:opacity-60"
+            className="flex h-11 w-11 items-center justify-center border border-hairline bg-panel transition-opacity hover:opacity-60"
           >
             <CloseIcon className="h-3.5 w-3.5" />
           </button>
@@ -581,7 +581,7 @@ export function StylistChat({
 
       <aside
         aria-label="AI Stylist terms notice"
-        className="shrink-0 border-b border-hairline bg-background px-6 py-3 text-[11px] leading-5 text-muted sm:px-8"
+        className="max-h-[25%] shrink-0 overflow-y-auto border-b border-hairline bg-background px-4 py-2 text-[11px] leading-5 text-muted sm:px-8 sm:py-3"
       >
         Your message is sent to OpenAI to extract shopping preferences. By using
         this stylist, you agree to the{" "}
@@ -611,7 +611,7 @@ export function StylistChat({
         aria-live="polite"
         aria-relevant="additions"
         aria-busy={busy}
-        className="min-h-0 flex-1 space-y-6 overflow-y-auto overscroll-contain bg-panel px-6 py-6 sm:px-8"
+        className="min-h-0 flex-1 space-y-6 overflow-y-auto overscroll-contain bg-panel px-4 py-5 sm:px-8 sm:py-6"
       >
         {[...entries, ...(pending ? [pending] : [])].map((entry) => (
           <Message
@@ -626,8 +626,8 @@ export function StylistChat({
         {thinking ? <TypingDots /> : null}
       </div>
 
-      <div className="flex shrink-0 items-center gap-2 overflow-x-auto border-t border-hairline bg-panel px-6 py-2.5">
-        <span className="shrink-0 text-[10px] tracking-[0.14em] text-muted uppercase">
+      <div className="flex shrink-0 items-center gap-2 overflow-x-auto border-t border-hairline bg-panel px-4 py-2 sm:px-6 sm:py-2.5">
+        <span className="sr-only shrink-0 text-[10px] tracking-[0.14em] text-muted uppercase sm:not-sr-only">
           Suggestions:
         </span>
         {stylistSuggestions.map((suggestion) => (
@@ -635,7 +635,7 @@ export function StylistChat({
             key={suggestion}
             type="button"
             onClick={() => setDraft(suggestion)}
-            className="shrink-0 border border-hairline bg-surface px-3 py-2 text-[10px] tracking-[0.12em] uppercase transition-opacity hover:opacity-60"
+            className="min-h-11 shrink-0 border border-hairline bg-surface px-3 py-2 text-[11px] tracking-[0.08em] uppercase transition-opacity hover:opacity-60"
           >
             {suggestion}
           </button>
@@ -647,7 +647,7 @@ export function StylistChat({
           event.preventDefault();
           send();
         }}
-        className="flex shrink-0 items-center gap-3 border-t border-hairline bg-surface px-5 py-5"
+        className="flex shrink-0 items-center gap-2 border-t border-hairline bg-surface px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:gap-3 sm:px-5 sm:py-5"
       >
         <input
           value={draft}
@@ -655,12 +655,12 @@ export function StylistChat({
           maxLength={2000}
           aria-label="Message your stylist"
           placeholder={`e.g. ${stylistSuggestions[0].toLowerCase()}`}
-          className="h-[46px] min-w-0 flex-1 border border-hairline bg-panel px-4 text-[14px] outline-none placeholder:text-muted focus:border-foreground"
+          className="h-[46px] min-w-0 flex-1 border border-hairline bg-panel px-3 text-base outline-none placeholder:text-muted focus:border-foreground sm:px-4 sm:text-sm"
         />
         <button
           type="submit"
           disabled={busy || !draft.trim()}
-          className="inline-flex h-[46px] shrink-0 items-center gap-2 bg-foreground px-6 text-[11px] font-medium tracking-[0.16em] text-background uppercase transition-opacity hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-30"
+          className="inline-flex h-[46px] shrink-0 items-center gap-2 bg-foreground px-4 text-[11px] font-medium tracking-[0.16em] text-background uppercase transition-opacity hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-30 sm:px-6"
         >
           Send ↑
         </button>

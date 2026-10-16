@@ -102,7 +102,7 @@ export default function CartPage() {
   return (
     <Container className="pb-24 pt-10 sm:pt-16">
       <div className="flex flex-wrap items-end justify-between gap-4 border-b border-border pb-5">
-        <div className="flex items-baseline gap-3">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:gap-3">
           <h1 className="font-serif text-4xl sm:text-5xl">
             Shopping Cart
           </h1>
@@ -172,7 +172,7 @@ export default function CartPage() {
                   <circle cx="12" cy="12" r="9" />
                   <path d="M12 7v5l3 2" />
                 </svg>
-                Items reserved in cart for 20 minutes
+                Your bag is saved on this device
               </span>
 
               <button
@@ -180,7 +180,7 @@ export default function CartPage() {
                 onClick={openStylist}
                 className="text-left underline underline-offset-4 hover:text-foreground"
               >
-                Need personal styling advice? Contact Customer Concierge
+                Need styling advice? Ask the AI Stylist
               </button>
             </div>
           </div>
@@ -198,7 +198,7 @@ export default function CartPage() {
         className="mt-20 border-t border-border pt-14"
         aria-labelledby="cart-recommendations"
       >
-        <div className="mb-7 flex items-end justify-between gap-4">
+        <div className="mb-7 flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:justify-between">
           <h2
             id="cart-recommendations"
             className="font-serif text-3xl"

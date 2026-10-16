@@ -21,8 +21,6 @@ export const navLinks = [
   { label: "For her", href: "/#this-season" },
 ] as const;
 
-export const bagItemCount = 3;
-
 export const categoryTiles: CategoryTile[] = [
   {
     id: "essentials",

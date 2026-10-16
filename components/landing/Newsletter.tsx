@@ -35,12 +35,13 @@ export function Newsletter() {
               name="email"
               type="email"
               required
+              autoComplete="email"
               placeholder="EMAIL ADDRESS"
-              className="min-w-0 flex-1 border-0 border-b border-foreground bg-transparent px-0 py-2.5 text-[11px] tracking-[0.16em] text-foreground outline-none placeholder:text-muted"
+              className="min-h-11 min-w-0 flex-1 border-0 border-b border-foreground bg-transparent px-0 py-2.5 text-base text-foreground outline-none placeholder:text-muted focus-visible:ring-2 focus-visible:ring-foreground sm:text-sm"
             />
             <button
               type="submit"
-              className="bg-foreground px-8 py-3 text-[11px] tracking-[0.2em] text-background uppercase"
+              className="min-h-11 bg-foreground px-8 py-3 text-[11px] tracking-[0.2em] text-background uppercase"
             >
               Subscribe
             </button>

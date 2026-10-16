@@ -45,7 +45,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${inter.variable} ${cormorant.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-background pb-[calc(52px+env(safe-area-inset-bottom))] font-sans text-foreground lg:pb-0">
+      <body className="flex min-h-full flex-col bg-background pb-[calc(64px+env(safe-area-inset-bottom))] font-sans text-foreground lg:pb-0">
         <PageLoadingOverlay />
         <OverlayScrollbar />
         <noscript>

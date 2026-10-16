@@ -76,12 +76,13 @@ export function ProductInfo({
       />
       <button
         type="button"
-        className="mt-3 h-11 w-full border border-border bg-transparent text-[12px] tracking-[0.05em] text-foreground uppercase"
+        disabled
+        className="mt-3 h-11 w-full border border-border bg-transparent text-[12px] tracking-[0.05em] text-muted uppercase"
       >
         <span aria-hidden="true" className="mr-2">
           ＋
         </span>
-        Add to Wishlist
+        Wishlist coming soon
       </button>
 
       {product.description ? (

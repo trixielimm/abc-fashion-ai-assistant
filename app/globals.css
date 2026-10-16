@@ -94,6 +94,33 @@ button:not(:disabled) {
   cursor: pointer;
 }
 
+.stylist-dialog {
+  top: var(--stylist-viewport-top, 0px);
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  height: var(--stylist-viewport-height, 100dvh);
+  max-height: none;
+}
+
+/* Keep text-entry controls legible and avoid focus zoom on iOS. */
+@media (pointer: coarse) {
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 640px) {
+  .stylist-dialog {
+    margin-inline: auto;
+    margin-top: max(1rem, calc((var(--stylist-viewport-height, 100dvh) - 680px) / 2));
+    width: min(920px, calc(100vw - 2rem));
+    height: min(680px, calc(var(--stylist-viewport-height, 100dvh) - 2rem));
+  }
+}
+
 ::selection {
   background: #111111;
   color: #ffffff;
@@ -156,6 +183,10 @@ button:not(:disabled) {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .site-loading-progress,
   .site-loading-mark,
   .stylist-bounce,

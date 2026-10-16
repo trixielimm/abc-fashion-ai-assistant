@@ -31,12 +31,26 @@ export function StylistModal({
   useEffect(() => {
     if (!open) return;
 
+    const dialog = dialogRef.current;
+    const viewport = window.visualViewport;
+    function resizeToViewport() {
+      dialog?.style.setProperty("--stylist-viewport-height", `${viewport?.height ?? window.innerHeight}px`);
+      dialog?.style.setProperty("--stylist-viewport-top", `${viewport?.offsetTop ?? 0}px`);
+    }
+    resizeToViewport();
+    viewport?.addEventListener("resize", resizeToViewport);
+    viewport?.addEventListener("scroll", resizeToViewport);
+    window.addEventListener("resize", resizeToViewport);
+
     const previousBodyOverflow = document.body.style.overflow;
     const previousPageOverflow = document.documentElement.style.overflow;
     document.body.style.overflow = "hidden";
     document.documentElement.style.overflow = "hidden";
 
     return () => {
+      viewport?.removeEventListener("resize", resizeToViewport);
+      viewport?.removeEventListener("scroll", resizeToViewport);
+      window.removeEventListener("resize", resizeToViewport);
       document.body.style.overflow = previousBodyOverflow;
       document.documentElement.style.overflow = previousPageOverflow;
     };
@@ -50,7 +64,7 @@ export function StylistModal({
       onClick={(event) => {
         if (event.target === dialogRef.current) onClose();
       }}
-      className="fixed inset-0 m-auto max-h-[calc(100dvh-2rem)] w-[min(920px,calc(100vw-2rem))] overflow-clip overscroll-none border border-hairline bg-background p-0 text-foreground backdrop:bg-black/40"
+      className="stylist-dialog fixed inset-x-0 overflow-clip overscroll-none border-0 bg-background p-0 text-foreground backdrop:bg-black/40 sm:border sm:border-hairline"
     >
       <StylistChat
         key={chatVersion}
