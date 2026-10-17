@@ -3,6 +3,12 @@
 17 October 2026. Implements the first release defined in section 10 of
 [the approved plan](ai-stylist-styling-upsell-plan-2026-10-17.md).
 
+**Prototype follow-up:** the owner clarified that this is a fictional catalogue.
+All 316 products now have OpenAI-authored synthetic specs in a separate table.
+See [the populated prototype report](prototype-product-specifications-2026-10-17.md)
+for current status. The supplier-evidence requirements below still apply to
+real verified claims; they do not block the explicitly synthetic prototype mode.
+
 ## What changed
 
 The active customer chat now retains selected and already-owned outfit pieces,
