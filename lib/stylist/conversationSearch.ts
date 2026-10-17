@@ -19,6 +19,7 @@ import {
 import { PreferenceScopesSchema } from "./preferenceScope";
 import { searchOutfitBudget } from "../search/outfitBudgetSearch";
 import type { OutfitBudget, OutfitChoices } from "./outfitBudgetSchema";
+import { dressCodes, meetsDressCode } from "./dressCode";
 
 type Status =
   | "matches"
@@ -54,6 +55,7 @@ export function executeConversationSearch(
   let outfitChoices: OutfitChoices | null = null;
   const excluded = new Set([...styling.rejected_ids, ...(request.cart_product_ids ?? [])]);
   const eligible = (product: CatalogueProduct) => !excluded.has(product.product_id ?? "") &&
+    (!styling.outfit_request || meetsDressCode(product, styling.dress_code)) &&
     meetsFeatureRequirements(product, styling.required_features) &&
     (["occasion", "style", "fit", "season"] as const).every(field =>
       checked.proposed_scopes.shared[field] === null || relatedLabel(product[field], checked.proposed_scopes.shared[field]!));
@@ -149,7 +151,8 @@ export function executeConversationSearch(
     const result = searchOutfitBudget(catalogue, styling.outfit_request, applied, vocabulary, eligible);
     outfitBudget = result.outfit_budget;
     outfitChoices = result.outfit_choices;
-    return reply(result.status, result.message, result.products);
+    const code = dressCodes.find(code => code.value === styling.dress_code);
+    return reply(result.status, code ? `${code.label}: ${code.guidance}\n\n${result.message}` : result.message, result.products);
   }
 
   const contextProducts = [

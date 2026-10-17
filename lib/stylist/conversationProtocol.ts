@@ -9,6 +9,7 @@ import { AnswerSourceSchema, PendingAnswerSchema } from "./answerPlan";
 import { emptyStylingState, PairingEvidenceSchema, StylingStateSchema, ValueComparisonSchema, COMMERCE_POLICY } from "./commerceSchema";
 import { OutfitBudgetSchema, OutfitChoicesSchema, priceCents } from "./outfitBudgetSchema";
 import { HISTORY_MESSAGES, MAX_DISPLAYED_PRODUCTS } from "./conversationLimits";
+import { OutfitReviewSchema } from "./outfitReview";
 
 export const ShortcutSchema = z.strictObject({
   kind: z.enum(["cross_sell", "cheaper", "upsell", "keep", "own", "remove", "reject"]),
@@ -36,6 +37,8 @@ export const ChatProductSchema = z.object({
   product_type: z.string().nullable(),
   brand_line: z.string().nullable(),
   colour: z.string().nullable(),
+  occasion: z.string().nullable().optional(),
+  style: z.string().nullable().optional(),
   sizes_available: z.array(z.string().trim().min(1)).min(1),
   explanation: z.string().optional(),
   extra_target: z.string().nullable().optional(),
@@ -54,6 +57,7 @@ export const TurnReplySchema = z.object({
   intent_understood: z.boolean().default(true),
   outfit_budget: OutfitBudgetSchema.nullable().default(null),
   outfit_choices: OutfitChoicesSchema.nullable().default(null),
+  outfit_review: OutfitReviewSchema.nullable().default(null),
   status: z.enum(["matches", "partial", "alternatives", "no_match", "no_action", "answered", "needs_clarification", "no_upsell", "no_rule", "rule_unavailable", "primary_unavailable", "primary_mismatch"]),
   action: z.enum(["new_search", "refine", "cross_sell", "cheaper", "upsell", "clarify", "none"]),
   message: z.string().min(1),
@@ -67,8 +71,8 @@ export const TurnReplySchema = z.object({
   can_preview_other_colours: z.boolean().default(false),
   pending: PendingConversationSchema.nullable(),
   pending_answer: PendingAnswerSchema.nullable().default(null),
-  answer_sources: z.array(AnswerSourceSchema).max(5).default([]),
-  answer_product_ids: z.array(z.string().min(1)).max(4).default([]),
+  answer_sources: z.array(AnswerSourceSchema).max(8).default([]),
+  answer_product_ids: z.array(z.string().min(1)).max(8).default([]),
   styling: StylingStateSchema.default(emptyStylingState),
   commerce_policy: z.literal(COMMERCE_POLICY).default(COMMERCE_POLICY),
   feature_data_status: z.enum(["available", "not_configured", "unavailable"]).optional(),
@@ -80,6 +84,7 @@ export const TurnReplySchema = z.object({
   if (reply.status === "alternatives" && !reply.alternatives.length) reject("Alternatives status requires alternatives.");
   if (reply.alternatives.length && !["matches", "partial", "alternatives"].includes(reply.status)) reject("Alternatives cannot hide a blocking result.");
   const all = [...reply.products, ...reply.alternatives];
+  if (reply.outfit_review && (reply.status !== "answered" || reply.action !== "none" || all.length || reply.outfit_budget || reply.outfit_choices)) reject("An outfit review must be an answer without shopping results.");
   const budget = reply.outfit_budget;
   const choices = reply.outfit_choices;
   if (budget) {
@@ -234,6 +239,14 @@ export function acceptReply(turn: ConversationTurn, input: unknown): { reply: Tu
     if (JSON.stringify(reply.proposed_scopes) !== JSON.stringify(turn.scopes) ||
         JSON.stringify(reply.pending) !== JSON.stringify(turn.pending ?? null)) {
       throw new Error("An answer cannot change saved shopping preferences or a pending search.");
+    }
+    if (reply.outfit_review) {
+      const styling = turn.styling ?? emptyStylingState();
+      if (JSON.stringify(reply.styling) !== JSON.stringify(styling) ||
+          !styling.outfit.length && !styling.external_items.length ||
+          JSON.stringify(reply.answer_product_ids) !== JSON.stringify(styling.outfit.map(piece => piece.product_id))) {
+        throw new Error("An outfit review must cover the current selected pieces without changing them.");
+      }
     }
     if (reply.answer_product_ids.length) {
       const pool = [turn.context.focused, turn.context.comparison, ...turn.context.latest, ...(turn.context.previous?.flat() ?? []), ...(turn.context.selected ?? [])];

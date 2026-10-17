@@ -8,6 +8,7 @@ import { addToCart } from "@/lib/cart";
 import { automaticCartSize } from "@/lib/stylist/productActions";
 import type { ShoppingPreferences } from "@/lib/ai/preferenceSchema";
 import type { ChatProduct } from "@/lib/stylist/conversationProtocol";
+import { outfitProductNote } from "@/lib/stylist/outfitPresentation";
 import styles from "./ShoppingConversation.module.css";
 
 export type ShoppingAction = "cross_sell" | "cheaper" | "upsell" | "keep" | "own" | "remove" | "reject";
@@ -22,7 +23,7 @@ function extraLabel(target: string) {
   return `Style with ${target.toLowerCase()}`;
 }
 
-function ProductCard({ product, preferences, featured, onOpen, onAction, selectedIds, onEvent, position, allowOffers = true }: {
+function ProductCard({ product, preferences, featured, onOpen, onAction, selectedIds, onEvent, position, allowOffers = true, outfitMode = false, actionDisabled = false, recommended = false }: {
   product: DisplayProduct;
   preferences: ShoppingPreferences | null;
   featured: boolean;
@@ -32,6 +33,9 @@ function ProductCard({ product, preferences, featured, onOpen, onAction, selecte
   onEvent?: (type: "select" | "own" | "reject" | "add_to_cart", productId: string, position: number) => void;
   position: number;
   allowOffers?: boolean;
+  outfitMode?: boolean;
+  actionDisabled?: boolean;
+  recommended?: boolean;
 }) {
   const sizes = product.sizes_available;
   const automatic = automaticCartSize(sizes);
@@ -39,16 +43,24 @@ function ProductCard({ product, preferences, featured, onOpen, onAction, selecte
     ? sizes.find(value => norm(value) === norm(preferences.size!)) ?? "" : "";
   const initialSize = automatic ?? known;
   const [size, setSize] = useState(initialSize);
-  const [choosing, setChoosing] = useState(false);
   const [feedback, setFeedback] = useState("");
   const [failedImage, setFailedImage] = useState<string | null>(null);
   const sizeInput = useRef<HTMLSelectElement>(null);
   const image = product.image_src ?? null;
   const showImage = image !== null && failedImage !== image;
+  const selected = selectedIds?.includes(product.product_id) ?? false;
+  const note = outfitMode ? outfitProductNote(product) : null;
+  const selectionButton = onAction ? <button type="button"
+    className={`${styles.selectOutfit} ${selected ? styles.selectedOutfit : ""}`}
+    aria-pressed={selected} disabled={actionDisabled}
+    aria-label={`${selected ? "Remove from outfit" : "Select for outfit"}: ${product.product_name}`}
+    onClick={() => {
+      if (!selected) onEvent?.("select", product.product_id, position);
+      onAction(selected ? "remove" : "keep", product);
+    }}>{selected ? "✓ Selected · Remove" : "Select for outfit"}</button> : null;
 
   function add() {
     if (!size || !sizes.includes(size)) {
-      setChoosing(true);
       setFeedback("Choose the size you want to add.");
       window.requestAnimationFrame(() => sizeInput.current?.focus());
       return;
@@ -60,7 +72,6 @@ function ProductCard({ product, preferences, featured, onOpen, onAction, selecte
         size, quantity: 1, image: showImage ? image : null,
       });
       onEvent?.("add_to_cart", product.product_id, position);
-      setChoosing(false);
       setFeedback("Added to cart. Other items in your cart are unchanged.");
     } catch {
       setFeedback("I couldn't update the cart. Please try again.");
@@ -68,7 +79,7 @@ function ProductCard({ product, preferences, featured, onOpen, onAction, selecte
   }
 
   return (
-    <article className={`${styles.card} ${featured ? styles.featured : ""}`}>
+    <article className={`${styles.card} ${featured ? styles.featured : ""} ${selected ? styles.cardSelected : ""}`}>
       <div className={styles.cardLayout}>
         <Link className={`${styles.imageLink} ${!showImage ? styles.imageMissing : ""}`} href={`/products/${encodeURIComponent(product.product_id)}`}
           onClick={onOpen} aria-label={`View ${product.product_name}`}>
@@ -84,12 +95,14 @@ function ProductCard({ product, preferences, featured, onOpen, onAction, selecte
           )}
         </Link>
         <div className={styles.productInfo}>
+          {recommended ? <p className={styles.recommendedBadge}>Suggested pairing</p> : null}
           <Link className={styles.productName} href={`/products/${encodeURIComponent(product.product_id)}`} onClick={onOpen}>
             {product.product_name}
           </Link>
           {product.brand_line ? <p className={styles.brand}>{product.brand_line}</p> : null}
           <p className={styles.price}>{money(product.price_aud)}</p>
           {product.colour ? <p className={styles.colour}>Colour: {product.colour}</p> : null}
+          {note ? <p className={styles.productNote}>{note}</p> : null}
           {product.differences?.length ? (
             <div className={styles.differences}>
               <strong>Alternative — details differ</strong>
@@ -114,41 +127,36 @@ function ProductCard({ product, preferences, featured, onOpen, onAction, selecte
             {product.value_comparison.tradeoffs.map(tradeoff => <p key={tradeoff}>{tradeoff}</p>)}
           </details> : null}
           <div className={styles.cartArea}>
-            {choosing ? (
+            {!automatic ? (
               <label className={styles.sizeLabel}>
-                Size for this item
-                <select ref={sizeInput} value={size} className={styles.sizeSelect}
+                Available sizes
+                <select ref={sizeInput} value={size} className={styles.sizeSelect} aria-label={`Size for ${product.product_name}`}
                   onChange={event => { setSize(event.target.value); setFeedback(""); }}>
                   <option value="">Choose size</option>
                   {sizes.map(label => <option key={label} value={label}>{label}</option>)}
                 </select>
               </label>
-            ) : known ? <p className={styles.knownSize}>Selected size: {known}</p> : null}
-            <button type="button" onClick={add} className={styles.addButton}>
-              {choosing ? "Confirm add" : "Add to cart"}
-            </button>
-            {choosing ? <button type="button" className={styles.textButton} onClick={() => {
-              setChoosing(false); setSize(initialSize); setFeedback("");
-            }}>Cancel size selection</button> : null}
+            ) : <p className={styles.knownSize}>Available size: {automatic}</p>}
+            <div className={styles.productActions}>
+              {selectionButton}
+              <button type="button" onClick={add} className={`${styles.addButton} ${outfitMode ? styles.secondaryAdd : ""}`}>
+                Add to cart
+              </button>
+            </div>
           </div>
           {feedback ? <p role="status" className={styles.feedback}>{feedback}</p> : null}
           {onAction && allowOffers && product.extra_target ? (
-            <button type="button" className={styles.lookAction} onClick={() => onAction("cross_sell", product)}>
+            <button type="button" className={styles.lookAction} disabled={actionDisabled} onClick={() => onAction("cross_sell", product)}>
               {extraLabel(product.extra_target)}<ChevronIcon direction="right" />
             </button>
           ) : null}
           {onAction ? <div className={styles.outfitCardActions}>
-            <button type="button" className={styles.textButton} onClick={() => {
-              const kept = selectedIds?.includes(product.product_id);
-              if (!kept) onEvent?.("select", product.product_id, position);
-              onAction(kept ? "remove" : "keep", product);
-            }}>{selectedIds?.includes(product.product_id) ? "Remove from outfit" : "Keep for my outfit"}</button>
             <details className={styles.cardMore}>
               <summary>More options</summary>
               <div className={styles.cardMoreActions}>
-                <button type="button" className={styles.textButton} onClick={() => { onEvent?.("own", product.product_id, position); onAction("own", product); }}>I already own this</button>
-                {allowOffers ? <button type="button" className={styles.textButton} onClick={() => onAction("upsell", product)}>Compare value</button> : null}
-                <button type="button" className={styles.textButton} onClick={() => { onEvent?.("reject", product.product_id, position); onAction("reject", product); }}>Skip this item</button>
+                <button type="button" className={styles.textButton} disabled={actionDisabled} onClick={() => { onEvent?.("own", product.product_id, position); onAction("own", product); }}>I already own this</button>
+                {allowOffers ? <button type="button" className={styles.textButton} disabled={actionDisabled} onClick={() => onAction("upsell", product)}>Compare value</button> : null}
+                <button type="button" className={styles.textButton} disabled={actionDisabled} onClick={() => { onEvent?.("reject", product.product_id, position); onAction("reject", product); }}>Skip this item</button>
               </div>
             </details>
           </div> : null}
@@ -158,7 +166,7 @@ function ProductCard({ product, preferences, featured, onOpen, onAction, selecte
   );
 }
 
-export function ShoppingProductResults({ products, preferences, preferencesByProduct, label, heading, onOpen, onAction, selectedIds, onEvent, allowOffers = true, positionOffset = 0 }: {
+export function ShoppingProductResults({ products, preferences, preferencesByProduct, label, heading, onOpen, onAction, selectedIds, onEvent, allowOffers = true, positionOffset = 0, outfitMode = false, actionDisabled = false, recommendedIds = [] }: {
   products: DisplayProduct[];
   preferences: ShoppingPreferences | null;
   preferencesByProduct?: Record<string, ShoppingPreferences>;
@@ -170,6 +178,9 @@ export function ShoppingProductResults({ products, preferences, preferencesByPro
   onEvent?: (type: "select" | "own" | "reject" | "add_to_cart", productId: string, position: number) => void;
   allowOffers?: boolean;
   positionOffset?: number;
+  outfitMode?: boolean;
+  actionDisabled?: boolean;
+  recommendedIds?: readonly string[];
 }) {
   const row = useRef<HTMLDivElement>(null);
   const id = useId();
@@ -219,7 +230,8 @@ export function ShoppingProductResults({ products, preferences, preferencesByPro
         {products.map((product, index) => (
           <div role="listitem" key={product.product_id} className={featured ? styles.featureItem : styles.rowItem}>
             <ProductCard product={product} preferences={preferencesByProduct?.[product.product_id] ?? preferences} featured={featured} onOpen={onOpen} onAction={onAction}
-              selectedIds={selectedIds} onEvent={onEvent} position={positionOffset + index + 1} allowOffers={allowOffers} />
+              selectedIds={selectedIds} onEvent={onEvent} position={positionOffset + index + 1} allowOffers={allowOffers}
+              outfitMode={outfitMode} actionDisabled={actionDisabled} recommended={recommendedIds.includes(product.product_id)} />
           </div>
         ))}
       </div>

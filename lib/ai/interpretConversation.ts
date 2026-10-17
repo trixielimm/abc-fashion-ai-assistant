@@ -69,6 +69,14 @@ If replying to a pending styling_question, retain the requested outfit operation
 using only latest-turn evidence. Do not turn keeping an item into a fresh product search.
 
 Questions:
+For an opinion about the CURRENT SELECTED outfit (for example "Is my current outfit a good combination?",
+"What do you think of my outfit?", "Would my selected pieces work together for a formal event?"), use
+answer.kind=outfit_review, topics=[recommendation], references=[], continuation=false, styling_intent=null,
+action=none, changes=[], reference=null, question=null. Set purpose to an exact quoted event/use or null.
+The server reviews styling.outfit and external_items, not context.latest or a stale focused product.
+Use this even when there are no selected pieces; the server will ask the customer to select or describe them.
+The server supplies three paragraphs: what works, what to consider, and what cannot be assessed.
+Never turn an outfit opinion into a product search, change the selection, or infer weather or personal fit.
 Set answer for recommendation explanations, product questions, product comparisons and store policies.
 Pure questions use action=none, changes=[], reference=null, question=null, continuation=false;
 their product references belong in answer.references. They are NOT unsupported informational actions.

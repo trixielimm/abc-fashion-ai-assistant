@@ -11,6 +11,7 @@ import { emptyStylingState, PrioritySchema, RecommendationContextSchema, Styling
 import { groundConversationPlan } from "./conversationGrounding";
 import { OutfitRequestSchema } from "./outfitBudgetSchema";
 import { HISTORY_MESSAGES, MAX_DISPLAYED_PRODUCTS } from "./conversationLimits";
+import { dressCodeFromMessage } from "./dressCode";
 export { ConversationChangeSchema } from "./conversationChanges";
 
 const text = z.string().trim().min(1).max(250);
@@ -132,6 +133,9 @@ export function checkConversationPlan(input: unknown, output: unknown) {
   }
 
   requireEvidence(plan.intent_evidence, "intent_evidence");
+  const dressCode = dressCodeFromMessage(request.message);
+  if (plan.action === "new_search") styling.dress_code = null;
+  if (plan.action === "refine" && originalStyling.outfit_request && dressCode) styling.dress_code = dressCode;
   if (plan.action === "clarify") {
     if (!plan.question) throw new PlanValidationError("A clarification plan must include a question.");
     const composition = composePreferences(scopes);
@@ -243,6 +247,9 @@ export function checkConversationPlan(input: unknown, output: unknown) {
   }
   if (plan.answer) {
     const answer = plan.answer;
+    if (answer.kind === "outfit_review" && (plan.action !== "none" || answer.references.length || answer.continuation || plan.styling_intent)) {
+      throw new PlanValidationError("An outfit review answers from the current styling.outfit and external_items without selecting, removing or searching for products. Use action=none, references=[], continuation=false and styling_intent=null.");
+    }
     if (plan.action === "upsell" && answer.kind === "compare" && answer.references.length < 2 && /\b(?:replacement|upgrade|alternative)\b/i.test(request.message)) {
       throw new PlanValidationError("Finding a replacement is an upsell search, not a comparison question about two existing products. Use action=upsell with the original reference and answer=null unless the customer separately asked about two existing products. Record explicit 'with pockets/adjustable straps/zip closure' requirements as styling requirement entries as well as relevant benefit priorities.");
     }

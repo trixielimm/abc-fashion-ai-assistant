@@ -2,6 +2,7 @@ import { z } from "zod";
 import { ProductReferenceSchema } from "./productReference";
 import { OutfitRequestSchema } from "./outfitBudgetSchema";
 import { OPTIONS_PER_COMPONENT } from "./conversationLimits";
+import { DressCodeSchema } from "./dressCode";
 
 export const COMMERCE_POLICY = "stylist-commerce-v1" as const;
 export const FeatureKeySchema = z.enum(["lining", "adjustable_strap", "pockets", "zip_closure", "machine_washable", "capacity_litres", "use_cases"]);
@@ -52,6 +53,7 @@ export const ExternalItemChangeSchema = ExternalItemDescriptionSchema.extend({
 });
 export type ExternalOutfitItem = z.infer<typeof ExternalOutfitItemSchema>;
 export const StylingStateSchema = z.strictObject({
+  dress_code: DressCodeSchema.nullable().default(null),
   outfit_request: OutfitRequestSchema.nullable().default(null),
   outfit: z.array(OutfitPieceSchema).max(8).default([]),
   external_items: z.array(ExternalOutfitItemSchema).max(8).default([]),

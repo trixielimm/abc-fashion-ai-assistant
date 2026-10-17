@@ -4,7 +4,7 @@ import { ConversationChangeSchema } from "./conversationChanges";
 
 // The model selects questions and references; it never supplies product facts.
 export const AnswerIntentSchema = z.strictObject({
-  kind: z.enum(["product", "compare", "policy"]),
+  kind: z.enum(["product", "compare", "policy", "outfit_review"]),
   topics: z.array(z.enum([
     "recommendation", "material", "fit", "sizes", "availability", "price",
     "care", "quality", "delivery", "returns", "payment", "general",

@@ -9,6 +9,8 @@ import type { CatalogueProduct } from "../recommendations/catalogue";
 import type { CataloguePreferenceValues } from "../catalogue/preferenceValues";
 import { groundConversationPlan } from "./conversationGrounding";
 import { valueQuestionProducts } from "./productReference";
+import { dressCodeFromMessage } from "./dressCode";
+import { isOutfitReviewQuestion } from "./outfitReview";
 
 export function interpreterInput(input: unknown) {
   const turn = TurnSchema.parse(input);
@@ -18,6 +20,19 @@ export function interpreterInput(input: unknown) {
   return ConversationPlanRequestSchema.parse(request);
 }
 export function shortcutPlan(turn: ConversationTurn): z.infer<typeof ConversationPlanSchema> | null {
+  if (!turn.shortcut && !turn.preview_other_colours && isOutfitReviewQuestion(turn.message)) {
+    return ConversationPlanSchema.parse({
+      action: "none", intent_evidence: turn.message.slice(0, 250), reference: null, changes: [], question: null, continuation: false,
+      answer: { kind: "outfit_review", topics: ["recommendation"], references: [], purpose: null, continuation: false },
+    });
+  }
+  const dressCode = dressCodeFromMessage(turn.message);
+  if (dressCode && turn.styling?.outfit_request && !turn.pending && !turn.pending_answer && !turn.shortcut) {
+    return ConversationPlanSchema.parse({
+      action: "refine", intent_evidence: turn.message, reference: null, changes: [], question: null, continuation: false,
+      outfit_request: { ...turn.styling.outfit_request, evidence: turn.message },
+    });
+  }
   // This complete grammar contains only supported filters. Extra qualifiers
   // deliberately fall through to the interpreter instead of being discarded.
   const browseMore = !turn.shortcut && !turn.pending && !turn.pending_answer && !turn.styling?.outfit_request && turn.message.trim().match(

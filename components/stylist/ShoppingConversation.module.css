@@ -46,23 +46,12 @@
 .budgetSummary strong { color: var(--foreground); font-weight: 500; }
 .speaker { display: block; margin-bottom: 8px; color: var(--muted); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
 .message { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 14px; line-height: 1.7; }
+.outfitReview .message + .message { margin-top: 18px; }
 .messageDetails { margin-top: 8px; color: var(--muted); font-size: 12px; line-height: 1.7; }
 .messageDetails summary,.privacyDetails summary { width: fit-content; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 .messageDetails summary:hover,.privacyDetails summary:hover { color: var(--foreground); }
 .messageDetails p { margin: 10px 0 0; }
-.followUp { max-width: 640px; margin-top: 24px; }
-.followUpHeader { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.followUpHeader .speaker { margin: 0; }
-.followUpOptional { color: #655b4d; font-size: 12px; line-height: 1.5; }
-.followUpTitle { margin: 12px 0 16px; font-family: var(--font-cormorant), Georgia, serif; font-size: 27px; font-weight: 500; line-height: 1.2; }
-.followUpQuestions { display: grid; gap: 14px; margin: 0; font-size: 14px; line-height: 1.7; }
-.followUpQuestions > div { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 12px; }
-.followUpQuestions dt { font-weight: 500; }
-.followUpQuestions dd { margin: 0; overflow-wrap: anywhere; }
-.followUpFooter { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; margin-top: 14px; color: #655b4d; font-size: 12px; line-height: 1.6; }
-.followUpBrowse { min-height: 44px; padding: 8px 0; border: 0; background: transparent; color: var(--foreground); font: inherit; text-decoration: underline; text-underline-offset: 4px; }
-.followUpBrowse:hover { color: #655439; }
-.followUpDismissed { margin: 24px 0 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.optionalQuestion { max-width: 640px; margin: 20px 0 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
 .starters { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 18px; }
 .chip { display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--hairline); border-radius: 2px; min-height: 44px; padding: 10px 16px; background: var(--background); color: var(--foreground); font: inherit; font-size: 12px; }
 .chip:hover { background: var(--surface); border-color: var(--foreground); }
@@ -82,24 +71,26 @@
 .rowItem { flex: 0 0 232px; min-width: 0; scroll-snap-align: start; }
 .singleResult,.featureItem { min-width: 0; }
 .card { height: 100%; min-width: 0; }
-.cardLayout { display: flex; flex-direction: column; min-width: 0; gap: 12px; }
+.cardLayout { display: flex; flex-direction: column; min-width: 0; height: 100%; gap: 12px; }
 .imageLink { display: block; position: relative; flex-shrink: 0; width: 100%; aspect-ratio: 1; overflow: hidden; background: var(--surface); }
 .productImage { object-fit: contain; }
 .imageMissing { background: var(--surface); }
 .imagePlaceholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; font-size: 11px; color: var(--muted); }
 .placeholderMark { font-family: var(--font-cormorant), Georgia, serif; letter-spacing: .18em; font-size: 28px; color: var(--muted); }
-.productInfo { min-width: 0; flex: 1; }
+.productInfo { display: flex; flex-direction: column; min-width: 0; flex: 1; }
 .productName { display: block; color: var(--foreground); font-weight: 500; font-size: 14px; line-height: 1.5; text-decoration: none; overflow-wrap: anywhere; }
 .productName:hover { text-decoration: underline; text-underline-offset: 3px; }
-.brand,.colour { margin: 4px 0 0; color: var(--muted); font-size: 11px; line-height: 1.6; }
+.brand,.colour { margin: 4px 0 0; color: #555; font-size: 13px; line-height: 1.6; }
 .price { margin: 8px 0 0; font-size: 16px; font-weight: 500; line-height: 1.5; }
 .explanation { margin: 10px 0 0; font-size: 12px; color: var(--muted); line-height: 1.6; }
-.cartArea { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+.cartArea { display: flex; flex-direction: column; gap: 8px; margin-top: auto; padding-top: 12px; }
+.productActions { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 8px; align-items: stretch; }
+.productActions > button { min-width: 0; margin: 0; padding: 10px 8px; font-size: 12px; }
 .addButton { width: 100%; min-height: 44px; border: 1px solid var(--foreground); border-radius: 0; background: var(--foreground); color: var(--background); font: inherit; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; padding: 12px; transition: opacity 150ms; }
 .addButton:hover { opacity: .8; }
 .sizeLabel { display: flex; flex-direction: column; gap: 6px; font-size: 12px; }
 .sizeSelect { width: 100%; min-height: 44px; border: 1px solid var(--hairline); border-radius: 0; background: var(--background); color: var(--foreground); padding: 8px; font: inherit; }
-.knownSize,.feedback { margin: 5px 0 0; font-size: 12px; line-height: 1.6; color: var(--muted); }
+.knownSize,.feedback { margin: 5px 0 0; font-size: 13px; line-height: 1.6; color: #555; }
 .textButton { background: transparent; border: 0; color: var(--foreground); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; padding: 6px 0; font: inherit; font-size: 12px; }
 .lookAction { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 44px; margin-top: 4px; padding: 10px 0; border: 0; background: transparent; color: var(--muted); text-align: left; font: inherit; font-size: 12px; }
 .lookAction:hover { color: var(--foreground); text-decoration: underline; text-underline-offset: 3px; }
@@ -152,8 +143,6 @@
   .welcomeHint { max-width: 260px; margin: 18px auto 0; font-size: 11px; }
   .message { font-size: 14px; }
   .replyBubble { padding: 16px; }
-  .followUpQuestions > div { grid-template-columns: 1fr; gap: 2px; }
-  .followUpTitle { font-size: 25px; }
   .budgetSummary { flex-direction: column; gap: 4px; }
   .productRow { gap: 16px; }
   .rowItem { flex-basis: min(252px, 78vw); }
@@ -190,8 +179,7 @@
   margin-top: 8px;
   font-size: 12px;
 }
-.outfitCardActions > .textButton { min-height: 44px; text-align: left; }
-.cardMore { color: var(--muted); font-size: 11px; }
+.cardMore { color: #555; font-size: 13px; }
 .cardMore summary { display: flex; align-items: center; gap: 6px; min-height: 44px; cursor: pointer; list-style: none; }
 .cardMore summary::-webkit-details-marker { display: none; }
 .cardMore summary::after { content: "+"; }
@@ -221,7 +209,7 @@
 .outfitList li { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-top: 1px solid var(--border); }
 .outfitThumbnail { width: 40px; flex-shrink: 0; }
 .outfitPiece { display: flex; flex: 1; flex-direction: column; min-width: 0; gap: 3px; font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
-.outfitPiece small { color: var(--muted); font-size: 11px; }
+.outfitPiece small { color: #555; font-size: 13px; }
 .outfitRemove { flex-shrink: 0; min-height: 44px; padding: 8px; background: transparent; border: 0; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; font: inherit; font-size: 12px; }
 .outfitMobileToggle { display: none; }
 .outfitSheet { position: fixed; inset: auto 0; top: calc(var(--stylist-viewport-top, 0px) + var(--stylist-viewport-height, 100dvh)); transform: translateY(-100%); margin: 0 auto; padding: 0; width: 100%; max-width: 640px; max-height: calc(var(--stylist-viewport-height, 100dvh) - 24px); border: 0; border-top: 1px solid var(--border); border-radius: 8px 8px 0 0; background: var(--background); color: var(--foreground); overflow: hidden; }
@@ -236,3 +224,34 @@
   .outfitMobileToggle { display: flex; padding-inline: 18px; }
 }
 @media (prefers-reduced-motion: reduce) { .outfitCount { animation: none; } }
+
+.outfitBudget { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin-left: auto; color: #555; font-size: 13px; line-height: 1.5; }
+.outfitBudget strong { color: var(--foreground); font-weight: 600; }
+.outfitBudget .overBudget { color: #9c2b20; font-weight: 600; }
+.outfitSheetBody > .outfitBudget { margin: 6px 0 16px; }
+.selectionStatus { flex-shrink: 0; min-height: 36px; margin: 0; padding: 8px 28px; border-bottom: 1px solid var(--border); background: #f6f3ed; color: #514735; font-size: 12px; line-height: 1.6; }
+.dressCode { max-width: 640px; margin-top: 24px; padding: 14px 16px; border: 1px solid var(--border); background: var(--background); }
+.dressCode h3 { margin: 0; font-family: var(--font-cormorant), Georgia, serif; font-size: 23px; font-weight: 500; line-height: 1.2; }
+.dressCode p { margin: 6px 0 0; color: #555; font-size: 12px; line-height: 1.6; }
+.dressCodeChoices { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.dressCodeChoices .chip { padding: 7px 10px; font-size: 12px; }
+.dressCodeChoices .chip[aria-pressed="true"] { background: #ede7da; border-color: #766345; color: #493d2b; font-weight: 600; }
+.dressCode .dressCodeHint { margin-top: 10px; }
+.pairingDetails { color: #555; }
+.pairingDetails p { font-size: 13px; }
+.pairingDetails .pairingNote { font-size: 12px; }
+.pairingDetails summary { display: list-item; min-height: 44px; padding-block: 12px; color: var(--foreground); font-size: 13px; line-height: 20px; }
+.recommendedBadge { width: fit-content; margin: 0 0 8px; padding: 4px 7px; border: 1px solid #b8aa91; background: #f6f3ed; color: #514735; font-size: 12px; line-height: 1.5; }
+.productNote { margin: 8px 0 12px; font-size: 13px; line-height: 1.6; color: #555; }
+.selectOutfit { display: block; width: 100%; min-height: 44px; margin-top: 12px; padding: 10px 12px; border: 1px solid var(--foreground); background: var(--foreground); color: var(--background); font: inherit; font-size: 13px; font-weight: 500; cursor: pointer; }
+.selectOutfit:hover:not(:disabled) { opacity: .85; }
+.selectedOutfit { background: #e9e2d4; border-color: #766345; color: #493d2b; }
+.cardSelected .productName::after { content: " · Selected"; color: #655439; font-size: 12px; }
+.secondaryAdd { background: transparent; color: var(--foreground); border-color: #aaa; font-size: 12px; letter-spacing: .04em; }
+
+@media (max-width: 639px) {
+  .outfitMobileToggle { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+  .outfitMobileToggle .outfitBudget { grid-column: 1 / -1; grid-row: 2; margin-left: 0; }
+  .selectionStatus { padding: 6px 18px; font-size: 12px; }
+  .dressCodeChoices .chip { flex: 1 1 calc(50% - 6px); }
+}

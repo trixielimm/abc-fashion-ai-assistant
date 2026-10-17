@@ -64,12 +64,12 @@ check('Fifth dress and fifth shoes resolve within their groups, including a pend
   assert.deepEqual(answer.answer_product_ids, [reply.outfit_choices.groups[0].product_ids[4]]);
 });
 
-check('A broad two-item request shows three dresses and three shoes with optional questions', () => {
+check('A broad two-item request shows three dresses and three shoes without the removed style questionnaire', () => {
   const { reply, session } = seed();
   assert.equal(reply.status, 'matches'); assert.equal(reply.products.length, 6);
   assert.deepEqual(reply.outfit_choices.groups.map(group => group.product_ids.length), [3, 3]);
-  assert.ok(reply.optional_question); assert.match(reply.optional_question, /dress style.*colour/); assert.match(reply.optional_question, /shoe style/);
-  assert.match(reply.optional_question, /keep browsing/); assert.equal(reply.pending, null);
+  assert.equal(reply.optional_question, null); assert.equal(reply.pending, null);
+  assert.equal(session.history.at(-1).content, reply.message.slice(0, 2000));
   for (const component of session.styling.outfit_request.items) {
     assert.equal(component.size, null); assert.equal(component.product_type, null); assert.deepEqual(component.preferred_colours, []);
   }

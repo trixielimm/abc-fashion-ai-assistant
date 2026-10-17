@@ -5,6 +5,7 @@ import { ProductImage } from "@/components/commerce/ProductImage";
 import { CloseIcon } from "@/components/ui/icons";
 import { getProductImageEndpoint } from "@/lib/product-image";
 import type { StylingState } from "@/lib/stylist/commerceSchema";
+import { outfitMoney, outfitTotals } from "@/lib/stylist/outfitPresentation";
 import styles from "./ShoppingConversation.module.css";
 
 export function OutfitSummary({ styling, disabled, open, onRemove, onRemoveExternal }: {
@@ -17,7 +18,14 @@ export function OutfitSummary({ styling, disabled, open, onRemove, onRemoveExter
   const sheet = useRef<HTMLDialogElement>(null);
   const titleId = useId();
   const count = styling.outfit.length + styling.external_items.length;
-  const hasOutfit = count > 0 || styling.owned_categories.length > 0;
+  const hasOutfit = count > 0 || styling.owned_categories.length > 0 || Boolean(styling.outfit_request);
+  const totals = outfitTotals(styling);
+  const budgetLabel = <span className={styles.outfitBudget}>
+    <strong>{outfitMoney(totals.total)} {totals.completePrices ? "total" : "known subtotal"}</strong>
+    {totals.remaining !== null ? <span className={totals.remaining < 0 ? styles.overBudget : undefined}>
+      {outfitMoney(Math.abs(totals.remaining))} {totals.remaining < 0 ? "over budget" : "remaining"}
+    </span> : !totals.completePrices ? <span>Some prices unavailable</span> : null}
+  </span>;
 
   useEffect(() => {
     if (!open || !hasOutfit) sheet.current?.close();
@@ -28,7 +36,7 @@ export function OutfitSummary({ styling, disabled, open, onRemove, onRemoveExter
   const label = <>
     <strong>Your outfit</strong>
     <span key={`${count}:${styling.owned_categories.join(",")}`} className={styles.outfitCount}>
-      {count ? `${count} ${count === 1 ? "item" : "items"}` : "Owned items"}
+      {count ? `${count} ${count === 1 ? "item" : "items"}` : styling.owned_categories.length ? "Owned items" : "0 items"}
     </span>
   </>;
 
@@ -43,7 +51,8 @@ export function OutfitSummary({ styling, disabled, open, onRemove, onRemoveExter
             category={piece.category} compact sizes="40px" className={styles.outfitThumbnail} />
           <div className={styles.outfitPiece}>
             <span>{piece.product_name}</span>
-            {piece.ownership === "owned" ? <small>Already owned</small> : null}
+            <small>{piece.ownership === "owned" ? "Already owned · No new cost"
+              : piece.price_aud !== undefined ? outfitMoney(piece.price_aud) : "Price unavailable"}</small>
           </div>
           <button type="button" className={styles.outfitRemove} disabled={disabled}
             aria-label={`Remove ${piece.product_name} from outfit`}
@@ -69,6 +78,7 @@ export function OutfitSummary({ styling, disabled, open, onRemove, onRemoveExter
       <details className={styles.outfitDesktop}>
         <summary className={styles.outfitToggle}>
           <span className={styles.outfitLabel}>{label}</span>
+          {budgetLabel}
           <span className={styles.outfitExpand}>Expand <span aria-hidden="true">⌄</span></span>
           <span className={styles.outfitCollapse}>Collapse <span aria-hidden="true">⌃</span></span>
         </summary>
@@ -78,6 +88,7 @@ export function OutfitSummary({ styling, disabled, open, onRemove, onRemoveExter
         aria-haspopup="dialog" aria-controls={titleId}
         onClick={() => sheet.current?.showModal()}>
         <span className={styles.outfitLabel}>{label}</span>
+        {budgetLabel}
         <span>View <span aria-hidden="true">⌄</span></span>
       </button>
       <dialog ref={sheet} id={titleId} className={styles.outfitSheet} aria-labelledby={`${titleId}-heading`}
@@ -88,7 +99,7 @@ export function OutfitSummary({ styling, disabled, open, onRemove, onRemoveExter
           <h3 id={`${titleId}-heading`}>Your outfit <span>{count ? `${count} ${count === 1 ? "item" : "items"}` : "Owned items"}</span></h3>
           <button type="button" className={styles.iconButton} aria-label="Close your outfit" onClick={() => sheet.current?.close()}><CloseIcon /></button>
         </header>
-        <div className={styles.outfitSheetBody}>{items(true)}</div>
+        <div className={styles.outfitSheetBody}>{budgetLabel}{items(true)}</div>
       </dialog>
     </aside>
   );

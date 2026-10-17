@@ -7,7 +7,6 @@ import type { executeConversationSearch } from "./conversationSearch";
 import { ChatProductSchema, type AlternativeProduct, type ChatProduct, type ConversationTurn } from "./conversationProtocol";
 import { catalogueImageSource } from "./catalogueImages";
 import { friendlyShoppingMessage } from "./friendlyShoppingMessage";
-import { outfitDiscoveryQuestions } from "./discoveryQuestions";
 
 type SearchResult = ReturnType<typeof executeConversationSearch>;
 const money = (value: number) => `A$${value.toFixed(2)}`;
@@ -88,6 +87,7 @@ export function presentShoppingResult(
     }
     return ChatProductSchema.parse({
       ...product, explanation,
+      occasion: record.occasion, style: record.style,
       image_src: catalogueImageSource(record),
       extra_target: target && unique.size === 1 ? target : null,
     });
@@ -97,14 +97,11 @@ export function presentShoppingResult(
   // Retrieval already checked every component's context and the combined price.
   if (result.styling.outfit_request && ["new_search", "refine"].includes(result.action) &&
       result.status !== "needs_clarification") {
-    const questions = outfitDiscoveryQuestions(result.outfit_choices?.groups ?? [])
-      .filter(({ question }) => !turn.history.some(entry => entry.role === "assistant" && entry.content.includes(question)))
-      .slice(0, 2).map(({ question }) => question);
     return {
     status: result.status, message: result.message,
     products: result.products.map(decorate), alternatives: [],
     alternatives_preferences: null, alternative_kind: null,
-    optional_question: result.products.length && questions.length ? `${questions.join(" ")} You can also keep browsing these options.` : null,
+    optional_question: null,
     can_preview_other_colours: false,
     };
   }

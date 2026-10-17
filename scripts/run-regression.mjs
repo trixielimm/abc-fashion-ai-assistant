@@ -36,6 +36,8 @@ function record(text) {
 }
 
 const suites = [
+  ["selected-outfit-review", "test-selected-outfit-review.mjs"],
+  ["outfit-interface", "test-outfit-interface.mjs"],
   ["grouped-discovery-memory", "test-grouped-discovery-memory.mjs"],
   ["shared-outfit-budget", "test-outfit-budget.mjs"],
   ["customer-scenarios", "test-customer-scenario-regressions.mjs"],

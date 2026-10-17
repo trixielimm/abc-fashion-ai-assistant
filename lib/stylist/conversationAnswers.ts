@@ -7,6 +7,7 @@ import { scoreCompatibility } from "../search/stylingCompatibility";
 import { compareBenefits } from "../search/productBenefits";
 import { getProductSpecification, specificationDetails } from "./productSpecifications";
 import { relatedLabel } from "../search/preferenceSearch";
+import { reviewSelectedOutfit } from "./outfitReview";
 
 const normalise = (value: string | null | undefined) => (value ?? "").toLowerCase().replace(/[^a-z0-9]/g, "");
 const label = (value: string) => value.replace(/([a-z])([A-Z])/g, "$1 $2");
@@ -14,6 +15,7 @@ const money = (value: number) => `A$${value.toFixed(2)}`;
 const policyTopics = new Set(["delivery", "returns", "payment"]);
 
 export function resolveAnswerProducts(turn: ConversationPlanRequest, intent: AnswerIntent) {
+  if (intent.kind === "outfit_review") return { ids: (turn.styling?.outfit ?? []).map(piece => piece.product_id), question: null };
   if (intent.kind === "policy") return { ids: [] as string[], question: null };
   if (!intent.continuation) {
     const value = valueQuestionProducts(turn.context, turn.message);
@@ -125,6 +127,7 @@ function productAnswer(product: CatalogueProduct, turn: ConversationPlanRequest,
 
 // Answer text is assembled from authoritative records, never free-form model claims.
 export function answerConversationQuestion(catalogue: readonly CatalogueProduct[], turn: ConversationPlanRequest, intent: AnswerIntent) {
+  if (intent.kind === "outfit_review") return reviewSelectedOutfit(catalogue, turn, intent.purpose);
   const resolution = resolveAnswerProducts(turn, intent);
   const paragraphs = policyAnswer(intent, intent.continuation ? turn.pending_answer!.question : turn.message);
   const sources: Array<{ label: string; url: string }> = [];

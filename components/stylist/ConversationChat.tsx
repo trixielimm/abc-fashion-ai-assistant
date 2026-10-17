@@ -14,9 +14,19 @@ import {
 import { ShoppingProductResults, type ShoppingAction } from "./ShoppingProductResults";
 import styles from "./ShoppingConversation.module.css";
 import { OutfitSummary } from "./OutfitSummary";
-import { StylistFollowUp } from "./StylistFollowUp";
+import { DressCodeChoices, OutfitGuidance } from "./OutfitGuidance";
+import { suggestedOutfit } from "@/lib/stylist/outfitPresentation";
+import { outfitReviewSections } from "@/lib/stylist/outfitReview";
 
 type Entry = { id: string; role: "user" | "assistant"; text: string; result?: TurnReply; groupRecommendationIds?: string[] };
+
+function OutfitReviewMessage({ review }: { review: NonNullable<TurnReply["outfit_review"]> }) {
+  return <div className={styles.outfitReview} aria-label="Current outfit review">
+    {outfitReviewSections.map(section => <p key={section.key} className={styles.message}>
+      <strong>{section.title}</strong><br />{review[section.key]}
+    </p>)}
+  </div>;
+}
 
 function ReplyMessage({ text, collapsible }: { text: string; collapsible: boolean }) {
   const paragraphs = text.split(/\n\s*\n/).map(part => part.trim()).filter(Boolean);
@@ -44,7 +54,9 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
   }]);
   const [draft, setDraft] = useState("");
   const [busy, setBusy] = useState(false);
-  const [retry, setRetry] = useState<TurnEnvelope | null>(null);
+  const [quietBusy, setQuietBusy] = useState(false);
+  const [selectionFeedback, setSelectionFeedback] = useState("");
+  const [retry, setRetry] = useState<{ envelope: TurnEnvelope; quietMessage?: string } | null>(null);
   const [activeReply, setActiveReply] = useState<string | null>(null);
   const [sessionState, setSessionState] = useState(newSession);
   const session = useRef(sessionState);
@@ -54,6 +66,7 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
   const latestEntry = useRef<HTMLDivElement>(null);
   const loading = useRef<HTMLDivElement>(null);
   const input = useRef<HTMLTextAreaElement>(null);
+  const conversationBusy = busy && !quietBusy;
 
   useEffect(() => () => {
     requestRef.current?.abort();
@@ -62,13 +75,13 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
   useEffect(() => { if (!open) requestRef.current?.abort(); }, [open]);
   useEffect(() => {
     const element = transcript.current;
-    const anchor = busy ? loading.current : latestEntry.current;
+    const anchor = conversationBusy ? loading.current : latestEntry.current;
     if (open && element && anchor) {
       // Start at the new reply, rather than jumping past its images and summary.
       const padding = Number.parseFloat(getComputedStyle(element).paddingTop) || 0;
       element.scrollTop = Math.max(0, anchor.offsetTop - padding);
     }
-  }, [entries, busy, open]);
+  }, [entries, conversationBusy, open]);
 
   useLayoutEffect(() => {
     const element = input.current;
@@ -85,17 +98,24 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
     requestRef.current = null;
     setBusy(false);
     setRetry(null);
+    if (quietBusy) {
+      setQuietBusy(false);
+      setSelectionFeedback("Cancelled that update. Your outfit is unchanged.");
+      return;
+    }
     setEntries(previous => [...previous, {
       id: crypto.randomUUID(), role: "assistant",
       text: "Cancelled that request. Your saved preferences and cart are unchanged.",
     }]);
   }
 
-  async function run(envelope: TurnEnvelope) {
+  async function run(envelope: TurnEnvelope, quietMessage?: string) {
     if (requestRef.current) return;
     const controller = new AbortController();
     requestRef.current = controller;
     setBusy(true);
+    setQuietBusy(Boolean(quietMessage));
+    if (quietMessage) setSelectionFeedback("Updating your outfit…");
     setRetry(null);
     try {
       const raw = await postChatJson("/api/conversation-search", envelope, {
@@ -113,16 +133,22 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
       } else trackRecommendationEvents(id, [...result.reply.products, ...result.reply.alternatives].map((product, index) => ({
           product_id: product.product_id, position: index + 1, event_type: "impression",
         })));
-      setEntries(previous => [...previous, {
-        id, role: "assistant", text: result.reply.message, result: result.reply, groupRecommendationIds,
-      }]);
+      if (quietMessage && result.reply.intent_understood && result.reply.status === "no_action" && !result.reply.pending) {
+        setSelectionFeedback(quietMessage);
+      } else {
+        setSelectionFeedback("");
+        setEntries(previous => [...previous, {
+          id, role: "assistant", text: result.reply.message, result: result.reply, groupRecommendationIds,
+        }]);
+      }
       if (result.reply.intent_understood && !["answered", "no_action", "no_upsell"].includes(result.reply.status)) setActiveReply(id);
     } catch (error) {
       if (requestRef.current !== controller || controller.signal.aborted) return;
       const expired = error instanceof ChatRequestError && error.status === 409;
       const invalid = error instanceof ChatRequestError && [400, 403, 413, 415].includes(error.status ?? 0);
-      if (!expired && !invalid) setRetry({ ...envelope, retry: true });
-      setEntries(previous => [...previous, {
+      if (!expired && !invalid) setRetry({ envelope: { ...envelope, retry: true }, quietMessage });
+      if (quietMessage) setSelectionFeedback("Couldn't update your outfit. Your selections are unchanged. Please try again.");
+      else setEntries(previous => [...previous, {
         id: crypto.randomUUID(), role: "assistant",
         text: expired
           ? "That retry has expired. Please send your message again. Your saved preferences are unchanged."
@@ -132,11 +158,12 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
       if (requestRef.current === controller) {
         requestRef.current = null;
         setBusy(false);
+        setQuietBusy(false);
       }
     }
   }
 
-  function send(message: string, kind?: ShoppingAction, product?: ChatProduct, previewOtherColours = false, selectedId?: string) {
+  function send(message: string, kind?: ShoppingAction, product?: ChatProduct, previewOtherColours = false, selectedId?: string, quietMessage?: string) {
     const text = message.trim();
     if (!text || text.length > 2000 || requestRef.current || busy) return;
     const focus = previewOtherColours ? null : product ? snapshot(product)
@@ -149,9 +176,12 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
         previewOtherColours);
       usedPageKey.current = viewedPage?.key ?? null;
       const envelope: TurnEnvelope = { request_id: crypto.randomUUID(), retry: false, turn };
-      setEntries(previous => [...previous, { id: envelope.request_id, role: "user", text }]);
-      setDraft("");
-      void run(envelope);
+      if (!quietMessage) {
+        setSelectionFeedback("");
+        setEntries(previous => [...previous, { id: envelope.request_id, role: "user", text }]);
+        if (draft.trim() === text) setDraft("");
+      }
+      void run(envelope, quietMessage);
     } catch {
       setEntries(previous => [...previous, {
         id: crypto.randomUUID(), role: "assistant",
@@ -167,15 +197,13 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
       : kind === "own" ? `I already own ${product.product_name}.`
       : kind === "reject" ? `Skip ${product.product_name} in future recommendations.`
       : `Remove ${product.product_name} from my selected outfit.`;
-    send(text, kind, product);
+    const quietMessage = kind === "keep" ? `${product.product_name} selected for your outfit.`
+      : kind === "remove" ? `${product.product_name} removed from your outfit.`
+      : kind === "own" ? `${product.product_name} marked as already owned.`
+      : kind === "reject" ? `${product.product_name} skipped for future recommendations.` : undefined;
+    send(text, kind, product, false, undefined, quietMessage);
   }
   function close() { requestRef.current?.abort(); onClose(); }
-  function keepBrowsing(trigger: HTMLButtonElement) {
-    const results = trigger.closest(`.${styles.assistantEntry}`)?.querySelector<HTMLElement>(`.${styles.results}`);
-    if (!results) return;
-    results.querySelector<HTMLAnchorElement>("a")?.focus({ preventScroll: true });
-    results.scrollIntoView({ block: "start", behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
-  }
   const pending = sessionState.pending || sessionState.pending_answer;
   const welcome = entries.length === 1;
 
@@ -201,8 +229,11 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
         </div>
       </header>
       {sessionState.styling ? <OutfitSummary styling={sessionState.styling} open={open} disabled={busy || Boolean(pending)}
-        onRemoveExternal={description => send(`Remove the owned item I described as "${description}".`)}
-        onRemove={(productId, productName) => send(`Remove ${productName} from my outfit.`, "remove", undefined, false, productId)} /> : null}
+        onRemoveExternal={description => send(`Remove the owned item I described as "${description}".`, undefined, undefined, false, undefined, "Owned item removed from your outfit.")}
+        onRemove={(productId, productName) => send(`Remove ${productName} from my outfit.`, "remove", undefined, false, productId, `${productName} removed from your outfit.`)} /> : null}
+      {sessionState.styling?.outfit_request || selectionFeedback ? <p className={styles.selectionStatus} role="status" aria-live="polite">
+        {selectionFeedback || "Select one item from each group to build your outfit."}
+      </p> : null}
       <div ref={transcript} role="log" aria-live="polite" aria-relevant="additions" aria-busy={busy}
         className={`${styles.transcript} ${welcome ? styles.transcriptWelcome : ""}`}>
         {welcome ? (
@@ -222,11 +253,13 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
         ) : entries.map((entry, index) => {
           if (entry.id === "welcome") return null;
           const result = entry.result;
-          const actionsAvailable = entry.id === activeReply && !busy && !pending;
+          const actionsAvailable = entry.id === activeReply && (!busy || quietBusy) && !pending;
           // Do not attach another sales offer to every cross-sell response.
           const lookAction = actionsAvailable ? act : undefined;
           const allowOffers = !result?.outfit_budget && result?.action !== "cross_sell" && !sessionState.styling?.offers_paused;
           const selectedIds = sessionState.styling?.outfit.map(piece => piece.product_id) ?? [];
+          const recommendedIds = result?.outfit_choices && result.outfit_budget
+            ? suggestedOutfit(result.products, result.outfit_choices, result.outfit_budget.limit_aud)?.products.map(product => product.product_id) ?? [] : [];
           const onEvent = (event_type: "select" | "own" | "reject" | "add_to_cart", product_id: string, position: number) =>
             trackRecommendationEvents(entry.id, [{ event_type, product_id, position }]);
           return (
@@ -234,9 +267,9 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
               className={`${styles.entry} ${entry.role === "user" ? styles.userEntry : styles.assistantEntry}`}>
               <div className={entry.role === "assistant" ? styles.replyBubble : undefined}>
                 <span className={styles.speaker}>{entry.role === "user" ? "You" : "AI Stylist"}</span>
-                <ReplyMessage text={result?.outfit_choices
-                  ? "I've found options to mix and match. Choose one item from each group below."
-                  : entry.text} collapsible={Boolean(result && (result.products.length || result.alternatives.length))} />
+                {result?.outfit_review ? <OutfitReviewMessage review={result.outfit_review} /> : result?.outfit_budget && result.outfit_choices ?
+                  <OutfitGuidance products={result.products} choices={result.outfit_choices} limit={result.outfit_budget.limit_aud} /> :
+                  <ReplyMessage text={entry.text} collapsible={Boolean(result && (result.products.length || result.alternatives.length))} />}
                 {result?.outfit_budget ? <div className={styles.budgetSummary} aria-label="Combined outfit budget">
                   <span><strong>A${result.outfit_budget.total_aud.toFixed(2)}
                     {result.outfit_choices && result.outfit_choices.maximum_total_aud !== result.outfit_budget.total_aud
@@ -253,25 +286,25 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
                 <ShoppingProductResults key={`${entry.id}-group-${groupIndex}`}
                   products={group.product_ids.map(id => result.products.find(product => product.product_id === id)!)}
                   heading={group.label} preferences={group.preferences} label={`${group.label} options`} onOpen={close} onAction={lookAction}
-                  selectedIds={selectedIds} allowOffers={false}
+                  selectedIds={selectedIds} allowOffers={false} outfitMode actionDisabled={busy} recommendedIds={recommendedIds}
                   onEvent={(event_type, product_id, position) => trackRecommendationEvents(entry.groupRecommendationIds?.[groupIndex] ?? entry.id,
                     [{ event_type, product_id, position }])} />
               )) : result?.products.length ? <ShoppingProductResults
                 products={result.products} preferences={result.applied_preferences}
                 preferencesByProduct={result.outfit_budget ? Object.fromEntries(result.outfit_budget.items.map(item => [item.product_id, item.preferences])) : undefined}
                 label={result.outfit_budget ? "Items in one complete set" : "Recommended products"} onOpen={close} onAction={lookAction}
-                selectedIds={selectedIds} onEvent={onEvent} allowOffers={allowOffers}
+                selectedIds={selectedIds} onEvent={onEvent} allowOffers={allowOffers} actionDisabled={busy} outfitMode={Boolean(result.outfit_budget)}
               /> : null}
               {result?.alternatives.length ? (
                 <div>
                   <h3 className={styles.alternativeHeading}>Alternatives <span>Details differ</span></h3>
                   <ShoppingProductResults products={result.alternatives} preferences={result.alternatives_preferences}
                     label="Alternative products with disclosed differences" onOpen={close} onAction={lookAction}
-                    selectedIds={selectedIds} onEvent={onEvent} allowOffers={allowOffers} positionOffset={result.products.length} />
+                    selectedIds={selectedIds} onEvent={onEvent} allowOffers={allowOffers} actionDisabled={busy} positionOffset={result.products.length} />
                 </div>
               ) : null}
-              {result?.optional_question ? <StylistFollowUp question={result.optional_question}
-                groups={result.outfit_choices?.groups} onKeepBrowsing={keepBrowsing} /> : null}
+              {result?.optional_question && !result.outfit_choices && !result.outfit_budget ?
+                <p className={styles.optionalQuestion}>{result.optional_question}</p> : null}
               {actionsAvailable && result?.can_preview_other_colours ? (
                 <div className={styles.starters}>
                   <button type="button" className={styles.chip} onClick={() =>
@@ -280,10 +313,13 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
                   <p className={styles.notice}>Preview only. Your original colour and other restrictions stay saved.</p>
                 </div>
               ) : null}
+              {entry.id === activeReply && sessionState.styling?.outfit_request ?
+                <DressCodeChoices value={sessionState.styling.dress_code ?? null}
+                  disabled={busy || Boolean(pending)} onChoose={message => send(message)} /> : null}
             </div>
           );
         })}
-        {busy ? <div ref={loading} role="status" className={styles.loading}>
+        {conversationBusy ? <div ref={loading} role="status" className={styles.loading}>
           <span className={styles.loadingDots} aria-hidden="true"><i /><i /><i /></span>
           <span>Checking your request…</span>
         </div> : null}
@@ -292,7 +328,7 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
         Reply to continue, or <button type="button" className={styles.textButton} onClick={() => send("cancel")}>cancel this question</button>.
       </div> : null}
       {retry && !busy ? <div className={styles.controls}>
-        <button type="button" className={styles.textButton} onClick={() => void run(retry)}>Retry this request</button>
+        <button type="button" className={styles.textButton} onClick={() => void run(retry.envelope, retry.quietMessage)}>Retry this request</button>
       </div> : null}
       {busy ? <div className={styles.controls}><button type="button" className={styles.textButton} onClick={cancelRequest}>Cancel request</button></div> : null}
       <div className={styles.composerArea}>
