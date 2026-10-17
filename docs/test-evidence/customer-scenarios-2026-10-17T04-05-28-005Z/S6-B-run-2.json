@@ -1,0 +1,1204 @@
+{
+  "id": "S6-B",
+  "name": "Silver necklaces and fastening facts",
+  "repeat": 2,
+  "turns": [
+    {
+      "number": 1,
+      "message": "Show me silver necklaces under $80. I only need a necklace.",
+      "input": {
+        "message": "Show me silver necklaces under $80. I only need a necklace.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T04:05:28.123Z",
+      "plan_source": "live model",
+      "plan": {
+        "action": "new_search",
+        "intent_evidence": "Show me silver necklaces under $80. I only need a necklace.",
+        "reference": null,
+        "changes": [
+          {
+            "scope": "item",
+            "evidence": "necklaces",
+            "operation": "set",
+            "field": "category",
+            "value": "Accessories"
+          },
+          {
+            "scope": "item",
+            "evidence": "necklaces",
+            "operation": "set",
+            "field": "subcategory",
+            "value": "Necklaces"
+          },
+          {
+            "scope": "item",
+            "evidence": "silver",
+            "operation": "set",
+            "field": "material",
+            "value": "Silver"
+          },
+          {
+            "scope": "item",
+            "evidence": "under $80",
+            "operation": "set",
+            "field": "max_price",
+            "value": 80
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": null
+      },
+      "reply": {
+        "status": "needs_clarification",
+        "action": "new_search",
+        "message": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Accessories",
+            "subcategory": "Necklaces",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": "Silver",
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Accessories",
+          "subcategory": "Necklaces",
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": "Silver",
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 80,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": {
+          "action": "new_search",
+          "reference": null,
+          "goal": "Show me silver necklaces under $80. I only need a necklace.",
+          "question": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 3147,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Accessories",
+            "subcategory": "Necklaces",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": "Silver",
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": {
+          "action": "new_search",
+          "reference": null,
+          "goal": "Show me silver necklaces under $80. I only need a necklace.",
+          "question": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": null,
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me silver necklaces under $80. I only need a necklace."
+          },
+          {
+            "role": "assistant",
+            "content": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+          }
+        ]
+      },
+      "checks": "Fail",
+      "failure": "Expected eligible results, got needs_clarification: I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+    },
+    {
+      "number": 2,
+      "message": "What material and fastening does the first necklace have?",
+      "input": {
+        "message": "What material and fastening does the first necklace have?",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Accessories",
+            "subcategory": "Necklaces",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": "Silver",
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me silver necklaces under $80. I only need a necklace."
+          },
+          {
+            "role": "assistant",
+            "content": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+          }
+        ],
+        "pending": {
+          "action": "new_search",
+          "reference": null,
+          "goal": "Show me silver necklaces under $80. I only need a necklace.",
+          "question": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": null,
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T04:05:28.123Z",
+      "checks": "Blocked",
+      "failure": "Dependent product reference was not displayed; excluded from acceptance assessment.",
+      "excluded_pilot_turn": {
+        "number": 2,
+        "message": "What material and fastening does the first necklace have?",
+        "input": {
+          "message": "What material and fastening does the first necklace have?",
+          "scopes": {
+            "item": {
+              "gender": null,
+              "category": "Accessories",
+              "subcategory": "Necklaces",
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": "Silver",
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 80,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": []
+          },
+          "history": [
+            {
+              "role": "user",
+              "content": "Show me silver necklaces under $80. I only need a necklace."
+            },
+            {
+              "role": "assistant",
+              "content": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+            }
+          ],
+          "pending": {
+            "action": "new_search",
+            "reference": null,
+            "goal": "Show me silver necklaces under $80. I only need a necklace.",
+            "question": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions.",
+            "before_scopes": {
+              "item": {
+                "gender": null,
+                "category": null,
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "shared": {
+                "gender": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "unresolved_item": [],
+              "unresolved_shared": []
+            }
+          },
+          "pending_answer": null,
+          "styling": {
+            "outfit": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": []
+        },
+        "began": "2026-10-17T04:04:18.388Z",
+        "plan_source": "live model",
+        "plan": {
+          "action": "none",
+          "intent_evidence": "What material and fastening does the first necklace have?",
+          "reference": null,
+          "changes": [],
+          "question": null,
+          "continuation": false,
+          "answer": {
+            "kind": "product",
+            "topics": [
+              "general"
+            ],
+            "references": [
+              {
+                "kind": "position",
+                "position": 1,
+                "subcategory": "Necklaces"
+              }
+            ],
+            "purpose": null,
+            "continuation": false
+          },
+          "styling_intent": null
+        },
+        "reply": {
+          "status": "answered",
+          "action": "none",
+          "message": "I could not identify that product in the current context. Which item do you mean?",
+          "proposed_scopes": {
+            "item": {
+              "gender": null,
+              "category": "Accessories",
+              "subcategory": "Necklaces",
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": "Silver",
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 80,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "applied_preferences": null,
+          "products": [],
+          "alternatives": [],
+          "alternatives_preferences": null,
+          "alternative_kind": null,
+          "optional_question": null,
+          "can_preview_other_colours": false,
+          "pending": {
+            "action": "new_search",
+            "reference": null,
+            "goal": "Show me silver necklaces under $80. I only need a necklace.",
+            "question": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions.",
+            "before_scopes": {
+              "item": {
+                "gender": null,
+                "category": null,
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "shared": {
+                "gender": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "unresolved_item": [],
+              "unresolved_shared": []
+            }
+          },
+          "pending_answer": {
+            "intent": {
+              "kind": "product",
+              "topics": [
+                "general"
+              ],
+              "references": [
+                {
+                  "kind": "position",
+                  "position": 1,
+                  "subcategory": "Necklaces"
+                }
+              ],
+              "purpose": null,
+              "continuation": false
+            },
+            "question": "What material and fastening does the first necklace have?",
+            "follow_up": null
+          },
+          "answer_sources": [],
+          "answer_product_ids": [],
+          "styling": {
+            "outfit": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "commerce_policy": "stylist-commerce-v1",
+          "comparison_reference_id": null
+        },
+        "elapsed_ms": 2783,
+        "state": {
+          "scopes": {
+            "item": {
+              "gender": null,
+              "category": "Accessories",
+              "subcategory": "Necklaces",
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": "Silver",
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 80,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "pending": {
+            "action": "new_search",
+            "reference": null,
+            "goal": "Show me silver necklaces under $80. I only need a necklace.",
+            "question": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions.",
+            "before_scopes": {
+              "item": {
+                "gender": null,
+                "category": null,
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "shared": {
+                "gender": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "unresolved_item": [],
+              "unresolved_shared": []
+            }
+          },
+          "pending_answer": {
+            "intent": {
+              "kind": "product",
+              "topics": [
+                "general"
+              ],
+              "references": [
+                {
+                  "kind": "position",
+                  "position": 1,
+                  "subcategory": "Necklaces"
+                }
+              ],
+              "purpose": null,
+              "continuation": false
+            },
+            "question": "What material and fastening does the first necklace have?",
+            "follow_up": null
+          },
+          "styling": {
+            "outfit": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "context": {
+            "focused": null,
+            "latest": []
+          },
+          "history": [
+            {
+              "role": "user",
+              "content": "Show me silver necklaces under $80. I only need a necklace."
+            },
+            {
+              "role": "assistant",
+              "content": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+            },
+            {
+              "role": "user",
+              "content": "What material and fastening does the first necklace have?"
+            },
+            {
+              "role": "assistant",
+              "content": "I could not identify that product in the current context. Which item do you mean?"
+            }
+          ]
+        },
+        "checks": "Fail",
+        "failure": "Cannot read properties of undefined (reading 'product_id')"
+      }
+    },
+    {
+      "number": 3,
+      "message": "Show me other necklaces, still silver and under $80.",
+      "input": {
+        "message": "Show me other necklaces, still silver and under $80.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Accessories",
+            "subcategory": "Necklaces",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": "Silver",
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me silver necklaces under $80. I only need a necklace."
+          },
+          {
+            "role": "assistant",
+            "content": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+          },
+          {
+            "role": "user",
+            "content": "What material and fastening does the first necklace have?"
+          },
+          {
+            "role": "assistant",
+            "content": "I could not identify that product in the current context. Which item do you mean?"
+          }
+        ],
+        "pending": {
+          "action": "new_search",
+          "reference": null,
+          "goal": "Show me silver necklaces under $80. I only need a necklace.",
+          "question": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": {
+          "intent": {
+            "kind": "product",
+            "topics": [
+              "general"
+            ],
+            "references": [
+              {
+                "kind": "position",
+                "position": 1,
+                "subcategory": "Necklaces"
+              }
+            ],
+            "purpose": null,
+            "continuation": false
+          },
+          "question": "What material and fastening does the first necklace have?",
+          "follow_up": null
+        },
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T04:05:28.123Z",
+      "plan_source": "live model",
+      "plan": {
+        "action": "refine",
+        "intent_evidence": "Show me other necklaces, still silver and under $80.",
+        "reference": null,
+        "changes": [],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": null
+      },
+      "reply": {
+        "status": "needs_clarification",
+        "action": "refine",
+        "message": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Accessories",
+            "subcategory": "Necklaces",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": "Silver",
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Accessories",
+          "subcategory": "Necklaces",
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": "Silver",
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 80,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": {
+          "action": "refine",
+          "reference": null,
+          "goal": "Show me other necklaces, still silver and under $80.",
+          "question": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": "Accessories",
+              "subcategory": "Necklaces",
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": "Silver",
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 80,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 7701,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Accessories",
+            "subcategory": "Necklaces",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": "Silver",
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": {
+          "action": "refine",
+          "reference": null,
+          "goal": "Show me other necklaces, still silver and under $80.",
+          "question": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": "Accessories",
+              "subcategory": "Necklaces",
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": "Silver",
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 80,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": null,
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me silver necklaces under $80. I only need a necklace."
+          },
+          {
+            "role": "assistant",
+            "content": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+          },
+          {
+            "role": "user",
+            "content": "What material and fastening does the first necklace have?"
+          },
+          {
+            "role": "assistant",
+            "content": "I could not identify that product in the current context. Which item do you mean?"
+          },
+          {
+            "role": "user",
+            "content": "Show me other necklaces, still silver and under $80."
+          },
+          {
+            "role": "assistant",
+            "content": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+          }
+        ]
+      },
+      "checks": "Fail",
+      "failure": "Expected eligible results, got needs_clarification: I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+    }
+  ],
+  "started": "2026-10-17T04:05:28.121Z",
+  "result": "Fail",
+  "issues": [
+    {
+      "turn": 1,
+      "message": "Expected eligible results, got needs_clarification: I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+    },
+    {
+      "turn": 2,
+      "message": "Dependent product reference was not displayed; excluded from acceptance assessment."
+    },
+    {
+      "turn": 3,
+      "message": "Expected eligible results, got needs_clarification: I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+    }
+  ],
+  "finished": "2026-10-17T04:05:28.123Z"
+}

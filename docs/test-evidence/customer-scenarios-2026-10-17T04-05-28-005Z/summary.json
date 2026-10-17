@@ -1,0 +1,989 @@
+{
+  "started": "2026-10-17T04:05:28.005Z",
+  "commit": "b0067a6cd70588ffe120d809614096381ac303a4",
+  "node": "v24.14.0",
+  "model": "gpt-5.6-luna",
+  "reasoning": "low",
+  "fixture_sha256": "eca3f32181433a31317c95232dbdfd3939febe35a57db6b56e1a24192a1938de",
+  "scope": "Real model + shortcutPlan + finishConversationTurn + acceptReply; in-process with isolated synthetic fixtures. Not HTTP/browser acceptance.",
+  "human_review": "Pairing taste, aesthetic variety and end-user usefulness require human assessment.",
+  "runs": [
+    {
+      "id": "S1-A",
+      "name": "Complete brief, cheaper, material",
+      "repeat": 1,
+      "started": "2026-10-17T04:05:28.031Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Expected eligible results, got needs_clarification: Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements."
+        },
+        {
+          "turn": 2,
+          "message": "Dependent product reference was not displayed; excluded from acceptance assessment."
+        },
+        {
+          "turn": 3,
+          "message": "Dependent product reference was not displayed; excluded from acceptance assessment."
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.036Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S1-A",
+      "name": "Complete brief, cheaper, material",
+      "repeat": 2,
+      "started": "2026-10-17T04:05:28.037Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 3,
+          "message": "Dependent product reference was not displayed; excluded from acceptance assessment."
+        }
+      ],
+      "first": {
+        "product_id": "D-WORK-70",
+        "product_name": "D-WORK-70 Dress",
+        "price_aud": 70,
+        "category": "Clothing",
+        "subcategory": "Dresses",
+        "product_type": "Midi Dress",
+        "brand_line": null,
+        "colour": "Black",
+        "sizes_available": [
+          "10",
+          "12"
+        ],
+        "extra_target": "Bags",
+        "image_src": null
+      },
+      "finished": "2026-10-17T04:05:28.040Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S1-A",
+      "name": "Complete brief, cheaper, material",
+      "repeat": 3,
+      "started": "2026-10-17T04:05:28.040Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Expected eligible results, got needs_clarification: Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements."
+        },
+        {
+          "turn": 2,
+          "message": "Dependent product reference was not displayed; excluded from acceptance assessment."
+        },
+        {
+          "turn": 3,
+          "message": "Dependent product reference was not displayed; excluded from acceptance assessment."
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.041Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S1-B",
+      "name": "Change colour and price only",
+      "repeat": 1,
+      "started": "2026-10-17T04:05:28.041Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Expected eligible results, got needs_clarification: Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements."
+        },
+        {
+          "turn": 3,
+          "message": "Expected eligible results, got needs_clarification: Which item do you mean? 1. D-BLUE-80 Dress; 2. D-BLUE-140 Dress"
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.043Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S1-B",
+      "name": "Change colour and price only",
+      "repeat": 2,
+      "started": "2026-10-17T04:05:28.043Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Expected eligible results, got needs_clarification: Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements."
+        },
+        {
+          "turn": 2,
+          "message": "Expected eligible results, got needs_clarification: Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements."
+        },
+        {
+          "turn": 3,
+          "message": "Expected eligible results, got needs_clarification: What kind of item are you looking for? Try adding a product, colour, style, or occasion."
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.045Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S1-B",
+      "name": "Change colour and price only",
+      "repeat": 3,
+      "started": "2026-10-17T04:05:28.045Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "Expected eligible results, got needs_clarification: Which item do you mean? 1. D-WORK-70 Dress; 2. D-BLACK-90 Dress; 3. D-WORK-110 Dress; 4. D-BLACK-120 Dress"
+        },
+        {
+          "turn": 3,
+          "message": "Expected eligible results, got needs_clarification: Which item do you mean? 1. D-WORK-70 Dress; 2. D-BLACK-90 Dress; 3. D-WORK-110 Dress; 4. D-BLACK-120 Dress"
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.046Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S1-C",
+      "name": "Deliberate no match",
+      "repeat": 1,
+      "started": "2026-10-17T04:05:28.047Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:05:28.047Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S1-C",
+      "name": "Deliberate no match",
+      "repeat": 2,
+      "started": "2026-10-17T04:05:28.048Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:05:28.048Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S1-C",
+      "name": "Deliberate no match",
+      "repeat": 3,
+      "started": "2026-10-17T04:05:28.049Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:05:28.049Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S2-A",
+      "name": "Guided beach wedding shopping",
+      "repeat": 1,
+      "started": "2026-10-17T04:05:28.049Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "Expected eligible results, got needs_clarification: Which item do you mean? 1. D-BLUE-80 Dress; 2. D-BLACK-90 Dress; 3. D-BLACK-120 Dress; 4. D-BLUE-140 Dress"
+        },
+        {
+          "turn": 4,
+          "message": "Expected eligible results, got needs_clarification: Which item do you mean? 1. D-BLUE-80 Dress; 2. D-BLACK-90 Dress; 3. D-BLACK-120 Dress; 4. D-BLUE-140 Dress"
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.051Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S2-A",
+      "name": "Guided beach wedding shopping",
+      "repeat": 2,
+      "started": "2026-10-17T04:05:28.052Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "Expected eligible results, got needs_clarification: Which item do you mean? 1. D-BLUE-80 Dress; 2. D-BLACK-90 Dress; 3. D-BLACK-120 Dress; 4. D-BLUE-140 Dress"
+        },
+        {
+          "turn": 4,
+          "message": "Expected eligible results, got needs_clarification: Which item do you mean? 1. D-BLUE-80 Dress; 2. D-BLACK-90 Dress; 3. D-BLACK-120 Dress; 4. D-BLUE-140 Dress"
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.053Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S2-A",
+      "name": "Guided beach wedding shopping",
+      "repeat": 3,
+      "started": "2026-10-17T04:05:28.053Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "Expected eligible results, got needs_clarification: Which item do you mean? 1. D-BLUE-80 Dress; 2. D-BLACK-90 Dress; 3. D-BLACK-120 Dress; 4. D-BLUE-140 Dress"
+        },
+        {
+          "turn": 4,
+          "message": "Expected eligible results, got needs_clarification: Which item do you mean? 1. D-BLUE-80 Dress; 2. D-BLACK-90 Dress; 3. D-BLACK-120 Dress; 4. D-BLUE-140 Dress"
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.054Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S2-B",
+      "name": "Reject a dress across searches",
+      "repeat": 1,
+      "started": "2026-10-17T04:05:28.055Z",
+      "result": "Pass",
+      "issues": [],
+      "rejected": "D-WORK-70",
+      "finished": "2026-10-17T04:05:28.056Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S2-B",
+      "name": "Reject a dress across searches",
+      "repeat": 2,
+      "started": "2026-10-17T04:05:28.056Z",
+      "result": "Pass",
+      "issues": [],
+      "rejected": "D-WORK-70",
+      "finished": "2026-10-17T04:05:28.057Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S2-B",
+      "name": "Reject a dress across searches",
+      "repeat": 3,
+      "started": "2026-10-17T04:05:28.057Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 3,
+          "message": "Expected eligible results, got needs_clarification: Which item do you mean? 1. D-WORK-70 Dress; 2. D-WORK-110 Dress"
+        }
+      ],
+      "rejected": "D-WORK-70",
+      "finished": "2026-10-17T04:05:28.058Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S2-C",
+      "name": "Zip question becomes explicit must-have",
+      "repeat": 1,
+      "started": "2026-10-17T04:05:28.058Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "Answer must reference the intended product\n+ actual - expected\n\n+ []\n- [\n-   'B-OPEN-45'\n- ]\n"
+        },
+        {
+          "turn": 3,
+          "message": "Expected eligible results, got needs_clarification: Which item do you mean? 1. B-OPEN-45 Bag; 2. B-ZIP-60 Bag"
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.060Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S2-C",
+      "name": "Zip question becomes explicit must-have",
+      "repeat": 2,
+      "started": "2026-10-17T04:05:28.061Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "Answer must reference the intended product\n+ actual - expected\n\n+ []\n- [\n-   'B-OPEN-45'\n- ]\n"
+        },
+        {
+          "turn": 3,
+          "message": "Expected eligible results, got needs_clarification: Which item do you mean? 1. B-OPEN-45 Bag; 2. B-ZIP-60 Bag"
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.062Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S2-C",
+      "name": "Zip question becomes explicit must-have",
+      "repeat": 3,
+      "started": "2026-10-17T04:05:28.063Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "Answer must reference the intended product\n+ actual - expected\n\n+ []\n- [\n-   'B-OPEN-45'\n- ]\n"
+        },
+        {
+          "turn": 3,
+          "message": "Expected eligible results, got needs_clarification: Which item do you mean? 1. B-OPEN-45 Bag; 2. B-ZIP-60 Bag"
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.064Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S3-A",
+      "name": "Uncertain customer to similar dresses",
+      "repeat": 1,
+      "started": "2026-10-17T04:05:28.064Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 3,
+          "message": "Expected eligible results, got needs_clarification: Which item do you mean? 1. D-WORK-70 Dress; 2. D-BLUE-80 Dress; 3. D-CASUAL-85 Dress; 4. D-BLACK-90 Dress"
+        },
+        {
+          "turn": 4,
+          "message": "Liking is not selecting\n+ actual - expected\n\n+ [\n+   {\n+     category: 'Clothing',\n+     ownership: 'selected',\n+     price_aud: 70,\n+     product_id: 'D-WORK-70',\n+     product_name: 'D-WORK-70 Dress',\n+     product_type: 'Midi Dress',\n+     subcategory: 'Dresses'\n+   }\n+ ]\n- []\n"
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.067Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S3-A",
+      "name": "Uncertain customer to similar dresses",
+      "repeat": 2,
+      "started": "2026-10-17T04:05:28.067Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 3,
+          "message": "Expected eligible results, got needs_clarification: I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+        },
+        {
+          "turn": 4,
+          "message": "Dependent product reference was not displayed; excluded from acceptance assessment."
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.070Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S3-A",
+      "name": "Uncertain customer to similar dresses",
+      "repeat": 3,
+      "started": "2026-10-17T04:05:28.071Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:05:28.072Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S3-B",
+      "name": "Browse without preferences",
+      "repeat": 1,
+      "started": "2026-10-17T04:05:28.073Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:05:28.073Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S3-B",
+      "name": "Browse without preferences",
+      "repeat": 2,
+      "started": "2026-10-17T04:05:28.074Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:05:28.074Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S3-B",
+      "name": "Browse without preferences",
+      "repeat": 3,
+      "started": "2026-10-17T04:05:28.075Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "Expected eligible results, got needs_clarification: Which item do you mean? 1. D-WORK-70 Dress; 2. D-BLUE-80 Dress; 3. D-CASUAL-85 Dress; 4. D-BLACK-90 Dress"
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.075Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S3-C",
+      "name": "Switch from dresses to bags",
+      "repeat": 1,
+      "started": "2026-10-17T04:05:28.075Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:05:28.076Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S3-C",
+      "name": "Switch from dresses to bags",
+      "repeat": 2,
+      "started": "2026-10-17T04:05:28.076Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Expected eligible results, got needs_clarification: Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements."
+        },
+        {
+          "turn": 2,
+          "message": "Colour retained\n+ actual - expected\n\n+ []\n- [\n-   'black'\n- ]\n"
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.077Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S3-C",
+      "name": "Switch from dresses to bags",
+      "repeat": 3,
+      "started": "2026-10-17T04:05:28.078Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Expected eligible results, got needs_clarification: I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+        },
+        {
+          "turn": 2,
+          "message": "Colour retained\n+ actual - expected\n\n+ []\n- [\n-   'black'\n- ]\n"
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.078Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S4-A",
+      "name": "Pair a bag with an owned catalogue dress",
+      "repeat": 1,
+      "started": "2026-10-17T04:05:28.079Z",
+      "result": "Pass",
+      "issues": [],
+      "anchor": "D-WORK-70",
+      "finished": "2026-10-17T04:05:28.080Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S4-A",
+      "name": "Pair a bag with an owned catalogue dress",
+      "repeat": 2,
+      "started": "2026-10-17T04:05:28.081Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 3,
+          "message": "Expected eligible results, got needs_clarification: Which item do you mean? 1. D-WORK-70 Dress; 2. D-BLUE-80 Dress; 3. D-CASUAL-85 Dress; 4. D-BLACK-90 Dress"
+        },
+        {
+          "turn": 4,
+          "message": "Factual question should be answered\n+ actual - expected\n\n+ 'needs_clarification'\n- 'answered'\n"
+        }
+      ],
+      "anchor": "D-WORK-70",
+      "finished": "2026-10-17T04:05:28.082Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S4-A",
+      "name": "Pair a bag with an owned catalogue dress",
+      "repeat": 3,
+      "started": "2026-10-17T04:05:28.083Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "Retain exact owned dress"
+        }
+      ],
+      "anchor": "D-WORK-70",
+      "finished": "2026-10-17T04:05:28.084Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S4-B",
+      "name": "Style an external owned garment",
+      "repeat": 1,
+      "started": "2026-10-17T04:05:28.085Z",
+      "result": "Feature gap",
+      "issues": [],
+      "feature_gap": "No structured external-garment record: navy, midi and plain cannot persist as an owned matching anchor.",
+      "finished": "2026-10-17T04:05:28.085Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S4-B",
+      "name": "Style an external owned garment",
+      "repeat": 2,
+      "started": "2026-10-17T04:05:28.085Z",
+      "result": "Feature gap",
+      "issues": [],
+      "feature_gap": "No structured external-garment record: navy, midi and plain cannot persist as an owned matching anchor.",
+      "finished": "2026-10-17T04:05:28.085Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S4-B",
+      "name": "Style an external owned garment",
+      "repeat": 3,
+      "started": "2026-10-17T04:05:28.085Z",
+      "result": "Feature gap",
+      "issues": [],
+      "feature_gap": "No structured external-garment record: navy, midi and plain cannot persist as an owned matching anchor.",
+      "finished": "2026-10-17T04:05:28.086Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S4-C",
+      "name": "Pair shoes with two owned pieces",
+      "repeat": 1,
+      "started": "2026-10-17T04:05:28.086Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 5,
+          "message": "Expected eligible results, got needs_clarification: Which item do you mean? 1. B-OPEN-45 Bag; 2. B-ZIP-60 Bag"
+        }
+      ],
+      "dress": "D-WORK-70",
+      "bag": "B-OPEN-45",
+      "finished": "2026-10-17T04:05:28.087Z",
+      "turns_recorded": 6
+    },
+    {
+      "id": "S4-C",
+      "name": "Pair shoes with two owned pieces",
+      "repeat": 2,
+      "started": "2026-10-17T04:05:28.087Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 4,
+          "message": "Retain owned B-OPEN-45"
+        },
+        {
+          "turn": 5,
+          "message": "Retain owned B-OPEN-45"
+        },
+        {
+          "turn": 6,
+          "message": "Retain owned B-OPEN-45"
+        }
+      ],
+      "dress": "D-WORK-70",
+      "bag": "B-OPEN-45",
+      "finished": "2026-10-17T04:05:28.088Z",
+      "turns_recorded": 6
+    },
+    {
+      "id": "S4-C",
+      "name": "Pair shoes with two owned pieces",
+      "repeat": 3,
+      "started": "2026-10-17T04:05:28.089Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 4,
+          "message": "Retain owned B-OPEN-45"
+        },
+        {
+          "turn": 5,
+          "message": "Expected eligible results, got needs_clarification: Which item do you mean? 1. B-OPEN-45 Bag; 2. B-ZIP-60 Bag"
+        }
+      ],
+      "dress": "D-WORK-70",
+      "bag": "B-OPEN-45",
+      "finished": "2026-10-17T04:05:28.090Z",
+      "turns_recorded": 6
+    },
+    {
+      "id": "S5-A",
+      "name": "Pockets justify A$25 more",
+      "repeat": 1,
+      "started": "2026-10-17T04:05:28.090Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:05:28.093Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S5-A",
+      "name": "Pockets justify A$25 more",
+      "repeat": 2,
+      "started": "2026-10-17T04:05:28.094Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:05:28.095Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S5-A",
+      "name": "Pockets justify A$25 more",
+      "repeat": 3,
+      "started": "2026-10-17T04:05:28.095Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:05:28.096Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S5-B",
+      "name": "Replacement preserves all hard requirements",
+      "repeat": 1,
+      "started": "2026-10-17T04:05:28.097Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:05:28.097Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-B",
+      "name": "Replacement preserves all hard requirements",
+      "repeat": 2,
+      "started": "2026-10-17T04:05:28.098Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:05:28.098Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-B",
+      "name": "Replacement preserves all hard requirements",
+      "repeat": 3,
+      "started": "2026-10-17T04:05:28.099Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Expected eligible results, got needs_clarification: Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements."
+        },
+        {
+          "turn": 2,
+          "message": "Dependent product reference was not displayed; excluded from acceptance assessment."
+        },
+        {
+          "turn": 3,
+          "message": "Dependent product reference was not displayed; excluded from acceptance assessment."
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.099Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-C",
+      "name": "No demonstrated improvement",
+      "repeat": 1,
+      "started": "2026-10-17T04:05:28.099Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "Explain the actual closure comparison rather than asking for a different priority"
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.100Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-C",
+      "name": "No demonstrated improvement",
+      "repeat": 2,
+      "started": "2026-10-17T04:05:28.100Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "A supported closure priority must not block as unsupported"
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.102Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-C",
+      "name": "No demonstrated improvement",
+      "repeat": 3,
+      "started": "2026-10-17T04:05:28.102Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "Explain the actual closure comparison rather than asking for a different priority"
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.102Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-D",
+      "name": "Same-price and cheaper adjustable alternatives",
+      "repeat": 1,
+      "started": "2026-10-17T04:05:28.103Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 3,
+          "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ 'needs_clarification'\n- 'answered'\n"
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.104Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-D",
+      "name": "Same-price and cheaper adjustable alternatives",
+      "repeat": 2,
+      "started": "2026-10-17T04:05:28.106Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ Set(0) {}\n- Set(2) {\n-   'VD-CHEAPER',\n-   'VD-EQUAL'\n- }\n"
+        },
+        {
+          "turn": 2,
+          "message": "Dependent product reference was not displayed; excluded from acceptance assessment."
+        },
+        {
+          "turn": 3,
+          "message": "Dependent product reference was not displayed; excluded from acceptance assessment."
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.107Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-D",
+      "name": "Same-price and cheaper adjustable alternatives",
+      "repeat": 3,
+      "started": "2026-10-17T04:05:28.107Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:05:28.108Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-E",
+      "name": "Lining trade-off then both required",
+      "repeat": 1,
+      "started": "2026-10-17T04:05:28.108Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:05:28.110Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-E",
+      "name": "Lining trade-off then both required",
+      "repeat": 2,
+      "started": "2026-10-17T04:05:28.111Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:05:28.112Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-E",
+      "name": "Lining trade-off then both required",
+      "repeat": 3,
+      "started": "2026-10-17T04:05:28.112Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:05:28.113Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-F",
+      "name": "Unknown lining cannot prove improvement",
+      "repeat": 1,
+      "started": "2026-10-17T04:05:28.113Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:05:28.113Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-F",
+      "name": "Unknown lining cannot prove improvement",
+      "repeat": 2,
+      "started": "2026-10-17T04:05:28.114Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:05:28.114Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-F",
+      "name": "Unknown lining cannot prove improvement",
+      "repeat": 3,
+      "started": "2026-10-17T04:05:28.117Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:05:28.117Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S6-A",
+      "name": "Shoe size and construction details",
+      "repeat": 1,
+      "started": "2026-10-17T04:05:28.117Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 3,
+          "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ 'needs_clarification'\n- 'no_match'\n"
+        }
+      ],
+      "first": {
+        "product_id": "SH-WORK-75",
+        "product_name": "SH-WORK-75 Shoes",
+        "price_aud": 75,
+        "category": "Shoes",
+        "subcategory": "Heels",
+        "product_type": "Block Heels",
+        "brand_line": null,
+        "colour": "Black",
+        "sizes_available": [
+          "38",
+          "39"
+        ],
+        "extra_target": null,
+        "image_src": null
+      },
+      "finished": "2026-10-17T04:05:28.118Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S6-A",
+      "name": "Shoe size and construction details",
+      "repeat": 2,
+      "started": "2026-10-17T04:05:28.119Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Expected eligible results, got needs_clarification: I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+        },
+        {
+          "turn": 2,
+          "message": "Dependent product reference was not displayed; excluded from acceptance assessment."
+        },
+        {
+          "turn": 3,
+          "message": "Dependent product reference was not displayed; excluded from acceptance assessment."
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.119Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S6-A",
+      "name": "Shoe size and construction details",
+      "repeat": 3,
+      "started": "2026-10-17T04:05:28.119Z",
+      "result": "Pass",
+      "issues": [],
+      "first": {
+        "product_id": "SH-WORK-75",
+        "product_name": "SH-WORK-75 Shoes",
+        "price_aud": 75,
+        "category": "Shoes",
+        "subcategory": "Heels",
+        "product_type": "Block Heels",
+        "brand_line": null,
+        "colour": "Black",
+        "sizes_available": [
+          "38",
+          "39"
+        ],
+        "extra_target": null,
+        "image_src": null
+      },
+      "finished": "2026-10-17T04:05:28.120Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S6-B",
+      "name": "Silver necklaces and fastening facts",
+      "repeat": 1,
+      "started": "2026-10-17T04:05:28.120Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Expected eligible results, got needs_clarification: I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+        },
+        {
+          "turn": 2,
+          "message": "Dependent product reference was not displayed; excluded from acceptance assessment."
+        },
+        {
+          "turn": 3,
+          "message": "Expected eligible results, got needs_clarification: I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.121Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S6-B",
+      "name": "Silver necklaces and fastening facts",
+      "repeat": 2,
+      "started": "2026-10-17T04:05:28.121Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Expected eligible results, got needs_clarification: I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+        },
+        {
+          "turn": 2,
+          "message": "Dependent product reference was not displayed; excluded from acceptance assessment."
+        },
+        {
+          "turn": 3,
+          "message": "Expected eligible results, got needs_clarification: I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.123Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S6-B",
+      "name": "Silver necklaces and fastening facts",
+      "repeat": 3,
+      "started": "2026-10-17T04:05:28.123Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Expected eligible results, got needs_clarification: I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+        },
+        {
+          "turn": 2,
+          "message": "Dependent product reference was not displayed; excluded from acceptance assessment."
+        },
+        {
+          "turn": 3,
+          "message": "Expected eligible results, got needs_clarification: I could not identify that product in the current context. Which item do you mean?"
+        }
+      ],
+      "finished": "2026-10-17T04:05:28.124Z",
+      "turns_recorded": 3
+    }
+  ],
+  "reassessed_from": "docs/test-evidence/customer-scenarios-2026-10-17T04-00-42-131Z",
+  "finished": "2026-10-17T04:05:28.124Z",
+  "counts": {
+    "Pass": 23,
+    "Fail": 33,
+    "Blocked": 1,
+    "Feature gap": 3
+  }
+}

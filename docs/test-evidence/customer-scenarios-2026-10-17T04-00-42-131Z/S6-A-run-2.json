@@ -1,0 +1,1115 @@
+{
+  "id": "S6-A",
+  "name": "Shoe size and construction details",
+  "repeat": 2,
+  "turns": [
+    {
+      "number": 1,
+      "message": "Show me black shoes for work in size 38 under $120. I only need shoes.",
+      "input": {
+        "message": "Show me black shoes for work in size 38 under $120. I only need shoes.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T04:04:07.378Z",
+      "plan_source": "live model",
+      "plan": {
+        "action": "new_search",
+        "intent_evidence": "Show me black shoes for work in size 38 under $120. I only need shoes.",
+        "reference": null,
+        "changes": [
+          {
+            "scope": "item",
+            "evidence": "shoes",
+            "operation": "set",
+            "field": "category",
+            "value": "Shoes"
+          },
+          {
+            "scope": "item",
+            "evidence": "under $120",
+            "operation": "set",
+            "field": "max_price",
+            "value": 120
+          },
+          {
+            "scope": "item",
+            "evidence": "black",
+            "operation": "set",
+            "field": "subcategory",
+            "value": "black"
+          },
+          {
+            "scope": "item",
+            "evidence": "work",
+            "operation": "set",
+            "field": "occasion",
+            "value": "Work"
+          },
+          {
+            "scope": "item",
+            "evidence": "size 38",
+            "operation": "set",
+            "field": "size",
+            "value": "38"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": null
+      },
+      "reply": {
+        "status": "needs_clarification",
+        "action": "new_search",
+        "message": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": "black",
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "38",
+            "min_price": null,
+            "max_price": 120,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Shoes",
+          "subcategory": "black",
+          "product_type": null,
+          "occasion": "Work",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": "38",
+          "min_price": null,
+          "max_price": 120,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": {
+          "action": "new_search",
+          "reference": null,
+          "goal": "Show me black shoes for work in size 38 under $120. I only need shoes.",
+          "question": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 2159,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": "black",
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "38",
+            "min_price": null,
+            "max_price": 120,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": {
+          "action": "new_search",
+          "reference": null,
+          "goal": "Show me black shoes for work in size 38 under $120. I only need shoes.",
+          "question": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": null,
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me black shoes for work in size 38 under $120. I only need shoes."
+          },
+          {
+            "role": "assistant",
+            "content": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+          }
+        ]
+      },
+      "checks": "Fail",
+      "failure": "Expected eligible results, got needs_clarification: I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+    },
+    {
+      "number": 2,
+      "message": "What are the heel height and sole material of the first pair?",
+      "input": {
+        "message": "What are the heel height and sole material of the first pair?",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": "black",
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "38",
+            "min_price": null,
+            "max_price": 120,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me black shoes for work in size 38 under $120. I only need shoes."
+          },
+          {
+            "role": "assistant",
+            "content": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+          }
+        ],
+        "pending": {
+          "action": "new_search",
+          "reference": null,
+          "goal": "Show me black shoes for work in size 38 under $120. I only need shoes.",
+          "question": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": null,
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T04:04:09.537Z",
+      "plan_source": "live model",
+      "plan": {
+        "action": "none",
+        "intent_evidence": "What are the heel height and sole material",
+        "reference": null,
+        "changes": [],
+        "question": null,
+        "continuation": false,
+        "answer": {
+          "kind": "product",
+          "topics": [
+            "general"
+          ],
+          "references": [
+            {
+              "kind": "position",
+              "position": 1,
+              "subcategory": "Shoes"
+            }
+          ],
+          "purpose": null,
+          "continuation": false
+        },
+        "styling_intent": null
+      },
+      "reply": {
+        "status": "answered",
+        "action": "none",
+        "message": "I could not identify that product in the current context. Which item do you mean?",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": "black",
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "38",
+            "min_price": null,
+            "max_price": 120,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": {
+          "action": "new_search",
+          "reference": null,
+          "goal": "Show me black shoes for work in size 38 under $120. I only need shoes.",
+          "question": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": {
+          "intent": {
+            "kind": "product",
+            "topics": [
+              "general"
+            ],
+            "references": [
+              {
+                "kind": "position",
+                "position": 1,
+                "subcategory": "Shoes"
+              }
+            ],
+            "purpose": null,
+            "continuation": false
+          },
+          "question": "What are the heel height and sole material of the first pair?",
+          "follow_up": null
+        },
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 2398,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": "black",
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "38",
+            "min_price": null,
+            "max_price": 120,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": {
+          "action": "new_search",
+          "reference": null,
+          "goal": "Show me black shoes for work in size 38 under $120. I only need shoes.",
+          "question": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": {
+          "intent": {
+            "kind": "product",
+            "topics": [
+              "general"
+            ],
+            "references": [
+              {
+                "kind": "position",
+                "position": 1,
+                "subcategory": "Shoes"
+              }
+            ],
+            "purpose": null,
+            "continuation": false
+          },
+          "question": "What are the heel height and sole material of the first pair?",
+          "follow_up": null
+        },
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me black shoes for work in size 38 under $120. I only need shoes."
+          },
+          {
+            "role": "assistant",
+            "content": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+          },
+          {
+            "role": "user",
+            "content": "What are the heel height and sole material of the first pair?"
+          },
+          {
+            "role": "assistant",
+            "content": "I could not identify that product in the current context. Which item do you mean?"
+          }
+        ]
+      },
+      "checks": "Fail",
+      "failure": "Cannot read properties of undefined (reading 'product_id')"
+    },
+    {
+      "number": 3,
+      "message": "Show me a cheaper option than the first pair, keeping black, work, size 38 and the same maximum.",
+      "input": {
+        "message": "Show me a cheaper option than the first pair, keeping black, work, size 38 and the same maximum.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": "black",
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "38",
+            "min_price": null,
+            "max_price": 120,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me black shoes for work in size 38 under $120. I only need shoes."
+          },
+          {
+            "role": "assistant",
+            "content": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+          },
+          {
+            "role": "user",
+            "content": "What are the heel height and sole material of the first pair?"
+          },
+          {
+            "role": "assistant",
+            "content": "I could not identify that product in the current context. Which item do you mean?"
+          }
+        ],
+        "pending": {
+          "action": "new_search",
+          "reference": null,
+          "goal": "Show me black shoes for work in size 38 under $120. I only need shoes.",
+          "question": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": {
+          "intent": {
+            "kind": "product",
+            "topics": [
+              "general"
+            ],
+            "references": [
+              {
+                "kind": "position",
+                "position": 1,
+                "subcategory": "Shoes"
+              }
+            ],
+            "purpose": null,
+            "continuation": false
+          },
+          "question": "What are the heel height and sole material of the first pair?",
+          "follow_up": null
+        },
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T04:04:11.935Z",
+      "plan_source": "live model",
+      "plan": {
+        "action": "cheaper",
+        "intent_evidence": "Show me a cheaper option than the first pair",
+        "reference": {
+          "kind": "position",
+          "position": 1,
+          "subcategory": "Shoes"
+        },
+        "changes": [],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": null
+      },
+      "reply": {
+        "status": "needs_clarification",
+        "action": "cheaper",
+        "message": "I could not identify that product in the current context. Which item do you mean?",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": "black",
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "38",
+            "min_price": null,
+            "max_price": 120,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Shoes",
+          "subcategory": "black",
+          "product_type": null,
+          "occasion": "Work",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": "38",
+          "min_price": null,
+          "max_price": 120,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": {
+          "action": "cheaper",
+          "reference": {
+            "kind": "position",
+            "position": 1,
+            "subcategory": "Shoes"
+          },
+          "goal": "Show me a cheaper option than the first pair, keeping black, work, size 38 and the same maximum.",
+          "question": "I could not identify that product in the current context. Which item do you mean?",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": "Shoes",
+              "subcategory": "black",
+              "product_type": null,
+              "occasion": "Work",
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": "38",
+              "min_price": null,
+              "max_price": 120,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 3302,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": "black",
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "38",
+            "min_price": null,
+            "max_price": 120,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": {
+          "action": "cheaper",
+          "reference": {
+            "kind": "position",
+            "position": 1,
+            "subcategory": "Shoes"
+          },
+          "goal": "Show me a cheaper option than the first pair, keeping black, work, size 38 and the same maximum.",
+          "question": "I could not identify that product in the current context. Which item do you mean?",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": "Shoes",
+              "subcategory": "black",
+              "product_type": null,
+              "occasion": "Work",
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": "38",
+              "min_price": null,
+              "max_price": 120,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": null,
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me black shoes for work in size 38 under $120. I only need shoes."
+          },
+          {
+            "role": "assistant",
+            "content": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+          },
+          {
+            "role": "user",
+            "content": "What are the heel height and sole material of the first pair?"
+          },
+          {
+            "role": "assistant",
+            "content": "I could not identify that product in the current context. Which item do you mean?"
+          },
+          {
+            "role": "user",
+            "content": "Show me a cheaper option than the first pair, keeping black, work, size 38 and the same maximum."
+          },
+          {
+            "role": "assistant",
+            "content": "I could not identify that product in the current context. Which item do you mean?"
+          }
+        ]
+      },
+      "checks": "Fail",
+      "failure": "Expected eligible results, got needs_clarification: I could not identify that product in the current context. Which item do you mean?"
+    }
+  ],
+  "started": "2026-10-17T04:04:07.378Z",
+  "result": "Fail",
+  "issues": [
+    {
+      "turn": 1,
+      "message": "Expected eligible results, got needs_clarification: I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions."
+    },
+    {
+      "turn": 2,
+      "message": "Cannot read properties of undefined (reading 'product_id')"
+    },
+    {
+      "turn": 3,
+      "message": "Expected eligible results, got needs_clarification: I could not identify that product in the current context. Which item do you mean?"
+    }
+  ],
+  "finished": "2026-10-17T04:04:15.238Z"
+}
