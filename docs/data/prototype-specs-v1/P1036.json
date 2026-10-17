@@ -1,0 +1,51 @@
+{
+  "product_id": "P1036",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:10.982Z",
+  "identity_snapshot": {
+    "product_id": "P1036",
+    "product_name": "Cream Loafers",
+    "category": "Shoes",
+    "subcategory": "Flats",
+    "product_type": "Loafers",
+    "gender": "Women",
+    "colour": "Cream",
+    "material": "Leather",
+    "fit": "Standard",
+    "style": "Smart",
+    "occasion": "Work",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1036",
+    "description": "Cream leather loafers with a smart, softly squared toe and a refined upper that transitions neatly into work wardrobes.",
+    "construction_details": [
+      "Structured leather upper with squared toe",
+      "Raised saddle strap across the vamp",
+      "Cushioned insole with smooth edge binding",
+      "Low stacked heel and stitched outsole seam"
+    ],
+    "care_instructions": "Dust with a soft brush, then condition lightly with a neutral leather product. Keep dry and store away from strong heat.",
+    "lining": true,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Work",
+      "Date Night"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": null,
+    "heel_height_cm": 2,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Leather",
+    "hardware_finish": "Gold-tone"
+  },
+  "content_sha256": "cc2a1faddee7b927695ebf93e998ca5e63f0739e4b3464a613282690684e6b27"
+}

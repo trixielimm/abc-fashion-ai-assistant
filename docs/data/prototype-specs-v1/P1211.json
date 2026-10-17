@@ -1,0 +1,49 @@
+{
+  "product_id": "P1211",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:33.949Z",
+  "identity_snapshot": {
+    "product_id": "P1211",
+    "product_name": "Sage Platform Sandals",
+    "category": "Shoes",
+    "subcategory": "Sandals",
+    "product_type": "Platform Sandals",
+    "gender": "Women",
+    "colour": "Sage",
+    "material": "Leather",
+    "fit": "Standard",
+    "style": "Relaxed",
+    "occasion": "Casual",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1211",
+    "description": "Sage leather platform sandals with a relaxed profile, standard fit and a softly elevated sole for casual styling.",
+    "construction_details": [
+      "Wide leather toe strap with clean folded edges",
+      "Adjustable ankle buckle fastening",
+      "Moulded footbed with platform midsole and durable outsole"
+    ],
+    "care_instructions": "Wipe gently with a dry or slightly damp cloth; use a suitable leather conditioner sparingly and keep away from prolonged moisture.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": true,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Casual"
+    ],
+    "closure": "buckle",
+    "garment_length_cm": null,
+    "heel_height_cm": 4.5,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": "Gold-tone"
+  },
+  "content_sha256": "5acc3a08044fd402d9f60f2333b035faa2747c5d3f2f6f8abfece3d00e6a55aa"
+}

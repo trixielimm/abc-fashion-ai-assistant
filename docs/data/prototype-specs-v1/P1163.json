@@ -1,0 +1,54 @@
+{
+  "product_id": "P1163",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:21:02.503Z",
+  "identity_snapshot": {
+    "product_id": "P1163",
+    "product_name": "Black Envelope Clutch",
+    "category": "Bags",
+    "subcategory": "Clutches",
+    "product_type": "Envelope Clutch",
+    "gender": "Men",
+    "colour": "Black",
+    "material": "Faux Leather",
+    "fit": "Standard",
+    "style": "Romantic",
+    "occasion": "Wedding Guest",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1163",
+    "description": "Romantic black faux-leather envelope clutch with a crisp silhouette suited to wedding-guest attire.",
+    "construction_details": [
+      "Structured envelope shape",
+      "Fold-over flap",
+      "Concealed magnetic clasp",
+      "Slim detachable wristlet strap"
+    ],
+    "care_instructions": "Wipe clean with a soft dry or slightly damp cloth; do not soak or use solvent-based cleaners.",
+    "lining": true,
+    "pockets": false,
+    "adjustable_strap": false,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": 0.8,
+    "use_cases": [
+      "Wedding Guest"
+    ],
+    "closure": "clasp",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": {
+      "width": 26,
+      "height": 16,
+      "depth": 2
+    },
+    "strap_drop_cm": 15,
+    "compartments": 1,
+    "sole_material": null,
+    "hardware_finish": "Gunmetal"
+  },
+  "content_sha256": "3f71b702b6dd3a9306681c4e6f28999d844094f66fce59df8f2378c211943418"
+}

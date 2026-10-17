@@ -1,0 +1,49 @@
+{
+  "product_id": "P1122",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:00.000Z",
+  "identity_snapshot": {
+    "product_id": "P1122",
+    "product_name": "Yellow Straight Jeans",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Straight Jeans",
+    "gender": "Women",
+    "colour": "Yellow",
+    "material": "Denim",
+    "fit": "Relaxed",
+    "style": "Minimalist",
+    "occasion": "Party",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1122",
+    "description": "Minimalist yellow straight jeans with a relaxed fit through the leg and classic denim construction for party styling.",
+    "construction_details": [
+      "Five-pocket construction",
+      "Button fastening with concealed fly zip",
+      "Belt loops and straight-leg hems"
+    ],
+    "care_instructions": "Machine wash cold inside out; line dry and press on the reverse side.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Party"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 79,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "5f0b27798a079a6cf2ea2456acd9f5cd41674b8fda39aa0b9255423c43bb52c5"
+}

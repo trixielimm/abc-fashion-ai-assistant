@@ -72,7 +72,7 @@ export function presentShoppingResult(
     const targets = vocabulary.categories.filter(row => same(row.subcategory ?? row.category, target));
     const unique = new Set(targets.map(row => JSON.stringify(row)));
     let explanation = product.explanation;
-    if (result.action === "upsell" && applied) {
+    if (result.action === "upsell" && applied && !product.value_comparison) {
       const primary = catalogue.find(row => row.product_id === result.reference_product_ids[0]);
       if (primary && typeof primary.price_aud === "number") {
         const added = (["occasion", "style", "fit", "season"] as const).flatMap(field => {
@@ -131,6 +131,7 @@ export function presentShoppingResult(
       if (!meetsSharedContext(record)) continue;
       const card = decorate(product);
       const differences = contextDifferences(record, applied);
+      if (product.pairing_evidence?.level === "limited") differences.push("Outfit compatibility has limited catalogue evidence; this is an available alternative.");
       if (differences.length) alternatives.push({ ...card, differences });
       else products.push(card);
     }
@@ -159,7 +160,7 @@ export function presentShoppingResult(
         message = `Here ${products.length === 1 ? "is a lower-priced option" : "are some lower-priced options"}, below ${money(Math.min(...prices))}.`;
       }
     }
-    if (result.action === "upsell") message = "These higher-priced alternatives add a requested preference match. The additional cost is shown; a higher price alone does not imply better quality.";
+    if (result.action === "upsell") message = "These replacement comparisons have a demonstrated benefit. Price differences, evidence and trade-offs are shown on each card.";
     if (alternatives.length) message += " I've also included clearly labelled alternatives below.";
   } else if (alternatives.length) {
     status = "alternatives";
@@ -175,13 +176,13 @@ export function presentShoppingResult(
       ? "I couldn't find another colour within the other restrictions you've kept. I haven't changed your saved preferences."
       : "I can't preview other colours while a shared colour rule or another unresolved requirement is in place. Your restrictions are unchanged.";
   } else if (result.status === "no_match") {
-    message = result.action === "cheaper"
+    message = result.styling.required_features.length ? result.message : result.action === "cheaper"
       ? "I couldn't find a lower-priced option that meets the preferences you've kept. I haven't raised your budget or changed your restrictions."
       : "I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged.";
   } else if (result.status === "no_upsell") {
-    message = "I didn't find a higher-priced replacement with an additional match to your preferences. There's no need to choose something more expensive just for its price.";
+    message = result.message;
   } else if (result.status === "no_rule" || result.status === "rule_unavailable") {
-    message = "I don't have a verified catalogue pairing for that request. You can still ask me to search for the additional item separately.";
+    message = result.message;
   } else if (result.status === "primary_unavailable" || result.status === "primary_mismatch") {
     message = "The original item is unavailable or no longer fits this request. Please refresh the product results before comparing.";
   } else if (result.status === "needs_clarification") {

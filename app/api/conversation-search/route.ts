@@ -2,19 +2,19 @@ import "server-only";
 import { randomUUID } from "node:crypto";
 import OpenAI from "openai";
 import { interpretConversation } from "@/lib/ai/interpretConversation";
-import { getCatalogueProducts } from "@/lib/recommendations/catalogue";
+import { getCatalogueProductsByIds, getCatalogueProducts } from "@/lib/recommendations/catalogue";
 import { loadPreferenceValues } from "@/lib/catalogue/preferenceValues";
-import { checkConversationPlan, PlanEvidenceError } from "@/lib/stylist/conversationPlan";
-import { EnvelopeSchema, TurnSchema } from "@/lib/stylist/conversationProtocol";
+import { checkConversationPlan, ConversationPlanSchema, PlanEvidenceError } from "@/lib/stylist/conversationPlan";
+import { resolveAnswerProducts } from "@/lib/stylist/conversationAnswers";
+import { EnvelopeSchema, TurnReplySchema, TurnSchema } from "@/lib/stylist/conversationProtocol";
 import { ConversationStore, RequestConflictError, RetryExpiredError } from "@/lib/stylist/conversationStore";
-import { cancellationReply, finishConversationTurn, interpreterInput, shortcutPlan } from "@/lib/stylist/conversationTurn";
+import { cancellationReply, finishConversationTurn, interpreterInput, resumesAnswerSearch, shortcutPlan } from "@/lib/stylist/conversationTurn";
 
 export const runtime = "nodejs";
 const headers = { "Cache-Control": "no-store" };
 const store = new ConversationStore();
 
 export async function POST(request: Request) {
-  if (process.env.NODE_ENV !== "development") return new Response(null, { status: 404 });
   const origin = request.headers.get("origin");
   if (origin) {
     try {
@@ -73,8 +73,31 @@ export async function POST(request: Request) {
         return plan;
       },
       async plan => {
+        const parsedPlan = ConversationPlanSchema.parse(plan);
+        if (process.env.STYLIST_COMMERCE_ENABLED === "false" && ["cross_sell", "upsell"].includes(parsedPlan.action)) {
+          return TurnReplySchema.parse({ status: "no_action", action: "none", products: [],
+            message: "New outfit and value comparisons are temporarily unavailable. Your outfit choices, budget and cart are unchanged.",
+            proposed_scopes: turn.scopes, applied_preferences: null, pending: turn.pending ?? null,
+            pending_answer: turn.pending_answer ?? null, styling: turn.styling });
+        }
+        if (parsedPlan.answer) {
+          const resolution = resolveAnswerProducts(interpreterInput(turn), parsedPlan.answer);
+          if ((parsedPlan.action === "none" && !resumesAnswerSearch(turn, plan)) || resolution.question) {
+            stage = "catalogue";
+            // Policy questions and ambiguous references need no catalogue query.
+            const known = [turn.context.focused, turn.context.comparison, ...turn.context.latest, ...(turn.context.selected ?? [])];
+            const related = resolution.ids.flatMap(id => {
+              const context = known.find(product => product?.product_id === id)?.recommendation_context;
+              return [...(context?.anchor_ids ?? []), ...(context?.primary_product_id ? [context.primary_product_id] : [])];
+            });
+            const ids = [...new Set([...resolution.ids, ...related, ...(resolution.ids.length ? turn.styling?.outfit.map(piece => piece.product_id) ?? [] : [])])].slice(0, 24);
+            const products = await getCatalogueProductsByIds(ids);
+            if (request.signal.aborted) throw new Error("Request cancelled.");
+            return finishConversationTurn(products, turn, plan, { rows: [], sizes: [], categories: [] });
+          }
+        }
         const decision = checkConversationPlan(interpreterInput(turn), plan);
-        if (decision.status !== "ready_for_validation") {
+        if (decision.status !== "ready_for_validation" && !resumesAnswerSearch(turn, plan)) {
           return finishConversationTurn([], turn, plan, { rows: [], sizes: [], categories: [] });
         }
         stage = "catalogue";

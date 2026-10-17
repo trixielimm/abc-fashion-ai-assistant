@@ -1,0 +1,795 @@
+{
+  "format_version": 1,
+  "prepared_at": "2026-10-17T03:01:11.321Z",
+  "project_ref": "ppmldlrtdkuzdnjieudw",
+  "status": "awaiting_authoritative_sources",
+  "instructions": [
+    "This is a local review template, not a database import or verified data.",
+    "Null means unknown. Do not replace unknown with false.",
+    "Confirm each value against a supplier specification or an official product source matched to this exact product ID.",
+    "Use public-safe source references, an exact evidence excerpt and source version. A reviewer must approve before verified publication.",
+    "Review the same feature for both products in a pair. Price alone establishes no benefit."
+  ],
+  "comparison_pairs": [
+    {
+      "review_pair_id": "pair-1",
+      "purpose": "Candidate substitutes for evidence collection; no benefit or upgrade has been established.",
+      "products": [
+        {
+          "product_id": "P1040",
+          "product_name": "Grey Wrap Dress",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": "Wrap Dress",
+          "gender": "Women",
+          "price_aud": 60,
+          "catalogue_description": "minimalist wrap dress in grey, suited to party styling. flowy fit/shape with viscose construction.",
+          "features": [
+            {
+              "feature_key": "lining",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "pockets",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "adjustable_strap",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "machine_washable",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "use_cases",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            }
+          ]
+        },
+        {
+          "product_id": "P1004",
+          "product_name": "Lavender Wrap Dress",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": "Wrap Dress",
+          "gender": "Women",
+          "price_aud": 150,
+          "catalogue_description": "smart wrap dress in lavender, suited to brunch styling. regular fit/shape with polyester construction.",
+          "features": [
+            {
+              "feature_key": "lining",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "pockets",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "adjustable_strap",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "machine_washable",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "use_cases",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "review_pair_id": "pair-2",
+      "purpose": "Candidate substitutes for evidence collection; no benefit or upgrade has been established.",
+      "products": [
+        {
+          "product_id": "P1162",
+          "product_name": "Cream Mini Dress",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": "Mini Dress",
+          "gender": "Women",
+          "price_aud": 105,
+          "catalogue_description": "romantic mini dress in cream, suited to beach wedding styling. regular fit/shape with polyester construction.",
+          "features": [
+            {
+              "feature_key": "lining",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "pockets",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "adjustable_strap",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "machine_washable",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "use_cases",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            }
+          ]
+        },
+        {
+          "product_id": "P1132",
+          "product_name": "Sage Mini Dress",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": "Mini Dress",
+          "gender": "Women",
+          "price_aud": 120,
+          "catalogue_description": "relaxed mini dress in sage, suited to date night styling. flowy fit/shape with linen blend construction.",
+          "features": [
+            {
+              "feature_key": "lining",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "pockets",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "adjustable_strap",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "machine_washable",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "use_cases",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "review_pair_id": "pair-3",
+      "purpose": "Candidate substitutes for evidence collection; no benefit or upgrade has been established.",
+      "products": [
+        {
+          "product_id": "P1311",
+          "product_name": "Cream Maxi Dress",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": "Maxi Dress",
+          "gender": "Women",
+          "price_aud": 70,
+          "catalogue_description": "elegant maxi dress in cream, suited to party styling. regular fit/shape with viscose construction.",
+          "features": [
+            {
+              "feature_key": "lining",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "pockets",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "adjustable_strap",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "machine_washable",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "use_cases",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            }
+          ]
+        },
+        {
+          "product_id": "P1254",
+          "product_name": "Burgundy Maxi Dress",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": "Maxi Dress",
+          "gender": "Women",
+          "price_aud": 120,
+          "catalogue_description": "relaxed maxi dress in burgundy, suited to brunch styling. flowy fit/shape with polyester construction.",
+          "features": [
+            {
+              "feature_key": "lining",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "pockets",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "adjustable_strap",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "machine_washable",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "use_cases",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "review_pair_id": "pair-4",
+      "purpose": "Candidate substitutes for evidence collection; no benefit or upgrade has been established.",
+      "products": [
+        {
+          "product_id": "P1003",
+          "product_name": "Pink Crossbody Bag",
+          "category": "Bags",
+          "subcategory": "Crossbody",
+          "product_type": "Crossbody Bag",
+          "gender": "Unisex",
+          "price_aud": 50,
+          "catalogue_description": "bohemian crossbody bag in pink, suited to wedding guest styling. standard fit/shape with woven construction.",
+          "features": [
+            {
+              "feature_key": "pockets",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "zip_closure",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "adjustable_strap",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "capacity_litres",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "use_cases",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            }
+          ]
+        },
+        {
+          "product_id": "P1172",
+          "product_name": "Lavender Crossbody Bag",
+          "category": "Bags",
+          "subcategory": "Crossbody",
+          "product_type": "Crossbody Bag",
+          "gender": "Unisex",
+          "price_aud": 140,
+          "catalogue_description": "minimalist crossbody bag in lavender, suited to travel styling. standard fit/shape with leather construction.",
+          "features": [
+            {
+              "feature_key": "pockets",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "zip_closure",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "adjustable_strap",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "capacity_litres",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "use_cases",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "review_pair_id": "pair-5",
+      "purpose": "Candidate substitutes for evidence collection; no benefit or upgrade has been established.",
+      "products": [
+        {
+          "product_id": "P1026",
+          "product_name": "Yellow Envelope Clutch",
+          "category": "Bags",
+          "subcategory": "Clutches",
+          "product_type": "Envelope Clutch",
+          "gender": "Men",
+          "price_aud": 100,
+          "catalogue_description": "romantic envelope clutch in yellow, suited to date night styling. standard fit/shape with leather construction.",
+          "features": [
+            {
+              "feature_key": "pockets",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "zip_closure",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "adjustable_strap",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "capacity_litres",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "use_cases",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            }
+          ]
+        },
+        {
+          "product_id": "P1163",
+          "product_name": "Black Envelope Clutch",
+          "category": "Bags",
+          "subcategory": "Clutches",
+          "product_type": "Envelope Clutch",
+          "gender": "Men",
+          "price_aud": 140,
+          "catalogue_description": "romantic envelope clutch in black, suited to wedding guest styling. standard fit/shape with faux leather construction.",
+          "features": [
+            {
+              "feature_key": "pockets",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "zip_closure",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "adjustable_strap",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "capacity_litres",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "use_cases",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "review_pair_id": "pair-6",
+      "purpose": "Candidate substitutes for evidence collection; no benefit or upgrade has been established.",
+      "products": [
+        {
+          "product_id": "P1240",
+          "product_name": "Gold Sling Bag",
+          "category": "Bags",
+          "subcategory": "Crossbody",
+          "product_type": "Sling Bag",
+          "gender": "Unisex",
+          "price_aud": 55,
+          "catalogue_description": "contemporary sling bag in gold, suited to formal styling. standard fit/shape with woven construction.",
+          "features": [
+            {
+              "feature_key": "pockets",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "zip_closure",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "adjustable_strap",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "capacity_litres",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "use_cases",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            }
+          ]
+        },
+        {
+          "product_id": "P1050",
+          "product_name": "Black Sling Bag",
+          "category": "Bags",
+          "subcategory": "Crossbody",
+          "product_type": "Sling Bag",
+          "gender": "Unisex",
+          "price_aud": 150,
+          "catalogue_description": "streetwear sling bag in black, suited to work styling. standard fit/shape with woven construction.",
+          "features": [
+            {
+              "feature_key": "pockets",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "zip_closure",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "adjustable_strap",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "capacity_litres",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            },
+            {
+              "feature_key": "use_cases",
+              "value": null,
+              "source_reference": null,
+              "source_version": null,
+              "evidence_quote": null,
+              "review_status": "draft",
+              "reviewed_by": null,
+              "verified_at": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

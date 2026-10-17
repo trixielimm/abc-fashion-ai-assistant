@@ -1,0 +1,50 @@
+{
+  "product_id": "P1106",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:25.187Z",
+  "identity_snapshot": {
+    "product_id": "P1106",
+    "product_name": "Cream Mules",
+    "category": "Shoes",
+    "subcategory": "Flats",
+    "product_type": "Mules",
+    "gender": "Women",
+    "colour": "Cream",
+    "material": "Suede",
+    "fit": "Standard",
+    "style": "Contemporary",
+    "occasion": "Brunch",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1106",
+    "description": "Contemporary cream mules with a soft suede upper and easy open-back profile, shaped for a standard fit and suited to Brunch.",
+    "construction_details": [
+      "Suede vamp with gently squared toe",
+      "Open back with clean topline",
+      "Lightly padded footbed",
+      "Low stacked-look heel and textured outsole"
+    ],
+    "care_instructions": "Brush gently with a suede brush and use a suitable suede spot treatment for marks; keep away from rain and heat.",
+    "lining": true,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Brunch"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": null,
+    "heel_height_cm": 2.5,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": null
+  },
+  "content_sha256": "712edfd0ce54ba2e983b7c9efda044444b64f358df75f29b1dc400a28faae48c"
+}

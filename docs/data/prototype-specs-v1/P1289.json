@@ -1,0 +1,49 @@
+{
+  "product_id": "P1289",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:20:01.503Z",
+  "identity_snapshot": {
+    "product_id": "P1289",
+    "product_name": "Black Hoop Earrings",
+    "category": "Accessories",
+    "subcategory": "Jewellery",
+    "product_type": "Hoop Earrings",
+    "gender": "Women",
+    "colour": "Black",
+    "material": "Gold-tone Metal",
+    "fit": "Standard",
+    "style": "Contemporary",
+    "occasion": "Date Night",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1289",
+    "description": "Contemporary black hoop earrings with a smooth gold-tone metal finish and a neat rounded silhouette for date night styling.",
+    "construction_details": [
+      "Slim rounded hoop profiles",
+      "Polished outer surfaces",
+      "Hinged posts with secure latch backs"
+    ],
+    "care_instructions": "Store dry in a soft pouch and wipe with a non-abrasive jewellery cloth after wear.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": null,
+    "machine_washable": null,
+    "capacity_litres": null,
+    "use_cases": [
+      "Date Night"
+    ],
+    "closure": "clasp",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": "Gold-tone"
+  },
+  "content_sha256": "2e17a7ecd362df322a216b1d77148ff23f10244f4ceb607bcc183f86449664a0"
+}

@@ -5,12 +5,14 @@ import type { CatalogueProduct } from "../recommendations/catalogue";
 import {
   searchByPreferences,
   type PreferenceSearchResult,
+  type PreferenceSearchOptions,
 } from "./preferenceSearch";
 
 export function searchWithValidatedPreferences(
   catalogue: readonly CatalogueProduct[],
   preferences: ShoppingPreferences,
-  vocabulary: CataloguePreferenceValues
+  vocabulary: CataloguePreferenceValues,
+  options: PreferenceSearchOptions = {}
 ): {
   validation: ReturnType<typeof validatePreferences>;
   result: PreferenceSearchResult;
@@ -37,7 +39,7 @@ export function searchWithValidatedPreferences(
   }
 
   // Use the validated and normalised preferences, not the raw input.
-  const result = searchByPreferences(catalogue, validation.preferences);
+  const result = searchByPreferences(catalogue, validation.preferences, options);
 
   // Preserve warnings about unrecognised ranking preferences.
   if (validation.issues.length > 0) {

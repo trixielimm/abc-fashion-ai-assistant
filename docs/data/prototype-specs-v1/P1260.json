@@ -1,0 +1,54 @@
+{
+  "product_id": "P1260",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:22:27.088Z",
+  "identity_snapshot": {
+    "product_id": "P1260",
+    "product_name": "Black Shoulder Bag",
+    "category": "Bags",
+    "subcategory": "Handbags",
+    "product_type": "Shoulder Bag",
+    "gender": "Women",
+    "colour": "Black",
+    "material": "Woven",
+    "fit": "Standard",
+    "style": "Romantic",
+    "occasion": "Travel",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1260",
+    "description": "Black woven shoulder bag with a romantic profile and standard shape, suited to travel styling. The tactile woven exterior is shaped into a softly relaxed silhouette with a comfortable shoulder handle.",
+    "construction_details": [
+      "Woven body with reinforced base panel",
+      "Wide fixed shoulder strap with folded edges",
+      "Top zip fastening and internal divider pocket"
+    ],
+    "care_instructions": "Brush away surface dust and spot clean with a barely damp cloth. Allow to air dry fully before storing.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": false,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": 4.5,
+    "use_cases": [
+      "Travel",
+      "Weekend"
+    ],
+    "closure": "zip",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": {
+      "width": 30,
+      "height": 22,
+      "depth": 8
+    },
+    "strap_drop_cm": 28,
+    "compartments": 2,
+    "sole_material": null,
+    "hardware_finish": "matte black"
+  },
+  "content_sha256": "da50d14fedda829aa252d49ec86d894dbe4570aa41f1080ec29e3eab1e5a2025"
+}

@@ -1,0 +1,50 @@
+{
+  "product_id": "P1113",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:51.189Z",
+  "identity_snapshot": {
+    "product_id": "P1113",
+    "product_name": "Lavender Slim Belt",
+    "category": "Accessories",
+    "subcategory": "Belts",
+    "product_type": "Slim Belt",
+    "gender": "Women",
+    "colour": "Lavender",
+    "material": "Faux Leather",
+    "fit": "Standard",
+    "style": "Classic",
+    "occasion": "Wedding Guest",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1113",
+    "description": "A lavender slim belt with a classic profile, shaped in faux leather and designed to add a neat finishing detail to wedding guest looks.",
+    "construction_details": [
+      "Slim faux-leather strap",
+      "Polished buckle fastening",
+      "Single keeper loop",
+      "Edge-painted finish"
+    ],
+    "care_instructions": "Wipe gently with a soft, slightly damp cloth and store flat away from prolonged moisture and heat.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": null,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Wedding Guest"
+    ],
+    "closure": "buckle",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": "Polished silver-tone"
+  },
+  "content_sha256": "240a73819b27b8fa06393876b2419fb861f70379751012fd80d870b3a2c73a5a"
+}

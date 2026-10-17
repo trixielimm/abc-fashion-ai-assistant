@@ -1,0 +1,50 @@
+{
+  "product_id": "P1125",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:30.791Z",
+  "identity_snapshot": {
+    "product_id": "P1125",
+    "product_name": "Brown Low-Top Sneakers",
+    "category": "Shoes",
+    "subcategory": "Sneakers",
+    "product_type": "Low-Top Sneakers",
+    "gender": "Men",
+    "colour": "Brown",
+    "material": "Canvas",
+    "fit": "Standard",
+    "style": "Streetwear",
+    "occasion": "Travel",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1125",
+    "description": "Streetwear brown low-top sneakers with a casual canvas upper, contrast sole edge and a standard everyday fit for travel.",
+    "construction_details": [
+      "Canvas low-top upper with reinforced eyelet panels",
+      "Padded ankle collar",
+      "Flat cotton-style laces through metal eyelets",
+      "Layered rubber toe cap and outsole"
+    ],
+    "care_instructions": "Spot clean with a soft brush and mild soapy water; air dry naturally and avoid soaking.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Travel"
+    ],
+    "closure": "lace_up",
+    "garment_length_cm": null,
+    "heel_height_cm": 0,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": "Antique brass-tone eyelets"
+  },
+  "content_sha256": "077a8fef2b6b50f408a48ae64576a2028eab355ec1deaa791367d1af8457d2d7"
+}

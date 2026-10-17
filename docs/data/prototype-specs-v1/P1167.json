@@ -1,0 +1,53 @@
+{
+  "product_id": "P1167",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:49.634Z",
+  "identity_snapshot": {
+    "product_id": "P1167",
+    "product_name": "Silver Envelope Clutch",
+    "category": "Bags",
+    "subcategory": "Clutches",
+    "product_type": "Envelope Clutch",
+    "gender": "Unisex",
+    "colour": "Silver",
+    "material": "Leather",
+    "fit": "Standard",
+    "style": "Romantic",
+    "occasion": "Formal",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1167",
+    "description": "Romantic silver envelope clutch for formal winter styling, crafted in leather with a structured standard shape.",
+    "construction_details": [
+      "Envelope flap with clean edge binding",
+      "Slim gusseted body",
+      "Polished clasp fastening"
+    ],
+    "care_instructions": "Wipe gently with a soft dry cloth and store in a dust bag away from heat and moisture.",
+    "lining": true,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": 0.7,
+    "use_cases": [
+      "Formal"
+    ],
+    "closure": "clasp",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": {
+      "width": 24,
+      "height": 14,
+      "depth": 4
+    },
+    "strap_drop_cm": null,
+    "compartments": 1,
+    "sole_material": null,
+    "hardware_finish": "silver-tone"
+  },
+  "content_sha256": "7b6166655dbab04b2b2a82d5369bfb02fe4c8ff32eb7bdecc03f03b4c3aaf3ee"
+}

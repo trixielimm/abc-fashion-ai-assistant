@@ -10,6 +10,9 @@ import type { CatalogueProduct } from "../recommendations/catalogue";
 import type { PreferenceSearchResult } from "./preferenceSearch";
 
 import { searchWithValidatedPreferences } from "./validatedPreferenceSearch";
+import { scoreCompatibility } from "./stylingCompatibility";
+import { meetsFeatureRequirements } from "./productBenefits";
+import type { StylingState } from "../stylist/commerceSchema";
 
 const label = z.string().trim().min(1).max(100);
 
@@ -60,7 +63,8 @@ export function retrieveCrossSell(
   catalogue: readonly CatalogueProduct[],
   input: unknown,
   vocabulary: CataloguePreferenceValues,
-  scopedPreferences?: ShoppingPreferences
+  scopedPreferences?: ShoppingPreferences,
+  options: { anchors?: readonly CatalogueProduct[]; eligible?: (product: CatalogueProduct) => boolean; required_features?: StylingState["required_features"]; occupied_categories?: string[] } = {}
 ): CrossSellResult {
   const request = CrossSellRequestSchema.parse(input);
 
@@ -97,58 +101,23 @@ export function retrieveCrossSell(
     );
   }
 
-  targetCategory = primary.data.cross_sell_category?.trim() || null;
-
-  if (!targetCategory) {
-    return reply(
-      "no_rule",
-      "No cross-sell category is recorded for this product. No category was guessed."
-    );
-  }
-
-  // Resolve a stored top-level category OR a subcategory.
-  const relationships = vocabulary.categories.filter(
-    (row) =>
-      normalise(row.subcategory ?? row.category) ===
-      normalise(targetCategory)
-  );
-
-  const targets = [
-    ...new Map(
-      relationships.map((row) => [JSON.stringify(row), row])
-    ).values(),
-  ];
-
-  if (targets.length !== 1) {
-    return reply(
-      "rule_unavailable",
-      "The recorded cross-sell category needs catalogue review."
-    );
-  }
-
+  const record = catalogue.find(product => product.product_id === request.primary_product_id)!;
+  const requested = scopedPreferences ? ShoppingPreferencesSchema.parse(scopedPreferences) : null;
+  // An explicit target describes the requested addition, never the main item.
+  // Stored rules guide discovery when no target has been stated.
+  targetCategory = requested?.subcategory ?? requested?.category ??
+    [...(record.pairing_categories ?? []), ...(record.cross_sell_category ? [record.cross_sell_category] : [])]
+      .find(category => !(options.occupied_categories ?? []).some(owned => normalise(owned) === normalise(category))) ?? null;
+  if (!targetCategory) return reply("no_rule", "No additional-item category is recorded. What would you like to add?");
+  const targets = [...new Map(vocabulary.categories.filter(row =>
+    normalise(row.subcategory ?? row.category) === normalise(targetCategory)
+  ).map(row => [JSON.stringify(row), row])).values()];
+  if (targets.length !== 1) return reply("rule_unavailable", "The additional-item category needs catalogue review.");
   const target = targets[0];
-
-  // Unknown size is allowed during discovery. The cart resolves variants.
-
-  // The conversation route may supply its complete, scoped preferences.
-const requested = scopedPreferences
-  ? ShoppingPreferencesSchema.parse(scopedPreferences)
-  : null;
-
-if (
-  requested &&
-  (
-    (requested.category !== null &&
-      normalise(requested.category) !== normalise(target.category)) ||
-    (requested.subcategory !== null && target.subcategory !== null &&
-      normalise(requested.subcategory) !== normalise(target.subcategory))
-  )
-) {
-  return reply(
-    "no_rule",
-    `The recorded cross-sell target is ${targetCategory}, not the requested item category. No different category was substituted.`
-  );
-}
+  if (normalise(target.category) === normalise(record.category) &&
+      (!target.subcategory || normalise(target.subcategory) === normalise(record.subcategory))) {
+    return reply("no_match", "That would repeat the selected item role. Please request a different additional item or ask for a replacement.");
+  }
 
 const checked = ShoppingPreferencesSchema.safeParse({
   ...(requested ?? {
@@ -193,22 +162,36 @@ const checked = ShoppingPreferencesSchema.safeParse({
       )
   );
 
-  // Reuse the validation, hard filtering and ranking you already corrected.
+  const anchors = [record, ...(options.anchors ?? []).filter(anchor => anchor.product_id !== record.product_id)];
+  const scored = new Map(candidates.map(candidate => [candidate.product_id,
+    scoreCompatibility(candidate, anchors, checked.data.occasion)]));
+  // Anchor-aware scoring happens before the display cap and stock tie-breaks.
+
   const { validation, result } = searchWithValidatedPreferences(
     candidates,
     checked.data,
-    vocabulary
+    vocabulary,
+    {
+      eligible: product => (!options.eligible || options.eligible(product)) &&
+        meetsFeatureRequirements(product, options.required_features ?? []),
+      compare: (a, b) => (scored.get(b.product_id)?.score ?? 0) - (scored.get(a.product_id)?.score ?? 0),
+    }
   );
 
   const message =
     result.products.length > 0
-      ? `Optional additions from the recorded ${targetCategory} cross-sell category. ${result.message}`
+      ? `Optional additions from the ${requested?.category || requested?.subcategory ? "requested" : "recorded"} ${targetCategory} category. ${result.message}`
       : result.message;
 
   return reply(
     result.status,
     message,
-    result.products,
+    result.products.map(product => {
+      const evidence = scored.get(product.product_id)!.evidence;
+      return { ...product, pairing_evidence: evidence,
+        explanation: [...evidence.reasons.slice(0, 2), ...evidence.limitations.slice(0, 1),
+          "This is a catalogue-based styling suggestion, not a guarantee of outfit compatibility."].join(" ") };
+    }),
     result.status === "needs_more_detail"
       ? null
       : validation.preferences

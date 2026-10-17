@@ -2,10 +2,18 @@ import "server-only";
 
 import { createClient } from "@/lib/supabase/server";
 import type { Database } from "@/lib/database.types";
+import type { VerifiedFeature } from "../stylist/commerceSchema";
+import type { SyntheticSpecification } from "../stylist/productSpecifications";
+import { enrichCommercialCatalogue } from "../stylist/commerceCatalogue";
 
 // Reuse the product_catalog type already defined in your project.
 export type CatalogueProduct =
-  Database["public"]["Views"]["product_catalog"]["Row"];
+  Database["public"]["Views"]["product_catalog"]["Row"] & {
+    verified_features?: VerifiedFeature[];
+    synthetic_specification?: SyntheticSpecification;
+    pairing_categories?: string[];
+    feature_data_status?: "available" | "not_configured" | "unavailable";
+  };
 
 const PAGE_SIZE = 200;
 const MAX_PRODUCTS = 5_000;
@@ -56,7 +64,7 @@ export async function getCatalogueProducts(): Promise<CatalogueProduct[]> {
     offset += data.length;
   }
 
-  return products;
+  return enrichCommercialCatalogue(products);
 }
 
 export async function getCatalogueProductById(
@@ -75,5 +83,17 @@ export async function getCatalogueProductById(
     throw new Error("Unable to retrieve the product.");
   }
 
+  // Product pages and image authorization need identity/stock, not comparison metadata.
   return data;
+}
+
+export async function getCatalogueProductsByIds(ids: readonly string[]): Promise<CatalogueProduct[]> {
+  const unique = [...new Set(ids)];
+  if (!unique.length) return [];
+  if (unique.length > 24) throw new Error("Too many product references.");
+  const supabase = await createClient();
+  const { data, error } = await supabase.from("product_catalog").select(COLUMNS).in("product_id", unique)
+    .abortSignal(AbortSignal.timeout(15_000));
+  if (error || data === null) throw new Error("Unable to retrieve referenced catalogue products.");
+  return enrichCommercialCatalogue(data);
 }

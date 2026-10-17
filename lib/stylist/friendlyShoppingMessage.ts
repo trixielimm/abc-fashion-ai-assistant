@@ -130,12 +130,12 @@ export function friendlyShoppingMessage(input: Input): string {
 
     if (action === "upsell") {
       opening = products.length === 1
-        ? "I've found a higher-priced alternative to consider because it adds a match to a preference you mentioned."
-        : `I've found ${products.length} higher-priced alternatives to consider. Each adds a match to a preference you mentioned.`;
+        ? "I've found a replacement to compare because it adds a demonstrated benefit for your request."
+        : `I've found ${products.length} replacements with demonstrated benefits to compare.`;
     }
 
     const explanation = action === "upsell"
-      ? "Each card explains the added match and extra cost. A higher price alone doesn't establish better quality, and choosing an alternative won't automatically remove the original from your cart."
+      ? "Each card explains the benefit, price difference and trade-offs. A higher price alone doesn't establish better quality, and choosing an alternative won't automatically remove the original from your cart."
       : "";
 
     const otherOptions = alternatives.length
@@ -166,14 +166,14 @@ export function friendlyShoppingMessage(input: Input): string {
 
   if (status === "no_upsell") {
     return paragraphs(
-      "I haven't found a higher-priced replacement with an additional match to your preferences, so I won't recommend spending more just for the price.",
-      "You can stay with the current choice, or tell me what you'd like to be different and I'll look again."
+      input.baseMessage,
+      "You can stay with the current choice. What would you value in a replacement: adjustability, pockets, lining or easier care? I'll compare only recorded evidence and keep your budget."
     );
   }
 
   if (status === "no_rule" || status === "rule_unavailable") {
     return paragraphs(
-      "I couldn't confirm an extra-item suggestion for that product from the pairing information available.",
+      input.baseMessage,
       "We can still explore the additional item as a separate search. Tell me what you'd like to look for, and I'll use the restrictions you've asked me to keep for every item."
     );
   }

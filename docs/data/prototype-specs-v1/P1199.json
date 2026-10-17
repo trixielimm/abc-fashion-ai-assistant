@@ -1,0 +1,51 @@
+{
+  "product_id": "P1199",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:23.859Z",
+  "identity_snapshot": {
+    "product_id": "P1199",
+    "product_name": "White Midi Dress",
+    "category": "Clothing",
+    "subcategory": "Dresses",
+    "product_type": "Midi Dress",
+    "gender": "Women",
+    "colour": "White",
+    "material": "Cotton",
+    "fit": "Flowy",
+    "style": "Classic",
+    "occasion": "Beach Wedding",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1199",
+    "description": "White cotton midi dress with a classic flowy shape, an airy skirt and a clean finish suited to beach wedding styling.",
+    "construction_details": [
+      "Round neckline with narrow facing",
+      "Gathered waist seam for gentle volume",
+      "Sleeveless cut with bound armholes",
+      "Side-seam pockets and clean midi hem"
+    ],
+    "care_instructions": "Cold machine wash with similar colours; line dry and warm iron on the reverse side. Wash with care to help preserve the white colour.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Beach Wedding",
+      "Brunch"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": 118,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "5e391e901ccf9bca318cf723612872345ae84bed51f251ba4ac3efbadceb1837"
+}

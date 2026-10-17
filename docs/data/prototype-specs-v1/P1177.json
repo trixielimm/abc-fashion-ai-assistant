@@ -1,0 +1,49 @@
+{
+  "product_id": "P1177",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:14.649Z",
+  "identity_snapshot": {
+    "product_id": "P1177",
+    "product_name": "Beige Pleated Trousers",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Pleated Trousers",
+    "gender": "Men",
+    "colour": "Beige",
+    "material": "Viscose",
+    "fit": "Regular",
+    "style": "Smart",
+    "occasion": "Work",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1177",
+    "description": "Smart beige pleated trousers in viscose with a regular fit, front pleats and a clean pressed-leg profile for work dressing.",
+    "construction_details": [
+      "Front pleats with a tailored waistband",
+      "Concealed fly with button fastening",
+      "Straight hems with neatly finished seams"
+    ],
+    "care_instructions": "Dry clean recommended; reshape while damp and cool iron on the reverse.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Work"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 104,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "db33abd15c07882c2df76d3620d9f436a337ae2dbcbbb20d03b65cf49e48fd5f"
+}

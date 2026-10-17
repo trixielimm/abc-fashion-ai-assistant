@@ -1,0 +1,51 @@
+{
+  "product_id": "P1197",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:23.859Z",
+  "identity_snapshot": {
+    "product_id": "P1197",
+    "product_name": "Burgundy Bomber Jacket",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Bomber Jacket",
+    "gender": "Unisex",
+    "colour": "Burgundy",
+    "material": "Polyester",
+    "fit": "Regular",
+    "style": "Contemporary",
+    "occasion": "Casual",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1197",
+    "description": "Burgundy polyester bomber jacket with a contemporary regular fit, ribbed trims and an easy casual layer for autumn wear.",
+    "construction_details": [
+      "Full-length front zip",
+      "Ribbed collar, cuffs and hem",
+      "Two welt side pockets",
+      "Set-in sleeves with articulated elbow seams"
+    ],
+    "care_instructions": "Cold machine wash on a gentle cycle; fasten the zip before washing and line dry. Do not tumble dry.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Casual",
+      "Weekend"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 62,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "a2ae67cf75d119558ea3febfc0c194b5b9a72de63416b327a23d39ed994cff87"
+}

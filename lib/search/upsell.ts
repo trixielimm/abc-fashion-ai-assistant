@@ -14,6 +14,8 @@ import {
 } from "./preferenceSearch";
 
 import { searchWithValidatedPreferences } from "./validatedPreferenceSearch";
+import { compareBenefits, meetsFeatureRequirements } from "./productBenefits";
+import type { StylingState } from "../stylist/commerceSchema";
 
 export const UpsellRequestSchema = z.strictObject({
   primary_product_id: z.string().trim().min(1).max(100),
@@ -75,7 +77,8 @@ function cents(value: unknown): number | null {
 export function retrieveUpsell(
   catalogue: readonly CatalogueProduct[],
   input: unknown,
-  vocabulary: CataloguePreferenceValues
+  vocabulary: CataloguePreferenceValues,
+  options: { priorities?: StylingState["priorities"]; required_features?: StylingState["required_features"]; eligible?: (product: CatalogueProduct) => boolean; allowComparable?: boolean; allowRelatedTypes?: boolean } = {}
 ): UpsellResult {
   const request = UpsellRequestSchema.parse(input);
 
@@ -189,7 +192,7 @@ export function retrieveUpsell(
   });
 
   // This also handles a request with no context preferences.
-  if (active.every((item) => item.matchedBefore)) {
+  if (active.every((item) => item.matchedBefore) && !(options.priorities?.length)) {
     return reply(
       "no_upsell",
       "No additional requested context match can be demonstrated. A higher price alone is not a reason to suggest a replacement."
@@ -208,10 +211,13 @@ export function retrieveUpsell(
     if (
       excluded.has(product.product_id ?? "") ||
       price === null ||
-      price <= primaryCents ||
+      (!options.allowComparable && price <= primaryCents) ||
+      (options.eligible && !options.eligible(product)) ||
+      !meetsFeatureRequirements(product, options.required_features ?? []) ||
       (maximumCents !== null && price > maximumCents) ||
       identityFields.some(
         (field) =>
+          !(field === "product_type" && options.allowRelatedTypes) &&
           normalise(product[field]) !==
           normalise(primary[field])
       ) ||
@@ -242,20 +248,25 @@ export function retrieveUpsell(
         )
     );
 
-    return preservesMatches && addsMatch;
+    return preservesMatches && (addsMatch || compareBenefits(primary, product, options.priorities ?? []).benefits.length > 0);
   });
 
   // Reuse the existing validation, hard filters and ranking.
   const { result } = searchWithValidatedPreferences(
     candidates,
-    preferences,
-    vocabulary
+    options.allowRelatedTypes ? { ...preferences, product_type: null } : preferences,
+    vocabulary,
+    { compare: (a, b) => {
+      const benefitDifference = compareBenefits(primary, b, options.priorities ?? []).benefits.length - compareBenefits(primary, a, options.priorities ?? []).benefits.length;
+      return benefitDifference || (a.price_aud ?? Infinity) - (b.price_aud ?? Infinity);
+    } }
   );
+  if (options.allowRelatedTypes) applied = { ...preferences, product_type: null };
 
   if (result.products.length === 0) {
     return reply(
       "no_upsell",
-     "No higher-priced same-type item adds a requested match without losing an existing one. Any supplied limits were kept."
+     "No additional replacement benefit could be established within your requirements. Missing feature information was not treated as proof of an improvement. Your existing choice remains valid."
     );
   }
 
@@ -299,27 +310,32 @@ export function retrieveUpsell(
       const extra =
         (cents(product.price_aud)! - primaryCents) / 100;
 
+      const featureComparison = compareBenefits(primary, record, options.priorities ?? []);
+      const comparison = {
+        ...featureComparison, primary_product_id: request.primary_product_id,
+        primary_price_aud: primaryPrice!, extra_cost_aud: extra,
+        context_benefits: improved,
+        kind: extra > 0 ? "upgrade" as const : "alternative" as const,
+      };
+      const cost = extra > 0 ? `A$${extra.toFixed(2)} more` : extra < 0 ? `A$${(-extra).toFixed(2)} less` : "the same price";
+      const benefitText = [...featureComparison.benefits.map(benefit => benefit.label), ...improved];
       return {
         ...product,
+        value_comparison: comparison,
         extra_cost_aud: extra,
         improved_preferences: improved,
         unmatched_preferences: unmatched,
 
-        explanation:
-          `Optional replacement, A$${extra.toFixed(2)} more. ` +
-          `Added catalogue matches: ${improved.join("; ")}.` +
-          (
-            unmatched.length
-              ? ` Still not matched: ${unmatched.join("; ")}.`
-              : ""
-          ),
+        explanation: `Optional replacement, ${cost}. Benefits: ${benefitText.join("; ")}.` +
+          (featureComparison.tradeoffs.length ? ` Trade-offs: ${featureComparison.tradeoffs.join(" ")}` : "") +
+          (unmatched.length ? ` Still not matched: ${unmatched.join("; ")}.` : ""),
       };
     }
   );
 
     return reply(
     "options",
-    `Optional higher-priced replacements${preferences.max_price === null ? "" : " within your existing budget"}. Each adds a requested catalogue-label match; remaining differences are listed. Nothing has been added to your cart.`,
+    `Optional replacements${preferences.max_price === null ? "" : " within your existing budget"}. Each has a demonstrated customer-relevant benefit; price differences and trade-offs are listed. Nothing has been added to your cart.`,
     products
   );
 }

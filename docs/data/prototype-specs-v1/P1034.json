@@ -1,0 +1,49 @@
+{
+  "product_id": "P1034",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:45.724Z",
+  "identity_snapshot": {
+    "product_id": "P1034",
+    "product_name": "Olive Leather Belt",
+    "category": "Accessories",
+    "subcategory": "Belts",
+    "product_type": "Leather Belt",
+    "gender": "Unisex",
+    "colour": "Olive",
+    "material": "Faux Leather",
+    "fit": "Standard",
+    "style": "Minimalist",
+    "occasion": "Formal",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1034",
+    "description": "Minimalist olive faux-leather belt with a classic profile for polished formal outfits.",
+    "construction_details": [
+      "Structured faux-leather strap",
+      "Finished edge binding",
+      "Single-prong buckle fastening"
+    ],
+    "care_instructions": "Wipe with a dry or slightly damp cloth; avoid soaking and store flat or coiled loosely.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": null,
+    "capacity_litres": null,
+    "use_cases": [
+      "Formal"
+    ],
+    "closure": "buckle",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": "antique brass-tone"
+  },
+  "content_sha256": "c8957b90cbbdbfa56cd98f5379570789e4326d44cf873148ec67df7b751401c2"
+}

@@ -1,0 +1,52 @@
+{
+  "product_id": "P1178",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:14:59.050Z",
+  "identity_snapshot": {
+    "product_id": "P1178",
+    "product_name": "Navy Maxi Dress",
+    "category": "Clothing",
+    "subcategory": "Dresses",
+    "product_type": "Maxi Dress",
+    "gender": "Women",
+    "colour": "Navy",
+    "material": "Polyester",
+    "fit": "Flowy",
+    "style": "Minimalist",
+    "occasion": "Beach Wedding",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1178",
+    "description": "Minimalist navy maxi dress in polyester, featuring a flowy silhouette and clean lines for understated beach wedding dressing.",
+    "construction_details": [
+      "Fluid full-length skirt",
+      "Simple round neckline",
+      "Shoulder seam shaping",
+      "Side seam construction",
+      "Clean narrow hem"
+    ],
+    "care_instructions": "Cold gentle machine wash; line dry away from direct sunlight and cool iron on the reverse.",
+    "lining": true,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Beach Wedding",
+      "Evening"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": 142,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "1d0fe88d85022fd7f128199337f41cf575432cee96a50678d13cc1e9fb06f73c"
+}

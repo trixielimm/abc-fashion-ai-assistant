@@ -3,10 +3,13 @@ import { ShoppingPreferencesSchema } from "../ai/preferenceSchema";
 import { relatedLabel } from "../search/preferenceSearch";
 import { ConversationPlanRequestSchema, PendingConversationSchema } from "./conversationPlan";
 import { createPreferenceScopes, emptyShoppingPreferences, PreferenceScopesSchema } from "./preferenceScope";
-import { safeLocalImagePath } from "./catalogueImages";
+import { safeProductImageSource } from "./catalogueImages";
+import { getProductImageEndpoint } from "../product-image";
+import { AnswerSourceSchema, PendingAnswerSchema } from "./answerPlan";
+import { emptyStylingState, PairingEvidenceSchema, StylingStateSchema, ValueComparisonSchema, COMMERCE_POLICY } from "./commerceSchema";
 
 export const ShortcutSchema = z.strictObject({
-  kind: z.enum(["cross_sell", "cheaper", "upsell"]),
+  kind: z.enum(["cross_sell", "cheaper", "upsell", "keep", "own", "remove", "reject"]),
   product_id: z.string().trim().min(1).max(250),
 });
 export const TurnSchema = ConversationPlanRequestSchema.extend({
@@ -34,7 +37,9 @@ export const ChatProductSchema = z.object({
   sizes_available: z.array(z.string().trim().min(1)).min(1),
   explanation: z.string().optional(),
   extra_target: z.string().nullable().optional(),
-  image_src: z.string().refine(safeLocalImagePath, "Use a mapped local image.").nullable().optional(),
+  image_src: z.string().refine(safeProductImageSource, "Use a local image or the product image route.").nullable().optional(),
+  pairing_evidence: PairingEvidenceSchema.optional(),
+  value_comparison: ValueComparisonSchema.optional(),
 });
 export type ChatProduct = z.infer<typeof ChatProductSchema>;
 export const AlternativeProductSchema = ChatProductSchema.extend({
@@ -44,7 +49,7 @@ export type AlternativeProduct = z.infer<typeof AlternativeProductSchema>;
 
 const normalise = (value: string) => value.trim().replace(/\s+/g, " ").toLowerCase();
 export const TurnReplySchema = z.object({
-  status: z.enum(["matches", "partial", "alternatives", "no_match", "no_action", "needs_clarification", "no_upsell", "no_rule", "rule_unavailable", "primary_unavailable", "primary_mismatch"]),
+  status: z.enum(["matches", "partial", "alternatives", "no_match", "no_action", "answered", "needs_clarification", "no_upsell", "no_rule", "rule_unavailable", "primary_unavailable", "primary_mismatch"]),
   action: z.enum(["new_search", "refine", "cross_sell", "cheaper", "upsell", "clarify", "none"]),
   message: z.string().min(1),
   proposed_scopes: PreferenceScopesSchema,
@@ -56,6 +61,13 @@ export const TurnReplySchema = z.object({
   optional_question: z.string().min(1).nullable().default(null),
   can_preview_other_colours: z.boolean().default(false),
   pending: PendingConversationSchema.nullable(),
+  pending_answer: PendingAnswerSchema.nullable().default(null),
+  answer_sources: z.array(AnswerSourceSchema).max(5).default([]),
+  answer_product_ids: z.array(z.string().min(1)).max(4).default([]),
+  styling: StylingStateSchema.default(emptyStylingState),
+  commerce_policy: z.literal(COMMERCE_POLICY).default(COMMERCE_POLICY),
+  feature_data_status: z.enum(["available", "not_configured", "unavailable"]).optional(),
+  comparison_reference_id: z.string().min(1).nullable().default(null),
 }).superRefine((reply, ctx) => {
   const reject = (message: string) => ctx.addIssue({ code: "custom", message });
   const matches = reply.status === "matches" || reply.status === "partial";
@@ -63,8 +75,12 @@ export const TurnReplySchema = z.object({
   if (reply.status === "alternatives" && !reply.alternatives.length) reject("Alternatives status requires alternatives.");
   if (reply.alternatives.length && !["matches", "partial", "alternatives"].includes(reply.status)) reject("Alternatives cannot hide a blocking result.");
   const all = [...reply.products, ...reply.alternatives];
+  if (all.some(product => product.image_src?.startsWith("/api/products/") &&
+      product.image_src !== getProductImageEndpoint(product.product_id))) reject("The image route must belong to the displayed product.");
   if (all.length > 4 || new Set(all.map(p => p.product_id)).size !== all.length) reject("Return at most four unique displayed products.");
-  if ((reply.status === "needs_clarification") !== (reply.pending !== null) && reply.status !== "no_action") reject("Missing or unexpected pending question.");
+  if ((reply.status === "needs_clarification") !== (reply.pending !== null) && !["no_action", "answered"].includes(reply.status)) reject("Missing or unexpected pending question.");
+  if (reply.status === "answered" && (reply.action !== "none" || all.length || reply.applied_preferences !== null || reply.can_preview_other_colours)) reject("Answer-only replies cannot perform a shopping action.");
+  if (reply.pending_answer && !["answered", "no_action"].includes(reply.status)) reject("Resolve the product question before another shopping action.");
   if (all.length && !reply.applied_preferences) reject("Displayed products need applied preferences.");
   if (reply.optional_question && (!all.length || reply.pending)) reject("An optional question cannot be a blocking question.");
 
@@ -72,6 +88,11 @@ export const TurnReplySchema = z.object({
     if (!products.length) return;
     if (!preferences) { reject("Products require explicit filter context."); return; }
     for (const product of products) {
+      if (product.value_comparison) {
+        const value = product.value_comparison;
+        if (Math.abs(Math.round(product.price_aud * 100) - Math.round(value.primary_price_aud * 100) - Math.round(value.extra_cost_aud * 100)) > 0 ||
+            (value.kind === "upgrade") !== (value.extra_cost_aud > 0)) reject("The value comparison price difference is inconsistent.");
+      }
       if ((preferences.max_price !== null && product.price_aud > preferences.max_price) ||
           (preferences.min_price !== null && product.price_aud < preferences.min_price) ||
           (preferences.size !== null && !product.sizes_available.some(s => normalise(s) === normalise(preferences.size!)))) reject("Returned products violate price or size constraints.");
@@ -101,18 +122,29 @@ export type TurnReply = z.infer<typeof TurnReplySchema>;
 export type Session = {
   scopes: z.infer<typeof PreferenceScopesSchema>;
   pending: z.infer<typeof PendingConversationSchema> | null;
+  pending_answer?: z.infer<typeof PendingAnswerSchema> | null;
   context: ConversationTurn["context"];
   history: ConversationTurn["history"];
+  styling?: z.infer<typeof StylingStateSchema>;
+  cart_product_ids?: string[];
 };
 export function newSession(): Session {
-  return { scopes: createPreferenceScopes(), pending: null, context: { focused: null, latest: [] }, history: [] };
+  return { scopes: createPreferenceScopes(), pending: null, pending_answer: null, context: { focused: null, latest: [] }, history: [], styling: emptyStylingState() };
 }
 export function snapshot(product: {
-  product_id: string; product_name: string; price_aud: number;
+  product_id: string; product_name: string; price_aud?: number;
   category: ChatProduct["category"]; subcategory: string | null; product_type: string | null;
+  pairing_evidence?: { anchor_ids: string[] };
+  value_comparison?: { primary_product_id: string };
+  recommendation_context?: ConversationTurn["context"]["latest"][number]["recommendation_context"];
 }): NonNullable<ConversationTurn["context"]["focused"]> {
   const { product_id, product_name, category, subcategory, product_type, price_aud } = product;
-  return { product_id, product_name, category, subcategory, product_type, price_aud };
+  const recommendation_context = product.pairing_evidence || product.value_comparison ? {
+    anchor_ids: product.pairing_evidence?.anchor_ids ?? [],
+    primary_product_id: product.value_comparison?.primary_product_id ?? null,
+  } : product.recommendation_context;
+  return { product_id, product_name, category, subcategory, product_type, price_aud,
+    ...(recommendation_context ? { recommendation_context } : {}) };
 }
 export function makeTurn(
   session: Session, message: string,
@@ -121,15 +153,20 @@ export function makeTurn(
   previewOtherColours = false
 ): ConversationTurn {
   const scopes = PreferenceScopesSchema.parse(session.scopes);
-  const known = [...session.context.latest, ...(session.context.focused ? [session.context.focused] : [])];
+  const styling = StylingStateSchema.parse(session.styling ?? emptyStylingState());
+  const known = [...session.context.latest, ...(session.context.focused ? [session.context.focused] : []), ...(session.context.comparison ? [session.context.comparison] : []), ...styling.outfit];
   if (focus && !known.some(p => p.product_id === focus.product_id) && !session.pending) {
     const savedSize = scopes.item.category === focus.category ? scopes.item.size : null;
     scopes.item = { ...emptyShoppingPreferences(), size: savedSize };
     scopes.unresolved_item = [];
   }
   return TurnSchema.parse({
-    message, scopes, pending: shortcut ? null : session.pending,
-    context: { focused: focus ?? session.context.focused, latest: session.context.latest },
+    message, scopes, pending: shortcut && ["cross_sell", "cheaper", "upsell"].includes(shortcut.kind) ? null : session.pending,
+    pending_answer: (shortcut && ["cross_sell", "cheaper", "upsell"].includes(shortcut.kind)) || previewOtherColours ? null : session.pending_answer ?? null,
+    context: { focused: focus ?? session.context.focused, latest: session.context.latest,
+      ...(session.context.comparison ? { comparison: session.context.comparison } : {}),
+      ...(styling.outfit.length ? { selected: styling.outfit.map(snapshot) } : {}) },
+    styling, cart_product_ids: session.cart_product_ids ?? [],
     history: session.history.slice(-8), ...(shortcut ? { shortcut } : {}),
     ...(previewOtherColours ? { preview_other_colours: true } : {}),
   });
@@ -140,8 +177,29 @@ export function acceptReply(turn: ConversationTurn, input: unknown): { reply: Tu
     throw new Error("Colour alternatives require the explicit preview action.");
   }
   const visible = [...reply.products, ...reply.alternatives];
-  const context = reply.pending || reply.status === "no_action"
-    ? turn.context : { focused: null, latest: visible.map(snapshot) };
+  const context: Session["context"] = reply.pending || reply.status === "no_action" || reply.status === "answered" || reply.status === "no_upsell"
+    ? { ...turn.context, latest: [...turn.context.latest] } : { focused: null, latest: visible.map(snapshot) };
+  if (reply.status === "answered") {
+    if (JSON.stringify(reply.proposed_scopes) !== JSON.stringify(turn.scopes) ||
+        JSON.stringify(reply.pending) !== JSON.stringify(turn.pending ?? null)) {
+      throw new Error("An answer cannot change saved shopping preferences or a pending search.");
+    }
+    if (reply.answer_product_ids.length) {
+      const pool = [turn.context.focused, turn.context.comparison, ...turn.context.latest, ...(turn.context.selected ?? [])];
+      if (reply.answer_product_ids.some(id => !pool.some(row => row?.product_id === id))) {
+        throw new Error("The answered products must belong to the current context.");
+      }
+      const product = reply.answer_product_ids.length === 1 ? pool.find(row => row?.product_id === reply.answer_product_ids[0]) : null;
+      // Keep displayed order, while making a subsequent 'it' refer to the item just discussed.
+      context.focused = product ?? null;
+    }
+  }
+  if (reply.action === "upsell" && reply.comparison_reference_id) {
+    const product = [turn.context.focused, turn.context.comparison, ...turn.context.latest, ...(turn.context.selected ?? [])].find(row => row?.product_id === reply.comparison_reference_id);
+    if (!product) throw new Error("The comparison reference must belong to the conversation.");
+    context.comparison = product;
+    if (reply.status === "no_upsell") context.focused = product;
+  }
   const spoken = [reply.message, reply.optional_question].filter(Boolean).join("\n");
   const history: Session["history"] = [
     ...turn.history, { role: "user", content: turn.message },
@@ -149,6 +207,9 @@ export function acceptReply(turn: ConversationTurn, input: unknown): { reply: Tu
   ];
   return { reply, session: {
     scopes: PreferenceScopesSchema.parse(reply.proposed_scopes), pending: reply.pending,
+    pending_answer: reply.pending_answer,
+    styling: reply.styling,
+    cart_product_ids: turn.cart_product_ids,
     context, history: history.slice(-8),
   } };
 }

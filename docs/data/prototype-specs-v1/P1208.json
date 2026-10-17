@@ -1,0 +1,49 @@
+{
+  "product_id": "P1208",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:54.427Z",
+  "identity_snapshot": {
+    "product_id": "P1208",
+    "product_name": "Grey Bracelet",
+    "category": "Accessories",
+    "subcategory": "Jewellery",
+    "product_type": "Bracelet",
+    "gender": "Men",
+    "colour": "Grey",
+    "material": "Gold-tone Metal",
+    "fit": "Standard",
+    "style": "Minimalist",
+    "occasion": "Wedding Guest",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1208",
+    "description": "Minimalist grey bracelet with a gold-tone metal finish, suited to polished wedding guest styling.",
+    "construction_details": [
+      "Streamlined metal band with a smooth rounded profile",
+      "Hinged opening for straightforward placement",
+      "Subtle brushed surface treatment"
+    ],
+    "care_instructions": "Keep dry and polish gently with a soft jewellery cloth; store separately to reduce scratching.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": null,
+    "machine_washable": null,
+    "capacity_litres": null,
+    "use_cases": [
+      "Wedding Guest"
+    ],
+    "closure": "none",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": "Gold-tone"
+  },
+  "content_sha256": "e93d3fb92a1bb2796e25798df1f1b72e72b16ae544d72c9f9db78cca9c9387ea"
+}

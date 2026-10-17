@@ -1,0 +1,49 @@
+{
+  "product_id": "P1071",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:24.043Z",
+  "identity_snapshot": {
+    "product_id": "P1071",
+    "product_name": "Pink Platform Sandals",
+    "category": "Shoes",
+    "subcategory": "Sandals",
+    "product_type": "Platform Sandals",
+    "gender": "Women",
+    "colour": "Pink",
+    "material": "Faux Leather",
+    "fit": "Standard",
+    "style": "Relaxed",
+    "occasion": "Beach Wedding",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1071",
+    "description": "Relaxed pink faux-leather platform sandals with a standard fit and an easy warm-weather profile.",
+    "construction_details": [
+      "Faux-leather crossover straps",
+      "Contoured footbed on a lightweight platform sole",
+      "Adjustable ankle buckle fastening"
+    ],
+    "care_instructions": "Wipe with a soft damp cloth and allow to air dry away from direct heat.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": true,
+    "zip_closure": false,
+    "machine_washable": null,
+    "capacity_litres": null,
+    "use_cases": [
+      "Beach Wedding"
+    ],
+    "closure": "buckle",
+    "garment_length_cm": null,
+    "heel_height_cm": 5,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": "Silver-tone"
+  },
+  "content_sha256": "b5f19e89f306b4736a6a001e44de2457ddf7527b09e32a8b7cf7eb9c65bfbae3"
+}

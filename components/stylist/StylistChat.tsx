@@ -29,7 +29,8 @@ import {
   rememberPriceContext,
   type PriceContext,
 } from "@/lib/stylist/priceContext";
-import { ProductVisual } from "@/components/commerce/ProductVisual";
+import { ProductImage } from "@/components/commerce/ProductImage";
+import { getProductImageSrc } from "@/lib/product-image";
 import { cn } from "@/lib/cn";
 import { addToCart } from "@/lib/cart";
 import { formatPrice, stylistSuggestions } from "@/lib/mock-data";

@@ -1,0 +1,49 @@
+{
+  "product_id": "P1262",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:54.622Z",
+  "identity_snapshot": {
+    "product_id": "P1262",
+    "product_name": "Pink Bomber Jacket",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Bomber Jacket",
+    "gender": "Unisex",
+    "colour": "Pink",
+    "material": "Polyester",
+    "fit": "Slim",
+    "style": "Bohemian",
+    "occasion": "Travel",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1262",
+    "description": "Bohemian pink polyester bomber jacket with a slim fit, compact rib trims and a travel-friendly layered silhouette.",
+    "construction_details": [
+      "Ribbed collar, cuffs and hem",
+      "Full-length front zip fastening",
+      "Two angled welt pockets with reinforced openings"
+    ],
+    "care_instructions": "Cold hand wash separately; do not soak. Line dry away from direct sunlight and cool iron on the reverse.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Travel"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 58,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "0ff796c96edd5862f43c87507e2777097a57cae1c1803d82f33a8f269b17daf6"
+}

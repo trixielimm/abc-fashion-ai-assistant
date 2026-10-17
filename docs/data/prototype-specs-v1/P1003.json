@@ -1,0 +1,55 @@
+{
+  "product_id": "P1003",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:14:57.929Z",
+  "identity_snapshot": {
+    "product_id": "P1003",
+    "product_name": "Pink Crossbody Bag",
+    "category": "Bags",
+    "subcategory": "Crossbody",
+    "product_type": "Crossbody Bag",
+    "gender": "Unisex",
+    "colour": "Pink",
+    "material": "Woven",
+    "fit": "Standard",
+    "style": "Bohemian",
+    "occasion": "Wedding Guest",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1003",
+    "description": "Pink woven crossbody bag with a bohemian profile, compact structured body and softly textured finish for wedding guest styling.",
+    "construction_details": [
+      "Woven exterior with neatly bound edges",
+      "Adjustable crossbody strap with reinforced attachment points",
+      "Slim gusset and clean top opening",
+      "Subtle metal hardware accents"
+    ],
+    "care_instructions": "Wipe gently with a soft, dry or lightly damp cloth; keep away from prolonged moisture and store stuffed to retain shape.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": true,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": 2.2,
+    "use_cases": [
+      "Wedding Guest",
+      "Brunch"
+    ],
+    "closure": "zip",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": {
+      "width": 24,
+      "height": 17,
+      "depth": 7
+    },
+    "strap_drop_cm": 58,
+    "compartments": 2,
+    "sole_material": null,
+    "hardware_finish": "Antique gold-tone"
+  },
+  "content_sha256": "4208992c1e8ef6197434c28430ea29e04f74a943353149ad8e726a6cc8ab8aaa"
+}

@@ -1,0 +1,51 @@
+{
+  "product_id": "P1303",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:13.347Z",
+  "identity_snapshot": {
+    "product_id": "P1303",
+    "product_name": "Sage Cardigan",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Cardigan",
+    "gender": "Women",
+    "colour": "Sage",
+    "material": "Knit",
+    "fit": "Slim",
+    "style": "Smart",
+    "occasion": "Party",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1303",
+    "description": "Sage slim cardigan in a soft knit construction, shaped with a close silhouette and understated detailing for party layering.",
+    "construction_details": [
+      "Ribbed neckline and cuffs",
+      "Fully fashioned shoulder seams",
+      "Fine ribbed hem",
+      "Small tonal front buttons"
+    ],
+    "care_instructions": "Hand wash cold with mild detergent; reshape flat and dry away from direct heat.",
+    "lining": false,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Party",
+      "Date Night"
+    ],
+    "closure": "button",
+    "garment_length_cm": 56,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "07fab27884076d90d0d06a64d1a88db7deba5e2ecabf06fc75315af123bae710"
+}

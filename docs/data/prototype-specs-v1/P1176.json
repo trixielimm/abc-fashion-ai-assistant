@@ -1,0 +1,49 @@
+{
+  "product_id": "P1176",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:33.948Z",
+  "identity_snapshot": {
+    "product_id": "P1176",
+    "product_name": "Red Flat Sandals",
+    "category": "Shoes",
+    "subcategory": "Sandals",
+    "product_type": "Flat Sandals",
+    "gender": "Men",
+    "colour": "Red",
+    "material": "Leather",
+    "fit": "Standard",
+    "style": "Smart",
+    "occasion": "Travel",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1176",
+    "description": "Red leather flat sandals with a smart, streamlined profile for travel styling and a standard fit.",
+    "construction_details": [
+      "Smooth leather upper with neatly finished edge binding",
+      "Adjustable ankle buckle fastening",
+      "Cushioned footbed with flexible flat outsole"
+    ],
+    "care_instructions": "Wipe gently with a soft dry or lightly damp cloth; condition the leather occasionally and air away from direct heat.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": true,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Travel"
+    ],
+    "closure": "buckle",
+    "garment_length_cm": null,
+    "heel_height_cm": 0,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": "Silver-tone"
+  },
+  "content_sha256": "55eccd85fb14af8b1ece68883acfc7a24f3c4be529dc7914b679b5021cd28e6a"
+}

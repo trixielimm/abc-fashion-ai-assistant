@@ -1,0 +1,49 @@
+{
+  "product_id": "P1060",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:24.042Z",
+  "identity_snapshot": {
+    "product_id": "P1060",
+    "product_name": "Grey Loafers",
+    "category": "Shoes",
+    "subcategory": "Flats",
+    "product_type": "Loafers",
+    "gender": "Women",
+    "colour": "Grey",
+    "material": "Suede",
+    "fit": "Standard",
+    "style": "Classic",
+    "occasion": "Formal",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1060",
+    "description": "Classic grey suede loafers with a standard fit and clean formal profile.",
+    "construction_details": [
+      "Suede upper with moccasin-style apron seam",
+      "Padded collar and low stacked heel",
+      "Flexible rubber outsole with slip-on entry"
+    ],
+    "care_instructions": "Brush gently with a suede brush and protect from moisture; spot-clean with a suede-appropriate cleaner.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": null,
+    "capacity_litres": null,
+    "use_cases": [
+      "Formal"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": null,
+    "heel_height_cm": 1.5,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": null
+  },
+  "content_sha256": "292018059289db1fa9cba9bb82904ffd93bf09fcfc4e2cad9a3408b4c4f7e7f3"
+}

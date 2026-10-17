@@ -1,0 +1,50 @@
+{
+  "product_id": "P1072",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:54.790Z",
+  "identity_snapshot": {
+    "product_id": "P1072",
+    "product_name": "Pink Co-ord Set",
+    "category": "Clothing",
+    "subcategory": "Sets",
+    "product_type": "Co-ord Set",
+    "gender": "Women",
+    "colour": "Pink",
+    "material": "Polyester",
+    "fit": "Regular",
+    "style": "Streetwear",
+    "occasion": "Work",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1072",
+    "description": "Pink polyester co-ord set with a regular streetwear fit, crisp panel lines and an easy work-to-weekend look.",
+    "construction_details": [
+      "Short-sleeve top with dropped shoulder seams",
+      "Coordinating straight-leg trousers with belt loops",
+      "Topstitched panel seams and cleanly bound inner edges"
+    ],
+    "care_instructions": "Cold machine wash on a gentle cycle; line dry and cool iron on the reverse.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Work",
+      "Weekend"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 57,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "eddf2b58070c02a97fd5db4ef1014b21e76309bac2ac1059588897a7736d02e6"
+}

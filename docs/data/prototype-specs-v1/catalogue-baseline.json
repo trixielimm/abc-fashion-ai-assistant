@@ -1,0 +1,3162 @@
+[
+  {
+    "product_id": "P1001",
+    "product_name": "Beige Silk Scarf",
+    "description": "bohemian silk scarf in beige, suited to date night styling. standard fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 48,
+    "is_available": true,
+    "price_aud": 85,
+    "image_key_sha256": "fdb8cff11a30c82794e7b9a0f0462346f9eb22aaa2a8f520d7d9e1f5831eeeaf"
+  },
+  {
+    "product_id": "P1002",
+    "product_name": "Lavender Co-ord Set",
+    "description": "relaxed co-ord set in lavender, suited to beach wedding styling. oversized fit/shape with linen blend construction.",
+    "material": "Linen Blend",
+    "stock_qty": 81,
+    "is_available": true,
+    "price_aud": 55,
+    "image_key_sha256": "7565008499450542934bbdb3b1eda3ff808224557072e06c7ef854aa13dc97e2"
+  },
+  {
+    "product_id": "P1003",
+    "product_name": "Pink Crossbody Bag",
+    "description": "bohemian crossbody bag in pink, suited to wedding guest styling. standard fit/shape with woven construction.",
+    "material": "Woven",
+    "stock_qty": 31,
+    "is_available": true,
+    "price_aud": 50,
+    "image_key_sha256": "8414c7f7879c7cca5bab1ad3890b5637dbce4e44962484b769881b3a4909f44a"
+  },
+  {
+    "product_id": "P1004",
+    "product_name": "Lavender Wrap Dress",
+    "description": "smart wrap dress in lavender, suited to brunch styling. regular fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 15,
+    "is_available": true,
+    "price_aud": 150,
+    "image_key_sha256": "e0578dff56a85fd1b7712fdce6f37e19a7c53b2175807e90dde763b7a2da68c1"
+  },
+  {
+    "product_id": "P1005",
+    "product_name": "Silver Bracelet",
+    "description": "romantic bracelet in silver, suited to date night styling. standard fit/shape with silver-tone metal construction.",
+    "material": "Silver-tone Metal",
+    "stock_qty": 70,
+    "is_available": true,
+    "price_aud": 55,
+    "image_key_sha256": "10699f8285313efff0633f61650e120a147070351f837ce4a62e13f0b474786f"
+  },
+  {
+    "product_id": "P1006",
+    "product_name": "Beige Wide-Leg Pants",
+    "description": "relaxed wide-leg pants in beige, suited to party styling. oversized fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 75,
+    "is_available": true,
+    "price_aud": 95,
+    "image_key_sha256": "fb669d9a2326663bf174732bc102acd9284bd26775f4f794e57e002ab32de7e4"
+  },
+  {
+    "product_id": "P1007",
+    "product_name": "Grey Loafers",
+    "description": "smart loafers in grey, suited to smart casual styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 47,
+    "is_available": true,
+    "price_aud": 105,
+    "image_key_sha256": "ed7c1a19b376f37a1f05125542ea083f58751cbf0b98b46099a7d03050665278"
+  },
+  {
+    "product_id": "P1008",
+    "product_name": "Black Low-Top Sneakers",
+    "description": "contemporary low-top sneakers in black, suited to travel styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 22,
+    "is_available": true,
+    "price_aud": 70,
+    "image_key_sha256": "dc3c8e7cda626f50cd351e183fa828f1a890b3b5756777a5d3fe765e9699d191"
+  },
+  {
+    "product_id": "P1009",
+    "product_name": "Lavender Flat Sandals",
+    "description": "elegant flat sandals in lavender, suited to casual styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 23,
+    "is_available": true,
+    "price_aud": 75,
+    "image_key_sha256": "6cd2d98b96d6b025e4f58cea4980bea7572721f77e2b1d107064ba7ec339af61"
+  },
+  {
+    "product_id": "P1010",
+    "product_name": "Black Cropped Jacket",
+    "description": "smart cropped jacket in black, suited to wedding guest styling. relaxed fit/shape with linen blend construction.",
+    "material": "Linen Blend",
+    "stock_qty": 11,
+    "is_available": true,
+    "price_aud": 130,
+    "image_key_sha256": "8a7c566ce6103909510dade77c306416c795d105b31264af3d31c9015457b3c9"
+  },
+  {
+    "product_id": "P1012",
+    "product_name": "Brown Flat Sandals",
+    "description": "romantic flat sandals in brown, suited to brunch styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 30,
+    "is_available": true,
+    "price_aud": 60,
+    "image_key_sha256": "21f91055108a078ef12fc38e0802a8b561d5d53add2511d1904df15c44e88c31"
+  },
+  {
+    "product_id": "P1013",
+    "product_name": "Yellow Oversized Shirt",
+    "description": "relaxed oversized shirt in yellow, suited to formal styling. slim fit/shape with linen blend construction.",
+    "material": "Linen Blend",
+    "stock_qty": 48,
+    "is_available": true,
+    "price_aud": 95,
+    "image_key_sha256": "d26f3559fa6c6a8d7ea6d95b30d27d34de7e789602358002edd419d53bad713e"
+  },
+  {
+    "product_id": "P1014",
+    "product_name": "White Wrap Dress",
+    "description": "romantic wrap dress in white, suited to wedding guest styling. flowy fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 48,
+    "is_available": true,
+    "price_aud": 135,
+    "image_key_sha256": "c78e0e85a2be9fb33477aa11c95e8c9b3c732a3560941b2f2120c1b517cb4579"
+  },
+  {
+    "product_id": "P1015",
+    "product_name": "Pink Denim Jacket",
+    "description": "streetwear denim jacket in pink, suited to travel styling. oversized fit/shape with denim construction.",
+    "material": "Denim",
+    "stock_qty": 55,
+    "is_available": true,
+    "price_aud": 200,
+    "image_key_sha256": "2ef313dfaea49919563b387ded99b9f812ff2daed9cd47b38f057972f357f2b3"
+  },
+  {
+    "product_id": "P1016",
+    "product_name": "Blue Fitted Tee",
+    "description": "bohemian fitted tee in blue, suited to brunch styling. relaxed fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 50,
+    "is_available": true,
+    "price_aud": 45,
+    "image_key_sha256": "b6d222e55b08cb555ec63b1242aea76cf5011325e9ff74bcdad8c10f72a811fb"
+  },
+  {
+    "product_id": "P1017",
+    "product_name": "Yellow Suit Set",
+    "description": "romantic suit set in yellow, suited to smart casual styling. relaxed fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 17,
+    "is_available": true,
+    "price_aud": 185,
+    "image_key_sha256": "012f903a7454a930cbb8301c5861bb6d060f1a1fdaa649814a56daa5a67c42af"
+  },
+  {
+    "product_id": "P1018",
+    "product_name": "Sage Slim Belt",
+    "description": "classic slim belt in sage, suited to date night styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 22,
+    "is_available": true,
+    "price_aud": 80,
+    "image_key_sha256": "2c8d699db1ae94dea9cfca64d0c6ec36395cb9996b7a61cab7291acb8de283bb"
+  },
+  {
+    "product_id": "P1019",
+    "product_name": "Yellow Flat Sandals",
+    "description": "smart flat sandals in yellow, suited to beach wedding styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 12,
+    "is_available": true,
+    "price_aud": 55,
+    "image_key_sha256": "e3f7437623835e85cb2f9b1de737deda08491c4c24835cffb1a63ba89c4f177c"
+  },
+  {
+    "product_id": "P1020",
+    "product_name": "Blue Slim Belt",
+    "description": "minimalist slim belt in blue, suited to casual styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 30,
+    "is_available": true,
+    "price_aud": 80,
+    "image_key_sha256": "86dcea4e4d982da10791ba8ade45329a10866196faf272a2fa6421b042c3d223"
+  },
+  {
+    "product_id": "P1021",
+    "product_name": "Cream Slip Dress",
+    "description": "contemporary slip dress in cream, suited to formal styling. slim fit/shape with satin construction.",
+    "material": "Satin",
+    "stock_qty": 37,
+    "is_available": true,
+    "price_aud": 75,
+    "image_key_sha256": "06452f1a7e302369823bd9e31dfcc13521f2b108bd3b56a8080db34a222e50e8"
+  },
+  {
+    "product_id": "P1022",
+    "product_name": "Red Linen Shirt",
+    "description": "bohemian linen shirt in red, suited to travel styling. oversized fit/shape with linen blend construction.",
+    "material": "Linen Blend",
+    "stock_qty": 52,
+    "is_available": true,
+    "price_aud": 180,
+    "image_key_sha256": "e5cfc00c667ec17ef5abea7a065c93939604dcd1cdcb608221a6feb59b0f245f"
+  },
+  {
+    "product_id": "P1023",
+    "product_name": "Cream Loafers",
+    "description": "minimalist loafers in cream, suited to work styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 60,
+    "is_available": true,
+    "price_aud": 50,
+    "image_key_sha256": "bc484cd83252b033295aecb0fdbf614df2b2c12fa8fc5909810737197dcf01a9"
+  },
+  {
+    "product_id": "P1025",
+    "product_name": "Gold Linen Shirt",
+    "description": "bohemian linen shirt in gold, suited to beach wedding styling. relaxed fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 80,
+    "is_available": true,
+    "price_aud": 205,
+    "image_key_sha256": "4eb1090b348fd499699fbf9028c24db503ac162a92d0b3e7646f538d53c9d1e1"
+  },
+  {
+    "product_id": "P1026",
+    "product_name": "Yellow Envelope Clutch",
+    "description": "romantic envelope clutch in yellow, suited to date night styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 60,
+    "is_available": true,
+    "price_aud": 100,
+    "image_key_sha256": "6a1b15c76459278ad111306f575b56300c6b44ea8c117f1362ce2f42dabffede"
+  },
+  {
+    "product_id": "P1027",
+    "product_name": "Silver Wrap Dress",
+    "description": "minimalist wrap dress in silver, suited to date night styling. flowy fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 2,
+    "is_available": true,
+    "price_aud": 220,
+    "image_key_sha256": "33f2680bf4056610307d10637d4bc60c16a8807aae83119212b84874dd2c47f3"
+  },
+  {
+    "product_id": "P1028",
+    "product_name": "Grey Hoop Earrings",
+    "description": "relaxed hoop earrings in grey, suited to wedding guest styling. standard fit/shape with gold-tone metal construction.",
+    "material": "Gold-tone Metal",
+    "stock_qty": 3,
+    "is_available": true,
+    "price_aud": 55,
+    "image_key_sha256": "cb41208198667b88ee43ceffb2fd70de21a1103e058c9171ed39f4961e7829b9"
+  },
+  {
+    "product_id": "P1029",
+    "product_name": "Beige Wide-Leg Pants",
+    "description": "minimalist wide-leg pants in beige, suited to travel styling. slim fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 60,
+    "is_available": true,
+    "price_aud": 175,
+    "image_key_sha256": "f536b1edd150f54c66485e9147b5e8d47a2e31aaa15b40da1d698297dd32a11b"
+  },
+  {
+    "product_id": "P1030",
+    "product_name": "Brown Straight Jeans",
+    "description": "romantic straight jeans in brown, suited to beach wedding styling. relaxed fit/shape with denim construction.",
+    "material": "Denim",
+    "stock_qty": 58,
+    "is_available": true,
+    "price_aud": 130,
+    "image_key_sha256": "a525d1fd67706bdfcb3e0e70c017476425afc5e5aa0eb8f49444832729fb61bd"
+  },
+  {
+    "product_id": "P1031",
+    "product_name": "Gold Trench Coat",
+    "description": "minimalist trench coat in gold, suited to wedding guest styling. regular fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 21,
+    "is_available": true,
+    "price_aud": 90,
+    "image_key_sha256": "f1d85a1f52fbcba462c16d96c4586c345943219a59af3e525194093437bf5fb6"
+  },
+  {
+    "product_id": "P1032",
+    "product_name": "Cream Loafers",
+    "description": "minimalist loafers in cream, suited to work styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 65,
+    "is_available": true,
+    "price_aud": 85,
+    "image_key_sha256": "281abaffdb1fbfc8d35497d05c502451e110d013e1a3f26b6aa19474edc03404"
+  },
+  {
+    "product_id": "P1033",
+    "product_name": "Burgundy Trench Coat",
+    "description": "romantic trench coat in burgundy, suited to casual styling. relaxed fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 60,
+    "is_available": true,
+    "price_aud": 70,
+    "image_key_sha256": "96c7485d0981514dc0874276bd75abf0fa5bb7e2c8d7b7fbb0aaec6a86c2881d"
+  },
+  {
+    "product_id": "P1034",
+    "product_name": "Olive Leather Belt",
+    "description": "minimalist leather belt in olive, suited to formal styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 58,
+    "is_available": true,
+    "price_aud": 35,
+    "image_key_sha256": "d23e588ee8aefc5c8ff8fdb76668c5c60ff6eac313ec54390471a37eab3b2df4"
+  },
+  {
+    "product_id": "P1035",
+    "product_name": "Black Wide-Leg Pants",
+    "description": "relaxed wide-leg pants in black, suited to wedding guest styling. relaxed fit/shape with linen blend construction.",
+    "material": "Linen Blend",
+    "stock_qty": 22,
+    "is_available": true,
+    "price_aud": 125,
+    "image_key_sha256": "863bbb657bb06dbffedae743bfe6c9d8824bfec71ad4b4762db593821f7196cf"
+  },
+  {
+    "product_id": "P1036",
+    "product_name": "Cream Loafers",
+    "description": "smart loafers in cream, suited to work styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 57,
+    "is_available": true,
+    "price_aud": 105,
+    "image_key_sha256": "ad69d8ba0e356177683742d6d172e917e2676612e9649a4f9e1249d20744f274"
+  },
+  {
+    "product_id": "P1037",
+    "product_name": "Grey Tailored Trousers",
+    "description": "classic tailored trousers in grey, suited to work styling. tailored fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 5,
+    "is_available": true,
+    "price_aud": 140,
+    "image_key_sha256": "f4854ffefff2c580ef6ef40f64a8aa90351ea6d24147e5c9a5967a88218cecbd"
+  },
+  {
+    "product_id": "P1038",
+    "product_name": "Red Bomber Jacket",
+    "description": "bohemian bomber jacket in red, suited to travel styling. regular fit/shape with linen blend construction.",
+    "material": "Linen Blend",
+    "stock_qty": 80,
+    "is_available": true,
+    "price_aud": 140,
+    "image_key_sha256": "f8da65b5f092a0d865446a7fb46dac5694722b77ad322db70e59ec56e67aab97"
+  },
+  {
+    "product_id": "P1039",
+    "product_name": "Brown Midi Skirt",
+    "description": "classic midi skirt in brown, suited to work styling. slim fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 46,
+    "is_available": true,
+    "price_aud": 145,
+    "image_key_sha256": "013a3eadd8adda5d25c5f6d150350aaf3d22f9cd4b48944f42a3ec6d54f0aa4e"
+  },
+  {
+    "product_id": "P1040",
+    "product_name": "Grey Wrap Dress",
+    "description": "minimalist wrap dress in grey, suited to party styling. flowy fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 79,
+    "is_available": true,
+    "price_aud": 60,
+    "image_key_sha256": "cd25cbdb6af2cf66c3418902c924eb5092981d0bb427204e78f710548bc879e2"
+  },
+  {
+    "product_id": "P1041",
+    "product_name": "Pink Chinos",
+    "description": "elegant chinos in pink, suited to formal styling. regular fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 75,
+    "is_available": true,
+    "price_aud": 70,
+    "image_key_sha256": "b687cb2e47e5ba851e78bc32150d8c393f7f8e439a655891759cc9a294100658"
+  },
+  {
+    "product_id": "P1042",
+    "product_name": "Lavender Kitten Heels",
+    "description": "romantic kitten heels in lavender, suited to casual styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 60,
+    "is_available": true,
+    "price_aud": 70,
+    "image_key_sha256": "7af388749e6b469e569afed602b7e15cba73e741c5afc3f5dcb3fe9772715b8f"
+  },
+  {
+    "product_id": "P1043",
+    "product_name": "Burgundy Flat Sandals",
+    "description": "smart flat sandals in burgundy, suited to travel styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 14,
+    "is_available": true,
+    "price_aud": 55,
+    "image_key_sha256": "0c444b64ec53b38b56fbd5b0cc2132f75e54ecc8fe5f58edfbfdb69f599d166e"
+  },
+  {
+    "product_id": "P1044",
+    "product_name": "Sage Wrap Dress",
+    "description": "classic wrap dress in sage, suited to brunch styling. slim fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 59,
+    "is_available": true,
+    "price_aud": 170,
+    "image_key_sha256": "50d607f3548a19a985fc94869e799b60b6f4fb39051a9641cf57166134310a4e"
+  },
+  {
+    "product_id": "P1045",
+    "product_name": "Sage Loafers",
+    "description": "smart loafers in sage, suited to formal styling. standard fit/shape with suede construction.",
+    "material": "Suede",
+    "stock_qty": 83,
+    "is_available": true,
+    "price_aud": 175,
+    "image_key_sha256": "723d66aef649bca9c0b6278721bca2d705ae349183fc93ce1b6fa65758839d91"
+  },
+  {
+    "product_id": "P1046",
+    "product_name": "Brown Flat Sandals",
+    "description": "romantic flat sandals in brown, suited to beach wedding styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 83,
+    "is_available": true,
+    "price_aud": 70,
+    "image_key_sha256": "628d551db07e9cc547b8842136560a44ef829d30b061a71aca4610490e61b79a"
+  },
+  {
+    "product_id": "P1047",
+    "product_name": "Silver Retro Sneakers",
+    "description": "relaxed retro sneakers in silver, suited to casual styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 13,
+    "is_available": true,
+    "price_aud": 135,
+    "image_key_sha256": "1a4afff35b3c65e776b426c1e45f715a44f11426d634c372ed659cbc9bce2a87"
+  },
+  {
+    "product_id": "P1048",
+    "product_name": "White Fitted Tee",
+    "description": "smart fitted tee in white, suited to brunch styling. slim fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 82,
+    "is_available": true,
+    "price_aud": 200,
+    "image_key_sha256": "2f44cc9828fb19353acf37b90e5ed46741d53a557aea43d9323279494fdc827e"
+  },
+  {
+    "product_id": "P1049",
+    "product_name": "Black Bomber Jacket",
+    "description": "classic bomber jacket in black, suited to casual styling. slim fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 71,
+    "is_available": true,
+    "price_aud": 80,
+    "image_key_sha256": "2a53cdf6717cdacc8dbe045e004420dad27f0d8637648a9cfe454c1e269b24b1"
+  },
+  {
+    "product_id": "P1050",
+    "product_name": "Black Sling Bag",
+    "description": "streetwear sling bag in black, suited to work styling. standard fit/shape with woven construction.",
+    "material": "Woven",
+    "stock_qty": 24,
+    "is_available": true,
+    "price_aud": 150,
+    "image_key_sha256": "b3adb94de280b3350acbfbf7257ee3dc15e0e4888a016578093453393b561476"
+  },
+  {
+    "product_id": "P1051",
+    "product_name": "Cream Relaxed Co-ord Set",
+    "description": "relaxed relaxed co-ord set in cream, suited to beach wedding styling. regular fit/shape with linen blend construction.",
+    "material": "Linen Blend",
+    "stock_qty": 32,
+    "is_available": true,
+    "price_aud": 100,
+    "image_key_sha256": "9aa6b11bac28f0dfcb4d7cdb401f4d94e941367777d4b35f5a9bc515bab29c99"
+  },
+  {
+    "product_id": "P1052",
+    "product_name": "Brown Low-Top Sneakers",
+    "description": "contemporary low-top sneakers in brown, suited to casual styling. standard fit/shape with canvas construction.",
+    "material": "Canvas",
+    "stock_qty": 56,
+    "is_available": true,
+    "price_aud": 90,
+    "image_key_sha256": "82c41be156030fd5c7fe07dd26f8b19a60966de58c57687fa6f68147be316f59"
+  },
+  {
+    "product_id": "P1053",
+    "product_name": "Brown Silk Scarf",
+    "description": "bohemian silk scarf in brown, suited to beach wedding styling. standard fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 9,
+    "is_available": true,
+    "price_aud": 35,
+    "image_key_sha256": "2935bcc8fe6ecfd0df47704d5d8a96a2a26470be96f62423c9012b490e766855"
+  },
+  {
+    "product_id": "P1054",
+    "product_name": "Cream Wide-Brim Hat",
+    "description": "relaxed wide-brim hat in cream, suited to brunch styling. standard fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 28,
+    "is_available": true,
+    "price_aud": 50,
+    "image_key_sha256": "7e2c4b064b79af5f047a77f470c66f7c15e1d12cac34bac4f59f2d98ee223c20"
+  },
+  {
+    "product_id": "P1055",
+    "product_name": "Yellow Knit Top",
+    "description": "streetwear knit top in yellow, suited to brunch styling. relaxed fit/shape with knit construction.",
+    "material": "Knit",
+    "stock_qty": 49,
+    "is_available": true,
+    "price_aud": 140,
+    "image_key_sha256": "52e66d0ed6870d313d6104179c9fec9babfd9a4cf27a4b80cfdf3279d1704b7d"
+  },
+  {
+    "product_id": "P1056",
+    "product_name": "Lavender Pleated Trousers",
+    "description": "minimalist pleated trousers in lavender, suited to formal styling. tailored fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 17,
+    "is_available": true,
+    "price_aud": 120,
+    "image_key_sha256": "803fcfd601232c6b93a9dac4a617a2f68cff98db06e1c54c6fdbcd13772843cc"
+  },
+  {
+    "product_id": "P1057",
+    "product_name": "Grey Co-ord Set",
+    "description": "minimalist co-ord set in grey, suited to wedding guest styling. relaxed fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 43,
+    "is_available": true,
+    "price_aud": 140,
+    "image_key_sha256": "9d41fdd5afc52c8dacc9f2910c27150e3b90452ffb76c45affcb9d807b31351e"
+  },
+  {
+    "product_id": "P1058",
+    "product_name": "Yellow Strappy Heels",
+    "description": "romantic strappy heels in yellow, suited to work styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 17,
+    "is_available": true,
+    "price_aud": 180,
+    "image_key_sha256": "82ca84c62bf26fc6e8159a9232fc42ee7105897b5d126b2cbe94e5844a15195d"
+  },
+  {
+    "product_id": "P1059",
+    "product_name": "Pink Pleated Skirt",
+    "description": "bohemian pleated skirt in pink, suited to casual styling. flowy fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 57,
+    "is_available": true,
+    "price_aud": 155,
+    "image_key_sha256": "462cd6e4f0db4bc67e94bca47d12e50ad441b702fa3a494a07fc07c0668c6564"
+  },
+  {
+    "product_id": "P1060",
+    "product_name": "Grey Loafers",
+    "description": "classic loafers in grey, suited to formal styling. standard fit/shape with suede construction.",
+    "material": "Suede",
+    "stock_qty": 50,
+    "is_available": true,
+    "price_aud": 115,
+    "image_key_sha256": "0cd40562b21024173b517f8d831b91134e90ef0d790d223a467c57d2f7057683"
+  },
+  {
+    "product_id": "P1061",
+    "product_name": "Silver Crossbody Bag",
+    "description": "romantic crossbody bag in silver, suited to formal styling. standard fit/shape with canvas construction.",
+    "material": "Canvas",
+    "stock_qty": 6,
+    "is_available": true,
+    "price_aud": 140,
+    "image_key_sha256": "a064632b74a9b937bb103e90355cd746dc4cf0c9df8be623176513a6c91e83cb"
+  },
+  {
+    "product_id": "P1062",
+    "product_name": "Sage Denim Jacket",
+    "description": "relaxed denim jacket in sage, suited to casual styling. oversized fit/shape with denim construction.",
+    "material": "Denim",
+    "stock_qty": 5,
+    "is_available": true,
+    "price_aud": 170,
+    "image_key_sha256": "57797df459b990556b3f19d73b7b0675a560c351b81a25458fcdd6dd5e7e6530"
+  },
+  {
+    "product_id": "P1063",
+    "product_name": "Gold Pendant Necklace",
+    "description": "contemporary pendant necklace in gold, suited to party styling. standard fit/shape with gold-tone metal construction.",
+    "material": "Gold-tone Metal",
+    "stock_qty": 12,
+    "is_available": true,
+    "price_aud": 40,
+    "image_key_sha256": "f1d73e0d0b27d95db66c55dc285be8befe4d576f8f67d800d1900ab651b8c11d"
+  },
+  {
+    "product_id": "P1064",
+    "product_name": "Pink Straight Jeans",
+    "description": "classic straight jeans in pink, suited to travel styling. slim fit/shape with denim construction.",
+    "material": "Denim",
+    "stock_qty": 47,
+    "is_available": true,
+    "price_aud": 85,
+    "image_key_sha256": "24b89d3ef633540d634045a83c63070ee5aa4ecd016a3ea082534d800cb67be6"
+  },
+  {
+    "product_id": "P1065",
+    "product_name": "Beige Co-ord Set",
+    "description": "streetwear co-ord set in beige, suited to wedding guest styling. slim fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 18,
+    "is_available": true,
+    "price_aud": 90,
+    "image_key_sha256": "afdc3f367cd0d02ac02c691603faad453ba93d539271f2b81152df60a2017dcb"
+  },
+  {
+    "product_id": "P1066",
+    "product_name": "Lavender Lightweight Scarf",
+    "description": "bohemian lightweight scarf in lavender, suited to casual styling. standard fit/shape with silk blend construction.",
+    "material": "Silk Blend",
+    "stock_qty": 62,
+    "is_available": true,
+    "price_aud": 30,
+    "image_key_sha256": "501b04dc1ed7512fe3b0df41f49f83b4d65cedd83950527259817edad0e421e9"
+  },
+  {
+    "product_id": "P1067",
+    "product_name": "Pink Leather Belt",
+    "description": "minimalist leather belt in pink, suited to work styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 84,
+    "is_available": true,
+    "price_aud": 85,
+    "image_key_sha256": "3b5ec19601c70a5352b4e0bffa8991ca32e85e6121e0cccfa6b14ebb02e7266e"
+  },
+  {
+    "product_id": "P1068",
+    "product_name": "Blue Suit Set",
+    "description": "smart suit set in blue, suited to formal styling. regular fit/shape with wool blend construction.",
+    "material": "Wool Blend",
+    "stock_qty": 1,
+    "is_available": true,
+    "price_aud": 90,
+    "image_key_sha256": "1c5b8f62424920d2428ffe8cb2c596caeeb184c221cea14bb0cb67b0cf9023a9"
+  },
+  {
+    "product_id": "P1069",
+    "product_name": "Brown Relaxed Co-ord Set",
+    "description": "elegant relaxed co-ord set in brown, suited to wedding guest styling. slim fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 5,
+    "is_available": true,
+    "price_aud": 185,
+    "image_key_sha256": "921aae00e2326ac113fb9727fc8158536ed49003ce711b2cf7a36c375bba1ad5"
+  },
+  {
+    "product_id": "P1070",
+    "product_name": "Lavender Envelope Clutch",
+    "description": "contemporary envelope clutch in lavender, suited to wedding guest styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 67,
+    "is_available": true,
+    "price_aud": 45,
+    "image_key_sha256": "054a3196b023ed538572f76f82f0ccda9145f76f114e234aa4e204620bb5c91c"
+  },
+  {
+    "product_id": "P1071",
+    "product_name": "Pink Platform Sandals",
+    "description": "relaxed platform sandals in pink, suited to beach wedding styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 21,
+    "is_available": true,
+    "price_aud": 65,
+    "image_key_sha256": "36d7acc5ac210b5790f5724759e1544f495de480ae0671a2e6125fe6fb90c94b"
+  },
+  {
+    "product_id": "P1072",
+    "product_name": "Pink Co-ord Set",
+    "description": "streetwear co-ord set in pink, suited to work styling. regular fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 49,
+    "is_available": true,
+    "price_aud": 65,
+    "image_key_sha256": "0ba914c5117385ae8946b9d30621185ce0b1a11d43e25ce9249a43241e5f73c1"
+  },
+  {
+    "product_id": "P1073",
+    "product_name": "Blue Linen Shirt",
+    "description": "bohemian linen shirt in blue, suited to beach wedding styling. oversized fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 36,
+    "is_available": true,
+    "price_aud": 155,
+    "image_key_sha256": "1369fb38db07ec6af26b6f7e278fcf77bb85d05b2a14f42d10da2abf0fd2a7de"
+  },
+  {
+    "product_id": "P1074",
+    "product_name": "Pink Trench Coat",
+    "description": "minimalist trench coat in pink, suited to casual styling. slim fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 26,
+    "is_available": true,
+    "price_aud": 155,
+    "image_key_sha256": "e98ffe4b479e41948262bd85b255172c972d213c2c49460c29ed88980a1910cc"
+  },
+  {
+    "product_id": "P1075",
+    "product_name": "Navy Strappy Heels",
+    "description": "contemporary strappy heels in navy, suited to wedding guest styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 55,
+    "is_available": true,
+    "price_aud": 110,
+    "image_key_sha256": "841b50cc3de153c8b0f4b3400f3d6d7ac499a94ed918467277af31e8bb3a3fdf"
+  },
+  {
+    "product_id": "P1076",
+    "product_name": "Navy Cap",
+    "description": "streetwear cap in navy, suited to smart casual styling. standard fit/shape with silver-tone metal construction.",
+    "material": "Silver-tone Metal",
+    "stock_qty": 61,
+    "is_available": true,
+    "price_aud": 20,
+    "image_key_sha256": "8eeddd4d9aa085bf4f10fcc3ee9a322e6487ec63be7658cf4e3f40af0b6ac545"
+  },
+  {
+    "product_id": "P1077",
+    "product_name": "Beige Trench Coat",
+    "description": "bohemian trench coat in beige, suited to date night styling. oversized fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 40,
+    "is_available": true,
+    "price_aud": 220,
+    "image_key_sha256": "b6ad0a050dc5b361d7ca4958ec17f513c13cc689963a8aed95246f7201b4e3fc"
+  },
+  {
+    "product_id": "P1078",
+    "product_name": "Pink Oxford Shirt",
+    "description": "minimalist oxford shirt in pink, suited to work styling. oversized fit/shape with linen blend construction.",
+    "material": "Linen Blend",
+    "stock_qty": 63,
+    "is_available": true,
+    "price_aud": 200,
+    "image_key_sha256": "e60bb5328b7f06299c364cdb6f4ed69b6a5312088f93a955cdd846b5233fd913"
+  },
+  {
+    "product_id": "P1079",
+    "product_name": "Brown Lightweight Scarf",
+    "description": "relaxed lightweight scarf in brown, suited to work styling. standard fit/shape with silk blend construction.",
+    "material": "Silk Blend",
+    "stock_qty": 25,
+    "is_available": true,
+    "price_aud": 40,
+    "image_key_sha256": "93e06b7482bb825d719710213b625c0bd1e284bc14a12ea16fae6cfeadb2b6a1"
+  },
+  {
+    "product_id": "P1080",
+    "product_name": "Lavender Relaxed Co-ord Set",
+    "description": "contemporary relaxed co-ord set in lavender, suited to work styling. slim fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 8,
+    "is_available": true,
+    "price_aud": 45,
+    "image_key_sha256": "c5febc74f70c2ce49c90257b141e32637313bb6c0cf89a414bfe7d89f0b745b4"
+  },
+  {
+    "product_id": "P1081",
+    "product_name": "Grey Sling Bag",
+    "description": "streetwear sling bag in grey, suited to beach wedding styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 31,
+    "is_available": true,
+    "price_aud": 130,
+    "image_key_sha256": "ce296b88e26798f44b82bbecfa62416a75351c62b4beb46ce6b2b04ce179a078"
+  },
+  {
+    "product_id": "P1082",
+    "product_name": "Beige Trench Coat",
+    "description": "romantic trench coat in beige, suited to casual styling. relaxed fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 20,
+    "is_available": true,
+    "price_aud": 55,
+    "image_key_sha256": "d94b10a1d83c387f787446b8286e7856fe334d689536d69c7faec6c812ed35a0"
+  },
+  {
+    "product_id": "P1083",
+    "product_name": "Gold Knit Top",
+    "description": "classic knit top in gold, suited to beach wedding styling. regular fit/shape with knit construction.",
+    "material": "Knit",
+    "stock_qty": 2,
+    "is_available": true,
+    "price_aud": 195,
+    "image_key_sha256": "ee97ad3339553e3f5441286f37acd10b33399e5dbfe518666b53474da2c3b80b"
+  },
+  {
+    "product_id": "P1084",
+    "product_name": "Navy Two-Piece Set",
+    "description": "streetwear two-piece set in navy, suited to date night styling. regular fit/shape with linen blend construction.",
+    "material": "Linen Blend",
+    "stock_qty": 81,
+    "is_available": true,
+    "price_aud": 170,
+    "image_key_sha256": "895144cda302d5c4699d5dd7e43479d224da7b14aaa9934ed1e5d8dae3199f03"
+  },
+  {
+    "product_id": "P1085",
+    "product_name": "Red Block Heels",
+    "description": "contemporary block heels in red, suited to formal styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 59,
+    "is_available": true,
+    "price_aud": 60,
+    "image_key_sha256": "7b64c44d7698c9d6a07be7b6a6aa9099cfe99d1ed1a50db1e7aa64618b9037e9"
+  },
+  {
+    "product_id": "P1086",
+    "product_name": "Cream Silk Scarf",
+    "description": "relaxed silk scarf in cream, suited to wedding guest styling. standard fit/shape with silk blend construction.",
+    "material": "Silk Blend",
+    "stock_qty": 10,
+    "is_available": true,
+    "price_aud": 35,
+    "image_key_sha256": "992b85a0807351022b188d9793983c5fe50a1581c5c003eb92e00dd72531c251"
+  },
+  {
+    "product_id": "P1087",
+    "product_name": "Yellow Oversized Tee",
+    "description": "relaxed oversized tee in yellow, suited to casual styling. slim fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 71,
+    "is_available": true,
+    "price_aud": 220,
+    "image_key_sha256": "a7c527aebc286f3fcca5c7fb346421c09da1856e17c882605b6b3956783ae484"
+  },
+  {
+    "product_id": "P1088",
+    "product_name": "White Loafers",
+    "description": "minimalist loafers in white, suited to work styling. standard fit/shape with suede construction.",
+    "material": "Suede",
+    "stock_qty": 13,
+    "is_available": true,
+    "price_aud": 165,
+    "image_key_sha256": "be3874bdfe4b94cc2767ad70a05ca8acdcbf31a3d09bf6cf4a1c47540284011f"
+  },
+  {
+    "product_id": "P1089",
+    "product_name": "Beige Loafers",
+    "description": "minimalist loafers in beige, suited to smart casual styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 7,
+    "is_available": true,
+    "price_aud": 50,
+    "image_key_sha256": "86ee7d1536aadf7d0c64ca3b110cfb469621e9f493884ab90a1e87461a2dc988"
+  },
+  {
+    "product_id": "P1090",
+    "product_name": "Brown Fitted Tee",
+    "description": "bohemian fitted tee in brown, suited to date night styling. relaxed fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 78,
+    "is_available": true,
+    "price_aud": 175,
+    "image_key_sha256": "eba09899c00fdb5443b75d21446a086ecb1ef8f7f766f2fad812e6c784c433c5"
+  },
+  {
+    "product_id": "P1091",
+    "product_name": "White Tailored Trousers",
+    "description": "classic tailored trousers in white, suited to smart casual styling. regular fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 51,
+    "is_available": true,
+    "price_aud": 105,
+    "image_key_sha256": "dd4d4b8c3a05005f689fa11028bb3fcee371437aa4e70661272617800270140c"
+  },
+  {
+    "product_id": "P1092",
+    "product_name": "Pink Slip Dress",
+    "description": "romantic slip dress in pink, suited to beach wedding styling. regular fit/shape with satin construction.",
+    "material": "Satin",
+    "stock_qty": 33,
+    "is_available": true,
+    "price_aud": 280,
+    "image_key_sha256": "ee9ba74fc94b0f096f630a06421cbbea644a6e49d027ebce394b32b7041b20f7"
+  },
+  {
+    "product_id": "P1093",
+    "product_name": "Gold Trench Coat",
+    "description": "minimalist trench coat in gold, suited to formal styling. regular fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 61,
+    "is_available": true,
+    "price_aud": 215,
+    "image_key_sha256": "08355f717b0198e027f1681ed99586617e3eedcdcb7b4ffa5d8b38b56034458f"
+  },
+  {
+    "product_id": "P1094",
+    "product_name": "White Denim Jacket",
+    "description": "streetwear denim jacket in white, suited to smart casual styling. slim fit/shape with denim construction.",
+    "material": "Denim",
+    "stock_qty": 74,
+    "is_available": true,
+    "price_aud": 120,
+    "image_key_sha256": "a17a77fd1715da9e52de7a4ed2e70d11f7857b38dc98f29eb843b791f21649e4"
+  },
+  {
+    "product_id": "P1095",
+    "product_name": "Pink Ballet Flats",
+    "description": "minimalist ballet flats in pink, suited to beach wedding styling. standard fit/shape with suede construction.",
+    "material": "Suede",
+    "stock_qty": 47,
+    "is_available": true,
+    "price_aud": 80,
+    "image_key_sha256": "7684727816730fce5bde047f6760199fede0a84df58bee726df1ef6ff269bf49"
+  },
+  {
+    "product_id": "P1096",
+    "product_name": "Brown Block Heels",
+    "description": "romantic block heels in brown, suited to brunch styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 42,
+    "is_available": true,
+    "price_aud": 70,
+    "image_key_sha256": "3a03b8cbfdc57e0d2fbb51ed102cbe76d765b37a45818c7f70e3b6b5b6554281"
+  },
+  {
+    "product_id": "P1097",
+    "product_name": "Pink Silk Scarf",
+    "description": "minimalist silk scarf in pink, suited to beach wedding styling. standard fit/shape with silk blend construction.",
+    "material": "Silk Blend",
+    "stock_qty": 68,
+    "is_available": true,
+    "price_aud": 35,
+    "image_key_sha256": "33c5ba4256ea303bc6a8d8b596260aff4646ea705012c603ff74245c4c41cdd0"
+  },
+  {
+    "product_id": "P1098",
+    "product_name": "Blue Oxford Shirt",
+    "description": "bohemian oxford shirt in blue, suited to formal styling. oversized fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 14,
+    "is_available": true,
+    "price_aud": 50,
+    "image_key_sha256": "959be3ccee907f7e9bbe5ba0ee830599c0287e7238c2ae88ab5da97db48a4a27"
+  },
+  {
+    "product_id": "P1099",
+    "product_name": "Yellow Pleated Trousers",
+    "description": "smart pleated trousers in yellow, suited to formal styling. slim fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 41,
+    "is_available": true,
+    "price_aud": 35,
+    "image_key_sha256": "cd0a0b43d1accae5d0e1882784b08ae9736f1f222423719acb53b632e3736ad9"
+  },
+  {
+    "product_id": "P1100",
+    "product_name": "Burgundy Cardigan",
+    "description": "romantic cardigan in burgundy, suited to date night styling. oversized fit/shape with knit construction.",
+    "material": "Knit",
+    "stock_qty": 47,
+    "is_available": true,
+    "price_aud": 110,
+    "image_key_sha256": "b76f25f85545647e4fa14c0da6593dff31717068ee60910fda6e34034f377802"
+  },
+  {
+    "product_id": "P1101",
+    "product_name": "Navy Ballet Flats",
+    "description": "romantic ballet flats in navy, suited to casual styling. standard fit/shape with suede construction.",
+    "material": "Suede",
+    "stock_qty": 59,
+    "is_available": true,
+    "price_aud": 105,
+    "image_key_sha256": "8f5f308014a34f056e638aa25aa97e10644aabf960ecb7b6d18da3906a7f1102"
+  },
+  {
+    "product_id": "P1102",
+    "product_name": "Lavender Structured Handbag",
+    "description": "smart structured handbag in lavender, suited to work styling. standard fit/shape with canvas construction.",
+    "material": "Canvas",
+    "stock_qty": 54,
+    "is_available": true,
+    "price_aud": 120,
+    "image_key_sha256": "7d184b78dcc51a0c62b275ce4807d0801bcfdb5d4346ef81f27422f745f3a13a"
+  },
+  {
+    "product_id": "P1103",
+    "product_name": "Red Low-Top Sneakers",
+    "description": "relaxed low-top sneakers in red, suited to casual styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 31,
+    "is_available": true,
+    "price_aud": 140,
+    "image_key_sha256": "aa2fc0210b4440fccac00bd5cf3a16ce50a48c0eab870dafbe234062b6195a5f"
+  },
+  {
+    "product_id": "P1104",
+    "product_name": "Burgundy Lightweight Scarf",
+    "description": "bohemian lightweight scarf in burgundy, suited to date night styling. standard fit/shape with silk blend construction.",
+    "material": "Silk Blend",
+    "stock_qty": 55,
+    "is_available": true,
+    "price_aud": 20,
+    "image_key_sha256": "92ec4aa84b881f8a5778bbf915e3a7237da9889358ad909fd8c033e633471cca"
+  },
+  {
+    "product_id": "P1105",
+    "product_name": "Olive Mini Dress",
+    "description": "elegant mini dress in olive, suited to date night styling. regular fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 52,
+    "is_available": true,
+    "price_aud": 225,
+    "image_key_sha256": "a25c12d70c256a66b598c3095225d741cab2fb30a401005dfa90113b0cec358c"
+  },
+  {
+    "product_id": "P1106",
+    "product_name": "Cream Mules",
+    "description": "contemporary mules in cream, suited to brunch styling. standard fit/shape with suede construction.",
+    "material": "Suede",
+    "stock_qty": 49,
+    "is_available": true,
+    "price_aud": 50,
+    "image_key_sha256": "f831faa674cd6e745d8ca54469e0d86465acabd1b25935d9a4badeefcf47b1e0"
+  },
+  {
+    "product_id": "P1107",
+    "product_name": "Burgundy Suit Set",
+    "description": "romantic suit set in burgundy, suited to smart casual styling. regular fit/shape with wool blend construction.",
+    "material": "Wool Blend",
+    "stock_qty": 13,
+    "is_available": true,
+    "price_aud": 110,
+    "image_key_sha256": "fa31c6a0123f2069727f74d31a6dc78ac5a6d446a00037299e8a0b2223d8ab3f"
+  },
+  {
+    "product_id": "P1108",
+    "product_name": "Sage Sling Bag",
+    "description": "classic sling bag in sage, suited to work styling. standard fit/shape with canvas construction.",
+    "material": "Canvas",
+    "stock_qty": 45,
+    "is_available": true,
+    "price_aud": 60,
+    "image_key_sha256": "928fef145d3cf30a6260bc4386f97d39dd93f839db18f75c2ef3f5e8d0698460"
+  },
+  {
+    "product_id": "P1109",
+    "product_name": "White Knit Top",
+    "description": "contemporary knit top in white, suited to work styling. slim fit/shape with knit construction.",
+    "material": "Knit",
+    "stock_qty": 3,
+    "is_available": true,
+    "price_aud": 155,
+    "image_key_sha256": "49d3a77c311fc623ed5fa0b7cec1cc942dac26a1016b7770daf6300c537adad2"
+  },
+  {
+    "product_id": "P1110",
+    "product_name": "Lavender Flat Sandals",
+    "description": "elegant flat sandals in lavender, suited to beach wedding styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 78,
+    "is_available": true,
+    "price_aud": 90,
+    "image_key_sha256": "98e7e986a0f40b4f4a66b7edd8712b8e763d57dd71e65e5e29390b960f522d08"
+  },
+  {
+    "product_id": "P1111",
+    "product_name": "Burgundy Pleated Skirt",
+    "description": "smart pleated skirt in burgundy, suited to date night styling. flowy fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 78,
+    "is_available": true,
+    "price_aud": 200,
+    "image_key_sha256": "577ec30c0776ff3f5ae13f7401a298caff29ab8439e2eb062e603defce8600de"
+  },
+  {
+    "product_id": "P1112",
+    "product_name": "Navy Flat Sandals",
+    "description": "romantic flat sandals in navy, suited to brunch styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 51,
+    "is_available": true,
+    "price_aud": 165,
+    "image_key_sha256": "acc188c2a95c4f3183eff9d2e53c2aa324819311a5ef33901bb8e20b6faf315d"
+  },
+  {
+    "product_id": "P1113",
+    "product_name": "Lavender Slim Belt",
+    "description": "classic slim belt in lavender, suited to wedding guest styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 43,
+    "is_available": true,
+    "price_aud": 85,
+    "image_key_sha256": "102c9400522b55f60c844f4971f07aec8206ebf83b62675490fe4062dd840d79"
+  },
+  {
+    "product_id": "P1114",
+    "product_name": "Red Straight Jeans",
+    "description": "relaxed straight jeans in red, suited to casual styling. tailored fit/shape with denim construction.",
+    "material": "Denim",
+    "stock_qty": 7,
+    "is_available": true,
+    "price_aud": 175,
+    "image_key_sha256": "f866daaac03efb666804f69f0f71078e89bcad2fefafce43ccd96af885f17d54"
+  },
+  {
+    "product_id": "P1115",
+    "product_name": "Lavender Pendant Necklace",
+    "description": "romantic pendant necklace in lavender, suited to date night styling. standard fit/shape with gold-tone metal construction.",
+    "material": "Gold-tone Metal",
+    "stock_qty": 10,
+    "is_available": true,
+    "price_aud": 20,
+    "image_key_sha256": "c6f08acc13db5d5206397eabeebbc3fa2446646073ffd2d07ad791445cfe64a4"
+  },
+  {
+    "product_id": "P1116",
+    "product_name": "Grey Fitted Tee",
+    "description": "contemporary fitted tee in grey, suited to wedding guest styling. oversized fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 50,
+    "is_available": true,
+    "price_aud": 110,
+    "image_key_sha256": "2da8bbf7452690cb991f55df303f1645ff988f9f4297af0742c3e8d4a7fe0377"
+  },
+  {
+    "product_id": "P1117",
+    "product_name": "Navy Sling Bag",
+    "description": "bohemian sling bag in navy, suited to date night styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 18,
+    "is_available": true,
+    "price_aud": 75,
+    "image_key_sha256": "16e0b2effbfcce77afecceb6641b7da54f246a49d62d73677ba2eb2f34a72217"
+  },
+  {
+    "product_id": "P1118",
+    "product_name": "Yellow Bomber Jacket",
+    "description": "classic bomber jacket in yellow, suited to travel styling. oversized fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 48,
+    "is_available": true,
+    "price_aud": 50,
+    "image_key_sha256": "3ddce7b7292e52e38314364227ac87a8db1d2ce579249188f21c860b8c70b235"
+  },
+  {
+    "product_id": "P1119",
+    "product_name": "White Linen Shirt",
+    "description": "relaxed linen shirt in white, suited to beach wedding styling. relaxed fit/shape with linen blend construction.",
+    "material": "Linen Blend",
+    "stock_qty": 61,
+    "is_available": true,
+    "price_aud": 120,
+    "image_key_sha256": "a634a291a8dd3cfa34a63a772411295215fe302cd2a65593c28b11ff5b86cd70"
+  },
+  {
+    "product_id": "P1120",
+    "product_name": "Lavender Cardigan",
+    "description": "romantic cardigan in lavender, suited to brunch styling. relaxed fit/shape with knit construction.",
+    "material": "Knit",
+    "stock_qty": 66,
+    "is_available": true,
+    "price_aud": 75,
+    "image_key_sha256": "0387436077986ec3d80a70b95a7236d6e591d0cc4f526dde2705e0632f7e7c80"
+  },
+  {
+    "product_id": "P1121",
+    "product_name": "Brown Relaxed Tee",
+    "description": "classic relaxed tee in brown, suited to travel styling. regular fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 8,
+    "is_available": true,
+    "price_aud": 110,
+    "image_key_sha256": "c565728f18ee4c9168238b1514cd4a986e58acd247062c9787fed3222ecedc8f"
+  },
+  {
+    "product_id": "P1122",
+    "product_name": "Yellow Straight Jeans",
+    "description": "minimalist straight jeans in yellow, suited to party styling. relaxed fit/shape with denim construction.",
+    "material": "Denim",
+    "stock_qty": 57,
+    "is_available": true,
+    "price_aud": 85,
+    "image_key_sha256": "30cddcdee49e1705efe13efce34a8d268cc60ea16e9404fa0001eae9cefbc406"
+  },
+  {
+    "product_id": "P1123",
+    "product_name": "Red Midi Skirt",
+    "description": "bohemian midi skirt in red, suited to travel styling. slim fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 57,
+    "is_available": true,
+    "price_aud": 120,
+    "image_key_sha256": "fa0a97994ee83c4d7db82c9ac7f16334e227a425ae40e6105f82272bde964506"
+  },
+  {
+    "product_id": "P1124",
+    "product_name": "Red Two-Piece Set",
+    "description": "smart two-piece set in red, suited to date night styling. relaxed fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 57,
+    "is_available": true,
+    "price_aud": 55,
+    "image_key_sha256": "1bd949f5646c878d08ec6309afa79714cd794870e876e20e49a6d62acd049c9e"
+  },
+  {
+    "product_id": "P1125",
+    "product_name": "Brown Low-Top Sneakers",
+    "description": "streetwear low-top sneakers in brown, suited to travel styling. standard fit/shape with canvas construction.",
+    "material": "Canvas",
+    "stock_qty": 72,
+    "is_available": true,
+    "price_aud": 160,
+    "image_key_sha256": "a29b51f0923110a43b3f91d520148320841b287d953296f902974cd4351c4132"
+  },
+  {
+    "product_id": "P1126",
+    "product_name": "Sage Statement Earrings",
+    "description": "romantic statement earrings in sage, suited to wedding guest styling. standard fit/shape with silver-tone metal construction.",
+    "material": "Silver-tone Metal",
+    "stock_qty": 27,
+    "is_available": true,
+    "price_aud": 60,
+    "image_key_sha256": "97c01877aa6c6a81213f688ef966ff8fd885c4568ce9e24092c4c2b979e139b2"
+  },
+  {
+    "product_id": "P1127",
+    "product_name": "Pink Flat Sandals",
+    "description": "elegant flat sandals in pink, suited to beach wedding styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 84,
+    "is_available": true,
+    "price_aud": 175,
+    "image_key_sha256": "9c07975d52bed182ccfd23341cf8f2f0646dafd2163b9fb648cd0b1ab0619b5b"
+  },
+  {
+    "product_id": "P1128",
+    "product_name": "Navy Trench Coat",
+    "description": "elegant trench coat in navy, suited to brunch styling. oversized fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 71,
+    "is_available": true,
+    "price_aud": 155,
+    "image_key_sha256": "acc0857fa0cecd343b6b1e5949c4800bf7d8152e0329d0bd752085906a551bba"
+  },
+  {
+    "product_id": "P1129",
+    "product_name": "Silver Ballet Flats",
+    "description": "elegant ballet flats in silver, suited to smart casual styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 22,
+    "is_available": true,
+    "price_aud": 90,
+    "image_key_sha256": "915d770a5e75589e616ff01f3dcc88781251a5672313dd24eca1c0554432561e"
+  },
+  {
+    "product_id": "P1130",
+    "product_name": "Yellow Linen Shirt",
+    "description": "bohemian linen shirt in yellow, suited to casual styling. relaxed fit/shape with linen blend construction.",
+    "material": "Linen Blend",
+    "stock_qty": 62,
+    "is_available": true,
+    "price_aud": 195,
+    "image_key_sha256": "f8f8cda0c17069c224fac289773f5b6b9f95ded7848b960007aa8b6f73f0c3d6"
+  },
+  {
+    "product_id": "P1131",
+    "product_name": "Navy Blazer",
+    "description": "smart blazer in navy, suited to work styling. relaxed fit/shape with wool blend construction.",
+    "material": "Wool Blend",
+    "stock_qty": 80,
+    "is_available": true,
+    "price_aud": 245,
+    "image_key_sha256": "abe0763ec2780c6662998dc3d40837f8e5833085dfa553030fc195dacadeb112"
+  },
+  {
+    "product_id": "P1132",
+    "product_name": "Sage Mini Dress",
+    "description": "relaxed mini dress in sage, suited to date night styling. flowy fit/shape with linen blend construction.",
+    "material": "Linen Blend",
+    "stock_qty": 68,
+    "is_available": true,
+    "price_aud": 120,
+    "image_key_sha256": "fea339efd231bde6728d18578096d8e058c008fc21b527bfc043f05c4ff9f3dd"
+  },
+  {
+    "product_id": "P1133",
+    "product_name": "Olive Straight Jeans",
+    "description": "relaxed straight jeans in olive, suited to smart casual styling. tailored fit/shape with denim construction.",
+    "material": "Denim",
+    "stock_qty": 19,
+    "is_available": true,
+    "price_aud": 135,
+    "image_key_sha256": "68aacc8b65865dc8ea3e42811916e67aa3599767a0ecc66dc8f8677615f5b700"
+  },
+  {
+    "product_id": "P1134",
+    "product_name": "Gold Two-Piece Set",
+    "description": "classic two-piece set in gold, suited to casual styling. oversized fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 71,
+    "is_available": true,
+    "price_aud": 210,
+    "image_key_sha256": "0023765446004c80adcd6b015229021058e2d3c0357ded18a34204f538bf73ac"
+  },
+  {
+    "product_id": "P1135",
+    "product_name": "Silver Cropped Jacket",
+    "description": "minimalist cropped jacket in silver, suited to work styling. oversized fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 21,
+    "is_available": true,
+    "price_aud": 45,
+    "image_key_sha256": "ca26764ce1c9ccace78f965104d293f6c55d7c48e491e7912d0256c9213ce4a7"
+  },
+  {
+    "product_id": "P1136",
+    "product_name": "White Satin Camisole",
+    "description": "romantic satin camisole in white, suited to travel styling. slim fit/shape with satin construction.",
+    "material": "Satin",
+    "stock_qty": 72,
+    "is_available": true,
+    "price_aud": 130,
+    "image_key_sha256": "c57ca97687c144ab1823e1b1f8c011011d5741a2af6d65bada8cb7778a19919e"
+  },
+  {
+    "product_id": "P1137",
+    "product_name": "Gold Strappy Heels",
+    "description": "elegant strappy heels in gold, suited to brunch styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 23,
+    "is_available": true,
+    "price_aud": 65,
+    "image_key_sha256": "0025252028b67f271d87a6bc92c0ee3937879360680554b3b76b7d913975ec34"
+  },
+  {
+    "product_id": "P1138",
+    "product_name": "Blue Strappy Heels",
+    "description": "elegant strappy heels in blue, suited to formal styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 56,
+    "is_available": true,
+    "price_aud": 145,
+    "image_key_sha256": "70dbfefe9d526f4c932187ce97a4d5a76dbdc64f6eb50dedbc910df1902fa371"
+  },
+  {
+    "product_id": "P1139",
+    "product_name": "Burgundy Lightweight Scarf",
+    "description": "bohemian lightweight scarf in burgundy, suited to party styling. standard fit/shape with silk blend construction.",
+    "material": "Silk Blend",
+    "stock_qty": 67,
+    "is_available": true,
+    "price_aud": 75,
+    "image_key_sha256": "b316462c43b66f923cc6d36a8c0b9b31ceed51d6102cc81f839b3f6c6168dd3b"
+  },
+  {
+    "product_id": "P1140",
+    "product_name": "Gold Cropped Jacket",
+    "description": "minimalist cropped jacket in gold, suited to wedding guest styling. oversized fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 11,
+    "is_available": true,
+    "price_aud": 170,
+    "image_key_sha256": "fc22db8902f7e63a25af23fdca4e7b0d9c8abb69ce4cf304d095463768a1bfd6"
+  },
+  {
+    "product_id": "P1141",
+    "product_name": "Cream Leather Belt",
+    "description": "minimalist leather belt in cream, suited to work styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 79,
+    "is_available": true,
+    "price_aud": 65,
+    "image_key_sha256": "f9bfa7530fcab0cea2a82ad9926c58c71be48398c49ad0ea8edd21a847fa8f6f"
+  },
+  {
+    "product_id": "P1142",
+    "product_name": "Gold Envelope Clutch",
+    "description": "elegant envelope clutch in gold, suited to formal styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 48,
+    "is_available": true,
+    "price_aud": 135,
+    "image_key_sha256": "bdbe2a46f18c667965abdede53e2b56c9ad514c658bc705539b78533bf64fd38"
+  },
+  {
+    "product_id": "P1143",
+    "product_name": "Red Two-Piece Set",
+    "description": "smart two-piece set in red, suited to party styling. slim fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 51,
+    "is_available": true,
+    "price_aud": 80,
+    "image_key_sha256": "ee71672c69fabb90e03f69f12a8bedba3666d4a26b765bc7bf4212e1f81c97d4"
+  },
+  {
+    "product_id": "P1144",
+    "product_name": "Cream Envelope Clutch",
+    "description": "elegant envelope clutch in cream, suited to date night styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 13,
+    "is_available": true,
+    "price_aud": 125,
+    "image_key_sha256": "192ffa70dd6d39a701e4d0bb0c71ef021845a4e86794926773dc1be2366c7dd0"
+  },
+  {
+    "product_id": "P1145",
+    "product_name": "White Cropped Jacket",
+    "description": "smart cropped jacket in white, suited to wedding guest styling. relaxed fit/shape with linen blend construction.",
+    "material": "Linen Blend",
+    "stock_qty": 20,
+    "is_available": true,
+    "price_aud": 135,
+    "image_key_sha256": "2f06c0876ffc3c7616a7fd608dfd3a443c2ad9138de4d598510bed4d2f6cbcb2"
+  },
+  {
+    "product_id": "P1146",
+    "product_name": "Lavender Platform Sandals",
+    "description": "bohemian platform sandals in lavender, suited to travel styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 78,
+    "is_available": true,
+    "price_aud": 155,
+    "image_key_sha256": "cd44f2387b68392c4f51a5a6c1e65e46f6b0d866112f3eb1514a263d08667af2"
+  },
+  {
+    "product_id": "P1147",
+    "product_name": "Brown Denim Jacket",
+    "description": "streetwear denim jacket in brown, suited to smart casual styling. regular fit/shape with denim construction.",
+    "material": "Denim",
+    "stock_qty": 75,
+    "is_available": true,
+    "price_aud": 200,
+    "image_key_sha256": "ad330e84974cec742061b20065b5da9441586b07af6dd85bb6aea2ed30044e53"
+  },
+  {
+    "product_id": "P1148",
+    "product_name": "Black Low-Top Sneakers",
+    "description": "relaxed low-top sneakers in black, suited to smart casual styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 26,
+    "is_available": true,
+    "price_aud": 125,
+    "image_key_sha256": "f604d361e0d5e7406aa0ca1730f1715d1f879683173c42d05d4c138e1543495b"
+  },
+  {
+    "product_id": "P1149",
+    "product_name": "Brown Denim Jacket",
+    "description": "streetwear denim jacket in brown, suited to smart casual styling. relaxed fit/shape with denim construction.",
+    "material": "Denim",
+    "stock_qty": 68,
+    "is_available": true,
+    "price_aud": 190,
+    "image_key_sha256": "1c4483cbd0925aaec65c15e0d1135a87a5a6bc4e3fb443df1ca6973fcae880b5"
+  },
+  {
+    "product_id": "P1150",
+    "product_name": "Sage Loafers",
+    "description": "minimalist loafers in sage, suited to formal styling. standard fit/shape with suede construction.",
+    "material": "Suede",
+    "stock_qty": 14,
+    "is_available": true,
+    "price_aud": 105,
+    "image_key_sha256": "fe203af86930aa309fd24252bf5431f84c6e1f2b4e048d9112629c8b02c17dbe"
+  },
+  {
+    "product_id": "P1151",
+    "product_name": "Silver Sling Bag",
+    "description": "contemporary sling bag in silver, suited to smart casual styling. standard fit/shape with canvas construction.",
+    "material": "Canvas",
+    "stock_qty": 52,
+    "is_available": true,
+    "price_aud": 60,
+    "image_key_sha256": "f5f1c70280506b06d0f0c4b06fe4481f075b3bc4f928ba1647c97763fcabe06c"
+  },
+  {
+    "product_id": "P1152",
+    "product_name": "Olive Structured Handbag",
+    "description": "smart structured handbag in olive, suited to smart casual styling. standard fit/shape with woven construction.",
+    "material": "Woven",
+    "stock_qty": 70,
+    "is_available": true,
+    "price_aud": 125,
+    "image_key_sha256": "a50be03d28da4b27da2f5284d088400c74fea385072ecfe83f6d435dd27c02f9"
+  },
+  {
+    "product_id": "P1153",
+    "product_name": "Gold Knit Top",
+    "description": "streetwear knit top in gold, suited to wedding guest styling. relaxed fit/shape with knit construction.",
+    "material": "Knit",
+    "stock_qty": 60,
+    "is_available": true,
+    "price_aud": 115,
+    "image_key_sha256": "7f4a1b2f8145df3793ad743e8423b9577bac68f8814edf5babfd2d4d20fc11a4"
+  },
+  {
+    "product_id": "P1154",
+    "product_name": "Red Cardigan",
+    "description": "streetwear cardigan in red, suited to smart casual styling. oversized fit/shape with knit construction.",
+    "material": "Knit",
+    "stock_qty": 49,
+    "is_available": true,
+    "price_aud": 210,
+    "image_key_sha256": "b3473b8b9b257c203b8a974c852ab963dc918e755a2a41b34a35d11fd4f4d30d"
+  },
+  {
+    "product_id": "P1155",
+    "product_name": "Grey Relaxed Co-ord Set",
+    "description": "streetwear relaxed co-ord set in grey, suited to date night styling. regular fit/shape with linen blend construction.",
+    "material": "Linen Blend",
+    "stock_qty": 16,
+    "is_available": true,
+    "price_aud": 195,
+    "image_key_sha256": "5a1b624422380e58b88494613190f24d6e0c9e05bfee4c9f42d39ec8967db427"
+  },
+  {
+    "product_id": "P1156",
+    "product_name": "Cream Cardigan",
+    "description": "minimalist cardigan in cream, suited to party styling. relaxed fit/shape with knit construction.",
+    "material": "Knit",
+    "stock_qty": 23,
+    "is_available": true,
+    "price_aud": 85,
+    "image_key_sha256": "5df2590eb9717363a7ecf39fddde577f24ab05528faa4983908e20f7b5513b5a"
+  },
+  {
+    "product_id": "P1157",
+    "product_name": "Yellow Slim Belt",
+    "description": "smart slim belt in yellow, suited to brunch styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 58,
+    "is_available": true,
+    "price_aud": 75,
+    "image_key_sha256": "3325e2276a4761801aefdf2b3d1c68f08b877877001a562bd5515fa795a54212"
+  },
+  {
+    "product_id": "P1158",
+    "product_name": "Burgundy Loafers",
+    "description": "smart loafers in burgundy, suited to work styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 57,
+    "is_available": true,
+    "price_aud": 60,
+    "image_key_sha256": "4e4883bc438c8d7b5675b3c209e19750e3be3c5a0ab34f9acd8af9707a791443"
+  },
+  {
+    "product_id": "P1159",
+    "product_name": "Navy Pleated Skirt",
+    "description": "elegant pleated skirt in navy, suited to wedding guest styling. regular fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 37,
+    "is_available": true,
+    "price_aud": 115,
+    "image_key_sha256": "fb72adec373a358c4b0990f4ba3a0bb54d274bab6cf05a5e76f51c8c482fe134"
+  },
+  {
+    "product_id": "P1160",
+    "product_name": "Gold Maxi Dress",
+    "description": "streetwear maxi dress in gold, suited to date night styling. flowy fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 24,
+    "is_available": true,
+    "price_aud": 250,
+    "image_key_sha256": "50f0d184bbeebe2130f0613f905d3330c7849885b63c319857fe21780dafd906"
+  },
+  {
+    "product_id": "P1161",
+    "product_name": "Olive Mules",
+    "description": "classic mules in olive, suited to wedding guest styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 84,
+    "is_available": true,
+    "price_aud": 110,
+    "image_key_sha256": "148fdf5eb494dc1ba5e3c35231a9df2a608b569620c96cfa00e9baec1760ddde"
+  },
+  {
+    "product_id": "P1162",
+    "product_name": "Cream Mini Dress",
+    "description": "romantic mini dress in cream, suited to beach wedding styling. regular fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 17,
+    "is_available": true,
+    "price_aud": 105,
+    "image_key_sha256": "86fb8870004e2ad4024b801cf1592b540870067de37fd546d4d25d61ec2e6974"
+  },
+  {
+    "product_id": "P1163",
+    "product_name": "Black Envelope Clutch",
+    "description": "romantic envelope clutch in black, suited to wedding guest styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 28,
+    "is_available": true,
+    "price_aud": 140,
+    "image_key_sha256": "4ca33e2e19abb77f933d4a12f028b1f7e38af80cca6c85ac4f9414a6b15c8fa2"
+  },
+  {
+    "product_id": "P1164",
+    "product_name": "Yellow Straight Jeans",
+    "description": "elegant straight jeans in yellow, suited to casual styling. slim fit/shape with denim construction.",
+    "material": "Denim",
+    "stock_qty": 43,
+    "is_available": true,
+    "price_aud": 140,
+    "image_key_sha256": "f2b64f08f8bca04bc4b4c5fcc12d4272c46800b4d795d13ab91d161938919392"
+  },
+  {
+    "product_id": "P1165",
+    "product_name": "Silver Mini Clutch",
+    "description": "contemporary mini clutch in silver, suited to date night styling. standard fit/shape with satin construction.",
+    "material": "Satin",
+    "stock_qty": 20,
+    "is_available": true,
+    "price_aud": 80,
+    "image_key_sha256": "9fc1086200234990753ef42519107142c4ec4dd8211d1501f8350c48746a91ff"
+  },
+  {
+    "product_id": "P1166",
+    "product_name": "Red Oxford Shirt",
+    "description": "classic oxford shirt in red, suited to work styling. slim fit/shape with linen blend construction.",
+    "material": "Linen Blend",
+    "stock_qty": 36,
+    "is_available": true,
+    "price_aud": 115,
+    "image_key_sha256": "bea148d5208a2e233b1bf7b002ef42628b10b6a61a3787e6e846ecdeacacf620"
+  },
+  {
+    "product_id": "P1167",
+    "product_name": "Silver Envelope Clutch",
+    "description": "romantic envelope clutch in silver, suited to formal styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 13,
+    "is_available": true,
+    "price_aud": 50,
+    "image_key_sha256": "744b3cc52d79f6e3c59e14af33a504d5eb7303811d3d88e8b111b010f3a62c7d"
+  },
+  {
+    "product_id": "P1168",
+    "product_name": "Burgundy Cardigan",
+    "description": "relaxed cardigan in burgundy, suited to work styling. oversized fit/shape with knit construction.",
+    "material": "Knit",
+    "stock_qty": 74,
+    "is_available": true,
+    "price_aud": 195,
+    "image_key_sha256": "e04e651bec29d8020a3af2ec613b3d06b604ec6a64dbb70f2ab4dbf2cd98f32c"
+  },
+  {
+    "product_id": "P1169",
+    "product_name": "Gold Knit Top",
+    "description": "minimalist knit top in gold, suited to date night styling. relaxed fit/shape with knit construction.",
+    "material": "Knit",
+    "stock_qty": 59,
+    "is_available": true,
+    "price_aud": 150,
+    "image_key_sha256": "5fbf869313ad6a9d967c7b9c7e501e314a94be3f9c24a71f47f3fa2bcca4c46b"
+  },
+  {
+    "product_id": "P1170",
+    "product_name": "Burgundy Mini Clutch",
+    "description": "elegant mini clutch in burgundy, suited to date night styling. standard fit/shape with satin construction.",
+    "material": "Satin",
+    "stock_qty": 39,
+    "is_available": true,
+    "price_aud": 85,
+    "image_key_sha256": "4dd16e69654caac549a4a35ee5a739fa26e647ec3450326b6f45137cdca51435"
+  },
+  {
+    "product_id": "P1171",
+    "product_name": "Brown Chinos",
+    "description": "romantic chinos in brown, suited to beach wedding styling. slim fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 26,
+    "is_available": true,
+    "price_aud": 100,
+    "image_key_sha256": "15c75ae54596fba751f9aec7354612552b6fc08d774de65abdc34a803f6fa24b"
+  },
+  {
+    "product_id": "P1172",
+    "product_name": "Lavender Crossbody Bag",
+    "description": "minimalist crossbody bag in lavender, suited to travel styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 76,
+    "is_available": true,
+    "price_aud": 140,
+    "image_key_sha256": "3e55df3e7fd49dd818b8dfdaee18fc6d292c681f565ea64d382da8ad122d53e8"
+  },
+  {
+    "product_id": "P1173",
+    "product_name": "Blue Flat Sandals",
+    "description": "smart flat sandals in blue, suited to travel styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 60,
+    "is_available": true,
+    "price_aud": 75,
+    "image_key_sha256": "19a498aeeee08c230fccb302252c5c9ea679908f74586904861f82930581bf66"
+  },
+  {
+    "product_id": "P1174",
+    "product_name": "Sage Two-Piece Set",
+    "description": "bohemian two-piece set in sage, suited to brunch styling. oversized fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 75,
+    "is_available": true,
+    "price_aud": 130,
+    "image_key_sha256": "788c6b532b13474e745c8ac436ad821d7440f83fc4081c880fabd225708341ef"
+  },
+  {
+    "product_id": "P1175",
+    "product_name": "Yellow Wide-Leg Pants",
+    "description": "bohemian wide-leg pants in yellow, suited to formal styling. slim fit/shape with linen blend construction.",
+    "material": "Linen Blend",
+    "stock_qty": 55,
+    "is_available": true,
+    "price_aud": 185,
+    "image_key_sha256": "697896a836fa282b4a1d32f5196d19c71ddd4f564f4d32769c2364eea9a73f02"
+  },
+  {
+    "product_id": "P1176",
+    "product_name": "Red Flat Sandals",
+    "description": "smart flat sandals in red, suited to travel styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 28,
+    "is_available": true,
+    "price_aud": 70,
+    "image_key_sha256": "4843d32f04d5abb6a9f0178de6eea709b95962d1d84df56af9f4134e6965ecc2"
+  },
+  {
+    "product_id": "P1177",
+    "product_name": "Beige Pleated Trousers",
+    "description": "smart pleated trousers in beige, suited to work styling. regular fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 31,
+    "is_available": true,
+    "price_aud": 60,
+    "image_key_sha256": "7c37c0c383543a6a964e4fb2d5af07d794ed02182812a4eb0b7b00cb892aeec0"
+  },
+  {
+    "product_id": "P1178",
+    "product_name": "Navy Maxi Dress",
+    "description": "minimalist maxi dress in navy, suited to beach wedding styling. flowy fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 83,
+    "is_available": true,
+    "price_aud": 95,
+    "image_key_sha256": "4cfe8cc65b76ae86d71ac5f57a8cdfef990a5394c06d723ec5153f3ca49d42f0"
+  },
+  {
+    "product_id": "P1179",
+    "product_name": "Pink Crossbody Bag",
+    "description": "elegant crossbody bag in pink, suited to beach wedding styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 24,
+    "is_available": true,
+    "price_aud": 120,
+    "image_key_sha256": "27428b0a8647971997e62797f32440bf2483a30d1c26c8100f1c04282d8e1ff1"
+  },
+  {
+    "product_id": "P1180",
+    "product_name": "Black Platform Sandals",
+    "description": "bohemian platform sandals in black, suited to beach wedding styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 67,
+    "is_available": true,
+    "price_aud": 120,
+    "image_key_sha256": "26b9634f59bd212eaf1995886947d5fe428fa17b267d6e48493964c29b70ba39"
+  },
+  {
+    "product_id": "P1181",
+    "product_name": "Silver Wide-Leg Pants",
+    "description": "minimalist wide-leg pants in silver, suited to formal styling. oversized fit/shape with linen blend construction.",
+    "material": "Linen Blend",
+    "stock_qty": 28,
+    "is_available": true,
+    "price_aud": 160,
+    "image_key_sha256": "8e0f6666689a632e7aca4a0c2e280528c568e8aa43c29a913cb27b2828c608c7"
+  },
+  {
+    "product_id": "P1182",
+    "product_name": "Gold Crossbody Bag",
+    "description": "streetwear crossbody bag in gold, suited to beach wedding styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 12,
+    "is_available": true,
+    "price_aud": 60,
+    "image_key_sha256": "eeb18341644a0f7c786bb9e93d94fb61e38778668a922af0afed806d4312c7fd"
+  },
+  {
+    "product_id": "P1183",
+    "product_name": "White Polo Shirt",
+    "description": "relaxed polo shirt in white, suited to brunch styling. relaxed fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 52,
+    "is_available": true,
+    "price_aud": 185,
+    "image_key_sha256": "190b099feeabf921b7a3fd439bab44223b910963bec3938ec240f8b505c8a1db"
+  },
+  {
+    "product_id": "P1184",
+    "product_name": "Cream Straight Jeans",
+    "description": "elegant straight jeans in cream, suited to brunch styling. regular fit/shape with denim construction.",
+    "material": "Denim",
+    "stock_qty": 48,
+    "is_available": true,
+    "price_aud": 105,
+    "image_key_sha256": "6f0f8e471a38a7a3a6b0186bcba0fc984523a087f4e002a65a756609edab9c0b"
+  },
+  {
+    "product_id": "P1185",
+    "product_name": "Beige Bomber Jacket",
+    "description": "contemporary bomber jacket in beige, suited to travel styling. regular fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 29,
+    "is_available": true,
+    "price_aud": 150,
+    "image_key_sha256": "70405e067cc5fbc8232647c95953aafd536d659d3e660e905f73659c44dcd49f"
+  },
+  {
+    "product_id": "P1186",
+    "product_name": "Black Linen Shirt",
+    "description": "minimalist linen shirt in black, suited to beach wedding styling. regular fit/shape with linen blend construction.",
+    "material": "Linen Blend",
+    "stock_qty": 37,
+    "is_available": true,
+    "price_aud": 95,
+    "image_key_sha256": "9c8cdd0dee17d50bf27c0939db09174f6cfd3d294cd4a73604b8e0f81f3e8cec"
+  },
+  {
+    "product_id": "P1187",
+    "product_name": "White Mini Clutch",
+    "description": "contemporary mini clutch in white, suited to wedding guest styling. standard fit/shape with satin construction.",
+    "material": "Satin",
+    "stock_qty": 55,
+    "is_available": true,
+    "price_aud": 50,
+    "image_key_sha256": "fea315df1d13b1fb9f0da67abfdd0534e7b6d71c8ae6abb0c6781c590073b78d"
+  },
+  {
+    "product_id": "P1188",
+    "product_name": "Brown Mini Clutch",
+    "description": "romantic mini clutch in brown, suited to wedding guest styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 50,
+    "is_available": true,
+    "price_aud": 145,
+    "image_key_sha256": "b27d5804980aa5850d9820b97507114e54e545a26d0431e39c789b598ca78f0e"
+  },
+  {
+    "product_id": "P1189",
+    "product_name": "Olive Maxi Dress",
+    "description": "bohemian maxi dress in olive, suited to wedding guest styling. slim fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 14,
+    "is_available": true,
+    "price_aud": 155,
+    "image_key_sha256": "18587400d4f1edff94a6e389a2a55cb6f1144bede82fbfbd5a3266195284d19c"
+  },
+  {
+    "product_id": "P1190",
+    "product_name": "Black Crossbody Bag",
+    "description": "minimalist crossbody bag in black, suited to wedding guest styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 22,
+    "is_available": true,
+    "price_aud": 75,
+    "image_key_sha256": "383ef3e663858b6f5a0ee58b9079ad01f13243850221987efc2a264823ab0f7e"
+  },
+  {
+    "product_id": "P1191",
+    "product_name": "Grey Retro Sneakers",
+    "description": "streetwear retro sneakers in grey, suited to smart casual styling. standard fit/shape with canvas construction.",
+    "material": "Canvas",
+    "stock_qty": 29,
+    "is_available": true,
+    "price_aud": 145,
+    "image_key_sha256": "865c3abf3131bc6d81f41cdb1ceb558ad3f72373739fee71e45042393d2be67e"
+  },
+  {
+    "product_id": "P1192",
+    "product_name": "White Mini Tote",
+    "description": "elegant mini tote in white, suited to date night styling. standard fit/shape with woven construction.",
+    "material": "Woven",
+    "stock_qty": 19,
+    "is_available": true,
+    "price_aud": 100,
+    "image_key_sha256": "63e1f0cd374104695f24d38b90400d2e6969dccf636508851cbf0bb848002f27"
+  },
+  {
+    "product_id": "P1193",
+    "product_name": "Brown Lightweight Scarf",
+    "description": "minimalist lightweight scarf in brown, suited to party styling. standard fit/shape with silk blend construction.",
+    "material": "Silk Blend",
+    "stock_qty": 66,
+    "is_available": true,
+    "price_aud": 70,
+    "image_key_sha256": "f1d5e733fbc126ce1949e3e861ac178c1881f051e677083ff4fef9b9500423d8"
+  },
+  {
+    "product_id": "P1194",
+    "product_name": "Pink Satin Camisole",
+    "description": "contemporary satin camisole in pink, suited to work styling. regular fit/shape with satin construction.",
+    "material": "Satin",
+    "stock_qty": 17,
+    "is_available": true,
+    "price_aud": 55,
+    "image_key_sha256": "28e9b8e7c4733677e88eca45d2fc5e9bdc2a029fe9ee9d0b81d797dcc2c9fbba"
+  },
+  {
+    "product_id": "P1195",
+    "product_name": "Yellow Blouse",
+    "description": "smart blouse in yellow, suited to beach wedding styling. regular fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 24,
+    "is_available": true,
+    "price_aud": 70,
+    "image_key_sha256": "a7838db2528062f1966918ee922b92ce3ec6a1f49c3d8a6c7a5cc0765a236282"
+  },
+  {
+    "product_id": "P1196",
+    "product_name": "Black Shoulder Bag",
+    "description": "relaxed shoulder bag in black, suited to casual styling. standard fit/shape with woven construction.",
+    "material": "Woven",
+    "stock_qty": 82,
+    "is_available": true,
+    "price_aud": 140,
+    "image_key_sha256": "9883ad467f641c5fe0a16a7ca96fe7e71c4a75ce918453cbd186f3652d395e84"
+  },
+  {
+    "product_id": "P1197",
+    "product_name": "Burgundy Bomber Jacket",
+    "description": "contemporary bomber jacket in burgundy, suited to casual styling. regular fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 54,
+    "is_available": true,
+    "price_aud": 55,
+    "image_key_sha256": "34edf175ce644385b4f62d3c6985dbcdc7a63a76e9a654094fe0d81b7bd8d8d5"
+  },
+  {
+    "product_id": "P1198",
+    "product_name": "Brown Cardigan",
+    "description": "minimalist cardigan in brown, suited to work styling. regular fit/shape with knit construction.",
+    "material": "Knit",
+    "stock_qty": 5,
+    "is_available": true,
+    "price_aud": 150,
+    "image_key_sha256": "d6a2847e5e76068ff8730b10e0e4a8d7219fabf308404f55eb4d8f369712e733"
+  },
+  {
+    "product_id": "P1199",
+    "product_name": "White Midi Dress",
+    "description": "classic midi dress in white, suited to beach wedding styling. flowy fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 84,
+    "is_available": true,
+    "price_aud": 240,
+    "image_key_sha256": "ec6cec7903ef6464898346da5b43ad040000dd75873582d877c5f4d57702ac8c"
+  },
+  {
+    "product_id": "P1200",
+    "product_name": "Black Lightweight Scarf",
+    "description": "minimalist lightweight scarf in black, suited to party styling. standard fit/shape with silk blend construction.",
+    "material": "Silk Blend",
+    "stock_qty": 28,
+    "is_available": true,
+    "price_aud": 65,
+    "image_key_sha256": "6a3c2d6348284ca770daa0344532c0cb17b96c5869b689ab47bd7a726bbcface"
+  },
+  {
+    "product_id": "P1201",
+    "product_name": "Lavender Sling Bag",
+    "description": "relaxed sling bag in lavender, suited to work styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 26,
+    "is_available": true,
+    "price_aud": 150,
+    "image_key_sha256": "ede8ce4f89e81711678c895c56793cb694fa82d016d61c94022c798611285dd6"
+  },
+  {
+    "product_id": "P1202",
+    "product_name": "Yellow Relaxed Tee",
+    "description": "relaxed relaxed tee in yellow, suited to casual styling. oversized fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 43,
+    "is_available": true,
+    "price_aud": 50,
+    "image_key_sha256": "d157f06f761b1bf3592d25dc2557a0fbe413d792d441dc37a89f8976d0fdb0b6"
+  },
+  {
+    "product_id": "P1203",
+    "product_name": "Brown Retro Sneakers",
+    "description": "streetwear retro sneakers in brown, suited to travel styling. standard fit/shape with canvas construction.",
+    "material": "Canvas",
+    "stock_qty": 13,
+    "is_available": true,
+    "price_aud": 115,
+    "image_key_sha256": "626acadac26110fd7e16ce0cac150c453972e8ddb0384d69127338d85fb0eb2b"
+  },
+  {
+    "product_id": "P1204",
+    "product_name": "Beige Co-ord Set",
+    "description": "streetwear co-ord set in beige, suited to date night styling. relaxed fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 34,
+    "is_available": true,
+    "price_aud": 200,
+    "image_key_sha256": "2c387d722ebaa5c3ff05bb32cd99cecf3973d87e525b9e2df101f8a9d5f6c466"
+  },
+  {
+    "product_id": "P1205",
+    "product_name": "Grey Lightweight Scarf",
+    "description": "relaxed lightweight scarf in grey, suited to travel styling. standard fit/shape with silk blend construction.",
+    "material": "Silk Blend",
+    "stock_qty": 65,
+    "is_available": true,
+    "price_aud": 80,
+    "image_key_sha256": "7f617cd3a0c76bfeb3e241fa8facde577f2a3094dcb0d7981ae6437ec444fbc6"
+  },
+  {
+    "product_id": "P1206",
+    "product_name": "Burgundy Fitted Tee",
+    "description": "smart fitted tee in burgundy, suited to brunch styling. slim fit/shape with linen blend construction.",
+    "material": "Linen Blend",
+    "stock_qty": 73,
+    "is_available": true,
+    "price_aud": 200,
+    "image_key_sha256": "526595fa4977127c1e5a31b971c8088ff06509fa33da73493eb1ad608eb62e19"
+  },
+  {
+    "product_id": "P1207",
+    "product_name": "Cream Tailored Shorts",
+    "description": "streetwear tailored shorts in cream, suited to date night styling. relaxed fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 70,
+    "is_available": true,
+    "price_aud": 40,
+    "image_key_sha256": "d9a28e3ecc073579dd43b23f0a2afa66ecb22b6788dcbfc2d8398a4713065ded"
+  },
+  {
+    "product_id": "P1208",
+    "product_name": "Grey Bracelet",
+    "description": "minimalist bracelet in grey, suited to wedding guest styling. standard fit/shape with gold-tone metal construction.",
+    "material": "Gold-tone Metal",
+    "stock_qty": 1,
+    "is_available": true,
+    "price_aud": 50,
+    "image_key_sha256": "1369080b7a155a7f1c5b6d72b689291ac35bec15af9b6219d17db652f098c3e2"
+  },
+  {
+    "product_id": "P1209",
+    "product_name": "Brown Linen Shirt",
+    "description": "bohemian linen shirt in brown, suited to beach wedding styling. regular fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 3,
+    "is_available": true,
+    "price_aud": 40,
+    "image_key_sha256": "7768cbe4bf01fb5566474851b83d28e9c4036393b8258ea130be75d9739b8d74"
+  },
+  {
+    "product_id": "P1210",
+    "product_name": "Beige Linen Shirt",
+    "description": "relaxed linen shirt in beige, suited to brunch styling. regular fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 29,
+    "is_available": true,
+    "price_aud": 100,
+    "image_key_sha256": "f09623308a0ca193a7613e4d1e562f7331d22d4f922a8b57cb3e2c008bdec865"
+  },
+  {
+    "product_id": "P1211",
+    "product_name": "Sage Platform Sandals",
+    "description": "relaxed platform sandals in sage, suited to casual styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 73,
+    "is_available": true,
+    "price_aud": 100,
+    "image_key_sha256": "259067d198a21d5c705ee48962ec5fa0d0baa8111de5e13c52b67424d23a635d"
+  },
+  {
+    "product_id": "P1212",
+    "product_name": "Grey Loafers",
+    "description": "minimalist loafers in grey, suited to formal styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 47,
+    "is_available": true,
+    "price_aud": 90,
+    "image_key_sha256": "fed092505b1806b8b57291152a191607523f2613fec3da7ff27360f96a70a529"
+  },
+  {
+    "product_id": "P1213",
+    "product_name": "Brown Denim Jacket",
+    "description": "streetwear denim jacket in brown, suited to travel styling. oversized fit/shape with denim construction.",
+    "material": "Denim",
+    "stock_qty": 45,
+    "is_available": true,
+    "price_aud": 60,
+    "image_key_sha256": "03e62afa6ded98d5d420cd7180657f9c153c758156e02cc8ab5b0da447ae62df"
+  },
+  {
+    "product_id": "P1214",
+    "product_name": "Pink Mini Dress",
+    "description": "romantic mini dress in pink, suited to formal styling. slim fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 36,
+    "is_available": true,
+    "price_aud": 160,
+    "image_key_sha256": "f1d848d64995c134c76833e0e18f462fde921a0298eb35c98c5de8487aab43a0"
+  },
+  {
+    "product_id": "P1215",
+    "product_name": "Brown Slip Dress",
+    "description": "elegant slip dress in brown, suited to beach wedding styling. slim fit/shape with satin construction.",
+    "material": "Satin",
+    "stock_qty": 13,
+    "is_available": true,
+    "price_aud": 260,
+    "image_key_sha256": "b454da6145f27cf7ded6fd79eeb4cd23ce5ca8e16204e97e37a91d020d28c4ee"
+  },
+  {
+    "product_id": "P1216",
+    "product_name": "Pink Midi Skirt",
+    "description": "minimalist midi skirt in pink, suited to wedding guest styling. regular fit/shape with linen blend construction.",
+    "material": "Linen Blend",
+    "stock_qty": 40,
+    "is_available": true,
+    "price_aud": 75,
+    "image_key_sha256": "9f769950ce0eafbb2cf7842a2250df2b096ae7ea80e5a599e9f63026662f0aeb"
+  },
+  {
+    "product_id": "P1217",
+    "product_name": "Grey Suit Set",
+    "description": "bohemian suit set in grey, suited to smart casual styling. relaxed fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 77,
+    "is_available": true,
+    "price_aud": 70,
+    "image_key_sha256": "a986cc66ddcba72d4134e67739b6f50d5eeefe434dc4a26d4ebe2c75f2f59117"
+  },
+  {
+    "product_id": "P1218",
+    "product_name": "Brown Blazer",
+    "description": "minimalist blazer in brown, suited to smart casual styling. regular fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 48,
+    "is_available": true,
+    "price_aud": 105,
+    "image_key_sha256": "e4f646c531888a5d6b04cce50b67df5a6ed74629b7deea0af0554f77d3ba30be"
+  },
+  {
+    "product_id": "P1219",
+    "product_name": "Lavender Maxi Dress",
+    "description": "bohemian maxi dress in lavender, suited to date night styling. regular fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 82,
+    "is_available": true,
+    "price_aud": 240,
+    "image_key_sha256": "e29facbeace9e949c56bc4f0ef3f0334b009b44c51eea9c9a152cd1f27802100"
+  },
+  {
+    "product_id": "P1220",
+    "product_name": "Olive Flat Sandals",
+    "description": "classic flat sandals in olive, suited to casual styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 80,
+    "is_available": true,
+    "price_aud": 120,
+    "image_key_sha256": "27e2e4494ed0d62887152082b106a8b698034a8c66015c3e34f7531108aa67cb"
+  },
+  {
+    "product_id": "P1221",
+    "product_name": "Silver Knit Polo",
+    "description": "streetwear knit polo in silver, suited to brunch styling. relaxed fit/shape with knit construction.",
+    "material": "Knit",
+    "stock_qty": 43,
+    "is_available": true,
+    "price_aud": 45,
+    "image_key_sha256": "5d46ecbcd01324cbf7046d9e9493f0a82309174d01bacbb1a00c2fcc3f165978"
+  },
+  {
+    "product_id": "P1222",
+    "product_name": "White Pendant Necklace",
+    "description": "contemporary pendant necklace in white, suited to formal styling. standard fit/shape with silver-tone metal construction.",
+    "material": "Silver-tone Metal",
+    "stock_qty": 28,
+    "is_available": true,
+    "price_aud": 85,
+    "image_key_sha256": "f205a1665d5c8100d0e3780277a07074bdf23c9f628aa223b95e12fb97637bcf"
+  },
+  {
+    "product_id": "P1223",
+    "product_name": "Olive Flat Sandals",
+    "description": "elegant flat sandals in olive, suited to beach wedding styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 29,
+    "is_available": true,
+    "price_aud": 65,
+    "image_key_sha256": "692ad758e340d6b060f3125bf7bad533409b1d352b10dcf6f02553a7b7060f8c"
+  },
+  {
+    "product_id": "P1224",
+    "product_name": "Red Low-Top Sneakers",
+    "description": "streetwear low-top sneakers in red, suited to smart casual styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 47,
+    "is_available": true,
+    "price_aud": 120,
+    "image_key_sha256": "fee1c0e414e6bb5e150434567042af20e48141b41ca2f325b83fe4ecbb0b184b"
+  },
+  {
+    "product_id": "P1225",
+    "product_name": "Pink Trench Coat",
+    "description": "classic trench coat in pink, suited to casual styling. slim fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 16,
+    "is_available": true,
+    "price_aud": 130,
+    "image_key_sha256": "76232b6f8f6459442a58731368432958e45f9ceb9e92bdb05493a5b31df424cb"
+  },
+  {
+    "product_id": "P1226",
+    "product_name": "Blue Straight Jeans",
+    "description": "minimalist straight jeans in blue, suited to casual styling. relaxed fit/shape with denim construction.",
+    "material": "Denim",
+    "stock_qty": 62,
+    "is_available": true,
+    "price_aud": 140,
+    "image_key_sha256": "ee3e4adbd273d967683cabb622dd988c4df297593d960cff7b8f04cb7e490abf"
+  },
+  {
+    "product_id": "P1227",
+    "product_name": "Beige Pendant Necklace",
+    "description": "contemporary pendant necklace in beige, suited to formal styling. standard fit/shape with gold-tone metal construction.",
+    "material": "Gold-tone Metal",
+    "stock_qty": 9,
+    "is_available": true,
+    "price_aud": 60,
+    "image_key_sha256": "4154d9c229455c4825f29d765379bd2064fa2e7e94c38ba6188adcb52d50dfc4"
+  },
+  {
+    "product_id": "P1228",
+    "product_name": "Burgundy Satin Camisole",
+    "description": "contemporary satin camisole in burgundy, suited to beach wedding styling. relaxed fit/shape with satin construction.",
+    "material": "Satin",
+    "stock_qty": 52,
+    "is_available": true,
+    "price_aud": 40,
+    "image_key_sha256": "d5602d713d776f4b342771d2259389196a6a61b48410fcd1c83f386827d7e840"
+  },
+  {
+    "product_id": "P1229",
+    "product_name": "Olive Cropped Jacket",
+    "description": "contemporary cropped jacket in olive, suited to smart casual styling. slim fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 38,
+    "is_available": true,
+    "price_aud": 115,
+    "image_key_sha256": "98f62bbca421a7ba82725dd054554beada10548523cdaf0bb2a3709578faf5e0"
+  },
+  {
+    "product_id": "P1230",
+    "product_name": "Sage Ballet Flats",
+    "description": "streetwear ballet flats in sage, suited to party styling. standard fit/shape with suede construction.",
+    "material": "Suede",
+    "stock_qty": 84,
+    "is_available": true,
+    "price_aud": 60,
+    "image_key_sha256": "4b984e975f42b4855acf4aaa0c25a5506d048a06f44b7f0bce0e205a6e333205"
+  },
+  {
+    "product_id": "P1231",
+    "product_name": "Yellow Knit Top",
+    "description": "relaxed knit top in yellow, suited to travel styling. slim fit/shape with knit construction.",
+    "material": "Knit",
+    "stock_qty": 45,
+    "is_available": true,
+    "price_aud": 160,
+    "image_key_sha256": "1b9a7e2453b11d886042064984265e36c39b27a22d470bf73e9cb011372a1905"
+  },
+  {
+    "product_id": "P1232",
+    "product_name": "Blue Hoop Earrings",
+    "description": "smart hoop earrings in blue, suited to party styling. standard fit/shape with silver-tone metal construction.",
+    "material": "Silver-tone Metal",
+    "stock_qty": 49,
+    "is_available": true,
+    "price_aud": 25,
+    "image_key_sha256": "bba614b6dd9dc52faee8cc4528ddfdb351691523716a39014621e495110e8263"
+  },
+  {
+    "product_id": "P1233",
+    "product_name": "Brown Cardigan",
+    "description": "romantic cardigan in brown, suited to date night styling. slim fit/shape with knit construction.",
+    "material": "Knit",
+    "stock_qty": 46,
+    "is_available": true,
+    "price_aud": 180,
+    "image_key_sha256": "7f2fc5df240d0f0311edfb58b382199a77f1d0a238b271cef601ac114872a1fc"
+  },
+  {
+    "product_id": "P1234",
+    "product_name": "Blue Crossbody Bag",
+    "description": "elegant crossbody bag in blue, suited to travel styling. standard fit/shape with canvas construction.",
+    "material": "Canvas",
+    "stock_qty": 36,
+    "is_available": true,
+    "price_aud": 135,
+    "image_key_sha256": "791c03f76c23a9f91d5c7f6d531dfc82e088f041f2d9a9a3509c3d80f819ddcc"
+  },
+  {
+    "product_id": "P1235",
+    "product_name": "Sage Midi Dress",
+    "description": "relaxed midi dress in sage, suited to formal styling. slim fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 15,
+    "is_available": true,
+    "price_aud": 135,
+    "image_key_sha256": "d310979146bca1b776e8e10b9dda7098f5d67b05169873a389c3f7e4bfce9eaf"
+  },
+  {
+    "product_id": "P1236",
+    "product_name": "Burgundy Straight Jeans",
+    "description": "streetwear straight jeans in burgundy, suited to travel styling. tailored fit/shape with denim construction.",
+    "material": "Denim",
+    "stock_qty": 61,
+    "is_available": true,
+    "price_aud": 155,
+    "image_key_sha256": "bf198e63837d5143604d2ebfaa093ad9d42a2bf9820ae8de0e21505579c5d2ff"
+  },
+  {
+    "product_id": "P1237",
+    "product_name": "Blue Crossbody Bag",
+    "description": "bohemian crossbody bag in blue, suited to travel styling. standard fit/shape with canvas construction.",
+    "material": "Canvas",
+    "stock_qty": 41,
+    "is_available": true,
+    "price_aud": 100,
+    "image_key_sha256": "5db535ecd65cbf7e0176331ccf4fecd6919588c4a7210bb45f32676e6da51c3e"
+  },
+  {
+    "product_id": "P1238",
+    "product_name": "Beige Bomber Jacket",
+    "description": "classic bomber jacket in beige, suited to travel styling. slim fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 38,
+    "is_available": true,
+    "price_aud": 165,
+    "image_key_sha256": "33628c2a9036e8f6ab763824f999777324aa32f9c17051d3b3983000d00baebf"
+  },
+  {
+    "product_id": "P1239",
+    "product_name": "Navy Denim Jacket",
+    "description": "streetwear denim jacket in navy, suited to travel styling. regular fit/shape with denim construction.",
+    "material": "Denim",
+    "stock_qty": 8,
+    "is_available": true,
+    "price_aud": 165,
+    "image_key_sha256": "67af79c5f34f7485ffaa38f8151403507c04f21b3bcf228a72926f1b97e3942a"
+  },
+  {
+    "product_id": "P1240",
+    "product_name": "Gold Sling Bag",
+    "description": "contemporary sling bag in gold, suited to formal styling. standard fit/shape with woven construction.",
+    "material": "Woven",
+    "stock_qty": 75,
+    "is_available": true,
+    "price_aud": 55,
+    "image_key_sha256": "ffe52012f81ba011c8d563c1d37f32dc6b096f4047b44e84ee40f21d8e15d2bc"
+  },
+  {
+    "product_id": "P1241",
+    "product_name": "Beige Cropped Jacket",
+    "description": "bohemian cropped jacket in beige, suited to casual styling. oversized fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 79,
+    "is_available": true,
+    "price_aud": 210,
+    "image_key_sha256": "73455ad81f45774106429a19b2fd1a08508b57941a004f8fa16fd7994212ba8f"
+  },
+  {
+    "product_id": "P1242",
+    "product_name": "Beige Block Heels",
+    "description": "contemporary block heels in beige, suited to date night styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 45,
+    "is_available": true,
+    "price_aud": 125,
+    "image_key_sha256": "17a05e9341fe29c40e19502a8aaa8ca36d80a5743191e92819ac914becee615d"
+  },
+  {
+    "product_id": "P1243",
+    "product_name": "White Retro Sneakers",
+    "description": "streetwear retro sneakers in white, suited to casual styling. standard fit/shape with canvas construction.",
+    "material": "Canvas",
+    "stock_qty": 51,
+    "is_available": true,
+    "price_aud": 45,
+    "image_key_sha256": "e276af14bf799665c643c2a573f6dde31ea5f4b0e09fea5e9782addd4fe77834"
+  },
+  {
+    "product_id": "P1244",
+    "product_name": "Yellow Leather Belt",
+    "description": "minimalist leather belt in yellow, suited to smart casual styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 71,
+    "is_available": true,
+    "price_aud": 45,
+    "image_key_sha256": "a00b71f0e9c79faf64d4c4591d49808418556235a93fc642b971bfe724c79143"
+  },
+  {
+    "product_id": "P1245",
+    "product_name": "Blue Slim Belt",
+    "description": "classic slim belt in blue, suited to wedding guest styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 47,
+    "is_available": true,
+    "price_aud": 70,
+    "image_key_sha256": "dfff6f0ba5db0066a517641bee46bc03828536485acee14d45eb5c19c59ecda2"
+  },
+  {
+    "product_id": "P1246",
+    "product_name": "Beige Tailored Shorts",
+    "description": "smart tailored shorts in beige, suited to party styling. relaxed fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 13,
+    "is_available": true,
+    "price_aud": 100,
+    "image_key_sha256": "272fd942b6b2ab5bae0f62ab52994b72e7778203a2eeb2f3687aa9e856939463"
+  },
+  {
+    "product_id": "P1247",
+    "product_name": "Red Suit Set",
+    "description": "streetwear suit set in red, suited to smart casual styling. relaxed fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 7,
+    "is_available": true,
+    "price_aud": 265,
+    "image_key_sha256": "07ed32442f055facb9e4d709243fdb3c0af04bea08a774ccaeb9d658ae2c4816"
+  },
+  {
+    "product_id": "P1248",
+    "product_name": "Burgundy Midi Dress",
+    "description": "contemporary midi dress in burgundy, suited to party styling. slim fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 9,
+    "is_available": true,
+    "price_aud": 260,
+    "image_key_sha256": "50f8ce301d8de23336e7a2bb4f4298e3e828f5b75733ad7a2443b2dd132511e5"
+  },
+  {
+    "product_id": "P1249",
+    "product_name": "Red Straight Jeans",
+    "description": "bohemian straight jeans in red, suited to casual styling. tailored fit/shape with denim construction.",
+    "material": "Denim",
+    "stock_qty": 25,
+    "is_available": true,
+    "price_aud": 135,
+    "image_key_sha256": "e822d676927e02c378368c0fc162a6bd0eb18caf384242959162fa778997e479"
+  },
+  {
+    "product_id": "P1250",
+    "product_name": "Blue Sling Bag",
+    "description": "bohemian sling bag in blue, suited to beach wedding styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 75,
+    "is_available": true,
+    "price_aud": 100,
+    "image_key_sha256": "d3da13057d7f5dd9f30200cf6887db0236c363d7f86127396f0b866eb9c8c49d"
+  },
+  {
+    "product_id": "P1252",
+    "product_name": "Beige Denim Jacket",
+    "description": "streetwear denim jacket in beige, suited to smart casual styling. relaxed fit/shape with denim construction.",
+    "material": "Denim",
+    "stock_qty": 64,
+    "is_available": true,
+    "price_aud": 190,
+    "image_key_sha256": "c4aaf9ac612c69ac2b8f6c86618e0bf498bcc522423ce9f7566a187a9375c7cd"
+  },
+  {
+    "product_id": "P1253",
+    "product_name": "Grey Denim Jacket",
+    "description": "relaxed denim jacket in grey, suited to smart casual styling. relaxed fit/shape with denim construction.",
+    "material": "Denim",
+    "stock_qty": 64,
+    "is_available": true,
+    "price_aud": 55,
+    "image_key_sha256": "2ab82f45b39a82565dd7269d6cdd7157c5948d995686a59f47af0f03f91fac76"
+  },
+  {
+    "product_id": "P1254",
+    "product_name": "Burgundy Maxi Dress",
+    "description": "relaxed maxi dress in burgundy, suited to brunch styling. flowy fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 85,
+    "is_available": true,
+    "price_aud": 120,
+    "image_key_sha256": "52ed8c0aeef89ec200b9c458f5a39a6c05a2d5895b8046d175381fa678bd9996"
+  },
+  {
+    "product_id": "P1255",
+    "product_name": "Black Wrap Dress",
+    "description": "contemporary wrap dress in black, suited to party styling. slim fit/shape with linen blend construction.",
+    "material": "Linen Blend",
+    "stock_qty": 76,
+    "is_available": true,
+    "price_aud": 260,
+    "image_key_sha256": "6849e5a276b5619b08d2241571dc914e31dc5ab269f7de75835b661982dd8d59"
+  },
+  {
+    "product_id": "P1256",
+    "product_name": "Navy Cropped Jacket",
+    "description": "classic cropped jacket in navy, suited to beach wedding styling. relaxed fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 66,
+    "is_available": true,
+    "price_aud": 80,
+    "image_key_sha256": "b8bd2fbea9b986060b6477b8329d93c50e3471a2d2f21f0539c3ddbbe886c4ed"
+  },
+  {
+    "product_id": "P1257",
+    "product_name": "Olive Cardigan",
+    "description": "minimalist cardigan in olive, suited to party styling. regular fit/shape with knit construction.",
+    "material": "Knit",
+    "stock_qty": 75,
+    "is_available": true,
+    "price_aud": 45,
+    "image_key_sha256": "06c0a45830f2e4c0c92f8e6f4c4be2eec215f5a6eaac6bbb5091d346ec3241e2"
+  },
+  {
+    "product_id": "P1258",
+    "product_name": "Red Cardigan",
+    "description": "relaxed cardigan in red, suited to date night styling. slim fit/shape with knit construction.",
+    "material": "Knit",
+    "stock_qty": 48,
+    "is_available": true,
+    "price_aud": 50,
+    "image_key_sha256": "660be7857a137864052280b9919fb9165a1703716263a0f3144e0250d114015d"
+  },
+  {
+    "product_id": "P1259",
+    "product_name": "Silver Blouse",
+    "description": "minimalist blouse in silver, suited to work styling. regular fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 60,
+    "is_available": true,
+    "price_aud": 170,
+    "image_key_sha256": "6d0d2979ba263debaaa8ec19ed4f01a49fc77a81ceaf4609659666e00c6570b3"
+  },
+  {
+    "product_id": "P1260",
+    "product_name": "Black Shoulder Bag",
+    "description": "romantic shoulder bag in black, suited to travel styling. standard fit/shape with woven construction.",
+    "material": "Woven",
+    "stock_qty": 82,
+    "is_available": true,
+    "price_aud": 90,
+    "image_key_sha256": "557247710af0cfc0a385cc9ecf422e75267fd9fcf829347814f6e3a7634bcc0b"
+  },
+  {
+    "product_id": "P1261",
+    "product_name": "Silver Blazer",
+    "description": "minimalist blazer in silver, suited to work styling. relaxed fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 36,
+    "is_available": true,
+    "price_aud": 230,
+    "image_key_sha256": "c6c776d6e495834c88c6fea8905b45ceaad39066dbcac97aae617b0aceba0639"
+  },
+  {
+    "product_id": "P1262",
+    "product_name": "Pink Bomber Jacket",
+    "description": "bohemian bomber jacket in pink, suited to travel styling. slim fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 47,
+    "is_available": true,
+    "price_aud": 145,
+    "image_key_sha256": "362e364746b0448fdd3e6b1341145a386324964522f76b98b6491936b61254fb"
+  },
+  {
+    "product_id": "P1263",
+    "product_name": "Silver Mini Tote",
+    "description": "smart mini tote in silver, suited to wedding guest styling. standard fit/shape with woven construction.",
+    "material": "Woven",
+    "stock_qty": 65,
+    "is_available": true,
+    "price_aud": 130,
+    "image_key_sha256": "ff8f063f2d0f8ae5cab394c221cd7fca9cfabba884c2fc0bb669eddb534ee37a"
+  },
+  {
+    "product_id": "P1264",
+    "product_name": "Blue Lightweight Scarf",
+    "description": "relaxed lightweight scarf in blue, suited to casual styling. standard fit/shape with silk blend construction.",
+    "material": "Silk Blend",
+    "stock_qty": 10,
+    "is_available": true,
+    "price_aud": 25,
+    "image_key_sha256": "f04a732764c87312f6a34431935a082f0f159d4cd34f03730a9d672d0d11d8c7"
+  },
+  {
+    "product_id": "P1265",
+    "product_name": "Silver Knit Top",
+    "description": "bohemian knit top in silver, suited to smart casual styling. regular fit/shape with knit construction.",
+    "material": "Knit",
+    "stock_qty": 53,
+    "is_available": true,
+    "price_aud": 180,
+    "image_key_sha256": "688eee5cfb453511bc0538a19b572bfd654f97384af82a36065bf8f7d5cc8037"
+  },
+  {
+    "product_id": "P1266",
+    "product_name": "Navy Suit Set",
+    "description": "relaxed suit set in navy, suited to smart casual styling. relaxed fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 64,
+    "is_available": true,
+    "price_aud": 165,
+    "image_key_sha256": "25b6f1b78be34aa5f82b436183ed87d205c19c5df156f03bb9630d42eba183d1"
+  },
+  {
+    "product_id": "P1267",
+    "product_name": "Lavender Low-Top Sneakers",
+    "description": "relaxed low-top sneakers in lavender, suited to casual styling. standard fit/shape with leather construction.",
+    "material": "Leather",
+    "stock_qty": 40,
+    "is_available": true,
+    "price_aud": 145,
+    "image_key_sha256": "60bb8f9a61aeb8b70ea19e81ee1fdf647e396eaff9f837feea6f5384d123173e"
+  },
+  {
+    "product_id": "P1268",
+    "product_name": "Navy Hoop Earrings",
+    "description": "bohemian hoop earrings in navy, suited to wedding guest styling. standard fit/shape with silver-tone metal construction.",
+    "material": "Silver-tone Metal",
+    "stock_qty": 45,
+    "is_available": true,
+    "price_aud": 20,
+    "image_key_sha256": "77bdb241416aa98be6ac5fb9d47a32f05f40fe9b4cea1fdf30d3892820c2f166"
+  },
+  {
+    "product_id": "P1269",
+    "product_name": "Yellow Ballet Flats",
+    "description": "bohemian ballet flats in yellow, suited to brunch styling. standard fit/shape with suede construction.",
+    "material": "Suede",
+    "stock_qty": 6,
+    "is_available": true,
+    "price_aud": 160,
+    "image_key_sha256": "9673e105a01508b281f280977fa3c4b9bb211e23ff8a2fc2cf483ebdd8ace3d7"
+  },
+  {
+    "product_id": "P1270",
+    "product_name": "Black Trench Coat",
+    "description": "relaxed trench coat in black, suited to wedding guest styling. regular fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 81,
+    "is_available": true,
+    "price_aud": 55,
+    "image_key_sha256": "c846eee32338dcd0ca5242834b68c19598e909ac0d4a6067902f90e3b1bda407"
+  },
+  {
+    "product_id": "P1271",
+    "product_name": "White Cardigan",
+    "description": "elegant cardigan in white, suited to travel styling. oversized fit/shape with knit construction.",
+    "material": "Knit",
+    "stock_qty": 55,
+    "is_available": true,
+    "price_aud": 135,
+    "image_key_sha256": "582e617655651287278159ec5c2a9c60a70f498c9cfd050d8ffbfeea1d97ba5b"
+  },
+  {
+    "product_id": "P1272",
+    "product_name": "Blue Suit Set",
+    "description": "contemporary suit set in blue, suited to formal styling. regular fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 46,
+    "is_available": true,
+    "price_aud": 185,
+    "image_key_sha256": "da8a8767713e7e70fcd02e7a9da2b09ddb72afc8c3d77964692b405b256d844b"
+  },
+  {
+    "product_id": "P1273",
+    "product_name": "Gold Mini Clutch",
+    "description": "romantic mini clutch in gold, suited to date night styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 14,
+    "is_available": true,
+    "price_aud": 100,
+    "image_key_sha256": "72788f365a61bc64f051f79d66350d40a697e8a0a987f1f0e9cc679f95fdf6e6"
+  },
+  {
+    "product_id": "P1274",
+    "product_name": "Grey Cropped Jacket",
+    "description": "relaxed cropped jacket in grey, suited to beach wedding styling. oversized fit/shape with linen blend construction.",
+    "material": "Linen Blend",
+    "stock_qty": 44,
+    "is_available": true,
+    "price_aud": 70,
+    "image_key_sha256": "b28b175d2dcd1a7cae22fab2a097735091aca0fcd1cdba16fc2bd660682a88bc"
+  },
+  {
+    "product_id": "P1275",
+    "product_name": "Brown Cap",
+    "description": "streetwear cap in brown, suited to casual styling. standard fit/shape with gold-tone metal construction.",
+    "material": "Gold-tone Metal",
+    "stock_qty": 12,
+    "is_available": true,
+    "price_aud": 85,
+    "image_key_sha256": "551a50eba2a08dde5f30dc8037d5034e013b4454d21cf6a0abffae8f40bc1d44"
+  },
+  {
+    "product_id": "P1276",
+    "product_name": "Sage Midi Skirt",
+    "description": "contemporary midi skirt in sage, suited to party styling. flowy fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 23,
+    "is_available": true,
+    "price_aud": 135,
+    "image_key_sha256": "baf6e6cf064bcec79c4bcdacee7a7aad1e2f401fefdc5add2a2a7a9b682c2264"
+  },
+  {
+    "product_id": "P1277",
+    "product_name": "Blue Midi Skirt",
+    "description": "romantic midi skirt in blue, suited to casual styling. slim fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 44,
+    "is_available": true,
+    "price_aud": 185,
+    "image_key_sha256": "f00d80208edf8e2b756ebe3dfb4335780a7ba1655d27a943f7a284db0e5f5634"
+  },
+  {
+    "product_id": "P1278",
+    "product_name": "Red Midi Skirt",
+    "description": "streetwear midi skirt in red, suited to party styling. flowy fit/shape with linen blend construction.",
+    "material": "Linen Blend",
+    "stock_qty": 53,
+    "is_available": true,
+    "price_aud": 115,
+    "image_key_sha256": "da3a7aa955a9d5dbdeaf237baaef23d92d40f137114507096cb879beaf0069ce"
+  },
+  {
+    "product_id": "P1279",
+    "product_name": "Silver Silk Scarf",
+    "description": "relaxed silk scarf in silver, suited to wedding guest styling. standard fit/shape with silk blend construction.",
+    "material": "Silk Blend",
+    "stock_qty": 65,
+    "is_available": true,
+    "price_aud": 15,
+    "image_key_sha256": "2f1b28150c152ecc84e85d3a625c5a11e63120e1d22b2f1d183346bf014e5e3c"
+  },
+  {
+    "product_id": "P1280",
+    "product_name": "Lavender Suit Set",
+    "description": "romantic suit set in lavender, suited to smart casual styling. relaxed fit/shape with wool blend construction.",
+    "material": "Wool Blend",
+    "stock_qty": 40,
+    "is_available": true,
+    "price_aud": 270,
+    "image_key_sha256": "ed20d293bef9384349c80754328d886d0aaadb0e7d37888dca0084169bc441f6"
+  },
+  {
+    "product_id": "P1281",
+    "product_name": "Blue Suit Set",
+    "description": "relaxed suit set in blue, suited to work styling. relaxed fit/shape with wool blend construction.",
+    "material": "Wool Blend",
+    "stock_qty": 63,
+    "is_available": true,
+    "price_aud": 110,
+    "image_key_sha256": "d9a414b7758dda47fe22fcc9c20c9693919b85bac4a8f791a6326579439f4264"
+  },
+  {
+    "product_id": "P1282",
+    "product_name": "Silver Mini Clutch",
+    "description": "romantic mini clutch in silver, suited to date night styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 35,
+    "is_available": true,
+    "price_aud": 65,
+    "image_key_sha256": "20af944a5866d5b2808dc42721a02fd8b5cf414d9cafd0cbd6f384adb50eb5d4"
+  },
+  {
+    "product_id": "P1283",
+    "product_name": "Blue Sling Bag",
+    "description": "streetwear sling bag in blue, suited to smart casual styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 67,
+    "is_available": true,
+    "price_aud": 155,
+    "image_key_sha256": "eadb645b6c08b1541a43665fcdbf852a287246be5bf5bf2971220e4ffbdf49c8"
+  },
+  {
+    "product_id": "P1284",
+    "product_name": "Lavender Maxi Dress",
+    "description": "minimalist maxi dress in lavender, suited to formal styling. slim fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 68,
+    "is_available": true,
+    "price_aud": 240,
+    "image_key_sha256": "98e42eb4e85bc698888c1bf56133172e687ab14205c03160c68ea673b6cfa772"
+  },
+  {
+    "product_id": "P1285",
+    "product_name": "Silver Mini Tote",
+    "description": "bohemian mini tote in silver, suited to travel styling. standard fit/shape with canvas construction.",
+    "material": "Canvas",
+    "stock_qty": 14,
+    "is_available": true,
+    "price_aud": 135,
+    "image_key_sha256": "ee19b9d2be3fb36a5cfc8bcbcf61331f44b0a3a6dc5dc6ca50c6d213a3c302ba"
+  },
+  {
+    "product_id": "P1286",
+    "product_name": "Silver Blazer",
+    "description": "minimalist blazer in silver, suited to smart casual styling. tailored fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 69,
+    "is_available": true,
+    "price_aud": 160,
+    "image_key_sha256": "71257a682a9352900af394cbdf4408d8e22043d17f57a96932c9a812ecc19966"
+  },
+  {
+    "product_id": "P1287",
+    "product_name": "Beige Maxi Dress",
+    "description": "minimalist maxi dress in beige, suited to date night styling. slim fit/shape with linen blend construction.",
+    "material": "Linen Blend",
+    "stock_qty": 78,
+    "is_available": true,
+    "price_aud": 155,
+    "image_key_sha256": "784abecc7bb2dc985b642c52b9c942a9fb8224ac233879504cb1d6842bd65bef"
+  },
+  {
+    "product_id": "P1288",
+    "product_name": "Sage Wide-Leg Pants",
+    "description": "bohemian wide-leg pants in sage, suited to work styling. oversized fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 22,
+    "is_available": true,
+    "price_aud": 180,
+    "image_key_sha256": "650632e56abe089888148742df05239b2fef46cb7904e488435386dd15fc8e14"
+  },
+  {
+    "product_id": "P1289",
+    "product_name": "Black Hoop Earrings",
+    "description": "contemporary hoop earrings in black, suited to date night styling. standard fit/shape with gold-tone metal construction.",
+    "material": "Gold-tone Metal",
+    "stock_qty": 58,
+    "is_available": true,
+    "price_aud": 85,
+    "image_key_sha256": "15b01a403f615cb8ec38b92f0cbe6c86402f5b1c481dfb61d88eeb4bd052b799"
+  },
+  {
+    "product_id": "P1290",
+    "product_name": "Yellow Cap",
+    "description": "elegant cap in yellow, suited to smart casual styling. standard fit/shape with gold-tone metal construction.",
+    "material": "Gold-tone Metal",
+    "stock_qty": 14,
+    "is_available": true,
+    "price_aud": 70,
+    "image_key_sha256": "52ef026eb218aaea2432dfd6be5c106fd9cd1f74825ace8f5890dbe2e100a8bc"
+  },
+  {
+    "product_id": "P1291",
+    "product_name": "Brown Flat Sandals",
+    "description": "romantic flat sandals in brown, suited to brunch styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 17,
+    "is_available": true,
+    "price_aud": 105,
+    "image_key_sha256": "84e6cda4b72591c230c585384a64f0b5b299202624bc82fcfaa47e8b09200f6e"
+  },
+  {
+    "product_id": "P1292",
+    "product_name": "Olive Suit Set",
+    "description": "romantic suit set in olive, suited to work styling. tailored fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 65,
+    "is_available": true,
+    "price_aud": 160,
+    "image_key_sha256": "d573ded063614fa55e0f48e66981490b0588942ff618ac2f2f12a7d95a7fe7ab"
+  },
+  {
+    "product_id": "P1293",
+    "product_name": "Beige Maxi Dress",
+    "description": "streetwear maxi dress in beige, suited to brunch styling. regular fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 81,
+    "is_available": true,
+    "price_aud": 170,
+    "image_key_sha256": "e39cc1eaaf8494308af2537dee2e0d3a918c70b2e83a5a35a30dfc4dd50a918d"
+  },
+  {
+    "product_id": "P1294",
+    "product_name": "Beige Satin Camisole",
+    "description": "elegant satin camisole in beige, suited to brunch styling. relaxed fit/shape with satin construction.",
+    "material": "Satin",
+    "stock_qty": 69,
+    "is_available": true,
+    "price_aud": 220,
+    "image_key_sha256": "3eef8cf06b7fe519a84b8882d876edb0c7929b809603ced31d99195b436fd6da"
+  },
+  {
+    "product_id": "P1295",
+    "product_name": "Lavender Pleated Skirt",
+    "description": "streetwear pleated skirt in lavender, suited to party styling. flowy fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 81,
+    "is_available": true,
+    "price_aud": 100,
+    "image_key_sha256": "658831e6802ae809dbd9bf7a39244d0413317c22bf493cfe3ae393828500a1c7"
+  },
+  {
+    "product_id": "P1296",
+    "product_name": "Beige Lightweight Scarf",
+    "description": "bohemian lightweight scarf in beige, suited to travel styling. standard fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 80,
+    "is_available": true,
+    "price_aud": 40,
+    "image_key_sha256": "31c03b1b2b48c1b89c96172745e464285e53e38d0c49ec96561d330ac65be5f7"
+  },
+  {
+    "product_id": "P1297",
+    "product_name": "Silver Denim Jacket",
+    "description": "relaxed denim jacket in silver, suited to smart casual styling. regular fit/shape with denim construction.",
+    "material": "Denim",
+    "stock_qty": 59,
+    "is_available": true,
+    "price_aud": 120,
+    "image_key_sha256": "c69a00c8920a2ff7be782876a8f688e965db491a75f2bb7d7c6e5d1bb75c4640"
+  },
+  {
+    "product_id": "P1298",
+    "product_name": "Gold Mini Tote",
+    "description": "classic mini tote in gold, suited to casual styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 40,
+    "is_available": true,
+    "price_aud": 35,
+    "image_key_sha256": "2ce89dd645ed1f11f79bda586e4e1d5a05ed5326fd87727a02f35cd33236cd4c"
+  },
+  {
+    "product_id": "P1299",
+    "product_name": "Silver Suit Set",
+    "description": "bohemian suit set in silver, suited to formal styling. regular fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 78,
+    "is_available": true,
+    "price_aud": 80,
+    "image_key_sha256": "791944ce0a2ab848558946fbd767537baa23ceb30f582bb45c121dcaff386572"
+  },
+  {
+    "product_id": "P1300",
+    "product_name": "Grey Cropped Jacket",
+    "description": "smart cropped jacket in grey, suited to date night styling. regular fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 23,
+    "is_available": true,
+    "price_aud": 95,
+    "image_key_sha256": "a8bdba459f894b3cbd1959e92dede97e3f35c278f97aa0a919285dd5de351f5a"
+  },
+  {
+    "product_id": "P1301",
+    "product_name": "Beige Retro Sneakers",
+    "description": "streetwear retro sneakers in beige, suited to casual styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 2,
+    "is_available": true,
+    "price_aud": 90,
+    "image_key_sha256": "193dbb5fbb92aa34a9fba6315e606c916d32e4a716a8fe33711021bf965e23b8"
+  },
+  {
+    "product_id": "P1302",
+    "product_name": "Black Tailored Trousers",
+    "description": "minimalist tailored trousers in black, suited to formal styling. slim fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 36,
+    "is_available": true,
+    "price_aud": 125,
+    "image_key_sha256": "57109cbc6f69baf71f9a9d90ad31d4067d9c5be70e259095bc0dfaee52b958ab"
+  },
+  {
+    "product_id": "P1303",
+    "product_name": "Sage Cardigan",
+    "description": "smart cardigan in sage, suited to party styling. slim fit/shape with knit construction.",
+    "material": "Knit",
+    "stock_qty": 48,
+    "is_available": true,
+    "price_aud": 110,
+    "image_key_sha256": "7518eb01d0e69113476c0788e36a5abbaf0d53cfe603dda2fe5b7b959544a983"
+  },
+  {
+    "product_id": "P1304",
+    "product_name": "Beige Envelope Clutch",
+    "description": "elegant envelope clutch in beige, suited to date night styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 13,
+    "is_available": true,
+    "price_aud": 90,
+    "image_key_sha256": "fe918af9ebf4fd5f9f5c7374d6632e558835cc984a0233dc0e2245ad493267e8"
+  },
+  {
+    "product_id": "P1305",
+    "product_name": "Sage Oversized Tee",
+    "description": "relaxed oversized tee in sage, suited to smart casual styling. regular fit/shape with linen blend construction.",
+    "material": "Linen Blend",
+    "stock_qty": 1,
+    "is_available": true,
+    "price_aud": 85,
+    "image_key_sha256": "f1e9900ff7695b35f57c023d8bac7358140bb7b25d32f85658b91188bf01ed61"
+  },
+  {
+    "product_id": "P1306",
+    "product_name": "Lavender Low-Top Sneakers",
+    "description": "relaxed low-top sneakers in lavender, suited to smart casual styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 27,
+    "is_available": true,
+    "price_aud": 155,
+    "image_key_sha256": "8e56a5945f83d6c98da9ac66fa9fa13c51f7b3515098888f5f047123200c7c3f"
+  },
+  {
+    "product_id": "P1307",
+    "product_name": "Olive Co-ord Set",
+    "description": "contemporary co-ord set in olive, suited to wedding guest styling. regular fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 29,
+    "is_available": true,
+    "price_aud": 115,
+    "image_key_sha256": "047b283df837388fb3ca13dfec4bf55d108eb187e4698524b1615256b8ad05f9"
+  },
+  {
+    "product_id": "P1308",
+    "product_name": "White Polo Shirt",
+    "description": "contemporary polo shirt in white, suited to smart casual styling. slim fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 22,
+    "is_available": true,
+    "price_aud": 95,
+    "image_key_sha256": "a09deaae4a8693aaee1c5ebaf1f1572cce8d7d225ec9298a0fd94c1cf96e8fed"
+  },
+  {
+    "product_id": "P1309",
+    "product_name": "Olive Wide-Leg Pants",
+    "description": "bohemian wide-leg pants in olive, suited to brunch styling. oversized fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 67,
+    "is_available": true,
+    "price_aud": 185,
+    "image_key_sha256": "fce0fccfc13aabe58373adb87ad3dbf32d07119470dabd847f835d7de01a24bf"
+  },
+  {
+    "product_id": "P1310",
+    "product_name": "Yellow Suit Set",
+    "description": "elegant suit set in yellow, suited to smart casual styling. relaxed fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 28,
+    "is_available": true,
+    "price_aud": 225,
+    "image_key_sha256": "6ca26c23ec7d33ffde5aa73f3be09ced68c6bdaa9b743deb9b69d0de5cf599d6"
+  },
+  {
+    "product_id": "P1311",
+    "product_name": "Cream Maxi Dress",
+    "description": "elegant maxi dress in cream, suited to party styling. regular fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 55,
+    "is_available": true,
+    "price_aud": 70,
+    "image_key_sha256": "328dbd336f49e3d310dcd7275ce3c68c0cf312820fa5fcaf30f2abc38b7a3d2e"
+  },
+  {
+    "product_id": "P1312",
+    "product_name": "Beige Ballet Flats",
+    "description": "bohemian ballet flats in beige, suited to work styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 35,
+    "is_available": true,
+    "price_aud": 165,
+    "image_key_sha256": "c245b9b7f173fad0bd61e7646eefe20807162a06c778bc8186c4cf98ec13413f"
+  },
+  {
+    "product_id": "P1313",
+    "product_name": "Silver Wide-Leg Pants",
+    "description": "bohemian wide-leg pants in silver, suited to wedding guest styling. relaxed fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 76,
+    "is_available": true,
+    "price_aud": 95,
+    "image_key_sha256": "dd4785a5a5a5ce3c92136f4c95dcb8ab3a804e268aa6ad8ae3d8909ce778d50f"
+  },
+  {
+    "product_id": "P1314",
+    "product_name": "Olive Silk Scarf",
+    "description": "bohemian silk scarf in olive, suited to casual styling. standard fit/shape with viscose construction.",
+    "material": "Viscose",
+    "stock_qty": 44,
+    "is_available": true,
+    "price_aud": 30,
+    "image_key_sha256": "7d2a5dea31a30346c0339da96905c598011d8fc0c1e665822b3112ee33716de7"
+  },
+  {
+    "product_id": "P1315",
+    "product_name": "Burgundy Blouse",
+    "description": "relaxed blouse in burgundy, suited to wedding guest styling. slim fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 48,
+    "is_available": true,
+    "price_aud": 90,
+    "image_key_sha256": "08e40b365255e2950ba45cccf5c9573ce6d91bafe32794302aabe50205581866"
+  },
+  {
+    "product_id": "P1316",
+    "product_name": "Pink Bomber Jacket",
+    "description": "relaxed bomber jacket in pink, suited to travel styling. oversized fit/shape with polyester construction.",
+    "material": "Polyester",
+    "stock_qty": 72,
+    "is_available": true,
+    "price_aud": 125,
+    "image_key_sha256": "7598c49fe16b9ef718c5bcde230e633450647ea07ca288bf215a10819a9910b7"
+  },
+  {
+    "product_id": "P1317",
+    "product_name": "Red Flat Sandals",
+    "description": "elegant flat sandals in red, suited to brunch styling. standard fit/shape with faux leather construction.",
+    "material": "Faux Leather",
+    "stock_qty": 2,
+    "is_available": true,
+    "price_aud": 110,
+    "image_key_sha256": "1b5ffe0dc7f470fd3fe3de1a6100958e488a91bdb5f6844744906ba97551f673"
+  },
+  {
+    "product_id": "P1319",
+    "product_name": "Blue Cap",
+    "description": "smart cap in blue, suited to travel styling. standard fit/shape with gold-tone metal construction.",
+    "material": "Gold-tone Metal",
+    "stock_qty": 40,
+    "is_available": true,
+    "price_aud": 45,
+    "image_key_sha256": "b3155d051d65a28a4b74cfd1369433c70a9b9802174dba5ec029e67cb867ef57"
+  },
+  {
+    "product_id": "P1320",
+    "product_name": "Yellow Co-ord Set",
+    "description": "minimalist co-ord set in yellow, suited to formal styling. regular fit/shape with cotton construction.",
+    "material": "Cotton",
+    "stock_qty": 29,
+    "is_available": true,
+    "price_aud": 200,
+    "image_key_sha256": "8f37c6d4a24fbde0af0b95c0c90ff921eedf20db757ff0f1dd87e1efdc15bbdf"
+  }
+]

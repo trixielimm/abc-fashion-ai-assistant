@@ -1,0 +1,51 @@
+{
+  "product_id": "P1166",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:13.779Z",
+  "identity_snapshot": {
+    "product_id": "P1166",
+    "product_name": "Red Oxford Shirt",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "product_type": "Oxford Shirt",
+    "gender": "Men",
+    "colour": "Red",
+    "material": "Linen Blend",
+    "fit": "Slim",
+    "style": "Classic",
+    "occasion": "Work",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1166",
+    "description": "Classic red Oxford shirt in a slim silhouette, with a crisp woven finish and understated workwear character.",
+    "construction_details": [
+      "Point collar with structured collar stand",
+      "Button-through front with matching buttons",
+      "Back yoke with neat shoulder seams",
+      "Curved hem with double-needle stitching"
+    ],
+    "care_instructions": "Cold hand wash with similar colours; reshape and dry flat or hang to air. Cool iron on the reverse.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Work",
+      "Casual"
+    ],
+    "closure": "button",
+    "garment_length_cm": 75,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "b8e497f649816b5e4800fb553823b089c8de95a82b33fbecf73df099ab3af89f"
+}

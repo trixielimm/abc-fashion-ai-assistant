@@ -1,0 +1,52 @@
+{
+  "product_id": "P1159",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:17.672Z",
+  "identity_snapshot": {
+    "product_id": "P1159",
+    "product_name": "Navy Pleated Skirt",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Pleated Skirt",
+    "gender": "Women",
+    "colour": "Navy",
+    "material": "Polyester",
+    "fit": "Regular",
+    "style": "Elegant",
+    "occasion": "Wedding Guest",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1159",
+    "description": "Navy regular-fit pleated skirt with an elegant drape, suited to wedding guest styling in spring.",
+    "construction_details": [
+      "Evenly spaced knife pleats through the body",
+      "Smooth shaped waistband",
+      "Concealed side-seam fastening",
+      "Neat narrow hem"
+    ],
+    "care_instructions": "Do not machine wash. Hand wash briefly in cool water and hang to dry; use a pressing cloth on a low setting.",
+    "lining": true,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Wedding Guest",
+      "Work",
+      "Brunch"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 78,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "6fff4f8c10f9a913ca1dc5de6f0f58645772ee9cd74757640dbc65f3d138670c"
+}

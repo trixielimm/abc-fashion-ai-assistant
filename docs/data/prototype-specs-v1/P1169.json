@@ -1,0 +1,51 @@
+{
+  "product_id": "P1169",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:13.779Z",
+  "identity_snapshot": {
+    "product_id": "P1169",
+    "product_name": "Gold Knit Top",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "product_type": "Knit Top",
+    "gender": "Women",
+    "colour": "Gold",
+    "material": "Knit",
+    "fit": "Relaxed",
+    "style": "Minimalist",
+    "occasion": "Date Night",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1169",
+    "description": "Minimalist gold knit top with a relaxed fit and softly lustrous surface, suited to an elevated date-night look.",
+    "construction_details": [
+      "Rounded neckline with fine rib binding",
+      "Short sleeves with clean turned hems",
+      "Straight relaxed body shape",
+      "Reinforced shoulder seams"
+    ],
+    "care_instructions": "Hand wash in cool water; gently press out excess water and dry flat away from direct heat.",
+    "lining": false,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Date Night",
+      "Evening"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": 58,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "940048b3ac41687814e412ceff80a6efb5d53976c59a57d4ef6032ee24a0b9fb"
+}

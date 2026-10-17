@@ -255,7 +255,7 @@ check("A shoes request cannot silently receive the recorded bag category", () =>
     [change("category", "Shoes", "Shoes")]
   );
 
-  assert.equal(result.status, "no_rule");
+  assert.equal(result.status, "no_match");
   assert.deepEqual(result.products, []);
   assert.equal(result.applied_preferences.category, "Shoes");
 });
@@ -444,7 +444,7 @@ check("Unknown required catalogue values trigger clarification", () => {
   assert.deepEqual(result.products, []);
 });
 
-check("Missing rules and genuine no-matches remain empty results", () => {
+check("An explicit requested category works without a default rule, while genuine no-matches stay empty", () => {
   const modified = rows.map((product) =>
     product.product_id === "D1"
       ? { ...product, cross_sell_category: null }
@@ -453,7 +453,7 @@ check("Missing rules and genuine no-matches remain empty results", () => {
 
   assert.equal(
     cross({ rows: modified }).status,
-    "no_rule"
+    "matches"
   );
 
   const scopes = createPreferenceScopes();

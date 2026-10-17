@@ -1,0 +1,49 @@
+{
+  "product_id": "P1314",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:20:01.504Z",
+  "identity_snapshot": {
+    "product_id": "P1314",
+    "product_name": "Olive Silk Scarf",
+    "category": "Accessories",
+    "subcategory": "Scarves",
+    "product_type": "Silk Scarf",
+    "gender": "Men",
+    "colour": "Olive",
+    "material": "Viscose",
+    "fit": "Standard",
+    "style": "Bohemian",
+    "occasion": "Casual",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1314",
+    "description": "Olive bohemian silk scarf made from viscose, with a relaxed drape and softly finished edges for casual spring styling.",
+    "construction_details": [
+      "Lightweight rectangular shape",
+      "Narrow stitched hems",
+      "Neatly turned corners"
+    ],
+    "care_instructions": "Hand wash gently in cool water; reshape flat and dry away from direct sunlight.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": null,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Casual"
+    ],
+    "closure": "none",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "3e049e381658dc4e41fa7856b90b597a00d2d4d567e15e728d1b4f786b608bc9"
+}

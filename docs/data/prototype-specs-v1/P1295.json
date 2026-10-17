@@ -1,0 +1,50 @@
+{
+  "product_id": "P1295",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:22.200Z",
+  "identity_snapshot": {
+    "product_id": "P1295",
+    "product_name": "Lavender Pleated Skirt",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Pleated Skirt",
+    "gender": "Women",
+    "colour": "Lavender",
+    "material": "Cotton",
+    "fit": "Flowy",
+    "style": "Streetwear",
+    "occasion": "Party",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1295",
+    "description": "Lavender cotton pleated skirt with a flowy shape and streetwear attitude, adding movement to party-focused summer looks.",
+    "construction_details": [
+      "Evenly spaced pressed pleats through the skirt",
+      "Comfortable waistband with concealed fastening",
+      "Straight lower hem with clean edge stitching"
+    ],
+    "care_instructions": "Hand wash in cool water with like colours; reshape while damp and line dry.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Party",
+      "Weekend"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 82,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "2909d867f3e61cc12575cfdb836527734a05e12a57d057b796dd798a319b09e0"
+}

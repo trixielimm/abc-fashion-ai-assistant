@@ -1,5 +1,7 @@
 import type { ShoppingPreferences } from "@/lib/ai/preferenceSchema";
 import type { CatalogueProduct } from "@/lib/recommendations/catalogue";
+import type { z } from "zod";
+import type { PairingEvidenceSchema, ValueComparisonSchema } from "../stylist/commerceSchema";
 
 export type StylistProduct = {
   product_id: string;
@@ -10,8 +12,18 @@ export type StylistProduct = {
   subcategory: string | null;
   product_type: string | null;
   colour: string | null;
+  occasion?: string | null;
+  style?: string | null;
   image_key: string | null;
   sizes_available: string[];
+  pairing_evidence?: z.infer<typeof PairingEvidenceSchema>;
+  value_comparison?: z.infer<typeof ValueComparisonSchema>;
+};
+
+export type PreferenceSearchOptions = {
+  eligible?: (product: CatalogueProduct) => boolean;
+  compare?: (a: CatalogueProduct, b: CatalogueProduct) => number;
+  limit?: number;
 };
 
 export type PreferenceSearchResult = {
@@ -102,6 +114,7 @@ function hasText(value: string | null): value is string {
 export function searchByPreferences(
   catalogue: readonly CatalogueProduct[],
   preferences: ShoppingPreferences,
+  options: PreferenceSearchOptions = {},
 ): PreferenceSearchResult {
   const preferredColours = preferences.preferred_colours.filter((colour) => colour.trim());
   const excludedColours = preferences.excluded_colours.filter((colour) => colour.trim());
@@ -157,6 +170,7 @@ export function searchByPreferences(
   }
 
   const candidates = catalogue.filter(validProduct).filter((product) => {
+    if (options.eligible && !options.eligible(product)) return false;
     if (preferences.min_price !== null && product.price_aud < preferences.min_price) return false;
     if (preferences.max_price !== null && product.price_aud > preferences.max_price) return false;
     if (size && !product.sizes_available.some((available) => sizeLabelsMatch(available, size))) {
@@ -217,6 +231,7 @@ export function searchByPreferences(
       : [];
   relevant.sort(
     (a, b) =>
+      (options.compare?.(a.product, b.product) ?? 0) ||
       b.score - a.score ||
       b.genderBonus - a.genderBonus ||
       b.product.stock_qty - a.product.stock_qty ||
@@ -232,7 +247,7 @@ export function searchByPreferences(
     if (seenProducts.has(key)) return false;
     seenProducts.add(key);
     return true;
-  }).slice(0, MAX_RECOMMENDATIONS);
+  }).slice(0, options.limit ?? MAX_RECOMMENDATIONS);
   if (selected.length === 0) {
     return {
       status: "no_match",

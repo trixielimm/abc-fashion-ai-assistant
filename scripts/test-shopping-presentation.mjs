@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { catalogueImageSource, safeLocalImagePath } from "../lib/stylist/catalogueImages.ts";
+import { catalogueImageSource, safeLocalImagePath, safeProductImageSource } from "../lib/stylist/catalogueImages.ts";
 import { newSession, makeTurn, acceptReply, TurnReplySchema } from "../lib/stylist/conversationProtocol.ts";
 import { finishConversationTurn, shortcutPlan } from "../lib/stylist/conversationTurn.ts";
 
@@ -82,9 +82,24 @@ check("A verified image source is mapped by exact product ID", () => {
   assert.equal(catalogueImageSource(dress, { D1: "/images/catalogue/d1.jpg" }), "/images/catalogue/d1.jpg");
   assert.equal(catalogueImageSource(blue, { D1: "/images/catalogue/d1.jpg" }), null);
 });
-check("Bare catalogue keys are not guessed into image URLs", () => {
-  assert.equal(catalogueImageSource({ ...dress, image_key: "abc_1002.jpg" }), null);
+check("Storage keys use the catalogue-authorised product image route", () => {
+  assert.equal(catalogueImageSource({ ...dress, image_key: "abc_1002.jpg" }), "/api/products/D1/image");
+  assert.equal(catalogueImageSource({ ...dress, product_id: "ABC/001", image_key: "products/main.jpg" }), "/api/products/ABC%2F001/image");
   assert.equal(catalogueImageSource({ ...dress, image_key: "/images/catalogue/d1.webp" }), "/images/catalogue/d1.webp");
+  assert.equal(catalogueImageSource({ ...dress, image_key: "products/main.jpg" }, { D1: "/images/old.jpg" }), "/api/products/D1/image");
+});
+check("Image responses accept only local photos or stable product image routes", () => {
+  for (const path of ["/images/catalogue/d1.webp", "/api/products/D1/image", "/api/products/ABC%2F001/image"]) {
+    assert.equal(safeProductImageSource(path), true);
+  }
+  for (const path of ["https://example.test/a.jpg", "//example.test/a.jpg", "/api/products/../image", "/api/products/%2e%2e/image", "/api/products/D1/image?token=secret", "/api/products/%ZZ/image", "/api/products/D1/image#x"]) {
+    assert.equal(safeProductImageSource(path), false);
+  }
+});
+check("A response cannot attach another product's image route", () => {
+  const { result } = run([{ ...dress, image_key: "products/main.jpg" }]);
+  assert.equal(TurnReplySchema.parse(result).products[0].image_src, "/api/products/D1/image");
+  assert.throws(() => TurnReplySchema.parse({ ...result, products: [{ ...result.products[0], image_src: "/api/products/D2/image" }] }));
 });
 check("External, traversal, query and SVG image paths are rejected", () => {
   for (const path of ["https://example.test/a.jpg", "//example.test/a.jpg", "/images/../secret.jpg", "/images/%2e%2e/a.jpg", "/images/a.svg", "/images/a.jpg?x=1"]) {

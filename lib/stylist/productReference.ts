@@ -9,6 +9,8 @@ const ReferenceProductSchema = z.object({
 const ContextSchema = z.strictObject({
   focused: ReferenceProductSchema.nullable(),
   latest: z.array(ReferenceProductSchema).max(4),
+  selected: z.array(ReferenceProductSchema).max(8).optional(),
+  comparison: ReferenceProductSchema.optional(),
 });
 
 // This represents an interpreted reference, not the raw customer message.
@@ -80,7 +82,7 @@ export function resolveProductReference(
     return choose(
       context.focused
         ? [context.focused]
-        : context.latest
+        : context.latest.length ? context.latest : context.selected ?? []
     );
   }
 
@@ -102,6 +104,8 @@ export function resolveProductReference(
   const pool = [
     ...(context.focused ? [context.focused] : []),
     ...context.latest,
+    ...(context.selected ?? []),
+    ...(context.comparison ? [context.comparison] : []),
   ];
 
   return choose(

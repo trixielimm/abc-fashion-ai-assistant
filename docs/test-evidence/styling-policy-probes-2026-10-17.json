@@ -1,0 +1,20 @@
+{
+  "source": "Synthetic counterfactual probes of current functions; not real customer outcomes",
+  "cross_sell_summer_anchor": [
+    "B1",
+    "B2"
+  ],
+  "cross_sell_winter_anchor": [
+    "B1",
+    "B2"
+  ],
+  "same_ranking": true,
+  "upsell_without_unmet_context": {
+    "status": "no_upsell",
+    "message": "No additional requested context match can be demonstrated. A higher price alone is not a reason to suggest a replacement."
+  },
+  "explicitly_requested_shoes_against_bag_rule": {
+    "status": "no_rule",
+    "message": "The recorded cross-sell target is Bags, not the requested item category. No different category was substituted."
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "product_id": "P1047",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:21.193Z",
+  "identity_snapshot": {
+    "product_id": "P1047",
+    "product_name": "Silver Retro Sneakers",
+    "category": "Shoes",
+    "subcategory": "Sneakers",
+    "product_type": "Retro Sneakers",
+    "gender": "Unisex",
+    "colour": "Silver",
+    "material": "Leather",
+    "fit": "Standard",
+    "style": "Relaxed",
+    "occasion": "Casual",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1047",
+    "description": "Relaxed silver retro sneakers with a low-cut leather upper and gently rounded toe. Standard fit with contrast paneling for casual everyday styling.",
+    "construction_details": [
+      "Layered leather upper with stitched side panels",
+      "Padded tongue and lightly cushioned collar",
+      "Lace-up front with textured rubber cupsole"
+    ],
+    "care_instructions": "Dust with a soft brush and wipe the leather with a lightly damp cloth. Leave untied to air dry away from heat.",
+    "lining": true,
+    "pockets": null,
+    "adjustable_strap": false,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Casual"
+    ],
+    "closure": "lace_up",
+    "garment_length_cm": null,
+    "heel_height_cm": 2,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": "Silver-tone"
+  },
+  "content_sha256": "c471e10d5e038668c626186380cbda5a23183917fe75c923ec0a1df2965d60e0"
+}

@@ -1,0 +1,50 @@
+{
+  "product_id": "P1068",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:54.790Z",
+  "identity_snapshot": {
+    "product_id": "P1068",
+    "product_name": "Blue Suit Set",
+    "category": "Clothing",
+    "subcategory": "Sets",
+    "product_type": "Suit Set",
+    "gender": "Women",
+    "colour": "Blue",
+    "material": "Wool Blend",
+    "fit": "Regular",
+    "style": "Smart",
+    "occasion": "Formal",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1068",
+    "description": "Blue wool-blend suit set with a regular tailored profile, balanced lapels and a polished finish for formal winter dressing.",
+    "construction_details": [
+      "Single-breasted jacket with notched lapels",
+      "Lined sleeves and shaped shoulder construction",
+      "Trousers with a flat front and neatly finished hems"
+    ],
+    "care_instructions": "Dry clean only; store on a shaped hanger and air between wears.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Formal",
+      "Work"
+    ],
+    "closure": "button",
+    "garment_length_cm": 72,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "8f62e3477c929f5f4d68fc3466ece56ab2795b6906a080a7bcfa08c9f9d38ab9"
+}

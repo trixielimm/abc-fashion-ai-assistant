@@ -1,0 +1,50 @@
+{
+  "product_id": "P1286",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:03.798Z",
+  "identity_snapshot": {
+    "product_id": "P1286",
+    "product_name": "Silver Blazer",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Blazer",
+    "gender": "Women",
+    "colour": "Silver",
+    "material": "Viscose",
+    "fit": "Tailored",
+    "style": "Minimalist",
+    "occasion": "Smart Casual",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1286",
+    "description": "Minimalist silver blazer in viscose with a tailored fit, clean lapels and a softly polished finish for smart casual layering.",
+    "construction_details": [
+      "Tailored single-breasted front with notched lapels",
+      "Shaped darts through the front for a neat fit",
+      "Two welt pockets and a vented back hem"
+    ],
+    "care_instructions": "Professional dry clean only; hang on a structured hanger and avoid prolonged direct sunlight.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Smart Casual",
+      "Work"
+    ],
+    "closure": "button",
+    "garment_length_cm": 68,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "f4ac67fae2be2ee107d88501c766e27f52641d163e2268caa571057d251d1c58"
+}

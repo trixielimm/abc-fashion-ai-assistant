@@ -1,0 +1,49 @@
+{
+  "product_id": "P1088",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:24.043Z",
+  "identity_snapshot": {
+    "product_id": "P1088",
+    "product_name": "White Loafers",
+    "category": "Shoes",
+    "subcategory": "Flats",
+    "product_type": "Loafers",
+    "gender": "Women",
+    "colour": "White",
+    "material": "Suede",
+    "fit": "Standard",
+    "style": "Minimalist",
+    "occasion": "Work",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1088",
+    "description": "Minimalist white suede loafers with a standard fit and a refined workwear shape.",
+    "construction_details": [
+      "Soft suede upper with stitched apron detail",
+      "Low stacked heel and cushioned insole",
+      "Flexible rubber outsole with slip-on entry"
+    ],
+    "care_instructions": "Use a suede brush for dry marks and apply a suede protector; keep away from rain and oily surfaces.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": null,
+    "capacity_litres": null,
+    "use_cases": [
+      "Work"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": null,
+    "heel_height_cm": 1.5,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": null
+  },
+  "content_sha256": "e1ba7967a2406193f408e3edfe2ce7642b071b1c33db8c4d4a94bb022d082f53"
+}

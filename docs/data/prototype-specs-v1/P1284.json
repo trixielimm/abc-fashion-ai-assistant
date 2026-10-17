@@ -1,0 +1,50 @@
+{
+  "product_id": "P1284",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:03.798Z",
+  "identity_snapshot": {
+    "product_id": "P1284",
+    "product_name": "Lavender Maxi Dress",
+    "category": "Clothing",
+    "subcategory": "Dresses",
+    "product_type": "Maxi Dress",
+    "gender": "Women",
+    "colour": "Lavender",
+    "material": "Viscose",
+    "fit": "Slim",
+    "style": "Minimalist",
+    "occasion": "Formal",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1284",
+    "description": "Minimalist lavender maxi dress in viscose, cut with a slim line and a fluid drape for formal autumn occasions.",
+    "construction_details": [
+      "Long, clean-lined silhouette with shaped side seams",
+      "Back neck fastening with a concealed opening",
+      "Narrow finished hem for an uninterrupted fall"
+    ],
+    "care_instructions": "Hand wash separately in cool water or use professional cleaning; reshape flat and dry away from direct heat.",
+    "lining": true,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Formal",
+      "Evening"
+    ],
+    "closure": "hook_and_eye",
+    "garment_length_cm": 142,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "12b529b2ac740dd5d40ed37d2d545eace1699ae22eac314a9078c3d1f5401793"
+}

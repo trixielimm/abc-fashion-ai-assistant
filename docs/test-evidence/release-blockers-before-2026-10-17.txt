@@ -1,0 +1,21 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+404 !== 200
+
+    at status (file:///Users/salvi/MQ/abc-fashion-ai-assistant/scripts/test-conversation-production.mjs:23:10)
+    at async file:///Users/salvi/MQ/abc-fashion-ai-assistant/scripts/test-conversation-production.mjs:30:41
+    at async check (file:///Users/salvi/MQ/abc-fashion-ai-assistant/scripts/test-conversation-production.mjs:20:35)
+    at async file:///Users/salvi/MQ/abc-fashion-ai-assistant/scripts/test-conversation-production.mjs:29:3 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 404,
+  expected: 200,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.14.0

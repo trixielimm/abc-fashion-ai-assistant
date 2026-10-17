@@ -1,0 +1,49 @@
+{
+  "product_id": "P1200",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:54.427Z",
+  "identity_snapshot": {
+    "product_id": "P1200",
+    "product_name": "Black Lightweight Scarf",
+    "category": "Accessories",
+    "subcategory": "Scarves",
+    "product_type": "Lightweight Scarf",
+    "gender": "Women",
+    "colour": "Black",
+    "material": "Silk Blend",
+    "fit": "Standard",
+    "style": "Minimalist",
+    "occasion": "Party",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1200",
+    "description": "Contemporary black lightweight scarf in a smooth silk blend, offering a refined accent for party looks.",
+    "construction_details": [
+      "Fine woven construction with a softly fluid handle",
+      "Clean rolled hems on all sides",
+      "Light tonal edging frames the rectangular shape"
+    ],
+    "care_instructions": "Hand wash gently in cool water with mild detergent; reshape flat and air dry away from direct heat.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": null,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Party"
+    ],
+    "closure": "none",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "e7c579ce16e6c2c874bdeb86d28cb764bb45e7aa39698fcf579bbad909d89b2a"
+}

@@ -1,0 +1,49 @@
+{
+  "product_id": "P1079",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:48.819Z",
+  "identity_snapshot": {
+    "product_id": "P1079",
+    "product_name": "Brown Lightweight Scarf",
+    "category": "Accessories",
+    "subcategory": "Scarves",
+    "product_type": "Lightweight Scarf",
+    "gender": "Women",
+    "colour": "Brown",
+    "material": "Silk Blend",
+    "fit": "Standard",
+    "style": "Relaxed",
+    "occasion": "Work",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1079",
+    "description": "Brown lightweight scarf in a relaxed silk-blend weave, offering a soft drape for work outfits.",
+    "construction_details": [
+      "Fine woven construction",
+      "Narrow rolled hems",
+      "Clean finished short ends"
+    ],
+    "care_instructions": "Hand wash gently in cool water or dry clean; press lightly on the reverse side using low heat.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": null,
+    "capacity_litres": null,
+    "use_cases": [
+      "Work"
+    ],
+    "closure": "none",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "cbdb84a588775e87992be011aeb5b76f735789682095d5fdb5de26ec64522b15"
+}

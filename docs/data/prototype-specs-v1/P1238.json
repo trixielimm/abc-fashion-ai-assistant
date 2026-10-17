@@ -1,0 +1,51 @@
+{
+  "product_id": "P1238",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:45.678Z",
+  "identity_snapshot": {
+    "product_id": "P1238",
+    "product_name": "Beige Bomber Jacket",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Bomber Jacket",
+    "gender": "Men",
+    "colour": "Beige",
+    "material": "Viscose",
+    "fit": "Slim",
+    "style": "Classic",
+    "occasion": "Travel",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1238",
+    "description": "Beige viscose bomber jacket with a slim classic shape, neat ribbed edges and a lightweight layered feel for autumn travel.",
+    "construction_details": [
+      "Smooth viscose construction",
+      "Ribbed bomber collar, cuffs and hem",
+      "Set-in sleeves with articulated seams",
+      "Front zip fastening",
+      "Two welt side pockets"
+    ],
+    "care_instructions": "Dry clean only; do not machine wash. Store on a broad hanger and avoid high heat.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Travel"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 64,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "f08eac439d0673ab0b79790cd2ee5206421db2f30ba0c7c3c3d473a0bb4e8d6b"
+}

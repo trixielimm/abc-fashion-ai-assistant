@@ -1,0 +1,50 @@
+{
+  "product_id": "P1264",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:57.570Z",
+  "identity_snapshot": {
+    "product_id": "P1264",
+    "product_name": "Blue Lightweight Scarf",
+    "category": "Accessories",
+    "subcategory": "Scarves",
+    "product_type": "Lightweight Scarf",
+    "gender": "Unisex",
+    "colour": "Blue",
+    "material": "Silk Blend",
+    "fit": "Standard",
+    "style": "Relaxed",
+    "occasion": "Casual",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1264",
+    "description": "Relaxed blue lightweight scarf for casual winter styling, made in a soft silk blend with a fluid drape.",
+    "construction_details": [
+      "Lightweight woven construction",
+      "Narrow rolled hems",
+      "Generous rectangular shape"
+    ],
+    "care_instructions": "Gently hand wash in cool water with mild detergent and reshape flat to dry; avoid wringing and direct heat.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": null,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Casual",
+      "Travel"
+    ],
+    "closure": "none",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "8dd5613ad387c6c46d4c95ccd58ec52f860f5a1c1b67f73bc0f0b2a9c5f9476c"
+}

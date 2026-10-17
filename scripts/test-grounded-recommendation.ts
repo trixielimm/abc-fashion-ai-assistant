@@ -13,7 +13,7 @@ const product: StylistProduct = {
   product_id: "P1002", product_name: "Lavender Co-ord Set", price_aud: 55,
   brand_line: "ABC Occasion", category: "Clothing", subcategory: "Sets",
   product_type: "Co-ord Set", colour: "Lavender", occasion: "Beach Wedding",
-  style: "Relaxed", sizes_available: ["8", "10"],
+  style: "Relaxed", image_key: null, sizes_available: ["8", "10"],
 };
 const evidence = buildRecommendationEvidence(preferences, [product]);
 assert.deepEqual(Object.keys(evidence[0].reasons).sort(),

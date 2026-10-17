@@ -1,0 +1,51 @@
+{
+  "product_id": "P1033",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:26.396Z",
+  "identity_snapshot": {
+    "product_id": "P1033",
+    "product_name": "Burgundy Trench Coat",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Trench Coat",
+    "gender": "Men",
+    "colour": "Burgundy",
+    "material": "Cotton",
+    "fit": "Relaxed",
+    "style": "Romantic",
+    "occasion": "Casual",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1033",
+    "description": "Romantic burgundy trench coat in cotton with a relaxed fit, softly structured shape and winter-weight layering appeal for casual dressing.",
+    "construction_details": [
+      "Button-front closure",
+      "Adjustable cuff tabs",
+      "Belt loops with matching waist belt",
+      "Back storm flap and side welt pockets"
+    ],
+    "care_instructions": "Professional dry clean recommended; air gently on a broad hanger and avoid prolonged soaking.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Casual",
+      "Weekend"
+    ],
+    "closure": "button",
+    "garment_length_cm": 112,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "b402b11fd59ca114c187c4f05c2961a66b13a317246937a8bfabffcf6f27df6d"
+}

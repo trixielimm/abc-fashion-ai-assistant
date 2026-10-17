@@ -1,0 +1,50 @@
+{
+  "product_id": "P1139",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:51.190Z",
+  "identity_snapshot": {
+    "product_id": "P1139",
+    "product_name": "Burgundy Lightweight Scarf",
+    "category": "Accessories",
+    "subcategory": "Scarves",
+    "product_type": "Lightweight Scarf",
+    "gender": "Women",
+    "colour": "Burgundy",
+    "material": "Silk Blend",
+    "fit": "Standard",
+    "style": "Bohemian",
+    "occasion": "Party",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1139",
+    "description": "A burgundy lightweight scarf with a bohemian drape, made in a soft silk blend and suited to expressive party styling.",
+    "construction_details": [
+      "Fine woven construction",
+      "Narrow rolled hems",
+      "Lightly fluid drape",
+      "Clean finished corners"
+    ],
+    "care_instructions": "Hand wash gently in cool water or dry clean; reshape flat and protect from snagging during storage.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": null,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Party"
+    ],
+    "closure": "none",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "74f0290ff826dd2c93ccd613f1e965e6bde5603fe992ceb4d74133d5c18ed369"
+}

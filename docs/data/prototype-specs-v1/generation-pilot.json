@@ -1,0 +1,59 @@
+{
+  "mode": "pilot",
+  "model": "gpt-5.6-luna",
+  "dataset_version": "prototype-specs-v1",
+  "completed": 14,
+  "expected": 14,
+  "failures": [],
+  "usage": [
+    {
+      "input_tokens": 1145,
+      "input_tokens_details": {
+        "cache_write_tokens": 1142,
+        "cached_tokens": 0
+      },
+      "output_tokens": 680,
+      "output_tokens_details": {
+        "reasoning_tokens": 88
+      },
+      "total_tokens": 1825
+    },
+    {
+      "input_tokens": 1144,
+      "input_tokens_details": {
+        "cache_write_tokens": 1141,
+        "cached_tokens": 0
+      },
+      "output_tokens": 744,
+      "output_tokens_details": {
+        "reasoning_tokens": 132
+      },
+      "total_tokens": 1888
+    },
+    {
+      "input_tokens": 1343,
+      "input_tokens_details": {
+        "cache_write_tokens": 1340,
+        "cached_tokens": 0
+      },
+      "output_tokens": 947,
+      "output_tokens_details": {
+        "reasoning_tokens": 77
+      },
+      "total_tokens": 2290
+    },
+    {
+      "input_tokens": 1148,
+      "input_tokens_details": {
+        "cache_write_tokens": 1145,
+        "cached_tokens": 0
+      },
+      "output_tokens": 619,
+      "output_tokens_details": {
+        "reasoning_tokens": 86
+      },
+      "total_tokens": 1767
+    }
+  ],
+  "finished_at": "2026-10-17T03:15:03.519Z"
+}

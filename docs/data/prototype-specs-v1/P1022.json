@@ -1,0 +1,52 @@
+{
+  "product_id": "P1022",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:25.026Z",
+  "identity_snapshot": {
+    "product_id": "P1022",
+    "product_name": "Red Linen Shirt",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "product_type": "Linen Shirt",
+    "gender": "Women",
+    "colour": "Red",
+    "material": "Linen Blend",
+    "fit": "Oversized",
+    "style": "Bohemian",
+    "occasion": "Travel",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1022",
+    "description": "Bohemian red linen blend shirt with an oversized shape, relaxed sleeves and a softly textured finish suited to travel styling.",
+    "construction_details": [
+      "Button-through front",
+      "Dropped shoulders",
+      "Back yoke",
+      "Curved hem"
+    ],
+    "care_instructions": "Hand wash cold with mild detergent; line dry in shade and press on low heat.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Travel",
+      "Casual",
+      "Weekend"
+    ],
+    "closure": "button",
+    "garment_length_cm": 73,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "e20f8ea7fcf20adc82a00261b1db29edec94fad10215809c8216d341ca970a0d"
+}

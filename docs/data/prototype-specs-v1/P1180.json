@@ -1,0 +1,49 @@
+{
+  "product_id": "P1180",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:33.949Z",
+  "identity_snapshot": {
+    "product_id": "P1180",
+    "product_name": "Black Platform Sandals",
+    "category": "Shoes",
+    "subcategory": "Sandals",
+    "product_type": "Platform Sandals",
+    "gender": "Women",
+    "colour": "Black",
+    "material": "Leather",
+    "fit": "Standard",
+    "style": "Bohemian",
+    "occasion": "Beach Wedding",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1180",
+    "description": "Black leather platform sandals with a bohemian profile, elevated sole and standard fit for beach wedding styling.",
+    "construction_details": [
+      "Leather crossover straps with tonal edge finishing",
+      "Adjustable ankle buckle fastening",
+      "Contoured footbed set on a lightweight platform sole"
+    ],
+    "care_instructions": "Wipe with a soft dry cloth and spot-clean carefully; keep dry and store away from direct sunlight.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": true,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Beach Wedding"
+    ],
+    "closure": "buckle",
+    "garment_length_cm": null,
+    "heel_height_cm": 5.5,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": "Gold-tone"
+  },
+  "content_sha256": "d97b932188a6e3fa673c382873c4784c687b19487f520cb672ce5a9d13ae7c18"
+}

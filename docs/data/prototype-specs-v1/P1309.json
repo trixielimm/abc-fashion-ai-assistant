@@ -1,0 +1,51 @@
+{
+  "product_id": "P1309",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:21.085Z",
+  "identity_snapshot": {
+    "product_id": "P1309",
+    "product_name": "Olive Wide-Leg Pants",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Wide-Leg Pants",
+    "gender": "Women",
+    "colour": "Olive",
+    "material": "Cotton",
+    "fit": "Oversized",
+    "style": "Bohemian",
+    "occasion": "Brunch",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1309",
+    "description": "Olive cotton wide-leg pants with an oversized bohemian silhouette, designed for brunch dressing in autumn.",
+    "construction_details": [
+      "Wide-leg cut with deep front pleats",
+      "Partially elasticated waistband with belt loops",
+      "Slanted side pockets and pressed leg creases",
+      "Clean-finished hems"
+    ],
+    "care_instructions": "Cold machine wash with similar colours; reshape while damp and line dry. Warm iron on the reverse.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Brunch",
+      "Casual"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 106,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "0fccee51d0c17b76972ffee76e382273ec533cf89593f56f13e5a248341acede"
+}

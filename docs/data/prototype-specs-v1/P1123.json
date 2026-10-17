@@ -1,0 +1,49 @@
+{
+  "product_id": "P1123",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:00.000Z",
+  "identity_snapshot": {
+    "product_id": "P1123",
+    "product_name": "Red Midi Skirt",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Midi Skirt",
+    "gender": "Women",
+    "colour": "Red",
+    "material": "Polyester",
+    "fit": "Slim",
+    "style": "Bohemian",
+    "occasion": "Travel",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1123",
+    "description": "Bohemian red midi skirt with a slim shape and fluid polyester construction, suited to travel styling.",
+    "construction_details": [
+      "Smooth waistband with concealed side fastening",
+      "Shaped waist seams",
+      "Clean midi hem with narrow turn-up"
+    ],
+    "care_instructions": "Hand wash in cool water; reshape flat and dry away from direct sunlight.",
+    "lining": true,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Travel"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 82,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "00ea9d72423fd39496ad500452230e9e4dfe4a0c6779e10f0e1489071e9a757e"
+}

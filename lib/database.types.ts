@@ -7,8 +7,10 @@ export type Json =
   | Json[]
 
 export type Database = {
+  // Allows to automatically instantiate createClient with right options
+  // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
-    PostgrestVersion: "14.5"
+    PostgrestVersion: "14.17"
   }
   public: {
     Tables: {
@@ -16,16 +18,27 @@ export type Database = {
         Row: {
           category_id: number
           category_name: string
+          parent_category_id: number | null
         }
         Insert: {
           category_id?: never
           category_name: string
+          parent_category_id?: number | null
         }
         Update: {
           category_id?: never
           category_name?: string
+          parent_category_id?: number | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "categories_parent_category_id_fkey"
+            columns: ["parent_category_id"]
+            isOneToOne: false
+            referencedRelation: "categories"
+            referencedColumns: ["category_id"]
+          },
+        ]
       }
       cross_sell_rules: {
         Row: {
@@ -147,35 +160,10 @@ export type Database = {
           },
         ]
       }
-      product_types: {
-        Row: {
-          product_type_id: number
-          product_type_name: string
-          subcategory_id: number
-        }
-        Insert: {
-          product_type_id?: never
-          product_type_name: string
-          subcategory_id: number
-        }
-        Update: {
-          product_type_id?: never
-          product_type_name?: string
-          subcategory_id?: number
-        }
-        Relationships: [
-          {
-            foreignKeyName: "product_types_subcategory_id_fkey"
-            columns: ["subcategory_id"]
-            isOneToOne: false
-            referencedRelation: "subcategories"
-            referencedColumns: ["subcategory_id"]
-          },
-        ]
-      }
       products: {
         Row: {
           brand_line: string | null
+          category_id: number
           colour: string | null
           created_at: string
           description: string | null
@@ -183,19 +171,23 @@ export type Database = {
           fit: string | null
           gender: string | null
           image_key: string | null
+          is_active: boolean
           is_available: boolean
           material: string | null
           occasion: string | null
+          popularity_score: number | null
           price_aud: number
           product_id: string
           product_name: string
-          product_type_id: number
+          product_type: string
+          rating: number | null
           season: string | null
           style: string | null
           updated_at: string
         }
         Insert: {
           brand_line?: string | null
+          category_id: number
           colour?: string | null
           created_at?: string
           description?: string | null
@@ -203,19 +195,23 @@ export type Database = {
           fit?: string | null
           gender?: string | null
           image_key?: string | null
+          is_active?: boolean
           is_available?: boolean
           material?: string | null
           occasion?: string | null
+          popularity_score?: number | null
           price_aud: number
           product_id: string
           product_name: string
-          product_type_id: number
+          product_type: string
+          rating?: number | null
           season?: string | null
           style?: string | null
           updated_at?: string
         }
         Update: {
           brand_line?: string | null
+          category_id?: number
           colour?: string | null
           created_at?: string
           description?: string | null
@@ -223,24 +219,72 @@ export type Database = {
           fit?: string | null
           gender?: string | null
           image_key?: string | null
+          is_active?: boolean
           is_available?: boolean
           material?: string | null
           occasion?: string | null
+          popularity_score?: number | null
           price_aud?: number
           product_id?: string
           product_name?: string
-          product_type_id?: number
+          product_type?: string
+          rating?: number | null
           season?: string | null
           style?: string | null
           updated_at?: string
         }
         Relationships: [
           {
-            foreignKeyName: "products_product_type_id_fkey"
-            columns: ["product_type_id"]
+            foreignKeyName: "products_category_id_fkey"
+            columns: ["category_id"]
             isOneToOne: false
-            referencedRelation: "product_types"
-            referencedColumns: ["product_type_id"]
+            referencedRelation: "categories"
+            referencedColumns: ["category_id"]
+          },
+        ]
+      }
+      prototype_product_specifications: {
+        Row: {
+          dataset_version: string
+          generated_at: string
+          generator_model: string
+          identity_snapshot: Json
+          product_id: string
+          source_kind: string
+          specification: Json
+        }
+        Insert: {
+          dataset_version: string
+          generated_at: string
+          generator_model: string
+          identity_snapshot: Json
+          product_id: string
+          source_kind?: string
+          specification: Json
+        }
+        Update: {
+          dataset_version?: string
+          generated_at?: string
+          generator_model?: string
+          identity_snapshot?: Json
+          product_id?: string
+          source_kind?: string
+          specification?: Json
+        }
+        Relationships: [
+          {
+            foreignKeyName: "prototype_product_specifications_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: true
+            referencedRelation: "product_catalog"
+            referencedColumns: ["product_id"]
+          },
+          {
+            foreignKeyName: "prototype_product_specifications_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: true
+            referencedRelation: "products"
+            referencedColumns: ["product_id"]
           },
         ]
       }
@@ -262,29 +306,102 @@ export type Database = {
         }
         Relationships: []
       }
-      subcategories: {
+      stylist_product_features: {
         Row: {
-          category_id: number
-          subcategory_id: number
-          subcategory_name: string
+          feature_key: string
+          product_id: string
+          review_status: string
+          reviewed_by: string | null
+          source_reference: string
+          source_version: string
+          value: Json
+          verified_at: string | null
         }
         Insert: {
-          category_id: number
-          subcategory_id?: never
-          subcategory_name: string
+          feature_key: string
+          product_id: string
+          review_status?: string
+          reviewed_by?: string | null
+          source_reference: string
+          source_version: string
+          value: Json
+          verified_at?: string | null
         }
         Update: {
-          category_id?: number
-          subcategory_id?: never
-          subcategory_name?: string
+          feature_key?: string
+          product_id?: string
+          review_status?: string
+          reviewed_by?: string | null
+          source_reference?: string
+          source_version?: string
+          value?: Json
+          verified_at?: string | null
         }
         Relationships: [
           {
-            foreignKeyName: "subcategories_category_id_fkey"
-            columns: ["category_id"]
+            foreignKeyName: "stylist_product_features_product_id_fkey"
+            columns: ["product_id"]
             isOneToOne: false
-            referencedRelation: "categories"
-            referencedColumns: ["category_id"]
+            referencedRelation: "product_catalog"
+            referencedColumns: ["product_id"]
+          },
+          {
+            foreignKeyName: "stylist_product_features_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["product_id"]
+          },
+        ]
+      }
+      stylist_recommendation_events: {
+        Row: {
+          event_id: string
+          event_type: string
+          policy_version: string
+          position: number
+          product_id: string
+          received_at: string
+          recommendation_id: string
+          session_id: string
+          signal_source: string
+        }
+        Insert: {
+          event_id: string
+          event_type: string
+          policy_version: string
+          position: number
+          product_id: string
+          received_at?: string
+          recommendation_id: string
+          session_id: string
+          signal_source?: string
+        }
+        Update: {
+          event_id?: string
+          event_type?: string
+          policy_version?: string
+          position?: number
+          product_id?: string
+          received_at?: string
+          recommendation_id?: string
+          session_id?: string
+          signal_source?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "stylist_recommendation_events_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "product_catalog"
+            referencedColumns: ["product_id"]
+          },
+          {
+            foreignKeyName: "stylist_recommendation_events_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["product_id"]
           },
         ]
       }

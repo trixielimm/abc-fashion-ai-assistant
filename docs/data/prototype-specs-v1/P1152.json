@@ -1,0 +1,55 @@
+{
+  "product_id": "P1152",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:21:02.502Z",
+  "identity_snapshot": {
+    "product_id": "P1152",
+    "product_name": "Olive Structured Handbag",
+    "category": "Bags",
+    "subcategory": "Handbags",
+    "product_type": "Structured Handbag",
+    "gender": "Unisex",
+    "colour": "Olive",
+    "material": "Woven",
+    "fit": "Standard",
+    "style": "Smart",
+    "occasion": "Smart Casual",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1152",
+    "description": "Smart olive structured handbag in woven material, shaped with a firm base and practical everyday proportions.",
+    "construction_details": [
+      "Structured woven body",
+      "Reinforced flat base",
+      "Top carry handles",
+      "Full-length top zip closure"
+    ],
+    "care_instructions": "Brush lightly to remove surface dust and spot clean with a barely damp cloth; store upright away from direct sunlight.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": 4.8,
+    "use_cases": [
+      "Smart Casual",
+      "Work"
+    ],
+    "closure": "zip",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": {
+      "width": 30,
+      "height": 22,
+      "depth": 9
+    },
+    "strap_drop_cm": null,
+    "compartments": 3,
+    "sole_material": null,
+    "hardware_finish": "Antique gold-tone"
+  },
+  "content_sha256": "ff5e172620855f3de97c8e3d69e3242880d1ccf6a3ce22390935c4f3279558d0"
+}

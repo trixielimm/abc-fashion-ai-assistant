@@ -1,0 +1,50 @@
+{
+  "product_id": "P1110",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:25.187Z",
+  "identity_snapshot": {
+    "product_id": "P1110",
+    "product_name": "Lavender Flat Sandals",
+    "category": "Shoes",
+    "subcategory": "Sandals",
+    "product_type": "Flat Sandals",
+    "gender": "Unisex",
+    "colour": "Lavender",
+    "material": "Faux Leather",
+    "fit": "Standard",
+    "style": "Elegant",
+    "occasion": "Beach Wedding",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1110",
+    "description": "Elegant lavender flat sandals with clean faux leather straps and a comfortable low profile, suited to Beach Wedding styling in warm weather.",
+    "construction_details": [
+      "Faux leather crossover forefoot straps",
+      "Adjustable ankle strap with side buckle",
+      "Smooth contoured footbed",
+      "Flat flexible outsole with stitched perimeter"
+    ],
+    "care_instructions": "Wipe with a soft damp cloth and allow to air dry; store flat away from prolonged sunlight and moisture.",
+    "lining": false,
+    "pockets": null,
+    "adjustable_strap": true,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Beach Wedding"
+    ],
+    "closure": "buckle",
+    "garment_length_cm": null,
+    "heel_height_cm": 0.5,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": "Silver-tone"
+  },
+  "content_sha256": "59add29ff3907ab87848cb6d42cb856e2a570110e82d6448b8e248a654221e95"
+}

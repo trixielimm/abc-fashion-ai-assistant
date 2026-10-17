@@ -1,0 +1,51 @@
+{
+  "product_id": "P1316",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:21.086Z",
+  "identity_snapshot": {
+    "product_id": "P1316",
+    "product_name": "Pink Bomber Jacket",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Bomber Jacket",
+    "gender": "Men",
+    "colour": "Pink",
+    "material": "Polyester",
+    "fit": "Oversized",
+    "style": "Relaxed",
+    "occasion": "Travel",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1316",
+    "description": "Pink polyester bomber jacket with an oversized relaxed shape and lightweight layering profile for spring travel.",
+    "construction_details": [
+      "Ribbed baseball collar, cuffs and hem",
+      "Full-length front zip with tonal pull",
+      "Dropped shoulders and roomy sleeves",
+      "Two angled welt pockets with secure zip openings"
+    ],
+    "care_instructions": "Cold machine wash on a gentle cycle; line dry away from direct heat and press on low heat.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Travel",
+      "Casual"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 68,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "dba92fd024d29246434463b5abd3c9a060509d4b922c420d3ac6018bc785ba35"
+}

@@ -1,0 +1,50 @@
+{
+  "product_id": "P1084",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:35.748Z",
+  "identity_snapshot": {
+    "product_id": "P1084",
+    "product_name": "Navy Two-Piece Set",
+    "category": "Clothing",
+    "subcategory": "Sets",
+    "product_type": "Two-Piece Set",
+    "gender": "Women",
+    "colour": "Navy",
+    "material": "Linen Blend",
+    "fit": "Regular",
+    "style": "Streetwear",
+    "occasion": "Date Night",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1084",
+    "description": "Navy linen-blend two-piece set with a streetwear attitude, regular fit and breathable structure for date-night styling.",
+    "construction_details": [
+      "Coordinated top and relaxed trouser separates",
+      "Top finished with a clean round neckline",
+      "Partially elasticated trouser waistband",
+      "Side-seam pockets and neat hems"
+    ],
+    "care_instructions": "Cold gentle machine wash with similar colours; line dry promptly and press on a low setting.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Date Night"
+    ],
+    "closure": "none",
+    "garment_length_cm": 66,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "6e32faa51c13903f3c668f6698df86ab0ab741376789f259ecb81999d18d26eb"
+}

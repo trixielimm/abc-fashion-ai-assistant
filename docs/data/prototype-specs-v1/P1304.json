@@ -1,0 +1,57 @@
+{
+  "product_id": "P1304",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:22:25.510Z",
+  "identity_snapshot": {
+    "product_id": "P1304",
+    "product_name": "Beige Envelope Clutch",
+    "category": "Bags",
+    "subcategory": "Clutches",
+    "product_type": "Envelope Clutch",
+    "gender": "Women",
+    "colour": "Beige",
+    "material": "Faux Leather",
+    "fit": "Standard",
+    "style": "Elegant",
+    "occasion": "Date Night",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1304",
+    "description": "Elegant beige envelope clutch in faux leather with a crisp standard profile, suited to date night and refined summer looks.",
+    "construction_details": [
+      "Fold-over envelope flap with clean edge piping",
+      "Slim faux leather body with a softly padded front panel",
+      "Concealed magnetic closure beneath the flap"
+    ],
+    "care_instructions": "Wipe gently with a soft, slightly damp cloth; avoid soaking, friction and direct heat during storage.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": false,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": 0.7,
+    "use_cases": [
+      "Date Night",
+      "Evening"
+    ],
+    "closure": "snap",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": {
+      "width": 24,
+      "height": 14,
+      "depth": 3
+    },
+    "strap_drop_cm": null,
+    "compartments": 1,
+    "sole_material": null,
+    "hardware_finish": "gold-tone"
+  },
+  "quality_adjustments": [
+    "Synthetic capacity defined as 70% of external volume, rounded down to 0.1 L, to correct impossible generated volume."
+  ],
+  "content_sha256": "2956e08900599c02e1267a7d9eab6885f271f3bd3bd06ac9cc38443549723ab0"
+}

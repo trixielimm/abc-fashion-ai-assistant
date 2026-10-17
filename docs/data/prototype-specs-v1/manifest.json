@@ -1,0 +1,22 @@
+{
+  "dataset_version": "prototype-specs-v1",
+  "source_kind": "synthetic",
+  "products": 316,
+  "categories": {
+    "Clothing": 180,
+    "Bags": 38,
+    "Shoes": 58,
+    "Accessories": 40
+  },
+  "capacity_adjustments": [
+    "P1240",
+    "P1250",
+    "P1282",
+    "P1283",
+    "P1285",
+    "P1298",
+    "P1304"
+  ],
+  "dataset_sha256": "7d225267a412f3c146a958f37ffaab18eaf0515d73aa516d6efc78a58544908b",
+  "generated_at": "2026-10-17T03:27:35.318Z"
+}

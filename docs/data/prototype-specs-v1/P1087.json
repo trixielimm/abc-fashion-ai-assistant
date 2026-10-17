@@ -1,0 +1,49 @@
+{
+  "product_id": "P1087",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:45.112Z",
+  "identity_snapshot": {
+    "product_id": "P1087",
+    "product_name": "Yellow Oversized Tee",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "product_type": "Oversized Tee",
+    "gender": "Unisex",
+    "colour": "Yellow",
+    "material": "Viscose",
+    "fit": "Slim",
+    "style": "Relaxed",
+    "occasion": "Casual",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1087",
+    "description": "Yellow oversized tee in viscose with a relaxed styling direction and slim stated fit, shaped for casual summer dressing.",
+    "construction_details": [
+      "Clean crew neckline",
+      "Short sleeves with narrow turnback hems",
+      "Straight hem with coverstitched finish"
+    ],
+    "care_instructions": "Hand wash cold with similar colours; reshape while damp and dry flat away from direct heat.",
+    "lining": false,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Casual"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": 66,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "18889b3d8d1b07996c861abd252d5af3d9eb4ddcb0e5834765ee097c71b99437"
+}

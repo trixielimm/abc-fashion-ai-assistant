@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 
 import {
   generateValidatedConversationPlan,
-  PlanEvidenceError,
+  checkConversationPlan,
 } from "../lib/stylist/conversationPlan.ts";
 
 // Simulated model responses only. No OpenAI or database calls.
@@ -118,21 +118,20 @@ await check("Invalid change evidence identifies the failing field", async () => 
   assert.equal(result.changes[2].value, 100);
 });
 
-await check("Two invalid responses fail instead of bypassing validation", async () => {
+await check("Two invalid responses ask for clarification without applying the bad plan", async () => {
   let calls = 0;
-
-  await assert.rejects(
-    generateValidatedConversationPlan(input, async () => {
-      calls++;
-      return badIntent;
-    }),
-    PlanEvidenceError
-  );
-
+  const result = await generateValidatedConversationPlan(input, async () => {
+    calls++;
+    return badIntent;
+  });
   assert.equal(calls, 2);
+  assert.equal(result.action, "clarify");
+  assert.deepEqual(result.changes, []);
+  assert.equal(result.reference, null);
+  assert.equal(checkConversationPlan(input, result).status, "needs_clarification");
 });
 
-await check("Other plan safeguards are not weakened or retried", async () => {
+await check("Other invalid plans get one correction without weakening scope safeguards", async () => {
   let calls = 0;
 
   const invalidScope = {
@@ -148,15 +147,15 @@ await check("Other plan safeguards are not weakened or retried", async () => {
     ],
   };
 
-  await assert.rejects(
-    generateValidatedConversationPlan(input, async () => {
-      calls++;
-      return invalidScope;
-    }),
-    /Product identity and size cannot be shared globally/
-  );
-
-  assert.equal(calls, 1);
+  const result = await generateValidatedConversationPlan(input, async (_field, feedback) => {
+    calls++;
+    if (calls === 2) assert.match(feedback, /Product identity and size cannot be shared globally/);
+    return invalidScope;
+  });
+  assert.equal(calls, 2);
+  assert.equal(result.action, "clarify");
+  assert.deepEqual(result.changes, []);
+  assert.equal(checkConversationPlan(input, result).proposed_scopes.shared.category, undefined);
 });
 
 await check("Provider failures are not retried by the evidence helper", async () => {

@@ -1,0 +1,51 @@
+{
+  "product_id": "P1194",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:23.858Z",
+  "identity_snapshot": {
+    "product_id": "P1194",
+    "product_name": "Pink Satin Camisole",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "product_type": "Satin Camisole",
+    "gender": "Women",
+    "colour": "Pink",
+    "material": "Satin",
+    "fit": "Regular",
+    "style": "Contemporary",
+    "occasion": "Work",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1194",
+    "description": "Pink satin camisole with a contemporary regular fit, softly lustrous surface and a neat neckline suited to polished work outfits.",
+    "construction_details": [
+      "Bias-cut front for fluid drape",
+      "Fine shoulder straps",
+      "Straight hem with narrow turned finish",
+      "Back neck facing"
+    ],
+    "care_instructions": "Hand wash cold separately; avoid wringing and dry flat away from direct sunlight. Cool iron on the reverse side if needed.",
+    "lining": false,
+    "pockets": false,
+    "adjustable_strap": true,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Work",
+      "Evening"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": 58,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "042bb441724bf3ba21a86ba09a99df8a496c80377cd9954099d62b18d423c8a8"
+}

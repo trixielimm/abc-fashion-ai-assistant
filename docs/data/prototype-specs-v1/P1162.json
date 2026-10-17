@@ -1,0 +1,52 @@
+{
+  "product_id": "P1162",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:14:59.050Z",
+  "identity_snapshot": {
+    "product_id": "P1162",
+    "product_name": "Cream Mini Dress",
+    "category": "Clothing",
+    "subcategory": "Dresses",
+    "product_type": "Mini Dress",
+    "gender": "Women",
+    "colour": "Cream",
+    "material": "Polyester",
+    "fit": "Regular",
+    "style": "Romantic",
+    "occasion": "Beach Wedding",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1162",
+    "description": "Romantic cream mini dress in polyester, shaped in a regular fit with a softly feminine finish for beach wedding occasions.",
+    "construction_details": [
+      "Fitted bodice seams",
+      "Rounded neckline",
+      "Concealed back fastening",
+      "Flared mini skirt",
+      "Narrow hem finish"
+    ],
+    "care_instructions": "Cold gentle machine wash; line dry flat or on a padded hanger and cool iron on the reverse.",
+    "lining": true,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Beach Wedding",
+      "Wedding Guest"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 84,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "3c3ff292c60fcabca06dd5ef7987ca61b36a86dd3785a35bfe46589e46744554"
+}

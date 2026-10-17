@@ -1,0 +1,51 @@
+{
+  "product_id": "P1280",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:03.797Z",
+  "identity_snapshot": {
+    "product_id": "P1280",
+    "product_name": "Lavender Suit Set",
+    "category": "Clothing",
+    "subcategory": "Sets",
+    "product_type": "Suit Set",
+    "gender": "Women",
+    "colour": "Lavender",
+    "material": "Wool Blend",
+    "fit": "Relaxed",
+    "style": "Romantic",
+    "occasion": "Smart Casual",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1280",
+    "description": "Romantic lavender suit set with a relaxed silhouette and soft wool blend structure, designed for smart casual summer dressing.",
+    "construction_details": [
+      "Relaxed single-breasted jacket with shaped shoulder seams",
+      "Straight-leg trousers with pressed front creases",
+      "Clean-finished hems and discreet front fastening"
+    ],
+    "care_instructions": "Dry clean gently; air between wears and store on a broad hanger.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Smart Casual",
+      "Work",
+      "Wedding Guest"
+    ],
+    "closure": "button",
+    "garment_length_cm": 72,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "3a810e7d68044702c7344b8cbe06e464930b61b49b31623334b107032f7112e5"
+}

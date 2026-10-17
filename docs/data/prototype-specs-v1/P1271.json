@@ -1,0 +1,50 @@
+{
+  "product_id": "P1271",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:11.568Z",
+  "identity_snapshot": {
+    "product_id": "P1271",
+    "product_name": "White Cardigan",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Cardigan",
+    "gender": "Unisex",
+    "colour": "White",
+    "material": "Knit",
+    "fit": "Oversized",
+    "style": "Elegant",
+    "occasion": "Travel",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1271",
+    "description": "Elegant white knit cardigan with an oversized silhouette, softly dropped shoulders and a neat button-front finish. Designed for layered travel dressing in cooler autumn weather.",
+    "construction_details": [
+      "Dropped-shoulder sleeves",
+      "Ribbed cuffs and hem",
+      "Button-front fastening",
+      "Clean bound neckline"
+    ],
+    "care_instructions": "Hand wash gently in cool water; reshape while damp and dry flat. Do not wring or tumble dry.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Travel"
+    ],
+    "closure": "button",
+    "garment_length_cm": 62,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "65b618f98654f50aaad62b536b0acb0420d3f2df3b9b62460b21081f0fa893af"
+}

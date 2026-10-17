@@ -1,0 +1,51 @@
+{
+  "product_id": "P1135",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:03.602Z",
+  "identity_snapshot": {
+    "product_id": "P1135",
+    "product_name": "Silver Cropped Jacket",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Cropped Jacket",
+    "gender": "Women",
+    "colour": "Silver",
+    "material": "Viscose",
+    "fit": "Oversized",
+    "style": "Minimalist",
+    "occasion": "Work",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1135",
+    "description": "A minimalist silver cropped jacket in viscose with an oversized shape and a clean, lightly lustrous finish for modern work layering.",
+    "construction_details": [
+      "Open-front cropped silhouette",
+      "Dropped shoulders with wide sleeve shape",
+      "Neat bound neckline and facing",
+      "Straight cropped hem with reinforced side seams"
+    ],
+    "care_instructions": "Dry clean only; store folded or on a broad hanger and protect from snagging.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Work",
+      "Evening"
+    ],
+    "closure": "open",
+    "garment_length_cm": 48,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "f47627e746716a2990057fe9fa969e137783e49f800292b866359be2ac6e6c74"
+}

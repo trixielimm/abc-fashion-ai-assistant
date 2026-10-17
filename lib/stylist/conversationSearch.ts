@@ -3,12 +3,13 @@ import { validatePreferences } from "../ai/validatePreferences";
 
 import type { CatalogueProduct } from "../recommendations/catalogue";
 import type { CataloguePreferenceValues } from "../catalogue/preferenceValues";
-import type { StylistProduct } from "../search/preferenceSearch";
+import { relatedLabel, type StylistProduct } from "../search/preferenceSearch";
 
 import { searchWithValidatedPreferences } from "../search/validatedPreferenceSearch";
 import { retrieveCrossSell } from "../search/crossSell";
 import { retrieveUpsell } from "../search/upsell";
 import { searchCheaper } from "../search/cheaperSearch";
+import { meetsFeatureRequirements } from "../search/productBenefits";
 
 import {
   checkConversationPlan,
@@ -46,6 +47,12 @@ export function executeConversationSearch(
   const checked = checkConversationPlan(request, modelPlan);
 
   let applied = checked.preferences;
+  const styling = checked.styling;
+  const excluded = new Set([...styling.rejected_ids, ...(request.cart_product_ids ?? [])]);
+  const eligible = (product: CatalogueProduct) => !excluded.has(product.product_id ?? "") &&
+    meetsFeatureRequirements(product, styling.required_features) &&
+    (["occasion", "style", "fit", "season"] as const).every(field =>
+      checked.proposed_scopes.shared[field] === null || relatedLabel(product[field], checked.proposed_scopes.shared[field]!));
 
   function reply(
     status: Status,
@@ -53,6 +60,9 @@ export function executeConversationSearch(
     products: Product[] = [],
     targetCategory: string | null = null
   ) {
+    if (status === "no_match" && styling.required_features.length) {
+      message = `I couldn't verify an eligible item with these required features: ${styling.required_features.map(value => value.replaceAll("_", " ")).join(", ")}. Missing feature information is not proof that a product has or lacks them. Your requirements are still saved.`;
+    }
     const scopes = PreferenceScopesSchema.parse(
       checked.proposed_scopes
     );
@@ -83,6 +93,9 @@ export function executeConversationSearch(
       message,
       reference_product_ids: checked.reference_product_ids,
       proposed_scopes: scopes,
+      styling,
+      feature_data_status: catalogue.find(product => product.feature_data_status)?.feature_data_status,
+      comparison_reference_id: checked.action === "upsell" ? checked.reference_product_ids[0] ?? null : null,
       applied_preferences: applied,
 
       budget_scope:
@@ -98,7 +111,8 @@ export function executeConversationSearch(
   }
 
   if (checked.status === "no_action") {
-    return reply("no_action", checked.message);
+    return reply("no_action", modelPlan && typeof modelPlan === "object" && "styling_intent" in modelPlan && modelPlan.styling_intent
+      ? "Updated your outfit choices and styling preferences. Your cart is unchanged." : checked.message);
   }
 
   if (
@@ -130,6 +144,8 @@ export function executeConversationSearch(
       ? [request.context.focused]
       : []),
     ...request.context.latest,
+    ...(request.context.comparison ? [request.context.comparison] : []),
+    ...(request.context.selected ?? []),
   ];
 
   const references: CatalogueProduct[] = [];
@@ -181,6 +197,10 @@ export function executeConversationSearch(
         "Which main product should the extra accompany?"
       );
     }
+    if (styling.outfit.some(piece => !catalogue.some(product => product.product_id === piece.product_id &&
+        normalise(product.product_name) === normalise(piece.product_name) && normalise(product.category) === normalise(piece.category)))) {
+      return reply("needs_clarification", "A kept outfit piece can no longer be verified. Remove it from the outfit or refresh its product details before styling the remaining pieces.");
+    }
 
     const result = retrieveCrossSell(
       catalogue,
@@ -189,7 +209,13 @@ export function executeConversationSearch(
           checked.reference_product_ids[0],
       },
       vocabulary,
-      applied
+      applied,
+      {
+        eligible: product => eligible(product) && !styling.outfit.some(piece => piece.product_id === product.product_id),
+        required_features: styling.required_features,
+        anchors: styling.outfit.flatMap(piece => catalogue.filter(product => product.product_id === piece.product_id)),
+        occupied_categories: [...styling.owned_categories, ...styling.outfit.map(piece => piece.category).filter((value): value is NonNullable<typeof value> => value !== null)],
+      }
     );
 
     applied = result.applied_preferences ?? applied;
@@ -267,7 +293,7 @@ export function executeConversationSearch(
     }
 
     const result = searchCheaper(
-      catalogue,
+      catalogue.filter(product => references.some(reference => reference.product_id === product.product_id) || eligible(product)),
       applied,
       prices.map(
         ({ product_id, displayed_price_aud }) => ({
@@ -302,7 +328,9 @@ export function executeConversationSearch(
           checked.reference_product_ids[0],
         preferences: applied,
       },
-      vocabulary
+      vocabulary,
+      { priorities: styling.priorities, required_features: styling.required_features, eligible, allowComparable: true,
+        allowRelatedTypes: request.scopes.item.product_type === null }
     );
 
     applied = result.applied_preferences ?? applied;
@@ -326,7 +354,8 @@ export function executeConversationSearch(
   const result = searchWithValidatedPreferences(
     catalogue,
     applied,
-    vocabulary
+    vocabulary,
+    { eligible }
   );
 
   applied = result.validation.preferences;

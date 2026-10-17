@@ -1,0 +1,163 @@
+{
+  "audited_at": "2026-10-17T01:44:53.142Z",
+  "source": "public product_catalog view; read-only, publicly visible products",
+  "products": 316,
+  "coverage": {
+    "category": 316,
+    "subcategory": 316,
+    "product_type": 316,
+    "colour": 316,
+    "occasion": 316,
+    "style": 316,
+    "season": 316,
+    "fit": 316,
+    "material": 316,
+    "description": 316,
+    "tags": 316,
+    "cross_sell_category": 316,
+    "image_key": 316
+  },
+  "distinct_descriptions": 315,
+  "categories": [
+    [
+      "Clothing",
+      180
+    ],
+    [
+      "Shoes",
+      58
+    ],
+    [
+      "Accessories",
+      40
+    ],
+    [
+      "Bags",
+      38
+    ]
+  ],
+  "pairing_targets": [
+    [
+      "Accessories",
+      101
+    ],
+    [
+      "Bags",
+      91
+    ],
+    [
+      "Shoes",
+      82
+    ],
+    [
+      "Clothing",
+      42
+    ]
+  ],
+  "common_tags": [
+    [
+      "Standard",
+      136
+    ],
+    [
+      "All Season",
+      80
+    ],
+    [
+      "Relaxed",
+      79
+    ],
+    [
+      "Summer",
+      70
+    ],
+    [
+      "Autumn",
+      57
+    ],
+    [
+      "Spring",
+      55
+    ],
+    [
+      "Winter",
+      54
+    ],
+    [
+      "Minimalist",
+      47
+    ],
+    [
+      "Regular",
+      46
+    ],
+    [
+      "Faux Leather",
+      44
+    ],
+    [
+      "Slim",
+      44
+    ],
+    [
+      "Bohemian",
+      42
+    ],
+    [
+      "Polyester",
+      40
+    ],
+    [
+      "Romantic",
+      36
+    ],
+    [
+      "Casual",
+      36
+    ]
+  ],
+  "samples": [
+    {
+      "product_id": "P1001",
+      "description": "bohemian silk scarf in beige, suited to date night styling. standard fit/shape with viscose construction.",
+      "tags": [
+        "Beige",
+        "Bohemian",
+        "Date Night",
+        "Silk Scarf",
+        "Standard",
+        "Viscose",
+        "Winter"
+      ],
+      "material": "Viscose"
+    },
+    {
+      "product_id": "P1002",
+      "description": "relaxed co-ord set in lavender, suited to beach wedding styling. oversized fit/shape with linen blend construction.",
+      "tags": [
+        "All Season",
+        "Beach Wedding",
+        "Co-ord Set",
+        "Lavender",
+        "Linen Blend",
+        "Oversized",
+        "Relaxed"
+      ],
+      "material": "Linen Blend"
+    },
+    {
+      "product_id": "P1003",
+      "description": "bohemian crossbody bag in pink, suited to wedding guest styling. standard fit/shape with woven construction.",
+      "tags": [
+        "All Season",
+        "Bohemian",
+        "Crossbody Bag",
+        "Pink",
+        "Standard",
+        "Wedding Guest",
+        "Woven"
+      ],
+      "material": "Woven"
+    }
+  ]
+}

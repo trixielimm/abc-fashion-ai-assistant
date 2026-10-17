@@ -1,0 +1,55 @@
+{
+  "product_id": "P1050",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:14:57.930Z",
+  "identity_snapshot": {
+    "product_id": "P1050",
+    "product_name": "Black Sling Bag",
+    "category": "Bags",
+    "subcategory": "Crossbody",
+    "product_type": "Sling Bag",
+    "gender": "Unisex",
+    "colour": "Black",
+    "material": "Woven",
+    "fit": "Standard",
+    "style": "Streetwear",
+    "occasion": "Work",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1050",
+    "description": "Black woven sling bag with a streetwear-inspired compact shape, practical organisation and a clean finish for work styling.",
+    "construction_details": [
+      "Textured woven exterior with reinforced base",
+      "Adjustable sling strap with padded shoulder section",
+      "Top zip fastening with extended pull",
+      "Interior divider and front slip pocket"
+    ],
+    "care_instructions": "Spot clean with a soft cloth and mild soapy water; air dry fully away from direct heat and store flat or lightly filled.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": true,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": 3.4,
+    "use_cases": [
+      "Work",
+      "Travel"
+    ],
+    "closure": "zip",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": {
+      "width": 28,
+      "height": 20,
+      "depth": 8
+    },
+    "strap_drop_cm": 62,
+    "compartments": 3,
+    "sole_material": null,
+    "hardware_finish": "Matte black"
+  },
+  "content_sha256": "b2d8c2fe85b6d26e208896df671aa2841264922da3d7e1fa6a3864c2b049f298"
+}

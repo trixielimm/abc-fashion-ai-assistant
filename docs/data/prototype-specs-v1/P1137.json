@@ -1,0 +1,50 @@
+{
+  "product_id": "P1137",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:30.791Z",
+  "identity_snapshot": {
+    "product_id": "P1137",
+    "product_name": "Gold Strappy Heels",
+    "category": "Shoes",
+    "subcategory": "Heels",
+    "product_type": "Strappy Heels",
+    "gender": "Women",
+    "colour": "Gold",
+    "material": "Faux Leather",
+    "fit": "Standard",
+    "style": "Elegant",
+    "occasion": "Brunch",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1137",
+    "description": "Elegant gold strappy heels with a luminous faux-leather finish, fine ankle fastening and a polished silhouette for brunch occasions.",
+    "construction_details": [
+      "Faux-leather upper with slim front straps",
+      "Adjustable ankle strap with pin buckle",
+      "Lightly cushioned insole",
+      "Flared mid-height heel with textured outsole"
+    ],
+    "care_instructions": "Wipe gently with a soft dry cloth after wear and store away from abrasive surfaces.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": true,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Brunch"
+    ],
+    "closure": "buckle",
+    "garment_length_cm": null,
+    "heel_height_cm": 6.5,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": "Gold-tone metal"
+  },
+  "content_sha256": "9b680ab51a25e1831b965723351d3724b0eaa64a1a9184895e32d4ba9699b86c"
+}

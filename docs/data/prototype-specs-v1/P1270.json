@@ -1,0 +1,49 @@
+{
+  "product_id": "P1270",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:54.622Z",
+  "identity_snapshot": {
+    "product_id": "P1270",
+    "product_name": "Black Trench Coat",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Trench Coat",
+    "gender": "Women",
+    "colour": "Black",
+    "material": "Cotton",
+    "fit": "Regular",
+    "style": "Relaxed",
+    "occasion": "Wedding Guest",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1270",
+    "description": "Relaxed black cotton trench coat with a classic belted profile, designed for polished wedding guest layering in autumn.",
+    "construction_details": [
+      "Double-breasted front with storm flap",
+      "Detachable waist tie with belt loops",
+      "Two deep welt pockets and adjustable cuff tabs"
+    ],
+    "care_instructions": "Dry clean only; spot clean lightly between wears and air on a broad hanger.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Wedding Guest"
+    ],
+    "closure": "button",
+    "garment_length_cm": 108,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "a3b436f6b9ac8e62ae6baeee46f3666a3c080be9cfbe31ffd79f6e513177886e"
+}

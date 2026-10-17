@@ -1,0 +1,51 @@
+{
+  "product_id": "P1219",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:33.944Z",
+  "identity_snapshot": {
+    "product_id": "P1219",
+    "product_name": "Lavender Maxi Dress",
+    "category": "Clothing",
+    "subcategory": "Dresses",
+    "product_type": "Maxi Dress",
+    "gender": "Women",
+    "colour": "Lavender",
+    "material": "Viscose",
+    "fit": "Regular",
+    "style": "Bohemian",
+    "occasion": "Date Night",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1219",
+    "description": "Lavender bohemian maxi dress in viscose with a fluid regular shape, softly gathered waist and date-night styling appeal.",
+    "construction_details": [
+      "Sleeveless bodice with clean-finished neckline",
+      "Flowing panelled skirt with narrow turned hem",
+      "Concealed side-seam zip fastening"
+    ],
+    "care_instructions": "Hand wash cold with mild detergent; reshape and dry flat away from direct heat.",
+    "lining": false,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Date Night",
+      "Evening",
+      "Wedding Guest"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 138,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "9b7cfddebc5957f459af6553f6b16f87e73619faf16242a3c65592bdfea561d9"
+}

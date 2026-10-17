@@ -1,0 +1,49 @@
+{
+  "product_id": "P1121",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:59.999Z",
+  "identity_snapshot": {
+    "product_id": "P1121",
+    "product_name": "Brown Relaxed Tee",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "product_type": "Relaxed Tee",
+    "gender": "Men",
+    "colour": "Brown",
+    "material": "Polyester",
+    "fit": "Regular",
+    "style": "Classic",
+    "occasion": "Travel",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1121",
+    "description": "Classic brown relaxed tee with a clean crew neckline and regular shape, made in polyester for travel styling.",
+    "construction_details": [
+      "Crew neckline with bound edge",
+      "Short sleeves with twin-needle hems",
+      "Straight hem with reinforced side seams"
+    ],
+    "care_instructions": "Machine wash cold with similar colours; reshape and air dry.",
+    "lining": false,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": null,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Travel"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": 70,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "1e51ff53bf067e138924b37c9f377af7af17c4ff9343b3a6712ceeeb230dd439"
+}

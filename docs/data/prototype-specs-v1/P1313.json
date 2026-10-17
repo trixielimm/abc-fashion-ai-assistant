@@ -1,0 +1,51 @@
+{
+  "product_id": "P1313",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:21.086Z",
+  "identity_snapshot": {
+    "product_id": "P1313",
+    "product_name": "Silver Wide-Leg Pants",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Wide-Leg Pants",
+    "gender": "Unisex",
+    "colour": "Silver",
+    "material": "Viscose",
+    "fit": "Relaxed",
+    "style": "Bohemian",
+    "occasion": "Wedding Guest",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1313",
+    "description": "Silver viscose wide-leg pants with a relaxed bohemian shape and softly fluid finish for wedding guest dressing.",
+    "construction_details": [
+      "Wide legs with an easy drape",
+      "Flat front waistband with concealed hook and zip",
+      "Side-seam pockets",
+      "Double-turned hems for a clean finish"
+    ],
+    "care_instructions": "Hand wash separately in cool water; reshape gently and dry flat. Use a cool iron on the reverse.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Wedding Guest",
+      "Evening"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 104,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "a76485815a331c4ed212393cdc245ba72450c232b43c7819893356321eab0a91"
+}

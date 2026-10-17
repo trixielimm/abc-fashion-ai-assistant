@@ -1,0 +1,52 @@
+{
+  "product_id": "P1049",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:25.762Z",
+  "identity_snapshot": {
+    "product_id": "P1049",
+    "product_name": "Black Bomber Jacket",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Bomber Jacket",
+    "gender": "Unisex",
+    "colour": "Black",
+    "material": "Cotton",
+    "fit": "Slim",
+    "style": "Classic",
+    "occasion": "Casual",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1049",
+    "description": "Classic black bomber jacket with a slim profile, ribbed trims and a clean cotton finish. A compact layer for casual summer evenings and everyday wear.",
+    "construction_details": [
+      "Full-length front zip",
+      "Ribbed collar, cuffs and hem",
+      "Two angled welt pockets",
+      "Set-in sleeves",
+      "Reinforced shoulder seams"
+    ],
+    "care_instructions": "Hand wash cold; reshape while damp and dry flat. Cool iron on the reverse.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Casual",
+      "Weekend"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 65,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "46ac9e6f5746dbae5311491229f5e71c115e179da74f32f776c0c8f2d87d3b9e"
+}

@@ -1,0 +1,55 @@
+{
+  "product_id": "P1165",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:21:02.503Z",
+  "identity_snapshot": {
+    "product_id": "P1165",
+    "product_name": "Silver Mini Clutch",
+    "category": "Bags",
+    "subcategory": "Clutches",
+    "product_type": "Mini Clutch",
+    "gender": "Women",
+    "colour": "Silver",
+    "material": "Satin",
+    "fit": "Standard",
+    "style": "Contemporary",
+    "occasion": "Date Night",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1165",
+    "description": "Contemporary silver satin mini clutch with a softly lustrous finish and compact evening silhouette.",
+    "construction_details": [
+      "Padded satin outer",
+      "Fold-over flap",
+      "Small clasp fastening",
+      "Slim detachable chain strap"
+    ],
+    "care_instructions": "Spot clean only with a soft cloth; keep away from moisture, snagging surfaces and direct heat.",
+    "lining": true,
+    "pockets": false,
+    "adjustable_strap": false,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": 0.35,
+    "use_cases": [
+      "Date Night",
+      "Evening"
+    ],
+    "closure": "clasp",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": {
+      "width": 18,
+      "height": 11,
+      "depth": 1.8
+    },
+    "strap_drop_cm": 55,
+    "compartments": 1,
+    "sole_material": null,
+    "hardware_finish": "Silver-tone"
+  },
+  "content_sha256": "2f2cf570a1eb3ea687d9926423bb4759dca10780cfdfda135a127e6f1bd0b8f8"
+}

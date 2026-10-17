@@ -1,0 +1,51 @@
+{
+  "product_id": "P1040",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:25.761Z",
+  "identity_snapshot": {
+    "product_id": "P1040",
+    "product_name": "Grey Wrap Dress",
+    "category": "Clothing",
+    "subcategory": "Dresses",
+    "product_type": "Wrap Dress",
+    "gender": "Women",
+    "colour": "Grey",
+    "material": "Viscose",
+    "fit": "Flowy",
+    "style": "Minimalist",
+    "occasion": "Party",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1040",
+    "description": "Minimalist grey wrap dress with a fluid drape, softly defined waist tie and clean midi-length hem. Viscose construction suits polished party dressing.",
+    "construction_details": [
+      "Overlapping wrap front",
+      "Self-fabric waist ties",
+      "Long sleeves with narrow cuffs",
+      "Clean-finished midi hem"
+    ],
+    "care_instructions": "Hand wash cold with similar colours; reshape and dry flat. Cool iron on the reverse.",
+    "lining": false,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Party",
+      "Evening"
+    ],
+    "closure": "tie",
+    "garment_length_cm": 122,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "7e49b675a5b75e3f863541d9f7123f399bc7a5540883d7ca02da6fcdf80d9e03"
+}

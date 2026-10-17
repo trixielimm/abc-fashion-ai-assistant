@@ -1,0 +1,50 @@
+{
+  "product_id": "P1221",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:33.945Z",
+  "identity_snapshot": {
+    "product_id": "P1221",
+    "product_name": "Silver Knit Polo",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "product_type": "Knit Polo",
+    "gender": "Men",
+    "colour": "Silver",
+    "material": "Knit",
+    "fit": "Relaxed",
+    "style": "Streetwear",
+    "occasion": "Brunch",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1221",
+    "description": "Silver relaxed knit polo with a streetwear-led shape, ribbed trims and a softly structured finish for brunch dressing.",
+    "construction_details": [
+      "Flat-knit body with shaped shoulder seams",
+      "Three-button polo placket",
+      "Ribbed collar, cuffs and straight hem"
+    ],
+    "care_instructions": "Hand wash cold; reshape while damp and dry flat.",
+    "lining": false,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Brunch",
+      "Casual"
+    ],
+    "closure": "button",
+    "garment_length_cm": 70,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "0d9bef548e4f333449bfacef43b8e3c3f3fe903090399737f7441e4ce505ced0"
+}

@@ -1,0 +1,57 @@
+{
+  "product_id": "P1285",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:22:25.510Z",
+  "identity_snapshot": {
+    "product_id": "P1285",
+    "product_name": "Silver Mini Tote",
+    "category": "Bags",
+    "subcategory": "Handbags",
+    "product_type": "Mini Tote",
+    "gender": "Unisex",
+    "colour": "Silver",
+    "material": "Canvas",
+    "fit": "Standard",
+    "style": "Bohemian",
+    "occasion": "Travel",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1285",
+    "description": "Bohemian silver mini tote with a canvas body and an easy standard shape, suited to travel styling in warmer seasons.",
+    "construction_details": [
+      "Durable canvas body with bound interior seams",
+      "Twin rolled top handles with reinforced attachment points",
+      "Open top with a secure internal snap tab"
+    ],
+    "care_instructions": "Spot clean with a mild detergent and cool water; reshape while damp and dry flat away from direct sunlight.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": false,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": 2.4,
+    "use_cases": [
+      "Travel",
+      "Weekend"
+    ],
+    "closure": "snap",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": {
+      "width": 25,
+      "height": 20,
+      "depth": 7
+    },
+    "strap_drop_cm": 12,
+    "compartments": 2,
+    "sole_material": null,
+    "hardware_finish": "silver-tone"
+  },
+  "quality_adjustments": [
+    "Synthetic capacity defined as 70% of external volume, rounded down to 0.1 L, to correct impossible generated volume."
+  ],
+  "content_sha256": "c9313fcee65dc2466c7f0c372903d2f4de3e06c15e93f813343d73bd180d7d9e"
+}

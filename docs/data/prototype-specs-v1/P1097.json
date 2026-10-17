@@ -1,0 +1,49 @@
+{
+  "product_id": "P1097",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:48.819Z",
+  "identity_snapshot": {
+    "product_id": "P1097",
+    "product_name": "Pink Silk Scarf",
+    "category": "Accessories",
+    "subcategory": "Scarves",
+    "product_type": "Silk Scarf",
+    "gender": "Unisex",
+    "colour": "Pink",
+    "material": "Silk Blend",
+    "fit": "Standard",
+    "style": "Minimalist",
+    "occasion": "Beach Wedding",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1097",
+    "description": "Pink silk-blend scarf with a minimalist finish and airy drape for beach-wedding ensembles.",
+    "construction_details": [
+      "Fine lightweight weave",
+      "Slim rolled hems",
+      "Neatly finished rectangular edges"
+    ],
+    "care_instructions": "Dry clean or hand wash carefully in cool water; lay flat to dry and protect from snags.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": null,
+    "capacity_litres": null,
+    "use_cases": [
+      "Beach Wedding"
+    ],
+    "closure": "none",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "7819282254b1068f2f4e74ef7732388a7311d451d69f652de24de3b84b33dda2"
+}

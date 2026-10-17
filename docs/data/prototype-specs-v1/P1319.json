@@ -1,0 +1,50 @@
+{
+  "product_id": "P1319",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:57.915Z",
+  "identity_snapshot": {
+    "product_id": "P1319",
+    "product_name": "Blue Cap",
+    "category": "Accessories",
+    "subcategory": "Hats",
+    "product_type": "Cap",
+    "gender": "Men",
+    "colour": "Blue",
+    "material": "Gold-tone Metal",
+    "fit": "Standard",
+    "style": "Smart",
+    "occasion": "Travel",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1319",
+    "description": "A smart blue cap with a standard fit and sculpted gold-tone metal construction, designed for polished travel styling.",
+    "construction_details": [
+      "Curved brim",
+      "Structured crown panels",
+      "Adjustable rear buckle strap",
+      "Clean bound interior edge"
+    ],
+    "care_instructions": "Wipe gently with a soft, dry cloth and store away from moisture.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": true,
+    "zip_closure": null,
+    "machine_washable": null,
+    "capacity_litres": null,
+    "use_cases": [
+      "Travel"
+    ],
+    "closure": "buckle",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": "Gold-tone"
+  },
+  "content_sha256": "74de0da2d56a4c34b82f556899ce4ae2266e5b26e3db04459f81852cd808e8e3"
+}

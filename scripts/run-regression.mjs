@@ -54,6 +54,13 @@ const suites = [
   ["9,16,17,19,20,21,24,25", "test-conversation-plan.mjs"],
   ["9,10,12,16,17,18,19,20,21,22,24,25", "test-conversation-search.mjs"],
   ["9,10,16,17,19,23,24,25", "test-plan-evidence.mjs"],
+  ["9,10,16,19,20,24,25", "test-plan-recovery.mjs"],
+  ["9,10,16,17,18,19,20,24,25", "test-conversation-answers.mjs"],
+  ["18,23,24,25", "test-conversation-production.mjs"],
+  ["20,22,24,25", "test-stylist-commerce.mjs"],
+  ["20,22,24,25", "test-stylist-feature-import.mjs"],
+  ["20,22,24,25", "test-product-specifications.mjs"],
+  ["18,23,24,25", "test-stylist-telemetry.mjs"],
 ["9,10,12,13,16,17,18,19,20,21,22,23,24,25", "test-conversation-integration.mjs"],
 ["9,13,14,15,16,18,19,20,21,22,24,25", "test-shopping-presentation.mjs"],
 ["15,18,19,20,21,22,24,25", "test-friendly-shopping-message.mjs"],
@@ -91,12 +98,14 @@ for (const suite of suites) {
 
   const args = ["--import", "tsx", script];
 
-  if (suite.file === "test-grounded-recommendation.ts") {
+  if (["test-grounded-recommendation.ts", "test-conversation-production.mjs", "test-stylist-telemetry.mjs"].includes(suite.file)) {
     args.unshift("--conditions=react-server");
   }
 
   const child = spawnSync(process.execPath, args, {
     cwd: root,
+    env: suite.file === "test-conversation-production.mjs"
+      ? { ...process.env, NODE_ENV: "production" } : process.env,
     encoding: "utf8",
     timeout: 90_000,
     maxBuffer: 4 * 1024 * 1024,

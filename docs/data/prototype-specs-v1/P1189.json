@@ -1,0 +1,51 @@
+{
+  "product_id": "P1189",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:23.857Z",
+  "identity_snapshot": {
+    "product_id": "P1189",
+    "product_name": "Olive Maxi Dress",
+    "category": "Clothing",
+    "subcategory": "Dresses",
+    "product_type": "Maxi Dress",
+    "gender": "Women",
+    "colour": "Olive",
+    "material": "Cotton",
+    "fit": "Slim",
+    "style": "Bohemian",
+    "occasion": "Wedding Guest",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1189",
+    "description": "Olive cotton maxi dress with a bohemian silhouette, slim shaping through the bodice and a softly falling full-length skirt for wedding guest dressing.",
+    "construction_details": [
+      "Fitted bodice with shaped waist seams",
+      "Full-length skirt with clean turned hem",
+      "Back zip fastening",
+      "Lightly finished neckline and armholes"
+    ],
+    "care_instructions": "Cold hand wash with mild detergent; reshape while damp and dry flat or on a padded hanger. Do not tumble dry.",
+    "lining": false,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Wedding Guest",
+      "Brunch"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 145,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "b3e574b347315e21d3019093405f47fae64a5892e8cbfbf21d63413316ea0f98"
+}

@@ -1,0 +1,49 @@
+{
+  "product_id": "P1290",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:20:01.504Z",
+  "identity_snapshot": {
+    "product_id": "P1290",
+    "product_name": "Yellow Cap",
+    "category": "Accessories",
+    "subcategory": "Hats",
+    "product_type": "Cap",
+    "gender": "Unisex",
+    "colour": "Yellow",
+    "material": "Gold-tone Metal",
+    "fit": "Standard",
+    "style": "Elegant",
+    "occasion": "Smart Casual",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1290",
+    "description": "Yellow elegant cap with a standard structured shape and gold-tone metal detailing, adding a bright accent to smart casual autumn outfits.",
+    "construction_details": [
+      "Six-panel crown with defined seam lines",
+      "Short curved brim with edge stitching",
+      "Gold-tone metal rear adjuster"
+    ],
+    "care_instructions": "Spot clean with a soft damp cloth and leave to air dry naturally.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": true,
+    "zip_closure": false,
+    "machine_washable": null,
+    "capacity_litres": null,
+    "use_cases": [
+      "Smart Casual"
+    ],
+    "closure": "buckle",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": "Gold-tone"
+  },
+  "content_sha256": "3619f4267a26edc580bdf09e40365eb6d34925bf097e5f67055f00f99146391b"
+}

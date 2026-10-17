@@ -1,0 +1,51 @@
+{
+  "product_id": "P1093",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:45.114Z",
+  "identity_snapshot": {
+    "product_id": "P1093",
+    "product_name": "Gold Trench Coat",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Trench Coat",
+    "gender": "Women",
+    "colour": "Gold",
+    "material": "Cotton",
+    "fit": "Regular",
+    "style": "Minimalist",
+    "occasion": "Formal",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1093",
+    "description": "Gold cotton trench coat with a minimalist finish and regular fit, tailored for formal all-season layering.",
+    "construction_details": [
+      "Double-breasted front with button fastening",
+      "Notched collar and shoulder tabs",
+      "Waist belt with covered buckle",
+      "Storm flap and cuff straps",
+      "Slant welt pockets"
+    ],
+    "care_instructions": "Dry clean; remove the belt before cleaning and press gently on the reverse side.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Formal"
+    ],
+    "closure": "button",
+    "garment_length_cm": 112,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "d48da6acb365a43c3bf21030f435164ffe93c88de11ccb64e24512cc976e2cb0"
+}

@@ -1,0 +1,53 @@
+{
+  "product_id": "P1215",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:26.574Z",
+  "identity_snapshot": {
+    "product_id": "P1215",
+    "product_name": "Brown Slip Dress",
+    "category": "Clothing",
+    "subcategory": "Dresses",
+    "product_type": "Slip Dress",
+    "gender": "Women",
+    "colour": "Brown",
+    "material": "Satin",
+    "fit": "Slim",
+    "style": "Elegant",
+    "occasion": "Beach Wedding",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1215",
+    "description": "Brown satin slip dress with an elegant slim line, delicate shoulder straps and a fluid finish suited to a beach wedding.",
+    "construction_details": [
+      "V-neckline",
+      "Adjustable shoulder straps",
+      "Princess seams",
+      "Side zip fastening",
+      "Narrow turned hem"
+    ],
+    "care_instructions": "Hand wash gently in cool water and lay flat to dry; use a low-temperature press on the reverse.",
+    "lining": true,
+    "pockets": false,
+    "adjustable_strap": true,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Beach Wedding",
+      "Wedding Guest",
+      "Evening"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 128,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "79b7e58ddd0e5acf76c6f46dd1566d65b754a59c3cd2a47d80f49457f710b69e"
+}

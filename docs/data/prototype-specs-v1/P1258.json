@@ -1,0 +1,52 @@
+{
+  "product_id": "P1258",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:52.741Z",
+  "identity_snapshot": {
+    "product_id": "P1258",
+    "product_name": "Red Cardigan",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Cardigan",
+    "gender": "Unisex",
+    "colour": "Red",
+    "material": "Knit",
+    "fit": "Slim",
+    "style": "Relaxed",
+    "occasion": "Date Night",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1258",
+    "description": "Relaxed red knit cardigan with a slim profile and clean ribbed finishing, adding a bright layer to date-night outfits.",
+    "construction_details": [
+      "Open V-neckline",
+      "Button-front fastening",
+      "Long sleeves",
+      "Two front patch pockets",
+      "Ribbed cuffs and hem"
+    ],
+    "care_instructions": "Hand wash gently in cool water. Do not wring; reshape and dry flat.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Date Night",
+      "Casual"
+    ],
+    "closure": "button",
+    "garment_length_cm": 59,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "263a80c725fc42bb9343b5327ceb1cee6fbf8489263347d9bd49e79b54b71d77"
+}
