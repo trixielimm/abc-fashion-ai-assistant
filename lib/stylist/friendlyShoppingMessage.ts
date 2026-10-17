@@ -27,6 +27,7 @@ type Input = {
   canPreviewOtherColours: boolean;
   unresolved: readonly string[];
   hasOptionalQuestion: boolean;
+  hasReplacementPriority?: boolean;
 };
 
 const money = (value: number) => `A$${value.toFixed(2)}`;
@@ -167,7 +168,9 @@ export function friendlyShoppingMessage(input: Input): string {
   if (status === "no_upsell") {
     return paragraphs(
       input.baseMessage,
-      "You can stay with the current choice. What would you value in a replacement: adjustability, pockets, lining or easier care? I'll compare only recorded evidence and keep your budget."
+      input.hasReplacementPriority
+        ? "You can keep your original choice. I haven't found an additional benefit for the priority you gave me, and your budget is unchanged."
+        : "You can stay with the current choice. What would you value in a replacement: adjustability, pockets, lining or easier care? I'll compare only recorded evidence and keep your budget."
     );
   }
 

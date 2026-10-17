@@ -131,13 +131,14 @@ await check("After bag results the context refers to bags", () => {
   assert.ok(next.context.latest.every(p => p.category === "Bags"));
 });
 
-await check("Empty results clear stale products without clearing the preference scopes", () => {
+await check("Empty results preserve reference memory without recommending stale products", () => {
   const session = existingSession(); session.scopes.shared.max_price = 0;
   const turn = makeTurn(session, "Find an extra", snapshot(main), { kind: "cross_sell", product_id: "D1" });
   const result = finish(turn, shortcutPlan(turn));
   const next = acceptReply(turn, result).session;
   assert.equal(result.status, "no_match");
-  assert.deepEqual(next.context.latest, []);
+  assert.deepEqual(result.products, []);
+  assert.deepEqual(next.context.latest, turn.context.latest);
   assert.equal(next.scopes.shared.max_price, 0);
 });
 
@@ -199,7 +200,7 @@ await check("History is bounded and Reset creates an empty conversation", () => 
     const turn = makeTurn(session, "Hello");
     session = acceptReply(turn, finish(turn, plan(turn.message, "none"))).session;
   }
-  assert.equal(session.history.length, 8);
+  assert.equal(session.history.length, 6);
   assert.deepEqual(newSession().scopes, createPreferenceScopes());
   assert.deepEqual(newSession().context.latest, []);
 });

@@ -32,6 +32,10 @@ export function validatePreferences(input: ShoppingPreferences, catalogue: Catal
       (candidate) => normalise(candidate) === normalise(value)
     );
     if (match !== undefined) return match;
+    // A generic necklace is a safe umbrella over Pendant Necklace, etc.; it
+    // must not be converted to one particular style merely to pass validation.
+    if (field === "product_type" && /^necklace$/i.test(value) &&
+        allowed.some(candidate => /\bnecklace\b/i.test(candidate))) return "Necklace";
 
     const blocking = hardFields.has(field);
     issues.push({

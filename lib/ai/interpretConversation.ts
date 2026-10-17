@@ -1,19 +1,13 @@
 import "server-only";
 import OpenAI from "openai";
 import { zodTextFormat } from "openai/helpers/zod";
-import { z } from "zod";
-import { AnswerIntentSchema } from "../stylist/answerPlan";
-import { StylingIntentSchema } from "../stylist/commerceSchema";
+import { decodeModelPlan, ModelPlanSchema } from "./conversationModelPlan";
+import { OPTIONS_PER_COMPONENT } from "../stylist/conversationLimits";
 import {
-  ConversationPlanSchema,
   generateValidatedConversationPlan,
   PlanValidationError,
   type ConversationPlanRequest,
 } from "../stylist/conversationPlan";
-
-// The optional field in the application schema keeps older fixtures compatible.
-// The model itself must always return an explicit continuation decision.
-const ModelPlanSchema = ConversationPlanSchema.extend({ continuation: z.boolean(), answer: AnswerIntentSchema.nullable(), styling_intent: StylingIntentSchema.nullable() });
 
 const SYSTEM_PROMPT = `
 Interpret one shopping turn for ABC Fashion. Return a plan, never products or prose recommendations.
@@ -41,6 +35,16 @@ styling_intent has preferences=[], outfit_changes=[], owned_categories=[], offer
 [{operation:keep,reference:{kind:position,position:2,subcategory:Dresses},evidence:"Keep the second dress"}].
 Use own for an explicitly owned known item, reject for a disliked item, remove to unselect an outfit piece.
 Selected items remain addressable by their exact names/IDs in context.selected after newer search results.
+"I like" or "I love" expresses interest only: never emit keep/own for it.
+For "I already own ... Keep it as an owned piece", emit ONE own operation, not own followed by keep.
+For a description of an owned item from elsewhere, add styling_intent.external_items with operation=add,
+description=an exact quote describing the garment, category, product_type, colour, occasion.
+Attributes must come from that description; use null when absent. Never create a product ID.
+For "I already own a plain navy midi dress from another shop. I want shoes ...", retain
+description="plain navy midi dress", category=Clothing, product_type="midi dress", colour="navy",
+occasion=null, and search the requested Shoes with cross_sell and reference=null.
+A follow-up asking to work from the description resumes this matching request with its saved budget.
+Use external_items=[] when unused. For an explicit removal, use operation=remove and the saved description.
 Do not automatically keep displayed items. "I already own a bag" without a known SKU adds owned_categories
 {category:Bags,operation:add,evidence:"already own a bag"}, not an invented product ID.
 "No extras" pauses proactive offers via offers={paused:true,evidence:"No extras"}; action=none.
@@ -84,6 +88,8 @@ occasion/use or null; never invent one. "Can this arrive by Friday?" is policy, 
 references=[], purpose=null. Do not search or change preferences to answer these questions.
 "Compare the first and second dresses" is compare with two position references, subcategory Dresses.
 If products are ambiguous, still emit the answer intent with context references; the server asks which item.
+"Why does the first bag go with my owned dress?" asks about the first BAG. Use product kind and
+reference only that bag; the owned dress is a styling anchor, not a second comparison reference.
 For a mixed request such as "Why the second dress, and show me a cheaper option", emit BOTH answer
 and the explicit shopping action cheaper with the same reference. Never omit either part.
 Do not add a sales/search action to a pure question or infer a budget from a product's price.
@@ -127,9 +133,26 @@ proposed item and shared preferences, and change only what the new answer suppli
 Example: pending cross_sell for a bag, "Which dress?" followed by "the second" =>
 continuation=true, action=cross_sell, reference=position 2, changes=[]. Do not change the item category to Clothing.
 For a genuinely new request set continuation=false and choose the appropriate action.
+An ordinary refine of a shortlist has reference=null. A budget/colour/style edit does not select a single product.
+"Find shoes to go with both my owned dress and bag" uses cross_sell and an owned dress reference;
+the server considers all kept/owned pieces. Do not ask which one when the customer explicitly said both.
 Without a pending request continuation must be false. For none use false, no changes and no reference.
 
 Changes:
+Wire format: each changes entry has scope, field, operation, text_value, number_value, list_values, evidence.
+Use text_value for text/enum fields (including size="10"), number_value only for prices,
+and list_values only for preferred_colours, excluded_colours and unresolved. Unused text/number slots
+are null and unused list_values is []. Whenever the instructions below say value, use its corresponding slot.
+Examples: black => field=preferred_colours, list_values=["Black"], text_value=null, number_value=null.
+under $150 => field=max_price, number_value=150, text_value=null, list_values=[].
+size 10 => field=size, text_value="10", number_value=null, list_values=[].
+Use the smallest set of changes. Do not re-emit unrelated old fields or add null removals.
+Catalogue hierarchy: Clothing > Dresses > Midi Dress/Wrap Dress/Maxi Dress/etc;
+Bags > Clutches/Handbags/Crossbody; Shoes > Heels/Flats/Sandals/Sneakers;
+Accessories > Jewellery > Necklace/Pendant Necklace/Bracelet/etc.
+Generic necklace: category Accessories, subcategory Jewellery, product_type Necklace.
+Blue/black/silver are colours, never style or material. A generic dress is subcategory Dresses, not product_type Dresses.
+General bag/shoe ordinal references should use subcategory=null unless an exact displayed subcategory is known.
 Each scalar uses set; null removes it ONLY when the customer explicitly asks.
 Category values are exactly Clothing, Shoes, Bags or Accessories, never Footwear or a subcategory.
 Colour lists use set/add/remove. Excluded colours and unresolved requirements use add/remove only.
@@ -139,14 +162,64 @@ Never overwrite an entire exclusions list. One operation per scope/field per tur
 For "different colour" with a clear previous item colour, remove that preferred colour and add it to
 item exclusions; preserve shared colour restrictions. If there is no clear reference colour, clarify.
 "More casual" can propose Relaxed as the style; retain all unrelated preferences and disclose partial matches downstream.
+"Everyday wear" means occasion Casual, not the invented label Everyday. "More relaxed" means style Relaxed.
+Supported zip/adjustable strap features belong in styling_intent, never also in unresolved.
+For "secure zip closure matters most; does spending more improve that?", compare the focused original
+and any replacement on the general construction/price topics, or search upsell with priority closure.
+For "the cheaper one", select the uniquely lowest-priced displayed replacement and compare it to context.comparison.
+For gains/losses/extra cost, answer about the displayed replacement AND the stored original; ask only if multiple candidates are truly ambiguous.
 Do not invent a formality score or premium-quality attribute.
 "No leather" is an unresolved negative-material requirement, NOT material=Leather.
 For "Show me shoes for work under $150, but no leather", set item category=Shoes,
 occasion=Work, max_price=150 and add item unresolved=["no leather"], using the actual quoted evidence.
-Whole-outfit totals and unsupported requirements must be retained as unresolved text, not dropped or
-converted into per-item budgets. Removing a restriction requires explicit permission in the latest turn.
-For a dress, shoes and bag under $200 TOTAL, add the whole-outfit requirement as an unresolved
-array entry. Do not set max_price=200 or pretend that a single-item search fulfils that request.
+Combined budgets for 2-4 explicitly requested items ARE supported. Use outfit_request, not unresolved.
+outfit_request={total_budget_aud,items:[complete ShoppingPreferences objects],evidence:exact latest quote}.
+Each item has its own category, subcategory, product_type, colour and size. Unspecified scalars=null,
+colour lists=[]. Put context common to THIS outfit (occasion/style/etc.) in scope=item changes,
+with no item identity. Scope=shared is only for explicit rules across all future searches.
+For "I want a dress and shoes for formal events, my budget for both of them is 400 aud":
+action=new_search, reference=null, outfit_request.total_budget_aud=400,
+items=[{category:Clothing,subcategory:Dresses,...other fields null/[]},
+{category:Shoes,...other fields null/[]}], occasion=Formal in changes, evidence=the customer request.
+The server offers up to ${OPTIONS_PER_COMPONENT} available choices per component, with varied recorded types/colours.
+It verifies that choosing ONE item from EACH group fits the shared total; never add up every option
+as if the shopper were buying them all. NEVER set max_price=400 on each item.
+Missing dress type, colour or size is a broad browsing request, not an unclear shopping intention.
+Do not guess those fields or block recommendations to ask for them. Optional follow-up questions
+are appended by the server after the product groups; the shopper may ignore them and keep browsing.
+For "any colour" use preferred_colours set [] only when clearing an existing colour preference;
+otherwise omit the colour change. Unresolved and excluded-colour changes need non-empty labels.
+Do not emit empty unresolved/exclusion changes to express that no requirement was given.
+For a dress, shoes and bag under $200 TOTAL, include all THREE components with a total of 200.
+Per-component budgets, colours and sizes belong only on that component. Do not invent an allocation.
+NEVER duplicate a component's colour/size/type/material in ordinary changes: that would apply it
+to the other components too. E.g. blue dresses with unchanged shoes updates ONLY items[Clothing].
+"Keep both items", "keep the shoes as they are" and "keep the blue dress options" during a filter
+or total-budget edit mean preserve the requested components, NOT keep/select displayed SKUs.
+Do not emit styling_intent.outfit_changes for those phrases. A SKU selection needs a specific
+product name or ordinal and an explicit instruction to select that product for the outfit.
+If styling.outfit_request is active, a combined budget or colour refinement uses action=refine and
+returns the full updated outfit_request, retaining unmentioned items, sizes, colours and context.
+Use latest-turn evidence for the edit; an unchanged total may be copied from the saved outfit request.
+After no_match, a budget change is refine with continuation=false; no pending question was asked.
+If a shopper answers a dress/style/colour question, update only the clearly identified component.
+A bare colour after a question about both components is ambiguous: ask which piece to change,
+without deleting the saved outfit, total, other filters or previous product references.
+A genuinely different single-item search uses new_search and outfit_request=null.
+Use outfit_request=null for ordinary single-item searches, answers, styling actions and unused plans.
+A full outfit without named components still needs clarification about the pieces to include.
+Other unsupported requirements must remain unresolved. Removing restrictions requires explicit permission.
+
+Memory:
+history contains the last THREE understood customer prompts and their replies. Ambiguous or
+unrecognised intentions do not evict those prompts. Saved scopes and styling are authoritative and
+remain until explicitly changed; never clear them because the latest message is confusing.
+context.latest contains the current grouped products; context.previous contains the prior two
+result sets. Resolve exact names/IDs from those sets when the customer refers back to them.
+If you genuinely cannot interpret a requested change, use clarify with changes=[], outfit_request=null,
+styling_intent=null and a focused question. It must preserve the active shopping task.
+If a previous clarification goal was itself unclear, a clear edit to the saved task can proceed as
+refine with continuation=false. Do not pretend a new edit continues an unrelated unclear goal.
 
 Evidence:
 The FINAL user message is the raw latest turn. Everything before it is context only.
@@ -198,6 +271,6 @@ export async function interpretConversation(input: ConversationPlanRequest, sign
       }
       throw new Error("Conversation interpretation failed.");
     }
-    return response.output_parsed;
+    return decodeModelPlan(response.output_parsed);
   });
 }

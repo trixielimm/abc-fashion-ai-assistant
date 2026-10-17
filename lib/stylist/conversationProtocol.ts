@@ -7,6 +7,8 @@ import { safeProductImageSource } from "./catalogueImages";
 import { getProductImageEndpoint } from "../product-image";
 import { AnswerSourceSchema, PendingAnswerSchema } from "./answerPlan";
 import { emptyStylingState, PairingEvidenceSchema, StylingStateSchema, ValueComparisonSchema, COMMERCE_POLICY } from "./commerceSchema";
+import { OutfitBudgetSchema, OutfitChoicesSchema, priceCents } from "./outfitBudgetSchema";
+import { HISTORY_MESSAGES, MAX_DISPLAYED_PRODUCTS } from "./conversationLimits";
 
 export const ShortcutSchema = z.strictObject({
   kind: z.enum(["cross_sell", "cheaper", "upsell", "keep", "own", "remove", "reject"]),
@@ -49,12 +51,15 @@ export type AlternativeProduct = z.infer<typeof AlternativeProductSchema>;
 
 const normalise = (value: string) => value.trim().replace(/\s+/g, " ").toLowerCase();
 export const TurnReplySchema = z.object({
+  intent_understood: z.boolean().default(true),
+  outfit_budget: OutfitBudgetSchema.nullable().default(null),
+  outfit_choices: OutfitChoicesSchema.nullable().default(null),
   status: z.enum(["matches", "partial", "alternatives", "no_match", "no_action", "answered", "needs_clarification", "no_upsell", "no_rule", "rule_unavailable", "primary_unavailable", "primary_mismatch"]),
   action: z.enum(["new_search", "refine", "cross_sell", "cheaper", "upsell", "clarify", "none"]),
   message: z.string().min(1),
   proposed_scopes: PreferenceScopesSchema,
   applied_preferences: ShoppingPreferencesSchema.nullable(),
-  products: z.array(ChatProductSchema).max(4),
+  products: z.array(ChatProductSchema).max(MAX_DISPLAYED_PRODUCTS),
   alternatives: z.array(AlternativeProductSchema).max(4).default([]),
   alternatives_preferences: ShoppingPreferencesSchema.nullable().default(null),
   alternative_kind: z.enum(["context_difference", "colour_preview"]).nullable().default(null),
@@ -75,9 +80,38 @@ export const TurnReplySchema = z.object({
   if (reply.status === "alternatives" && !reply.alternatives.length) reject("Alternatives status requires alternatives.");
   if (reply.alternatives.length && !["matches", "partial", "alternatives"].includes(reply.status)) reject("Alternatives cannot hide a blocking result.");
   const all = [...reply.products, ...reply.alternatives];
+  const budget = reply.outfit_budget;
+  const choices = reply.outfit_choices;
+  if (budget) {
+    const total = budget.items.reduce((sum, item) => sum + priceCents(reply.products.find(product => product.product_id === item.product_id)?.price_aud ?? NaN), 0);
+    if (reply.status !== "matches" || reply.alternatives.length || !reply.styling.outfit_request ||
+        priceCents(budget.limit_aud) !== priceCents(reply.styling.outfit_request.total_budget_aud) ||
+        budget.items.length !== reply.styling.outfit_request.items.length ||
+        (!choices && budget.items.length !== reply.products.length) || new Set(budget.items.map(item => item.product_id)).size !== budget.items.length ||
+        budget.items.some(item => !reply.products.some(product => product.product_id === item.product_id)) ||
+        total !== priceCents(budget.total_aud) || total > priceCents(budget.limit_aud) ||
+        priceCents(budget.remaining_aud) !== priceCents(budget.limit_aud) - total) reject("The complete outfit and combined budget are inconsistent.");
+  } else if (reply.styling.outfit_request && ["new_search", "refine"].includes(reply.action) && all.length) {
+    reject("A shared-budget outfit requires a verified complete-set total.");
+  }
+  if (choices) {
+    const ids = choices.groups.flatMap(group => group.product_ids);
+    const maximum = choices.groups.reduce((sum, group) => sum + Math.max(...group.product_ids.map(id =>
+      priceCents(reply.products.find(product => product.product_id === id)?.price_aud ?? NaN))), 0);
+    const minimum = choices.groups.reduce((sum, group) => sum + Math.min(...group.product_ids.map(id =>
+      priceCents(reply.products.find(product => product.product_id === id)?.price_aud ?? NaN))), 0);
+    if (!budget || reply.status !== "matches" || reply.alternatives.length ||
+        choices.groups.length !== reply.styling.outfit_request?.items.length ||
+        ids.length !== reply.products.length || new Set(ids).size !== ids.length ||
+        ids.some(id => !reply.products.some(product => product.product_id === id)) ||
+        choices.groups.some((group, i) => !group.product_ids.includes(budget.items[i]?.product_id)) ||
+        minimum !== priceCents(budget.total_aud) || maximum !== priceCents(choices.maximum_total_aud) || maximum > priceCents(budget.limit_aud)) {
+      reject("Grouped outfit choices must cover each component and every displayed combination must fit the total.");
+    }
+  }
   if (all.some(product => product.image_src?.startsWith("/api/products/") &&
       product.image_src !== getProductImageEndpoint(product.product_id))) reject("The image route must belong to the displayed product.");
-  if (all.length > 4 || new Set(all.map(p => p.product_id)).size !== all.length) reject("Return at most four unique displayed products.");
+  if (all.length > (choices ? MAX_DISPLAYED_PRODUCTS : 4) || new Set(all.map(p => p.product_id)).size !== all.length) reject("Return unique displayed products within the shortlist limit.");
   if ((reply.status === "needs_clarification") !== (reply.pending !== null) && !["no_action", "answered"].includes(reply.status)) reject("Missing or unexpected pending question.");
   if (reply.status === "answered" && (reply.action !== "none" || all.length || reply.applied_preferences !== null || reply.can_preview_other_colours)) reject("Answer-only replies cannot perform a shopping action.");
   if (reply.pending_answer && !["answered", "no_action"].includes(reply.status)) reject("Resolve the product question before another shopping action.");
@@ -101,6 +135,16 @@ export const TurnReplySchema = z.object({
       }
       if (preferences.preferred_colours.length && !preferences.preferred_colours.some(c => relatedLabel(product.colour, c))) reject("A required colour was not met.");
       if (preferences.excluded_colours.length && (!product.colour || preferences.excluded_colours.some(c => relatedLabel(product.colour, c)))) reject("A colour exclusion was not respected.");
+    }
+  }
+  if (budget) {
+    for (const item of budget.items) checkProducts(reply.products.filter(product => product.product_id === item.product_id), item.preferences);
+  }
+  if (choices) {
+    for (const [index, group] of choices.groups.entries()) {
+      const products = reply.products.filter(product => group.product_ids.includes(product.product_id));
+      checkProducts(products, group.preferences);
+      checkProducts(products, reply.styling.outfit_request?.items[index] ?? null);
     }
   }
   checkProducts(reply.products, reply.applied_preferences);
@@ -154,7 +198,7 @@ export function makeTurn(
 ): ConversationTurn {
   const scopes = PreferenceScopesSchema.parse(session.scopes);
   const styling = StylingStateSchema.parse(session.styling ?? emptyStylingState());
-  const known = [...session.context.latest, ...(session.context.focused ? [session.context.focused] : []), ...(session.context.comparison ? [session.context.comparison] : []), ...styling.outfit];
+  const known = [...session.context.latest, ...(session.context.previous?.flat() ?? []), ...(session.context.focused ? [session.context.focused] : []), ...(session.context.comparison ? [session.context.comparison] : []), ...styling.outfit];
   if (focus && !known.some(p => p.product_id === focus.product_id) && !session.pending) {
     const savedSize = scopes.item.category === focus.category ? scopes.item.size : null;
     scopes.item = { ...emptyShoppingPreferences(), size: savedSize };
@@ -164,28 +208,35 @@ export function makeTurn(
     message, scopes, pending: shortcut && ["cross_sell", "cheaper", "upsell"].includes(shortcut.kind) ? null : session.pending,
     pending_answer: (shortcut && ["cross_sell", "cheaper", "upsell"].includes(shortcut.kind)) || previewOtherColours ? null : session.pending_answer ?? null,
     context: { focused: focus ?? session.context.focused, latest: session.context.latest,
+      ...(session.context.previous?.length ? { previous: session.context.previous } : {}),
       ...(session.context.comparison ? { comparison: session.context.comparison } : {}),
       ...(styling.outfit.length ? { selected: styling.outfit.map(snapshot) } : {}) },
     styling, cart_product_ids: session.cart_product_ids ?? [],
-    history: session.history.slice(-8), ...(shortcut ? { shortcut } : {}),
+    history: session.history.slice(-HISTORY_MESSAGES), ...(shortcut ? { shortcut } : {}),
     ...(previewOtherColours ? { preview_other_colours: true } : {}),
   });
 }
 export function acceptReply(turn: ConversationTurn, input: unknown): { reply: TurnReply; session: Session } {
   const reply = TurnReplySchema.parse(input);
+  if (!reply.intent_understood && (JSON.stringify(reply.proposed_scopes) !== JSON.stringify(turn.scopes) ||
+      JSON.stringify(reply.styling) !== JSON.stringify(turn.styling ?? emptyStylingState()))) {
+    throw new Error("An unclear intention cannot change remembered shopping preferences or outfit choices.");
+  }
   if (reply.alternative_kind === "colour_preview" && turn.preview_other_colours !== true) {
     throw new Error("Colour alternatives require the explicit preview action.");
   }
   const visible = [...reply.products, ...reply.alternatives];
-  const context: Session["context"] = reply.pending || reply.status === "no_action" || reply.status === "answered" || reply.status === "no_upsell"
-    ? { ...turn.context, latest: [...turn.context.latest] } : { focused: null, latest: visible.map(snapshot) };
+  const previous = [turn.context.latest, ...(turn.context.previous ?? [])].filter(products => products.length).slice(0, 2);
+  const context: Session["context"] = !reply.intent_understood || reply.pending || !visible.length || reply.status === "answered"
+    ? { ...turn.context, latest: [...turn.context.latest] } : { focused: null, latest: visible.map(snapshot),
+      ...(previous.length ? { previous } : {}) };
   if (reply.status === "answered") {
     if (JSON.stringify(reply.proposed_scopes) !== JSON.stringify(turn.scopes) ||
         JSON.stringify(reply.pending) !== JSON.stringify(turn.pending ?? null)) {
       throw new Error("An answer cannot change saved shopping preferences or a pending search.");
     }
     if (reply.answer_product_ids.length) {
-      const pool = [turn.context.focused, turn.context.comparison, ...turn.context.latest, ...(turn.context.selected ?? [])];
+      const pool = [turn.context.focused, turn.context.comparison, ...turn.context.latest, ...(turn.context.previous?.flat() ?? []), ...(turn.context.selected ?? [])];
       if (reply.answer_product_ids.some(id => !pool.some(row => row?.product_id === id))) {
         throw new Error("The answered products must belong to the current context.");
       }
@@ -195,13 +246,13 @@ export function acceptReply(turn: ConversationTurn, input: unknown): { reply: Tu
     }
   }
   if (reply.action === "upsell" && reply.comparison_reference_id) {
-    const product = [turn.context.focused, turn.context.comparison, ...turn.context.latest, ...(turn.context.selected ?? [])].find(row => row?.product_id === reply.comparison_reference_id);
+    const product = [turn.context.focused, turn.context.comparison, ...turn.context.latest, ...(turn.context.previous?.flat() ?? []), ...(turn.context.selected ?? [])].find(row => row?.product_id === reply.comparison_reference_id);
     if (!product) throw new Error("The comparison reference must belong to the conversation.");
     context.comparison = product;
     if (reply.status === "no_upsell") context.focused = product;
   }
   const spoken = [reply.message, reply.optional_question].filter(Boolean).join("\n");
-  const history: Session["history"] = [
+  const history: Session["history"] = !reply.intent_understood ? turn.history : [
     ...turn.history, { role: "user", content: turn.message },
     { role: "assistant", content: spoken.slice(0, 2000) },
   ];
@@ -210,6 +261,6 @@ export function acceptReply(turn: ConversationTurn, input: unknown): { reply: Tu
     pending_answer: reply.pending_answer,
     styling: reply.styling,
     cart_product_ids: turn.cart_product_ids,
-    context, history: history.slice(-8),
+    context, history: history.slice(-HISTORY_MESSAGES),
   } };
 }

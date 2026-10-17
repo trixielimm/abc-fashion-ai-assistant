@@ -1,0 +1,548 @@
+{
+  "started": "2026-10-17T05:54:03.049Z",
+  "base": "http://127.0.0.1:3002",
+  "checks": [
+    {
+      "message": "I want a dress and shoes for formal events, my budget for both of them is 400 aud",
+      "http": 200,
+      "elapsed_ms": 7664,
+      "reply": {
+        "outfit_budget": {
+          "limit_aud": 400,
+          "total_aud": 135,
+          "remaining_aud": 265,
+          "items": [
+            {
+              "product_id": "P1021",
+              "preferences": {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "product_id": "P1085",
+              "preferences": {
+                "gender": null,
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ]
+        },
+        "status": "matches",
+        "action": "new_search",
+        "message": "Here is one complete set: Cream Slip Dress (A$75.00) + Red Block Heels (A$60.00). Total: A$135.00 of your A$400.00 combined budget; A$265.00 remaining.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Formal",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1021",
+            "product_name": "Cream Slip Dress",
+            "price_aud": 75,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Slip Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Cream",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1021/image"
+          },
+          {
+            "product_id": "P1085",
+            "product_name": "Red Block Heels",
+            "price_aud": 60,
+            "category": "Shoes",
+            "subcategory": "Heels",
+            "product_type": "Block Heels",
+            "brand_line": "ABC Footwear",
+            "colour": "Red",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1085/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit_request": {
+            "total_budget_aud": 400,
+            "items": [
+              {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": null,
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "I want a dress and shoes for formal events, my budget for both of them is 400 aud"
+          },
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "pass": true
+    },
+    {
+      "message": "Actually my combined budget is 1 aud. Keep both items and the formal occasion.",
+      "http": 200,
+      "elapsed_ms": 8606,
+      "reply": {
+        "outfit_budget": null,
+        "status": "no_match",
+        "action": "refine",
+        "message": "I couldn't find a complete set within your A$1.00 combined budget. I haven't raised the total or dropped any requested items or requirements.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Formal",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit_request": {
+            "total_budget_aud": 1,
+            "items": [
+              {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": null,
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "Actually my combined budget is 1 aud."
+          },
+          "outfit": [
+            {
+              "product_id": "P1021",
+              "product_name": "Cream Slip Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Slip Dress",
+              "price_aud": 75,
+              "ownership": "selected"
+            },
+            {
+              "product_id": "P1085",
+              "product_name": "Red Block Heels",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Block Heels",
+              "price_aud": 60,
+              "ownership": "selected"
+            }
+          ],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "pass": true
+    },
+    {
+      "message": "Make the combined budget 400 aud again, keeping everything else.",
+      "http": 200,
+      "elapsed_ms": 5490,
+      "reply": {
+        "outfit_budget": null,
+        "status": "needs_clarification",
+        "action": "clarify",
+        "message": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Formal",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": {
+          "action": "clarify",
+          "reference": null,
+          "goal": "Make the combined budget 400 aud again, keeping everything else.",
+          "question": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": "Formal",
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": "Formal",
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit_request": {
+            "total_budget_aud": 1,
+            "items": [
+              {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": null,
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "Actually my combined budget is 1 aud."
+          },
+          "outfit": [
+            {
+              "product_id": "P1021",
+              "product_name": "Cream Slip Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Slip Dress",
+              "price_aud": 75,
+              "ownership": "selected"
+            },
+            {
+              "product_id": "P1085",
+              "product_name": "Red Block Heels",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Block Heels",
+              "price_aud": 60,
+              "ownership": "selected"
+            }
+          ],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      }
+    }
+  ],
+  "catalogue_count": 316,
+  "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'needs_clarification'\n- 'matches'\n",
+  "finished": "2026-10-17T05:54:27.171Z",
+  "passed": 2,
+  "failed": 1
+}

@@ -85,7 +85,7 @@ export async function POST(request: Request) {
           if ((parsedPlan.action === "none" && !resumesAnswerSearch(turn, plan)) || resolution.question) {
             stage = "catalogue";
             // Policy questions and ambiguous references need no catalogue query.
-            const known = [turn.context.focused, turn.context.comparison, ...turn.context.latest, ...(turn.context.selected ?? [])];
+            const known = [turn.context.focused, turn.context.comparison, ...turn.context.latest, ...(turn.context.previous?.flat() ?? []), ...(turn.context.selected ?? [])];
             const related = resolution.ids.flatMap(id => {
               const context = known.find(product => product?.product_id === id)?.recommendation_context;
               return [...(context?.anchor_ids ?? []), ...(context?.primary_product_id ? [context.primary_product_id] : [])];

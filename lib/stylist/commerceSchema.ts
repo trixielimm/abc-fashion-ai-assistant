@@ -1,5 +1,7 @@
 import { z } from "zod";
 import { ProductReferenceSchema } from "./productReference";
+import { OutfitRequestSchema } from "./outfitBudgetSchema";
+import { OPTIONS_PER_COMPONENT } from "./conversationLimits";
 
 export const COMMERCE_POLICY = "stylist-commerce-v1" as const;
 export const FeatureKeySchema = z.enum(["lining", "adjustable_strap", "pockets", "zip_closure", "machine_washable", "capacity_litres", "use_cases"]);
@@ -33,8 +35,26 @@ export const OutfitPieceSchema = z.strictObject({
   ownership: z.enum(["selected", "owned"]),
   recommendation_context: RecommendationContextSchema.optional(),
 });
+// Customer descriptions are separate from catalogue SKUs and product facts.
+export const ExternalItemDescriptionSchema = z.strictObject({
+  description: z.string().trim().min(1).max(500),
+  category: z.enum(["Clothing", "Shoes", "Bags", "Accessories"]),
+  product_type: z.string().trim().min(1).max(100).nullable(),
+  colour: z.string().trim().min(1).max(100).nullable(),
+  occasion: z.string().trim().min(1).max(100).nullable(),
+});
+export const ExternalOutfitItemSchema = ExternalItemDescriptionSchema.extend({
+  external_id: z.string().regex(/^external-\d+$/),
+  source: z.literal("customer_description"),
+});
+export const ExternalItemChangeSchema = ExternalItemDescriptionSchema.extend({
+  operation: z.enum(["add", "remove"]),
+});
+export type ExternalOutfitItem = z.infer<typeof ExternalOutfitItemSchema>;
 export const StylingStateSchema = z.strictObject({
+  outfit_request: OutfitRequestSchema.nullable().default(null),
   outfit: z.array(OutfitPieceSchema).max(8).default([]),
+  external_items: z.array(ExternalOutfitItemSchema).max(8).default([]),
   rejected_ids: z.array(z.string().trim().min(1).max(250)).max(50).default([]),
   priorities: z.array(PrioritySchema).max(7).default([]),
   required_features: z.array(booleanKeys).max(5).default([]),
@@ -45,6 +65,7 @@ export type StylingState = z.infer<typeof StylingStateSchema>;
 export const emptyStylingState = (): StylingState => StylingStateSchema.parse({});
 
 export const StylingIntentSchema = z.strictObject({
+  external_items: z.array(ExternalItemChangeSchema).max(8).optional(),
   preferences: z.array(z.strictObject({
     kind: z.enum(["priority", "requirement"]), operation: z.enum(["add", "remove"]),
     value: z.enum(["lining", "adjustability", "pockets", "closure", "easy_care", "capacity", "versatility", "adjustable_strap", "zip_closure", "machine_washable"]),
@@ -64,11 +85,12 @@ export type StylingIntent = z.infer<typeof StylingIntentSchema>;
 
 export const PairingEvidenceSchema = z.object({
   policy_version: z.literal(COMMERCE_POLICY),
-  anchor_ids: z.array(z.string().min(1)).min(1).max(8),
+  anchor_ids: z.array(z.string().min(1)).max(8),
+  external_anchor_ids: z.array(z.string().regex(/^external-\d+$/)).max(8).optional(),
   reasons: z.array(z.string().min(1)).min(1).max(12),
   limitations: z.array(z.string().min(1)).max(12),
   level: z.enum(["catalogue_supported", "limited"]),
-});
+}).refine(value => value.anchor_ids.length + (value.external_anchor_ids?.length ?? 0) > 0, "Pairing requires a catalogue or customer-described anchor.");
 export const ValueComparisonSchema = z.object({
   policy_version: z.literal(COMMERCE_POLICY),
   primary_product_id: z.string().min(1),
@@ -90,6 +112,6 @@ export const RecommendationEventSchema = z.strictObject({
   event_id: z.string().uuid(), session_id: z.string().uuid(), recommendation_id: z.string().uuid(),
   event_type: z.enum(["impression", "select", "own", "reject", "add_to_cart"]),
   product_id: z.string().trim().min(1).max(250),
-  position: z.number().int().min(1).max(4),
+  position: z.number().int().min(1).max(Math.max(4, OPTIONS_PER_COMPONENT)),
   policy_version: z.literal(COMMERCE_POLICY),
 });

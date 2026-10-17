@@ -143,9 +143,14 @@ function ProductCard({ product, preferences, featured, onOpen, onAction, selecte
               if (!kept) onEvent?.("select", product.product_id, position);
               onAction(kept ? "remove" : "keep", product);
             }}>{selectedIds?.includes(product.product_id) ? "Remove from outfit" : "Keep for my outfit"}</button>
-            <button type="button" className={styles.textButton} onClick={() => { onEvent?.("own", product.product_id, position); onAction("own", product); }}>I already own this</button>
-            {allowOffers ? <button type="button" className={styles.textButton} onClick={() => onAction("upsell", product)}>Compare value</button> : null}
-            <button type="button" className={styles.textButton} onClick={() => { onEvent?.("reject", product.product_id, position); onAction("reject", product); }}>Skip this item</button>
+            <details className={styles.cardMore}>
+              <summary>More options</summary>
+              <div className={styles.cardMoreActions}>
+                <button type="button" className={styles.textButton} onClick={() => { onEvent?.("own", product.product_id, position); onAction("own", product); }}>I already own this</button>
+                {allowOffers ? <button type="button" className={styles.textButton} onClick={() => onAction("upsell", product)}>Compare value</button> : null}
+                <button type="button" className={styles.textButton} onClick={() => { onEvent?.("reject", product.product_id, position); onAction("reject", product); }}>Skip this item</button>
+              </div>
+            </details>
           </div> : null}
         </div>
       </div>
@@ -153,10 +158,12 @@ function ProductCard({ product, preferences, featured, onOpen, onAction, selecte
   );
 }
 
-export function ShoppingProductResults({ products, preferences, label, onOpen, onAction, selectedIds, onEvent, allowOffers = true, positionOffset = 0 }: {
+export function ShoppingProductResults({ products, preferences, preferencesByProduct, label, heading, onOpen, onAction, selectedIds, onEvent, allowOffers = true, positionOffset = 0 }: {
   products: DisplayProduct[];
   preferences: ShoppingPreferences | null;
+  preferencesByProduct?: Record<string, ShoppingPreferences>;
   label: string;
+  heading?: string;
   onOpen: () => void;
   onAction?: (kind: ShoppingAction, product: ChatProduct) => void;
   selectedIds?: readonly string[];
@@ -195,10 +202,13 @@ export function ShoppingProductResults({ products, preferences, label, onOpen, o
   if (!products.length) return null;
   return (
     <section className={styles.results} aria-label={label}>
-      {!featured ? (
+      {heading || !featured ? (
         <div className={styles.rowToolbar}>
-          <span>{products.length} pieces<span className={styles.swipeHint}> · Swipe to explore</span></span>
-          {!(edges.start && edges.end) ? <div className={styles.rowArrows}>
+          {heading ? <div className={styles.groupHeading}>
+            <h3>{heading}</h3>
+            <span>{products.length} {products.length === 1 ? "option" : "options"}</span>
+          </div> : <span>{products.length} pieces<span className={styles.swipeHint}> · Swipe to explore</span></span>}
+          {!featured && !(edges.start && edges.end) ? <div className={styles.rowArrows}>
             <button type="button" aria-label="Previous products" aria-controls={id} disabled={edges.start} onClick={() => scroll(-1)}><ChevronIcon /></button>
             <button type="button" aria-label="Next products" aria-controls={id} disabled={edges.end} onClick={() => scroll(1)}><ChevronIcon direction="right" /></button>
           </div> : null}
@@ -208,7 +218,7 @@ export function ShoppingProductResults({ products, preferences, label, onOpen, o
         aria-label={label} className={featured ? styles.singleResult : styles.productRow}>
         {products.map((product, index) => (
           <div role="listitem" key={product.product_id} className={featured ? styles.featureItem : styles.rowItem}>
-            <ProductCard product={product} preferences={preferences} featured={featured} onOpen={onOpen} onAction={onAction}
+            <ProductCard product={product} preferences={preferencesByProduct?.[product.product_id] ?? preferences} featured={featured} onOpen={onOpen} onAction={onAction}
               selectedIds={selectedIds} onEvent={onEvent} position={positionOffset + index + 1} allowOffers={allowOffers} />
           </div>
         ))}

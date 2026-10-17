@@ -17,6 +17,10 @@ try {
   await check("Telemetry is opt-in and performs no database writes when disabled", async () => assert.equal((await POST(request())).status, 204));
   process.env.STYLIST_ANALYTICS_ENABLED = "true";
   delete process.env.SUPABASE_SERVICE_ROLE_KEY;
+  await check("Fifth-position events pass validation; sixth-position events are rejected", async () => {
+    assert.equal((await POST(request({ events: [{ ...event(), position: 5 }] }))).status, 503);
+    assert.equal((await POST(request({ events: [{ ...event(), position: 6 }] }))).status, 400);
+  });
   await check("Cross-origin telemetry is rejected", async () => assert.equal((await POST(request(undefined, { origin: "https://other.example" }))).status, 403));
   await check("Requests without a usable origin are rejected", async () => assert.equal((await POST(request(undefined, { origin: "null" }))).status, 403));
   await check("Unsupported content types are rejected", async () => assert.equal((await POST(request(undefined, { "content-type": "text/plain" }))).status, 415));

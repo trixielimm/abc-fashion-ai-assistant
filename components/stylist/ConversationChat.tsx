@@ -14,8 +14,9 @@ import {
 import { ShoppingProductResults, type ShoppingAction } from "./ShoppingProductResults";
 import styles from "./ShoppingConversation.module.css";
 import { OutfitSummary } from "./OutfitSummary";
+import { StylistFollowUp } from "./StylistFollowUp";
 
-type Entry = { id: string; role: "user" | "assistant"; text: string; result?: TurnReply };
+type Entry = { id: string; role: "user" | "assistant"; text: string; result?: TurnReply; groupRecommendationIds?: string[] };
 
 function ReplyMessage({ text, collapsible }: { text: string; collapsible: boolean }) {
   const paragraphs = text.split(/\n\s*\n/).map(part => part.trim()).filter(Boolean);
@@ -105,13 +106,17 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
       session.current = result.session;
       setSessionState(result.session);
       const id = crypto.randomUUID();
-      trackRecommendationEvents(id, [...result.reply.products, ...result.reply.alternatives].map((product, index) => ({
-        product_id: product.product_id, position: index + 1, event_type: "impression",
-      })));
+      const groupRecommendationIds = result.reply.outfit_choices?.groups.map(() => crypto.randomUUID());
+      if (result.reply.outfit_choices && groupRecommendationIds) {
+        result.reply.outfit_choices.groups.forEach((group, index) => trackRecommendationEvents(groupRecommendationIds[index],
+          group.product_ids.map((product_id, position) => ({ product_id, position: position + 1, event_type: "impression" }))));
+      } else trackRecommendationEvents(id, [...result.reply.products, ...result.reply.alternatives].map((product, index) => ({
+          product_id: product.product_id, position: index + 1, event_type: "impression",
+        })));
       setEntries(previous => [...previous, {
-        id, role: "assistant", text: result.reply.message, result: result.reply,
+        id, role: "assistant", text: result.reply.message, result: result.reply, groupRecommendationIds,
       }]);
-      if (!["answered", "no_action", "no_upsell"].includes(result.reply.status)) setActiveReply(id);
+      if (result.reply.intent_understood && !["answered", "no_action", "no_upsell"].includes(result.reply.status)) setActiveReply(id);
     } catch (error) {
       if (requestRef.current !== controller || controller.signal.aborted) return;
       const expired = error instanceof ChatRequestError && error.status === 409;
@@ -165,6 +170,12 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
     send(text, kind, product);
   }
   function close() { requestRef.current?.abort(); onClose(); }
+  function keepBrowsing(trigger: HTMLButtonElement) {
+    const results = trigger.closest(`.${styles.assistantEntry}`)?.querySelector<HTMLElement>(`.${styles.results}`);
+    if (!results) return;
+    results.querySelector<HTMLAnchorElement>("a")?.focus({ preventScroll: true });
+    results.scrollIntoView({ block: "start", behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  }
   const pending = sessionState.pending || sessionState.pending_answer;
   const welcome = entries.length === 1;
 
@@ -190,6 +201,7 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
         </div>
       </header>
       {sessionState.styling ? <OutfitSummary styling={sessionState.styling} open={open} disabled={busy || Boolean(pending)}
+        onRemoveExternal={description => send(`Remove the owned item I described as "${description}".`)}
         onRemove={(productId, productName) => send(`Remove ${productName} from my outfit.`, "remove", undefined, false, productId)} /> : null}
       <div ref={transcript} role="log" aria-live="polite" aria-relevant="additions" aria-busy={busy}
         className={`${styles.transcript} ${welcome ? styles.transcriptWelcome : ""}`}>
@@ -213,23 +225,41 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
           const actionsAvailable = entry.id === activeReply && !busy && !pending;
           // Do not attach another sales offer to every cross-sell response.
           const lookAction = actionsAvailable ? act : undefined;
-          const allowOffers = result?.action !== "cross_sell" && !sessionState.styling?.offers_paused;
+          const allowOffers = !result?.outfit_budget && result?.action !== "cross_sell" && !sessionState.styling?.offers_paused;
           const selectedIds = sessionState.styling?.outfit.map(piece => piece.product_id) ?? [];
           const onEvent = (event_type: "select" | "own" | "reject" | "add_to_cart", product_id: string, position: number) =>
             trackRecommendationEvents(entry.id, [{ event_type, product_id, position }]);
           return (
             <div key={entry.id} ref={index === entries.length - 1 ? latestEntry : undefined}
               className={`${styles.entry} ${entry.role === "user" ? styles.userEntry : styles.assistantEntry}`}>
-              <span className={styles.speaker}>{entry.role === "user" ? "You" : "AI Stylist"}</span>
-              <ReplyMessage text={entry.text} collapsible={Boolean(result && (result.products.length || result.alternatives.length))} />
-              {result?.answer_sources.length ? <p className={styles.notice}>
-                Sources: {result.answer_sources.map((source, sourceIndex) => <span key={source.url}>
-                  {sourceIndex > 0 ? " · " : ""}<Link href={source.url} onClick={close}>{source.label}</Link>
-                </span>)}
-              </p> : null}
-              {result?.products.length ? <ShoppingProductResults
+              <div className={entry.role === "assistant" ? styles.replyBubble : undefined}>
+                <span className={styles.speaker}>{entry.role === "user" ? "You" : "AI Stylist"}</span>
+                <ReplyMessage text={result?.outfit_choices
+                  ? "I've found options to mix and match. Choose one item from each group below."
+                  : entry.text} collapsible={Boolean(result && (result.products.length || result.alternatives.length))} />
+                {result?.outfit_budget ? <div className={styles.budgetSummary} aria-label="Combined outfit budget">
+                  <span><strong>A${result.outfit_budget.total_aud.toFixed(2)}
+                    {result.outfit_choices && result.outfit_choices.maximum_total_aud !== result.outfit_budget.total_aud
+                      ? `–A$${result.outfit_choices.maximum_total_aud.toFixed(2)}` : ""}</strong> combined</span>
+                  <span>Within your <strong>A${result.outfit_budget.limit_aud.toFixed(2)}</strong> budget</span>
+                </div> : null}
+                {result?.answer_sources.length ? <p className={styles.notice}>
+                  Sources: {result.answer_sources.map((source, sourceIndex) => <span key={source.url}>
+                    {sourceIndex > 0 ? " · " : ""}<Link href={source.url} onClick={close}>{source.label}</Link>
+                  </span>)}
+                </p> : null}
+              </div>
+              {result?.outfit_choices ? result.outfit_choices.groups.map((group, groupIndex) => (
+                <ShoppingProductResults key={`${entry.id}-group-${groupIndex}`}
+                  products={group.product_ids.map(id => result.products.find(product => product.product_id === id)!)}
+                  heading={group.label} preferences={group.preferences} label={`${group.label} options`} onOpen={close} onAction={lookAction}
+                  selectedIds={selectedIds} allowOffers={false}
+                  onEvent={(event_type, product_id, position) => trackRecommendationEvents(entry.groupRecommendationIds?.[groupIndex] ?? entry.id,
+                    [{ event_type, product_id, position }])} />
+              )) : result?.products.length ? <ShoppingProductResults
                 products={result.products} preferences={result.applied_preferences}
-                label="Recommended products" onOpen={close} onAction={lookAction}
+                preferencesByProduct={result.outfit_budget ? Object.fromEntries(result.outfit_budget.items.map(item => [item.product_id, item.preferences])) : undefined}
+                label={result.outfit_budget ? "Items in one complete set" : "Recommended products"} onOpen={close} onAction={lookAction}
                 selectedIds={selectedIds} onEvent={onEvent} allowOffers={allowOffers}
               /> : null}
               {result?.alternatives.length ? (
@@ -240,7 +270,8 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
                     selectedIds={selectedIds} onEvent={onEvent} allowOffers={allowOffers} positionOffset={result.products.length} />
                 </div>
               ) : null}
-              {result?.optional_question ? <p className={styles.question}>{result.optional_question}</p> : null}
+              {result?.optional_question ? <StylistFollowUp question={result.optional_question}
+                groups={result.outfit_choices?.groups} onKeepBrowsing={keepBrowsing} /> : null}
               {actionsAvailable && result?.can_preview_other_colours ? (
                 <div className={styles.starters}>
                   <button type="button" className={styles.chip} onClick={() =>

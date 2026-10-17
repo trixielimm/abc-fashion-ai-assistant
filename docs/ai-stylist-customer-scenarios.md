@@ -444,12 +444,36 @@ an outfit looks good.
 
 Suggested result record: case ID; fixture/catalogue version; transcript and
 product IDs; result; failing turn; expected versus actual behaviour; issue link.
-For prototype acceptance, run **each of the 20 cases three times**, starting a
-new chat each time: 60 recorded runs. Retain every run instead of reporting only
+For prototype acceptance, run **each of the 20 base cases and five shared-budget
+cases below three times**, starting a new chat each time: 75 recorded runs.
+Retain every run instead of reporting only
 the best response. Report passed/failed/blocked/feature-gap counts separately;
 do not count a blocked setup as a successful run. Hard-constraint correctness
 and factual grounding are pass/fail checks; human judgments of pairing taste,
 clarity and usefulness should be recorded separately, with a short rationale.
+
+## Shared-budget extension
+
+These cases cover the multi-item capability omitted from the original 20 cases.
+Use a controlled catalogue with recorded formal products and deliberately
+unaffordable, unavailable and mismatched alternatives.
+
+| ID | Customer journey | Required result |
+| --- | --- | --- |
+| B1 | “I want a dress and shoes for formal events, my budget for both of them is 400 aud”; reduce the total to A$350; restore A$400; ask the dress material. | One formal dress and one pair of shoes must jointly cost at most A$400. A tighter unaffordable total returns no match. Restoring the total resumes the same request. The material answer resolves the unique dress in the mixed set. |
+| B2 | Formal dress and shoes under A$400 total, with only A$300 dresses and A$200 shoes available. | No complete match. Two individually affordable items must not bypass the combined limit. |
+| B3 | Black dress size 10 plus silver shoes size 38 for formal events under A$400 total; change only the total to A$399. | Separate colours and sizes survive. At A$399 the A$400 set must not be returned. |
+| B4 | Complete formal outfit with a dress, shoes and bag under A$350 total. | Exactly one item for each of the three requested roles, with the sum of actual prices within A$350. |
+| B5 | Broad formal dress/shoe request under A$400; ask for blue dresses; send an unintelligible edit; ask for flat shoes; refer to an earlier dress by name. | Start with up to five options per group when inventory permits and optional narrowing questions. Every one-per-group combination fits the total. Dress colour does not filter shoes. The unclear message preserves the last three understood prompts, preferences and product context. The later edit and earlier exact-name reference still work. |
+
+Broad requests show up to five available options per requested component,
+without inventing missing type, colour or size preferences. Follow-up questions
+come after the products and remain optional. Budget checking applies to one
+choice per group, not to purchasing every displayed alternative. Do not
+interpret a total as a separate allowance for each item, silently drop a piece,
+allocate arbitrary component budgets or add products to the cart. State
+the combined budget and range of displayed combination totals. A request for an unnamed “complete
+outfit” still needs clarification about which pieces to include.
 
 ## Related checks
 
@@ -459,7 +483,9 @@ for current outfit and recommendation boundaries.
 See [prototype specification notes](prototype-product-specifications-2026-10-17.md)
 for synthetic data provenance and the populated dataset version.
 
-Existing regression and live scripts cover parts of these behaviours; they do
-not yet automate this complete customer scenario pack. In particular, discovery
-conversation quality, external-item styling and human judgments of outfit taste
-need separate assessment.
+`scripts/test-customer-scenarios.mjs` automates the 25 cases with real model calls
+and isolated fixtures. `scripts/test-outfit-budget.mjs` adds deterministic budget
+and protocol checks; `scripts/test-grouped-discovery-memory.mjs` checks grouped
+shortlists and memory retention; `scripts/test-outfit-budget-live.mjs` checks the production
+HTTP endpoint and real catalogue. Human judgments of outfit taste and shortlist
+usefulness still need separate assessment.

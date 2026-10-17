@@ -8,6 +8,9 @@ import { ProductReferenceSchema, resolveProductReference } from "./productRefere
 import { AnswerIntentSchema, PendingAnswerSchema } from "./answerPlan";
 import { ConversationChangeSchema } from "./conversationChanges";
 import { emptyStylingState, PrioritySchema, RecommendationContextSchema, StylingIntentSchema, StylingStateSchema } from "./commerceSchema";
+import { groundConversationPlan } from "./conversationGrounding";
+import { OutfitRequestSchema } from "./outfitBudgetSchema";
+import { HISTORY_MESSAGES, MAX_DISPLAYED_PRODUCTS } from "./conversationLimits";
 export { ConversationChangeSchema } from "./conversationChanges";
 
 const text = z.string().trim().min(1).max(250);
@@ -35,14 +38,15 @@ export const ConversationPlanRequestSchema = z.strictObject({
   scopes: PreferenceScopesSchema.default(createPreferenceScopes),
   context: z.strictObject({
     focused: ContextProductSchema.nullable(),
-    latest: z.array(ContextProductSchema).max(4),
+    latest: z.array(ContextProductSchema).max(MAX_DISPLAYED_PRODUCTS),
+    previous: z.array(z.array(ContextProductSchema).max(MAX_DISPLAYED_PRODUCTS)).max(2).optional(),
     selected: z.array(ContextProductSchema).max(8).optional(),
     comparison: ContextProductSchema.optional(),
   }).default({ focused: null, latest: [] }),
   history: z.array(z.strictObject({
     role: z.enum(["user", "assistant"]),
     content: z.string().min(1).max(2000),
-  })).max(8).default([]),
+  })).max(HISTORY_MESSAGES).default([]),
   pending: PendingConversationSchema.nullable().optional(),
   pending_answer: PendingAnswerSchema.nullable().optional(),
   styling: StylingStateSchema.optional(),
@@ -51,6 +55,7 @@ export const ConversationPlanRequestSchema = z.strictObject({
 
 
 export const ConversationPlanSchema = z.strictObject({
+  outfit_request: OutfitRequestSchema.nullable().optional(),
   action: z.enum(["new_search", "refine", "cross_sell", "cheaper", "upsell", "clarify", "none"]),
   intent_evidence: text,
   reference: ProductReferenceSchema.nullable(),
@@ -77,10 +82,30 @@ function unsupportedRequestDetails(message: string) {
 
 export function checkConversationPlan(input: unknown, output: unknown) {
   const request = ConversationPlanRequestSchema.parse(input);
-  const plan = ConversationPlanSchema.parse(output);
+  const originalPlan = ConversationPlanSchema.parse(output);
+  // Validate model quotations before any normalization can replace a change.
+  for (const change of originalPlan.changes) {
+    if (!normalise(request.message).includes(normalise(change.evidence))) {
+      throw new PlanEvidenceError(`changes.${change.scope}.${change.field}.evidence`);
+    }
+  }
+  const originalIntent = originalPlan.styling_intent;
+  const stylingQuotes = originalIntent ? [
+    ...originalIntent.preferences.map(change => change.evidence),
+    ...originalIntent.outfit_changes.map(change => change.evidence),
+    ...originalIntent.owned_categories.map(change => change.evidence),
+    ...(originalIntent.offers ? [originalIntent.offers.evidence] : []),
+    ...(originalIntent.external_items ?? []).map(change => change.description),
+  ] : [];
+  for (const quote of stylingQuotes) {
+    if (!normalise(request.message).includes(normalise(quote))) throw new PlanEvidenceError("styling.evidence");
+  }
+  const plan = groundConversationPlan(request, originalPlan);
   let scopes = PreferenceScopesSchema.parse(request.scopes);
   const continuing = plan.continuation === true;
   const originalStyling = StylingStateSchema.parse(request.styling ?? emptyStylingState());
+  const resumesDescription = plan.action === "cross_sell" && originalStyling.external_items.length > 0 &&
+    !plan.changes.some(change => change.field === "category" && change.value !== request.scopes.item.category);
   let styling = StylingStateSchema.parse(originalStyling);
   let stylingQuestion: string | null = null;
 
@@ -88,7 +113,16 @@ export function checkConversationPlan(input: unknown, output: unknown) {
       (request.pending.action !== "clarify" && request.pending.action !== plan.action))) {
     throw new PlanValidationError("Continuation does not match the pending request.");
   }
-  const reference = plan.reference ?? (continuing ? request.pending?.reference ?? null : null);
+  let reference = plan.reference ?? (continuing ? request.pending?.reference ?? null : null);
+  if (plan.action === "cross_sell" && (!reference || reference.kind === "context") &&
+      /\b(?:owned|my outfit|both|all my)\b/i.test(request.message) && originalStyling.outfit.length) {
+    const role = request.message.match(/\bowned\s+(dress|bag|shoes?)\b/i)?.[1];
+    const category = role ? /dress/i.test(role) ? "Clothing" : /bag/i.test(role) ? "Bags" : "Shoes" : null;
+    const anchors = originalStyling.outfit.filter(piece => !category || piece.category === category);
+    if (anchors.length === 1 || /\b(?:both|my outfit|all my)\b/i.test(request.message)) {
+      reference = anchors[0] ? { kind: "id", value: anchors[0].product_id } : reference;
+    }
+  }
 
   function requireEvidence(quote: string, field: string) {
     const quotedText = normalise(quote);
@@ -98,11 +132,61 @@ export function checkConversationPlan(input: unknown, output: unknown) {
   }
 
   requireEvidence(plan.intent_evidence, "intent_evidence");
-  if (!continuing && ["new_search", "cross_sell"].includes(plan.action)) {
+  if (plan.action === "clarify") {
+    if (!plan.question) throw new PlanValidationError("A clarification plan must include a question.");
+    const composition = composePreferences(scopes);
+    return { status: "needs_clarification", action: plan.action, reference_product_ids: [] as string[],
+      proposed_scopes: scopes, styling: originalStyling, styling_question: false,
+      preferences: composition.status === "ready" ? composition.preferences : null,
+      message: plan.question ?? "Could you rephrase that change? Your saved shopping preferences are unchanged." };
+  }
+  if (plan.outfit_request) {
+    const outfit = plan.outfit_request;
+    requireEvidence(outfit.evidence, "outfit_request.evidence");
+    if (!["new_search", "refine"].includes(plan.action)) {
+      throw new PlanValidationError("A shared-budget outfit search uses new_search or refine.");
+    }
+    const previous = originalStyling.outfit_request;
+    const amounts = [...outfit.evidence.matchAll(/(?:A?\$\s*(\d+(?:\.\d{1,2})?)\b|(\d+(?:\.\d{1,2})?)\s*(?:AUD|dollars?)\b)/gi)]
+      .map(match => Number(match[1] ?? match[2]));
+    const unlabelledBudget = outfit.evidence.match(/\b(?:budget|total|under|maximum|up to)\b[^\d]{0,70}(\d+(?:\.\d{1,2})?)\b/i);
+    if (unlabelledBudget) amounts.push(Number(unlabelledBudget[1]));
+    if (outfit.total_budget_aud !== previous?.total_budget_aud && !amounts.includes(outfit.total_budget_aud)) {
+      throw new PlanValidationError("The combined budget must be stated in the latest outfit evidence.");
+    }
+    if (outfit.items.some(item => !item.category)) throw new PlanValidationError("Specify a category for every requested outfit item.");
+    if (plan.changes.some(change => ["min_price", "max_price"].includes(change.field) && change.value === outfit.total_budget_aud)) {
+      throw new PlanValidationError("Store the combined total only in outfit_request.total_budget_aud, never as a per-item price change.");
+    }
+    styling.outfit_request = outfit;
+  } else if (["new_search", "cross_sell", "cheaper", "upsell"].includes(plan.action)) {
+    styling.outfit_request = null;
+  }
+  if (!continuing && ["new_search", "cross_sell"].includes(plan.action) && !resumesDescription) {
     styling.priorities = []; styling.required_features = [];
   }
   if (plan.styling_intent) {
     const intent = plan.styling_intent;
+    for (const item of intent.external_items ?? []) {
+      requireEvidence(item.description, "styling.external.description");
+      if (item.operation === "remove") {
+        if (!/\b(?:remove|forget|delete)\b/i.test(request.message)) throw new PlanValidationError("Removing a described item needs explicit permission.");
+        styling.external_items = styling.external_items.filter(row => normalise(row.description) !== normalise(item.description));
+        continue;
+      }
+      if (!/\b(?:own|owned|already have|bought|my)\b/i.test(request.message)) throw new PlanValidationError("A described owned item needs an ownership statement.");
+      for (const field of ["colour", "product_type", "occasion"] as const) {
+        if (item[field] && !normalise(item.description).includes(normalise(item[field]))) {
+          throw new PlanValidationError(`External ${field} must be stated in the quoted garment description; otherwise use null.`);
+        }
+      }
+      if (!styling.external_items.some(row => normalise(row.description) === normalise(item.description))) {
+        let id = 1;
+        while (styling.external_items.some(row => row.external_id === `external-${id}`)) id++;
+        const { operation, ...description } = item; void operation;
+        styling.external_items.push({ ...description, external_id: `external-${id}`, source: "customer_description" });
+      }
+    }
     for (const preference of intent.preferences) {
       requireEvidence(preference.evidence, `styling.${preference.kind}.evidence`);
       const isPriority = preference.kind === "priority";
@@ -123,16 +207,24 @@ export function checkConversationPlan(input: unknown, output: unknown) {
         : styling.owned_categories.filter(category => category !== owned.category);
     }
     const context = { ...request.context, selected: originalStyling.outfit };
-    const pool = [...request.context.latest, ...(request.context.focused ? [request.context.focused] : []), ...(request.context.comparison ? [request.context.comparison] : []), ...originalStyling.outfit];
+    const pool = [...request.context.latest, ...(request.context.previous?.flat() ?? []), ...(request.context.focused ? [request.context.focused] : []), ...(request.context.comparison ? [request.context.comparison] : []), ...originalStyling.outfit];
     for (const change of intent.outfit_changes) {
       requireEvidence(change.evidence, "styling.outfit.evidence");
+      // Interest is not consent to select an outfit piece. A short answer can
+      // complete a previously explicit keep request, but a bare "I like" cannot.
+      if (change.operation === "keep" &&
+          !/\b(?:keep|select|choose|add\b.{0,30}\boutfit)\b/i.test(change.evidence) &&
+          !(request.pending?.styling_question && /\b(?:keep|select|choose)\b/i.test(request.pending.goal))) continue;
+      if (change.operation === "own" && !/\b(?:own|owned|already have|bought)\b/i.test(change.evidence) &&
+          !(request.pending?.styling_question && /\b(?:own|owned|already have|bought)\b/i.test(request.pending.goal))) continue;
       const resolved = resolveProductReference(context, change.reference);
       if (resolved.status !== "resolved") { stylingQuestion = `${resolved.message} Please specify the action too, for example: keep the first product.`; break; }
       const product = pool.find(row => row.product_id === resolved.product_id)!;
+      const alreadyOwned = styling.outfit.some(row => row.product_id === product.product_id && row.ownership === "owned");
       styling.outfit = styling.outfit.filter(row => row.product_id !== product.product_id);
       if (change.operation === "keep" || change.operation === "own") {
         styling.outfit = styling.outfit.filter(row => !(row.category === product.category && row.subcategory === product.subcategory));
-        styling.outfit.push({ ...product, ownership: change.operation === "own" ? "owned" : "selected" });
+        styling.outfit.push({ ...product, ownership: change.operation === "own" || alreadyOwned ? "owned" : "selected" });
         styling.rejected_ids = styling.rejected_ids.filter(id => id !== product.product_id);
       } else if (change.operation === "reject") {
         styling.rejected_ids = [...new Set([...styling.rejected_ids, product.product_id])].slice(-50);
@@ -140,6 +232,14 @@ export function checkConversationPlan(input: unknown, output: unknown) {
     }
     if (stylingQuestion) styling = originalStyling;
     styling = StylingStateSchema.parse(styling);
+  }
+  if (plan.action === "upsell") {
+    // A requested replacement WITH a must-have is also an explicit reason to
+    // compare that feature. Do not rely on a second duplicate model annotation.
+    const priorities = { lining: "lining", pockets: "pockets", adjustable_strap: "adjustability",
+      zip_closure: "closure", machine_washable: "easy_care" } as const;
+    styling.priorities = [...new Set([...styling.priorities,
+      ...styling.required_features.map(feature => priorities[feature])])];
   }
   if (plan.answer) {
     const answer = plan.answer;
@@ -168,7 +268,7 @@ export function checkConversationPlan(input: unknown, output: unknown) {
       throw new PlanValidationError("An answer cannot complete a pending shopping request.");
     }
   }
-  if ((plan.action === "clarify") !== (plan.question !== null)) {
+  if (plan.question !== null) {
     throw new PlanValidationError("Only a clarification plan may include a question.");
   }
   if (plan.action === "none" && (plan.changes.length > 0 || plan.reference !== null)) {
@@ -177,7 +277,7 @@ export function checkConversationPlan(input: unknown, output: unknown) {
   }
 
   // An answer to a pending cross-sell must not erase the requested extra item.
-  if (!continuing && (plan.action === "new_search" || plan.action === "cross_sell")) {
+  if (!continuing && (plan.action === "new_search" || (plan.action === "cross_sell" && !resumesDescription))) {
     scopes.item = emptyShoppingPreferences();
     scopes.unresolved_item = [];
   }
@@ -209,7 +309,8 @@ export function checkConversationPlan(input: unknown, output: unknown) {
       continue;
     }
 
-    if (!Array.isArray(change.value) || !change.value.length) {
+    const clearColours = field === "preferred_colours" && change.operation === "set" && Array.isArray(change.value) && !change.value.length;
+    if (!Array.isArray(change.value) || (!change.value.length && !clearColours)) {
       throw new PlanValidationError("A list change requires one or more labels.");
     }
     if (change.operation === "set" && field !== "preferred_colours") {
@@ -219,6 +320,9 @@ export function checkConversationPlan(input: unknown, output: unknown) {
     const old = field === "unresolved"
       ? scopes[change.scope === "item" ? "unresolved_item" : "unresolved_shared"]
       : scopes[change.scope][field];
+    if (clearColours && old.length && !/\b(?:(?:any|all) colou?rs?|no (?:preferred |particular |specific )?colou?r(?: preference)?|(?:remove|clear|drop)\b.{0,25}\bcolou?r)\b/i.test(request.message)) {
+      throw new PlanValidationError("Clearing a saved colour restriction requires explicit permission, such as any colour or remove the colour preference.");
+    }
     const values = change.value;
     const labels = change.operation === "set" ? values
       : change.operation === "add" ? [...old, ...values]
@@ -239,12 +343,17 @@ export function checkConversationPlan(input: unknown, output: unknown) {
   }
 
   scopes = PreferenceScopesSchema.parse(scopes);
+  if (styling.outfit_request && ["new_search", "refine"].includes(plan.action)) {
+    // Item identity and sizes live on each component, not on the complete set.
+    for (const field of ["category", "subcategory", "product_type", "size"] as const) scopes.item[field] = null;
+  }
   if (plan.action === "new_search" && !scopes.item.category && !scopes.item.subcategory && !scopes.item.product_type &&
+      !styling.outfit_request &&
       !scopes.unresolved_item.length && !scopes.unresolved_shared.length &&
       /\b(?:dresses|dress|bags|bag|shoes|shoe|clothing|accessories|accessory)\b/i.test(request.message)) {
     throw new PlanValidationError("A new_search clears the old item scope, so it must include the stated item/category even if it was previously selected. For a repeated request for the same item category, use refine and retain all existing requirements instead of an empty new_search.");
   }
-  if (plan.action !== "clarify" && plan.action !== "none") {
+  if (plan.action !== "none") {
     // These supported, explicit positive requirements belong in the reviewed
     // feature filter. Putting them in generic unresolved text bypasses that path.
     const explicitFeatures = [
@@ -275,7 +384,23 @@ export function checkConversationPlan(input: unknown, output: unknown) {
         throw new PlanValidationError(`The ${material} exclusion must remain an unresolved requirement. Do not omit it or store it as a style, occasion or positive material filter.`);
       }
     }
-    if (completeOutfit && !unresolved.some(label => /\b(?:outfit|look|total|combined)\b/i.test(label))) {
+    const targetBrief = request.message.split(/\b(?:to go with|to match|with my|my owned)\b/i)[0];
+    const requestedRoles = new Set(targetBrief.match(/\b(?:dress(?:es)?|shoes?|bags?|necklaces?)\b/gi)?.map(role =>
+      /dress/i.test(role) ? "Dresses" : /shoe/i.test(role) ? "Shoes" : /bag/i.test(role) ? "Bags" : "Necklace"));
+    const explicitTotal = ["new_search", "refine"].includes(plan.action) && requestedRoles.size > 1 && /\b(?:total|combined|both|together|all of them)\b/i.test(request.message);
+    if (explicitTotal && !styling.outfit_request) {
+      throw new PlanValidationError("Use outfit_request with every requested component and the combined total. Do not fulfil a shared-budget request with a single-item search or mark this supported request unresolved.");
+    }
+    if (explicitTotal && styling.outfit_request && [...requestedRoles].some(role =>
+        !styling.outfit_request!.items.some(item => role === "Dresses" ? item.category === "Clothing" && item.subcategory === "Dresses"
+          : role === "Necklace" ? item.product_type === "Necklace" : item.category === role))) {
+      throw new PlanValidationError("The outfit_request must include every explicitly requested component.");
+    }
+    if (!plan.outfit_request && styling.outfit_request && plan.changes.some(change => change.field === "max_price") &&
+        /\b(?:budget|total|combined|both)\b/i.test(request.message)) {
+      throw new PlanValidationError("Update outfit_request.total_budget_aud for a combined-budget refinement; retain all components.");
+    }
+    if (completeOutfit && !styling.outfit_request && !unresolved.some(label => /\b(?:outfit|look|total|combined)\b/i.test(label))) {
       throw new PlanValidationError("A complete-outfit request must remain unresolved. Do not turn its total budget into a per-item maximum or fulfil it with one item.");
     }
   }
@@ -287,6 +412,8 @@ export function checkConversationPlan(input: unknown, output: unknown) {
     const products = request.context.focused ? [request.context.focused] : request.context.latest;
     referenceIds.push(...new Set(products.map(product => product.product_id)));
     if (!referenceIds.length) referenceQuestion = "Which product should I compare prices with?";
+  } else if (plan.action === "cross_sell" && styling.external_items.length && (!reference || reference.kind === "context") && !styling.outfit.length) {
+    // A customer description has no SKU to resolve or verify in the catalogue.
   } else if (reference !== null || plan.action === "cross_sell" || plan.action === "upsell") {
     const resolved = resolveProductReference(request.context, reference ?? { kind: "context" });
     if (resolved.status === "resolved") referenceIds.push(resolved.product_id);
@@ -295,7 +422,7 @@ export function checkConversationPlan(input: unknown, output: unknown) {
 
   const clarification = stylingQuestion ?? (composition.status === "needs_clarification"
     ? composition.message
-    : referenceQuestion ?? (plan.action === "clarify" ? plan.question ?? "Please clarify your shopping request." : null));
+    : referenceQuestion);
 
   return {
     status: stylingQuestion ? "needs_clarification" : plan.action === "none" ? "no_action" : clarification ? "needs_clarification" : "ready_for_validation",
@@ -339,7 +466,7 @@ export async function generateValidatedConversationPlan(
     try {
       const candidate = ConversationPlanSchema.parse(await generate(failedEvidenceField, validationFeedback));
       checkConversationPlan(request, candidate);
-      return candidate;
+      return groundConversationPlan(request, candidate);
     } catch (error) {
       // Only malformed model output is recoverable here. Provider failures,
       // cancellation and unexpected application errors remain technical errors.
@@ -348,6 +475,8 @@ export async function generateValidatedConversationPlan(
       validationFeedback = error instanceof z.ZodError
         ? error.issues.slice(0, 3).map(issue => `${issue.path.join(".")}: ${issue.message}`).join("; ").slice(0, 1200)
         : error instanceof SyntaxError ? "The model output was not valid JSON." : error.message;
+      console.warn("Conversation plan rejected", { attempt: attempt + 1, type: error.name,
+        field: failedEvidenceField, reason: validationFeedback });
     }
   }
 
@@ -360,7 +489,6 @@ export async function generateValidatedConversationPlan(
   });
   const unsupported = unsupportedRequestDetails(request.message);
   const limitations = [
-    ...(unsupported.completeOutfit ? ["build a complete outfit within one total budget"] : []),
     ...(unsupported.material ? [`verify ${unsupported.material}-free products`] : []),
   ];
   return ConversationPlanSchema.parse({
@@ -370,6 +498,7 @@ export async function generateValidatedConversationPlan(
     changes: [],
     question: limitations.length
       ? `I can't yet ${limitations.join(" or ")}. Which part of your request would you like to change? I haven't changed your saved preferences or selected any products.`
+      : unsupported.completeOutfit ? "I couldn't reliably interpret that outfit request. Please name the pieces and their combined budget again. Your saved preferences are unchanged."
       : "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.",
     continuation: false,
   });

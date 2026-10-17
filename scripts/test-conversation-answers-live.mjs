@@ -18,9 +18,14 @@ async function send(state, message, verify) {
     body: JSON.stringify({ request_id: randomUUID(), retry: false, turn }),
     signal: AbortSignal.timeout(120_000),
   });
-  const body = await response.json();
-  const record = { message, http: response.status, elapsed_ms: Date.now() - began, reply: body };
+  const record = { message, http: response.status, elapsed_ms: Date.now() - began };
   evidence.checks.push(record);
+  const text = await response.text();
+  if (!response.ok || !response.headers.get('content-type')?.includes('application/json')) {
+    record.failure = `HTTP ${response.status}; expected a JSON conversation response.`;
+    throw new Error(record.failure);
+  }
+  const body = JSON.parse(text); record.reply = body;
   assert.equal(response.status, 200, `${message}: ${JSON.stringify(body)}`);
   const accepted = acceptReply(turn, body);
   try { verify?.(accepted.reply, accepted.session, turn); }
@@ -129,6 +134,9 @@ try {
     assert.equal(reply.status, "no_action"); assert.match(reply.message, /welcome/i);
     assert.deepEqual(next.context.latest, seed.context.latest);
   }));
+} catch (error) {
+  failed++; evidence.setup_failure = error.message;
+  console.error(`FAIL: live setup: ${error.message}`);
 } finally {
   evidence.finished = new Date().toISOString(); evidence.passed = passed; evidence.failed_scenarios = failed;
   mkdirSync(new URL("../docs/test-evidence/", import.meta.url), { recursive: true });

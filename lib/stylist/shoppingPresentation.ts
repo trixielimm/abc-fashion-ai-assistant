@@ -7,6 +7,7 @@ import type { executeConversationSearch } from "./conversationSearch";
 import { ChatProductSchema, type AlternativeProduct, type ChatProduct, type ConversationTurn } from "./conversationProtocol";
 import { catalogueImageSource } from "./catalogueImages";
 import { friendlyShoppingMessage } from "./friendlyShoppingMessage";
+import { outfitDiscoveryQuestions } from "./discoveryQuestions";
 
 type SearchResult = ReturnType<typeof executeConversationSearch>;
 const money = (value: number) => `A$${value.toFixed(2)}`;
@@ -90,6 +91,22 @@ export function presentShoppingResult(
       image_src: catalogueImageSource(record),
       extra_target: target && unique.size === 1 ? target : null,
     });
+  }
+
+  // These cards are components of one complete set, not interchangeable options.
+  // Retrieval already checked every component's context and the combined price.
+  if (result.styling.outfit_request && ["new_search", "refine"].includes(result.action) &&
+      result.status !== "needs_clarification") {
+    const questions = outfitDiscoveryQuestions(result.outfit_choices?.groups ?? [])
+      .filter(({ question }) => !turn.history.some(entry => entry.role === "assistant" && entry.content.includes(question)))
+      .slice(0, 2).map(({ question }) => question);
+    return {
+    status: result.status, message: result.message,
+    products: result.products.map(decorate), alternatives: [],
+    alternatives_preferences: null, alternative_kind: null,
+    optional_question: result.products.length && questions.length ? `${questions.join(" ")} You can also keep browsing these options.` : null,
+    can_preview_other_colours: false,
+    };
   }
 
   const meetsSharedContext = (record: CatalogueProduct) =>
@@ -191,7 +208,7 @@ export function presentShoppingResult(
 
   const question = "What occasion are you shopping for? You can also keep browsing these options.";
   const optionalQuestion = !preview && (products.length + alternatives.length) > 0 &&
-    result.action === "new_search" && applied?.category === "Clothing" && !applied.occasion &&
+    ["new_search", "refine"].includes(result.action) && applied?.category === "Clothing" && !applied.occasion &&
     !turn.history.some(entry => entry.content.includes("What occasion are you shopping for?"))
       ? question : null;
 
@@ -201,6 +218,7 @@ export function presentShoppingResult(
   return {
     status,
     message: friendlyShoppingMessage({
+      hasReplacementPriority: result.styling.priorities.length > 0,
       status,
       action: result.action,
       baseMessage: message,

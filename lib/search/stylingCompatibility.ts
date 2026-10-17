@@ -1,5 +1,5 @@
 import type { CatalogueProduct } from "../recommendations/catalogue";
-import { COMMERCE_POLICY } from "../stylist/commerceSchema";
+import { COMMERCE_POLICY, type ExternalOutfitItem } from "../stylist/commerceSchema";
 import { relatedLabel } from "./preferenceSearch";
 
 const norm = (value: string | null) => (value ?? "").trim().toLowerCase().replace(/\s+/g, " ");
@@ -8,10 +8,15 @@ const paletteFamilies = [["lavender", "lilac", "purple"], ["blue", "navy", "sky 
 
 // Transparent first-release heuristics, presented as styling suggestions.
 // No numerical score is exposed as a calibrated probability or quality claim.
-export function scoreCompatibility(candidate: CatalogueProduct, anchors: readonly CatalogueProduct[], purpose: string | null = null) {
+export function scoreCompatibility(candidate: CatalogueProduct, catalogueAnchors: readonly CatalogueProduct[], purpose: string | null = null, externalAnchors: readonly ExternalOutfitItem[] = []) {
+  const anchors = [...catalogueAnchors, ...externalAnchors.map(item => ({
+    product_id: null, product_name: `your described ${item.description}`, occasion: item.occasion,
+    colour: item.colour, style: null, season: null,
+  }))];
   let score = 0;
   const reasons: string[] = [];
   const limitations: string[] = [];
+  if (externalAnchors.length) limitations.push("The owned garment details are customer-provided; its exact shade, material and visual match have not been verified.");
   const occasions = [...new Set([...(purpose ? [purpose] : []), ...anchors.map(anchor => anchor.occasion).filter((value): value is string => Boolean(value))])];
   if (purpose) {
     if (relatedLabel(candidate.occasion, purpose)) { score += 8; reasons.push(`Its recorded occasion matches ${purpose}.`); }
@@ -44,7 +49,8 @@ export function scoreCompatibility(candidate: CatalogueProduct, anchors: readonl
     score,
     evidence: {
       policy_version: COMMERCE_POLICY,
-      anchor_ids: anchors.map(anchor => anchor.product_id!).slice(0, 8),
+      anchor_ids: catalogueAnchors.map(anchor => anchor.product_id!).slice(0, 8),
+      ...(externalAnchors.length ? { external_anchor_ids: externalAnchors.map(item => item.external_id) } : {}),
       reasons: [...new Set(reasons)].slice(0, 12), limitations: [...new Set(limitations)].slice(0, 12),
       level: score > 0 && (occasions.length > 0 || anchors.some(anchor => anchor.style)) ? "catalogue_supported" as const : "limited" as const,
     },

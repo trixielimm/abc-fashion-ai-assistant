@@ -223,14 +223,13 @@ await check('No-benefit comparisons retain the reference for a subsequent priori
  delete unrelated.context.comparison;
  assert.equal(shortcutPlan(makeTurn(unrelated,'Pockets would be useful')),null);
 });
-await check('Repeated category requests cannot reset to an empty item scope',async()=>{
+await check('Repeated category requests retain the item scope without a second model call',async()=>{
  const state=session();state.scopes.item.category='Bags';state.scopes.item.max_price=50;
  const turn=makeTurn(state,'Show me bags');let calls=0;
- const result=await generateValidatedConversationPlan(turn,async(_field,feedback)=>{
-  if(++calls===1)return plan(turn.message,{action:'new_search'});
-  assert.match(feedback,/empty new_search/);return plan(turn.message,{action:'refine'});
+ const result=await generateValidatedConversationPlan(turn,async()=>{
+  calls++;return plan(turn.message,{action:'new_search'});
  });
- const reply=finish(turn,result);assert.equal(calls,2);assert.ok(reply.products.length);assert.equal(reply.proposed_scopes.item.max_price,50);
+ const reply=finish(turn,result);assert.equal(calls,1);assert.equal(result.action,'refine');assert.ok(reply.products.length);assert.equal(reply.proposed_scopes.item.max_price,50);
 });
 await check('Finding a feature-based replacement is not blocked by a spurious two-product comparison question',async()=>{
  const state=session();state.context.focused=snapshot(dress);state.scopes.item=prefs();
@@ -249,6 +248,7 @@ await check('Finding a feature-based replacement is not blocked by a spurious tw
 await check('Telemetry accepts only minimal typed interaction data, never transcripts or sales claims',()=>{
  const record={event_id:crypto.randomUUID(),session_id:crypto.randomUUID(),recommendation_id:crypto.randomUUID(),event_type:'impression',product_id:'D1',position:1,policy_version:COMMERCE_POLICY};
  assert.equal(RecommendationEventSchema.safeParse(record).success,true);
- for(const override of [{message:'private transcript'},{event_type:'purchase'},{price:100},{position:5}]) assert.equal(RecommendationEventSchema.safeParse({...record,...override}).success,false);
+ assert.equal(RecommendationEventSchema.safeParse({...record,position:5}).success,true);
+ for(const override of [{message:'private transcript'},{event_type:'purchase'},{price:100},{position:6}]) assert.equal(RecommendationEventSchema.safeParse({...record,...override}).success,false);
 });
 console.log(`\n${passed} stylist-commerce checks passed.`);

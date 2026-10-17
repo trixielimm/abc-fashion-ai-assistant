@@ -7,15 +7,16 @@ import { getProductImageEndpoint } from "@/lib/product-image";
 import type { StylingState } from "@/lib/stylist/commerceSchema";
 import styles from "./ShoppingConversation.module.css";
 
-export function OutfitSummary({ styling, disabled, open, onRemove }: {
+export function OutfitSummary({ styling, disabled, open, onRemove, onRemoveExternal }: {
   styling: StylingState;
   disabled: boolean;
   open: boolean;
   onRemove: (productId: string, productName: string) => void;
+  onRemoveExternal: (description: string) => void;
 }) {
   const sheet = useRef<HTMLDialogElement>(null);
   const titleId = useId();
-  const count = styling.outfit.length;
+  const count = styling.outfit.length + styling.external_items.length;
   const hasOutfit = count > 0 || styling.owned_categories.length > 0;
 
   useEffect(() => {
@@ -50,6 +51,14 @@ export function OutfitSummary({ styling, disabled, open, onRemove }: {
               if (inSheet) sheet.current?.close();
               onRemove(piece.product_id, piece.product_name);
             }}>Remove</button>
+        </li>)}
+        {styling.external_items.map(piece => <li key={piece.external_id}>
+          <div className={styles.outfitPiece}>
+            <span>{piece.description}</span><small>Already owned · From your description</small>
+          </div>
+          <button type="button" className={styles.outfitRemove} disabled={disabled}
+            aria-label={`Remove ${piece.description} from outfit`}
+            onClick={() => { if (inSheet) sheet.current?.close(); onRemoveExternal(piece.description); }}>Remove</button>
         </li>)}
       </ul> : null}
     </>;

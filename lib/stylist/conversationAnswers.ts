@@ -2,10 +2,11 @@ import type { CatalogueProduct } from "../recommendations/catalogue";
 import { STORE_POLICY_COPY } from "../storePolicies";
 import type { AnswerIntent } from "./answerPlan";
 import type { ConversationPlanRequest } from "./conversationPlan";
-import { resolveProductReference } from "./productReference";
+import { isValueComparisonQuestion, resolveProductReference, valueQuestionProducts } from "./productReference";
 import { scoreCompatibility } from "../search/stylingCompatibility";
 import { compareBenefits } from "../search/productBenefits";
 import { getProductSpecification, specificationDetails } from "./productSpecifications";
+import { relatedLabel } from "../search/preferenceSearch";
 
 const normalise = (value: string | null | undefined) => (value ?? "").toLowerCase().replace(/[^a-z0-9]/g, "");
 const label = (value: string) => value.replace(/([a-z])([A-Z])/g, "$1 $2");
@@ -14,12 +15,20 @@ const policyTopics = new Set(["delivery", "returns", "payment"]);
 
 export function resolveAnswerProducts(turn: ConversationPlanRequest, intent: AnswerIntent) {
   if (intent.kind === "policy") return { ids: [] as string[], question: null };
+  if (!intent.continuation) {
+    const value = valueQuestionProducts(turn.context, turn.message);
+    if (value) return value;
+  }
   const references = intent.references.length ? intent.references : [{ kind: "context" } as const];
   const ids: string[] = [];
   for (const reference of references) {
     const result = resolveProductReference(turn.context, reference);
     if (result.status !== "resolved") return { ids: [], question: result.message };
     if (!ids.includes(result.product_id)) ids.push(result.product_id);
+  }
+  if (intent.continuation && turn.context.comparison &&
+      isValueComparisonQuestion(turn.pending_answer?.question ?? "") && !ids.includes(turn.context.comparison.product_id)) {
+    ids.unshift(turn.context.comparison.product_id);
   }
   return intent.kind === "compare" && ids.length < 2
     ? { ids: [], question: "Which two products would you like me to compare? Use their names or positions in the results." }
@@ -46,12 +55,12 @@ function productAnswer(product: CatalogueProduct, turn: ConversationPlanRequest,
   const question = intent.continuation ? turn.pending_answer!.question : turn.message;
   const specification = getProductSpecification(product);
   if (topics.has("recommendation")) {
-    const snapshot = [turn.context.focused, turn.context.comparison, ...turn.context.latest, ...(turn.context.selected ?? [])].find(row => row?.product_id === product.product_id);
+    const snapshot = [turn.context.focused, turn.context.comparison, ...turn.context.latest, ...(turn.context.previous?.flat() ?? []), ...(turn.context.selected ?? [])].find(row => row?.product_id === product.product_id);
     const recommendation = snapshot?.recommendation_context;
     const anchorIds = recommendation?.anchor_ids ?? turn.styling?.outfit.map(piece => piece.product_id) ?? [];
     const anchors = catalogue.filter(row => row.product_id !== product.product_id && anchorIds.includes(row.product_id ?? ""));
-    if (anchors.length) {
-      const evidence = scoreCompatibility(product, anchors, intent.purpose).evidence;
+    if (anchors.length || turn.styling?.external_items.length) {
+      const evidence = scoreCompatibility(product, anchors, intent.purpose, turn.styling?.external_items).evidence;
       lines.push(...evidence.reasons.slice(0, 3), ...evidence.limitations.slice(0, 2));
       lines.push("These pairing reasons are styling suggestions from recorded attributes; visual compatibility has not been verified.");
     }
@@ -64,7 +73,7 @@ function productAnswer(product: CatalogueProduct, turn: ConversationPlanRequest,
     }
     const purpose = intent.purpose ?? turn.scopes.item.occasion ?? turn.scopes.shared.occasion;
     if (purpose) {
-      const matches = product.occasion && normalise(product.occasion) === normalise(purpose);
+      const matches = product.occasion && (normalise(product.occasion) === normalise(purpose) || relatedLabel(label(product.occasion), purpose));
       lines.push(matches
         ? `For ${purpose}, the strongest recorded reason is that the catalogue explicitly lists ${label(product.occasion!)} as this item's occasion.`
         : `For ${purpose}, the occasion match is uncertain: ${product.occasion ? `the catalogue lists ${label(product.occasion)}` : "the catalogue doesn't record an occasion"}. I wouldn't call it a confirmed match for that event.`);
@@ -127,7 +136,7 @@ export function answerConversationQuestion(catalogue: readonly CatalogueProduct[
   const products: CatalogueProduct[] = [];
   for (const id of resolution.ids) {
     const product = catalogue.find(row => row.product_id === id);
-    const previous = [turn.context.focused, turn.context.comparison, ...turn.context.latest, ...(turn.context.selected ?? [])].find(row => row?.product_id === id);
+    const previous = [turn.context.focused, turn.context.comparison, ...turn.context.latest, ...(turn.context.previous?.flat() ?? []), ...(turn.context.selected ?? [])].find(row => row?.product_id === id);
     if (!product || !previous || normalise(product.product_name) !== normalise(previous.product_name) ||
         normalise(product.category) !== normalise(previous.category) || normalise(product.subcategory) !== normalise(previous.subcategory) ||
         normalise(product.product_type) !== normalise(previous.product_type)) {

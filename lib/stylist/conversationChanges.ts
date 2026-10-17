@@ -41,8 +41,9 @@ export const ConversationChangeSchema = z.discriminatedUnion("field", [
     ...changeContext,
     field: z.literal("preferred_colours"),
     operation: z.enum(["set", "add", "remove"]),
-    value: labels,
-  }),
+    value: z.array(text).max(12),
+  }).refine(change => change.operation === "set" || change.value.length > 0,
+    "Adding or removing colours requires at least one label."),
   z.strictObject({
     ...changeContext,
     field: z.enum(["excluded_colours", "unresolved"]),
@@ -50,4 +51,3 @@ export const ConversationChangeSchema = z.discriminatedUnion("field", [
     value: labels,
   }),
 ]);
-

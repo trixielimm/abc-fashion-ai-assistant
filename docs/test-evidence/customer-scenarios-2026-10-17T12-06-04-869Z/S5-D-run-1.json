@@ -1,0 +1,1062 @@
+{
+  "id": "S5-D",
+  "name": "Same-price and cheaper adjustable alternatives",
+  "repeat": 1,
+  "turns": [
+    {
+      "number": 1,
+      "message": "Find a replacement for this bag with an adjustable strap, at or below $80.",
+      "input": {
+        "message": "Find a replacement for this bag with an adjustable strap, at or below $80.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": {
+            "product_id": "VD-ORIGINAL",
+            "product_name": "VD-ORIGINAL Bag",
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Clutch",
+            "price_aud": 80
+          },
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T12:08:12.186Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": null,
+        "action": "upsell",
+        "intent_evidence": "Find a replacement for this bag with an adjustable strap, at or below $80.",
+        "reference": {
+          "kind": "id",
+          "value": "VD-ORIGINAL"
+        },
+        "changes": [
+          {
+            "scope": "item",
+            "field": "max_price",
+            "operation": "set",
+            "value": 80,
+            "evidence": "at or below $80"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": {
+          "external_items": [],
+          "preferences": [
+            {
+              "kind": "priority",
+              "operation": "add",
+              "value": "adjustability",
+              "evidence": "adjustable strap"
+            },
+            {
+              "kind": "requirement",
+              "operation": "add",
+              "value": "adjustable_strap",
+              "evidence": "adjustable strap"
+            }
+          ],
+          "outfit_changes": [],
+          "offers": null,
+          "owned_categories": []
+        }
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "status": "matches",
+        "action": "upsell",
+        "message": "I've found 2 replacements with demonstrated benefits to compare.\n\nThese options range from A$65.00 to A$80.00. I've kept this selection within your A$80.00 per-item limit.\n\nEach card explains the benefit, price difference and trade-offs. A higher price alone doesn't establish better quality, and choosing an alternative won't automatically remove the original from your cart.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Bags",
+          "subcategory": "Clutches",
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 80,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "VD-CHEAPER",
+            "product_name": "VD-CHEAPER Bag",
+            "price_aud": 65,
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Clutch",
+            "brand_line": null,
+            "colour": "Black",
+            "sizes_available": [
+              "One Size"
+            ],
+            "explanation": "Optional replacement, A$15.00 less. Benefits: Adjustable strap.",
+            "extra_target": null,
+            "image_src": null,
+            "value_comparison": {
+              "policy_version": "stylist-commerce-v1",
+              "primary_product_id": "VD-ORIGINAL",
+              "primary_price_aud": 80,
+              "extra_cost_aud": -15,
+              "benefits": [
+                {
+                  "feature_key": "adjustable_strap",
+                  "label": "Adjustable strap",
+                  "evidence_kind": "synthetic",
+                  "before": false,
+                  "after": true,
+                  "source_references": [
+                    "prototype:prototype-specs-v1/VD-ORIGINAL",
+                    "prototype:prototype-specs-v1/VD-CHEAPER"
+                  ]
+                }
+              ],
+              "context_benefits": [],
+              "tradeoffs": [],
+              "kind": "alternative"
+            }
+          },
+          {
+            "product_id": "VD-EQUAL",
+            "product_name": "VD-EQUAL Bag",
+            "price_aud": 80,
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Clutch",
+            "brand_line": null,
+            "colour": "Black",
+            "sizes_available": [
+              "One Size"
+            ],
+            "explanation": "Optional replacement, the same price. Benefits: Adjustable strap.",
+            "extra_target": null,
+            "image_src": null,
+            "value_comparison": {
+              "policy_version": "stylist-commerce-v1",
+              "primary_product_id": "VD-ORIGINAL",
+              "primary_price_aud": 80,
+              "extra_cost_aud": 0,
+              "benefits": [
+                {
+                  "feature_key": "adjustable_strap",
+                  "label": "Adjustable strap",
+                  "evidence_kind": "synthetic",
+                  "before": false,
+                  "after": true,
+                  "source_references": [
+                    "prototype:prototype-specs-v1/VD-ORIGINAL",
+                    "prototype:prototype-specs-v1/VD-EQUAL"
+                  ]
+                }
+              ],
+              "context_benefits": [],
+              "tradeoffs": [],
+              "kind": "alternative"
+            }
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "adjustability"
+          ],
+          "required_features": [
+            "adjustable_strap"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": "VD-ORIGINAL"
+      },
+      "elapsed_ms": 2160,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "adjustability"
+          ],
+          "required_features": [
+            "adjustable_strap"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "VD-CHEAPER",
+              "product_name": "VD-CHEAPER Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 65,
+              "recommendation_context": {
+                "anchor_ids": [],
+                "primary_product_id": "VD-ORIGINAL"
+              }
+            },
+            {
+              "product_id": "VD-EQUAL",
+              "product_name": "VD-EQUAL Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 80,
+              "recommendation_context": {
+                "anchor_ids": [],
+                "primary_product_id": "VD-ORIGINAL"
+              }
+            }
+          ],
+          "comparison": {
+            "product_id": "VD-ORIGINAL",
+            "product_name": "VD-ORIGINAL Bag",
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Clutch",
+            "price_aud": 80
+          }
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Find a replacement for this bag with an adjustable strap, at or below $80."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 replacements with demonstrated benefits to compare.\n\nThese options range from A$65.00 to A$80.00. I've kept this selection within your A$80.00 per-item limit.\n\nEach card explains the benefit, price difference and trade-offs. A higher price alone doesn't establish better quality, and choosing an alternative won't automatically remove the original from your cart.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 2,
+      "message": "Which options improve adjustability without costing more?",
+      "input": {
+        "message": "Which options improve adjustability without costing more?",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "VD-CHEAPER",
+              "product_name": "VD-CHEAPER Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 65,
+              "recommendation_context": {
+                "anchor_ids": [],
+                "primary_product_id": "VD-ORIGINAL"
+              }
+            },
+            {
+              "product_id": "VD-EQUAL",
+              "product_name": "VD-EQUAL Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 80,
+              "recommendation_context": {
+                "anchor_ids": [],
+                "primary_product_id": "VD-ORIGINAL"
+              }
+            }
+          ],
+          "comparison": {
+            "product_id": "VD-ORIGINAL",
+            "product_name": "VD-ORIGINAL Bag",
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Clutch",
+            "price_aud": 80
+          }
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Find a replacement for this bag with an adjustable strap, at or below $80."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 replacements with demonstrated benefits to compare.\n\nThese options range from A$65.00 to A$80.00. I've kept this selection within your A$80.00 per-item limit.\n\nEach card explains the benefit, price difference and trade-offs. A higher price alone doesn't establish better quality, and choosing an alternative won't automatically remove the original from your cart.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "adjustability"
+          ],
+          "required_features": [
+            "adjustable_strap"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T12:08:14.346Z",
+      "plan_source": "production shortcut",
+      "plan": {
+        "action": "none",
+        "intent_evidence": "Which options improve adjustability without costing more?",
+        "reference": null,
+        "changes": [],
+        "question": null,
+        "continuation": false,
+        "answer": {
+          "kind": "compare",
+          "topics": [
+            "price",
+            "general",
+            "recommendation"
+          ],
+          "references": [
+            {
+              "kind": "id",
+              "value": "VD-ORIGINAL"
+            },
+            {
+              "kind": "id",
+              "value": "VD-CHEAPER"
+            },
+            {
+              "kind": "id",
+              "value": "VD-EQUAL"
+            }
+          ],
+          "purpose": null,
+          "continuation": false
+        }
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "status": "answered",
+        "action": "none",
+        "message": "VD-ORIGINAL Bag\nThe catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$80.00, it is within your A$80.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$80.00. Delivery charges and discounts aren't included in that figure. Adjustable straps: No Strap drop: 25 cm\n\nVD-CHEAPER Bag\nAdjustable strap: false → true, recorded in the prototype product specifications. Original price: A$80.00; this option: A$65.00. A higher price alone does not establish quality. The catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$65.00, it is within your A$80.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$65.00. Delivery charges and discounts aren't included in that figure. Adjustable straps: Yes Strap drop: 25 cm\n\nVD-EQUAL Bag\nAdjustable strap: false → true, recorded in the prototype product specifications. Original price: A$80.00; this option: A$80.00. A higher price alone does not establish quality. The catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$80.00, it is within your A$80.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$80.00. Delivery charges and discounts aren't included in that figure. Adjustable straps: Yes Strap drop: 25 cm\n\nVD-CHEAPER Bag costs A$15.00 less. A higher price alone doesn't establish better quality.\n\nChoose using the recorded differences above and your occasion, budget and size needs. I can't establish a comfort or quality winner from these records.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "VD-ORIGINAL Bag — catalogue details",
+            "url": "/products/VD-ORIGINAL"
+          },
+          {
+            "label": "VD-CHEAPER Bag — catalogue details",
+            "url": "/products/VD-CHEAPER"
+          },
+          {
+            "label": "VD-EQUAL Bag — catalogue details",
+            "url": "/products/VD-EQUAL"
+          }
+        ],
+        "answer_product_ids": [
+          "VD-ORIGINAL",
+          "VD-CHEAPER",
+          "VD-EQUAL"
+        ],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "adjustability"
+          ],
+          "required_features": [
+            "adjustable_strap"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 1,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "adjustability"
+          ],
+          "required_features": [
+            "adjustable_strap"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "VD-CHEAPER",
+              "product_name": "VD-CHEAPER Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 65,
+              "recommendation_context": {
+                "anchor_ids": [],
+                "primary_product_id": "VD-ORIGINAL"
+              }
+            },
+            {
+              "product_id": "VD-EQUAL",
+              "product_name": "VD-EQUAL Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 80,
+              "recommendation_context": {
+                "anchor_ids": [],
+                "primary_product_id": "VD-ORIGINAL"
+              }
+            }
+          ],
+          "comparison": {
+            "product_id": "VD-ORIGINAL",
+            "product_name": "VD-ORIGINAL Bag",
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Clutch",
+            "price_aud": 80
+          }
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Find a replacement for this bag with an adjustable strap, at or below $80."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 replacements with demonstrated benefits to compare.\n\nThese options range from A$65.00 to A$80.00. I've kept this selection within your A$80.00 per-item limit.\n\nEach card explains the benefit, price difference and trade-offs. A higher price alone doesn't establish better quality, and choosing an alternative won't automatically remove the original from your cart.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "Which options improve adjustability without costing more?"
+          },
+          {
+            "role": "assistant",
+            "content": "VD-ORIGINAL Bag\nThe catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$80.00, it is within your A$80.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$80.00. Delivery charges and discounts aren't included in that figure. Adjustable straps: No Strap drop: 25 cm\n\nVD-CHEAPER Bag\nAdjustable strap: false → true, recorded in the prototype product specifications. Original price: A$80.00; this option: A$65.00. A higher price alone does not establish quality. The catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$65.00, it is within your A$80.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$65.00. Delivery charges and discounts aren't included in that figure. Adjustable straps: Yes Strap drop: 25 cm\n\nVD-EQUAL Bag\nAdjustable strap: false → true, recorded in the prototype product specifications. Original price: A$80.00; this option: A$80.00. A higher price alone does not establish quality. The catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$80.00, it is within your A$80.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$80.00. Delivery charges and discounts aren't included in that figure. Adjustable straps: Yes Strap drop: 25 cm\n\nVD-CHEAPER Bag costs A$15.00 less. A higher price alone doesn't establish better quality.\n\nChoose using the recorded differences above and your occasion, budget and size needs. I can't establish a comfort or quality winner from these records."
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 3,
+      "message": "Explain the price difference for the cheaper one.",
+      "input": {
+        "message": "Explain the price difference for the cheaper one.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "VD-CHEAPER",
+              "product_name": "VD-CHEAPER Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 65,
+              "recommendation_context": {
+                "anchor_ids": [],
+                "primary_product_id": "VD-ORIGINAL"
+              }
+            },
+            {
+              "product_id": "VD-EQUAL",
+              "product_name": "VD-EQUAL Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 80,
+              "recommendation_context": {
+                "anchor_ids": [],
+                "primary_product_id": "VD-ORIGINAL"
+              }
+            }
+          ],
+          "comparison": {
+            "product_id": "VD-ORIGINAL",
+            "product_name": "VD-ORIGINAL Bag",
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Clutch",
+            "price_aud": 80
+          }
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Find a replacement for this bag with an adjustable strap, at or below $80."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 replacements with demonstrated benefits to compare.\n\nThese options range from A$65.00 to A$80.00. I've kept this selection within your A$80.00 per-item limit.\n\nEach card explains the benefit, price difference and trade-offs. A higher price alone doesn't establish better quality, and choosing an alternative won't automatically remove the original from your cart.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "Which options improve adjustability without costing more?"
+          },
+          {
+            "role": "assistant",
+            "content": "VD-ORIGINAL Bag\nThe catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$80.00, it is within your A$80.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$80.00. Delivery charges and discounts aren't included in that figure. Adjustable straps: No Strap drop: 25 cm\n\nVD-CHEAPER Bag\nAdjustable strap: false → true, recorded in the prototype product specifications. Original price: A$80.00; this option: A$65.00. A higher price alone does not establish quality. The catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$65.00, it is within your A$80.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$65.00. Delivery charges and discounts aren't included in that figure. Adjustable straps: Yes Strap drop: 25 cm\n\nVD-EQUAL Bag\nAdjustable strap: false → true, recorded in the prototype product specifications. Original price: A$80.00; this option: A$80.00. A higher price alone does not establish quality. The catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$80.00, it is within your A$80.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$80.00. Delivery charges and discounts aren't included in that figure. Adjustable straps: Yes Strap drop: 25 cm\n\nVD-CHEAPER Bag costs A$15.00 less. A higher price alone doesn't establish better quality.\n\nChoose using the recorded differences above and your occasion, budget and size needs. I can't establish a comfort or quality winner from these records."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "adjustability"
+          ],
+          "required_features": [
+            "adjustable_strap"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T12:08:14.348Z",
+      "plan_source": "production shortcut",
+      "plan": {
+        "action": "none",
+        "intent_evidence": "Explain the price difference for the cheaper one.",
+        "reference": null,
+        "changes": [],
+        "question": null,
+        "continuation": false,
+        "answer": {
+          "kind": "compare",
+          "topics": [
+            "price",
+            "general",
+            "recommendation"
+          ],
+          "references": [
+            {
+              "kind": "id",
+              "value": "VD-ORIGINAL"
+            },
+            {
+              "kind": "id",
+              "value": "VD-CHEAPER"
+            }
+          ],
+          "purpose": null,
+          "continuation": false
+        }
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "status": "answered",
+        "action": "none",
+        "message": "VD-ORIGINAL Bag\nThe catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$80.00, it is within your A$80.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$80.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for VD-ORIGINAL Bag; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on Dimensions: 25 × 20 × 5 cm (W × H × D) Capacity: 1 L Compartments: 2 Strap drop: 25 cm\n\nVD-CHEAPER Bag\nAdjustable strap: false → true, recorded in the prototype product specifications. Original price: A$80.00; this option: A$65.00. A higher price alone does not establish quality. The catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$65.00, it is within your A$80.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$65.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for VD-CHEAPER Bag; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: Yes Zip closure: No Fastening: slip on Dimensions: 25 × 20 × 5 cm (W × H × D) Capacity: 1 L Compartments: 2 Strap drop: 25 cm\n\nVD-CHEAPER Bag costs A$15.00 less. A higher price alone doesn't establish better quality.\n\nChoose using the recorded differences above and your occasion, budget and size needs. I can't establish a comfort or quality winner from these records.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "VD-ORIGINAL Bag — catalogue details",
+            "url": "/products/VD-ORIGINAL"
+          },
+          {
+            "label": "VD-CHEAPER Bag — catalogue details",
+            "url": "/products/VD-CHEAPER"
+          }
+        ],
+        "answer_product_ids": [
+          "VD-ORIGINAL",
+          "VD-CHEAPER"
+        ],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "adjustability"
+          ],
+          "required_features": [
+            "adjustable_strap"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 0,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "adjustability"
+          ],
+          "required_features": [
+            "adjustable_strap"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "VD-CHEAPER",
+              "product_name": "VD-CHEAPER Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 65,
+              "recommendation_context": {
+                "anchor_ids": [],
+                "primary_product_id": "VD-ORIGINAL"
+              }
+            },
+            {
+              "product_id": "VD-EQUAL",
+              "product_name": "VD-EQUAL Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 80,
+              "recommendation_context": {
+                "anchor_ids": [],
+                "primary_product_id": "VD-ORIGINAL"
+              }
+            }
+          ],
+          "comparison": {
+            "product_id": "VD-ORIGINAL",
+            "product_name": "VD-ORIGINAL Bag",
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Clutch",
+            "price_aud": 80
+          }
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Find a replacement for this bag with an adjustable strap, at or below $80."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 replacements with demonstrated benefits to compare.\n\nThese options range from A$65.00 to A$80.00. I've kept this selection within your A$80.00 per-item limit.\n\nEach card explains the benefit, price difference and trade-offs. A higher price alone doesn't establish better quality, and choosing an alternative won't automatically remove the original from your cart.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "Which options improve adjustability without costing more?"
+          },
+          {
+            "role": "assistant",
+            "content": "VD-ORIGINAL Bag\nThe catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$80.00, it is within your A$80.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$80.00. Delivery charges and discounts aren't included in that figure. Adjustable straps: No Strap drop: 25 cm\n\nVD-CHEAPER Bag\nAdjustable strap: false → true, recorded in the prototype product specifications. Original price: A$80.00; this option: A$65.00. A higher price alone does not establish quality. The catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$65.00, it is within your A$80.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$65.00. Delivery charges and discounts aren't included in that figure. Adjustable straps: Yes Strap drop: 25 cm\n\nVD-EQUAL Bag\nAdjustable strap: false → true, recorded in the prototype product specifications. Original price: A$80.00; this option: A$80.00. A higher price alone does not establish quality. The catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$80.00, it is within your A$80.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$80.00. Delivery charges and discounts aren't included in that figure. Adjustable straps: Yes Strap drop: 25 cm\n\nVD-CHEAPER Bag costs A$15.00 less. A higher price alone doesn't establish better quality.\n\nChoose using the recorded differences above and your occasion, budget and size needs. I can't establish a comfort or quality winner from these records."
+          },
+          {
+            "role": "user",
+            "content": "Explain the price difference for the cheaper one."
+          },
+          {
+            "role": "assistant",
+            "content": "VD-ORIGINAL Bag\nThe catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$80.00, it is within your A$80.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$80.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for VD-ORIGINAL Bag; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on Dimensions: 25 × 20 × 5 cm (W × H × D) Capacity: 1 L Compartments: 2 Strap drop: 25 cm\n\nVD-CHEAPER Bag\nAdjustable strap: false → true, recorded in the prototype product specifications. Original price: A$80.00; this option: A$65.00. A higher price alone does not establish quality. The catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$65.00, it is within your A$80.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$65.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for VD-CHEAPER Bag; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: Yes Zip closure: No Fastening: slip on Dimensions: 25 × 20 × 5 cm (W × H × D) Capacity: 1 L Compartments: 2 Strap drop: 25 cm\n\nVD-CHEAPER Bag costs A$15.00 less. A higher price alone doesn't establish better quality.\n\nChoose using the recorded differences above and your occasion, budget and size needs. I can't establish a comfort or quality winner from these records."
+          }
+        ]
+      },
+      "checks": "Pass"
+    }
+  ],
+  "started": "2026-10-17T12:08:12.186Z",
+  "result": "Pass",
+  "issues": [],
+  "finished": "2026-10-17T12:08:14.348Z"
+}

@@ -1,0 +1,767 @@
+{
+  "id": "B5",
+  "name": "Grouped broad discovery, optional refinement and memory through unclear intent",
+  "repeat": 1,
+  "turns": [
+    {
+      "number": 1,
+      "message": "I want a dress and shoes for formal events, my budget for both of them is 400 aud",
+      "input": {
+        "message": "I want a dress and shoes for formal events, my budget for both of them is 400 aud",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T11:51:24.868Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": {
+          "total_budget_aud": 400,
+          "items": [
+            {
+              "gender": null,
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            {
+              "gender": null,
+              "category": "Shoes",
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            }
+          ],
+          "evidence": "I want a dress and shoes for formal events, my budget for both of them is 400 aud"
+        },
+        "action": "new_search",
+        "intent_evidence": "I want a dress and shoes for formal events",
+        "reference": null,
+        "changes": [
+          {
+            "scope": "item",
+            "field": "occasion",
+            "operation": "set",
+            "value": "Formal",
+            "evidence": "formal events"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": null
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": {
+          "limit_aud": 400,
+          "total_aud": 180,
+          "remaining_aud": 220,
+          "items": [
+            {
+              "product_id": "DISC-MIDI",
+              "preferences": {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "product_id": "DISC-HEELS",
+              "preferences": {
+                "gender": null,
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ]
+        },
+        "outfit_choices": {
+          "groups": [
+            {
+              "label": "Dresses",
+              "product_ids": [
+                "DISC-MIDI",
+                "DISC-MAXI",
+                "DISC-WRAP"
+              ],
+              "preferences": {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "label": "Shoes",
+              "product_ids": [
+                "DISC-HEELS",
+                "DISC-FLATS",
+                "DISC-SANDALS"
+              ],
+              "preferences": {
+                "gender": null,
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ],
+          "maximum_total_aud": 250
+        },
+        "status": "matches",
+        "action": "new_search",
+        "message": "Here are choices for dresses and shoes. Choose one item from each group; every displayed combination stays within your A$400.00 combined budget. Combinations range from A$180.00 to A$250.00.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Formal",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "DISC-MIDI",
+            "product_name": "DISC-MIDI Dress",
+            "price_aud": 100,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Black",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": null,
+            "image_src": null
+          },
+          {
+            "product_id": "DISC-MAXI",
+            "product_name": "DISC-MAXI Dress",
+            "price_aud": 120,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": null,
+            "colour": "Blue",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": null,
+            "image_src": null
+          },
+          {
+            "product_id": "DISC-WRAP",
+            "product_name": "DISC-WRAP Dress",
+            "price_aud": 150,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Wrap Dress",
+            "brand_line": null,
+            "colour": "Red",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": null,
+            "image_src": null
+          },
+          {
+            "product_id": "DISC-HEELS",
+            "product_name": "DISC-HEELS Shoes",
+            "price_aud": 80,
+            "category": "Shoes",
+            "subcategory": "Heels",
+            "product_type": "Block Heels",
+            "brand_line": null,
+            "colour": "Black",
+            "sizes_available": [
+              "38",
+              "39"
+            ],
+            "extra_target": null,
+            "image_src": null
+          },
+          {
+            "product_id": "DISC-FLATS",
+            "product_name": "DISC-FLATS Shoes",
+            "price_aud": 90,
+            "category": "Shoes",
+            "subcategory": "Flats",
+            "product_type": "Ballet Flats",
+            "brand_line": null,
+            "colour": "Silver",
+            "sizes_available": [
+              "38",
+              "39"
+            ],
+            "extra_target": null,
+            "image_src": null
+          },
+          {
+            "product_id": "DISC-SANDALS",
+            "product_name": "DISC-SANDALS Shoes",
+            "price_aud": 100,
+            "category": "Shoes",
+            "subcategory": "Sandals",
+            "product_type": "Strappy Sandals",
+            "brand_line": null,
+            "colour": "Beige",
+            "sizes_available": [
+              "38",
+              "39"
+            ],
+            "extra_target": null,
+            "image_src": null
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": "Would you like a particular dress style or colour? Do you have a preferred shoe style or heel height? You can also keep browsing these options.",
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit_request": {
+            "total_budget_aud": 400,
+            "items": [
+              {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": null,
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "I want a dress and shoes for formal events, my budget for both of them is 400 aud"
+          },
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 5555,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": {
+            "total_budget_aud": 400,
+            "items": [
+              {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": null,
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "I want a dress and shoes for formal events, my budget for both of them is 400 aud"
+          },
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "DISC-MIDI",
+              "product_name": "DISC-MIDI Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 100
+            },
+            {
+              "product_id": "DISC-MAXI",
+              "product_name": "DISC-MAXI Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 120
+            },
+            {
+              "product_id": "DISC-WRAP",
+              "product_name": "DISC-WRAP Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Wrap Dress",
+              "price_aud": 150
+            },
+            {
+              "product_id": "DISC-HEELS",
+              "product_name": "DISC-HEELS Shoes",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Block Heels",
+              "price_aud": 80
+            },
+            {
+              "product_id": "DISC-FLATS",
+              "product_name": "DISC-FLATS Shoes",
+              "category": "Shoes",
+              "subcategory": "Flats",
+              "product_type": "Ballet Flats",
+              "price_aud": 90
+            },
+            {
+              "product_id": "DISC-SANDALS",
+              "product_name": "DISC-SANDALS Shoes",
+              "category": "Shoes",
+              "subcategory": "Sandals",
+              "product_type": "Strappy Sandals",
+              "price_aud": 100
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I want a dress and shoes for formal events, my budget for both of them is 400 aud"
+          },
+          {
+            "role": "assistant",
+            "content": "Here are choices for dresses and shoes. Choose one item from each group; every displayed combination stays within your A$400.00 combined budget. Combinations range from A$180.00 to A$250.00.\nWould you like a particular dress style or colour? Do you have a preferred shoe style or heel height? You can also keep browsing these options."
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 2,
+      "message": "I would like blue dresses. Keep the shoes as they are and the 400 AUD total.",
+      "input": {
+        "message": "I would like blue dresses. Keep the shoes as they are and the 400 AUD total.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "DISC-MIDI",
+              "product_name": "DISC-MIDI Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 100
+            },
+            {
+              "product_id": "DISC-MAXI",
+              "product_name": "DISC-MAXI Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 120
+            },
+            {
+              "product_id": "DISC-WRAP",
+              "product_name": "DISC-WRAP Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Wrap Dress",
+              "price_aud": 150
+            },
+            {
+              "product_id": "DISC-HEELS",
+              "product_name": "DISC-HEELS Shoes",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Block Heels",
+              "price_aud": 80
+            },
+            {
+              "product_id": "DISC-FLATS",
+              "product_name": "DISC-FLATS Shoes",
+              "category": "Shoes",
+              "subcategory": "Flats",
+              "product_type": "Ballet Flats",
+              "price_aud": 90
+            },
+            {
+              "product_id": "DISC-SANDALS",
+              "product_name": "DISC-SANDALS Shoes",
+              "category": "Shoes",
+              "subcategory": "Sandals",
+              "product_type": "Strappy Sandals",
+              "price_aud": 100
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I want a dress and shoes for formal events, my budget for both of them is 400 aud"
+          },
+          {
+            "role": "assistant",
+            "content": "Here are choices for dresses and shoes. Choose one item from each group; every displayed combination stays within your A$400.00 combined budget. Combinations range from A$180.00 to A$250.00.\nWould you like a particular dress style or colour? Do you have a preferred shoe style or heel height? You can also keep browsing these options."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": {
+            "total_budget_aud": 400,
+            "items": [
+              {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": null,
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "I want a dress and shoes for formal events, my budget for both of them is 400 aud"
+          },
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T11:51:30.425Z",
+      "checks": "Error",
+      "failure": "Request timed out.",
+      "error_type": "Error"
+    }
+  ],
+  "started": "2026-10-17T11:51:24.866Z",
+  "result": "Blocked",
+  "issues": [
+    {
+      "turn": 2,
+      "message": "Request timed out."
+    }
+  ],
+  "unexecuted_turns": 3,
+  "finished": "2026-10-17T11:52:13.506Z"
+}

@@ -1,0 +1,38 @@
+{
+  "started": "2026-10-17T11:53:26.101Z",
+  "commit": "47d677a7a986c9aadc8bd90574741a83779d983f",
+  "node": "v24.14.0",
+  "model": "gpt-5.6-luna",
+  "reasoning": "low",
+  "fixture_sha256": "8955340811be98cd7bdfb20e022105a1be8f1a052057da83c7f99eeea598115e",
+  "scope": "Real model + shortcutPlan + finishConversationTurn + acceptReply; in-process with isolated synthetic fixtures. Not HTTP/browser acceptance.",
+  "human_review": "Pairing taste, aesthetic variety and end-user usefulness require human assessment.",
+  "runs": [
+    {
+      "id": "B5",
+      "name": "Grouped broad discovery, optional refinement and memory through unclear intent",
+      "repeat": 1,
+      "started": "2026-10-17T11:53:26.114Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ 'no_match'\n- 'matches'\n"
+        },
+        {
+          "turn": 4,
+          "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ 'no_match'\n- 'matches'\n"
+        }
+      ],
+      "finished": "2026-10-17T11:53:42.611Z",
+      "turns_recorded": 5
+    }
+  ],
+  "finished": "2026-10-17T11:53:42.614Z",
+  "counts": {
+    "Pass": 0,
+    "Fail": 1,
+    "Blocked": 0,
+    "Feature gap": 0
+  }
+}

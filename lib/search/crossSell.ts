@@ -64,7 +64,7 @@ export function retrieveCrossSell(
   input: unknown,
   vocabulary: CataloguePreferenceValues,
   scopedPreferences?: ShoppingPreferences,
-  options: { anchors?: readonly CatalogueProduct[]; eligible?: (product: CatalogueProduct) => boolean; required_features?: StylingState["required_features"]; occupied_categories?: string[] } = {}
+  options: { anchors?: readonly CatalogueProduct[]; external_anchors?: StylingState["external_items"]; eligible?: (product: CatalogueProduct) => boolean; required_features?: StylingState["required_features"]; occupied_categories?: string[] } = {}
 ): CrossSellResult {
   const request = CrossSellRequestSchema.parse(input);
 
@@ -164,7 +164,7 @@ const checked = ShoppingPreferencesSchema.safeParse({
 
   const anchors = [record, ...(options.anchors ?? []).filter(anchor => anchor.product_id !== record.product_id)];
   const scored = new Map(candidates.map(candidate => [candidate.product_id,
-    scoreCompatibility(candidate, anchors, checked.data.occasion)]));
+    scoreCompatibility(candidate, anchors, checked.data.occasion, options.external_anchors)]));
   // Anchor-aware scoring happens before the display cap and stock tie-breaks.
 
   const { validation, result } = searchWithValidatedPreferences(
@@ -196,4 +196,22 @@ const checked = ShoppingPreferencesSchema.safeParse({
       ? null
       : validation.preferences
   );
+}
+
+export function retrieveDescriptionCrossSell(
+  catalogue: readonly CatalogueProduct[], preferences: ShoppingPreferences,
+  vocabulary: CataloguePreferenceValues, external: StylingState["external_items"],
+  eligible: (product: CatalogueProduct) => boolean
+) {
+  const scored = new Map(catalogue.map(product => [product.product_id,
+    scoreCompatibility(product, [], preferences.occasion, external)]));
+  const searched = searchWithValidatedPreferences(catalogue, preferences, vocabulary, {
+    eligible,
+    compare: (a, b) => (scored.get(b.product_id)?.score ?? 0) - (scored.get(a.product_id)?.score ?? 0),
+  });
+  return { ...searched, result: { ...searched.result, products: searched.result.products.map(product => {
+    const evidence = scored.get(product.product_id)!.evidence;
+    return { ...product, pairing_evidence: evidence,
+      explanation: [...evidence.reasons.slice(0, 2), ...evidence.limitations].join(" ") };
+  }) } };
 }

@@ -7,6 +7,8 @@ import { PreferenceScopesSchema } from "./preferenceScope";
 import { presentShoppingResult } from "./shoppingPresentation";
 import type { CatalogueProduct } from "../recommendations/catalogue";
 import type { CataloguePreferenceValues } from "../catalogue/preferenceValues";
+import { groundConversationPlan } from "./conversationGrounding";
+import { valueQuestionProducts } from "./productReference";
 
 export function interpreterInput(input: unknown) {
   const turn = TurnSchema.parse(input);
@@ -16,6 +18,32 @@ export function interpreterInput(input: unknown) {
   return ConversationPlanRequestSchema.parse(request);
 }
 export function shortcutPlan(turn: ConversationTurn): z.infer<typeof ConversationPlanSchema> | null {
+  // This complete grammar contains only supported filters. Extra qualifiers
+  // deliberately fall through to the interpreter instead of being discarded.
+  const browseMore = !turn.shortcut && !turn.pending && !turn.pending_answer && !turn.styling?.outfit_request && turn.message.trim().match(
+    /^(?:show|find)(?: me)? (?:other|more|similar) (dresses|bags|shoes|necklaces|accessories),?\s+(?:still|keeping) (black|white|blue|navy|red|pink|green|beige|brown|silver|gold|grey|gray|purple) and under (?:A?\$)\s*\d+(?:\.\d{1,2})?[.!]?$/i);
+  if (browseMore) {
+    const category = /dress/i.test(browseMore[1]) ? "Clothing" : /bag/i.test(browseMore[1]) ? "Bags"
+      : /shoe/i.test(browseMore[1]) ? "Shoes" : "Accessories";
+    return ConversationPlanSchema.parse({ action: turn.scopes.item.category === category ? "refine" : "new_search",
+      intent_evidence: turn.message, reference: null, changes: [], question: null, continuation: false });
+  }
+  const valueProducts = !turn.shortcut && !turn.pending && !turn.pending_answer
+    ? valueQuestionProducts(turn.context, turn.message) : null;
+  if (valueProducts) return ConversationPlanSchema.parse({
+    action: "none", intent_evidence: turn.message.slice(0, 250), reference: null, changes: [], question: null, continuation: false,
+    answer: { kind: "compare", topics: ["price", "general", "recommendation"],
+      references: valueProducts.ids.map(value => ({ kind: "id", value })), purpose: null, continuation: false },
+  });
+  const externalRemoval = turn.message.match(/^Remove the owned item I described as "(.+)"\.$/);
+  const external = externalRemoval && turn.styling?.external_items.find(item => item.description === externalRemoval[1]);
+  if (!turn.shortcut && external) {
+    const { external_id, source, ...description } = external; void external_id; void source;
+    return ConversationPlanSchema.parse({ action: "none", intent_evidence: turn.message.slice(0, 250),
+      reference: null, changes: [], question: null, continuation: false,
+      styling_intent: { preferences: [], outfit_changes: [], owned_categories: [], offers: null,
+        external_items: [{ ...description, operation: "remove" }] } });
+  }
   if (turn.preview_other_colours) {
     if (turn.shortcut || turn.pending) throw new Error("Resolve the pending request before a colour preview.");
     return ConversationPlanSchema.parse({
@@ -25,10 +53,10 @@ export function shortcutPlan(turn: ConversationTurn): z.infer<typeof Conversatio
   }
   if (turn.pending_answer && !turn.shortcut) {
     const text = turn.message.trim();
-    const ordinal = text.match(/^(?:the\s+)?(first|second|third|fourth|[1-4])(?:\s+(dress|dresses|item|product|one))?[.!]?$/i);
-    const known = [...turn.context.latest, ...(turn.context.focused ? [turn.context.focused] : [])];
+    const ordinal = text.match(/^(?:the\s+)?(first|second|third|fourth|fifth|[1-5])(?:\s+(dress|dresses|item|product|one))?[.!]?$/i);
+    const known = [...turn.context.latest, ...(turn.context.previous?.flat() ?? []), ...(turn.context.focused ? [turn.context.focused] : [])];
     const named = known.find(product => product.product_name.toLowerCase() === text.toLowerCase() || product.product_id === text);
-    const positions: Record<string, number> = { first: 1, second: 2, third: 3, fourth: 4 };
+    const positions: Record<string, number> = { first: 1, second: 2, third: 3, fourth: 4, fifth: 5 };
     const reference = ordinal ? {
       kind: "position" as const,
       position: positions[ordinal[1].toLowerCase()] ?? Number(ordinal[1]),
@@ -88,7 +116,7 @@ export function shortcutPlan(turn: ConversationTurn): z.infer<typeof Conversatio
     }
   }
   if (!turn.shortcut) return null;
-  const known = [...turn.context.latest, ...(turn.context.focused ? [turn.context.focused] : []), ...(turn.context.comparison ? [turn.context.comparison] : []), ...(turn.context.selected ?? [])];
+  const known = [...turn.context.latest, ...(turn.context.previous?.flat() ?? []), ...(turn.context.focused ? [turn.context.focused] : []), ...(turn.context.comparison ? [turn.context.comparison] : []), ...(turn.context.selected ?? [])];
   if (!known.some(product => product.product_id === turn.shortcut!.product_id)) {
     throw new Error("The selected product is not in the current context.");
   }
@@ -125,7 +153,7 @@ export function cancellationReply(input: unknown) {
 
 export function resumesAnswerSearch(input: unknown, output: unknown) {
   const turn = TurnSchema.parse(input);
-  const plan = ConversationPlanSchema.parse(output);
+  const plan = groundConversationPlan(turn, ConversationPlanSchema.parse(output));
   return Boolean(plan.answer?.continuation && turn.pending_answer?.follow_up &&
     !resolveAnswerProducts(turn, plan.answer).question);
 }
@@ -135,7 +163,8 @@ export function finishConversationTurn(
   vocabulary: CataloguePreferenceValues
 ): z.infer<typeof TurnReplySchema> {
   const turn = TurnSchema.parse(input);
-  const plan = ConversationPlanSchema.parse(output);
+  checkConversationPlan(interpreterInput(turn), output);
+  const plan = groundConversationPlan(turn, ConversationPlanSchema.parse(output));
   const checked = checkConversationPlan(interpreterInput(turn), plan);
   if (resumesAnswerSearch(turn, plan)) {
     // Revalidate the saved changes against their original quoted message. The
@@ -173,7 +202,7 @@ export function finishConversationTurn(
   const result = executeConversationSearch(catalogue, interpreterInput(turn), plan, vocabulary);
   const presentation = presentShoppingResult(catalogue, turn, result, vocabulary);
   const continuing = plan.continuation === true;
-  const pending = presentation.status === "needs_clarification" ? {
+  const pending = plan.action === "clarify" && turn.pending ? turn.pending : presentation.status === "needs_clarification" ? {
     action: plan.action === "none" ? "clarify" : plan.action === "clarify" ? turn.pending?.action ?? "clarify" : plan.action,
     reference: plan.reference ?? (continuing ? turn.pending?.reference ?? null : null),
     goal: continuing ? turn.pending?.goal ?? turn.message : turn.message,
@@ -182,8 +211,10 @@ export function finishConversationTurn(
     ...(checked.styling_question ? { styling_question: true } : {}),
   } : result.status === "no_action" && !(turn.pending?.styling_question && plan.styling_intent?.outfit_changes.length) ? turn.pending ?? null : null;
 
-  const message = result.status === "no_action"
-    ? plan.styling_intent ? result.message
+  let message = result.status === "no_action"
+    ? /\bkeep\b.{0,50}\b(?:limit|budget|requirements|restrictions)\b/i.test(turn.message)
+      ? "I've kept your stated limit and other saved requirements. No restrictions have been relaxed and no alternative colours or sizes have been selected."
+      : plan.styling_intent ? result.message
       : /\b(add|cart|buy|purchase)\b/i.test(turn.message)
       ? "Use Add to cart on the product card. I'll ask for a size there only when needed. Your cart hasn't changed."
       : /^(?:thanks|thank you|cheers)[!. ]*$/i.test(turn.message.trim()) ? "You're welcome. I'm here if you'd like to compare these items or find something to go with them."
@@ -191,8 +222,21 @@ export function finishConversationTurn(
       : turn.pending ? `We still have this question: ${turn.pending.question}`
         : "Tell me what you'd like to find. I can help with catalogue products, but can't confirm unrecorded details or guarantee fit and delivery."
     : presentation.message;
+  const stylingIntent = plan.styling_intent;
+  const stylingChange = stylingIntent && (stylingIntent.preferences.length || stylingIntent.outfit_changes.length ||
+    stylingIntent.external_items?.length || stylingIntent.owned_categories.length || stylingIntent.offers);
+  const acknowledged = /^(?:hi|hello|hey|thanks|thank you|cheers)[!. ]*$/i.test(turn.message.trim()) ||
+    /\b(?:cart|buy|purchase|keep\b.{0,50}\b(?:limit|budget|requirements|restrictions))\b/i.test(turn.message);
+  const understood = plan.action !== "clarify" && !(plan.action === "none" && !plan.answer && !stylingChange && !acknowledged);
+  if (!understood && plan.action === "none") message = "I couldn't understand the change you'd like. Your saved preferences and previous product choices are still here. Could you rephrase it?";
+  if (result.action === "cross_sell" && result.styling.external_items.length &&
+      [...presentation.products, ...presentation.alternatives].length) {
+    message = `Based on your description of ${result.styling.external_items.map(item => item.description).join(" and ")}, these are styling suggestions. I can't verify the exact shade, material or visual match of the item you own.\n\n${message}`;
+  }
   return TurnReplySchema.parse({
     ...result, ...presentation,
+    intent_understood: understood,
+    ...(!understood ? { proposed_scopes: turn.scopes, styling: turn.styling } : {}),
     ...(answer ? { answer_sources: answer.answer_sources } : {}),
     message: answer ? `${answer.message}\n\n${message}` : message, pending,
     pending_answer: result.status === "no_action" ? turn.pending_answer ?? null : null,

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
-import { z } from "zod";
 import { zodTextFormat } from "openai/helpers/zod";
+import { ModelPlanSchema } from "../lib/ai/conversationModelPlan.ts";
 import {
   ConversationChangeSchema,
   ConversationPlanSchema,
@@ -9,6 +9,7 @@ import {
 } from "../lib/stylist/conversationPlan.ts";
 import { newSession, makeTurn, acceptReply } from "../lib/stylist/conversationProtocol.ts";
 import { finishConversationTurn, cancellationReply } from "../lib/stylist/conversationTurn.ts";
+import { emptyShoppingPreferences } from "../lib/stylist/preferenceScope.ts";
 
 // Real validation and turn handling, simulated model responses. No network.
 const change = (field, value, evidence, operation = "set") => ({
@@ -37,18 +38,20 @@ await check("The model schema binds list, number and enum values to their fields
   assert.equal(ConversationChangeSchema.safeParse(change("category", "Shoes", "shoes")).success, true);
   assert.equal(ConversationChangeSchema.safeParse(change("max_price", null, "no budget")).success, true);
 
-  const schema = zodTextFormat(ConversationPlanSchema.extend({ continuation: z.boolean() }), "shopping_turn_plan").schema;
-  const variants = schema.properties.changes.items.anyOf;
-  assert.ok(variants.some(branch => branch.properties.field.const === "category" &&
-    branch.properties.value.anyOf.some(value => value.enum?.includes("Shoes"))));
-  assert.ok(variants.some(branch => branch.properties.field.enum?.includes("unresolved") &&
-    branch.properties.value.type === "array" && branch.properties.value.minItems === 1));
+  const schema = zodTextFormat(ModelPlanSchema, "shopping_turn_plan").schema;
+  const transport = schema.properties.changes.items;
+  assert.ok(transport.properties.field.enum.includes("preferred_colours"));
+  assert.ok(transport.required.includes("text_value"));
+  assert.ok(transport.required.includes("number_value"));
+  assert.equal(transport.properties.list_values.type, "array");
 });
 
 await check("A malformed unresolved list can be corrected before an outfit request is executed", async () => {
   const message = "Build me a complete outfit with a dress, shoes and bag for $200 total.";
   const requirement = "a dress, shoes and bag for $200 total";
-  const valid = plan(message, [change("unresolved", [requirement], requirement, "add")]);
+  const valid = { ...plan(message, []), outfit_request: { total_budget_aud: 200, evidence: message,
+    items: [{ ...emptyShoppingPreferences(), category: "Clothing", subcategory: "Dresses" },
+      { ...emptyShoppingPreferences(), category: "Shoes" }, { ...emptyShoppingPreferences(), category: "Bags" }] } };
   const malformed = plan(message, [change("unresolved", requirement, requirement, "add")]);
   let calls = 0;
   const result = await generateValidatedConversationPlan({ message }, async (_field, feedback) => {
@@ -57,14 +60,13 @@ await check("A malformed unresolved list can be corrected before an outfit reque
     assert.match(feedback, /changes\.0\.value/);
     return valid;
   });
-  const reply = finishConversationTurn([], makeTurn(newSession(), message), result, emptyVocabulary);
+  const checked = checkConversationPlan({ message }, result);
   assert.equal(calls, 2);
-  assert.equal(reply.status, "needs_clarification");
-  assert.deepEqual(reply.proposed_scopes.unresolved_item, [requirement]);
-  assert.equal(reply.proposed_scopes.item.max_price, null);
-  assert.deepEqual(reply.products, []);
-  assert.deepEqual(reply.alternatives, []);
-  assert.match(reply.message, /\$200 total/);
+  assert.equal(checked.status, "ready_for_validation");
+  assert.deepEqual(checked.proposed_scopes.unresolved_item, []);
+  assert.equal(checked.proposed_scopes.item.max_price, null);
+  assert.equal(checked.styling.outfit_request.total_budget_aud, 200);
+  assert.equal(checked.styling.outfit_request.items.length, 3);
 });
 
 await check("No-leather requirements stay recorded and cannot retrieve unchecked products", async () => {
@@ -138,7 +140,7 @@ await check("Two invalid plans clarify without changing saved limits or selectin
   assert.deepEqual(reply.proposed_scopes, before);
   assert.deepEqual(session.scopes, before);
   assert.equal(reply.pending.goal, message);
-  assert.match(reply.message, /complete outfit within one total budget/);
+  assert.match(reply.message, /couldn't reliably interpret that outfit request/);
   assert.deepEqual(reply.products, []);
   assert.deepEqual(reply.alternatives, []);
 
@@ -173,7 +175,7 @@ await check("A well-shaped outfit plan cannot silently reinterpret the total as 
   assert.throws(() => checkConversationPlan({ message }, plan(message, [
     change("category", "Clothing", "dress"),
     change("max_price", 200, "$200 total"),
-  ])), /complete-outfit request must remain unresolved/);
+  ])), /Use outfit_request/);
 });
 
 await check("Explicitly removing an unsupported requirement or switching to a single item still works", () => {

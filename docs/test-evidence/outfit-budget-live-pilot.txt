@@ -1,0 +1,9 @@
+
+> abc-fashion-ai-assistant@0.1.0 test:scenarios
+> node --env-file=.env.local --conditions=react-server --import tsx scripts/test-customer-scenarios.mjs
+
+Blocked: B2 run 1 (0/1 turns) T1: Connection error.
+Blocked: B1 run 1 (0/1 turns) T1: Connection error.
+Blocked: B3 run 1 (0/1 turns) T1: Connection error.
+Blocked: B4 run 1 (0/1 turns) T1: Connection error.
+{"counts":{"Pass":0,"Fail":0,"Blocked":4,"Feature gap":0},"evidence":"/Users/beatricelim/Documents/Session%202%202026/COMP3850%20PACE/abc-fashion-ai-assistant/docs/test-evidence/customer-scenarios-2026-10-17T05-51-48-665Z/"}

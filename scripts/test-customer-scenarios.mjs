@@ -8,65 +8,14 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { interpretConversation } from '../lib/ai/interpretConversation.ts';
 import { newSession, makeTurn, snapshot, acceptReply } from '../lib/stylist/conversationProtocol.ts';
 import { interpreterInput, shortcutPlan, finishConversationTurn } from '../lib/stylist/conversationTurn.ts';
-import { getProductSpecification, specificationIdentity } from '../lib/stylist/productSpecifications.ts';
+import { getProductSpecification } from '../lib/stylist/productSpecifications.ts';
+import { catalogue, fixtures } from './fixtures/customer-scenarios.mjs';
 
 const started = new Date().toISOString();
 const output = new URL(`../docs/test-evidence/customer-scenarios-${started.replace(/[:.]/g, '-')}/`, import.meta.url);
 mkdirSync(output, { recursive: true });
 const sha = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const all = reply => [...reply.products, ...reply.alternatives];
-function product(id, category, price, options = {}, features = {}) {
-  const row = {
-    product_id: id, product_name: `${id} ${category === 'Clothing' ? 'Dress' : category === 'Shoes' ? 'Shoes' : category === 'Accessories' ? 'Necklace' : 'Bag'}`,
-    category, subcategory: { Clothing: 'Dresses', Bags: 'Clutches', Shoes: 'Heels', Accessories: 'Jewellery' }[category],
-    product_type: { Clothing: 'Midi Dress', Bags: 'Clutch', Shoes: 'Block Heels', Accessories: 'Necklace' }[category],
-    gender: null, brand_line: null, colour: 'Black', style: 'Relaxed', occasion: 'Beach Wedding', season: 'Summer',
-    material: category === 'Accessories' ? 'Silver-tone Metal' : 'Polyester', fit: 'Regular',
-    price_aud: price, sizes_available: category === 'Clothing' ? ['10', '12'] : category === 'Shoes' ? ['38', '39'] : ['One Size'],
-    stock_qty: 20, is_available: true, description: null, tags: [], image_key: null,
-    cross_sell_category: category === 'Clothing' ? 'Bags' : null, feature_data_status: 'available', verified_features: [],
-    ...options,
-  };
-  const spec = {
-    product_id: id, description: `Synthetic test specification for ${row.product_name}; recorded for controlled prototype testing only.`,
-    construction_details: ['Seamed construction', 'Finished edges'], care_instructions: 'Wipe or gently hand clean; follow the care label.',
-    lining: true, pockets: false, adjustable_strap: false, zip_closure: false, machine_washable: false,
-    capacity_litres: category === 'Bags' ? 1 : null, use_cases: [row.occasion], closure: category === 'Accessories' ? 'clasp' : 'slip_on',
-    garment_length_cm: category === 'Clothing' ? 110 : null, heel_height_cm: category === 'Shoes' ? 4 : null,
-    sole_material: category === 'Shoes' ? 'Rubber' : null, dimensions_cm: category === 'Bags' ? { width: 25, height: 20, depth: 5 } : null,
-    strap_drop_cm: category === 'Bags' ? 25 : null, compartments: category === 'Bags' ? 2 : null,
-    hardware_finish: category === 'Accessories' ? 'Silver-tone' : null, ...features,
-  };
-  row.synthetic_specification = { product_id: id, source_kind: 'synthetic', dataset_version: 'prototype-specs-v1',
-    generator_model: 'hand-authored-acceptance-fixture-v1', generated_at: '2026-10-17T00:00:00Z',
-    identity_snapshot: specificationIdentity(row), specification: spec };
-  assert.ok(getProductSpecification(row), `Invalid fixture ${id}`);
-  return row;
-}
-const catalogue = [
-  product('D-BLACK-120', 'Clothing', 120), product('D-BLACK-90', 'Clothing', 90),
-  product('D-BLUE-140', 'Clothing', 140, { colour: 'Blue', style: 'Formal' }),
-  product('D-BLUE-80', 'Clothing', 80, { colour: 'Blue', material: 'Cotton' }),
-  product('D-WORK-110', 'Clothing', 110, { occasion: 'Work' }), product('D-WORK-70', 'Clothing', 70, { occasion: 'Work' }),
-  product('D-CASUAL-85', 'Clothing', 85, { colour: 'Navy', occasion: 'Casual' }),
-  product('B-ZIP-60', 'Bags', 60, {}, { zip_closure: true, closure: 'zip' }),
-  product('B-OPEN-45', 'Bags', 45, { colour: 'Beige' }),
-  product('SH-WORK-110', 'Shoes', 110, { occasion: 'Work' }), product('SH-WORK-75', 'Shoes', 75, { occasion: 'Work' }),
-  product('SH-WEDDING-90', 'Shoes', 90, { colour: 'Beige', occasion: 'Wedding Guest' }),
-  product('N-SILVER-65', 'Accessories', 65, { colour: 'Silver' }), product('N-SILVER-40', 'Accessories', 40, { colour: 'Silver' }),
-];
-const fixtures = {
-  'S5-A': [product('VA-ORIGINAL', 'Clothing', 95), product('VA-POCKETS', 'Clothing', 120, {}, { pockets: true })],
-  'S5-B': [product('VB-ORIGINAL', 'Clothing', 95, { colour: 'Blue' }), product('VB-ELIGIBLE', 'Clothing', 140, { colour: 'Blue' }, { pockets: true }),
-    product('VB-WORK', 'Clothing', 110, { colour: 'Blue', occasion: 'Work' }, { pockets: true }),
-    product('VB-BLACK', 'Clothing', 110, {}, { pockets: true }), product('VB-SIZE12', 'Clothing', 110, { colour: 'Blue', sizes_available: ['12'] }, { pockets: true }),
-    product('VB-OVER', 'Clothing', 160, { colour: 'Blue' }, { pockets: true })],
-  'S5-C': [product('VC-ORIGINAL', 'Bags', 60, {}, { zip_closure: true, closure: 'zip' }), product('VC-SAME', 'Bags', 90, {}, { zip_closure: true, closure: 'zip' })],
-  'S5-D': [product('VD-ORIGINAL', 'Bags', 80), product('VD-EQUAL', 'Bags', 80, {}, { adjustable_strap: true }),
-    product('VD-CHEAPER', 'Bags', 65, {}, { adjustable_strap: true }), product('VD-OVER', 'Bags', 95, {}, { adjustable_strap: true })],
-  'S5-E': [product('VE-ORIGINAL', 'Clothing', 95), product('VE-TRADEOFF', 'Clothing', 120, {}, { pockets: true, lining: false })],
-  'S5-F': [product('VF-UNKNOWN', 'Clothing', 95, {}, { lining: null }), product('VF-LINED', 'Clothing', 120)],
-};
 const cases = [];
 function scenario(id, name, prompts, verify, options = {}) { cases.push({ id, name, prompts, verify, ...options }); }
 const eq = (a, b, text) => assert.deepEqual(a, b, text);
@@ -148,7 +97,14 @@ scenario('S4-A', 'Pair a bag with an owned catalogue dress', [...ownedSetup, "Fi
 scenario('S4-B', 'Style an external owned garment', ['I already own a plain navy midi dress from another shop. I want shoes to match it for a wedding, under $100.', "I don't have a product link or photo. Please work from that description."], (_n, r, s) => {
   assert.ok(s.styling.outfit.every(p => catalogue.some(x => x.product_id === p.product_id)), 'Do not invent external product ID');
   assert.ok(!/matches perfectly|verified match|perfect match/i.test(r.message));
-}, { feature_gap: 'No structured external-garment record: navy, midi and plain cannot persist as an owned matching anchor.' });
+  browse(r); checkBrief(r, { category: 'Shoes', max: 100 });
+  eq(s.styling.external_items.length, 1, 'Keep a separate external garment description');
+  const garment = s.styling.external_items[0];
+  assert.match(garment.description, /plain navy midi dress/i); eqLabel(garment.colour, 'Navy');
+  assert.ok(!('product_id' in garment), 'An external garment is not an invented catalogue SKU');
+  for (const product of all(r)) has(product.pairing_evidence?.external_anchor_ids ?? [], garment.external_id);
+  assert.match(r.message, /description/i); assert.match(r.message, /suggest|can't verify|not.*verified/i);
+});
 scenario('S4-C', 'Pair shoes with two owned pieces', [...ownedSetup, 'Show me bags.', 'I already own the first bag too. Keep it as an owned piece in my outfit.', 'Find shoes to go with both my owned dress and bag, under $120.', 'No extra recommendations after the shoes.'], (n, r, s, b, run) => {
   if (n === 1) run.dress = all(r)[0]?.product_id;
   if (n === 3) { browse(r); run.bag = all(r)[0].product_id; }
@@ -195,12 +151,67 @@ scenario('S6-B', 'Silver necklaces and fastening facts', ['Show me silver neckla
   if (n === 2) { factual(r, b, b.context.latest[0].product_id); assert.match(r.message, /Silver-tone Metal/); assert.match(r.message, /Fastening: clasp/); assert.doesNotMatch(r.message, /sterling silver/i); }
 });
 
-const fixtureFile = { version: 'customer-scenarios-v1', provenance: 'Hand-authored synthetic fixtures; never supplier verification.', catalogue, fixtures,
+scenario('B1', 'Shared total for formal dress and shoes, then reduce total', [
+  'I want a dress and shoes for formal events, my budget for both of them is 400 aud',
+  'Make the combined budget $350 instead. Keep everything else.',
+  'Make the combined budget 400 aud again, keeping everything else.',
+  'What material is the dress in this set?',
+], (n, r, s) => {
+  eq(s.styling.outfit_request.total_budget_aud, n === 2 ? 350 : 400);
+  eq(s.styling.outfit_request.items.length, 2); eq(s.scopes.item.occasion, 'Formal'); eq(s.scopes.item.max_price, null);
+  if (n === 4) { eq(r.status, 'answered'); eq(r.answer_product_ids, ['BUDGET-DRESS']); eq(r.pending_answer, null); }
+  else if (n !== 2) { eq(r.status, 'matches'); eq(new Set(r.products.map(p => p.category)), new Set(['Clothing', 'Shoes']));
+    eq(r.outfit_budget.total_aud, 400); eq(r.outfit_budget.remaining_aud, 0); }
+  else { eq(r.status, 'no_match'); none(r); }
+});
+scenario('B2', 'Per-item affordability must not bypass combined total', [
+  'Find a dress and shoes for formal events under $400 total.',
+], (_n, r, s) => { eq(r.status, 'no_match'); none(r); eq(s.styling.outfit_request.total_budget_aud, 400); });
+scenario('B3', 'Separate dress and shoe sizes and colours', [
+  'Find a black dress in size 10 and silver shoes in size 38 for formal events under $400 total.',
+  'Show the same set with a combined budget of $399. Keep the colours and sizes.',
+], (n, r, s) => {
+  const items = s.styling.outfit_request.items;
+  const d = items.find(p => p.category === 'Clothing'); const shoe = items.find(p => p.category === 'Shoes');
+  eqLabel(d.preferred_colours, ['Black']); eq(d.size, '10'); eqLabel(shoe.preferred_colours, ['Silver']); eq(shoe.size, '38');
+  if (n === 1) { eq(r.status, 'matches'); eq(r.outfit_budget.total_aud, 400); eq(r.products.length, 2); }
+  else { eq(r.status, 'no_match'); none(r); eq(s.styling.outfit_request.total_budget_aud, 399); }
+});
+scenario('B4', 'Three-piece outfit under one total', [
+  'Build a complete outfit with a dress, shoes and bag for formal events under $350 total.',
+], (_n, r) => { eq(r.status, 'matches'); eq(r.products.length, 3); eq(r.outfit_budget.total_aud, 350); });
+scenario('B5', 'Grouped broad discovery, optional refinement and memory through unclear intent', [
+  'I want a dress and shoes for formal events, my budget for both of them is 400 aud',
+  'I would like blue dresses. Keep the shoes as they are and the 400 AUD total.',
+  'zibble flomp splatch',
+  'Only show flat shoes. Keep the blue dress options and the $400 total.',
+  'What material is DISC-WRAP Dress from earlier?',
+], (n, r, s, before) => {
+  if (n === 1) { eq(r.status, 'matches'); eq(r.products.length, 6);
+    eq(r.outfit_choices.groups.map(group => group.product_ids.length), [3, 3]);
+    assert.ok(r.outfit_choices.maximum_total_aud <= 400); assert.ok(r.optional_question); eq(r.pending, null); }
+  if (n === 2 || n === 4) {
+    eq(r.status, 'matches'); eq(s.styling.outfit_request.total_budget_aud, 400);
+    const d = s.styling.outfit_request.items.find(p => p.category === 'Clothing');
+    const shoes = s.styling.outfit_request.items.find(p => p.category === 'Shoes');
+    eqLabel(d.preferred_colours, ['Blue']);
+    if (n === 4) { eq(shoes.subcategory, 'Flats'); eq(s.history.filter(row => row.role === 'user').length, 3); }
+  }
+  if (n === 3) {
+    eq(r.intent_understood, false); none(r); eq(s.scopes, before.scopes); eq(s.styling, before.styling);
+    eq(s.context, before.context); eq(s.history, before.history);
+  }
+  if (n === 5) { eq(r.status, 'answered'); eq(r.answer_product_ids, ['DISC-WRAP']); eq(r.pending_answer, null); eq(s.scopes, before.scopes); }
+});
+
+const fixtureFile = { version: 'customer-scenarios-v4', provenance: 'Hand-authored synthetic fixtures; never supplier verification.', catalogue, fixtures,
   expected: { 'S5-A': ['VA-POCKETS'], 'S5-B': ['VB-ELIGIBLE'], 'S5-C': [], 'S5-D': ['VD-EQUAL', 'VD-CHEAPER'], 'S5-E': ['VE-TRADEOFF'], 'S5-F': [], 'S6-A': ['SH-WORK-110', 'SH-WORK-75'], 'S6-B': ['N-SILVER-65', 'N-SILVER-40'] } };
 writeFileSync(new URL('fixtures.json', output), JSON.stringify(fixtureFile, null, 2));
 const summary = { started, commit: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(), node: process.version,
   model: process.env.OPENAI_CONVERSATION_MODEL?.trim() || 'gpt-5.6-luna', reasoning: 'low', fixture_sha256: sha(fixtureFile),
-  scope: 'Real model + shortcutPlan + finishConversationTurn + acceptReply; in-process with isolated synthetic fixtures. Not HTTP/browser acceptance.',
+  scope: process.env.SCENARIO_REPLAY
+    ? 'Recorded model plans + current production shortcuts, turn handling, presentation and session code; isolated fixtures. No fresh model calls. Not HTTP/browser acceptance.'
+    : 'Real model + shortcutPlan + finishConversationTurn + acceptReply; in-process with isolated synthetic fixtures. Not HTTP/browser acceptance.',
   human_review: 'Pairing taste, aesthetic variety and end-user usefulness require human assessment.', runs: [] };
 if (process.env.SCENARIO_REPLAY) summary.reassessed_from = process.env.SCENARIO_REPLAY;
 const repeats = Number(process.env.SCENARIO_REPEATS ?? 3);
@@ -213,11 +224,11 @@ async function runCase(c, repeat) {
   const cached = process.env.SCENARIO_REPLAY ? JSON.parse(readFileSync(`${process.env.SCENARIO_REPLAY}/${c.id}-run-${repeat}.json`, 'utf8')) : null;
   let state = newSession();
   // Product page focus is part of the specification setup for these cases.
-  const focus = fixtures[c.id] && c.id !== 'S5-B' ? snapshot(rows[0]) : null;
+  const focus = fixtures[c.id] && !c.id.startsWith('B') && c.id !== 'S5-B' ? snapshot(rows[0]) : null;
   for (let i = 0; i < c.prompts.length; i++) {
     const message = c.prompts[i];
-    const before = structuredClone(cached && i > 0 ? cached.turns[i - 1]?.state ?? state : state);
-    const turn = cached?.turns[i]?.input ?? makeTurn(state, message, i === 0 ? focus : null);
+    const before = structuredClone(state);
+    const turn = makeTurn(state, message, i === 0 ? focus : null);
     const record = { number: i + 1, message, input: turn, began: new Date().toISOString() };
     run.turns.push(record);
     const n = i + 1;
@@ -239,10 +250,12 @@ async function runCase(c, repeat) {
       const began = Date.now();
       const short = shortcutPlan(turn);
       if (cached && !cached.turns[i]?.plan) throw new Error('Replay has no executed model plan for this turn.');
-      const plan = cached ? cached.turns[i].plan : short ?? await interpretConversation(interpreterInput(turn));
-      record.plan_source = cached ? cached.turns[i].plan_source : short ? 'production shortcut' : 'live model'; record.plan = plan;
-      const reply = cached?.turns[i]?.reply ?? finishConversationTurn(rows, turn, plan, vocabulary);
-      record.reply = reply; record.elapsed_ms = cached ? cached.turns[i].elapsed_ms : Date.now() - began;
+      const plan = short ?? (cached ? cached.turns[i].plan : await interpretConversation(interpreterInput(turn)));
+      record.plan_source = short ? 'production shortcut' : cached ? 'recorded model plan replay' : 'live model'; record.plan = plan;
+      // Replay freezes interpretation only. Always execute the current domain,
+      // presentation and session code; cached replies cannot prove a fix works.
+      const reply = finishConversationTurn(rows, turn, plan, vocabulary);
+      record.reply = reply; record.elapsed_ms = Date.now() - began;
       const accepted = acceptReply(turn, reply); state = accepted.session; record.state = state;
       try {
         c.verify(i + 1, reply, state, before, run);

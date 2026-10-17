@@ -1,0 +1,656 @@
+{
+  "captured_at": "2026-10-17T06:01:08.279Z",
+  "commit": "47d677a7a986c9aadc8bd90574741a83779d983f",
+  "note": "Working tree contains local changes; this manifest identifies the tested source.",
+  "combined_sha256": "939ee373db65088f21f8fdfc2a267872445c82dec789e47173e098163d2778f8",
+  "files": [
+    {
+      "path": "app/api/catalogue-check/route.ts",
+      "sha256": "2aaac4850a21ae762460fdf913f1edbef1d20cde1abc2c472593ae4121d318b7"
+    },
+    {
+      "path": "app/api/conversation-plan/route.ts",
+      "sha256": "8151b4d0db5a3c5b41a31a362caa0dd3c3b7e9390d960fd456a497abd93d5ee2"
+    },
+    {
+      "path": "app/api/conversation-search/route.ts",
+      "sha256": "6ce8ed5fb20c6f354971ca5cb7da5d60dc2a104c29bd36c94692889d008a3e01"
+    },
+    {
+      "path": "app/api/cross-sell/route.ts",
+      "sha256": "064f9d6bd4b04eb3506560dbc9f6cc1b074e0d964d9d13e72390265859ef6b97"
+    },
+    {
+      "path": "app/api/extraction/route.ts",
+      "sha256": "438386015a953c53a63feadcb0ebc754ec72c4297df2de2404b308eed4e917db"
+    },
+    {
+      "path": "app/api/filter-check/route.ts",
+      "sha256": "021743647acee7c6a4a2b07518f7229948cce640c79008bc99ab8242f491f9c4"
+    },
+    {
+      "path": "app/api/products/[productId]/image/route.ts",
+      "sha256": "049fd010f8dd3da0add28f886604805aef10713b32152cbeaf11d6be46bcaad5"
+    },
+    {
+      "path": "app/api/ranking-check/route.ts",
+      "sha256": "6094895dda6cde5b854871fa98ca99da0252c102c9efb8dc4ab73870f8b75842"
+    },
+    {
+      "path": "app/api/recommendations/route.ts",
+      "sha256": "ef843f96a8b830541d874bbe6cdafdcce6e74da70335b85bacd4fd5329cc37cf"
+    },
+    {
+      "path": "app/api/stylist-events/route.ts",
+      "sha256": "d1b59eac3369cf94d5a99924fa7d27824f4570d159bf273bd166abcbb9792812"
+    },
+    {
+      "path": "app/api/stylist-search/route.ts",
+      "sha256": "470e40ea68c763fbb2ef93c733e9baae947317b0bbece9c85b5a36652a180a62"
+    },
+    {
+      "path": "app/api/upsell/route.ts",
+      "sha256": "9858ac8a4ba575bfedc0ceba8d431a5f89fc7dd6f29063d03c6d2d516a96458e"
+    },
+    {
+      "path": "app/cart/page.tsx",
+      "sha256": "c112cdafe971c4a73848d8144d8a62800427829d83d1495d0fe69a0baacc88ae"
+    },
+    {
+      "path": "app/layout.tsx",
+      "sha256": "3b1a4a83ec84a56bff3fc76c2a8e5b23cc9b3620313eed87f51c030a21b6d5a0"
+    },
+    {
+      "path": "app/loading.tsx",
+      "sha256": "3580d27e785d2ed54f2911c8cc5afdf8945badc712e2d6da35100032a4e35ff4"
+    },
+    {
+      "path": "app/page.tsx",
+      "sha256": "350b3df26dad414b8ec7b9eddda561a339044178b5f0ed9698fd7cfb8fbb355c"
+    },
+    {
+      "path": "app/products/[productId]/page.tsx",
+      "sha256": "c300ed385b343d958744998134a10dd9ac11b984f036cdeb87137930753d306c"
+    },
+    {
+      "path": "app/search/page.tsx",
+      "sha256": "8c41ea8751d04f0a623db925bb4325fba3c27568d3a476cab3d83f31636bdb59"
+    },
+    {
+      "path": "app/terms-of-service/page.tsx",
+      "sha256": "bbacc84f08860bd9535d5039cb53ed2f8e0b3320a030f4e01e60a1eb2e68da48"
+    },
+    {
+      "path": "components/cart/CartItem.tsx",
+      "sha256": "922003cf17abfca6b291e13fc6ac388eda16b5b78bb07d17807f7979a355d5f4"
+    },
+    {
+      "path": "components/cart/OrderSummary.tsx",
+      "sha256": "7257d419bc370535464a58b5f3c3846696fd13b906f2f8c6747f362acf19ed90"
+    },
+    {
+      "path": "components/commerce/CategoryCard.tsx",
+      "sha256": "20612dbfbbc8771c06dbfb9429d5a19cebdc6d3e1fab3ec4607683fff5ebd6c0"
+    },
+    {
+      "path": "components/commerce/ProductCard.tsx",
+      "sha256": "5ccc05065664ad308408b4b9a852d2137e3810edc86fef756f6b6cce9e83bff4"
+    },
+    {
+      "path": "components/commerce/ProductCarousel.tsx",
+      "sha256": "af48cf0e32e466720c35a273ae22822600d21857f7937d55b0a1a743a3d4e805"
+    },
+    {
+      "path": "components/commerce/ProductImage.tsx",
+      "sha256": "5c41a74e0ccae0735be60908e04b87522be439c749766fc067effa48d15c2760"
+    },
+    {
+      "path": "components/commerce/ProductVisual.tsx",
+      "sha256": "4a89ba706919ecd861ecbeff82df16cf527cdd64275520b32ca57faa6173167a"
+    },
+    {
+      "path": "components/commerce/SearchPageLink.tsx",
+      "sha256": "56018268df6d0336ffab61874ef8ea751ec46218246745ee2ab78a6e6d0777ce"
+    },
+    {
+      "path": "components/landing/CampaignBanner.tsx",
+      "sha256": "3bd00d269ff625bd97b4052ab04f3aea914d6f346135a33e6a08f2b5f38eb985"
+    },
+    {
+      "path": "components/landing/CategoryShowcase.tsx",
+      "sha256": "d780e946f78a6045a01c7217a5c817f67245face50277cb0a489385401dcba17"
+    },
+    {
+      "path": "components/landing/Hero.tsx",
+      "sha256": "09827f876821a151e9afe1757485b06feeae0d4b6d4450bb8a3a8ef6956f479d"
+    },
+    {
+      "path": "components/landing/Newsletter.tsx",
+      "sha256": "bfbf41f0d0b8bd65949e154e8f957f62581763f991d354f79a5369c9f520dbbe"
+    },
+    {
+      "path": "components/layout/BottomNavBar.tsx",
+      "sha256": "8e0f74ad3f75ccb2389049f0defe3401f466cdb5dfa18327750dcf67bd4df8c7"
+    },
+    {
+      "path": "components/layout/Container.tsx",
+      "sha256": "194626e7444b24dbfbd35f3eb91631ad313697779b556541e9aeb7ade0819790"
+    },
+    {
+      "path": "components/layout/LoadingScreen.tsx",
+      "sha256": "cdc9e5baf24b566bb9aae40921c18403b2d44e68fb4f2c87b428fa77aff89201"
+    },
+    {
+      "path": "components/layout/OverlayScrollbar.tsx",
+      "sha256": "2a12601631d394fbffda391a854009b82b35b1b7d70d8e1a326d2f560a3abdb6"
+    },
+    {
+      "path": "components/layout/PageLoadingOverlay.tsx",
+      "sha256": "67eee48dd577553eefa554fc8fef296c80b93cf1a8b5f1db84a81d450810fbd6"
+    },
+    {
+      "path": "components/layout/SiteFooter.tsx",
+      "sha256": "cb9d65a881b64fb3271c6de25965d24405988c8bb21a4f303f593916c015a3ed"
+    },
+    {
+      "path": "components/layout/SiteHeader.tsx",
+      "sha256": "638ce7a7b0c1b31b4ac8bac0abac48bc729a5c62ac6efc3c7d3d12ab6b6d6949"
+    },
+    {
+      "path": "components/product/ProductAccordion.tsx",
+      "sha256": "9a89d06d78e7c1cb31a36ec45f192b19b5e47f246278db347e43e88f5be30e07"
+    },
+    {
+      "path": "components/product/ProductControls.tsx",
+      "sha256": "e05d72e4d1d64ad82ce794d469079fe0e6b2aacbc6d3439796675ca0e96938a9"
+    },
+    {
+      "path": "components/product/ProductGallery.tsx",
+      "sha256": "92afa372bdc553420407f6f659d8e13a7a93fb4f8f6c20cebdda1218f4d40eaa"
+    },
+    {
+      "path": "components/product/ProductInfo.tsx",
+      "sha256": "c2aa1e1da53c8228e71d000ac63be7d608cfa33261bcb533fbeadb8029e69d8f"
+    },
+    {
+      "path": "components/product/RelatedProducts.tsx",
+      "sha256": "a17cb24c9047b9ff54b93ed42819000d88811965916b7aeed94079ca2dc3b8d6"
+    },
+    {
+      "path": "components/stylist/ConversationChat.tsx",
+      "sha256": "0b0eec9538279651217a77360194c579c7a455a78e307e93f3405e78fb571dfb"
+    },
+    {
+      "path": "components/stylist/CrossSellConversation.tsx",
+      "sha256": "6506149c048aae314e46e2fdb8fa97ce84e97a7b52c459c63e5615d18c9e3596"
+    },
+    {
+      "path": "components/stylist/OutfitSummary.tsx",
+      "sha256": "9f1ea0ea398b5da35a5adf3a729437416f61f3d0a88aea65bf8d58c16416ba4e"
+    },
+    {
+      "path": "components/stylist/ProductPageContext.tsx",
+      "sha256": "e073b1d5c39b2146a4d6eafe04dce0d8184cbce2db3327c8ccf08d367e12dae7"
+    },
+    {
+      "path": "components/stylist/ShoppingProductResults.tsx",
+      "sha256": "3f3bb8e31be4a9ec20f761e2ae46449a5ec038e57f627d82bf273effce3b39cb"
+    },
+    {
+      "path": "components/stylist/StylistChat.tsx",
+      "sha256": "2c3307c3c00e2b5428e33bec03155cf1d6188abf43610d1da214e40ee551e0fd"
+    },
+    {
+      "path": "components/stylist/StylistLauncher.tsx",
+      "sha256": "a84e45540db5a57331857e1d6a4fdf083e6edaa10714caedc16be4a2bd1985fa"
+    },
+    {
+      "path": "components/stylist/StylistModal.tsx",
+      "sha256": "5de1ecfdaf0fc5011a0acc7c85b805c07d081d742af94fd357afcf0fa7df0896"
+    },
+    {
+      "path": "components/stylist/StylistProvider.tsx",
+      "sha256": "85cf48b35a900b2d3b695bdfd53c73d711037e9757aa4424e44a0a91a1e1af79"
+    },
+    {
+      "path": "components/stylist/UpsellComparison.tsx",
+      "sha256": "0624fb71502b1505c9e600c4f8dd89d4a89c6123deb8851c349ca009c34a504e"
+    },
+    {
+      "path": "components/ui/Button.tsx",
+      "sha256": "3f871e8b16388dcc2f4809114ecd47d5dafe38a59e6f6ffa4a271a1477e54d5d"
+    },
+    {
+      "path": "components/ui/IconButton.tsx",
+      "sha256": "91b4e018925bfd4e9c9903f639a15965b75cd5e3d71ae242bcc7f180c973274e"
+    },
+    {
+      "path": "components/ui/SectionHeader.tsx",
+      "sha256": "ff5f4ffd1c7bbb60346bd5e29dabf4068358ca5cd516d162817de1a1ab191fbd"
+    },
+    {
+      "path": "components/ui/icons.tsx",
+      "sha256": "fb4de5962d9253bd5a513424b05aa24c5f4ffe371c66ad0f1228448348cd5046"
+    },
+    {
+      "path": "lib/ai/chatRequest.ts",
+      "sha256": "c58416d5cd219489d43e9e68b014b3fd9bb4556f9da62f8ecf0da7fd70961df2"
+    },
+    {
+      "path": "lib/ai/conversationModelPlan.ts",
+      "sha256": "7ee9aa6657117468038c15b24021e1e755445014a7931cf8eacec280c274e86e"
+    },
+    {
+      "path": "lib/ai/extractPreferences.ts",
+      "sha256": "96b3f62dce96fac55fc94be264ea44372cf5bd8c6ab12edcd9f0fc641126becf"
+    },
+    {
+      "path": "lib/ai/generateRecommendation.ts",
+      "sha256": "7345d5798f037eb9b5cd7f097ceed4a0c2b399396386fffe456cd9da59669643"
+    },
+    {
+      "path": "lib/ai/interpretConversation.ts",
+      "sha256": "8a313e7b3f4f718ec50aa9abb3f571949088004887024d053ed1a35d301807eb"
+    },
+    {
+      "path": "lib/ai/preferenceSchema.ts",
+      "sha256": "389d843c7264f2b092571391d322ae831593e771fdc55a5b6b5e27eec8b791fd"
+    },
+    {
+      "path": "lib/ai/resolveFollowUp.ts",
+      "sha256": "531a24a9068100fbabf3214dca97c1a9b860bc9709f5c97c10b31b09d4e183b9"
+    },
+    {
+      "path": "lib/ai/validatePreferences.ts",
+      "sha256": "a42cc6631118b66f24cf9725f0cccb39b466d3483cbd978166ee8cc0e4eafda1"
+    },
+    {
+      "path": "lib/cart.ts",
+      "sha256": "61de87d2019ce510075d9b10be18447339cbd5b6cf878d557aca62933daa0528"
+    },
+    {
+      "path": "lib/catalogue/preferenceValues.ts",
+      "sha256": "1961f4e73791b7a0faedc87190d5d6a3561280a944c7aa933a414fb11e314f46"
+    },
+    {
+      "path": "lib/cn.ts",
+      "sha256": "d07602373bc557f25aaea1678f328da89db77eda7429bcac49283b6547e6c9b0"
+    },
+    {
+      "path": "lib/database.types.ts",
+      "sha256": "0a05fc2da8e3a759feee4e52864b00c109c08f0432fd7fa7adf423af5015ee2f"
+    },
+    {
+      "path": "lib/mock-data.ts",
+      "sha256": "594a40f4e5465dacdef74dee35dbe8ca053ef36f2013b5c5060a4572668d7ff7"
+    },
+    {
+      "path": "lib/product-detail-mock.ts",
+      "sha256": "205c7b224afec03ef9f7e5d73603bc60b52a94eac5dd518940015a4c6df86112"
+    },
+    {
+      "path": "lib/product-image.ts",
+      "sha256": "e40a7496e33bd0b49505527151ace3369c07539354b835dec520edb075a0075b"
+    },
+    {
+      "path": "lib/recommendations/apiContract.ts",
+      "sha256": "64658379a618c0bf4285ac4a9a236cffcf1a8c545a6a2a6475c65eae2ee5bde6"
+    },
+    {
+      "path": "lib/recommendations/catalogue.ts",
+      "sha256": "372c938ac29ba238d4bbcf0e94ab2a1bdddcea3d414ae4978932b3471915bc6e"
+    },
+    {
+      "path": "lib/recommendations/hardConstraints.ts",
+      "sha256": "9e5683af1b7e7e61052def0efbbaa3d59d43ff32da50a7c79e39c3a003c9c28a"
+    },
+    {
+      "path": "lib/recommendations/ranking.ts",
+      "sha256": "144e42470feec4c180dc85be61ec5f14c7fc0cc9edfc5aa6471e651e57b366a7"
+    },
+    {
+      "path": "lib/search/catalogueSearch.ts",
+      "sha256": "2f6971af5391fce5d0ba873f38217f6ba590e567790b23d1b4ef6f6d54a26feb"
+    },
+    {
+      "path": "lib/search/cheaperSearch.ts",
+      "sha256": "e57fa5e8481d60fb3debd83683609b325737851325f58915fa8d11415e48bb9e"
+    },
+    {
+      "path": "lib/search/crossSell.ts",
+      "sha256": "fd3289a5b7d84b5610b98971f84e9978f51f9d56869f5b9526865e55e72c1c1c"
+    },
+    {
+      "path": "lib/search/crossSellClient.ts",
+      "sha256": "6beaf2568ff383febba0703376d1d4badc6b295ecb04bb321293c3c8947fbb9a"
+    },
+    {
+      "path": "lib/search/outfitBudgetSearch.ts",
+      "sha256": "af8a4e1b07b57cd054b99096ae5c91b02ac11442baacb95ee4b604d12b823d94"
+    },
+    {
+      "path": "lib/search/preferenceSearch.ts",
+      "sha256": "0c307f6780cf36376de80b6bf0322d401c7e0270a2b95df09a367dfba2ca6704"
+    },
+    {
+      "path": "lib/search/productBenefits.ts",
+      "sha256": "5c9e9709cd8dd91a42cd354aca842aa72bb99532178fb547bfc0874d40817248"
+    },
+    {
+      "path": "lib/search/stylingCompatibility.ts",
+      "sha256": "ad4358d44faa8985a0c175b0a37ada23887070740381cda5b11fa592fff69d08"
+    },
+    {
+      "path": "lib/search/upsell.ts",
+      "sha256": "6f620ece4cb4b9e3e90b7e8abfe2e70800231ea521bc1c3077158ee01ed130fc"
+    },
+    {
+      "path": "lib/search/upsellClient.ts",
+      "sha256": "41042bd03d04baaa7fc8c189b07e3643dbd2f492e0ea255623835b23aa7a2566"
+    },
+    {
+      "path": "lib/search/validatedPreferenceSearch.ts",
+      "sha256": "798bba7be5c1cea1362647ee161ac25680c0f21ecdc5edcd49511f869483a39b"
+    },
+    {
+      "path": "lib/storage/product-images.ts",
+      "sha256": "ae57c2691e6baa4a97b6a829fc4f05d6479fb38d1211c86a186cb3522481c32f"
+    },
+    {
+      "path": "lib/storePolicies.ts",
+      "sha256": "7eefe9e17eb6995c22339a0bee6e868922cb893a4c8d2a0d3dd71f3aebd53c7d"
+    },
+    {
+      "path": "lib/stylist/answerPlan.ts",
+      "sha256": "3c70743acdf00fe79afc50791dcc61ab09720e729e6792d395d088e9358e72b6"
+    },
+    {
+      "path": "lib/stylist/catalogueImages.ts",
+      "sha256": "08de1050068e17c62f8600a7ab0a9720d54e996fc77f2d505649b235437e7838"
+    },
+    {
+      "path": "lib/stylist/commerceCatalogue.ts",
+      "sha256": "0a1ab1e1d61285579c40df9547663d9307b8250e1e7f847bdc84515ad7ac717c"
+    },
+    {
+      "path": "lib/stylist/commerceSchema.ts",
+      "sha256": "b07d66dd6172df905b905d37aef981a683c2141fc7eceb984c4d24ae5d2d9a29"
+    },
+    {
+      "path": "lib/stylist/conversationAnswers.ts",
+      "sha256": "a4b9becf499bb4162f6158c21b1bc9592a2a4eb1f5b46868f1e8652029238b1a"
+    },
+    {
+      "path": "lib/stylist/conversationChanges.ts",
+      "sha256": "2ac76f4f4177f5067626e5801ec08e213683a255488344b437632f0a6b545749"
+    },
+    {
+      "path": "lib/stylist/conversationGrounding.ts",
+      "sha256": "32c46621a827f1d89ae8e3d791328918a6862c28f8dc9ed82c9ce7f25b5f623a"
+    },
+    {
+      "path": "lib/stylist/conversationPlan.ts",
+      "sha256": "1a228a5e8f66d7d84668db216b35e21cf4b3452a238e289dfa1f6f5468ab0292"
+    },
+    {
+      "path": "lib/stylist/conversationProtocol.ts",
+      "sha256": "26d2001820c65e9e4b781bed245ad08b6adc69a23a0695f9370b1a246b8e8d95"
+    },
+    {
+      "path": "lib/stylist/conversationSearch.ts",
+      "sha256": "99fac29cc72702387d8df53f0ce6d111acefc498287a3de05b4da3a329e3fb74"
+    },
+    {
+      "path": "lib/stylist/conversationStore.ts",
+      "sha256": "750536ee4108434f1bc4aa148374d2007fb0f5864c0dec38e0bed0ce4ef1d26f"
+    },
+    {
+      "path": "lib/stylist/conversationTurn.ts",
+      "sha256": "15a7e1318b9db677563fbcba8eb2d3410a0422b34e7b7d64c0418b78692650e3"
+    },
+    {
+      "path": "lib/stylist/friendlyShoppingMessage.ts",
+      "sha256": "6067665f3e49c4b0af92b92dbe811c5b89f848b1169ef30df4c0c8084ea9fa4f"
+    },
+    {
+      "path": "lib/stylist/outfitBudgetSchema.ts",
+      "sha256": "0a549bcfe127a1c62974b61699f786e90894cbbcab4bf283ce813d0a80b4e087"
+    },
+    {
+      "path": "lib/stylist/preferenceScope.ts",
+      "sha256": "c85a6dec32f68f6e954b08fe261ab86cf55805edd88b62cd294871176cb88ef7"
+    },
+    {
+      "path": "lib/stylist/priceContext.ts",
+      "sha256": "c7b40f4d9a2c0a9f9f1a84d333bbca096283251b57ced1fd09708e9806beb1e0"
+    },
+    {
+      "path": "lib/stylist/productActions.ts",
+      "sha256": "bc322ddc2b7e8d0cdf3dbd4244fcd912b78a48da7fa1fc04e26aba6876220f0f"
+    },
+    {
+      "path": "lib/stylist/productReference.ts",
+      "sha256": "ce27b7110b20396757218b7cb7238b38f7956bb020575c0f492b2bcfab204606"
+    },
+    {
+      "path": "lib/stylist/productSpecifications.ts",
+      "sha256": "95c32d405f0c4cb21b85c359bc058214dd34a518777bb4511403b083a7286970"
+    },
+    {
+      "path": "lib/stylist/recommendationTelemetry.ts",
+      "sha256": "84609331f87336d1b31d6c22385f3fbe831bcdbcf5750ae25a372c62e5476d59"
+    },
+    {
+      "path": "lib/stylist/shoppingPresentation.ts",
+      "sha256": "b202d456b4608981c4cb492d666bb303836583d3d6f42fd8f0e710df0f16c042"
+    },
+    {
+      "path": "lib/stylist/viewedProduct.ts",
+      "sha256": "fd1152617ade7898f54ba180f8a2bd45530a6291c0a37736ede219f632add84c"
+    },
+    {
+      "path": "lib/supabase/client.ts",
+      "sha256": "a8af6b7b5949e39c1459b9970a14b93df9ddd6c303d21e7d895879294f98253e"
+    },
+    {
+      "path": "lib/supabase/env.ts",
+      "sha256": "18c79108b8421e69d357ea49d4627198ff090cfac9506e1aadbbca0870f880f2"
+    },
+    {
+      "path": "lib/supabase/proxy.ts",
+      "sha256": "cdf7c0c364a01edf3f66f9ad001ae4821c634b005ea6477e0cb9f10926990932"
+    },
+    {
+      "path": "lib/supabase/server.ts",
+      "sha256": "344d24a427138563878b066c826e41077e95a01d0fed08f91144921790d9f7bd"
+    },
+    {
+      "path": "lib/use-cart-count.ts",
+      "sha256": "703942293448f182137abc82e93d52727819240c3360ae8a103a5426fb151a3a"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "0ff3633bd1c478fbe7592b979ef07a17d634cda10ca342a0605bea64a0c4b085"
+    },
+    {
+      "path": "package.json",
+      "sha256": "c8dc4c56816e4fad40bd1781d7011f163e5f5a373be86734999f6654451a00a5"
+    },
+    {
+      "path": "scripts/audit-customer-scenario-catalogue.mjs",
+      "sha256": "ad248d5f3febe8e10dc2edd1de303f8e39fa6fbca3437ecbf347f230123c02e6"
+    },
+    {
+      "path": "scripts/fixtures/customer-scenarios.mjs",
+      "sha256": "b6c88c7fed83554975cb2ca697eda7601181a7d7ad0a0cddd8e8ce2e4b7a2e83"
+    },
+    {
+      "path": "scripts/generate-prototype-specs.mjs",
+      "sha256": "1419343e5428afe3c6a941cc7530fa7e11c4d885f514cab7da295bf4cc1815aa"
+    },
+    {
+      "path": "scripts/prepare-prototype-spec-import.mjs",
+      "sha256": "a4f8b5c06d3be87b2688d3c306ecdbbb4e931f27dcd31b65c3030f8117974851"
+    },
+    {
+      "path": "scripts/prepare-stylist-feature-import.mjs",
+      "sha256": "a6318c2192efc268af912b9ab0244bb2e0b7d44b242a473c2f0b4bb260255162"
+    },
+    {
+      "path": "scripts/run-regression.mjs",
+      "sha256": "8b7aa8fbe4d1b0bbe687a57708814e7e9873ff65a62183dd4ee7329d5cd94e28"
+    },
+    {
+      "path": "scripts/test-card-actions.mjs",
+      "sha256": "d2d3f3dd2f6f68e42bde2358e33c82824bb2ad518cac7ce73ebfeb66ccfdf72a"
+    },
+    {
+      "path": "scripts/test-chat-request.mjs",
+      "sha256": "a438a8af2bfd39ff1d8f7d90f708ecfa94afe8f6305de599932d57eeeabc9cdd"
+    },
+    {
+      "path": "scripts/test-cheaper-search.mjs",
+      "sha256": "11768fbe5fa35e55c9c0974a2ffa8a436d62dddbc49fe1d80ed04e434624a7be"
+    },
+    {
+      "path": "scripts/test-conversation-answers-live.mjs",
+      "sha256": "fbd9aa2a91048bb562b18f756f9f3d57b8dbb5699ed95ae28f22574b5741df17"
+    },
+    {
+      "path": "scripts/test-conversation-answers.mjs",
+      "sha256": "7acef913a4572aad9486e87f02491a3e35e2f9618bc1d69a9101850f08cea779"
+    },
+    {
+      "path": "scripts/test-conversation-foundation.mjs",
+      "sha256": "e37c836727d9ae4aebf68101ce34d608cb398cc5598c978cf021e31a46e05acb"
+    },
+    {
+      "path": "scripts/test-conversation-integration.mjs",
+      "sha256": "3383c9fc5930df4e7857d13cfc8d81fcea12b458b29fc5910369317642a42cde"
+    },
+    {
+      "path": "scripts/test-conversation-plan.mjs",
+      "sha256": "741c4ab4afaf3071d27a87ade37c929f9a17a119d7ffa522f632a56c0d740cdd"
+    },
+    {
+      "path": "scripts/test-conversation-production.mjs",
+      "sha256": "4189ddad53f24ebac65579d6da1a36a91c884b674438a989b3f1863049eb84f1"
+    },
+    {
+      "path": "scripts/test-conversation-search.mjs",
+      "sha256": "f3d3a437f28bbd50ac34d08a8ddd49fadd14149a72bf73b88b64afa9c15d03ee"
+    },
+    {
+      "path": "scripts/test-cross-sell-client.mjs",
+      "sha256": "1ba4aeaa96df481863220aa6f15fdf190fd51a6667fc4938f1bd2d08509f46e4"
+    },
+    {
+      "path": "scripts/test-cross-sell.mjs",
+      "sha256": "a8ceaf1b4a0dfebdce2c410486ea44f512abe7a6beec9a6740f27c27c7ab2e33"
+    },
+    {
+      "path": "scripts/test-customer-scenario-regressions.mjs",
+      "sha256": "8f6f8dc2062d9f3f9bc3ab058fc502e119b7a06b8f780c9fb4f28bd7df7cbb1b"
+    },
+    {
+      "path": "scripts/test-customer-scenarios.mjs",
+      "sha256": "0aceac80cee606697d8f5c3f2bb14196fc21f7b191e000a81231618adf9053c3"
+    },
+    {
+      "path": "scripts/test-extraction.ts",
+      "sha256": "6d36a46e320870edab0a59cf6f7de6094094d1a999e120433e8b2df01553df8b"
+    },
+    {
+      "path": "scripts/test-friendly-shopping-message.mjs",
+      "sha256": "9260e52718b35042e2452cc084eadbe8c2b2e7a86a19ee9bc11c3a20307f0472"
+    },
+    {
+      "path": "scripts/test-grounded-recommendation.ts",
+      "sha256": "7b54d7fdfa8920288085632787fd4d6673e0b78e0b82bc832ddc984fe466b3fa"
+    },
+    {
+      "path": "scripts/test-guided-follow-ups.mjs",
+      "sha256": "70745ba84041242957564658100bea09eaf3d8346b004529cd0e336b809dc335"
+    },
+    {
+      "path": "scripts/test-optional-discovery.mjs",
+      "sha256": "c911ca8659f95cec788ed5768b2357e4e3b3777d96ee62fbf1ded582a4e334b2"
+    },
+    {
+      "path": "scripts/test-outfit-budget-live.mjs",
+      "sha256": "7db19c17480773055eab3a2af8a0e088c333037aea5250ce343c6bec044b7d82"
+    },
+    {
+      "path": "scripts/test-outfit-budget.mjs",
+      "sha256": "7ce9693caac6b1af998d6b20066e30313e2cf5ad393eaeb9f54b20e3bb0c7367"
+    },
+    {
+      "path": "scripts/test-plan-evidence.mjs",
+      "sha256": "4b0d04ffdb9b6447272f11ec657f976b42d0c3a271cb431907ed9d47835b63cb"
+    },
+    {
+      "path": "scripts/test-plan-recovery.mjs",
+      "sha256": "23fc113f919fffadd7fde2b3c9d79d9d3a8a41721204acb54d64c5aeb0281aeb"
+    },
+    {
+      "path": "scripts/test-preference-validation.ts",
+      "sha256": "bc254b65b1d260f1ba13290e92bf31e5796eeea7094bbf68e6a95a04f95b4a50"
+    },
+    {
+      "path": "scripts/test-product-images.ts",
+      "sha256": "2b3b333957e57dd8a55e9f170b2baf691ac018fcbb9c573ff3ec8edaf90c1c20"
+    },
+    {
+      "path": "scripts/test-product-specifications.mjs",
+      "sha256": "8f0d6278d506ebb2469437e8e9845aae8f76986925279fd6ee5c3cb0d4aedd06"
+    },
+    {
+      "path": "scripts/test-prototype-specs-live.mjs",
+      "sha256": "20393326b4e29fa32f33f2435bdf3b238f9a5c61217418b130dcf9d08cbe33af"
+    },
+    {
+      "path": "scripts/test-recommendation-api-validation.mjs",
+      "sha256": "d571947d949309fdc572a45bad19bd00163afe026a5f11469bdb57ddce767f34"
+    },
+    {
+      "path": "scripts/test-recommendation-contract.ts",
+      "sha256": "b02b4e88cf13ca8b3346f1af6648251a6835a545297ec3b9e4d970d778244b5b"
+    },
+    {
+      "path": "scripts/test-shopping-presentation.mjs",
+      "sha256": "5540f2c2e1d4c3381e5071b4f704146a6ed0371a0ba93efddfaa3d3e9d78d69f"
+    },
+    {
+      "path": "scripts/test-stylist-commerce-live.mjs",
+      "sha256": "aaee743aa93a03e3b5685188e393929e7d6984c15f8deaba0b97cd99fa98c110"
+    },
+    {
+      "path": "scripts/test-stylist-commerce.mjs",
+      "sha256": "3b0da2fdb7d20b114e7f9153284ceb5a4a9b4779836ab889768c148ef1470a74"
+    },
+    {
+      "path": "scripts/test-stylist-feature-import.mjs",
+      "sha256": "c837856af9bf5ce4cfd10970be51f78472f7d011725073e76d7cb3a27bd7425f"
+    },
+    {
+      "path": "scripts/test-stylist-telemetry.mjs",
+      "sha256": "9abb6d38dfac74062222750c4064597537fe647172a049394953376ceefe6d28"
+    },
+    {
+      "path": "scripts/test-upsell-client.mjs",
+      "sha256": "e46092d6e742a4ad5873c21fc9416983dc3147e37dddcf82f82108f58b0b5137"
+    },
+    {
+      "path": "scripts/test-upsell.mjs",
+      "sha256": "7d5b55f69a43621e21b1a9e3758da2478524c7cc78af3fc50cb26315ae9f8997"
+    },
+    {
+      "path": "scripts/test-validation-search.mjs",
+      "sha256": "70b8001f78e556cf35c9f821eb0231f150c0281677a939b79bf9cd325b5561d5"
+    },
+    {
+      "path": "scripts/test-viewed-product.mjs",
+      "sha256": "5b1f23b368552bd400de618a19f22318a6b1ea8bf3ef8a99c387b64445643049"
+    }
+  ]
+}

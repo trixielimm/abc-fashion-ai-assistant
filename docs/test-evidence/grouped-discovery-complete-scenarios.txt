@@ -1,0 +1,164 @@
+
+> abc-fashion-ai-assistant@0.1.0 test:scenarios
+> node --env-file=.env.local --conditions=react-server --import tsx scripts/test-customer-scenarios.mjs
+
+Pass: S1-A run 1 (3/3 turns) 
+Conversation plan rejected {
+  attempt: 1,
+  type: 'PlanValidationError',
+  field: null,
+  reason: 'A pure answer MUST have changes=[] and top-level reference=null. Put product references ONLY in answer.references and the quoted occasion ONLY in answer.purpose. Asking why an item suits an occasion does not save that occasion as a shopping preference. If the user also explicitly requests a search, choose that shopping action instead of none.'
+}
+Pass: S1-A run 2 (3/3 turns) 
+Pass: S1-A run 3 (3/3 turns) 
+Pass: S1-B run 1 (3/3 turns) 
+Pass: S1-B run 3 (3/3 turns) 
+Pass: S1-B run 2 (3/3 turns) 
+Pass: S1-C run 1 (2/2 turns) 
+Pass: S1-C run 3 (2/2 turns) 
+Pass: S1-C run 2 (2/2 turns) 
+Pass: S2-A run 2 (4/4 turns) 
+Pass: S2-A run 1 (4/4 turns) 
+Pass: S2-A run 3 (4/4 turns) 
+Pass: S2-B run 1 (3/3 turns) 
+Pass: S2-B run 2 (3/3 turns) 
+Pass: S2-B run 3 (3/3 turns) 
+Conversation plan rejected {
+  attempt: 1,
+  type: 'PlanValidationError',
+  field: null,
+  reason: 'A pure answer MUST have changes=[] and top-level reference=null. Put product references ONLY in answer.references and the quoted occasion ONLY in answer.purpose. Asking why an item suits an occasion does not save that occasion as a shopping preference. If the user also explicitly requests a search, choose that shopping action instead of none.'
+}
+Conversation plan rejected {
+  attempt: 1,
+  type: 'PlanValidationError',
+  field: null,
+  reason: 'A pure answer MUST have changes=[] and top-level reference=null. Put product references ONLY in answer.references and the quoted occasion ONLY in answer.purpose. Asking why an item suits an occasion does not save that occasion as a shopping preference. If the user also explicitly requests a search, choose that shopping action instead of none.'
+}
+Conversation plan rejected {
+  attempt: 1,
+  type: 'PlanValidationError',
+  field: null,
+  reason: 'A pure answer MUST have changes=[] and top-level reference=null. Put product references ONLY in answer.references and the quoted occasion ONLY in answer.purpose. Asking why an item suits an occasion does not save that occasion as a shopping preference. If the user also explicitly requests a search, choose that shopping action instead of none.'
+}
+Pass: S2-C run 2 (3/3 turns) 
+Pass: S2-C run 1 (3/3 turns) 
+Pass: S2-C run 3 (3/3 turns) 
+Conversation plan rejected {
+  attempt: 1,
+  type: 'ZodError',
+  field: null,
+  reason: 'changes.0.value: Too small: expected array to have >=1 items'
+}
+Conversation plan rejected {
+  attempt: 1,
+  type: 'ZodError',
+  field: null,
+  reason: 'changes.2.value: Too small: expected array to have >=1 items; changes.3.operation: Invalid input: expected "set"'
+}
+Conversation plan rejected {
+  attempt: 2,
+  type: 'ZodError',
+  field: null,
+  reason: 'changes.2.value: Too small: expected array to have >=1 items'
+}
+Pass: S3-A run 1 (4/4 turns) 
+Pass: S3-A run 2 (4/4 turns) 
+Fail: S3-A run 3 (3/4 turns) T3: Expected eligible results, got needs_clarification: Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.
+Pass: S3-B run 1 (2/2 turns) 
+Pass: S3-B run 2 (2/2 turns) 
+Pass: S3-B run 3 (2/2 turns) 
+Pass: S3-C run 1 (2/2 turns) 
+Pass: S3-C run 2 (2/2 turns) 
+Pass: S3-C run 3 (2/2 turns) 
+Pass: S4-A run 1 (4/4 turns) 
+Pass: S4-A run 2 (4/4 turns) 
+Pass: S4-A run 3 (4/4 turns) 
+Pass: S4-B run 1 (2/2 turns) 
+Pass: S4-B run 2 (2/2 turns) 
+Pass: S4-B run 3 (2/2 turns) 
+Pass: S4-C run 1 (6/6 turns) 
+Conversation plan rejected {
+  attempt: 1,
+  type: 'PlanValidationError',
+  field: null,
+  reason: 'A pure answer MUST have changes=[] and top-level reference=null. Put product references ONLY in answer.references and the quoted occasion ONLY in answer.purpose. Asking why an item suits an occasion does not save that occasion as a shopping preference. If the user also explicitly requests a search, choose that shopping action instead of none.'
+}
+Pass: S4-C run 2 (6/6 turns) 
+Pass: S4-C run 3 (6/6 turns) 
+Conversation plan rejected {
+  attempt: 1,
+  type: 'PlanValidationError',
+  field: null,
+  reason: 'A pure answer MUST have changes=[] and top-level reference=null. Put product references ONLY in answer.references and the quoted occasion ONLY in answer.purpose. Asking why an item suits an occasion does not save that occasion as a shopping preference. If the user also explicitly requests a search, choose that shopping action instead of none.'
+}
+Pass: S5-A run 1 (4/4 turns) 
+Pass: S5-A run 3 (4/4 turns) 
+Pass: S5-A run 2 (4/4 turns) 
+Pass: S5-B run 1 (3/3 turns) 
+Conversation plan rejected {
+  attempt: 1,
+  type: 'PlanValidationError',
+  field: null,
+  reason: 'A pure answer MUST have changes=[] and top-level reference=null. Put product references ONLY in answer.references and the quoted occasion ONLY in answer.purpose. Asking why an item suits an occasion does not save that occasion as a shopping preference. If the user also explicitly requests a search, choose that shopping action instead of none.'
+}
+Pass: S5-B run 2 (3/3 turns) 
+Pass: S5-B run 3 (3/3 turns) 
+Pass: S5-C run 1 (3/3 turns) 
+Pass: S5-D run 1 (3/3 turns) 
+Pass: S5-C run 3 (3/3 turns) 
+Pass: S5-C run 2 (3/3 turns) 
+Pass: S5-D run 2 (3/3 turns) 
+Pass: S5-D run 3 (3/3 turns) 
+Pass: S5-E run 2 (3/3 turns) 
+Pass: S5-E run 1 (3/3 turns) 
+Pass: S5-E run 3 (3/3 turns) 
+Conversation plan rejected {
+  attempt: 1,
+  type: 'PlanValidationError',
+  field: null,
+  reason: 'A pure answer MUST have changes=[] and top-level reference=null. Put product references ONLY in answer.references and the quoted occasion ONLY in answer.purpose. Asking why an item suits an occasion does not save that occasion as a shopping preference. If the user also explicitly requests a search, choose that shopping action instead of none.'
+}
+Pass: S5-F run 1 (3/3 turns) 
+Pass: S5-F run 2 (3/3 turns) 
+Pass: S5-F run 3 (3/3 turns) 
+Pass: S6-A run 1 (3/3 turns) 
+Conversation plan rejected {
+  attempt: 1,
+  type: 'PlanValidationError',
+  field: null,
+  reason: 'A pure answer MUST have changes=[] and top-level reference=null. Put product references ONLY in answer.references and the quoted occasion ONLY in answer.purpose. Asking why an item suits an occasion does not save that occasion as a shopping preference. If the user also explicitly requests a search, choose that shopping action instead of none.'
+}
+Pass: S6-A run 2 (3/3 turns) 
+Pass: S6-A run 3 (3/3 turns) 
+Pass: S6-B run 1 (3/3 turns) 
+Pass: S6-B run 2 (3/3 turns) 
+Pass: S6-B run 3 (3/3 turns) 
+Conversation plan rejected {
+  attempt: 1,
+  type: 'PlanValidationError',
+  field: null,
+  reason: 'A pure answer MUST have changes=[] and top-level reference=null. Put product references ONLY in answer.references and the quoted occasion ONLY in answer.purpose. Asking why an item suits an occasion does not save that occasion as a shopping preference. If the user also explicitly requests a search, choose that shopping action instead of none.'
+}
+Conversation plan rejected {
+  attempt: 1,
+  type: 'PlanValidationError',
+  field: null,
+  reason: 'A pure answer MUST have changes=[] and top-level reference=null. Put product references ONLY in answer.references and the quoted occasion ONLY in answer.purpose. Asking why an item suits an occasion does not save that occasion as a shopping preference. If the user also explicitly requests a search, choose that shopping action instead of none.'
+}
+Pass: B1 run 2 (4/4 turns) 
+Pass: B1 run 3 (4/4 turns) 
+Pass: B2 run 1 (1/1 turns) 
+Pass: B2 run 2 (1/1 turns) 
+Pass: B1 run 1 (4/4 turns) 
+Pass: B2 run 3 (1/1 turns) 
+Pass: B3 run 2 (2/2 turns) 
+Pass: B3 run 1 (2/2 turns) 
+Pass: B3 run 3 (2/2 turns) 
+Pass: B4 run 1 (1/1 turns) 
+Pass: B4 run 2 (1/1 turns) 
+Pass: B4 run 3 (1/1 turns) 
+Pass: B5 run 1 (5/5 turns) 
+Pass: B5 run 2 (5/5 turns) 
+Pass: B5 run 3 (5/5 turns) 
+{"counts":{"Pass":74,"Fail":1,"Blocked":0,"Feature gap":0},"evidence":"/Users/beatricelim/Documents/Session%202%202026/COMP3850%20PACE/abc-fashion-ai-assistant/docs/test-evidence/customer-scenarios-2026-10-17T12-01-18-367Z/"}

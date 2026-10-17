@@ -1,0 +1,25 @@
+PASS (4622ms): Show me dresses under $150 → matches
+PASS (2572ms): Why would you recommend the second dress for a beach wedding? → answered
+PASS (1731ms): Can this arrive by Friday? → answered
+PASS (2703ms): What is it made of? → answered
+PASS (5764ms): Find a bag to match it → matches
+PASS (3975ms): Compare the first and second dresses: price, material and fit. → answered
+PASS (4938ms): Will the first dress fit me? What sizes are available? → answered
+PASS (2897ms): Is the first dress breathable and comfortable? Can I machine wash it? → answered
+PASS (4235ms): Does the first dress have pockets? → answered
+PASS (2580ms): Is the first dress in stock? → answered
+PASS (3883ms): Can I return this? Is return postage free? → answered
+PASS (2221ms): Do you accept PayPal? → answered
+PASS (2806ms): Why would you recommend this item for a beach wedding? → answered
+PASS (2140ms): What is your returns policy? → answered
+PASS (736ms): The second dress → answered
+PASS (5649ms): Why the first dress, and show me a cheaper option? → matches
+PASS (2796ms): Why this dress, and show me a cheaper option? → answered
+PASS (2644ms): The first dress → matches
+PASS (3324ms): Find a bag to match one of these dresses → needs_clarification
+PASS (2791ms): Can this arrive by Friday? → answered
+PASS (5095ms): The second dress → no_match
+PASS (4427ms): Why would you recommend this item for a beach wedding? → answered
+PASS (1575ms): Thank you → no_action
+
+23 live requests passed; 0 failed scenarios. Evidence: /Users/beatricelim/Documents/Session%202%202026/COMP3850%20PACE/abc-fashion-ai-assistant/docs/test-evidence/answers-live-2026-10-17T05-11-40-750Z.json

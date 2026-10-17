@@ -6,10 +6,10 @@ import type { CataloguePreferenceValues } from "../catalogue/preferenceValues";
 import { relatedLabel, type StylistProduct } from "../search/preferenceSearch";
 
 import { searchWithValidatedPreferences } from "../search/validatedPreferenceSearch";
-import { retrieveCrossSell } from "../search/crossSell";
+import { retrieveCrossSell, retrieveDescriptionCrossSell } from "../search/crossSell";
 import { retrieveUpsell } from "../search/upsell";
 import { searchCheaper } from "../search/cheaperSearch";
-import { meetsFeatureRequirements } from "../search/productBenefits";
+import { comparableFeatures, meetsFeatureRequirements } from "../search/productBenefits";
 
 import {
   checkConversationPlan,
@@ -17,6 +17,8 @@ import {
 } from "./conversationPlan";
 
 import { PreferenceScopesSchema } from "./preferenceScope";
+import { searchOutfitBudget } from "../search/outfitBudgetSearch";
+import type { OutfitBudget, OutfitChoices } from "./outfitBudgetSchema";
 
 type Status =
   | "matches"
@@ -48,6 +50,8 @@ export function executeConversationSearch(
 
   let applied = checked.preferences;
   const styling = checked.styling;
+  let outfitBudget: OutfitBudget | null = null;
+  let outfitChoices: OutfitChoices | null = null;
   const excluded = new Set([...styling.rejected_ids, ...(request.cart_product_ids ?? [])]);
   const eligible = (product: CatalogueProduct) => !excluded.has(product.product_id ?? "") &&
     meetsFeatureRequirements(product, styling.required_features) &&
@@ -94,12 +98,14 @@ export function executeConversationSearch(
       reference_product_ids: checked.reference_product_ids,
       proposed_scopes: scopes,
       styling,
+      outfit_budget: outfitBudget,
+      outfit_choices: outfitChoices,
       feature_data_status: catalogue.find(product => product.feature_data_status)?.feature_data_status,
       comparison_reference_id: checked.action === "upsell" ? checked.reference_product_ids[0] ?? null : null,
       applied_preferences: applied,
 
       budget_scope:
-        checked.action === "cross_sell"
+        styling.outfit_request && ["new_search", "refine"].includes(checked.action) ? "combined_outfit" : checked.action === "cross_sell"
           ? "per_additional_item"
           : checked.action === "upsell"
             ? "per_replacement_item"
@@ -139,11 +145,19 @@ export function executeConversationSearch(
     );
   }
 
+  if (styling.outfit_request && ["new_search", "refine"].includes(checked.action)) {
+    const result = searchOutfitBudget(catalogue, styling.outfit_request, applied, vocabulary, eligible);
+    outfitBudget = result.outfit_budget;
+    outfitChoices = result.outfit_choices;
+    return reply(result.status, result.message, result.products);
+  }
+
   const contextProducts = [
     ...(request.context.focused
       ? [request.context.focused]
       : []),
     ...request.context.latest,
+    ...(request.context.previous?.flat() ?? []),
     ...(request.context.comparison ? [request.context.comparison] : []),
     ...(request.context.selected ?? []),
   ];
@@ -191,6 +205,13 @@ export function executeConversationSearch(
   }
 
   if (checked.action === "cross_sell") {
+    if (!references.length && styling.external_items.length) {
+      if (!applied.category) return reply("needs_clarification", "What would you like to add to the item you described: shoes, a bag or an accessory?");
+      const result = retrieveDescriptionCrossSell(catalogue, applied, vocabulary, styling.external_items, eligible);
+      applied = result.validation.preferences;
+      return reply(result.result.status === "needs_more_detail" ? "needs_clarification" : result.result.status,
+        result.result.message, result.result.products, applied.category);
+    }
     if (references.length !== 1) {
       return reply(
         "needs_clarification",
@@ -214,6 +235,7 @@ export function executeConversationSearch(
         eligible: product => eligible(product) && !styling.outfit.some(piece => piece.product_id === product.product_id),
         required_features: styling.required_features,
         anchors: styling.outfit.flatMap(piece => catalogue.filter(product => product.product_id === piece.product_id)),
+        external_anchors: styling.external_items,
         occupied_categories: [...styling.owned_categories, ...styling.outfit.map(piece => piece.category).filter((value): value is NonNullable<typeof value> => value !== null)],
       }
     );
@@ -334,6 +356,18 @@ export function executeConversationSearch(
     );
 
     applied = result.applied_preferences ?? applied;
+
+    if (result.status === "no_upsell" && styling.priorities.includes("closure")) {
+      const original = comparableFeatures(references[0]).find(feature => feature.feature_key === "zip_closure");
+      const candidates = searchWithValidatedPreferences(catalogue.filter(product =>
+        product.product_id !== references[0].product_id), applied, vocabulary, { eligible }).result.products;
+      const same = original && candidates.length && candidates.every(product => {
+        const record = catalogue.find(row => row.product_id === product.product_id)!;
+        return comparableFeatures(record).some(feature => feature.feature_key === "zip_closure" && feature.value === original.value);
+      });
+      if (same) result.message = `The original and the eligible replacements have the same recorded zip closure (${original.value ? "Yes" : "No"}). Spending more does not demonstrate an improvement in closure. ${result.message}`;
+      else if (original) result.message = `The original's recorded zip closure is ${original.value ? "Yes" : "No"}. No additional closure benefit could be established within your requirements. ${result.message}`;
+    }
 
     return reply(
       result.status === "options"

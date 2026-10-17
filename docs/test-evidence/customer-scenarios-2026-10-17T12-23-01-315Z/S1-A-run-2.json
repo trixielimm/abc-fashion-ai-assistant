@@ -1,0 +1,1177 @@
+{
+  "id": "S1-A",
+  "name": "Complete brief, cheaper, material",
+  "repeat": 2,
+  "turns": [
+    {
+      "number": 1,
+      "message": "Show me black dresses in size 10 under $150. I only need a dress, no other items.",
+      "input": {
+        "message": "Show me black dresses in size 10 under $150. I only need a dress, no other items.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T12:23:01.356Z",
+      "plan_source": "recorded model plan replay",
+      "plan": {
+        "outfit_request": null,
+        "action": "new_search",
+        "intent_evidence": "Show me black dresses in size 10 under $150",
+        "reference": null,
+        "changes": [
+          {
+            "scope": "item",
+            "field": "category",
+            "operation": "set",
+            "value": "Clothing",
+            "evidence": "dresses"
+          },
+          {
+            "scope": "item",
+            "field": "subcategory",
+            "operation": "set",
+            "value": "Dresses",
+            "evidence": "dresses"
+          },
+          {
+            "scope": "item",
+            "field": "preferred_colours",
+            "operation": "set",
+            "value": [
+              "Black"
+            ],
+            "evidence": "black"
+          },
+          {
+            "scope": "item",
+            "field": "size",
+            "operation": "set",
+            "value": "10",
+            "evidence": "size 10"
+          },
+          {
+            "scope": "item",
+            "field": "max_price",
+            "operation": "set",
+            "value": 150,
+            "evidence": "under $150"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": {
+          "preferences": [],
+          "outfit_changes": [],
+          "owned_categories": [],
+          "offers": {
+            "paused": true,
+            "evidence": "I only need a dress"
+          }
+        }
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "status": "matches",
+        "action": "new_search",
+        "message": "I've found 4 black clothing options for you to explore.\n\nThese options range from A$70.00 to A$120.00. I've kept this selection within your A$150.00 per-item limit. Your requested size, 10, is listed for each item.\n\nHave a look at the options below and see what catches your eye.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "10",
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [
+            "Black"
+          ],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": "10",
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "D-BLACK-120",
+            "product_name": "D-BLACK-120 Dress",
+            "price_aud": 120,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Black",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": "Bags",
+            "image_src": null
+          },
+          {
+            "product_id": "D-WORK-70",
+            "product_name": "D-WORK-70 Dress",
+            "price_aud": 70,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Black",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": "Bags",
+            "image_src": null
+          },
+          {
+            "product_id": "D-BLACK-90",
+            "product_name": "D-BLACK-90 Dress",
+            "price_aud": 90,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Black",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": "Bags",
+            "image_src": null
+          },
+          {
+            "product_id": "D-WORK-110",
+            "product_name": "D-WORK-110 Dress",
+            "price_aud": 110,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Black",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": "Bags",
+            "image_src": null
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": "What occasion are you shopping for? You can also keep browsing these options.",
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": true,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 2,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "10",
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": true,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "D-BLACK-120",
+              "product_name": "D-BLACK-120 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 120
+            },
+            {
+              "product_id": "D-WORK-70",
+              "product_name": "D-WORK-70 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 70
+            },
+            {
+              "product_id": "D-BLACK-90",
+              "product_name": "D-BLACK-90 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 90
+            },
+            {
+              "product_id": "D-WORK-110",
+              "product_name": "D-WORK-110 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 110
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me black dresses in size 10 under $150. I only need a dress, no other items."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 4 black clothing options for you to explore.\n\nThese options range from A$70.00 to A$120.00. I've kept this selection within your A$150.00 per-item limit. Your requested size, 10, is listed for each item.\n\nHave a look at the options below and see what catches your eye.\nWhat occasion are you shopping for? You can also keep browsing these options."
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 2,
+      "message": "Show me cheaper options than the first dress, keeping my other requirements.",
+      "input": {
+        "message": "Show me cheaper options than the first dress, keeping my other requirements.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "10",
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "D-BLACK-120",
+              "product_name": "D-BLACK-120 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 120
+            },
+            {
+              "product_id": "D-WORK-70",
+              "product_name": "D-WORK-70 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 70
+            },
+            {
+              "product_id": "D-BLACK-90",
+              "product_name": "D-BLACK-90 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 90
+            },
+            {
+              "product_id": "D-WORK-110",
+              "product_name": "D-WORK-110 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 110
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me black dresses in size 10 under $150. I only need a dress, no other items."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 4 black clothing options for you to explore.\n\nThese options range from A$70.00 to A$120.00. I've kept this selection within your A$150.00 per-item limit. Your requested size, 10, is listed for each item.\n\nHave a look at the options below and see what catches your eye.\nWhat occasion are you shopping for? You can also keep browsing these options."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": true,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T12:23:01.358Z",
+      "plan_source": "recorded model plan replay",
+      "plan": {
+        "outfit_request": null,
+        "action": "cheaper",
+        "intent_evidence": "Show me cheaper options than the first dress",
+        "reference": {
+          "kind": "position",
+          "position": 1,
+          "subcategory": "Dresses"
+        },
+        "changes": [],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": null
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "status": "matches",
+        "action": "cheaper",
+        "message": "I've found 3 lower-priced options for you. They each cost less than the A$120.00 reference item.\n\nThese options range from A$70.00 to A$110.00. I've kept this selection within your A$150.00 per-item limit. Your requested size, 10, is listed for each item.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "10",
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": "Midi Dress",
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [
+            "Black"
+          ],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": "10",
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "D-WORK-70",
+            "product_name": "D-WORK-70 Dress",
+            "price_aud": 70,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Black",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": "Bags",
+            "image_src": null
+          },
+          {
+            "product_id": "D-BLACK-90",
+            "product_name": "D-BLACK-90 Dress",
+            "price_aud": 90,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Black",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": "Bags",
+            "image_src": null
+          },
+          {
+            "product_id": "D-WORK-110",
+            "product_name": "D-WORK-110 Dress",
+            "price_aud": 110,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Black",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": "Bags",
+            "image_src": null
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": true,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 1,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "10",
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": true,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "D-WORK-70",
+              "product_name": "D-WORK-70 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 70
+            },
+            {
+              "product_id": "D-BLACK-90",
+              "product_name": "D-BLACK-90 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 90
+            },
+            {
+              "product_id": "D-WORK-110",
+              "product_name": "D-WORK-110 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 110
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "D-BLACK-120",
+                "product_name": "D-BLACK-120 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 120
+              },
+              {
+                "product_id": "D-WORK-70",
+                "product_name": "D-WORK-70 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 70
+              },
+              {
+                "product_id": "D-BLACK-90",
+                "product_name": "D-BLACK-90 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 90
+              },
+              {
+                "product_id": "D-WORK-110",
+                "product_name": "D-WORK-110 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 110
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me black dresses in size 10 under $150. I only need a dress, no other items."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 4 black clothing options for you to explore.\n\nThese options range from A$70.00 to A$120.00. I've kept this selection within your A$150.00 per-item limit. Your requested size, 10, is listed for each item.\n\nHave a look at the options below and see what catches your eye.\nWhat occasion are you shopping for? You can also keep browsing these options."
+          },
+          {
+            "role": "user",
+            "content": "Show me cheaper options than the first dress, keeping my other requirements."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 3 lower-priced options for you. They each cost less than the A$120.00 reference item.\n\nThese options range from A$70.00 to A$110.00. I've kept this selection within your A$150.00 per-item limit. Your requested size, 10, is listed for each item.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 3,
+      "message": "What material is the first dress in the new results?",
+      "input": {
+        "message": "What material is the first dress in the new results?",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "10",
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "D-WORK-70",
+              "product_name": "D-WORK-70 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 70
+            },
+            {
+              "product_id": "D-BLACK-90",
+              "product_name": "D-BLACK-90 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 90
+            },
+            {
+              "product_id": "D-WORK-110",
+              "product_name": "D-WORK-110 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 110
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "D-BLACK-120",
+                "product_name": "D-BLACK-120 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 120
+              },
+              {
+                "product_id": "D-WORK-70",
+                "product_name": "D-WORK-70 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 70
+              },
+              {
+                "product_id": "D-BLACK-90",
+                "product_name": "D-BLACK-90 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 90
+              },
+              {
+                "product_id": "D-WORK-110",
+                "product_name": "D-WORK-110 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 110
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me black dresses in size 10 under $150. I only need a dress, no other items."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 4 black clothing options for you to explore.\n\nThese options range from A$70.00 to A$120.00. I've kept this selection within your A$150.00 per-item limit. Your requested size, 10, is listed for each item.\n\nHave a look at the options below and see what catches your eye.\nWhat occasion are you shopping for? You can also keep browsing these options."
+          },
+          {
+            "role": "user",
+            "content": "Show me cheaper options than the first dress, keeping my other requirements."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 3 lower-priced options for you. They each cost less than the A$120.00 reference item.\n\nThese options range from A$70.00 to A$110.00. I've kept this selection within your A$150.00 per-item limit. Your requested size, 10, is listed for each item.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": true,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T12:23:01.359Z",
+      "plan_source": "recorded model plan replay",
+      "plan": {
+        "outfit_request": null,
+        "action": "none",
+        "intent_evidence": "What material is the first dress in the new results?",
+        "reference": null,
+        "changes": [],
+        "question": null,
+        "continuation": false,
+        "answer": {
+          "kind": "product",
+          "topics": [
+            "material"
+          ],
+          "references": [
+            {
+              "kind": "id",
+              "value": "D-WORK-70"
+            }
+          ],
+          "purpose": null,
+          "continuation": false
+        },
+        "styling_intent": null
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "status": "answered",
+        "action": "none",
+        "message": "D-WORK-70 Dress\nThe recorded material is Polyester. A material label doesn't verify the full composition or certifications.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "10",
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "D-WORK-70 Dress — catalogue details",
+            "url": "/products/D-WORK-70"
+          }
+        ],
+        "answer_product_ids": [
+          "D-WORK-70"
+        ],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": true,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 1,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "10",
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": true,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": {
+            "product_id": "D-WORK-70",
+            "product_name": "D-WORK-70 Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "price_aud": 70
+          },
+          "latest": [
+            {
+              "product_id": "D-WORK-70",
+              "product_name": "D-WORK-70 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 70
+            },
+            {
+              "product_id": "D-BLACK-90",
+              "product_name": "D-BLACK-90 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 90
+            },
+            {
+              "product_id": "D-WORK-110",
+              "product_name": "D-WORK-110 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 110
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "D-BLACK-120",
+                "product_name": "D-BLACK-120 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 120
+              },
+              {
+                "product_id": "D-WORK-70",
+                "product_name": "D-WORK-70 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 70
+              },
+              {
+                "product_id": "D-BLACK-90",
+                "product_name": "D-BLACK-90 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 90
+              },
+              {
+                "product_id": "D-WORK-110",
+                "product_name": "D-WORK-110 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 110
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me black dresses in size 10 under $150. I only need a dress, no other items."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 4 black clothing options for you to explore.\n\nThese options range from A$70.00 to A$120.00. I've kept this selection within your A$150.00 per-item limit. Your requested size, 10, is listed for each item.\n\nHave a look at the options below and see what catches your eye.\nWhat occasion are you shopping for? You can also keep browsing these options."
+          },
+          {
+            "role": "user",
+            "content": "Show me cheaper options than the first dress, keeping my other requirements."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 3 lower-priced options for you. They each cost less than the A$120.00 reference item.\n\nThese options range from A$70.00 to A$110.00. I've kept this selection within your A$150.00 per-item limit. Your requested size, 10, is listed for each item.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "What material is the first dress in the new results?"
+          },
+          {
+            "role": "assistant",
+            "content": "D-WORK-70 Dress\nThe recorded material is Polyester. A material label doesn't verify the full composition or certifications."
+          }
+        ]
+      },
+      "checks": "Pass"
+    }
+  ],
+  "started": "2026-10-17T12:23:01.355Z",
+  "result": "Pass",
+  "issues": [],
+  "first": {
+    "product_id": "D-BLACK-120",
+    "product_name": "D-BLACK-120 Dress",
+    "price_aud": 120,
+    "category": "Clothing",
+    "subcategory": "Dresses",
+    "product_type": "Midi Dress",
+    "brand_line": null,
+    "colour": "Black",
+    "sizes_available": [
+      "10",
+      "12"
+    ],
+    "extra_target": "Bags",
+    "image_src": null
+  },
+  "finished": "2026-10-17T12:23:01.360Z"
+}
