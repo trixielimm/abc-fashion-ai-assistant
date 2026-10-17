@@ -3,7 +3,8 @@
 These scenarios test whether the stylist adapts its level of assistance to the
 customer. The four journeys are **direct shopping**, **guided shopping**,
 **discovery**, and **styling around owned items**. Each has a main conversation
-and two variations: 12 cases in total.
+and two variations. Six value-comparison cases and two category checks extend
+the pack to **20 cases in total**.
 
 Status: **test specification; these conversations have not been executed as part
 of creating this document**. Expected behaviour describes the acceptance target,
@@ -28,6 +29,15 @@ not a claim that the current implementation passes.
 For reliable repeat runs, prepare a fixed catalogue fixture with eligible
 products, a cheaper alternative, and a deliberate empty-result combination.
 Live stock changes must not turn a missing fixture into an AI behaviour failure.
+For fixture-dependent cases, use an isolated test catalogue or a versioned local
+fixture; do not alter the shared catalogue to force a result. Record all fixture
+IDs and expected eligible IDs before the run. Bracketed names below are slots
+to replace with those exact fixture names, not literal customer messages.
+
+The current prototype uses stored, validated synthetic specifications. They
+are valid test data, but must not be described as supplier-verified evidence.
+Check answers against the saved specification version. Validation checks
+internal consistency; it does not prove real-world product properties.
 
 ## 1. Direct shopping: customer knows what they want
 
@@ -132,8 +142,10 @@ say so. Do not treat rejection of one dress as rejection of all dresses.
 
 Expected: message 2 is a factual question, not a saved requirement. Answer from
 available specifications and acknowledge missing data. Message 3 explicitly
-adds a must-have: recommend only bags with verified supporting feature data,
-or explain that qualifying products cannot be verified. Unknown is not “yes”.
+adds a must-have: recommend only bags with supporting stored feature data,
+including validated synthetic prototype specifications, or explain that
+qualifying products cannot be established. Unknown is not “yes”. Do not call
+synthetic specifications supplier-verified.
 
 ## 3. Discovery: customer has no fixed requirements
 
@@ -253,13 +265,161 @@ and use $120 only for the requested shoes. Explain any conflicting styling
 signals rather than quietly ignoring one anchor. Do not suggest replacing the
 owned pieces or continue proactive offers after message 4.
 
+## 5. Value comparisons: useful upgrades and alternatives
+
+These cases require a controlled fixture. Make the original product addressable
+by opening its product page and starting a new stylist chat there, or through a
+fixture-backed search. Confirm the focused product ID before sending messages.
+All fixture alternatives must be available and in stock unless stated otherwise.
+Each case starts independently; customer messages do not inherit earlier cases.
+
+### S5-A — A useful feature justifies the extra cost
+
+Setup: original dress A$95, pockets explicitly false; replacement A$120,
+pockets explicitly true. Keep other relevant features and requirements equal.
+No cheaper/equal-price pocketed replacement is eligible in this fixture.
+
+1. `Does this dress have pockets?`
+2. `Compare a replacement with pockets under $150.`
+3. `What does the extra cost give me?`
+4. `Pockets would be useful.`
+
+Expected:
+
+- Answer message 1 as a factual question without saving a requirement.
+- Message 2 searches replacements for the original product; it must not ask for
+  a second existing product merely because the customer said “compare”.
+- Show the A$120 replacement, establish the pocket difference from both saved
+  specifications, and calculate A$25 extra. Do not infer general quality.
+- Message 3 explains the actual original/replacement pair. If several candidates
+  are displayed, ask which replacement rather than explaining a guessed item.
+- Message 4 retains the original comparison reference, the pocket preference
+  and the A$150 maximum. It does not start a generic pocket/clothing search.
+- No recommendation or expression of interest changes the cart.
+
+### S5-B — Preserve the shopping purpose and all must-haves
+
+Setup: original blue beach-wedding dress, size 10, pockets false. Include an
+eligible blue pocketed beach-wedding dress, size 10, A$140; and decoys that add
+pockets but are work-only, the wrong colour, the wrong size or over A$150.
+Make all must-have labels exact matches in this fixture.
+
+1. `I need a blue dress for a beach wedding in size 10, under $150.`
+2. `Compare a replacement for [original dress name] with pockets. Keep the beach wedding occasion, blue, size 10 and the $150 maximum as requirements.`
+3. `Would this still meet my beach wedding requirements?`
+
+Expected: resolve the original from the actual results, return only the eligible
+replacement and retain every stated restriction. Adding pockets must not justify
+losing the wedding purpose. If the original was not displayed, use the setup rule
+and mark the dependent steps blocked. If there are multiple replacements,
+clarify “this” before answering message 3. A mismatch disclosed in prose is still
+a failure when it violates a hard requirement.
+
+### S5-C — More expensive does not mean a useful upgrade
+
+Setup: original bag A$60 and replacement A$90 have identical recorded features,
+capacity, use cases and context labels. No other eligible replacement offers an
+improvement. Price/brand differences are not benefit evidence.
+
+1. `Can you find a better replacement for this bag under $100?`
+2. `A secure zip closure matters most. Does spending more improve that?`
+3. `If there is no useful improvement, I'll keep this one.`
+
+Expected: a focused priority question is acceptable after message 1. After
+message 2, explain that both bags have the same recorded closure and no useful
+improvement is established. Do not sell the A$90 bag as better because of price
+or brand. Respect keeping the original without another sales push or cart change.
+
+### S5-D — Same-price and cheaper improvements are alternatives
+
+Setup: original bag A$80, adjustable strap false. Two eligible replacements have
+adjustable straps: one A$80, one A$65. Include an otherwise equivalent A$95 decoy.
+All have the same capacity and preserve the other requirements.
+
+1. `Find a replacement for this bag with an adjustable strap, at or below $80.`
+2. `Which options improve adjustability without costing more?`
+3. `Explain the price difference for the cheaper one.`
+
+Expected: include the qualifying A$80 and A$65 alternatives, exclude the A$95
+decoy and identify the same-price option as A$0 extra and the cheaper option as
+A$15 less. Do not describe either as a higher-priced premium upgrade. Message 3
+refers to the displayed A$65 alternative and the original A$80 bag. Preserve
+the customer’s budget even if an excluded option has another desirable feature.
+
+### S5-E — Explain trade-offs and then enforce a new must-have
+
+Setup: original dress A$95, lining true, pockets false. Replacement A$120,
+lining false, pockets true. Both meet all other requirements. No eligible
+replacement has both lining and pockets.
+
+1. `Find a replacement with pockets under $150.`
+2. `What would I gain and what would I lose with that replacement?`
+3. `I need lining too. Keep both lining and pockets as must-haves, still under $150.`
+
+Expected: the first recommendation may offer the pocketed replacement only with
+the loss of lining clearly disclosed, not as an unqualified improvement. Explain
+the pocket gain, lining loss and A$25 increase. After message 3, stop recommending
+that item and explain that no eligible replacement satisfies both must-haves.
+Preserve those requirements; do not silently drop lining or pockets to show cards.
+
+### S5-F — Unknown is not confirmed absence
+
+Setup: original dress has no recorded lining value (`null`/missing), while an
+otherwise equivalent A$120 candidate has lining true. The original costs A$95.
+There is no other established improvement. Use a local fixture because the
+populated prototype may already have complete values for the selected products.
+
+1. `Is this dress lined?`
+2. `Find a replacement under $150 that adds lining compared with this dress.`
+3. `Can you confirm that the original has no lining?`
+
+Expected: acknowledge the original’s unknown lining in messages 1 and 3. The
+candidate's lining may be described as a known specification, but it must not
+qualify as adding lining over the original on that evidence alone. Explain that
+the improvement cannot be established. Do not invent a source or relabel unknown
+as false. Synthetic provenance must remain distinct from supplier verification.
+
+## 6. Category coverage beyond dresses and bags
+
+### S6-A — Direct shoe shopping with category-specific sizing
+
+Setup: at least two available black work shoes in recorded shoe size 38 under
+A$120, including a cheaper eligible option. Confirm size 38 is a shoe size label
+in this fixture, not a converted clothing size. Store heel and sole specifications.
+
+1. `Show me black shoes for work in size 38 under $120. I only need shoes.`
+2. `What are the heel height and sole material of the first pair?`
+3. `Show me a cheaper option than the first pair, keeping black, work, size 38 and the same maximum.`
+
+Expected: show shoes immediately, preserve all requirements through the cheaper
+search and answer message 2 from the exact first pair's specifications. Unknown
+details remain unknown. Do not convert size 38 to dress sizing, promise comfort
+or fit, or add bags and clothing despite “only need shoes”. A lower heel is not
+automatically a quality improvement without a relevant customer priority.
+
+### S6-B — Direct accessory shopping without irrelevant questions
+
+Setup: at least two available silver necklaces under A$80, with recorded
+fastening/material information and their actual catalogue size labels. “Silver”
+is a colour unless the material explicitly confirms silver composition.
+
+1. `Show me silver necklaces under $80. I only need a necklace.`
+2. `What material and fastening does the first necklace have?`
+3. `Show me other necklaces, still silver and under $80.`
+
+Expected: search Accessories/Jewellery/Necklace as appropriate to the fixture.
+Do not demand a dress or shoe size. Answer the factual question from the exact
+product without saving a new material requirement. Do not claim sterling silver
+from the colour alone, invent chain length or introduce unrelated clothing.
+Preserve necklace identity, silver colour and the A$80 limit through message 3.
+
 ## Assessing each run
 
 Record **Pass**, **Fail**, **Blocked** or **Feature gap**, with the exact failing
 turn and evidence. A blocked setup is not a pass. A feature gap still needs
 product work even if the assistant explains the limitation honestly.
 
-Check these dimensions across all four journeys:
+Check these dimensions across all 20 cases:
 
 - **Appropriate assistance:** direct for a complete brief; focused help for a
   partial brief; easy starting choices for uncertainty; additions around owned
@@ -284,14 +444,20 @@ an outfit looks good.
 
 Suggested result record: case ID; fixture/catalogue version; transcript and
 product IDs; result; failing turn; expected versus actual behaviour; issue link.
-Run each main journey more than once when evaluating model consistency, and
-retain every run instead of reporting only the best response.
+For prototype acceptance, run **each of the 20 cases three times**, starting a
+new chat each time: 60 recorded runs. Retain every run instead of reporting only
+the best response. Report passed/failed/blocked/feature-gap counts separately;
+do not count a blocked setup as a successful run. Hard-constraint correctness
+and factual grounding are pass/fail checks; human judgments of pairing taste,
+clarity and usefulness should be recorded separately, with a short rationale.
 
 ## Related checks
 
 See [shopping answer tests](ai-stylist-answer-testing.md) for product questions,
 comparisons and policy handling, and the [commerce implementation notes](ai-stylist-commerce-implementation-2026-10-17.md)
 for current outfit and recommendation boundaries.
+See [prototype specification notes](prototype-product-specifications-2026-10-17.md)
+for synthetic data provenance and the populated dataset version.
 
 Existing regression and live scripts cover parts of these behaviours; they do
 not yet automate this complete customer scenario pack. In particular, discovery
