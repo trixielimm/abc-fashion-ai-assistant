@@ -6,22 +6,15 @@ type OrderSummaryProps = {
 };
 
 // Shows the cart total and checkout availability.
-export function OrderSummary({
-  subtotal,
-  count,
-}: OrderSummaryProps) {
+export function OrderSummary({ subtotal, count }: OrderSummaryProps) {
   return (
     <aside className="lg:sticky lg:top-24 lg:self-start">
       <div className="border border-border bg-white px-6 py-7">
-        <h2 className="font-serif text-[24px] leading-none">
-          Order Summary
-        </h2>
+        <h2 className="font-serif text-[24px] leading-none">Order Summary</h2>
 
         <div className="mt-8 space-y-4 text-[12px]">
           <div className="flex items-center justify-between gap-4">
-            <span className="uppercase">
-              Item(s) subtotal ({count})
-            </span>
+            <span className="uppercase">Item(s) subtotal ({count})</span>
             <span>{formatPrice(subtotal)} AUD</span>
           </div>
 
@@ -40,8 +33,9 @@ export function OrderSummary({
       <button
         type="button"
         disabled
+        aria-disabled="true"
         title="Checkout is not available yet"
-        className="mt-5 flex h-12 w-full items-center justify-center bg-black px-4 text-[11px] font-semibold uppercase tracking-[0.14em] text-white disabled:cursor-not-allowed"
+        className="mt-5 flex h-12 w-full items-center justify-center bg-black px-4 text-[11px] font-semibold uppercase tracking-[0.14em] text-white disabled:cursor-not-allowed disabled:opacity-50"
       >
         Checkout coming soon
       </button>
