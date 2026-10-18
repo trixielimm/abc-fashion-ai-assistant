@@ -228,12 +228,9 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
           </button>
         </div>
       </header>
-      {sessionState.styling ? <OutfitSummary styling={sessionState.styling} open={open} disabled={busy || Boolean(pending)}
+      {sessionState.styling ? <OutfitSummary styling={sessionState.styling} open={open} feedback={selectionFeedback} disabled={busy || Boolean(pending)}
         onRemoveExternal={description => send(`Remove the owned item I described as "${description}".`, undefined, undefined, false, undefined, "Owned item removed from your outfit.")}
         onRemove={(productId, productName) => send(`Remove ${productName} from my outfit.`, "remove", undefined, false, productId, `${productName} removed from your outfit.`)} /> : null}
-      {sessionState.styling?.outfit_request || selectionFeedback ? <p className={styles.selectionStatus} role="status" aria-live="polite">
-        {selectionFeedback || "Select one item from each group to build your outfit."}
-      </p> : null}
       <div ref={transcript} role="log" aria-live="polite" aria-relevant="additions" aria-busy={busy}
         className={`${styles.transcript} ${welcome ? styles.transcriptWelcome : ""}`}>
         {welcome ? (

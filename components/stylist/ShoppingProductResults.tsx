@@ -95,46 +95,51 @@ function ProductCard({ product, preferences, featured, onOpen, onAction, selecte
           )}
         </Link>
         <div className={styles.productInfo}>
-          {recommended ? <p className={styles.recommendedBadge}>Suggested pairing</p> : null}
-          <Link className={styles.productName} href={`/products/${encodeURIComponent(product.product_id)}`} onClick={onOpen}>
-            {product.product_name}
-          </Link>
-          {product.brand_line ? <p className={styles.brand}>{product.brand_line}</p> : null}
-          <p className={styles.price}>{money(product.price_aud)}</p>
-          {product.colour ? <p className={styles.colour}>Colour: {product.colour}</p> : null}
-          {note ? <p className={styles.productNote}>{note}</p> : null}
-          {product.differences?.length ? (
-            <div className={styles.differences}>
-              <strong>Alternative — details differ</strong>
-              <ul>{product.differences.map(detail => <li key={detail}>{detail}</li>)}</ul>
-            </div>
-          ) : null}
-          {product.explanation ? <p className={styles.explanation}>{product.explanation}</p> : null}
-          {product.pairing_evidence ? <details className={styles.messageDetails}>
-            <summary>Why this pairing?</summary>
-            <p>{product.pairing_evidence.reasons.join(" ")}</p>
-            {product.pairing_evidence.limitations.length ? <p>{product.pairing_evidence.limitations.join(" ")}</p> : null}
-            <p>Based on recorded attributes and styling suggestions. Visual compatibility has not been verified.</p>
-          </details> : null}
-          {product.value_comparison ? <details className={styles.messageDetails}>
-            <summary>{product.value_comparison.kind === "upgrade" ? "What the extra cost gives you" : "Benefit and price comparison"}</summary>
-            <p>Original: {money(product.value_comparison.primary_price_aud)}. This option: {money(product.price_aud)}.</p>
-            {product.value_comparison.benefits.map(benefit => <p key={benefit.feature_key}>
-              {benefit.label}. Original: {featureValue(benefit.before, benefit.feature_key)}. This option: {featureValue(benefit.after, benefit.feature_key)}.<br />
-              {benefit.evidence_kind === "synthetic" ? "Source: prototype product specifications." : `Evidence: ${benefit.source_references.join("; ")}`}
-            </p>)}
-            {product.value_comparison.context_benefits.map(benefit => <p key={benefit}>{benefit}</p>)}
-            {product.value_comparison.tradeoffs.map(tradeoff => <p key={tradeoff}>{tradeoff}</p>)}
-          </details> : null}
+          <div className={styles.productDetails}>
+            {recommended ? <p className={styles.recommendedBadge}>Suggested pairing</p> : null}
+            <Link className={styles.productName} href={`/products/${encodeURIComponent(product.product_id)}`} onClick={onOpen}>
+              {product.product_name}
+            </Link>
+            {product.brand_line ? <p className={styles.brand}>{product.brand_line}</p> : null}
+            <p className={styles.price}>{money(product.price_aud)}</p>
+            {product.colour ? <p className={styles.colour}>Colour: {product.colour}</p> : null}
+            {note ? <p className={styles.productNote}>{note}</p> : null}
+            {product.differences?.length ? (
+              <div className={styles.differences}>
+                <strong>Alternative — details differ</strong>
+                <ul>{product.differences.map(detail => <li key={detail}>{detail}</li>)}</ul>
+              </div>
+            ) : null}
+            {product.explanation ? <p className={styles.explanation}>{product.explanation}</p> : null}
+            {product.pairing_evidence ? <details className={styles.messageDetails}>
+              <summary>Why this pairing?</summary>
+              <p>{product.pairing_evidence.reasons.join(" ")}</p>
+              {product.pairing_evidence.limitations.length ? <p>{product.pairing_evidence.limitations.join(" ")}</p> : null}
+              <p>Based on recorded attributes and styling suggestions. Visual compatibility has not been verified.</p>
+            </details> : null}
+            {product.value_comparison ? <details className={styles.messageDetails}>
+              <summary>{product.value_comparison.kind === "upgrade" ? "What the extra cost gives you" : "Benefit and price comparison"}</summary>
+              <p>Original: {money(product.value_comparison.primary_price_aud)}. This option: {money(product.price_aud)}.</p>
+              {product.value_comparison.benefits.map(benefit => <p key={benefit.feature_key}>
+                {benefit.label}. Original: {featureValue(benefit.before, benefit.feature_key)}. This option: {featureValue(benefit.after, benefit.feature_key)}.<br />
+                {benefit.evidence_kind === "synthetic" ? "Source: prototype product specifications." : `Evidence: ${benefit.source_references.join("; ")}`}
+              </p>)}
+              {product.value_comparison.context_benefits.map(benefit => <p key={benefit}>{benefit}</p>)}
+              {product.value_comparison.tradeoffs.map(tradeoff => <p key={tradeoff}>{tradeoff}</p>)}
+            </details> : null}
+          </div>
           <div className={styles.cartArea}>
             {!automatic ? (
               <label className={styles.sizeLabel}>
                 Available sizes
-                <select ref={sizeInput} value={size} className={styles.sizeSelect} aria-label={`Size for ${product.product_name}`}
-                  onChange={event => { setSize(event.target.value); setFeedback(""); }}>
-                  <option value="">Choose size</option>
-                  {sizes.map(label => <option key={label} value={label}>{label}</option>)}
-                </select>
+                <span className={styles.sizeSelectControl}>
+                  <select ref={sizeInput} value={size} className={styles.sizeSelect} aria-label={`Size for ${product.product_name}`}
+                    onChange={event => { setSize(event.target.value); setFeedback(""); }}>
+                    <option value="">Choose size</option>
+                    {sizes.map(label => <option key={label} value={label}>{label}</option>)}
+                  </select>
+                  <ChevronIcon direction="right" className={styles.sizeSelectChevron} />
+                </span>
               </label>
             ) : <p className={styles.knownSize}>Available size: {automatic}</p>}
             <div className={styles.productActions}>
@@ -144,22 +149,24 @@ function ProductCard({ product, preferences, featured, onOpen, onAction, selecte
               </button>
             </div>
           </div>
-          {feedback ? <p role="status" className={styles.feedback}>{feedback}</p> : null}
-          {onAction && allowOffers && product.extra_target ? (
-            <button type="button" className={styles.lookAction} disabled={actionDisabled} onClick={() => onAction("cross_sell", product)}>
-              {extraLabel(product.extra_target)}<ChevronIcon direction="right" />
-            </button>
-          ) : null}
-          {onAction ? <div className={styles.outfitCardActions}>
-            <details className={styles.cardMore}>
-              <summary>More options</summary>
-              <div className={styles.cardMoreActions}>
-                <button type="button" className={styles.textButton} disabled={actionDisabled} onClick={() => { onEvent?.("own", product.product_id, position); onAction("own", product); }}>I already own this</button>
-                {allowOffers ? <button type="button" className={styles.textButton} disabled={actionDisabled} onClick={() => onAction("upsell", product)}>Compare value</button> : null}
-                <button type="button" className={styles.textButton} disabled={actionDisabled} onClick={() => { onEvent?.("reject", product.product_id, position); onAction("reject", product); }}>Skip this item</button>
-              </div>
-            </details>
-          </div> : null}
+          <div className={styles.productFooter}>
+            {feedback ? <p role="status" className={styles.feedback}>{feedback}</p> : null}
+            {onAction && allowOffers && product.extra_target ? (
+              <button type="button" className={styles.lookAction} disabled={actionDisabled} onClick={() => onAction("cross_sell", product)}>
+                {extraLabel(product.extra_target)}<ChevronIcon direction="right" />
+              </button>
+            ) : null}
+            {onAction ? <div className={styles.outfitCardActions}>
+              <details className={styles.cardMore}>
+                <summary>More options</summary>
+                <div className={styles.cardMoreActions}>
+                  <button type="button" className={styles.textButton} disabled={actionDisabled} onClick={() => { onEvent?.("own", product.product_id, position); onAction("own", product); }}>I already own this</button>
+                  {allowOffers ? <button type="button" className={styles.textButton} disabled={actionDisabled} onClick={() => onAction("upsell", product)}>Compare value</button> : null}
+                  <button type="button" className={styles.textButton} disabled={actionDisabled} onClick={() => { onEvent?.("reject", product.product_id, position); onAction("reject", product); }}>Skip this item</button>
+                </div>
+              </details>
+            </div> : null}
+          </div>
         </div>
       </div>
     </article>

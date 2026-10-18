@@ -36,6 +36,7 @@ function record(text) {
 }
 
 const suites = [
+  ["search-filters", "test-search-filters.mjs"],
   ["selected-outfit-review", "test-selected-outfit-review.mjs"],
   ["outfit-interface", "test-outfit-interface.mjs"],
   ["grouped-discovery-memory", "test-grouped-discovery-memory.mjs"],
