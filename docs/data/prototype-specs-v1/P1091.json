@@ -1,0 +1,50 @@
+{
+  "product_id": "P1091",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:45.114Z",
+  "identity_snapshot": {
+    "product_id": "P1091",
+    "product_name": "White Tailored Trousers",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Tailored Trousers",
+    "gender": "Men",
+    "colour": "White",
+    "material": "Polyester",
+    "fit": "Regular",
+    "style": "Classic",
+    "occasion": "Smart Casual",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1091",
+    "description": "White tailored trousers in polyester with a classic regular fit, balancing a clean winter wardrobe with smart-casual styling.",
+    "construction_details": [
+      "Pressed front creases",
+      "Waistband with belt loops",
+      "Hook-and-bar fastening with concealed fly",
+      "Slant front pockets and welt back pockets"
+    ],
+    "care_instructions": "Machine wash cold on a gentle cycle; line dry and press on low heat.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Smart Casual"
+    ],
+    "closure": "hook_and_eye",
+    "garment_length_cm": 108,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "801bd3fae7d08a244d9c0d8aa59cdda458bf7830f5b8321cdb4e2b9148643136"
+}

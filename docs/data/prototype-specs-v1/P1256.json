@@ -1,0 +1,52 @@
+{
+  "product_id": "P1256",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:52.741Z",
+  "identity_snapshot": {
+    "product_id": "P1256",
+    "product_name": "Navy Cropped Jacket",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Cropped Jacket",
+    "gender": "Women",
+    "colour": "Navy",
+    "material": "Polyester",
+    "fit": "Relaxed",
+    "style": "Classic",
+    "occasion": "Beach Wedding",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1256",
+    "description": "Classic navy polyester cropped jacket with a relaxed profile and neat proportions for light beach-wedding layering.",
+    "construction_details": [
+      "Round collar",
+      "Button-front fastening",
+      "Three-quarter sleeves",
+      "Cropped straight hem",
+      "Neat bound interior seams"
+    ],
+    "care_instructions": "Machine wash cold on a gentle cycle. Fasten buttons before washing and line dry.",
+    "lining": true,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Beach Wedding",
+      "Wedding Guest"
+    ],
+    "closure": "button",
+    "garment_length_cm": 46,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "f3814f3262905690925d31140d2b0337b0b9983e8c51f31a52b001ef4c20148f"
+}

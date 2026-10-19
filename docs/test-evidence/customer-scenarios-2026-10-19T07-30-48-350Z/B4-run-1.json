@@ -1,0 +1,685 @@
+{
+  "id": "B4",
+  "name": "Three-piece outfit under one total",
+  "repeat": 1,
+  "turns": [
+    {
+      "number": 1,
+      "message": "Build a complete outfit with a dress, shoes and bag for formal events under $350 total.",
+      "input": {
+        "message": "Build a complete outfit with a dress, shoes and bag for formal events under $350 total.",
+        "collection": {
+          "choice": "All",
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        }
+      },
+      "began": "2026-10-19T07:34:09.882Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": {
+          "total_budget_aud": 350,
+          "items": [
+            {
+              "gender": null,
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            {
+              "gender": null,
+              "category": "Shoes",
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            {
+              "gender": null,
+              "category": "Bags",
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            }
+          ],
+          "evidence": "Build a complete outfit with a dress, shoes and bag for formal events under $350 total."
+        },
+        "action": "new_search",
+        "discovery_intent": null,
+        "intent_evidence": "Build a complete outfit with a dress, shoes and bag for formal events under $350 total.",
+        "reference": null,
+        "changes": [
+          {
+            "scope": "item",
+            "field": "occasion",
+            "operation": "set",
+            "value": "Formal",
+            "evidence": "formal events"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": null
+      },
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "125bnqo",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": {
+          "limit_aud": 350,
+          "total_aud": 350,
+          "remaining_aud": 0,
+          "items": [
+            {
+              "product_id": "THREE-DRESS",
+              "preferences": {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "product_id": "THREE-SHOES",
+              "preferences": {
+                "gender": null,
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "product_id": "THREE-BAG",
+              "preferences": {
+                "gender": null,
+                "category": "Bags",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ]
+        },
+        "outfit_choices": {
+          "groups": [
+            {
+              "label": "Dresses",
+              "product_ids": [
+                "THREE-DRESS"
+              ],
+              "preferences": {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "label": "Shoes",
+              "product_ids": [
+                "THREE-SHOES"
+              ],
+              "preferences": {
+                "gender": null,
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "label": "Bags",
+              "product_ids": [
+                "THREE-BAG"
+              ],
+              "preferences": {
+                "gender": null,
+                "category": "Bags",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ],
+          "maximum_total_aud": 350
+        },
+        "outfit_review": null,
+        "status": "matches",
+        "action": "new_search",
+        "discovery": null,
+        "collection": {
+          "choice": "All",
+          "current": {
+            "choice": "All",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "Here are choices for dresses and shoes and bags. Choose one item from each group; every displayed combination stays within your A$350.00 combined budget. Combinations range from A$350.00 to A$350.00.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Formal",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "THREE-DRESS",
+            "product_name": "THREE-DRESS Dress",
+            "price_aud": 200,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Black",
+            "occasion": "Formal",
+            "style": "Relaxed",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": "Bags",
+            "image_src": null
+          },
+          {
+            "product_id": "THREE-SHOES",
+            "product_name": "THREE-SHOES Shoes",
+            "price_aud": 100,
+            "category": "Shoes",
+            "subcategory": "Heels",
+            "product_type": "Block Heels",
+            "brand_line": null,
+            "colour": "Black",
+            "occasion": "Formal",
+            "style": "Relaxed",
+            "sizes_available": [
+              "38",
+              "39"
+            ],
+            "extra_target": null,
+            "image_src": null
+          },
+          {
+            "product_id": "THREE-BAG",
+            "product_name": "THREE-BAG Bag",
+            "price_aud": 50,
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Clutch",
+            "brand_line": null,
+            "colour": "Black",
+            "occasion": "Formal",
+            "style": "Relaxed",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": null,
+            "image_src": null
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 350,
+            "items": [
+              {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": null,
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": null,
+                "category": "Bags",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "Build a complete outfit with a dress, shoes and bag for formal events under $350 total."
+          },
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 4519,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 350,
+            "items": [
+              {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": null,
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": null,
+                "category": "Bags",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "Build a complete outfit with a dress, shoes and bag for formal events under $350 total."
+          },
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "All",
+          "current": {
+            "choice": "All",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "125bnqo",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "THREE-DRESS",
+              "product_name": "THREE-DRESS Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 200
+            },
+            {
+              "product_id": "THREE-SHOES",
+              "product_name": "THREE-SHOES Shoes",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Block Heels",
+              "price_aud": 100
+            },
+            {
+              "product_id": "THREE-BAG",
+              "product_name": "THREE-BAG Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 50
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Build a complete outfit with a dress, shoes and bag for formal events under $350 total."
+          },
+          {
+            "role": "assistant",
+            "content": "Here are choices for dresses and shoes and bags. Choose one item from each group; every displayed combination stays within your A$350.00 combined budget. Combinations range from A$350.00 to A$350.00."
+          }
+        ]
+      },
+      "checks": "Pass"
+    }
+  ],
+  "started": "2026-10-19T07:34:09.882Z",
+  "result": "Pass",
+  "issues": [],
+  "collection_setup": "Shopper already chose all collections",
+  "finished": "2026-10-19T07:34:14.401Z"
+}

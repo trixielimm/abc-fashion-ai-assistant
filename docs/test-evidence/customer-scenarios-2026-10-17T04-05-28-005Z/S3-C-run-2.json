@@ -1,0 +1,698 @@
+{
+  "id": "S3-C",
+  "name": "Switch from dresses to bags",
+  "repeat": 2,
+  "turns": [
+    {
+      "number": 1,
+      "message": "Show me blue dresses in size 10 under $150.",
+      "input": {
+        "message": "Show me blue dresses in size 10 under $150.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T04:05:28.077Z",
+      "plan_source": "live model",
+      "plan": {
+        "action": "clarify",
+        "intent_evidence": "Show me blue dresses in size 10 under $150.",
+        "reference": null,
+        "changes": [],
+        "question": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.",
+        "continuation": false
+      },
+      "reply": {
+        "status": "needs_clarification",
+        "action": "clarify",
+        "message": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": {
+          "action": "clarify",
+          "reference": null,
+          "goal": "Show me blue dresses in size 10 under $150.",
+          "question": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 5698,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": {
+          "action": "clarify",
+          "reference": null,
+          "goal": "Show me blue dresses in size 10 under $150.",
+          "question": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": null,
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me blue dresses in size 10 under $150."
+          },
+          {
+            "role": "assistant",
+            "content": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements."
+          }
+        ]
+      },
+      "checks": "Fail",
+      "failure": "Expected eligible results, got needs_clarification: Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements."
+    },
+    {
+      "number": 2,
+      "message": "Actually, forget dresses. I want a black bag under $80.",
+      "input": {
+        "message": "Actually, forget dresses. I want a black bag under $80.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me blue dresses in size 10 under $150."
+          },
+          {
+            "role": "assistant",
+            "content": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements."
+          }
+        ],
+        "pending": {
+          "action": "clarify",
+          "reference": null,
+          "goal": "Show me blue dresses in size 10 under $150.",
+          "question": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": null,
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T04:05:28.077Z",
+      "plan_source": "live model",
+      "plan": {
+        "action": "new_search",
+        "intent_evidence": "I want a black bag under $80",
+        "reference": null,
+        "changes": [
+          {
+            "scope": "item",
+            "evidence": "bag",
+            "operation": "set",
+            "field": "category",
+            "value": "Bags"
+          },
+          {
+            "scope": "item",
+            "evidence": "under $80",
+            "operation": "set",
+            "field": "max_price",
+            "value": 80
+          },
+          {
+            "scope": "item",
+            "evidence": "black",
+            "operation": "set",
+            "field": "subcategory",
+            "value": null
+          },
+          {
+            "scope": "item",
+            "evidence": "black",
+            "operation": "set",
+            "field": "product_type",
+            "value": null
+          },
+          {
+            "scope": "item",
+            "evidence": "black",
+            "operation": "set",
+            "field": "occasion",
+            "value": null
+          },
+          {
+            "scope": "item",
+            "evidence": "black",
+            "operation": "set",
+            "field": "style",
+            "value": null
+          },
+          {
+            "scope": "item",
+            "evidence": "black",
+            "operation": "set",
+            "field": "season",
+            "value": null
+          },
+          {
+            "scope": "item",
+            "evidence": "black",
+            "operation": "set",
+            "field": "material",
+            "value": null
+          },
+          {
+            "scope": "item",
+            "evidence": "black",
+            "operation": "set",
+            "field": "fit",
+            "value": null
+          },
+          {
+            "scope": "item",
+            "evidence": "black",
+            "operation": "set",
+            "field": "size",
+            "value": null
+          },
+          {
+            "scope": "item",
+            "evidence": "black",
+            "operation": "set",
+            "field": "gender",
+            "value": null
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": null
+      },
+      "reply": {
+        "status": "matches",
+        "action": "new_search",
+        "message": "I've found 2 bag options for you to explore.\n\nThese options range from A$45.00 to A$60.00. I've kept this selection within your A$80.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Bags",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 80,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "B-OPEN-45",
+            "product_name": "B-OPEN-45 Bag",
+            "price_aud": 45,
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Clutch",
+            "brand_line": null,
+            "colour": "Beige",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": null,
+            "image_src": null
+          },
+          {
+            "product_id": "B-ZIP-60",
+            "product_name": "B-ZIP-60 Bag",
+            "price_aud": 60,
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Clutch",
+            "brand_line": null,
+            "colour": "Black",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": null,
+            "image_src": null
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 3132,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "B-OPEN-45",
+              "product_name": "B-OPEN-45 Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 45
+            },
+            {
+              "product_id": "B-ZIP-60",
+              "product_name": "B-ZIP-60 Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 60
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me blue dresses in size 10 under $150."
+          },
+          {
+            "role": "assistant",
+            "content": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements."
+          },
+          {
+            "role": "user",
+            "content": "Actually, forget dresses. I want a black bag under $80."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 bag options for you to explore.\n\nThese options range from A$45.00 to A$60.00. I've kept this selection within your A$80.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "checks": "Fail",
+      "failure": "Colour retained\n+ actual - expected\n\n+ []\n- [\n-   'black'\n- ]\n"
+    }
+  ],
+  "started": "2026-10-17T04:05:28.076Z",
+  "result": "Fail",
+  "issues": [
+    {
+      "turn": 1,
+      "message": "Expected eligible results, got needs_clarification: Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements."
+    },
+    {
+      "turn": 2,
+      "message": "Colour retained\n+ actual - expected\n\n+ []\n- [\n-   'black'\n- ]\n"
+    }
+  ],
+  "finished": "2026-10-17T04:05:28.077Z"
+}

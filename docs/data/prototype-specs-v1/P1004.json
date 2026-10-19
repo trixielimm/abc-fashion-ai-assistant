@@ -1,0 +1,51 @@
+{
+  "product_id": "P1004",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:14:59.049Z",
+  "identity_snapshot": {
+    "product_id": "P1004",
+    "product_name": "Lavender Wrap Dress",
+    "category": "Clothing",
+    "subcategory": "Dresses",
+    "product_type": "Wrap Dress",
+    "gender": "Women",
+    "colour": "Lavender",
+    "material": "Polyester",
+    "fit": "Regular",
+    "style": "Smart",
+    "occasion": "Brunch",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1004",
+    "description": "Smart lavender wrap dress in polyester, designed with a regular fit and an adjustable wrap front for polished brunch dressing.",
+    "construction_details": [
+      "Overlapping wrap front",
+      "Self-tie waist fastening",
+      "V-neckline",
+      "Neatly finished skirt hem"
+    ],
+    "care_instructions": "Cold gentle machine wash; line dry away from direct sunlight and cool iron on the reverse.",
+    "lining": true,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Brunch",
+      "Date Night"
+    ],
+    "closure": "tie",
+    "garment_length_cm": 116,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "db9feb944f885283d61ad8ef6fcee1babc653e589f9103dbe30390f3d5d0c3d1"
+}

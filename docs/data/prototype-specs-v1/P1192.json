@@ -1,0 +1,54 @@
+{
+  "product_id": "P1192",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:01.484Z",
+  "identity_snapshot": {
+    "product_id": "P1192",
+    "product_name": "White Mini Tote",
+    "category": "Bags",
+    "subcategory": "Handbags",
+    "product_type": "Mini Tote",
+    "gender": "Women",
+    "colour": "White",
+    "material": "Woven",
+    "fit": "Standard",
+    "style": "Elegant",
+    "occasion": "Date Night",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1192",
+    "description": "White Mini Tote in woven material with an elegant standard shape for Date Night; a small open-top carryall with a neat, polished silhouette.",
+    "construction_details": [
+      "Woven exterior with bound top edge",
+      "Two fixed top handles with reinforced attachment points",
+      "Flat base panel for stability"
+    ],
+    "care_instructions": "Spot clean with a soft damp cloth and allow to air dry; store upright away from direct sunlight.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": 3.2,
+    "use_cases": [
+      "Date Night",
+      "Brunch"
+    ],
+    "closure": "open",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": {
+      "width": 25,
+      "height": 18,
+      "depth": 9
+    },
+    "strap_drop_cm": 10,
+    "compartments": 2,
+    "sole_material": null,
+    "hardware_finish": "Light gold-tone"
+  },
+  "content_sha256": "fad2b3350ce28cba1916ce532891044d1bd6bbf1af050183a207a9253c38c7fa"
+}

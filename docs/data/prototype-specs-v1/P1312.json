@@ -1,0 +1,49 @@
+{
+  "product_id": "P1312",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:42.490Z",
+  "identity_snapshot": {
+    "product_id": "P1312",
+    "product_name": "Beige Ballet Flats",
+    "category": "Shoes",
+    "subcategory": "Flats",
+    "product_type": "Ballet Flats",
+    "gender": "Women",
+    "colour": "Beige",
+    "material": "Faux Leather",
+    "fit": "Standard",
+    "style": "Bohemian",
+    "occasion": "Work",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1312",
+    "description": "Bohemian beige ballet flats in faux leather with a standard fit, finished for Work styling.",
+    "construction_details": [
+      "Rounded almond toe with a clean topline",
+      "Flexible folded-edge upper",
+      "Lightly cushioned insole over a slim outsole"
+    ],
+    "care_instructions": "Wipe gently with a damp cloth and allow to air dry; store away from heat and prolonged moisture.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Work"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": null,
+    "heel_height_cm": 0.7,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": null
+  },
+  "content_sha256": "523dca7985d676e8c55f320c8bb3341c2ce31a2b65bb1b62659d4d3467cdb1a3"
+}

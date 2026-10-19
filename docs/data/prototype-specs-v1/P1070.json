@@ -1,0 +1,54 @@
+{
+  "product_id": "P1070",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:30.452Z",
+  "identity_snapshot": {
+    "product_id": "P1070",
+    "product_name": "Lavender Envelope Clutch",
+    "category": "Bags",
+    "subcategory": "Clutches",
+    "product_type": "Envelope Clutch",
+    "gender": "Women",
+    "colour": "Lavender",
+    "material": "Leather",
+    "fit": "Standard",
+    "style": "Contemporary",
+    "occasion": "Wedding Guest",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1070",
+    "description": "Contemporary lavender leather envelope clutch with a clean flap silhouette, suited to wedding guest styling. Its compact profile is sized for essential evening items.",
+    "construction_details": [
+      "Angular envelope flap with concealed magnetic fastening",
+      "Slim leather-edged gusset",
+      "Short detachable wristlet strap"
+    ],
+    "care_instructions": "Wipe lightly with a soft, dry cloth and condition sparingly with a suitable leather product. Keep away from moisture and heat.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": false,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": 0.7,
+    "use_cases": [
+      "Wedding Guest",
+      "Evening"
+    ],
+    "closure": "snap",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": {
+      "width": 23,
+      "height": 14,
+      "depth": 3.5
+    },
+    "strap_drop_cm": 15,
+    "compartments": 1,
+    "sole_material": null,
+    "hardware_finish": "muted silver-tone"
+  },
+  "content_sha256": "c10d51f1a9c58bed5045ec673c3466a494d45d3a30b49d08c5df09ea7bd24c6e"
+}

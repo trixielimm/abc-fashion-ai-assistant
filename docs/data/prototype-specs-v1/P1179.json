@@ -1,0 +1,54 @@
+{
+  "product_id": "P1179",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:49.635Z",
+  "identity_snapshot": {
+    "product_id": "P1179",
+    "product_name": "Pink Crossbody Bag",
+    "category": "Bags",
+    "subcategory": "Crossbody",
+    "product_type": "Crossbody Bag",
+    "gender": "Women",
+    "colour": "Pink",
+    "material": "Faux Leather",
+    "fit": "Standard",
+    "style": "Elegant",
+    "occasion": "Beach Wedding",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1179",
+    "description": "Elegant pink faux leather crossbody bag for a beach wedding in an all-season standard shape, with a softly structured profile.",
+    "construction_details": [
+      "Structured faux leather panels with concealed edge seams",
+      "Adjustable slim shoulder strap",
+      "Flap front with magnetic snap"
+    ],
+    "care_instructions": "Wipe clean with a soft damp cloth and dry immediately; keep away from prolonged heat and moisture.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": true,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": 1.5,
+    "use_cases": [
+      "Beach Wedding",
+      "Wedding Guest"
+    ],
+    "closure": "snap",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": {
+      "width": 23,
+      "height": 16,
+      "depth": 6
+    },
+    "strap_drop_cm": 62,
+    "compartments": 2,
+    "sole_material": null,
+    "hardware_finish": "light gold-tone"
+  },
+  "content_sha256": "ef6b5f43a3a10a2638b16aff53c4a82f38e15a09b8233b3a9e77486dd0411012"
+}

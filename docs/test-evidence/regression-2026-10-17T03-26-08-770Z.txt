@@ -1,0 +1,551 @@
+ABC Fashion - offline regression run
+Started (UTC): 2026-10-17T03:26:08.770Z
+Node: v24.14.0; platform: darwin
+Scope: listed offline test scripts only. No live/API/browser tests.
+
+RUN: test-preference-validation.ts | Tasks 5,24
+PASS: normalisation, deduplication, input preservation, unsupported soft/hard values, category relationship, budget conflict, reference sizes and unknown preferences
+PASS: test-preference-validation.ts (exit: 0)
+
+RUN: test-recommendation-contract.ts | Tasks 9,24
+PASS: Valid request accepted
+PASS: Empty message rejected
+PASS: Spaces-only message rejected
+PASS: Missing message rejected
+PASS: Limit above six rejected
+PASS: Fractional limit rejected
+PASS: Unsupported history field rejected
+PASS: Overlong message rejected
+PASS: Default limit is six
+PASS: Message is trimmed
+
+10 request-contract checks passed.
+PASS: test-recommendation-contract.ts (exit: 0)
+
+RUN: test-grounded-recommendation.ts | Tasks 11,24
+PASS: verified reasons only, catalogue wording, unknown product/claim rejection, complete shortlist, nonmatching colour omitted
+PASS: test-grounded-recommendation.ts (exit: 0)
+
+RUN: test-validation-search.mjs | Tasks 5,7,25
+PASS: Recognised labels are normalised without changing the input
+PASS: Unknown material, preferred colour and brand require clarification
+PASS: Unknown style is retained and disclosed as a partial preference
+PASS: Contradictory budgets request clarification
+PASS: Incompatible category and subcategory request clarification
+PASS: Price at the maximum is allowed; higher price is excluded
+PASS: Zero-dollar and minimum-price filters are honoured
+PASS: A defined but unavailable size produces no match
+PASS: Size 10 does not match size 10.5
+PASS: One Size matching ignores case and extra spaces only
+PASS: Unavailable products and invalid stock are excluded
+PASS: Preferred and excluded colours remain required filters
+PASS: Missing product colour cannot bypass a colour exclusion
+PASS: Malformed size lists are rejected without crashing
+
+14 validation-and-search checks passed.
+PASS: test-validation-search.mjs (exit: 0)
+
+RUN: test-guided-follow-ups.mjs | Tasks 16,17,19,24
+PASS: Cheaper asks for a price without inventing a budget
+PASS: A budget answer changes only the maximum price
+PASS: Invalid, unchanged or increased cheaper budgets are rejected
+PASS: The previous minimum price is not silently removed
+PASS: A zero maximum is preserved as a real number
+PASS: Different colour asks before replacing the saved colour
+PASS: A colour answer preserves size, budget and exclusions
+PASS: Unknown, excluded or unchanged colour answers need clarification
+PASS: More casual asks instead of inventing a style mapping
+PASS: A chosen catalogue style changes only the style
+PASS: Unknown style answers do not change saved preferences
+PASS: Cancel closes a pending question without removing constraints
+PASS: Unrelated and compound messages still use the existing extractor
+PASS: A new guided question replaces the pending question
+
+14 guided follow-up checks passed.
+PASS: test-guided-follow-ups.mjs (exit: 0)
+
+RUN: test-cross-sell.mjs | Tasks 20,25
+PASS: Recorded category returns a real complementary item
+PASS: Unavailable or missing main product cannot start cross-selling
+PASS: Missing and unknown rules do not invent a target category
+PASS: Subcategory rule does not return a different subcategory
+PASS: Missing additional-item size does not block discovery
+PASS: A shoe size is supplied independently of clothing size
+PASS: Budget boundary is inclusive and zero is not ignored
+PASS: Wrong size and malformed stock or sizes are excluded
+PASS: Colour exclusions also reject products without a recorded colour
+PASS: Unknown required colour triggers clarification
+PASS: Partial-match warning is preserved
+PASS: Excluded product IDs are removed before shortlisting
+PASS: Main item is never returned as its own cross-sell
+PASS: Budget can be omitted but the target category is still server-controlled
+PASS: Input preferences are not mutated and at most four products return
+
+15 cross-sell checks passed.
+PASS: test-cross-sell.mjs (exit: 0)
+
+RUN: test-cross-sell-client.mjs | Tasks 21,23,25
+PASS: Additional budget and size are separate from the main request
+PASS: Shared preferences and exclusions are copied without mutation
+PASS: Invalid budgets and empty selections are rejected
+PASS: Zero budget and an unanswered size are preserved
+PASS: Unsupported saved preferences are not silently discarded
+PASS: Valid product response is accepted
+PASS: Responses for another main product or budget are rejected
+PASS: Main product, over-budget items and wrong sizes are rejected
+PASS: No-match and clarification responses remain empty
+PASS: Duplicate IDs and unexpected budget scope are rejected
+
+10 cross-sell client checks passed.
+PASS: test-cross-sell-client.mjs (exit: 0)
+
+RUN: test-upsell.mjs | Tasks 22,25
+PASS: Higher-priced replacement needs a specific added match
+PASS: Higher price with identical matches is not an upsell
+PASS: Existing matched preferences cannot be sacrificed
+PASS: Maximum is inclusive; higher prices never pass
+PASS: Equal-price and cheaper items are not upsells
+PASS: Same category, subcategory, product type and collection are required
+PASS: Wrong sizes, unavailable products and invalid stock are excluded
+PASS: Colour, exclusions and material requirements remain enforced
+PASS: Unknown size or budget does not block a qualifying replacement
+PASS: A zero budget is not treated as unlimited
+PASS: Main product must exist and still pass the request
+PASS: No requested context improvement means no price-only upsell
+PASS: Required values are validated and requests are not mutated
+PASS: Remaining unmatched preferences are disclosed
+PASS: Exclusions happen before the shortlist, not afterward
+PASS: Price differences use cents; client price overrides are rejected
+
+16 upsell checks passed.
+PASS: test-upsell.mjs (exit: 0)
+
+RUN: test-upsell-client.mjs | Tasks 22,23,25
+PASS: Request preserves all preferences without mutating them
+PASS: Invalid supplied values and missing reference product are rejected
+PASS: Valid options and their comparison evidence are accepted
+PASS: No-upsell and clarification statuses accept empty results
+PASS: Results cannot belong to another main product
+PASS: Applied preferences cannot silently change
+PASS: Equal, cheaper and over-budget replacements are rejected
+PASS: Size and like-for-like product identity are checked
+PASS: Duplicate options and the main item are rejected
+PASS: Price differences must agree and invalid precision is rejected
+PASS: Options require evidence and status must agree with products
+PASS: Remaining differences survive response validation
+
+12 upsell client checks passed.
+PASS: test-upsell-client.mjs (exit: 0)
+
+RUN: test-chat-request.mjs | Tasks 18,23,24
+PASS: A successful request keeps the submitted preferences
+PASS: No-match and clarification responses are normal results
+PASS: HTTP failures are not converted into no-match results
+PASS: Malformed success JSON becomes a controlled error
+PASS: Network errors do not leak their original message
+PASS: A cancelled request is not sent
+PASS: A stalled request times out
+PASS: Reset-style cancellation stops an active request
+PASS: Failures do not start automatic retries
+
+9 chat-request checks passed.
+PASS: test-chat-request.mjs (exit: 0)
+
+RUN: test-optional-discovery.mjs | Tasks 9,20,22,24,25
+PASS: Cross-sell works without asking for size or budget
+PASS: A stated cross-sell budget remains binding when size is unknown
+PASS: A stated extra-item size remains binding when budget is unknown
+PASS: Blank extra budget becomes null, not zero or the main budget
+PASS: Unknown discovery inputs do not allow unavailable stock
+PASS: Upsell can return a justified alternative without size or budget
+PASS: An upsell still honours whichever constraints were supplied
+PASS: No budget does not justify a higher-price-only upsell
+
+8 optional-discovery checks passed.
+PASS: test-optional-discovery.mjs (exit: 0)
+
+RUN: test-card-actions.mjs | Tasks 14,16,20,21,22,23,24,25
+PASS: The card supplies its product ID; missing budget and size stay null
+PASS: An explicit maximum is retained, but clothing size is not copied to extras
+PASS: Action construction leaves the original preferences unchanged
+PASS: Cross-sell supplies the next active category without changing the main request
+PASS: A response for a different reference product is rejected
+PASS: No-rule responses remain normal empty results
+PASS: Unsupported saved requirements are not silently removed
+PASS: Upsell explanations survive response handling
+PASS: Only an actual One Size label can be automatic
+PASS: A numbered size or multi-size product still needs a customer choice
+
+10 card-action checks passed.
+PASS: test-card-actions.mjs (exit: 0)
+
+RUN: test-cheaper-search.mjs | Tasks 16,17,18,19,24,25
+PASS: Recognises common standalone cheaper requests
+PASS: Does not swallow negation or extra instructions
+PASS: Searches below the reference without demanding budget or size
+PASS: Never repeats the reference or equal-priced items
+PASS: Keeps explicit budgets, zero and minimum prices
+PASS: Preserves size, stock and colour checks
+PASS: Uses the lowest price when comparing one shortlist
+PASS: Checks reference prices against the catalogue
+PASS: Keeps a known product type and clarifies mixed categories
+PASS: Filters before shortlisting and retains partial warnings
+PASS: No-match is normal, including a zero-priced reference
+PASS: Context is copied and comparisons do not rewrite the saved budget
+
+12 cheaper-search checks passed.
+PASS: test-cheaper-search.mjs (exit: 0)
+
+RUN: test-viewed-product.mjs | Tasks 16,17,20,21,24,25
+PASS: The page exposes only the defined public product fields
+PASS: Missing or malformed catalogue records are not registered
+PASS: Viewing an item supplies identity, not a guessed size or budget
+PASS: Same-category size and explicit restrictions are retained
+PASS: Zero maximum remains a real restriction
+PASS: Clothing size is not transferred to a viewed shoe
+PASS: Newly viewed page provides a price reference without a main search
+PASS: After page use, the latest conversational results take priority
+PASS: A new page visit takes priority over an older shortlist
+PASS: Consumed page is not silently reused after an empty result
+PASS: Away from a product page the current chat still works
+PASS: Reset clears chat history but a visible page remains a reference
+
+12 viewed-product checks passed.
+PASS: test-viewed-product.mjs (exit: 0)
+
+RUN: test-conversation-foundation.mjs | Tasks 16,17,19,20,21,24,25
+PASS: The second product uses the displayed order
+PASS: The second dress uses the matching subcategory order
+PASS: An exact product name is resolved without requiring its ID
+PASS: An unknown ID or unavailable position is not replaced by a guess
+PASS: Ambiguous context and duplicate names require clarification
+PASS: A genuinely focused page or card is used for this item
+PASS: Empty context and invalid positions cannot choose a product
+PASS: Unknown size and budget stay unknown
+PASS: Dress-specific colour, size and budget do not become bag requirements
+PASS: Explicit shared colours, exclusions and per-item maximum survive category changes
+PASS: A narrower item budget wins without raising a shared ceiling
+PASS: Zero limits and conflicting price ranges are not ignored
+PASS: Allowed colours are intersected rather than broadened
+PASS: Exclusions combine and preferred/excluded conflicts are not hidden
+PASS: Incompatible shared and item requirements require clarification
+PASS: A clothing size cannot be stored as a universal shared size
+PASS: Unsupported shared restrictions survive a new item and block unsafe search
+PASS: Composition does not mutate either scope
+
+18 conversation-foundation checks passed.
+PASS: test-conversation-foundation.mjs (exit: 0)
+
+RUN: test-conversation-plan.mjs | Tasks 9,16,17,19,20,21,24,25
+PASS: A new search sets only supplied item preferences
+PASS: Refinement preserves every unmentioned preference
+PASS: A bag for the second dress resolves the ID and clears dress-only constraints
+PASS: Shared restrictions survive an additional-item request
+PASS: An explicit shared ceiling can be added and item limits cannot raise it
+PASS: Shared size or product identity is rejected
+PASS: Unsupported exclusions remain recorded and block unsafe retrieval
+PASS: Adding an exclusion does not erase previous exclusions
+PASS: A stated removal deletes only the named restriction
+PASS: Invented evidence, duplicate changes and invalid value types are rejected
+PASS: Ambiguous and unknown references do not choose the first product
+PASS: Cheaper and blue can be interpreted without inventing a budget
+PASS: Changing category clears only incompatible identity and size
+PASS: Zero maximum remains a real limit
+PASS: Unrelated messages and clarification do not execute actions
+PASS: Unexpected fields and invalid plans cannot be treated as recommendations
+
+16 conversation-plan checks passed.
+PASS: test-conversation-plan.mjs (exit: 0)
+
+RUN: test-conversation-search.mjs | Tasks 9,10,12,16,17,18,19,20,21,22,24,25
+PASS: A new search returns catalogue products without size or budget
+PASS: Cross-sell clears dress-only colour and budget, not shared restrictions
+PASS: Shared budget remains binding without becoming an item override
+PASS: Cross-sell applies material and minimum-price restrictions before shortlisting
+PASS: A shoes request cannot silently receive the recorded bag category
+PASS: A general extra request uses the stored rule and remembers target identity
+PASS: An ambiguous reference never falls back to the first product
+PASS: Missing or changed reference records request refreshed context
+PASS: Cheaper and blue uses catalogue results without inventing a budget
+PASS: Cheaper checks the displayed price and does not fabricate a missing one
+PASS: The relative search still honours a narrower shared ceiling
+PASS: Upsell reuses the benefit rule rather than treating price as a benefit
+PASS: Unresolved requirements and questions never produce products
+PASS: Unknown required catalogue values trigger clarification
+PASS: An explicit requested category works without a default rule, while genuine no-matches stay empty
+PASS: No-action preserves state and returned IDs come from the catalogue
+
+16 conversation-search checks passed.
+PASS: test-conversation-search.mjs (exit: 0)
+
+RUN: test-plan-evidence.mjs | Tasks 9,10,16,17,19,23,24,25
+PASS: Valid evidence needs only one generation
+PASS: Invalid intent evidence permits one correction
+PASS: Invalid change evidence identifies the failing field
+PASS: Two invalid responses ask for clarification without applying the bad plan
+PASS: Other invalid plans get one correction without weakening scope safeguards
+PASS: Provider failures are not retried by the evidence helper
+
+6 plan-evidence checks passed.
+PASS: test-plan-evidence.mjs (exit: 0)
+
+RUN: test-plan-recovery.mjs | Tasks 9,10,16,19,20,24,25
+PASS: The model schema binds list, number and enum values to their fields
+PASS: A malformed unresolved list can be corrected before an outfit request is executed
+PASS: No-leather requirements stay recorded and cannot retrieve unchecked products
+PASS: Invalid shoe categories get a correction and still obey cross-sell rules
+PASS: Two invalid plans clarify without changing saved limits or selecting references
+PASS: Well-shaped plans cannot hide a material exclusion in a soft style or omit it
+PASS: A well-shaped outfit plan cannot silently reinterpret the total as a per-item limit
+PASS: Explicitly removing an unsupported requirement or switching to a single item still works
+PASS: SDK parse errors and invalid JSON get the same bounded recovery
+PASS: Invalid requests and unexpected application failures are not concealed
+
+10 plan-recovery checks passed.
+PASS: test-plan-recovery.mjs (exit: 0)
+
+RUN: test-conversation-answers.mjs | Tasks 9,10,16,17,18,19,20,24,25
+PASS: Recommendation answers identify the requested product and factual occasion match
+PASS: An occasion mismatch and a stale budget are disclosed
+PASS: Questions preserve shortlist order, preferences and input immutability
+PASS: A subsequent matching-bag request resolves it to the discussed dress
+PASS: Comparisons use both authoritative records and a real price difference
+PASS: Duplicate comparison references clarify instead of comparing one product to itself
+PASS: Friday delivery answers use shared policy without inventing an ETA
+PASS: Returns preserve published limits and do not promise eligibility or free postage
+PASS: Fit, sizes, care and quality answers acknowledge missing evidence
+PASS: Unknown product questions are answered with their information limit
+PASS: Unavailable and unknown stock are differentiated, and stock is never reserved
+PASS: Missing or changed products cannot produce stale factual answers
+PASS: A forged product snapshot price cannot affect the answer
+PASS: Ambiguous questions retain the original goal and accept a short reference answer
+PASS: A policy interjection preserves a pending product question
+PASS: Policy and product questions do not consume a pending shopping clarification
+PASS: Cancelling an answer clarification preserves the unfinished search
+PASS: Mixed explanation and cheaper search performs both with the explicit reference
+PASS: Ambiguous mixed requests resume both the answer and saved shopping action
+PASS: Resolving an explanation does not replace a separately specified cheaper reference
+PASS: A new ambiguous question does not inherit a previous mixed shopping action
+PASS: Simple clarification selections resolve deterministically without losing the saved question
+PASS: Malformed question continuations retain the original question and mixed action
+PASS: A policy question combined with an explicit search supersedes an old product clarification
+PASS: An answer cannot sneak in preferences, a forged purpose or change the pending question
+PASS: Pure questions cannot save their occasion as a preference and get actionable correction feedback
+PASS: Answer retries reuse interpretation and duplicate requests reuse the same answer
+
+27 conversation-answer checks passed.
+PASS: test-conversation-answers.mjs (exit: 0)
+
+RUN: test-conversation-production.mjs | Tasks 18,23,24,25
+PASS: The customer conversation route accepts a valid request in production
+PASS: The customer UI envelope works in production
+PASS: The commerce kill switch disables new comparisons without model or catalogue access
+PASS: Same-origin requests remain accepted
+PASS: Production cancellation restores pending preferences
+PASS: Cross-origin requests remain rejected
+PASS: Malformed origins remain rejected
+PASS: Unsupported content types remain rejected
+PASS: Malformed JSON remains rejected
+PASS: Invalid conversation input remains rejected
+PASS: Oversized bodies remain rejected
+PASS: Expired retries still return a useful conflict instead of running a new model call
+
+12 production-route checks passed; no network calls.
+Conversation request failed: {
+  stage: 'interpretation',
+  type: 'Error',
+  evidence_field: undefined,
+  provider_status: undefined,
+  provider_code: undefined,
+  provider_param: undefined
+}
+PASS: test-conversation-production.mjs (exit: 0)
+
+RUN: test-stylist-commerce.mjs | Tasks 20,22,24,25
+PASS: Changing the anchor changes rankings on an occasion/style counterfactual
+PASS: An explicit Shoes request overrides the default Bags rule without substituting a bag
+PASS: Explicit requested roles work when there is no default pairing rule
+PASS: A generic extra uses the next approved role instead of an already-owned category
+PASS: Stock cannot override a stronger compatibility score
+PASS: Compatibility never relaxes hard colours, exclusions, size or budget
+PASS: Limited evidence stays labelled instead of becoming a confident match
+PASS: A verified relevant feature can justify an upgrade without an extra context label
+PASS: Unknown original features cannot establish an improvement
+PASS: Draft, malformed and mismatched-product evidence cannot qualify
+PASS: Feature value types and source review dates are checked
+PASS: More expensive identical features never establish a benefit
+PASS: Same-price and cheaper benefits are honest alternatives, ranked before more expensive equivalents
+PASS: Feature losses are disclosed and explicit must-haves cannot be sacrificed
+PASS: Upgrades preserve the budget including zero and the exact inclusive boundary
+PASS: Previously matched context still cannot be sacrificed for a feature
+PASS: Related types require internal permission and stay in the same functional subcategory
+PASS: Required features fail closed instead of inferring facts from descriptions
+PASS: Keeping a card stores an outfit choice without adding it to the cart or auto-selecting other cards
+PASS: Outfit choices survive new results, product questions and cancellation
+PASS: A later keep replaces the selected item in the same outfit role
+PASS: Owned items and rejected products are retained and not repeated as additions
+PASS: Unlisted owned roles and no-extras are explicit, evidence-backed preferences
+PASS: Outfit actions preserve an unrelated pending shopping question
+PASS: Shared context checks happen before the display cap
+PASS: The active conversation preserves typed feature comparisons on cards
+PASS: An unfulfilled feature requirement stays saved with a useful information-limit answer
+PASS: No-benefit comparisons retain the reference for a subsequent priority answer
+PASS: Repeated category requests cannot reset to an empty item scope
+PASS: Telemetry accepts only minimal typed interaction data, never transcripts or sales claims
+
+30 stylist-commerce checks passed.
+PASS: test-stylist-commerce.mjs (exit: 0)
+
+RUN: test-stylist-feature-import.mjs | Tasks 20,22,24,25
+PASS: The real starter pack remains unknown and produces no import
+PASS: Both confirmed presence and confirmed absence survive without inference
+PASS: Draft and rejected facts never become published rows
+PASS: Approval requires evidence, source version, reviewer and review date
+PASS: Typed feature values and duplicate approved facts are checked
+PASS: Obvious demo evidence and signed/credential-bearing sources cannot be public facts
+PASS: Generated SQL is transactional, validates identity and refuses conflicting updates
+PASS: Apostrophes and backslashes remain data inside one escaped JSON literal
+
+8 feature-import checks passed; no network or database writes.
+PASS: test-stylist-feature-import.mjs (exit: 0)
+
+RUN: test-product-specifications.mjs | Tasks 20,22,24,25
+PASS: Every saved generated specification satisfies category and identity rules
+PASS: Wrong-product, stale identity, malformed provenance and invalid feature data fail closed
+PASS: Supplier-verified facts take precedence over synthetic fields
+PASS: Synthetic feature benefits remain explicitly synthetic and unknown never becomes absence
+PASS: Product questions and care use the same stored specifications as product pages
+
+5 product-specification checks passed.
+PASS: test-product-specifications.mjs (exit: 0)
+
+RUN: test-stylist-telemetry.mjs | Tasks 18,23,24,25
+PASS: Telemetry is opt-in and performs no database writes when disabled
+PASS: Cross-origin telemetry is rejected
+PASS: Requests without a usable origin are rejected
+PASS: Unsupported content types are rejected
+PASS: Raw messages, prices, and purchase events cannot enter the telemetry schema
+PASS: Batches cannot mix session IDs
+PASS: Oversized telemetry is rejected before database access
+PASS: Missing privileged server configuration fails without exposing credentials
+
+8 telemetry contract checks passed; no network calls.
+PASS: test-stylist-telemetry.mjs (exit: 0)
+
+RUN: test-conversation-integration.mjs | Tasks 9,10,12,13,16,17,18,19,20,21,22,23,24,25
+PASS: New searches do not require size or budget
+PASS: A card supplies the exact reference and bypasses AI interpretation
+PASS: Shared restrictions survive shortcuts without inheriting dress-only colour
+PASS: An ambiguous cross-sell stores the unfinished bag request
+PASS: The second-product answer resumes that cross-sell instead of searching for dresses
+PASS: Cancel restores the state before the pending request
+PASS: An unrelated turn does not delete a pending question
+PASS: Continuation without a matching pending request is rejected
+PASS: Compound cheaper-and-blue keeps the saved maximum
+PASS: After bag results the context refers to bags
+PASS: Empty results clear stale products without clearing the preference scopes
+PASS: A different page product does not inherit an old item's budget or colour
+PASS: Opening an already-recommended product preserves applicable item restrictions
+PASS: Invented shortcut IDs cannot choose an unrelated product
+PASS: A changed product reference requires refreshed context
+PASS: Unsupported shared restrictions remain blocking after a category change
+PASS: Suggestions use real stored cross-sell labels, not invented mappings
+PASS: Response validation rejects an over-budget product
+PASS: No-match does not become a technical error or contain products
+PASS: History is bounded and Reset creates an empty conversation
+PASS: A catalogue retry reuses the validated interpretation
+PASS: Duplicate in-flight requests coalesce
+PASS: A request ID cannot be reused for different input
+PASS: Expired retries do not silently make a new model call
+PASS: An interpretation failure can be manually retried, never automatically
+
+25 conversation-integration checks passed.
+PASS: test-conversation-integration.mjs (exit: 0)
+
+RUN: test-shopping-presentation.mjs | Tasks 9,13,14,15,16,18,19,20,21,22,24,25
+PASS: A single exact product uses its real name and price in the message
+PASS: No budget and size stay unknown instead of becoming a questionnaire
+PASS: Exact products and softer context alternatives are separate
+PASS: Partial-only results are alternatives, not exact matches
+PASS: A missing context attribute is labelled unverified, not invented
+PASS: A verified image source is mapped by exact product ID
+PASS: Storage keys use the catalogue-authorised product image route
+PASS: Image responses accept only local photos or stable product image routes
+PASS: A response cannot attach another product's image route
+PASS: External, traversal, query and SVG image paths are rejected
+PASS: Only a recognised, unambiguous stored cross-sell target is offered
+PASS: An optional occasion question appears alongside products without pending state
+PASS: The optional question enters history and does not overwrite preferences
+PASS: A recent occasion question is not repeatedly appended
+PASS: A missing requested colour does not silently become another colour
+PASS: Explicit colour preview returns labelled alternatives without mutating scopes
+PASS: The browser rejects an unrequested colour preview
+PASS: A shared required colour is not bypassed by the preview flag
+PASS: Preview still enforces maximum including zero and minimum price
+PASS: Preview keeps the requested size and rejects invalid stock
+PASS: Preview preserves colour exclusions including missing colours
+PASS: Preview never relaxes material or item category
+PASS: Unsupported requirements remain unverified and blocking
+PASS: Pending questions cannot be bypassed by colour-preview shortcuts
+PASS: Response checks reject weakened alternative size, price or material filters
+PASS: Response checks reject duplicate IDs across result sections
+PASS: Alternative cards must explicitly disclose their differences
+PASS: Conversation references follow displayed exact-then-alternative order
+PASS: Technical or blocking results cannot contain an alternatives list
+PASS: No photo is a valid result, not a fabricated category photograph
+PASS: A shared context requirement is not relaxed into an alternative
+PASS: The colour preview also retains shared context requirements
+
+32 shopping-presentation checks passed.
+PASS: test-shopping-presentation.mjs (exit: 0)
+
+RUN: test-friendly-shopping-message.mjs | Tasks 15,18,19,20,21,22,24,25
+PASS: Multiple products get paragraphs with the real displayed price range
+PASS: Unknown budget and size are not invented or requested
+PASS: A single product keeps its exact name and price
+PASS: A supplied inclusive limit and listed size can be described
+PASS: Wording does not assert a price or size condition the cards do not meet
+PASS: Cross-sell names the actual reference without inventing styling claims
+PASS: Cheaper wording uses a verified reference and does not change it into a budget
+PASS: Unverified alternative details are not called exact matches
+PASS: Colour previews preserve the original colour request
+PASS: No-match keeps the real reason and offers the existing preview only when eligible
+PASS: Necessary questions are preserved and unsupported details are not a stock claim
+PASS: Formatting changes neither product data nor saved preferences
+
+12 friendly-shopping-message checks passed.
+PASS: test-friendly-shopping-message.mjs (exit: 0)
+
+SCRIPT SUMMARY
+PASS: test-preference-validation.ts
+PASS: test-recommendation-contract.ts
+PASS: test-grounded-recommendation.ts
+PASS: test-validation-search.mjs
+PASS: test-guided-follow-ups.mjs
+PASS: test-cross-sell.mjs
+PASS: test-cross-sell-client.mjs
+PASS: test-upsell.mjs
+PASS: test-upsell-client.mjs
+PASS: test-chat-request.mjs
+PASS: test-optional-discovery.mjs
+PASS: test-card-actions.mjs
+PASS: test-cheaper-search.mjs
+PASS: test-viewed-product.mjs
+PASS: test-conversation-foundation.mjs
+PASS: test-conversation-plan.mjs
+PASS: test-conversation-search.mjs
+PASS: test-plan-evidence.mjs
+PASS: test-plan-recovery.mjs
+PASS: test-conversation-answers.mjs
+PASS: test-conversation-production.mjs
+PASS: test-stylist-commerce.mjs
+PASS: test-stylist-feature-import.mjs
+PASS: test-product-specifications.mjs
+PASS: test-stylist-telemetry.mjs
+PASS: test-conversation-integration.mjs
+PASS: test-shopping-presentation.mjs
+PASS: test-friendly-shopping-message.mjs
+
+28/28 test scripts completed successfully.
+Finished (UTC): 2026-10-17T03:26:11.638Z
+Not covered by this run: live stock, browser journeys, security audit, acceptance testing.

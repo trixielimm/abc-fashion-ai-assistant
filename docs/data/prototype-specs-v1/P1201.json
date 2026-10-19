@@ -1,0 +1,54 @@
+{
+  "product_id": "P1201",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:01.484Z",
+  "identity_snapshot": {
+    "product_id": "P1201",
+    "product_name": "Lavender Sling Bag",
+    "category": "Bags",
+    "subcategory": "Crossbody",
+    "product_type": "Sling Bag",
+    "gender": "Women",
+    "colour": "Lavender",
+    "material": "Faux Leather",
+    "fit": "Standard",
+    "style": "Relaxed",
+    "occasion": "Work",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1201",
+    "description": "Lavender Sling Bag in faux leather with a relaxed standard shape for Work; a compact hands-free design with a softly curved profile.",
+    "construction_details": [
+      "Smooth faux-leather panels with piped curved seams",
+      "Adjustable sling strap with slider hardware",
+      "Top zip opening with folded edge binding"
+    ],
+    "care_instructions": "Wipe clean with a soft damp cloth and dry flat; avoid solvents, heat and prolonged contact with light-coloured garments.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": true,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": 1.4,
+    "use_cases": [
+      "Work",
+      "Travel"
+    ],
+    "closure": "zip",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": {
+      "width": 22,
+      "height": 15,
+      "depth": 6
+    },
+    "strap_drop_cm": 70,
+    "compartments": 2,
+    "sole_material": null,
+    "hardware_finish": "Pale gold-tone"
+  },
+  "content_sha256": "595a9106b137888295f768a03d06a34b0901a53a1526b88463a70b2707041769"
+}

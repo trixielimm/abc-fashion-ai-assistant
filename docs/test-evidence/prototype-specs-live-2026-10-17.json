@@ -1,0 +1,946 @@
+{
+  "started": "2026-10-17T03:26:55.636Z",
+  "base": "http://localhost:3102",
+  "checks": [
+    {
+      "name": "All 316 public products expose valid, matching specifications",
+      "pass": true
+    },
+    {
+      "name": "Original names, descriptions, materials, stock, images, availability and prices unchanged",
+      "pass": true
+    },
+    {
+      "message": "Does this dress have pockets?",
+      "http": 200,
+      "elapsed_ms": 3058,
+      "reply": {
+        "status": "answered",
+        "action": "none",
+        "message": "Navy Maxi Dress\nPockets: No",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "Navy Maxi Dress — catalogue details",
+            "url": "/products/P1178"
+          }
+        ],
+        "answer_product_ids": [
+          "P1178"
+        ],
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "pass": true
+    },
+    {
+      "message": "How should I wash this dress?",
+      "http": 200,
+      "elapsed_ms": 2858,
+      "reply": {
+        "status": "answered",
+        "action": "none",
+        "message": "Navy Maxi Dress\nCare instructions: Cold gentle machine wash; line dry away from direct sunlight and cool iron on the reverse.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "Navy Maxi Dress — catalogue details",
+            "url": "/products/P1178"
+          }
+        ],
+        "answer_product_ids": [
+          "P1178"
+        ],
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "pass": true
+    },
+    {
+      "message": "Compare a replacement with pockets under $150",
+      "http": 200,
+      "elapsed_ms": 5671,
+      "reply": {
+        "status": "matches",
+        "action": "upsell",
+        "message": "I've found 2 replacements with demonstrated benefits to compare.\n\nEach of these options is A$120.00. The selection includes maxi dress and mini dress options. I've kept this selection within your A$150.00 per-item limit.\n\nEach card explains the benefit, price difference and trade-offs. A higher price alone doesn't establish better quality, and choosing an alternative won't automatically remove the original from your cart.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1254",
+            "product_name": "Burgundy Maxi Dress",
+            "price_aud": 120,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Casual",
+            "colour": "Burgundy",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "explanation": "Optional replacement, A$25.00 more. Benefits: Pockets. Trade-offs: Documented use cases not preserved: Beach Wedding, Evening.",
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1254/image",
+            "value_comparison": {
+              "policy_version": "stylist-commerce-v1",
+              "primary_product_id": "P1178",
+              "primary_price_aud": 95,
+              "extra_cost_aud": 25,
+              "benefits": [
+                {
+                  "feature_key": "pockets",
+                  "label": "Pockets",
+                  "evidence_kind": "synthetic",
+                  "before": false,
+                  "after": true,
+                  "source_references": [
+                    "prototype:prototype-specs-v1/P1178",
+                    "prototype:prototype-specs-v1/P1254"
+                  ]
+                }
+              ],
+              "context_benefits": [],
+              "tradeoffs": [
+                "Documented use cases not preserved: Beach Wedding, Evening."
+              ],
+              "kind": "upgrade"
+            }
+          },
+          {
+            "product_id": "P1132",
+            "product_name": "Sage Mini Dress",
+            "price_aud": 120,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Mini Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Sage",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "explanation": "Optional replacement, A$25.00 more. Benefits: Pockets. Trade-offs: The alternative lacks lining, recorded for the original. The alternative lacks machine washable, recorded for the original. Documented use cases not preserved: Beach Wedding, Evening.",
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1132/image",
+            "value_comparison": {
+              "policy_version": "stylist-commerce-v1",
+              "primary_product_id": "P1178",
+              "primary_price_aud": 95,
+              "extra_cost_aud": 25,
+              "benefits": [
+                {
+                  "feature_key": "pockets",
+                  "label": "Pockets",
+                  "evidence_kind": "synthetic",
+                  "before": false,
+                  "after": true,
+                  "source_references": [
+                    "prototype:prototype-specs-v1/P1178",
+                    "prototype:prototype-specs-v1/P1132"
+                  ]
+                }
+              ],
+              "context_benefits": [],
+              "tradeoffs": [
+                "The alternative lacks lining, recorded for the original.",
+                "The alternative lacks machine washable, recorded for the original.",
+                "Documented use cases not preserved: Beach Wedding, Evening."
+              ],
+              "kind": "upgrade"
+            }
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [
+            "pockets"
+          ],
+          "required_features": [
+            "pockets"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": "P1178"
+      },
+      "pass": true
+    },
+    {
+      "message": "Pockets would be useful",
+      "http": 200,
+      "elapsed_ms": 2533,
+      "reply": {
+        "status": "matches",
+        "action": "upsell",
+        "message": "I've found 2 replacements with demonstrated benefits to compare.\n\nEach of these options is A$120.00. The selection includes maxi dress and mini dress options. I've kept this selection within your A$150.00 per-item limit.\n\nEach card explains the benefit, price difference and trade-offs. A higher price alone doesn't establish better quality, and choosing an alternative won't automatically remove the original from your cart.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1254",
+            "product_name": "Burgundy Maxi Dress",
+            "price_aud": 120,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Casual",
+            "colour": "Burgundy",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "explanation": "Optional replacement, A$25.00 more. Benefits: Pockets. Trade-offs: Documented use cases not preserved: Beach Wedding, Evening.",
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1254/image",
+            "value_comparison": {
+              "policy_version": "stylist-commerce-v1",
+              "primary_product_id": "P1178",
+              "primary_price_aud": 95,
+              "extra_cost_aud": 25,
+              "benefits": [
+                {
+                  "feature_key": "pockets",
+                  "label": "Pockets",
+                  "evidence_kind": "synthetic",
+                  "before": false,
+                  "after": true,
+                  "source_references": [
+                    "prototype:prototype-specs-v1/P1178",
+                    "prototype:prototype-specs-v1/P1254"
+                  ]
+                }
+              ],
+              "context_benefits": [],
+              "tradeoffs": [
+                "Documented use cases not preserved: Beach Wedding, Evening."
+              ],
+              "kind": "upgrade"
+            }
+          },
+          {
+            "product_id": "P1132",
+            "product_name": "Sage Mini Dress",
+            "price_aud": 120,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Mini Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Sage",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "explanation": "Optional replacement, A$25.00 more. Benefits: Pockets. Trade-offs: The alternative lacks lining, recorded for the original. The alternative lacks machine washable, recorded for the original. Documented use cases not preserved: Beach Wedding, Evening.",
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1132/image",
+            "value_comparison": {
+              "policy_version": "stylist-commerce-v1",
+              "primary_product_id": "P1178",
+              "primary_price_aud": 95,
+              "extra_cost_aud": 25,
+              "benefits": [
+                {
+                  "feature_key": "pockets",
+                  "label": "Pockets",
+                  "evidence_kind": "synthetic",
+                  "before": false,
+                  "after": true,
+                  "source_references": [
+                    "prototype:prototype-specs-v1/P1178",
+                    "prototype:prototype-specs-v1/P1132"
+                  ]
+                }
+              ],
+              "context_benefits": [],
+              "tradeoffs": [
+                "The alternative lacks lining, recorded for the original.",
+                "The alternative lacks machine washable, recorded for the original.",
+                "Documented use cases not preserved: Beach Wedding, Evening."
+              ],
+              "kind": "upgrade"
+            }
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [
+            "pockets"
+          ],
+          "required_features": [
+            "pockets"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": "P1178"
+      },
+      "pass": true
+    },
+    {
+      "message": "Keep Navy Maxi Dress for my outfit",
+      "http": 200,
+      "elapsed_ms": 4,
+      "reply": {
+        "status": "no_action",
+        "action": "none",
+        "message": "Updated your outfit choices and styling preferences. Your cart is unchanged.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [
+            {
+              "product_id": "P1178",
+              "product_name": "Navy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 95,
+              "ownership": "selected"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [
+            "pockets"
+          ],
+          "required_features": [
+            "pockets"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "pass": true
+    },
+    {
+      "message": "Find a bag with a zip closure to go with my kept dress under $100",
+      "http": 200,
+      "elapsed_ms": 5944,
+      "reply": {
+        "status": "matches",
+        "action": "cross_sell",
+        "message": "To go with Navy Maxi Dress, I've found 3 bag options for you to consider.\n\nThese options range from A$60.00 to A$100.00. The selection includes sling bag and crossbody bag options. I've kept this selection within your A$100.00 per-item limit.\n\nI've also included alternatives separately below. Some requested details differ or can't be verified; the cards explain those differences.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 100,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Bags",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 100,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1250",
+            "product_name": "Blue Sling Bag",
+            "price_aud": 100,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Sling Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Blue",
+            "sizes_available": [
+              "One Size"
+            ],
+            "explanation": "It shares the recorded Beach Wedding occasion with Navy Maxi Dress. The season labels are compatible with Navy Maxi Dress; this does not verify weather performance. Its Bohemian style differs from Navy Maxi Dress's Minimalist label. This is a catalogue-based styling suggestion, not a guarantee of outfit compatibility.",
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1250/image",
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [
+                "P1178"
+              ],
+              "reasons": [
+                "It shares the recorded Beach Wedding occasion with Navy Maxi Dress.",
+                "The season labels are compatible with Navy Maxi Dress; this does not verify weather performance.",
+                "Styling suggestion: its Blue colour gives a coordinated palette with Navy Maxi Dress."
+              ],
+              "limitations": [
+                "Its Bohemian style differs from Navy Maxi Dress's Minimalist label."
+              ],
+              "level": "catalogue_supported"
+            }
+          },
+          {
+            "product_id": "P1182",
+            "product_name": "Gold Crossbody Bag",
+            "price_aud": 60,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Crossbody Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Gold",
+            "sizes_available": [
+              "One Size"
+            ],
+            "explanation": "It shares the recorded Beach Wedding occasion with Navy Maxi Dress. The season labels are compatible with Navy Maxi Dress; this does not verify weather performance. Its Streetwear style differs from Navy Maxi Dress's Minimalist label. This is a catalogue-based styling suggestion, not a guarantee of outfit compatibility.",
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1182/image",
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [
+                "P1178"
+              ],
+              "reasons": [
+                "It shares the recorded Beach Wedding occasion with Navy Maxi Dress.",
+                "The season labels are compatible with Navy Maxi Dress; this does not verify weather performance."
+              ],
+              "limitations": [
+                "Its Streetwear style differs from Navy Maxi Dress's Minimalist label."
+              ],
+              "level": "catalogue_supported"
+            }
+          },
+          {
+            "product_id": "P1190",
+            "product_name": "Black Crossbody Bag",
+            "price_aud": 75,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Crossbody Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Black",
+            "sizes_available": [
+              "One Size"
+            ],
+            "explanation": "Its Minimalist style coordinates with the recorded style of Navy Maxi Dress. The season labels are compatible with Navy Maxi Dress; this does not verify weather performance. The recorded occasion differs from Navy Maxi Dress. This is a catalogue-based styling suggestion, not a guarantee of outfit compatibility.",
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1190/image",
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [
+                "P1178"
+              ],
+              "reasons": [
+                "Its Minimalist style coordinates with the recorded style of Navy Maxi Dress.",
+                "The season labels are compatible with Navy Maxi Dress; this does not verify weather performance.",
+                "Styling suggestion: its Black colour can act as a neutral alongside Navy Maxi Dress."
+              ],
+              "limitations": [
+                "The recorded occasion differs from Navy Maxi Dress."
+              ],
+              "level": "catalogue_supported"
+            }
+          }
+        ],
+        "alternatives": [
+          {
+            "product_id": "P1237",
+            "product_name": "Blue Crossbody Bag",
+            "price_aud": 100,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Crossbody Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Blue",
+            "sizes_available": [
+              "One Size"
+            ],
+            "explanation": "The season labels are compatible with Navy Maxi Dress; this does not verify weather performance. Styling suggestion: its Blue colour gives a coordinated palette with Navy Maxi Dress. The recorded occasion differs from Navy Maxi Dress. This is a catalogue-based styling suggestion, not a guarantee of outfit compatibility.",
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1237/image",
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [
+                "P1178"
+              ],
+              "reasons": [
+                "The season labels are compatible with Navy Maxi Dress; this does not verify weather performance.",
+                "Styling suggestion: its Blue colour gives a coordinated palette with Navy Maxi Dress."
+              ],
+              "limitations": [
+                "The recorded occasion differs from Navy Maxi Dress.",
+                "Its Bohemian style differs from Navy Maxi Dress's Minimalist label."
+              ],
+              "level": "limited"
+            },
+            "differences": [
+              "Outfit compatibility has limited catalogue evidence; this is an available alternative."
+            ]
+          }
+        ],
+        "alternatives_preferences": {
+          "gender": null,
+          "category": "Bags",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 100,
+          "brand_line": null
+        },
+        "alternative_kind": "context_difference",
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [
+            {
+              "product_id": "P1178",
+              "product_name": "Navy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 95,
+              "ownership": "selected"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [
+            "zip_closure"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "pass": true
+    },
+    {
+      "message": "What is the capacity of the first bag?",
+      "http": 200,
+      "elapsed_ms": 2312,
+      "reply": {
+        "status": "answered",
+        "action": "none",
+        "message": "Blue Sling Bag\nCapacity: 1.6 L",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 100,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "Blue Sling Bag — catalogue details",
+            "url": "/products/P1250"
+          }
+        ],
+        "answer_product_ids": [
+          "P1250"
+        ],
+        "styling": {
+          "outfit": [
+            {
+              "product_id": "P1178",
+              "product_name": "Navy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 95,
+              "ownership": "selected"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [
+            "zip_closure"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "pass": true
+    },
+    {
+      "name": "Production product page contains specification details, care and prototype disclosure",
+      "pass": true
+    }
+  ],
+  "success": true,
+  "finished": "2026-10-17T03:27:21.073Z"
+}

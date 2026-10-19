@@ -1,0 +1,51 @@
+{
+  "product_id": "P1274",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:11.569Z",
+  "identity_snapshot": {
+    "product_id": "P1274",
+    "product_name": "Grey Cropped Jacket",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Cropped Jacket",
+    "gender": "Women",
+    "colour": "Grey",
+    "material": "Linen Blend",
+    "fit": "Oversized",
+    "style": "Relaxed",
+    "occasion": "Beach Wedding",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1274",
+    "description": "Relaxed grey linen blend cropped jacket with an oversized shape and lightweight tailored structure, suited to airy beach wedding layering.",
+    "construction_details": [
+      "Cropped hemline",
+      "Dropped shoulders",
+      "Open collar",
+      "Front patch pockets",
+      "Button-front fastening"
+    ],
+    "care_instructions": "Hand wash gently in cool water; reshape and dry flat. Cool iron on the reverse side.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Beach Wedding"
+    ],
+    "closure": "button",
+    "garment_length_cm": 48,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "a2b2029591825e9cb58e4558f0b507ae5358ae6c5a892640cdf6d4c1f98e1f3b"
+}

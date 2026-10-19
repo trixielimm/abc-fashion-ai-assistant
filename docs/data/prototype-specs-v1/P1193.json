@@ -1,0 +1,49 @@
+{
+  "product_id": "P1193",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:54.426Z",
+  "identity_snapshot": {
+    "product_id": "P1193",
+    "product_name": "Brown Lightweight Scarf",
+    "category": "Accessories",
+    "subcategory": "Scarves",
+    "product_type": "Lightweight Scarf",
+    "gender": "Men",
+    "colour": "Brown",
+    "material": "Silk Blend",
+    "fit": "Standard",
+    "style": "Minimalist",
+    "occasion": "Party",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1193",
+    "description": "Minimalist brown lightweight scarf in a smooth silk blend, finished for polished party styling.",
+    "construction_details": [
+      "Lightweight woven construction with a fluid drape",
+      "Narrow rolled hems at the short ends",
+      "Subtle tonal edging for a clean finish"
+    ],
+    "care_instructions": "Hand wash gently in cool water with mild detergent; reshape flat and air dry away from direct heat.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": null,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Party"
+    ],
+    "closure": "none",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "92501bd1d14cd91c855d0fcfdf0c07d4d37141f2c5bb51d4d53155774261f44e"
+}

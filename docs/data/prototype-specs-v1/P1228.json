@@ -1,0 +1,51 @@
+{
+  "product_id": "P1228",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:33.946Z",
+  "identity_snapshot": {
+    "product_id": "P1228",
+    "product_name": "Burgundy Satin Camisole",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "product_type": "Satin Camisole",
+    "gender": "Women",
+    "colour": "Burgundy",
+    "material": "Satin",
+    "fit": "Relaxed",
+    "style": "Contemporary",
+    "occasion": "Beach Wedding",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1228",
+    "description": "Burgundy relaxed satin camisole with a contemporary drape, delicate shoulder straps and an elegant beach-wedding finish.",
+    "construction_details": [
+      "Bias-cut front for fluid drape",
+      "Fine shoulder straps with clean binding",
+      "Straight neckline with narrow facing",
+      "Curved hem with discreet edge stitching"
+    ],
+    "care_instructions": "Hand wash cold separately; do not wring, and dry flat away from sunlight.",
+    "lining": false,
+    "pockets": false,
+    "adjustable_strap": true,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Beach Wedding",
+      "Evening"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": 57,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "af03c62c8f11349735de1444a1376977f86c40e9b3015ae6a392cc492b7d7ffe"
+}

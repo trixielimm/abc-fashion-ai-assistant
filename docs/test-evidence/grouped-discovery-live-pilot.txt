@@ -1,0 +1,6 @@
+
+> abc-fashion-ai-assistant@0.1.0 test:scenarios
+> node --env-file=.env.local --conditions=react-server --import tsx scripts/test-customer-scenarios.mjs
+
+Blocked: B5 run 1 (1/2 turns) T2: Request timed out.
+{"counts":{"Pass":0,"Fail":0,"Blocked":1,"Feature gap":0},"evidence":"/Users/beatricelim/Documents/Session%202%202026/COMP3850%20PACE/abc-fashion-ai-assistant/docs/test-evidence/customer-scenarios-2026-10-17T11-51-24-854Z/"}

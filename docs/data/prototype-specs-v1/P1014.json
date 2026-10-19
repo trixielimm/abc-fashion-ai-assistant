@@ -1,0 +1,50 @@
+{
+  "product_id": "P1014",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:16.427Z",
+  "identity_snapshot": {
+    "product_id": "P1014",
+    "product_name": "White Wrap Dress",
+    "category": "Clothing",
+    "subcategory": "Dresses",
+    "product_type": "Wrap Dress",
+    "gender": "Women",
+    "colour": "White",
+    "material": "Viscose",
+    "fit": "Flowy",
+    "style": "Romantic",
+    "occasion": "Wedding Guest",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1014",
+    "description": "White Wrap Dress in viscose with a romantic, flowy shape for wedding guest styling.",
+    "construction_details": [
+      "Wrap-front panels with internal waist tie",
+      "V-neckline and softly gathered shoulder seams",
+      "Narrow rolled hem at the skirt edge"
+    ],
+    "care_instructions": "Hand wash cool with mild detergent; do not wring, and dry flat away from direct heat.",
+    "lining": true,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Wedding Guest",
+      "Evening"
+    ],
+    "closure": "tie",
+    "garment_length_cm": 126,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "d78b4b36da5764c517c1d563188cd3d152087b91f5db5776f029d87b2b345be7"
+}

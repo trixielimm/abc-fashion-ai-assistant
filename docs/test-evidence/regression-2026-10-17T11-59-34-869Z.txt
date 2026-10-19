@@ -1,0 +1,87 @@
+ABC Fashion - offline regression run
+Started (UTC): 2026-10-17T11:59:34.869Z
+Node: v24.14.0; platform: darwin
+Scope: listed offline test scripts only. No live/API/browser tests.
+
+RUN: test-grouped-discovery-memory.mjs | Tasks grouped-discovery-memory
+PASS: A broad two-item request shows three dresses and three shoes with optional questions
+PASS: Broad discovery includes different recorded types and colours without inventing constraints
+PASS: Every displayed dress/shoe combination meets the shared limit
+PASS: A tighter budget constrains the highest priced displayed combination
+PASS: A duplicated dress colour cannot become a colour requirement for the shoes
+PASS: Keeping both requested item types during a budget edit does not select ambiguous SKUs
+PASS: Sparse inventory returns actual counts rather than padding to three
+PASS: Protocol rejects a forged range, over-budget choice or product assigned to the wrong group
+PASS: Third shoes resolves within its own group, not the global card position
+PASS: Three understood customer prompts and replies are carried with cumulative requirements
+PASS: Repeated unclear intentions cannot evict the last three understood prompts or overwrite state
+PASS: A known product from the first of three result sets remains answerable by exact name
+PASS: An unclear reply is not allowed to mutate committed memory at the client boundary
+PASS: New chat clears the history, previous product sets and saved outfit request
+14 grouped-discovery and memory checks passed.
+PASS: test-grouped-discovery-memory.mjs (exit: 0)
+
+RUN: test-outfit-budget.mjs | Tasks shared-outfit-budget
+PASS: Exact customer request returns a complete formal set at the inclusive A$400 boundary
+PASS: Individually affordable items whose sum exceeds the total are not recommended
+PASS: A feasible cheap candidate beyond the ordinary top four is still considered
+PASS: Three requested components must all fit the same total
+PASS: Missing shoe stock cannot be presented as a complete outfit
+PASS: Each component retains its own colour and size
+PASS: Budget refinement keeps both roles and the formal occasion
+PASS: A new single-item search clears the combined request
+PASS: Restoring the budget after no match is a refinement, not a pending continuation
+/Users/beatricelim/Documents/Session 2 2026/COMP3850 PACE/abc-fashion-ai-assistant/lib/stylist/conversationPlan.ts:297
+    if (touched.has(key)) throw new PlanValidationError("Use one change per field per turn.");
+                                ^
+
+PlanValidationError: Use one change per field per turn.
+    at checkConversationPlan (/Users/beatricelim/Documents/Session 2 2026/COMP3850 PACE/abc-fashion-ai-assistant/lib/stylist/conversationPlan.ts:297:33)
+    at finishConversationTurn (/Users/beatricelim/Documents/Session 2 2026/COMP3850 PACE/abc-fashion-ai-assistant/lib/stylist/conversationTurn.ts:156:3)
+    at run (file:///Users/beatricelim/Documents/Session%202%202026/COMP3850%20PACE/abc-fashion-ai-assistant/scripts/test-outfit-budget.mjs:25:17)
+    at file:///Users/beatricelim/Documents/Session%202%202026/COMP3850%20PACE/abc-fashion-ai-assistant/scripts/test-outfit-budget.mjs:95:17
+    at check (file:///Users/beatricelim/Documents/Session%202%202026/COMP3850%20PACE/abc-fashion-ai-assistant/scripts/test-outfit-budget.mjs:29:30)
+    at file:///Users/beatricelim/Documents/Session%202%202026/COMP3850%20PACE/abc-fashion-ai-assistant/scripts/test-outfit-budget.mjs:93:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.14.0
+FAIL: test-outfit-budget.mjs (exit: 1)
+
+SCRIPT SUMMARY
+PASS: test-grouped-discovery-memory.mjs
+FAIL: test-outfit-budget.mjs
+NOT RUN: test-customer-scenario-regressions.mjs
+NOT RUN: test-preference-validation.ts
+NOT RUN: test-recommendation-contract.ts
+NOT RUN: test-grounded-recommendation.ts
+NOT RUN: test-validation-search.mjs
+NOT RUN: test-guided-follow-ups.mjs
+NOT RUN: test-cross-sell.mjs
+NOT RUN: test-cross-sell-client.mjs
+NOT RUN: test-upsell.mjs
+NOT RUN: test-upsell-client.mjs
+NOT RUN: test-chat-request.mjs
+NOT RUN: test-optional-discovery.mjs
+NOT RUN: test-card-actions.mjs
+NOT RUN: test-cheaper-search.mjs
+NOT RUN: test-viewed-product.mjs
+NOT RUN: test-conversation-foundation.mjs
+NOT RUN: test-conversation-plan.mjs
+NOT RUN: test-conversation-search.mjs
+NOT RUN: test-plan-evidence.mjs
+NOT RUN: test-plan-recovery.mjs
+NOT RUN: test-conversation-answers.mjs
+NOT RUN: test-conversation-production.mjs
+NOT RUN: test-stylist-commerce.mjs
+NOT RUN: test-stylist-feature-import.mjs
+NOT RUN: test-product-specifications.mjs
+NOT RUN: test-stylist-telemetry.mjs
+NOT RUN: test-conversation-integration.mjs
+NOT RUN: test-shopping-presentation.mjs
+NOT RUN: test-friendly-shopping-message.mjs
+
+1/31 test scripts completed successfully.
+Finished (UTC): 2026-10-17T11:59:35.231Z
+Not covered by this run: live stock, browser journeys, security audit, acceptance testing.

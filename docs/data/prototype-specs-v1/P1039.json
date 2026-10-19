@@ -1,0 +1,51 @@
+{
+  "product_id": "P1039",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:26.396Z",
+  "identity_snapshot": {
+    "product_id": "P1039",
+    "product_name": "Brown Midi Skirt",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Midi Skirt",
+    "gender": "Women",
+    "colour": "Brown",
+    "material": "Cotton",
+    "fit": "Slim",
+    "style": "Classic",
+    "occasion": "Work",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1039",
+    "description": "Classic brown midi skirt in cotton with a slim fit, clean vertical lines and a refined length suited to work styling.",
+    "construction_details": [
+      "Contoured waistband",
+      "Concealed back zip fastening",
+      "Back walking vent",
+      "Side-seam pockets and single back shaping seam"
+    ],
+    "care_instructions": "Cold hand wash separately; reshape while damp and line dry in shade.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Work",
+      "Brunch"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 78,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "b2fa036cd65262f4777a6ad03e27cacc0869802cc5a4cda3e4c7cf350736723c"
+}

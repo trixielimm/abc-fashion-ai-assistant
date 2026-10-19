@@ -1,0 +1,52 @@
+{
+  "product_id": "P1254",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:52.741Z",
+  "identity_snapshot": {
+    "product_id": "P1254",
+    "product_name": "Burgundy Maxi Dress",
+    "category": "Clothing",
+    "subcategory": "Dresses",
+    "product_type": "Maxi Dress",
+    "gender": "Women",
+    "colour": "Burgundy",
+    "material": "Polyester",
+    "fit": "Flowy",
+    "style": "Relaxed",
+    "occasion": "Brunch",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1254",
+    "description": "Flowy burgundy polyester maxi dress with an easy drape and a softly gathered waist, designed for relaxed brunch dressing.",
+    "construction_details": [
+      "Round neckline",
+      "Short flutter sleeves",
+      "Gathered waist seam",
+      "Side-seam pockets",
+      "Full-length flowing skirt"
+    ],
+    "care_instructions": "Machine wash cold on a gentle cycle. Reshape while damp and dry away from direct heat.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Brunch",
+      "Weekend"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": 143,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "b98f4cb617a50d7dcdb770cac9ee171edf834d3af8ea16e7ea9774122d8530ac"
+}

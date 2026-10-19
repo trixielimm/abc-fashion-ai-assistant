@@ -1,0 +1,279 @@
+ABC Fashion - offline regression run
+Started (UTC): 2026-10-19T05:31:05.754Z
+Node: v24.14.0; platform: darwin
+Scope: listed offline test scripts only. No live/API/browser tests.
+
+RUN: test-stylist-remediation.mjs | Tasks stylist-remediation
+PASS: A trailing show-options phrase retains a complete mens shirt brief and canonical medium size
+PASS: Jacket and flats umbrellas use the same catalogue family in search and reply validation
+PASS: Named blockers carry exact values and a real shared conflict never disappears
+PASS: An explicit group relaxation removes only local fabric, waist and length requirements
+PASS: Provisional browsing needs explicit permission, retains unknowns and excludes known violations
+PASS: Replacing a stuck task keeps the saved look and explicit global constraints
+PASS: Compound name/number edits resume the validated draft without dropping its exclusions
+PASS: A saved purchase uses current prices and a one-component addition cannot overspend
+PASS: Keeping a named dress and requesting only shoes cannot rebuild the whole outfit
+PASS: An explicit any-fit and any-colour refinement clears the local restrictions
+PASS: Expired recovery controls cannot mutate a later task
+PASS: Cancelling a pending outfit change restores task fields while keeping independently saved pieces
+PASS: Work outfits have no event picker and old request shapes remain valid
+PASS: A cocktail wedding is a supported event context rather than an unverified product feature
+PASS: A collection answer followed by a volunteered routine does not repeat the collection question
+PASS: The task rollback flag keeps legacy turns and hides new transition behavior
+PASS: Requirement quotation repair uses only explicit literal requirements and rejects invented evidence
+PASS: A scalar removal with null normalizes to the domain clear operation, without weakening other transport checks
+18 stylist remediation state and budget checks passed.
+PASS: test-stylist-remediation.mjs (exit: 0)
+
+RUN: test-conversation-recovery.mjs | Tasks conversation-recovery
+PASS: No size filter clears an invalid size without inventing filter
+PASS: Set size to 12 replaces the size while retaining unrelated constraints
+PASS: Dropping size 999 with a budget correction removes the old size
+PASS: Size parsing does not fabricate labels from prose or execute a negated edit
+PASS: Removed outfit components are not counted as new combined purchases
+PASS: A complete single-dress restatement clears the active group even if the model says refine
+PASS: An actual grouped request still cannot omit shoes or bypass the combined budget
+PASS: Compound both-collections/weekend answers normalize item scope and browse immediately
+PASS: A clear collection answer survives a failed interpretation of its other clauses
+PASS: Detailed saved-dress shoes continuation uses only shoes and A$125 remaining
+PASS: Purchase-budget confirmation plus options is not routed to a pure price answer
+PASS: Owned anchors and selected purchases have different remaining budgets
+PASS: Ambiguous saved dresses are not silently resolved to the first item
+PASS: Exhausted model repair cannot turn task replacement into unverified retrieval
+14 conversation recovery integration checks passed.
+Conversation plan rejected { attempt: 1, type: 'SyntaxError', field: null }
+Conversation plan rejected { attempt: 2, type: 'SyntaxError', field: null }
+PASS: test-conversation-recovery.mjs (exit: 0)
+
+RUN: test-matching-set-budget.mjs | Tasks matching-set-budget
+PASS: The exact prompt immediately searches two groups under one A$500 total
+PASS: The reported model clarification is corrected before execution
+PASS: Mistaking the total for a per-item limit cannot bypass the combined solver
+PASS: Individually affordable pieces above the combined limit return no_match
+PASS: Pairing evidence names the actual jacket and excludes incompatible candidates
+PASS: An owned jacket is still a reference, never an A$800 new purchase
+PASS: The look summary uses the same new-pieces budget when the reference was saved earlier
+PASS: Budget-only refinement retains both requested roles and the jacket after history eviction
+PASS: Missing or ambiguous jacket asks only for the jacket and remembers the set
+PASS: A unique jacket can be resolved among a mixed shortlist
+PASS: Genuine either/or wording is not converted into buying both
+PASS: Compound qualifiers remain with the model and all component constraints are retained
+PASS: A non-shortcut model cannot omit one requested component
+PASS: Response contract rejects an inflated displayed combination
+
+14 matching-set combined-budget checks passed.
+PASS: test-matching-set-budget.mjs (exit: 0)
+
+RUN: test-category-collection-defaults.mjs | Tasks category-collection-defaults
+PASS: The exact dress prompt searches Women immediately with Work and A$200
+PASS: Skirts have the same category default, including tentative choices
+PASS: A repeated complete request overrides ordinary Men's browsing without overwriting that preference
+PASS: The exact legacy checkpoint, Men's no-match, repeated dress request recovers
+PASS: Explicit Men, Unisex and All beat category defaults
+PASS: Budget, more, more dresses and cheaper retain the current default after history eviction
+PASS: More dresses and price edits also preserve an explicit men's dress request
+PASS: Defaults remain item-specific when switching to ambiguous clothing
+PASS: Ambiguous categories and dress compounds never default to Women
+PASS: Broad formal clothing retains collection-first onboarding
+PASS: Global Men's restrictions require clarification and cannot silently change
+PASS: Model category-default evidence is allowed only for the supported requested item
+PASS: No matching stock stays no_match without widening the collection or budget
+PASS: Explicit men's no-match suggestions require a choice and preserve constraints
+PASS: Product questions and external garment mentions do not change collection metadata
+PASS: Earlier sessions migrate, reset clears provenance, and page focus cannot inherit the previous default
+PASS: Retry replay preserves the resolved default
+
+17 category-collection default checks passed.
+PASS: test-category-collection-defaults.mjs (exit: 0)
+
+RUN: test-collection-first.mjs | Tasks collection-first
+PASS: The exact request asks collection first and saves the full clothing brief
+PASS: Every button resumes formal clothing and applies its own collection rules
+PASS: Typed choices, apostrophes and explicit Unisex work
+PASS: Explicit collections in an initial request bypass the question
+PASS: A compound answer retains the old brief and all new restrictions
+PASS: Both with a new budget is unrestricted browsing, not an unanswered collection
+PASS: An owned garment's collection and personal identity do not filter the requested clothes
+PASS: Pure uncertainty asks collection, then at most one more discovery question
+PASS: Skipping or repeated uncertainty browses across collections without looping
+PASS: A deterministic dress shortcut uses the category default and keeps its feature requirement
+PASS: Guessing collection from formal, a name, or a size is rejected
+PASS: Collection survives history eviction and a different clothing category
+PASS: A confirmed choice in an older session is retained across a new search
+PASS: Shared collection restrictions still block a conflicting choice
+PASS: Greetings and policy answers preserve a checkpoint without interrogating the shopper
+PASS: Cancelling clears the suspended clothing request
+PASS: A genuinely different bag request clears the old collection checkpoint
+PASS: Retry replay returns the same checkpoint and rejects altered content
+
+18 collection-first checks passed.
+PASS: test-collection-first.mjs (exit: 0)
+
+RUN: test-product-card-presentation.mjs | Tasks product-card-presentation
+PASS: A lone clothing size still requires an explicit choice
+PASS: Sizes are never transferred between clothing and shoes
+PASS: Unavailable saved sizes do not become a purchase choice or an availability claim
+PASS: One-size goods retain their catalogue spelling and automatic size
+PASS: A size label matches without guessing size conversions
+PASS: Reasons use supported catalogue occasion rather than asserting styling compatibility
+PASS: Price reasons respect a zero cap and the inclusive boundary
+PASS: Short supplied explanations remain intact, including their caveat
+PASS: Long explanations are not cut mid-claim; unknown context produces no invented reason
+PASS: Important dress-code cautions stay visible without repeating the occasion reason
+10 product card presentation checks passed.
+PASS: test-product-card-presentation.mjs (exit: 0)
+
+RUN: test-guided-discovery.mjs | Tasks guided-discovery
+PASS: The screenshot's uncertain request asks one easy question without inventing preferences
+PASS: Everyday discovery asks one routine question, then browsing skips optional inputs
+PASS: Repeated uncertainty moves to inspiration and never repeats a skipped question
+PASS: The two-question limit survives short-history eviction
+PASS: An unspecified occasion is never saved as a fabricated filter
+PASS: Skipping immediately browses, and surprise me does not start a questionnaire
+PASS: Fresh batches do not recycle rejected ideas and exhaustion is honest
+PASS: None of these also skips the current shortlist before discovery has started
+PASS: Discovery honours budgets, exclusions, sizes, features, rejected items and cart items
+PASS: Unknown and conflicting restrictions still block inspiration
+PASS: A blocking discovery requirement can be explicitly removed without losing other limits
+PASS: Explicit feature requirements also filter broad ideas, and cannot be omitted
+PASS: Choosing an item after discovery keeps the earlier budget and exclusions
+PASS: A discovery answer is not a blocking continuation even if the model copies the prior question
+PASS: More like this narrows the item without selecting it or guessing colour and budget
+PASS: Compound uncertainty is interpreted instead of dropping trailing constraints or questions
+PASS: Active combined-budget outfits and pending product questions are not hijacked
+PASS: Pure answers and cancellation retain discovery memory without another discovery question
+PASS: Broad discovery is an explicit search permission, never a global removal of search safeguards
+PASS: Stylist prose removes em dashes, including model questions, without rewriting evidence
+
+20 guided-discovery checks passed.
+PASS: test-guided-discovery.mjs (exit: 0)
+
+RUN: test-search-filters.mjs | Tasks search-filters
+PASS Audited catalogue and narrowing journey match real prototype facts
+PASS OR within facets, AND across facets, AND across required features
+PASS Facet counts exclude their own selection but preserve other requirements
+PASS Counts precede pagination and final page is clamped after stock changes
+PASS Duplicates in size/tag arrays count each product only once
+PASS Size values distinguish shoes from clothing and preserve legacy unscoped links
+PASS Case and whitespace normalize without merging different materials
+PASS False verified facts override synthetic true facts
+PASS Unknown, false and stale specifications do not satisfy feature requirements
+PASS Unknown measurements do not match ranges and zero is an inclusive boundary
+PASS Inactive availability, invalid prices and invalid stock cannot enter counts
+PASS Unknown selected options remain visible at zero instead of broadening results
+PASS Fastening zip aliases the shared feature state and keeps alternative fastening counts
+PASS Unavailable feature sources fail explicitly for feature queries
+PASS URLs round-trip every facet, range, repeated value and page
+PASS Malformed, unbounded and contradictory filters are rejected
+PASS Product response excludes private/raw specification and storage metadata
+17 search-filter checks passed.
+PASS: test-search-filters.mjs (exit: 0)
+
+RUN: test-selected-outfit-review.mjs | Tasks selected-outfit-review
+PASS: Common current-outfit opinions, including the supplied wording, use the review intent
+PASS: Compound requests and product comparisons are not swallowed by the shortcut
+PASS: The review covers selected pieces instead of the newer shortlist or focused product
+PASS: The answer has exactly three structured sections and an accurate combined budget
+PASS: An opinion changes no selection, filters, pending search, cart or shortlist
+PASS: With no selected pieces the assistant asks for selections, never substitutes displayed cards
+PASS: Only one selected piece is explicitly insufficient to judge a combination
+PASS: Already-owned pieces contribute to styling without being charged again
+PASS: Customer-described owned pieces can be reviewed with clear evidence limits
+PASS: A review based entirely on owned descriptions does not invent catalogue IDs
+PASS: Missing or identity-changed catalogue records are disclosed instead of hallucinated
+PASS: Current prices, availability and exceeding the budget appear as considerations
+PASS: Conflicting dress codes are identified without changing the selected pieces
+PASS: The review immediately reflects replacements and removals in the selected outfit
+PASS: Eight selected catalogue pieces are all reviewed and cited
+PASS: An explicit event is review context only and does not become a saved filter
+PASS: Outfit opinions cannot silently select pieces or search for replacements
+PASS: The reply contract rejects shopping results and reviews of unselected IDs
+18 selected outfit review checks passed.
+PASS: test-selected-outfit-review.mjs (exit: 0)
+
+RUN: test-outfit-interface.mjs | Tasks outfit-interface
+PASS: Selected prices total exactly and leave A$15; owned items cost zero
+PASS: Cent arithmetic, exact budget and over-budget amounts stay accurate
+PASS: Missing prices cannot masquerade as a verified total or remaining budget
+PASS: Empty and fully owned outfits leave the whole new-purchase budget
+PASS: The suggested pairing is complete, affordable and favours a long silhouette with heels
+PASS: Suggestions cannot exceed the limit or omit a requested group
+PASS: Catalogue occasion is included on cards without fabrication
+PASS: Black tie refinement keeps both roles, sizes and shared total, excluding minis and loafers
+PASS: Wedding guest excludes cream dresses and loafers while dinner permits loafers
+PASS: A dress code without eligible stock returns no match without relaxing the budget
+PASS: Switching back to any formal event restores the wider shortlist
+PASS: Structured dress-code shortcut cannot swallow trailing constraints
+PASS: Dress-code refinement preserves independent colours and sizes on every component
+PASS: A new unrelated search clears the outfit dress code and combined request
+PASS: Selection and same-role replacement keep accurate prices without double counting
+15 outfit interface checks passed.
+PASS: test-outfit-interface.mjs (exit: 0)
+
+RUN: test-grouped-discovery-memory.mjs | Tasks grouped-discovery-memory
+PASS: Plentiful inventory shows exactly five per group and every combination fits the shared budget
+/Users/salvi/MQ/abc-fashion-ai-assistant/lib/stylist/conversationPlan.ts:466
+      throw new PlanValidationError("The outfit_request must include every explicitly requested component.");
+            ^
+
+PlanValidationError: The outfit_request must include every explicitly requested component.
+    at checkConversationPlan (/Users/salvi/MQ/abc-fashion-ai-assistant/lib/stylist/conversationPlan.ts:466:13)
+    at finishPreparedConversationTurn (/Users/salvi/MQ/abc-fashion-ai-assistant/lib/stylist/conversationTurn.ts:255:3)
+    at finishConversationTurn (/Users/salvi/MQ/abc-fashion-ai-assistant/lib/stylist/conversationTurn.ts:246:17)
+    at send (file:///Users/salvi/MQ/abc-fashion-ai-assistant/scripts/test-grouped-discovery-memory.mjs:17:17)
+    at file:///Users/salvi/MQ/abc-fashion-ai-assistant/scripts/test-grouped-discovery-memory.mjs:42:30
+    at check (file:///Users/salvi/MQ/abc-fashion-ai-assistant/scripts/test-grouped-discovery-memory.mjs:22:29)
+    at file:///Users/salvi/MQ/abc-fashion-ai-assistant/scripts/test-grouped-discovery-memory.mjs:39:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.14.0
+FAIL: test-grouped-discovery-memory.mjs (exit: 1)
+
+SCRIPT SUMMARY
+PASS: test-stylist-remediation.mjs
+PASS: test-conversation-recovery.mjs
+PASS: test-matching-set-budget.mjs
+PASS: test-category-collection-defaults.mjs
+PASS: test-collection-first.mjs
+PASS: test-product-card-presentation.mjs
+PASS: test-guided-discovery.mjs
+PASS: test-search-filters.mjs
+PASS: test-selected-outfit-review.mjs
+PASS: test-outfit-interface.mjs
+FAIL: test-grouped-discovery-memory.mjs
+NOT RUN: test-outfit-budget.mjs
+NOT RUN: test-customer-scenario-regressions.mjs
+NOT RUN: test-preference-validation.ts
+NOT RUN: test-recommendation-contract.ts
+NOT RUN: test-grounded-recommendation.ts
+NOT RUN: test-validation-search.mjs
+NOT RUN: test-guided-follow-ups.mjs
+NOT RUN: test-cross-sell.mjs
+NOT RUN: test-cross-sell-client.mjs
+NOT RUN: test-upsell.mjs
+NOT RUN: test-upsell-client.mjs
+NOT RUN: test-chat-request.mjs
+NOT RUN: test-optional-discovery.mjs
+NOT RUN: test-card-actions.mjs
+NOT RUN: test-cheaper-search.mjs
+NOT RUN: test-viewed-product.mjs
+NOT RUN: test-conversation-foundation.mjs
+NOT RUN: test-conversation-plan.mjs
+NOT RUN: test-conversation-search.mjs
+NOT RUN: test-plan-evidence.mjs
+NOT RUN: test-plan-recovery.mjs
+NOT RUN: test-conversation-answers.mjs
+NOT RUN: test-conversation-production.mjs
+NOT RUN: test-stylist-commerce.mjs
+NOT RUN: test-stylist-feature-import.mjs
+NOT RUN: test-product-specifications.mjs
+NOT RUN: test-stylist-telemetry.mjs
+NOT RUN: test-conversation-integration.mjs
+NOT RUN: test-shopping-presentation.mjs
+NOT RUN: test-friendly-shopping-message.mjs
+
+10/41 test scripts completed successfully.
+Finished (UTC): 2026-10-19T05:31:07.889Z
+Not covered by this run: live stock, browser journeys, security audit, acceptance testing.

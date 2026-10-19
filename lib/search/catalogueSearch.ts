@@ -22,8 +22,10 @@ function isSearchProduct(product: CatalogueProduct): product is SearchProduct {
     typeof product.product_name === "string" &&
     typeof product.price_aud === "number" &&
     Number.isFinite(product.price_aud) &&
+    product.price_aud >= 0 &&
     product.is_available === true &&
     typeof product.stock_qty === "number" &&
+    Number.isInteger(product.stock_qty) &&
     product.stock_qty > 0
   );
 }

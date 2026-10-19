@@ -1,0 +1,978 @@
+{
+  "id": "S6-A",
+  "name": "Shoe size and construction details",
+  "repeat": 1,
+  "turns": [
+    {
+      "number": 1,
+      "message": "Show me black shoes for work in size 38 under $120. I only need shoes.",
+      "input": {
+        "message": "Show me black shoes for work in size 38 under $120. I only need shoes.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T12:13:40.909Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": null,
+        "action": "new_search",
+        "intent_evidence": "Show me black shoes for work in size 38 under $120",
+        "reference": null,
+        "changes": [
+          {
+            "scope": "item",
+            "field": "occasion",
+            "operation": "set",
+            "value": "Work",
+            "evidence": "work"
+          },
+          {
+            "scope": "item",
+            "field": "category",
+            "operation": "set",
+            "value": "Shoes",
+            "evidence": "shoes"
+          },
+          {
+            "scope": "item",
+            "field": "preferred_colours",
+            "operation": "set",
+            "value": [
+              "Black"
+            ],
+            "evidence": "black"
+          },
+          {
+            "scope": "item",
+            "field": "size",
+            "operation": "set",
+            "value": "38",
+            "evidence": "size 38"
+          },
+          {
+            "scope": "item",
+            "field": "max_price",
+            "operation": "set",
+            "value": 120,
+            "evidence": "under $120"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": {
+          "preferences": [],
+          "outfit_changes": [],
+          "owned_categories": [],
+          "offers": {
+            "paused": true,
+            "evidence": "I only need shoes"
+          }
+        }
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "status": "matches",
+        "action": "new_search",
+        "message": "I've found 2 black shoe options for you to explore.\n\nThese options range from A$75.00 to A$110.00. I've kept this selection within your A$120.00 per-item limit. Your requested size, 38, is listed for each item.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "38",
+            "min_price": null,
+            "max_price": 120,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Shoes",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Work",
+          "style": null,
+          "preferred_colours": [
+            "Black"
+          ],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": "38",
+          "min_price": null,
+          "max_price": 120,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "SH-WORK-110",
+            "product_name": "SH-WORK-110 Shoes",
+            "price_aud": 110,
+            "category": "Shoes",
+            "subcategory": "Heels",
+            "product_type": "Block Heels",
+            "brand_line": null,
+            "colour": "Black",
+            "sizes_available": [
+              "38",
+              "39"
+            ],
+            "extra_target": null,
+            "image_src": null
+          },
+          {
+            "product_id": "SH-WORK-75",
+            "product_name": "SH-WORK-75 Shoes",
+            "price_aud": 75,
+            "category": "Shoes",
+            "subcategory": "Heels",
+            "product_type": "Block Heels",
+            "brand_line": null,
+            "colour": "Black",
+            "sizes_available": [
+              "38",
+              "39"
+            ],
+            "extra_target": null,
+            "image_src": null
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": true,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 3150,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "38",
+            "min_price": null,
+            "max_price": 120,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": true,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "SH-WORK-110",
+              "product_name": "SH-WORK-110 Shoes",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Block Heels",
+              "price_aud": 110
+            },
+            {
+              "product_id": "SH-WORK-75",
+              "product_name": "SH-WORK-75 Shoes",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Block Heels",
+              "price_aud": 75
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me black shoes for work in size 38 under $120. I only need shoes."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 black shoe options for you to explore.\n\nThese options range from A$75.00 to A$110.00. I've kept this selection within your A$120.00 per-item limit. Your requested size, 38, is listed for each item.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 2,
+      "message": "What are the heel height and sole material of the first pair?",
+      "input": {
+        "message": "What are the heel height and sole material of the first pair?",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "38",
+            "min_price": null,
+            "max_price": 120,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "SH-WORK-110",
+              "product_name": "SH-WORK-110 Shoes",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Block Heels",
+              "price_aud": 110
+            },
+            {
+              "product_id": "SH-WORK-75",
+              "product_name": "SH-WORK-75 Shoes",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Block Heels",
+              "price_aud": 75
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me black shoes for work in size 38 under $120. I only need shoes."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 black shoe options for you to explore.\n\nThese options range from A$75.00 to A$110.00. I've kept this selection within your A$120.00 per-item limit. Your requested size, 38, is listed for each item.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": true,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T12:13:44.059Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": null,
+        "action": "none",
+        "intent_evidence": "What are the heel height and sole material",
+        "reference": null,
+        "changes": [],
+        "question": null,
+        "continuation": false,
+        "answer": {
+          "kind": "product",
+          "topics": [
+            "general",
+            "material"
+          ],
+          "references": [
+            {
+              "kind": "position",
+              "position": 1,
+              "subcategory": "Heels"
+            }
+          ],
+          "purpose": null,
+          "continuation": false
+        },
+        "styling_intent": null
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "status": "answered",
+        "action": "none",
+        "message": "SH-WORK-110 Shoes\nThe recorded material is Polyester. A material label doesn't verify the full composition or certifications. Heel height: 4 cm Sole: Rubber",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "38",
+            "min_price": null,
+            "max_price": 120,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "SH-WORK-110 Shoes — catalogue details",
+            "url": "/products/SH-WORK-110"
+          }
+        ],
+        "answer_product_ids": [
+          "SH-WORK-110"
+        ],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": true,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 3016,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "38",
+            "min_price": null,
+            "max_price": 120,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": true,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": {
+            "product_id": "SH-WORK-110",
+            "product_name": "SH-WORK-110 Shoes",
+            "category": "Shoes",
+            "subcategory": "Heels",
+            "product_type": "Block Heels",
+            "price_aud": 110
+          },
+          "latest": [
+            {
+              "product_id": "SH-WORK-110",
+              "product_name": "SH-WORK-110 Shoes",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Block Heels",
+              "price_aud": 110
+            },
+            {
+              "product_id": "SH-WORK-75",
+              "product_name": "SH-WORK-75 Shoes",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Block Heels",
+              "price_aud": 75
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me black shoes for work in size 38 under $120. I only need shoes."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 black shoe options for you to explore.\n\nThese options range from A$75.00 to A$110.00. I've kept this selection within your A$120.00 per-item limit. Your requested size, 38, is listed for each item.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "What are the heel height and sole material of the first pair?"
+          },
+          {
+            "role": "assistant",
+            "content": "SH-WORK-110 Shoes\nThe recorded material is Polyester. A material label doesn't verify the full composition or certifications. Heel height: 4 cm Sole: Rubber"
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 3,
+      "message": "Show me a cheaper option than the first pair, keeping black, work, size 38 and the same maximum.",
+      "input": {
+        "message": "Show me a cheaper option than the first pair, keeping black, work, size 38 and the same maximum.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "38",
+            "min_price": null,
+            "max_price": 120,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": {
+            "product_id": "SH-WORK-110",
+            "product_name": "SH-WORK-110 Shoes",
+            "category": "Shoes",
+            "subcategory": "Heels",
+            "product_type": "Block Heels",
+            "price_aud": 110
+          },
+          "latest": [
+            {
+              "product_id": "SH-WORK-110",
+              "product_name": "SH-WORK-110 Shoes",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Block Heels",
+              "price_aud": 110
+            },
+            {
+              "product_id": "SH-WORK-75",
+              "product_name": "SH-WORK-75 Shoes",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Block Heels",
+              "price_aud": 75
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me black shoes for work in size 38 under $120. I only need shoes."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 black shoe options for you to explore.\n\nThese options range from A$75.00 to A$110.00. I've kept this selection within your A$120.00 per-item limit. Your requested size, 38, is listed for each item.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "What are the heel height and sole material of the first pair?"
+          },
+          {
+            "role": "assistant",
+            "content": "SH-WORK-110 Shoes\nThe recorded material is Polyester. A material label doesn't verify the full composition or certifications. Heel height: 4 cm Sole: Rubber"
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": true,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T12:13:47.075Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": null,
+        "action": "cheaper",
+        "intent_evidence": "Show me a cheaper option than the first pair",
+        "reference": {
+          "kind": "position",
+          "position": 1,
+          "subcategory": null
+        },
+        "changes": [
+          {
+            "scope": "item",
+            "field": "size",
+            "operation": "set",
+            "value": "38",
+            "evidence": "size 38"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": null
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "status": "matches",
+        "action": "cheaper",
+        "message": "Here's a lower-priced option: SH-WORK-75 Shoes at A$75.00. It costs less than the A$110.00 reference item.\n\nI've kept this selection within your A$120.00 per-item limit. Your requested size, 38, is listed for this item.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": "Heels",
+            "product_type": "Block Heels",
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "38",
+            "min_price": null,
+            "max_price": 120,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Shoes",
+          "subcategory": "Heels",
+          "product_type": "Block Heels",
+          "occasion": "Work",
+          "style": null,
+          "preferred_colours": [
+            "Black"
+          ],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": "38",
+          "min_price": null,
+          "max_price": 120,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "SH-WORK-75",
+            "product_name": "SH-WORK-75 Shoes",
+            "price_aud": 75,
+            "category": "Shoes",
+            "subcategory": "Heels",
+            "product_type": "Block Heels",
+            "brand_line": null,
+            "colour": "Black",
+            "sizes_available": [
+              "38",
+              "39"
+            ],
+            "extra_target": null,
+            "image_src": null
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": true,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 2554,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": "Heels",
+            "product_type": "Block Heels",
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "38",
+            "min_price": null,
+            "max_price": 120,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": true,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "SH-WORK-75",
+              "product_name": "SH-WORK-75 Shoes",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Block Heels",
+              "price_aud": 75
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "SH-WORK-110",
+                "product_name": "SH-WORK-110 Shoes",
+                "category": "Shoes",
+                "subcategory": "Heels",
+                "product_type": "Block Heels",
+                "price_aud": 110
+              },
+              {
+                "product_id": "SH-WORK-75",
+                "product_name": "SH-WORK-75 Shoes",
+                "category": "Shoes",
+                "subcategory": "Heels",
+                "product_type": "Block Heels",
+                "price_aud": 75
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me black shoes for work in size 38 under $120. I only need shoes."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 black shoe options for you to explore.\n\nThese options range from A$75.00 to A$110.00. I've kept this selection within your A$120.00 per-item limit. Your requested size, 38, is listed for each item.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "What are the heel height and sole material of the first pair?"
+          },
+          {
+            "role": "assistant",
+            "content": "SH-WORK-110 Shoes\nThe recorded material is Polyester. A material label doesn't verify the full composition or certifications. Heel height: 4 cm Sole: Rubber"
+          },
+          {
+            "role": "user",
+            "content": "Show me a cheaper option than the first pair, keeping black, work, size 38 and the same maximum."
+          },
+          {
+            "role": "assistant",
+            "content": "Here's a lower-priced option: SH-WORK-75 Shoes at A$75.00. It costs less than the A$110.00 reference item.\n\nI've kept this selection within your A$120.00 per-item limit. Your requested size, 38, is listed for this item.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "checks": "Pass"
+    }
+  ],
+  "started": "2026-10-17T12:13:40.909Z",
+  "result": "Pass",
+  "issues": [],
+  "first": {
+    "product_id": "SH-WORK-110",
+    "product_name": "SH-WORK-110 Shoes",
+    "price_aud": 110,
+    "category": "Shoes",
+    "subcategory": "Heels",
+    "product_type": "Block Heels",
+    "brand_line": null,
+    "colour": "Black",
+    "sizes_available": [
+      "38",
+      "39"
+    ],
+    "extra_target": null,
+    "image_src": null
+  },
+  "finished": "2026-10-17T12:13:49.629Z"
+}

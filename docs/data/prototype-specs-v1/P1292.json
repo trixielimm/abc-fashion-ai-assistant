@@ -1,0 +1,50 @@
+{
+  "product_id": "P1292",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:22.199Z",
+  "identity_snapshot": {
+    "product_id": "P1292",
+    "product_name": "Olive Suit Set",
+    "category": "Clothing",
+    "subcategory": "Sets",
+    "product_type": "Suit Set",
+    "gender": "Women",
+    "colour": "Olive",
+    "material": "Viscose",
+    "fit": "Tailored",
+    "style": "Romantic",
+    "occasion": "Work",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1292",
+    "description": "Olive viscose suit set with a tailored blazer and coordinating trousers, shaped for polished work dressing with a romantic finish.",
+    "construction_details": [
+      "Single-breasted blazer with clean lapel edges",
+      "Pressed trouser crease and neatly finished hems",
+      "Coordinating two-piece construction with structured shoulder line"
+    ],
+    "care_instructions": "Dry clean recommended; press on low heat from the reverse side.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Work",
+      "Travel"
+    ],
+    "closure": "button",
+    "garment_length_cm": 72,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "60183aa8c33197810449b1e2136ccdd94da5b2216304b851549a0866f267ebd5"
+}

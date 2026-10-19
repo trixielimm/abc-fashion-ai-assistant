@@ -1,0 +1,50 @@
+{
+  "product_id": "P1016",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:16.428Z",
+  "identity_snapshot": {
+    "product_id": "P1016",
+    "product_name": "Blue Fitted Tee",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "product_type": "Fitted Tee",
+    "gender": "Women",
+    "colour": "Blue",
+    "material": "Polyester",
+    "fit": "Relaxed",
+    "style": "Bohemian",
+    "occasion": "Brunch",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1016",
+    "description": "Blue Fitted Tee in polyester with a relaxed fit and bohemian styling for brunch.",
+    "construction_details": [
+      "Crew neckline with narrow rib binding",
+      "Set-in short sleeves with twin-needle hems",
+      "Straight hem with reinforced side seams"
+    ],
+    "care_instructions": "Machine wash cold on a gentle cycle with similar colours; tumble dry low or air dry.",
+    "lining": false,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": null,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Brunch",
+      "Weekend"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": 62,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "30ff6564aa8e40191df1676e73907bf2f7d0d18f6cc7c83c679ea113b4dc979c"
+}

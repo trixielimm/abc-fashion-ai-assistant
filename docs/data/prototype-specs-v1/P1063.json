@@ -1,0 +1,49 @@
+{
+  "product_id": "P1063",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:45.724Z",
+  "identity_snapshot": {
+    "product_id": "P1063",
+    "product_name": "Gold Pendant Necklace",
+    "category": "Accessories",
+    "subcategory": "Jewellery",
+    "product_type": "Pendant Necklace",
+    "gender": "Men",
+    "colour": "Gold",
+    "material": "Gold-tone Metal",
+    "fit": "Standard",
+    "style": "Contemporary",
+    "occasion": "Party",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1063",
+    "description": "Contemporary gold pendant necklace in gold-tone metal, finished with a compact pendant for party looks.",
+    "construction_details": [
+      "Fine linked chain",
+      "Geometric pendant",
+      "Lobster clasp fastening"
+    ],
+    "care_instructions": "Keep dry and store separately in a soft pouch; polish lightly with a non-abrasive cloth.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": null,
+    "machine_washable": null,
+    "capacity_litres": null,
+    "use_cases": [
+      "Party"
+    ],
+    "closure": "clasp",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": "polished gold-tone"
+  },
+  "content_sha256": "d22d71316935d792e056b77cbcf0db8c0172603f1172c9377abd41176e0282cd"
+}

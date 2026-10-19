@@ -1,0 +1,20 @@
+PASS: An explicit occasion survives even if the model omits it from an otherwise clear broad brief
+PASS: An omitted or misfiled explicit black constraint cannot return a beige bag
+PASS: A shortlist budget refinement never requires selecting one of its products
+PASS: A factual question cannot create a colour or budget filter
+PASS: Broad bag, shoe and necklace ordinals resolve actual catalogue roles
+PASS: An exact known name in an ID slot resolves safely; partial names still clarify
+PASS: Liking a dress does not authorize a keep operation or cart mutation
+PASS: Own followed by keep preserves one owned record
+PASS: Interest cannot be promoted to ownership by a model annotation
+PASS: Shoe pairing includes both owned anchors even after newer bag results
+PASS: Described owned garments persist as descriptions and rank qualified suggestions
+PASS: An external garment cannot acquire an unquoted material-like colour
+PASS: Closure equality is explained without selling an identical expensive bag
+PASS: Transport decoding rejects wrong slots and preserves typed domain validation
+PASS: An explicit replacement must-have establishes the corresponding comparison priority
+PASS: Value questions resolve the original, all alternatives, and the uniquely cheaper alternative
+PASS: A limit confirmation acknowledges that no restrictions were relaxed
+PASS: Supported typed features do not also remain unresolved; unknown qualifiers still block
+
+18 customer-scenario regression checks passed.

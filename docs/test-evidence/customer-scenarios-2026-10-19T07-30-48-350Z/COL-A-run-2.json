@@ -1,0 +1,749 @@
+{
+  "id": "COL-A",
+  "name": "Collection-first formal clothing: Men's, please.",
+  "repeat": 2,
+  "turns": [
+    {
+      "number": 1,
+      "message": "I dont know what I want, can you show me some formal clothes",
+      "input": {
+        "message": "I dont know what I want, can you show me some formal clothes",
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        }
+      },
+      "began": "2026-10-19T07:34:38.214Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": null,
+        "action": "discover",
+        "discovery_intent": "occasion",
+        "intent_evidence": "show me some formal clothes",
+        "reference": null,
+        "changes": [
+          {
+            "scope": "item",
+            "field": "occasion",
+            "operation": "set",
+            "value": "Formal",
+            "evidence": "formal"
+          },
+          {
+            "scope": "item",
+            "field": "category",
+            "operation": "set",
+            "value": "Clothing",
+            "evidence": "clothes"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": null
+      },
+      "reply": {
+        "task_transition_applied": true,
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "status": "no_action",
+        "action": "discover",
+        "discovery": {
+          "stage": "collection",
+          "asked": [
+            "collection"
+          ],
+          "skipped": [],
+          "seen_product_ids": []
+        },
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": {
+            "action": "discover",
+            "discovery_intent": "occasion"
+          }
+        },
+        "suggested_replies": [
+          {
+            "label": "Men's",
+            "message": "Men's, please."
+          },
+          {
+            "label": "Women's",
+            "message": "Women's, please."
+          },
+          {
+            "label": "Both / no preference",
+            "message": "Both collections, please."
+          }
+        ],
+        "message": "Sure. Would you like men's clothing, women's clothing, or both?",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null,
+        "task": {
+          "generation": 0,
+          "prepared_key": "1cbx6ny",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        }
+      },
+      "elapsed_ms": 2725,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": {
+          "stage": "collection",
+          "asked": [
+            "collection"
+          ],
+          "skipped": [],
+          "seen_product_ids": []
+        },
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": {
+            "action": "discover",
+            "discovery_intent": "occasion"
+          }
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "1cbx6ny",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I dont know what I want, can you show me some formal clothes"
+          },
+          {
+            "role": "assistant",
+            "content": "Sure. Would you like men's clothing, women's clothing, or both?"
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 2,
+      "message": "Men's, please.",
+      "input": {
+        "message": "Men's, please.",
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": {
+            "action": "discover",
+            "discovery_intent": "occasion"
+          }
+        },
+        "discovery": {
+          "stage": "collection",
+          "asked": [
+            "collection"
+          ],
+          "skipped": [],
+          "seen_product_ids": []
+        },
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I dont know what I want, can you show me some formal clothes"
+          },
+          {
+            "role": "assistant",
+            "content": "Sure. Would you like men's clothing, women's clothing, or both?"
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "1cbx6ny",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        }
+      },
+      "began": "2026-10-19T07:34:40.940Z",
+      "plan_source": "production shortcut",
+      "plan": {
+        "action": "refine",
+        "discovery_intent": null,
+        "intent_evidence": "Men's, please.",
+        "reference": null,
+        "changes": [
+          {
+            "scope": "item",
+            "evidence": "Men's",
+            "operation": "set",
+            "field": "gender",
+            "value": "Men"
+          }
+        ],
+        "question": null,
+        "continuation": false
+      },
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "xblg3f",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "status": "matches",
+        "action": "refine",
+        "discovery": {
+          "stage": "complete",
+          "asked": [
+            "collection"
+          ],
+          "skipped": [],
+          "seen_product_ids": []
+        },
+        "collection": {
+          "choice": "Men",
+          "current": {
+            "choice": "Men",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I've found 4 clothing options for you to explore.\n\nThese options range from A$80.00 to A$90.00.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Men",
+            "category": "Clothing",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Men",
+          "category": "Clothing",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Formal",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "COL-Men-red",
+            "product_name": "COL-Men-red Dress",
+            "price_aud": 80,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Red",
+            "occasion": "Formal",
+            "style": "Formal",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": null,
+            "image_src": null
+          },
+          {
+            "product_id": "COL-Men-formal",
+            "product_name": "COL-Men-formal Dress",
+            "price_aud": 90,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Black",
+            "occasion": "Formal",
+            "style": "Formal",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": null,
+            "image_src": null
+          },
+          {
+            "product_id": "COL-Unisex-red",
+            "product_name": "COL-Unisex-red Dress",
+            "price_aud": 80,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Red",
+            "occasion": "Formal",
+            "style": "Formal",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": null,
+            "image_src": null
+          },
+          {
+            "product_id": "COL-Unisex-formal",
+            "product_name": "COL-Unisex-formal Dress",
+            "price_aud": 90,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Black",
+            "occasion": "Formal",
+            "style": "Formal",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": null,
+            "image_src": null
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 1,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Men",
+            "category": "Clothing",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": {
+          "stage": "complete",
+          "asked": [
+            "collection"
+          ],
+          "skipped": [],
+          "seen_product_ids": []
+        },
+        "collection": {
+          "choice": "Men",
+          "current": {
+            "choice": "Men",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "xblg3f",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "COL-Men-red",
+              "product_name": "COL-Men-red Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 80
+            },
+            {
+              "product_id": "COL-Men-formal",
+              "product_name": "COL-Men-formal Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 90
+            },
+            {
+              "product_id": "COL-Unisex-red",
+              "product_name": "COL-Unisex-red Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 80
+            },
+            {
+              "product_id": "COL-Unisex-formal",
+              "product_name": "COL-Unisex-formal Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 90
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I dont know what I want, can you show me some formal clothes"
+          },
+          {
+            "role": "assistant",
+            "content": "Sure. Would you like men's clothing, women's clothing, or both?"
+          },
+          {
+            "role": "user",
+            "content": "Men's, please."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 4 clothing options for you to explore.\n\nThese options range from A$80.00 to A$90.00.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "checks": "Pass"
+    }
+  ],
+  "started": "2026-10-19T07:34:38.214Z",
+  "result": "Pass",
+  "issues": [],
+  "collection_setup": "Fresh session; collection unanswered",
+  "finished": "2026-10-19T07:34:40.941Z"
+}

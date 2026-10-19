@@ -1,0 +1,50 @@
+{
+  "product_id": "P1010",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:16.422Z",
+  "identity_snapshot": {
+    "product_id": "P1010",
+    "product_name": "Black Cropped Jacket",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Cropped Jacket",
+    "gender": "Women",
+    "colour": "Black",
+    "material": "Linen Blend",
+    "fit": "Relaxed",
+    "style": "Smart",
+    "occasion": "Wedding Guest",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1010",
+    "description": "Black Cropped Jacket, a smart relaxed-fit cropped jacket in a linen blend for wedding guest dressing.",
+    "construction_details": [
+      "Cropped body with clean front seams",
+      "Notched lapels and lightly structured shoulders",
+      "Single-button front fastening with welt pockets"
+    ],
+    "care_instructions": "Dry clean or gently spot clean; air thoroughly before storing.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Wedding Guest",
+      "Work"
+    ],
+    "closure": "button",
+    "garment_length_cm": 48,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "2f2005802e4cd26d52e6b11c1ac09b25ce668f5f56a86da0d88028fe1847943f"
+}

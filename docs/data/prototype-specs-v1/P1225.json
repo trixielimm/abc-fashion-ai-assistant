@@ -1,0 +1,51 @@
+{
+  "product_id": "P1225",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:33.946Z",
+  "identity_snapshot": {
+    "product_id": "P1225",
+    "product_name": "Pink Trench Coat",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Trench Coat",
+    "gender": "Men",
+    "colour": "Pink",
+    "material": "Cotton",
+    "fit": "Slim",
+    "style": "Classic",
+    "occasion": "Casual",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1225",
+    "description": "Pink slim-fit cotton trench coat with classic double-breasted styling, a defined shoulder line and a polished casual finish.",
+    "construction_details": [
+      "Double-breasted front with button fastening",
+      "Notched lapels and storm flap",
+      "Adjustable cuff tabs and back vent",
+      "Belt loops with removable waist belt"
+    ],
+    "care_instructions": "Professional dry clean recommended; spot clean lightly between wears and air before storing.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Casual",
+      "Work"
+    ],
+    "closure": "button",
+    "garment_length_cm": 92,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "ccc27ad9aeff666563291d0a20b72460ce2aa23cb3ab778458152fb55235debb"
+}

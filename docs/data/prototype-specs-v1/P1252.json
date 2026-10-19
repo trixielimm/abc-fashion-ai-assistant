@@ -1,0 +1,52 @@
+{
+  "product_id": "P1252",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:20:52.646Z",
+  "identity_snapshot": {
+    "product_id": "P1252",
+    "product_name": "Beige Denim Jacket",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Denim Jacket",
+    "gender": "Women",
+    "colour": "Beige",
+    "material": "Denim",
+    "fit": "Relaxed",
+    "style": "Streetwear",
+    "occasion": "Smart Casual",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1252",
+    "description": "Beige relaxed denim jacket with a streetwear-inspired shape, practical layering volume and an easy all-season smart casual finish.",
+    "construction_details": [
+      "Classic shirt collar",
+      "Front button placket",
+      "Two chest patch pockets with button flaps",
+      "Two lower welt hand pockets",
+      "Adjustable button tabs at the cuffs"
+    ],
+    "care_instructions": "Cold machine wash inside out with similar colours; line dry and press on the reverse side.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Smart Casual",
+      "Casual"
+    ],
+    "closure": "button",
+    "garment_length_cm": 64,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "27d3fa74373abd4ab13ab6f7a290429bfe036d3241c82bc675723b8f92dbd45d"
+}

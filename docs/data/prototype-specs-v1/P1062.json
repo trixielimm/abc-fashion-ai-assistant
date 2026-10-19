@@ -1,0 +1,52 @@
+{
+  "product_id": "P1062",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:42.135Z",
+  "identity_snapshot": {
+    "product_id": "P1062",
+    "product_name": "Sage Denim Jacket",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Denim Jacket",
+    "gender": "Women",
+    "colour": "Sage",
+    "material": "Denim",
+    "fit": "Oversized",
+    "style": "Relaxed",
+    "occasion": "Casual",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1062",
+    "description": "Sage denim jacket with an oversized relaxed shape, practical patch pockets, and a softly faded casual finish for spring layering.",
+    "construction_details": [
+      "Metal button-front fastening",
+      "Two chest patch pockets",
+      "Side welt pockets",
+      "Adjustable buttoned cuffs",
+      "Topstitched panel seams"
+    ],
+    "care_instructions": "Machine wash cold inside out with similar colours; line dry and avoid prolonged soaking.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Casual",
+      "Travel"
+    ],
+    "closure": "button",
+    "garment_length_cm": 66,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "475e35019a170d271ca7268ebf1750595cbacfa7a5ac5ae39fe18db0f422ea38"
+}

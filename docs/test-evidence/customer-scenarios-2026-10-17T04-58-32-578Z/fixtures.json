@@ -1,0 +1,2466 @@
+{
+  "version": "customer-scenarios-v2",
+  "provenance": "Hand-authored synthetic fixtures; never supplier verification.",
+  "catalogue": [
+    {
+      "product_id": "D-BLACK-120",
+      "product_name": "D-BLACK-120 Dress",
+      "category": "Clothing",
+      "subcategory": "Dresses",
+      "product_type": "Midi Dress",
+      "gender": null,
+      "brand_line": null,
+      "colour": "Black",
+      "style": "Relaxed",
+      "occasion": "Beach Wedding",
+      "season": "Summer",
+      "material": "Polyester",
+      "fit": "Regular",
+      "price_aud": 120,
+      "sizes_available": [
+        "10",
+        "12"
+      ],
+      "stock_qty": 40,
+      "is_available": true,
+      "description": null,
+      "tags": [],
+      "image_key": null,
+      "cross_sell_category": "Bags",
+      "feature_data_status": "available",
+      "verified_features": [],
+      "synthetic_specification": {
+        "product_id": "D-BLACK-120",
+        "source_kind": "synthetic",
+        "dataset_version": "prototype-specs-v1",
+        "generator_model": "hand-authored-acceptance-fixture-v1",
+        "generated_at": "2026-10-17T00:00:00Z",
+        "identity_snapshot": {
+          "product_id": "D-BLACK-120",
+          "product_name": "D-BLACK-120 Dress",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": "Midi Dress",
+          "gender": null,
+          "colour": "Black",
+          "material": "Polyester",
+          "fit": "Regular",
+          "style": "Relaxed",
+          "occasion": "Beach Wedding",
+          "season": "Summer"
+        },
+        "specification": {
+          "product_id": "D-BLACK-120",
+          "description": "Synthetic test specification for D-BLACK-120 Dress; recorded for controlled prototype testing only.",
+          "construction_details": [
+            "Seamed construction",
+            "Finished edges"
+          ],
+          "care_instructions": "Wipe or gently hand clean; follow the care label.",
+          "lining": true,
+          "pockets": false,
+          "adjustable_strap": false,
+          "zip_closure": false,
+          "machine_washable": false,
+          "capacity_litres": null,
+          "use_cases": [
+            "Beach Wedding"
+          ],
+          "closure": "slip_on",
+          "garment_length_cm": 110,
+          "heel_height_cm": null,
+          "sole_material": null,
+          "dimensions_cm": null,
+          "strap_drop_cm": null,
+          "compartments": null,
+          "hardware_finish": null
+        }
+      }
+    },
+    {
+      "product_id": "D-BLACK-90",
+      "product_name": "D-BLACK-90 Dress",
+      "category": "Clothing",
+      "subcategory": "Dresses",
+      "product_type": "Midi Dress",
+      "gender": null,
+      "brand_line": null,
+      "colour": "Black",
+      "style": "Relaxed",
+      "occasion": "Beach Wedding",
+      "season": "Summer",
+      "material": "Polyester",
+      "fit": "Regular",
+      "price_aud": 90,
+      "sizes_available": [
+        "10",
+        "12"
+      ],
+      "stock_qty": 20,
+      "is_available": true,
+      "description": null,
+      "tags": [],
+      "image_key": null,
+      "cross_sell_category": "Bags",
+      "feature_data_status": "available",
+      "verified_features": [],
+      "synthetic_specification": {
+        "product_id": "D-BLACK-90",
+        "source_kind": "synthetic",
+        "dataset_version": "prototype-specs-v1",
+        "generator_model": "hand-authored-acceptance-fixture-v1",
+        "generated_at": "2026-10-17T00:00:00Z",
+        "identity_snapshot": {
+          "product_id": "D-BLACK-90",
+          "product_name": "D-BLACK-90 Dress",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": "Midi Dress",
+          "gender": null,
+          "colour": "Black",
+          "material": "Polyester",
+          "fit": "Regular",
+          "style": "Relaxed",
+          "occasion": "Beach Wedding",
+          "season": "Summer"
+        },
+        "specification": {
+          "product_id": "D-BLACK-90",
+          "description": "Synthetic test specification for D-BLACK-90 Dress; recorded for controlled prototype testing only.",
+          "construction_details": [
+            "Seamed construction",
+            "Finished edges"
+          ],
+          "care_instructions": "Wipe or gently hand clean; follow the care label.",
+          "lining": true,
+          "pockets": false,
+          "adjustable_strap": false,
+          "zip_closure": false,
+          "machine_washable": false,
+          "capacity_litres": null,
+          "use_cases": [
+            "Beach Wedding"
+          ],
+          "closure": "slip_on",
+          "garment_length_cm": 110,
+          "heel_height_cm": null,
+          "sole_material": null,
+          "dimensions_cm": null,
+          "strap_drop_cm": null,
+          "compartments": null,
+          "hardware_finish": null
+        }
+      }
+    },
+    {
+      "product_id": "D-BLUE-140",
+      "product_name": "D-BLUE-140 Dress",
+      "category": "Clothing",
+      "subcategory": "Dresses",
+      "product_type": "Midi Dress",
+      "gender": null,
+      "brand_line": null,
+      "colour": "Blue",
+      "style": "Formal",
+      "occasion": "Beach Wedding",
+      "season": "Summer",
+      "material": "Polyester",
+      "fit": "Regular",
+      "price_aud": 140,
+      "sizes_available": [
+        "10",
+        "12"
+      ],
+      "stock_qty": 20,
+      "is_available": true,
+      "description": null,
+      "tags": [],
+      "image_key": null,
+      "cross_sell_category": "Bags",
+      "feature_data_status": "available",
+      "verified_features": [],
+      "synthetic_specification": {
+        "product_id": "D-BLUE-140",
+        "source_kind": "synthetic",
+        "dataset_version": "prototype-specs-v1",
+        "generator_model": "hand-authored-acceptance-fixture-v1",
+        "generated_at": "2026-10-17T00:00:00Z",
+        "identity_snapshot": {
+          "product_id": "D-BLUE-140",
+          "product_name": "D-BLUE-140 Dress",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": "Midi Dress",
+          "gender": null,
+          "colour": "Blue",
+          "material": "Polyester",
+          "fit": "Regular",
+          "style": "Formal",
+          "occasion": "Beach Wedding",
+          "season": "Summer"
+        },
+        "specification": {
+          "product_id": "D-BLUE-140",
+          "description": "Synthetic test specification for D-BLUE-140 Dress; recorded for controlled prototype testing only.",
+          "construction_details": [
+            "Seamed construction",
+            "Finished edges"
+          ],
+          "care_instructions": "Wipe or gently hand clean; follow the care label.",
+          "lining": true,
+          "pockets": false,
+          "adjustable_strap": false,
+          "zip_closure": false,
+          "machine_washable": false,
+          "capacity_litres": null,
+          "use_cases": [
+            "Beach Wedding"
+          ],
+          "closure": "slip_on",
+          "garment_length_cm": 110,
+          "heel_height_cm": null,
+          "sole_material": null,
+          "dimensions_cm": null,
+          "strap_drop_cm": null,
+          "compartments": null,
+          "hardware_finish": null
+        }
+      }
+    },
+    {
+      "product_id": "D-BLUE-80",
+      "product_name": "D-BLUE-80 Dress",
+      "category": "Clothing",
+      "subcategory": "Dresses",
+      "product_type": "Midi Dress",
+      "gender": null,
+      "brand_line": null,
+      "colour": "Blue",
+      "style": "Relaxed",
+      "occasion": "Beach Wedding",
+      "season": "Summer",
+      "material": "Cotton",
+      "fit": "Regular",
+      "price_aud": 80,
+      "sizes_available": [
+        "10",
+        "12"
+      ],
+      "stock_qty": 20,
+      "is_available": true,
+      "description": null,
+      "tags": [],
+      "image_key": null,
+      "cross_sell_category": "Bags",
+      "feature_data_status": "available",
+      "verified_features": [],
+      "synthetic_specification": {
+        "product_id": "D-BLUE-80",
+        "source_kind": "synthetic",
+        "dataset_version": "prototype-specs-v1",
+        "generator_model": "hand-authored-acceptance-fixture-v1",
+        "generated_at": "2026-10-17T00:00:00Z",
+        "identity_snapshot": {
+          "product_id": "D-BLUE-80",
+          "product_name": "D-BLUE-80 Dress",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": "Midi Dress",
+          "gender": null,
+          "colour": "Blue",
+          "material": "Cotton",
+          "fit": "Regular",
+          "style": "Relaxed",
+          "occasion": "Beach Wedding",
+          "season": "Summer"
+        },
+        "specification": {
+          "product_id": "D-BLUE-80",
+          "description": "Synthetic test specification for D-BLUE-80 Dress; recorded for controlled prototype testing only.",
+          "construction_details": [
+            "Seamed construction",
+            "Finished edges"
+          ],
+          "care_instructions": "Wipe or gently hand clean; follow the care label.",
+          "lining": true,
+          "pockets": false,
+          "adjustable_strap": false,
+          "zip_closure": false,
+          "machine_washable": false,
+          "capacity_litres": null,
+          "use_cases": [
+            "Beach Wedding"
+          ],
+          "closure": "slip_on",
+          "garment_length_cm": 110,
+          "heel_height_cm": null,
+          "sole_material": null,
+          "dimensions_cm": null,
+          "strap_drop_cm": null,
+          "compartments": null,
+          "hardware_finish": null
+        }
+      }
+    },
+    {
+      "product_id": "D-WORK-110",
+      "product_name": "D-WORK-110 Dress",
+      "category": "Clothing",
+      "subcategory": "Dresses",
+      "product_type": "Midi Dress",
+      "gender": null,
+      "brand_line": null,
+      "colour": "Black",
+      "style": "Relaxed",
+      "occasion": "Work",
+      "season": "Summer",
+      "material": "Polyester",
+      "fit": "Regular",
+      "price_aud": 110,
+      "sizes_available": [
+        "10",
+        "12"
+      ],
+      "stock_qty": 20,
+      "is_available": true,
+      "description": null,
+      "tags": [],
+      "image_key": null,
+      "cross_sell_category": "Bags",
+      "feature_data_status": "available",
+      "verified_features": [],
+      "synthetic_specification": {
+        "product_id": "D-WORK-110",
+        "source_kind": "synthetic",
+        "dataset_version": "prototype-specs-v1",
+        "generator_model": "hand-authored-acceptance-fixture-v1",
+        "generated_at": "2026-10-17T00:00:00Z",
+        "identity_snapshot": {
+          "product_id": "D-WORK-110",
+          "product_name": "D-WORK-110 Dress",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": "Midi Dress",
+          "gender": null,
+          "colour": "Black",
+          "material": "Polyester",
+          "fit": "Regular",
+          "style": "Relaxed",
+          "occasion": "Work",
+          "season": "Summer"
+        },
+        "specification": {
+          "product_id": "D-WORK-110",
+          "description": "Synthetic test specification for D-WORK-110 Dress; recorded for controlled prototype testing only.",
+          "construction_details": [
+            "Seamed construction",
+            "Finished edges"
+          ],
+          "care_instructions": "Wipe or gently hand clean; follow the care label.",
+          "lining": true,
+          "pockets": false,
+          "adjustable_strap": false,
+          "zip_closure": false,
+          "machine_washable": false,
+          "capacity_litres": null,
+          "use_cases": [
+            "Work"
+          ],
+          "closure": "slip_on",
+          "garment_length_cm": 110,
+          "heel_height_cm": null,
+          "sole_material": null,
+          "dimensions_cm": null,
+          "strap_drop_cm": null,
+          "compartments": null,
+          "hardware_finish": null
+        }
+      }
+    },
+    {
+      "product_id": "D-WORK-70",
+      "product_name": "D-WORK-70 Dress",
+      "category": "Clothing",
+      "subcategory": "Dresses",
+      "product_type": "Midi Dress",
+      "gender": null,
+      "brand_line": null,
+      "colour": "Black",
+      "style": "Relaxed",
+      "occasion": "Work",
+      "season": "Summer",
+      "material": "Polyester",
+      "fit": "Regular",
+      "price_aud": 70,
+      "sizes_available": [
+        "10",
+        "12"
+      ],
+      "stock_qty": 20,
+      "is_available": true,
+      "description": null,
+      "tags": [],
+      "image_key": null,
+      "cross_sell_category": "Bags",
+      "feature_data_status": "available",
+      "verified_features": [],
+      "synthetic_specification": {
+        "product_id": "D-WORK-70",
+        "source_kind": "synthetic",
+        "dataset_version": "prototype-specs-v1",
+        "generator_model": "hand-authored-acceptance-fixture-v1",
+        "generated_at": "2026-10-17T00:00:00Z",
+        "identity_snapshot": {
+          "product_id": "D-WORK-70",
+          "product_name": "D-WORK-70 Dress",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": "Midi Dress",
+          "gender": null,
+          "colour": "Black",
+          "material": "Polyester",
+          "fit": "Regular",
+          "style": "Relaxed",
+          "occasion": "Work",
+          "season": "Summer"
+        },
+        "specification": {
+          "product_id": "D-WORK-70",
+          "description": "Synthetic test specification for D-WORK-70 Dress; recorded for controlled prototype testing only.",
+          "construction_details": [
+            "Seamed construction",
+            "Finished edges"
+          ],
+          "care_instructions": "Wipe or gently hand clean; follow the care label.",
+          "lining": true,
+          "pockets": false,
+          "adjustable_strap": false,
+          "zip_closure": false,
+          "machine_washable": false,
+          "capacity_litres": null,
+          "use_cases": [
+            "Work"
+          ],
+          "closure": "slip_on",
+          "garment_length_cm": 110,
+          "heel_height_cm": null,
+          "sole_material": null,
+          "dimensions_cm": null,
+          "strap_drop_cm": null,
+          "compartments": null,
+          "hardware_finish": null
+        }
+      }
+    },
+    {
+      "product_id": "D-CASUAL-85",
+      "product_name": "D-CASUAL-85 Dress",
+      "category": "Clothing",
+      "subcategory": "Dresses",
+      "product_type": "Midi Dress",
+      "gender": null,
+      "brand_line": null,
+      "colour": "Navy",
+      "style": "Relaxed",
+      "occasion": "Casual",
+      "season": "Summer",
+      "material": "Polyester",
+      "fit": "Regular",
+      "price_aud": 85,
+      "sizes_available": [
+        "10",
+        "12"
+      ],
+      "stock_qty": 20,
+      "is_available": true,
+      "description": null,
+      "tags": [],
+      "image_key": null,
+      "cross_sell_category": "Bags",
+      "feature_data_status": "available",
+      "verified_features": [],
+      "synthetic_specification": {
+        "product_id": "D-CASUAL-85",
+        "source_kind": "synthetic",
+        "dataset_version": "prototype-specs-v1",
+        "generator_model": "hand-authored-acceptance-fixture-v1",
+        "generated_at": "2026-10-17T00:00:00Z",
+        "identity_snapshot": {
+          "product_id": "D-CASUAL-85",
+          "product_name": "D-CASUAL-85 Dress",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": "Midi Dress",
+          "gender": null,
+          "colour": "Navy",
+          "material": "Polyester",
+          "fit": "Regular",
+          "style": "Relaxed",
+          "occasion": "Casual",
+          "season": "Summer"
+        },
+        "specification": {
+          "product_id": "D-CASUAL-85",
+          "description": "Synthetic test specification for D-CASUAL-85 Dress; recorded for controlled prototype testing only.",
+          "construction_details": [
+            "Seamed construction",
+            "Finished edges"
+          ],
+          "care_instructions": "Wipe or gently hand clean; follow the care label.",
+          "lining": true,
+          "pockets": false,
+          "adjustable_strap": false,
+          "zip_closure": false,
+          "machine_washable": false,
+          "capacity_litres": null,
+          "use_cases": [
+            "Casual"
+          ],
+          "closure": "slip_on",
+          "garment_length_cm": 110,
+          "heel_height_cm": null,
+          "sole_material": null,
+          "dimensions_cm": null,
+          "strap_drop_cm": null,
+          "compartments": null,
+          "hardware_finish": null
+        }
+      }
+    },
+    {
+      "product_id": "B-ZIP-60",
+      "product_name": "B-ZIP-60 Bag",
+      "category": "Bags",
+      "subcategory": "Clutches",
+      "product_type": "Clutch",
+      "gender": null,
+      "brand_line": null,
+      "colour": "Black",
+      "style": "Relaxed",
+      "occasion": "Beach Wedding",
+      "season": "Summer",
+      "material": "Polyester",
+      "fit": "Regular",
+      "price_aud": 60,
+      "sizes_available": [
+        "One Size"
+      ],
+      "stock_qty": 20,
+      "is_available": true,
+      "description": null,
+      "tags": [],
+      "image_key": null,
+      "cross_sell_category": null,
+      "feature_data_status": "available",
+      "verified_features": [],
+      "synthetic_specification": {
+        "product_id": "B-ZIP-60",
+        "source_kind": "synthetic",
+        "dataset_version": "prototype-specs-v1",
+        "generator_model": "hand-authored-acceptance-fixture-v1",
+        "generated_at": "2026-10-17T00:00:00Z",
+        "identity_snapshot": {
+          "product_id": "B-ZIP-60",
+          "product_name": "B-ZIP-60 Bag",
+          "category": "Bags",
+          "subcategory": "Clutches",
+          "product_type": "Clutch",
+          "gender": null,
+          "colour": "Black",
+          "material": "Polyester",
+          "fit": "Regular",
+          "style": "Relaxed",
+          "occasion": "Beach Wedding",
+          "season": "Summer"
+        },
+        "specification": {
+          "product_id": "B-ZIP-60",
+          "description": "Synthetic test specification for B-ZIP-60 Bag; recorded for controlled prototype testing only.",
+          "construction_details": [
+            "Seamed construction",
+            "Finished edges"
+          ],
+          "care_instructions": "Wipe or gently hand clean; follow the care label.",
+          "lining": true,
+          "pockets": false,
+          "adjustable_strap": false,
+          "zip_closure": true,
+          "machine_washable": false,
+          "capacity_litres": 1,
+          "use_cases": [
+            "Beach Wedding"
+          ],
+          "closure": "zip",
+          "garment_length_cm": null,
+          "heel_height_cm": null,
+          "sole_material": null,
+          "dimensions_cm": {
+            "width": 25,
+            "height": 20,
+            "depth": 5
+          },
+          "strap_drop_cm": 25,
+          "compartments": 2,
+          "hardware_finish": null
+        }
+      }
+    },
+    {
+      "product_id": "B-OPEN-45",
+      "product_name": "B-OPEN-45 Bag",
+      "category": "Bags",
+      "subcategory": "Clutches",
+      "product_type": "Clutch",
+      "gender": null,
+      "brand_line": null,
+      "colour": "Beige",
+      "style": "Relaxed",
+      "occasion": "Beach Wedding",
+      "season": "Summer",
+      "material": "Polyester",
+      "fit": "Regular",
+      "price_aud": 45,
+      "sizes_available": [
+        "One Size"
+      ],
+      "stock_qty": 20,
+      "is_available": true,
+      "description": null,
+      "tags": [],
+      "image_key": null,
+      "cross_sell_category": null,
+      "feature_data_status": "available",
+      "verified_features": [],
+      "synthetic_specification": {
+        "product_id": "B-OPEN-45",
+        "source_kind": "synthetic",
+        "dataset_version": "prototype-specs-v1",
+        "generator_model": "hand-authored-acceptance-fixture-v1",
+        "generated_at": "2026-10-17T00:00:00Z",
+        "identity_snapshot": {
+          "product_id": "B-OPEN-45",
+          "product_name": "B-OPEN-45 Bag",
+          "category": "Bags",
+          "subcategory": "Clutches",
+          "product_type": "Clutch",
+          "gender": null,
+          "colour": "Beige",
+          "material": "Polyester",
+          "fit": "Regular",
+          "style": "Relaxed",
+          "occasion": "Beach Wedding",
+          "season": "Summer"
+        },
+        "specification": {
+          "product_id": "B-OPEN-45",
+          "description": "Synthetic test specification for B-OPEN-45 Bag; recorded for controlled prototype testing only.",
+          "construction_details": [
+            "Seamed construction",
+            "Finished edges"
+          ],
+          "care_instructions": "Wipe or gently hand clean; follow the care label.",
+          "lining": true,
+          "pockets": false,
+          "adjustable_strap": false,
+          "zip_closure": false,
+          "machine_washable": false,
+          "capacity_litres": 1,
+          "use_cases": [
+            "Beach Wedding"
+          ],
+          "closure": "slip_on",
+          "garment_length_cm": null,
+          "heel_height_cm": null,
+          "sole_material": null,
+          "dimensions_cm": {
+            "width": 25,
+            "height": 20,
+            "depth": 5
+          },
+          "strap_drop_cm": 25,
+          "compartments": 2,
+          "hardware_finish": null
+        }
+      }
+    },
+    {
+      "product_id": "SH-WORK-110",
+      "product_name": "SH-WORK-110 Shoes",
+      "category": "Shoes",
+      "subcategory": "Heels",
+      "product_type": "Block Heels",
+      "gender": null,
+      "brand_line": null,
+      "colour": "Black",
+      "style": "Relaxed",
+      "occasion": "Work",
+      "season": "Summer",
+      "material": "Polyester",
+      "fit": "Regular",
+      "price_aud": 110,
+      "sizes_available": [
+        "38",
+        "39"
+      ],
+      "stock_qty": 40,
+      "is_available": true,
+      "description": null,
+      "tags": [],
+      "image_key": null,
+      "cross_sell_category": null,
+      "feature_data_status": "available",
+      "verified_features": [],
+      "synthetic_specification": {
+        "product_id": "SH-WORK-110",
+        "source_kind": "synthetic",
+        "dataset_version": "prototype-specs-v1",
+        "generator_model": "hand-authored-acceptance-fixture-v1",
+        "generated_at": "2026-10-17T00:00:00Z",
+        "identity_snapshot": {
+          "product_id": "SH-WORK-110",
+          "product_name": "SH-WORK-110 Shoes",
+          "category": "Shoes",
+          "subcategory": "Heels",
+          "product_type": "Block Heels",
+          "gender": null,
+          "colour": "Black",
+          "material": "Polyester",
+          "fit": "Regular",
+          "style": "Relaxed",
+          "occasion": "Work",
+          "season": "Summer"
+        },
+        "specification": {
+          "product_id": "SH-WORK-110",
+          "description": "Synthetic test specification for SH-WORK-110 Shoes; recorded for controlled prototype testing only.",
+          "construction_details": [
+            "Seamed construction",
+            "Finished edges"
+          ],
+          "care_instructions": "Wipe or gently hand clean; follow the care label.",
+          "lining": true,
+          "pockets": false,
+          "adjustable_strap": false,
+          "zip_closure": false,
+          "machine_washable": false,
+          "capacity_litres": null,
+          "use_cases": [
+            "Work"
+          ],
+          "closure": "slip_on",
+          "garment_length_cm": null,
+          "heel_height_cm": 4,
+          "sole_material": "Rubber",
+          "dimensions_cm": null,
+          "strap_drop_cm": null,
+          "compartments": null,
+          "hardware_finish": null
+        }
+      }
+    },
+    {
+      "product_id": "SH-WORK-75",
+      "product_name": "SH-WORK-75 Shoes",
+      "category": "Shoes",
+      "subcategory": "Heels",
+      "product_type": "Block Heels",
+      "gender": null,
+      "brand_line": null,
+      "colour": "Black",
+      "style": "Relaxed",
+      "occasion": "Work",
+      "season": "Summer",
+      "material": "Polyester",
+      "fit": "Regular",
+      "price_aud": 75,
+      "sizes_available": [
+        "38",
+        "39"
+      ],
+      "stock_qty": 20,
+      "is_available": true,
+      "description": null,
+      "tags": [],
+      "image_key": null,
+      "cross_sell_category": null,
+      "feature_data_status": "available",
+      "verified_features": [],
+      "synthetic_specification": {
+        "product_id": "SH-WORK-75",
+        "source_kind": "synthetic",
+        "dataset_version": "prototype-specs-v1",
+        "generator_model": "hand-authored-acceptance-fixture-v1",
+        "generated_at": "2026-10-17T00:00:00Z",
+        "identity_snapshot": {
+          "product_id": "SH-WORK-75",
+          "product_name": "SH-WORK-75 Shoes",
+          "category": "Shoes",
+          "subcategory": "Heels",
+          "product_type": "Block Heels",
+          "gender": null,
+          "colour": "Black",
+          "material": "Polyester",
+          "fit": "Regular",
+          "style": "Relaxed",
+          "occasion": "Work",
+          "season": "Summer"
+        },
+        "specification": {
+          "product_id": "SH-WORK-75",
+          "description": "Synthetic test specification for SH-WORK-75 Shoes; recorded for controlled prototype testing only.",
+          "construction_details": [
+            "Seamed construction",
+            "Finished edges"
+          ],
+          "care_instructions": "Wipe or gently hand clean; follow the care label.",
+          "lining": true,
+          "pockets": false,
+          "adjustable_strap": false,
+          "zip_closure": false,
+          "machine_washable": false,
+          "capacity_litres": null,
+          "use_cases": [
+            "Work"
+          ],
+          "closure": "slip_on",
+          "garment_length_cm": null,
+          "heel_height_cm": 4,
+          "sole_material": "Rubber",
+          "dimensions_cm": null,
+          "strap_drop_cm": null,
+          "compartments": null,
+          "hardware_finish": null
+        }
+      }
+    },
+    {
+      "product_id": "SH-WEDDING-90",
+      "product_name": "SH-WEDDING-90 Shoes",
+      "category": "Shoes",
+      "subcategory": "Heels",
+      "product_type": "Block Heels",
+      "gender": null,
+      "brand_line": null,
+      "colour": "Beige",
+      "style": "Relaxed",
+      "occasion": "Wedding Guest",
+      "season": "Summer",
+      "material": "Polyester",
+      "fit": "Regular",
+      "price_aud": 90,
+      "sizes_available": [
+        "38",
+        "39"
+      ],
+      "stock_qty": 20,
+      "is_available": true,
+      "description": null,
+      "tags": [],
+      "image_key": null,
+      "cross_sell_category": null,
+      "feature_data_status": "available",
+      "verified_features": [],
+      "synthetic_specification": {
+        "product_id": "SH-WEDDING-90",
+        "source_kind": "synthetic",
+        "dataset_version": "prototype-specs-v1",
+        "generator_model": "hand-authored-acceptance-fixture-v1",
+        "generated_at": "2026-10-17T00:00:00Z",
+        "identity_snapshot": {
+          "product_id": "SH-WEDDING-90",
+          "product_name": "SH-WEDDING-90 Shoes",
+          "category": "Shoes",
+          "subcategory": "Heels",
+          "product_type": "Block Heels",
+          "gender": null,
+          "colour": "Beige",
+          "material": "Polyester",
+          "fit": "Regular",
+          "style": "Relaxed",
+          "occasion": "Wedding Guest",
+          "season": "Summer"
+        },
+        "specification": {
+          "product_id": "SH-WEDDING-90",
+          "description": "Synthetic test specification for SH-WEDDING-90 Shoes; recorded for controlled prototype testing only.",
+          "construction_details": [
+            "Seamed construction",
+            "Finished edges"
+          ],
+          "care_instructions": "Wipe or gently hand clean; follow the care label.",
+          "lining": true,
+          "pockets": false,
+          "adjustable_strap": false,
+          "zip_closure": false,
+          "machine_washable": false,
+          "capacity_litres": null,
+          "use_cases": [
+            "Wedding Guest"
+          ],
+          "closure": "slip_on",
+          "garment_length_cm": null,
+          "heel_height_cm": 4,
+          "sole_material": "Rubber",
+          "dimensions_cm": null,
+          "strap_drop_cm": null,
+          "compartments": null,
+          "hardware_finish": null
+        }
+      }
+    },
+    {
+      "product_id": "N-SILVER-65",
+      "product_name": "N-SILVER-65 Necklace",
+      "category": "Accessories",
+      "subcategory": "Jewellery",
+      "product_type": "Necklace",
+      "gender": null,
+      "brand_line": null,
+      "colour": "Silver",
+      "style": "Relaxed",
+      "occasion": "Beach Wedding",
+      "season": "Summer",
+      "material": "Silver-tone Metal",
+      "fit": "Regular",
+      "price_aud": 65,
+      "sizes_available": [
+        "One Size"
+      ],
+      "stock_qty": 20,
+      "is_available": true,
+      "description": null,
+      "tags": [],
+      "image_key": null,
+      "cross_sell_category": null,
+      "feature_data_status": "available",
+      "verified_features": [],
+      "synthetic_specification": {
+        "product_id": "N-SILVER-65",
+        "source_kind": "synthetic",
+        "dataset_version": "prototype-specs-v1",
+        "generator_model": "hand-authored-acceptance-fixture-v1",
+        "generated_at": "2026-10-17T00:00:00Z",
+        "identity_snapshot": {
+          "product_id": "N-SILVER-65",
+          "product_name": "N-SILVER-65 Necklace",
+          "category": "Accessories",
+          "subcategory": "Jewellery",
+          "product_type": "Necklace",
+          "gender": null,
+          "colour": "Silver",
+          "material": "Silver-tone Metal",
+          "fit": "Regular",
+          "style": "Relaxed",
+          "occasion": "Beach Wedding",
+          "season": "Summer"
+        },
+        "specification": {
+          "product_id": "N-SILVER-65",
+          "description": "Synthetic test specification for N-SILVER-65 Necklace; recorded for controlled prototype testing only.",
+          "construction_details": [
+            "Seamed construction",
+            "Finished edges"
+          ],
+          "care_instructions": "Wipe or gently hand clean; follow the care label.",
+          "lining": true,
+          "pockets": false,
+          "adjustable_strap": false,
+          "zip_closure": false,
+          "machine_washable": false,
+          "capacity_litres": null,
+          "use_cases": [
+            "Beach Wedding"
+          ],
+          "closure": "clasp",
+          "garment_length_cm": null,
+          "heel_height_cm": null,
+          "sole_material": null,
+          "dimensions_cm": null,
+          "strap_drop_cm": null,
+          "compartments": null,
+          "hardware_finish": "Silver-tone"
+        }
+      }
+    },
+    {
+      "product_id": "N-SILVER-40",
+      "product_name": "N-SILVER-40 Necklace",
+      "category": "Accessories",
+      "subcategory": "Jewellery",
+      "product_type": "Necklace",
+      "gender": null,
+      "brand_line": null,
+      "colour": "Silver",
+      "style": "Relaxed",
+      "occasion": "Beach Wedding",
+      "season": "Summer",
+      "material": "Silver-tone Metal",
+      "fit": "Regular",
+      "price_aud": 40,
+      "sizes_available": [
+        "One Size"
+      ],
+      "stock_qty": 20,
+      "is_available": true,
+      "description": null,
+      "tags": [],
+      "image_key": null,
+      "cross_sell_category": null,
+      "feature_data_status": "available",
+      "verified_features": [],
+      "synthetic_specification": {
+        "product_id": "N-SILVER-40",
+        "source_kind": "synthetic",
+        "dataset_version": "prototype-specs-v1",
+        "generator_model": "hand-authored-acceptance-fixture-v1",
+        "generated_at": "2026-10-17T00:00:00Z",
+        "identity_snapshot": {
+          "product_id": "N-SILVER-40",
+          "product_name": "N-SILVER-40 Necklace",
+          "category": "Accessories",
+          "subcategory": "Jewellery",
+          "product_type": "Necklace",
+          "gender": null,
+          "colour": "Silver",
+          "material": "Silver-tone Metal",
+          "fit": "Regular",
+          "style": "Relaxed",
+          "occasion": "Beach Wedding",
+          "season": "Summer"
+        },
+        "specification": {
+          "product_id": "N-SILVER-40",
+          "description": "Synthetic test specification for N-SILVER-40 Necklace; recorded for controlled prototype testing only.",
+          "construction_details": [
+            "Seamed construction",
+            "Finished edges"
+          ],
+          "care_instructions": "Wipe or gently hand clean; follow the care label.",
+          "lining": true,
+          "pockets": false,
+          "adjustable_strap": false,
+          "zip_closure": false,
+          "machine_washable": false,
+          "capacity_litres": null,
+          "use_cases": [
+            "Beach Wedding"
+          ],
+          "closure": "clasp",
+          "garment_length_cm": null,
+          "heel_height_cm": null,
+          "sole_material": null,
+          "dimensions_cm": null,
+          "strap_drop_cm": null,
+          "compartments": null,
+          "hardware_finish": "Silver-tone"
+        }
+      }
+    }
+  ],
+  "fixtures": {
+    "S5-A": [
+      {
+        "product_id": "VA-ORIGINAL",
+        "product_name": "VA-ORIGINAL Dress",
+        "category": "Clothing",
+        "subcategory": "Dresses",
+        "product_type": "Midi Dress",
+        "gender": null,
+        "brand_line": null,
+        "colour": "Black",
+        "style": "Relaxed",
+        "occasion": "Beach Wedding",
+        "season": "Summer",
+        "material": "Polyester",
+        "fit": "Regular",
+        "price_aud": 95,
+        "sizes_available": [
+          "10",
+          "12"
+        ],
+        "stock_qty": 20,
+        "is_available": true,
+        "description": null,
+        "tags": [],
+        "image_key": null,
+        "cross_sell_category": "Bags",
+        "feature_data_status": "available",
+        "verified_features": [],
+        "synthetic_specification": {
+          "product_id": "VA-ORIGINAL",
+          "source_kind": "synthetic",
+          "dataset_version": "prototype-specs-v1",
+          "generator_model": "hand-authored-acceptance-fixture-v1",
+          "generated_at": "2026-10-17T00:00:00Z",
+          "identity_snapshot": {
+            "product_id": "VA-ORIGINAL",
+            "product_name": "VA-ORIGINAL Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "gender": null,
+            "colour": "Black",
+            "material": "Polyester",
+            "fit": "Regular",
+            "style": "Relaxed",
+            "occasion": "Beach Wedding",
+            "season": "Summer"
+          },
+          "specification": {
+            "product_id": "VA-ORIGINAL",
+            "description": "Synthetic test specification for VA-ORIGINAL Dress; recorded for controlled prototype testing only.",
+            "construction_details": [
+              "Seamed construction",
+              "Finished edges"
+            ],
+            "care_instructions": "Wipe or gently hand clean; follow the care label.",
+            "lining": true,
+            "pockets": false,
+            "adjustable_strap": false,
+            "zip_closure": false,
+            "machine_washable": false,
+            "capacity_litres": null,
+            "use_cases": [
+              "Beach Wedding"
+            ],
+            "closure": "slip_on",
+            "garment_length_cm": 110,
+            "heel_height_cm": null,
+            "sole_material": null,
+            "dimensions_cm": null,
+            "strap_drop_cm": null,
+            "compartments": null,
+            "hardware_finish": null
+          }
+        }
+      },
+      {
+        "product_id": "VA-POCKETS",
+        "product_name": "VA-POCKETS Dress",
+        "category": "Clothing",
+        "subcategory": "Dresses",
+        "product_type": "Midi Dress",
+        "gender": null,
+        "brand_line": null,
+        "colour": "Black",
+        "style": "Relaxed",
+        "occasion": "Beach Wedding",
+        "season": "Summer",
+        "material": "Polyester",
+        "fit": "Regular",
+        "price_aud": 120,
+        "sizes_available": [
+          "10",
+          "12"
+        ],
+        "stock_qty": 20,
+        "is_available": true,
+        "description": null,
+        "tags": [],
+        "image_key": null,
+        "cross_sell_category": "Bags",
+        "feature_data_status": "available",
+        "verified_features": [],
+        "synthetic_specification": {
+          "product_id": "VA-POCKETS",
+          "source_kind": "synthetic",
+          "dataset_version": "prototype-specs-v1",
+          "generator_model": "hand-authored-acceptance-fixture-v1",
+          "generated_at": "2026-10-17T00:00:00Z",
+          "identity_snapshot": {
+            "product_id": "VA-POCKETS",
+            "product_name": "VA-POCKETS Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "gender": null,
+            "colour": "Black",
+            "material": "Polyester",
+            "fit": "Regular",
+            "style": "Relaxed",
+            "occasion": "Beach Wedding",
+            "season": "Summer"
+          },
+          "specification": {
+            "product_id": "VA-POCKETS",
+            "description": "Synthetic test specification for VA-POCKETS Dress; recorded for controlled prototype testing only.",
+            "construction_details": [
+              "Seamed construction",
+              "Finished edges"
+            ],
+            "care_instructions": "Wipe or gently hand clean; follow the care label.",
+            "lining": true,
+            "pockets": true,
+            "adjustable_strap": false,
+            "zip_closure": false,
+            "machine_washable": false,
+            "capacity_litres": null,
+            "use_cases": [
+              "Beach Wedding"
+            ],
+            "closure": "slip_on",
+            "garment_length_cm": 110,
+            "heel_height_cm": null,
+            "sole_material": null,
+            "dimensions_cm": null,
+            "strap_drop_cm": null,
+            "compartments": null,
+            "hardware_finish": null
+          }
+        }
+      }
+    ],
+    "S5-B": [
+      {
+        "product_id": "VB-ORIGINAL",
+        "product_name": "VB-ORIGINAL Dress",
+        "category": "Clothing",
+        "subcategory": "Dresses",
+        "product_type": "Midi Dress",
+        "gender": null,
+        "brand_line": null,
+        "colour": "Blue",
+        "style": "Relaxed",
+        "occasion": "Beach Wedding",
+        "season": "Summer",
+        "material": "Polyester",
+        "fit": "Regular",
+        "price_aud": 95,
+        "sizes_available": [
+          "10",
+          "12"
+        ],
+        "stock_qty": 20,
+        "is_available": true,
+        "description": null,
+        "tags": [],
+        "image_key": null,
+        "cross_sell_category": "Bags",
+        "feature_data_status": "available",
+        "verified_features": [],
+        "synthetic_specification": {
+          "product_id": "VB-ORIGINAL",
+          "source_kind": "synthetic",
+          "dataset_version": "prototype-specs-v1",
+          "generator_model": "hand-authored-acceptance-fixture-v1",
+          "generated_at": "2026-10-17T00:00:00Z",
+          "identity_snapshot": {
+            "product_id": "VB-ORIGINAL",
+            "product_name": "VB-ORIGINAL Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "gender": null,
+            "colour": "Blue",
+            "material": "Polyester",
+            "fit": "Regular",
+            "style": "Relaxed",
+            "occasion": "Beach Wedding",
+            "season": "Summer"
+          },
+          "specification": {
+            "product_id": "VB-ORIGINAL",
+            "description": "Synthetic test specification for VB-ORIGINAL Dress; recorded for controlled prototype testing only.",
+            "construction_details": [
+              "Seamed construction",
+              "Finished edges"
+            ],
+            "care_instructions": "Wipe or gently hand clean; follow the care label.",
+            "lining": true,
+            "pockets": false,
+            "adjustable_strap": false,
+            "zip_closure": false,
+            "machine_washable": false,
+            "capacity_litres": null,
+            "use_cases": [
+              "Beach Wedding"
+            ],
+            "closure": "slip_on",
+            "garment_length_cm": 110,
+            "heel_height_cm": null,
+            "sole_material": null,
+            "dimensions_cm": null,
+            "strap_drop_cm": null,
+            "compartments": null,
+            "hardware_finish": null
+          }
+        }
+      },
+      {
+        "product_id": "VB-ELIGIBLE",
+        "product_name": "VB-ELIGIBLE Dress",
+        "category": "Clothing",
+        "subcategory": "Dresses",
+        "product_type": "Midi Dress",
+        "gender": null,
+        "brand_line": null,
+        "colour": "Blue",
+        "style": "Relaxed",
+        "occasion": "Beach Wedding",
+        "season": "Summer",
+        "material": "Polyester",
+        "fit": "Regular",
+        "price_aud": 140,
+        "sizes_available": [
+          "10",
+          "12"
+        ],
+        "stock_qty": 20,
+        "is_available": true,
+        "description": null,
+        "tags": [],
+        "image_key": null,
+        "cross_sell_category": "Bags",
+        "feature_data_status": "available",
+        "verified_features": [],
+        "synthetic_specification": {
+          "product_id": "VB-ELIGIBLE",
+          "source_kind": "synthetic",
+          "dataset_version": "prototype-specs-v1",
+          "generator_model": "hand-authored-acceptance-fixture-v1",
+          "generated_at": "2026-10-17T00:00:00Z",
+          "identity_snapshot": {
+            "product_id": "VB-ELIGIBLE",
+            "product_name": "VB-ELIGIBLE Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "gender": null,
+            "colour": "Blue",
+            "material": "Polyester",
+            "fit": "Regular",
+            "style": "Relaxed",
+            "occasion": "Beach Wedding",
+            "season": "Summer"
+          },
+          "specification": {
+            "product_id": "VB-ELIGIBLE",
+            "description": "Synthetic test specification for VB-ELIGIBLE Dress; recorded for controlled prototype testing only.",
+            "construction_details": [
+              "Seamed construction",
+              "Finished edges"
+            ],
+            "care_instructions": "Wipe or gently hand clean; follow the care label.",
+            "lining": true,
+            "pockets": true,
+            "adjustable_strap": false,
+            "zip_closure": false,
+            "machine_washable": false,
+            "capacity_litres": null,
+            "use_cases": [
+              "Beach Wedding"
+            ],
+            "closure": "slip_on",
+            "garment_length_cm": 110,
+            "heel_height_cm": null,
+            "sole_material": null,
+            "dimensions_cm": null,
+            "strap_drop_cm": null,
+            "compartments": null,
+            "hardware_finish": null
+          }
+        }
+      },
+      {
+        "product_id": "VB-WORK",
+        "product_name": "VB-WORK Dress",
+        "category": "Clothing",
+        "subcategory": "Dresses",
+        "product_type": "Midi Dress",
+        "gender": null,
+        "brand_line": null,
+        "colour": "Blue",
+        "style": "Relaxed",
+        "occasion": "Work",
+        "season": "Summer",
+        "material": "Polyester",
+        "fit": "Regular",
+        "price_aud": 110,
+        "sizes_available": [
+          "10",
+          "12"
+        ],
+        "stock_qty": 20,
+        "is_available": true,
+        "description": null,
+        "tags": [],
+        "image_key": null,
+        "cross_sell_category": "Bags",
+        "feature_data_status": "available",
+        "verified_features": [],
+        "synthetic_specification": {
+          "product_id": "VB-WORK",
+          "source_kind": "synthetic",
+          "dataset_version": "prototype-specs-v1",
+          "generator_model": "hand-authored-acceptance-fixture-v1",
+          "generated_at": "2026-10-17T00:00:00Z",
+          "identity_snapshot": {
+            "product_id": "VB-WORK",
+            "product_name": "VB-WORK Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "gender": null,
+            "colour": "Blue",
+            "material": "Polyester",
+            "fit": "Regular",
+            "style": "Relaxed",
+            "occasion": "Work",
+            "season": "Summer"
+          },
+          "specification": {
+            "product_id": "VB-WORK",
+            "description": "Synthetic test specification for VB-WORK Dress; recorded for controlled prototype testing only.",
+            "construction_details": [
+              "Seamed construction",
+              "Finished edges"
+            ],
+            "care_instructions": "Wipe or gently hand clean; follow the care label.",
+            "lining": true,
+            "pockets": true,
+            "adjustable_strap": false,
+            "zip_closure": false,
+            "machine_washable": false,
+            "capacity_litres": null,
+            "use_cases": [
+              "Work"
+            ],
+            "closure": "slip_on",
+            "garment_length_cm": 110,
+            "heel_height_cm": null,
+            "sole_material": null,
+            "dimensions_cm": null,
+            "strap_drop_cm": null,
+            "compartments": null,
+            "hardware_finish": null
+          }
+        }
+      },
+      {
+        "product_id": "VB-BLACK",
+        "product_name": "VB-BLACK Dress",
+        "category": "Clothing",
+        "subcategory": "Dresses",
+        "product_type": "Midi Dress",
+        "gender": null,
+        "brand_line": null,
+        "colour": "Black",
+        "style": "Relaxed",
+        "occasion": "Beach Wedding",
+        "season": "Summer",
+        "material": "Polyester",
+        "fit": "Regular",
+        "price_aud": 110,
+        "sizes_available": [
+          "10",
+          "12"
+        ],
+        "stock_qty": 20,
+        "is_available": true,
+        "description": null,
+        "tags": [],
+        "image_key": null,
+        "cross_sell_category": "Bags",
+        "feature_data_status": "available",
+        "verified_features": [],
+        "synthetic_specification": {
+          "product_id": "VB-BLACK",
+          "source_kind": "synthetic",
+          "dataset_version": "prototype-specs-v1",
+          "generator_model": "hand-authored-acceptance-fixture-v1",
+          "generated_at": "2026-10-17T00:00:00Z",
+          "identity_snapshot": {
+            "product_id": "VB-BLACK",
+            "product_name": "VB-BLACK Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "gender": null,
+            "colour": "Black",
+            "material": "Polyester",
+            "fit": "Regular",
+            "style": "Relaxed",
+            "occasion": "Beach Wedding",
+            "season": "Summer"
+          },
+          "specification": {
+            "product_id": "VB-BLACK",
+            "description": "Synthetic test specification for VB-BLACK Dress; recorded for controlled prototype testing only.",
+            "construction_details": [
+              "Seamed construction",
+              "Finished edges"
+            ],
+            "care_instructions": "Wipe or gently hand clean; follow the care label.",
+            "lining": true,
+            "pockets": true,
+            "adjustable_strap": false,
+            "zip_closure": false,
+            "machine_washable": false,
+            "capacity_litres": null,
+            "use_cases": [
+              "Beach Wedding"
+            ],
+            "closure": "slip_on",
+            "garment_length_cm": 110,
+            "heel_height_cm": null,
+            "sole_material": null,
+            "dimensions_cm": null,
+            "strap_drop_cm": null,
+            "compartments": null,
+            "hardware_finish": null
+          }
+        }
+      },
+      {
+        "product_id": "VB-SIZE12",
+        "product_name": "VB-SIZE12 Dress",
+        "category": "Clothing",
+        "subcategory": "Dresses",
+        "product_type": "Midi Dress",
+        "gender": null,
+        "brand_line": null,
+        "colour": "Blue",
+        "style": "Relaxed",
+        "occasion": "Beach Wedding",
+        "season": "Summer",
+        "material": "Polyester",
+        "fit": "Regular",
+        "price_aud": 110,
+        "sizes_available": [
+          "12"
+        ],
+        "stock_qty": 20,
+        "is_available": true,
+        "description": null,
+        "tags": [],
+        "image_key": null,
+        "cross_sell_category": "Bags",
+        "feature_data_status": "available",
+        "verified_features": [],
+        "synthetic_specification": {
+          "product_id": "VB-SIZE12",
+          "source_kind": "synthetic",
+          "dataset_version": "prototype-specs-v1",
+          "generator_model": "hand-authored-acceptance-fixture-v1",
+          "generated_at": "2026-10-17T00:00:00Z",
+          "identity_snapshot": {
+            "product_id": "VB-SIZE12",
+            "product_name": "VB-SIZE12 Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "gender": null,
+            "colour": "Blue",
+            "material": "Polyester",
+            "fit": "Regular",
+            "style": "Relaxed",
+            "occasion": "Beach Wedding",
+            "season": "Summer"
+          },
+          "specification": {
+            "product_id": "VB-SIZE12",
+            "description": "Synthetic test specification for VB-SIZE12 Dress; recorded for controlled prototype testing only.",
+            "construction_details": [
+              "Seamed construction",
+              "Finished edges"
+            ],
+            "care_instructions": "Wipe or gently hand clean; follow the care label.",
+            "lining": true,
+            "pockets": true,
+            "adjustable_strap": false,
+            "zip_closure": false,
+            "machine_washable": false,
+            "capacity_litres": null,
+            "use_cases": [
+              "Beach Wedding"
+            ],
+            "closure": "slip_on",
+            "garment_length_cm": 110,
+            "heel_height_cm": null,
+            "sole_material": null,
+            "dimensions_cm": null,
+            "strap_drop_cm": null,
+            "compartments": null,
+            "hardware_finish": null
+          }
+        }
+      },
+      {
+        "product_id": "VB-OVER",
+        "product_name": "VB-OVER Dress",
+        "category": "Clothing",
+        "subcategory": "Dresses",
+        "product_type": "Midi Dress",
+        "gender": null,
+        "brand_line": null,
+        "colour": "Blue",
+        "style": "Relaxed",
+        "occasion": "Beach Wedding",
+        "season": "Summer",
+        "material": "Polyester",
+        "fit": "Regular",
+        "price_aud": 160,
+        "sizes_available": [
+          "10",
+          "12"
+        ],
+        "stock_qty": 20,
+        "is_available": true,
+        "description": null,
+        "tags": [],
+        "image_key": null,
+        "cross_sell_category": "Bags",
+        "feature_data_status": "available",
+        "verified_features": [],
+        "synthetic_specification": {
+          "product_id": "VB-OVER",
+          "source_kind": "synthetic",
+          "dataset_version": "prototype-specs-v1",
+          "generator_model": "hand-authored-acceptance-fixture-v1",
+          "generated_at": "2026-10-17T00:00:00Z",
+          "identity_snapshot": {
+            "product_id": "VB-OVER",
+            "product_name": "VB-OVER Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "gender": null,
+            "colour": "Blue",
+            "material": "Polyester",
+            "fit": "Regular",
+            "style": "Relaxed",
+            "occasion": "Beach Wedding",
+            "season": "Summer"
+          },
+          "specification": {
+            "product_id": "VB-OVER",
+            "description": "Synthetic test specification for VB-OVER Dress; recorded for controlled prototype testing only.",
+            "construction_details": [
+              "Seamed construction",
+              "Finished edges"
+            ],
+            "care_instructions": "Wipe or gently hand clean; follow the care label.",
+            "lining": true,
+            "pockets": true,
+            "adjustable_strap": false,
+            "zip_closure": false,
+            "machine_washable": false,
+            "capacity_litres": null,
+            "use_cases": [
+              "Beach Wedding"
+            ],
+            "closure": "slip_on",
+            "garment_length_cm": 110,
+            "heel_height_cm": null,
+            "sole_material": null,
+            "dimensions_cm": null,
+            "strap_drop_cm": null,
+            "compartments": null,
+            "hardware_finish": null
+          }
+        }
+      }
+    ],
+    "S5-C": [
+      {
+        "product_id": "VC-ORIGINAL",
+        "product_name": "VC-ORIGINAL Bag",
+        "category": "Bags",
+        "subcategory": "Clutches",
+        "product_type": "Clutch",
+        "gender": null,
+        "brand_line": null,
+        "colour": "Black",
+        "style": "Relaxed",
+        "occasion": "Beach Wedding",
+        "season": "Summer",
+        "material": "Polyester",
+        "fit": "Regular",
+        "price_aud": 60,
+        "sizes_available": [
+          "One Size"
+        ],
+        "stock_qty": 20,
+        "is_available": true,
+        "description": null,
+        "tags": [],
+        "image_key": null,
+        "cross_sell_category": null,
+        "feature_data_status": "available",
+        "verified_features": [],
+        "synthetic_specification": {
+          "product_id": "VC-ORIGINAL",
+          "source_kind": "synthetic",
+          "dataset_version": "prototype-specs-v1",
+          "generator_model": "hand-authored-acceptance-fixture-v1",
+          "generated_at": "2026-10-17T00:00:00Z",
+          "identity_snapshot": {
+            "product_id": "VC-ORIGINAL",
+            "product_name": "VC-ORIGINAL Bag",
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Clutch",
+            "gender": null,
+            "colour": "Black",
+            "material": "Polyester",
+            "fit": "Regular",
+            "style": "Relaxed",
+            "occasion": "Beach Wedding",
+            "season": "Summer"
+          },
+          "specification": {
+            "product_id": "VC-ORIGINAL",
+            "description": "Synthetic test specification for VC-ORIGINAL Bag; recorded for controlled prototype testing only.",
+            "construction_details": [
+              "Seamed construction",
+              "Finished edges"
+            ],
+            "care_instructions": "Wipe or gently hand clean; follow the care label.",
+            "lining": true,
+            "pockets": false,
+            "adjustable_strap": false,
+            "zip_closure": true,
+            "machine_washable": false,
+            "capacity_litres": 1,
+            "use_cases": [
+              "Beach Wedding"
+            ],
+            "closure": "zip",
+            "garment_length_cm": null,
+            "heel_height_cm": null,
+            "sole_material": null,
+            "dimensions_cm": {
+              "width": 25,
+              "height": 20,
+              "depth": 5
+            },
+            "strap_drop_cm": 25,
+            "compartments": 2,
+            "hardware_finish": null
+          }
+        }
+      },
+      {
+        "product_id": "VC-SAME",
+        "product_name": "VC-SAME Bag",
+        "category": "Bags",
+        "subcategory": "Clutches",
+        "product_type": "Clutch",
+        "gender": null,
+        "brand_line": null,
+        "colour": "Black",
+        "style": "Relaxed",
+        "occasion": "Beach Wedding",
+        "season": "Summer",
+        "material": "Polyester",
+        "fit": "Regular",
+        "price_aud": 90,
+        "sizes_available": [
+          "One Size"
+        ],
+        "stock_qty": 20,
+        "is_available": true,
+        "description": null,
+        "tags": [],
+        "image_key": null,
+        "cross_sell_category": null,
+        "feature_data_status": "available",
+        "verified_features": [],
+        "synthetic_specification": {
+          "product_id": "VC-SAME",
+          "source_kind": "synthetic",
+          "dataset_version": "prototype-specs-v1",
+          "generator_model": "hand-authored-acceptance-fixture-v1",
+          "generated_at": "2026-10-17T00:00:00Z",
+          "identity_snapshot": {
+            "product_id": "VC-SAME",
+            "product_name": "VC-SAME Bag",
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Clutch",
+            "gender": null,
+            "colour": "Black",
+            "material": "Polyester",
+            "fit": "Regular",
+            "style": "Relaxed",
+            "occasion": "Beach Wedding",
+            "season": "Summer"
+          },
+          "specification": {
+            "product_id": "VC-SAME",
+            "description": "Synthetic test specification for VC-SAME Bag; recorded for controlled prototype testing only.",
+            "construction_details": [
+              "Seamed construction",
+              "Finished edges"
+            ],
+            "care_instructions": "Wipe or gently hand clean; follow the care label.",
+            "lining": true,
+            "pockets": false,
+            "adjustable_strap": false,
+            "zip_closure": true,
+            "machine_washable": false,
+            "capacity_litres": 1,
+            "use_cases": [
+              "Beach Wedding"
+            ],
+            "closure": "zip",
+            "garment_length_cm": null,
+            "heel_height_cm": null,
+            "sole_material": null,
+            "dimensions_cm": {
+              "width": 25,
+              "height": 20,
+              "depth": 5
+            },
+            "strap_drop_cm": 25,
+            "compartments": 2,
+            "hardware_finish": null
+          }
+        }
+      }
+    ],
+    "S5-D": [
+      {
+        "product_id": "VD-ORIGINAL",
+        "product_name": "VD-ORIGINAL Bag",
+        "category": "Bags",
+        "subcategory": "Clutches",
+        "product_type": "Clutch",
+        "gender": null,
+        "brand_line": null,
+        "colour": "Black",
+        "style": "Relaxed",
+        "occasion": "Beach Wedding",
+        "season": "Summer",
+        "material": "Polyester",
+        "fit": "Regular",
+        "price_aud": 80,
+        "sizes_available": [
+          "One Size"
+        ],
+        "stock_qty": 20,
+        "is_available": true,
+        "description": null,
+        "tags": [],
+        "image_key": null,
+        "cross_sell_category": null,
+        "feature_data_status": "available",
+        "verified_features": [],
+        "synthetic_specification": {
+          "product_id": "VD-ORIGINAL",
+          "source_kind": "synthetic",
+          "dataset_version": "prototype-specs-v1",
+          "generator_model": "hand-authored-acceptance-fixture-v1",
+          "generated_at": "2026-10-17T00:00:00Z",
+          "identity_snapshot": {
+            "product_id": "VD-ORIGINAL",
+            "product_name": "VD-ORIGINAL Bag",
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Clutch",
+            "gender": null,
+            "colour": "Black",
+            "material": "Polyester",
+            "fit": "Regular",
+            "style": "Relaxed",
+            "occasion": "Beach Wedding",
+            "season": "Summer"
+          },
+          "specification": {
+            "product_id": "VD-ORIGINAL",
+            "description": "Synthetic test specification for VD-ORIGINAL Bag; recorded for controlled prototype testing only.",
+            "construction_details": [
+              "Seamed construction",
+              "Finished edges"
+            ],
+            "care_instructions": "Wipe or gently hand clean; follow the care label.",
+            "lining": true,
+            "pockets": false,
+            "adjustable_strap": false,
+            "zip_closure": false,
+            "machine_washable": false,
+            "capacity_litres": 1,
+            "use_cases": [
+              "Beach Wedding"
+            ],
+            "closure": "slip_on",
+            "garment_length_cm": null,
+            "heel_height_cm": null,
+            "sole_material": null,
+            "dimensions_cm": {
+              "width": 25,
+              "height": 20,
+              "depth": 5
+            },
+            "strap_drop_cm": 25,
+            "compartments": 2,
+            "hardware_finish": null
+          }
+        }
+      },
+      {
+        "product_id": "VD-EQUAL",
+        "product_name": "VD-EQUAL Bag",
+        "category": "Bags",
+        "subcategory": "Clutches",
+        "product_type": "Clutch",
+        "gender": null,
+        "brand_line": null,
+        "colour": "Black",
+        "style": "Relaxed",
+        "occasion": "Beach Wedding",
+        "season": "Summer",
+        "material": "Polyester",
+        "fit": "Regular",
+        "price_aud": 80,
+        "sizes_available": [
+          "One Size"
+        ],
+        "stock_qty": 20,
+        "is_available": true,
+        "description": null,
+        "tags": [],
+        "image_key": null,
+        "cross_sell_category": null,
+        "feature_data_status": "available",
+        "verified_features": [],
+        "synthetic_specification": {
+          "product_id": "VD-EQUAL",
+          "source_kind": "synthetic",
+          "dataset_version": "prototype-specs-v1",
+          "generator_model": "hand-authored-acceptance-fixture-v1",
+          "generated_at": "2026-10-17T00:00:00Z",
+          "identity_snapshot": {
+            "product_id": "VD-EQUAL",
+            "product_name": "VD-EQUAL Bag",
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Clutch",
+            "gender": null,
+            "colour": "Black",
+            "material": "Polyester",
+            "fit": "Regular",
+            "style": "Relaxed",
+            "occasion": "Beach Wedding",
+            "season": "Summer"
+          },
+          "specification": {
+            "product_id": "VD-EQUAL",
+            "description": "Synthetic test specification for VD-EQUAL Bag; recorded for controlled prototype testing only.",
+            "construction_details": [
+              "Seamed construction",
+              "Finished edges"
+            ],
+            "care_instructions": "Wipe or gently hand clean; follow the care label.",
+            "lining": true,
+            "pockets": false,
+            "adjustable_strap": true,
+            "zip_closure": false,
+            "machine_washable": false,
+            "capacity_litres": 1,
+            "use_cases": [
+              "Beach Wedding"
+            ],
+            "closure": "slip_on",
+            "garment_length_cm": null,
+            "heel_height_cm": null,
+            "sole_material": null,
+            "dimensions_cm": {
+              "width": 25,
+              "height": 20,
+              "depth": 5
+            },
+            "strap_drop_cm": 25,
+            "compartments": 2,
+            "hardware_finish": null
+          }
+        }
+      },
+      {
+        "product_id": "VD-CHEAPER",
+        "product_name": "VD-CHEAPER Bag",
+        "category": "Bags",
+        "subcategory": "Clutches",
+        "product_type": "Clutch",
+        "gender": null,
+        "brand_line": null,
+        "colour": "Black",
+        "style": "Relaxed",
+        "occasion": "Beach Wedding",
+        "season": "Summer",
+        "material": "Polyester",
+        "fit": "Regular",
+        "price_aud": 65,
+        "sizes_available": [
+          "One Size"
+        ],
+        "stock_qty": 20,
+        "is_available": true,
+        "description": null,
+        "tags": [],
+        "image_key": null,
+        "cross_sell_category": null,
+        "feature_data_status": "available",
+        "verified_features": [],
+        "synthetic_specification": {
+          "product_id": "VD-CHEAPER",
+          "source_kind": "synthetic",
+          "dataset_version": "prototype-specs-v1",
+          "generator_model": "hand-authored-acceptance-fixture-v1",
+          "generated_at": "2026-10-17T00:00:00Z",
+          "identity_snapshot": {
+            "product_id": "VD-CHEAPER",
+            "product_name": "VD-CHEAPER Bag",
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Clutch",
+            "gender": null,
+            "colour": "Black",
+            "material": "Polyester",
+            "fit": "Regular",
+            "style": "Relaxed",
+            "occasion": "Beach Wedding",
+            "season": "Summer"
+          },
+          "specification": {
+            "product_id": "VD-CHEAPER",
+            "description": "Synthetic test specification for VD-CHEAPER Bag; recorded for controlled prototype testing only.",
+            "construction_details": [
+              "Seamed construction",
+              "Finished edges"
+            ],
+            "care_instructions": "Wipe or gently hand clean; follow the care label.",
+            "lining": true,
+            "pockets": false,
+            "adjustable_strap": true,
+            "zip_closure": false,
+            "machine_washable": false,
+            "capacity_litres": 1,
+            "use_cases": [
+              "Beach Wedding"
+            ],
+            "closure": "slip_on",
+            "garment_length_cm": null,
+            "heel_height_cm": null,
+            "sole_material": null,
+            "dimensions_cm": {
+              "width": 25,
+              "height": 20,
+              "depth": 5
+            },
+            "strap_drop_cm": 25,
+            "compartments": 2,
+            "hardware_finish": null
+          }
+        }
+      },
+      {
+        "product_id": "VD-OVER",
+        "product_name": "VD-OVER Bag",
+        "category": "Bags",
+        "subcategory": "Clutches",
+        "product_type": "Clutch",
+        "gender": null,
+        "brand_line": null,
+        "colour": "Black",
+        "style": "Relaxed",
+        "occasion": "Beach Wedding",
+        "season": "Summer",
+        "material": "Polyester",
+        "fit": "Regular",
+        "price_aud": 95,
+        "sizes_available": [
+          "One Size"
+        ],
+        "stock_qty": 20,
+        "is_available": true,
+        "description": null,
+        "tags": [],
+        "image_key": null,
+        "cross_sell_category": null,
+        "feature_data_status": "available",
+        "verified_features": [],
+        "synthetic_specification": {
+          "product_id": "VD-OVER",
+          "source_kind": "synthetic",
+          "dataset_version": "prototype-specs-v1",
+          "generator_model": "hand-authored-acceptance-fixture-v1",
+          "generated_at": "2026-10-17T00:00:00Z",
+          "identity_snapshot": {
+            "product_id": "VD-OVER",
+            "product_name": "VD-OVER Bag",
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Clutch",
+            "gender": null,
+            "colour": "Black",
+            "material": "Polyester",
+            "fit": "Regular",
+            "style": "Relaxed",
+            "occasion": "Beach Wedding",
+            "season": "Summer"
+          },
+          "specification": {
+            "product_id": "VD-OVER",
+            "description": "Synthetic test specification for VD-OVER Bag; recorded for controlled prototype testing only.",
+            "construction_details": [
+              "Seamed construction",
+              "Finished edges"
+            ],
+            "care_instructions": "Wipe or gently hand clean; follow the care label.",
+            "lining": true,
+            "pockets": false,
+            "adjustable_strap": true,
+            "zip_closure": false,
+            "machine_washable": false,
+            "capacity_litres": 1,
+            "use_cases": [
+              "Beach Wedding"
+            ],
+            "closure": "slip_on",
+            "garment_length_cm": null,
+            "heel_height_cm": null,
+            "sole_material": null,
+            "dimensions_cm": {
+              "width": 25,
+              "height": 20,
+              "depth": 5
+            },
+            "strap_drop_cm": 25,
+            "compartments": 2,
+            "hardware_finish": null
+          }
+        }
+      }
+    ],
+    "S5-E": [
+      {
+        "product_id": "VE-ORIGINAL",
+        "product_name": "VE-ORIGINAL Dress",
+        "category": "Clothing",
+        "subcategory": "Dresses",
+        "product_type": "Midi Dress",
+        "gender": null,
+        "brand_line": null,
+        "colour": "Black",
+        "style": "Relaxed",
+        "occasion": "Beach Wedding",
+        "season": "Summer",
+        "material": "Polyester",
+        "fit": "Regular",
+        "price_aud": 95,
+        "sizes_available": [
+          "10",
+          "12"
+        ],
+        "stock_qty": 20,
+        "is_available": true,
+        "description": null,
+        "tags": [],
+        "image_key": null,
+        "cross_sell_category": "Bags",
+        "feature_data_status": "available",
+        "verified_features": [],
+        "synthetic_specification": {
+          "product_id": "VE-ORIGINAL",
+          "source_kind": "synthetic",
+          "dataset_version": "prototype-specs-v1",
+          "generator_model": "hand-authored-acceptance-fixture-v1",
+          "generated_at": "2026-10-17T00:00:00Z",
+          "identity_snapshot": {
+            "product_id": "VE-ORIGINAL",
+            "product_name": "VE-ORIGINAL Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "gender": null,
+            "colour": "Black",
+            "material": "Polyester",
+            "fit": "Regular",
+            "style": "Relaxed",
+            "occasion": "Beach Wedding",
+            "season": "Summer"
+          },
+          "specification": {
+            "product_id": "VE-ORIGINAL",
+            "description": "Synthetic test specification for VE-ORIGINAL Dress; recorded for controlled prototype testing only.",
+            "construction_details": [
+              "Seamed construction",
+              "Finished edges"
+            ],
+            "care_instructions": "Wipe or gently hand clean; follow the care label.",
+            "lining": true,
+            "pockets": false,
+            "adjustable_strap": false,
+            "zip_closure": false,
+            "machine_washable": false,
+            "capacity_litres": null,
+            "use_cases": [
+              "Beach Wedding"
+            ],
+            "closure": "slip_on",
+            "garment_length_cm": 110,
+            "heel_height_cm": null,
+            "sole_material": null,
+            "dimensions_cm": null,
+            "strap_drop_cm": null,
+            "compartments": null,
+            "hardware_finish": null
+          }
+        }
+      },
+      {
+        "product_id": "VE-TRADEOFF",
+        "product_name": "VE-TRADEOFF Dress",
+        "category": "Clothing",
+        "subcategory": "Dresses",
+        "product_type": "Midi Dress",
+        "gender": null,
+        "brand_line": null,
+        "colour": "Black",
+        "style": "Relaxed",
+        "occasion": "Beach Wedding",
+        "season": "Summer",
+        "material": "Polyester",
+        "fit": "Regular",
+        "price_aud": 120,
+        "sizes_available": [
+          "10",
+          "12"
+        ],
+        "stock_qty": 20,
+        "is_available": true,
+        "description": null,
+        "tags": [],
+        "image_key": null,
+        "cross_sell_category": "Bags",
+        "feature_data_status": "available",
+        "verified_features": [],
+        "synthetic_specification": {
+          "product_id": "VE-TRADEOFF",
+          "source_kind": "synthetic",
+          "dataset_version": "prototype-specs-v1",
+          "generator_model": "hand-authored-acceptance-fixture-v1",
+          "generated_at": "2026-10-17T00:00:00Z",
+          "identity_snapshot": {
+            "product_id": "VE-TRADEOFF",
+            "product_name": "VE-TRADEOFF Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "gender": null,
+            "colour": "Black",
+            "material": "Polyester",
+            "fit": "Regular",
+            "style": "Relaxed",
+            "occasion": "Beach Wedding",
+            "season": "Summer"
+          },
+          "specification": {
+            "product_id": "VE-TRADEOFF",
+            "description": "Synthetic test specification for VE-TRADEOFF Dress; recorded for controlled prototype testing only.",
+            "construction_details": [
+              "Seamed construction",
+              "Finished edges"
+            ],
+            "care_instructions": "Wipe or gently hand clean; follow the care label.",
+            "lining": false,
+            "pockets": true,
+            "adjustable_strap": false,
+            "zip_closure": false,
+            "machine_washable": false,
+            "capacity_litres": null,
+            "use_cases": [
+              "Beach Wedding"
+            ],
+            "closure": "slip_on",
+            "garment_length_cm": 110,
+            "heel_height_cm": null,
+            "sole_material": null,
+            "dimensions_cm": null,
+            "strap_drop_cm": null,
+            "compartments": null,
+            "hardware_finish": null
+          }
+        }
+      }
+    ],
+    "S5-F": [
+      {
+        "product_id": "VF-UNKNOWN",
+        "product_name": "VF-UNKNOWN Dress",
+        "category": "Clothing",
+        "subcategory": "Dresses",
+        "product_type": "Midi Dress",
+        "gender": null,
+        "brand_line": null,
+        "colour": "Black",
+        "style": "Relaxed",
+        "occasion": "Beach Wedding",
+        "season": "Summer",
+        "material": "Polyester",
+        "fit": "Regular",
+        "price_aud": 95,
+        "sizes_available": [
+          "10",
+          "12"
+        ],
+        "stock_qty": 20,
+        "is_available": true,
+        "description": null,
+        "tags": [],
+        "image_key": null,
+        "cross_sell_category": "Bags",
+        "feature_data_status": "available",
+        "verified_features": [],
+        "synthetic_specification": {
+          "product_id": "VF-UNKNOWN",
+          "source_kind": "synthetic",
+          "dataset_version": "prototype-specs-v1",
+          "generator_model": "hand-authored-acceptance-fixture-v1",
+          "generated_at": "2026-10-17T00:00:00Z",
+          "identity_snapshot": {
+            "product_id": "VF-UNKNOWN",
+            "product_name": "VF-UNKNOWN Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "gender": null,
+            "colour": "Black",
+            "material": "Polyester",
+            "fit": "Regular",
+            "style": "Relaxed",
+            "occasion": "Beach Wedding",
+            "season": "Summer"
+          },
+          "specification": {
+            "product_id": "VF-UNKNOWN",
+            "description": "Synthetic test specification for VF-UNKNOWN Dress; recorded for controlled prototype testing only.",
+            "construction_details": [
+              "Seamed construction",
+              "Finished edges"
+            ],
+            "care_instructions": "Wipe or gently hand clean; follow the care label.",
+            "lining": null,
+            "pockets": false,
+            "adjustable_strap": false,
+            "zip_closure": false,
+            "machine_washable": false,
+            "capacity_litres": null,
+            "use_cases": [
+              "Beach Wedding"
+            ],
+            "closure": "slip_on",
+            "garment_length_cm": 110,
+            "heel_height_cm": null,
+            "sole_material": null,
+            "dimensions_cm": null,
+            "strap_drop_cm": null,
+            "compartments": null,
+            "hardware_finish": null
+          }
+        }
+      },
+      {
+        "product_id": "VF-LINED",
+        "product_name": "VF-LINED Dress",
+        "category": "Clothing",
+        "subcategory": "Dresses",
+        "product_type": "Midi Dress",
+        "gender": null,
+        "brand_line": null,
+        "colour": "Black",
+        "style": "Relaxed",
+        "occasion": "Beach Wedding",
+        "season": "Summer",
+        "material": "Polyester",
+        "fit": "Regular",
+        "price_aud": 120,
+        "sizes_available": [
+          "10",
+          "12"
+        ],
+        "stock_qty": 20,
+        "is_available": true,
+        "description": null,
+        "tags": [],
+        "image_key": null,
+        "cross_sell_category": "Bags",
+        "feature_data_status": "available",
+        "verified_features": [],
+        "synthetic_specification": {
+          "product_id": "VF-LINED",
+          "source_kind": "synthetic",
+          "dataset_version": "prototype-specs-v1",
+          "generator_model": "hand-authored-acceptance-fixture-v1",
+          "generated_at": "2026-10-17T00:00:00Z",
+          "identity_snapshot": {
+            "product_id": "VF-LINED",
+            "product_name": "VF-LINED Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "gender": null,
+            "colour": "Black",
+            "material": "Polyester",
+            "fit": "Regular",
+            "style": "Relaxed",
+            "occasion": "Beach Wedding",
+            "season": "Summer"
+          },
+          "specification": {
+            "product_id": "VF-LINED",
+            "description": "Synthetic test specification for VF-LINED Dress; recorded for controlled prototype testing only.",
+            "construction_details": [
+              "Seamed construction",
+              "Finished edges"
+            ],
+            "care_instructions": "Wipe or gently hand clean; follow the care label.",
+            "lining": true,
+            "pockets": false,
+            "adjustable_strap": false,
+            "zip_closure": false,
+            "machine_washable": false,
+            "capacity_litres": null,
+            "use_cases": [
+              "Beach Wedding"
+            ],
+            "closure": "slip_on",
+            "garment_length_cm": 110,
+            "heel_height_cm": null,
+            "sole_material": null,
+            "dimensions_cm": null,
+            "strap_drop_cm": null,
+            "compartments": null,
+            "hardware_finish": null
+          }
+        }
+      }
+    ]
+  },
+  "expected": {
+    "S5-A": [
+      "VA-POCKETS"
+    ],
+    "S5-B": [
+      "VB-ELIGIBLE"
+    ],
+    "S5-C": [],
+    "S5-D": [
+      "VD-EQUAL",
+      "VD-CHEAPER"
+    ],
+    "S5-E": [
+      "VE-TRADEOFF"
+    ],
+    "S5-F": [],
+    "S6-A": [
+      "SH-WORK-110",
+      "SH-WORK-75"
+    ],
+    "S6-B": [
+      "N-SILVER-65",
+      "N-SILVER-40"
+    ]
+  }
+}

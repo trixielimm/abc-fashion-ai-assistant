@@ -1,0 +1,162 @@
+[
+  {
+    "number": 1,
+    "flow": "size",
+    "prompt": "Show women's dresses under $100. No size filter.",
+    "observed_at": "2026-10-19T07:31:09.993Z",
+    "expected_pattern": "4 clothing options",
+    "pass": true
+  },
+  {
+    "number": 2,
+    "flow": "size",
+    "prompt": "Set size to 12.",
+    "observed_at": "2026-10-19T07:31:43.540Z",
+    "expected_pattern": "Size 12 is listed",
+    "pass": true
+  },
+  {
+    "number": 3,
+    "flow": "size",
+    "prompt": "Show me a women's dress under $1 in size 999. If there are none, don't invent one.",
+    "observed_at": "2026-10-19T07:32:00.607Z",
+    "expected_pattern": "couldn't apply size: 999",
+    "pass": true
+  },
+  {
+    "number": 4,
+    "flow": "size",
+    "prompt": "Okay, drop the impossible $1 and size 999. Back to real women's dresses below $100, no size filter and no cream. Don't change any prices.",
+    "observed_at": "2026-10-19T07:32:07.714Z",
+    "expected_pattern": "2 clothing options",
+    "pass": true
+  },
+  {
+    "number": 5,
+    "flow": "outfit",
+    "prompt": "Help! I've got a friend's wedding at a winery and the invite says cocktail. I basically live in jeans. Around $280 for a dress AND shoes, not $280 each. Where do I start?",
+    "observed_at": "2026-10-19T07:33:03.285Z",
+    "expected_pattern": "A\\$265\\.00",
+    "pass": true
+  },
+  {
+    "number": 6,
+    "flow": "outfit",
+    "prompt": "Let's change tack. Drop the shoes and the combined outfit search. Show only women's wedding guest dresses below $180, no white or cream. Any size for browsing.",
+    "observed_at": "2026-10-19T07:33:16.093Z",
+    "expected_pattern": "I found Olive Maxi Dress",
+    "pass": true
+  },
+  {
+    "number": 7,
+    "flow": "outfit",
+    "prompt": "Show women's wedding guest dresses under $180, excluding white and cream.",
+    "observed_at": "2026-10-19T07:33:20.111Z",
+    "expected_pattern": "I found Olive Maxi Dress",
+    "pass": true
+  },
+  {
+    "number": 8,
+    "flow": "saved",
+    "prompt": "I saved the olive dress. I still need shoes for grass at the winery — flats would be sensible. Keep the dress and shoes under $280 combined, so shoes can't cost more than $125. Any ideas?",
+    "observed_at": "2026-10-19T07:33:29.954Z",
+    "expected_pattern": "can't verify suitable for grass",
+    "pass": true
+  },
+  {
+    "number": 9,
+    "flow": "saved",
+    "prompt": "Forget the grass detail. Show flat shoes under $125 to go with my saved Olive Maxi Dress. Keep the dress.",
+    "observed_at": "2026-10-19T07:33:46.489Z",
+    "expected_pattern": "Sage Ballet Flats",
+    "pass": true
+  },
+  {
+    "number": 10,
+    "flow": "saved",
+    "prompt": "The saved Olive Maxi Dress is a planned purchase, not something I already own. My total purchase budget is $280 for that dress and one pair of flats. Please confirm the remaining shoe budget and show options.",
+    "observed_at": "2026-10-19T07:33:54.208Z",
+    "expected_pattern": "155\\.00\\s+selected A\\$\\s+125\\.00\\s+left of A\\$\\s+280\\.00",
+    "pass": true
+  },
+  {
+    "number": 11,
+    "flow": "saved",
+    "prompt": "Actually I already own the Olive Maxi Dress. Mark it as owned. I need flat shoes to go with it, and my combined purchase budget is $280 for the new shoes.",
+    "observed_at": "2026-10-19T07:34:09.329Z",
+    "expected_pattern": "0\\.00\\s+selected A\\$\\s+280\\.00\\s+left of A\\$\\s+280\\.00",
+    "pass": true
+  },
+  {
+    "number": 12,
+    "flow": "discovery",
+    "prompt": "hey, just killing time tbh. Everything in my wardrobe feels boring but I don't even know what I'd buy 😅",
+    "observed_at": "2026-10-19T07:34:34.432Z",
+    "expected_pattern": "men's clothing, women's clothing, or both",
+    "pass": true
+  },
+  {
+    "number": 13,
+    "flow": "discovery",
+    "prompt": "Both, honestly. I steal my boyfriend's jumpers. Can you surprise me with something for an ordinary weekend, not an occasion?",
+    "observed_at": "2026-10-19T07:34:40.566Z",
+    "expected_pattern": "White Denim Jacket",
+    "pass": true
+  },
+  {
+    "number": 14,
+    "flow": "discovery",
+    "prompt": "Number 1, the White Denim Jacket. Similar shape, different colour, under $100. No beige or yellow.",
+    "observed_at": "2026-10-19T07:34:53.060Z",
+    "expected_pattern": "Grey Denim Jacket",
+    "pass": true
+  },
+  {
+    "number": 15,
+    "flow": "gift",
+    "prompt": "I'm shopping for my dad, not me. He's starting a new office job, hates shopping, and I want to get him a shirt and trousers for under $220 together. No idea what his size is. Can you help without guessing?",
+    "observed_at": "2026-10-19T07:35:06.106Z",
+    "expected_pattern": "A\\$175\\.00",
+    "pass": true
+  },
+  {
+    "number": 16,
+    "flow": "gift",
+    "prompt": "This is going nowhere. Forget the two-piece outfit. Just show men's office shirts under $100. No size filter yet. Is that possible?",
+    "observed_at": "2026-10-19T07:35:21.258Z",
+    "expected_pattern": "3\\s+pieces",
+    "pass": true
+  },
+  {
+    "number": 17,
+    "flow": "fresh-build",
+    "prompt": "Show women's dresses under $100. No size filter.",
+    "observed_at": "2026-10-19T07:37:54.447Z",
+    "expected_pattern": "4 clothing options",
+    "pass": true
+  },
+  {
+    "number": 18,
+    "flow": "fresh-build",
+    "prompt": "Set size to 12.",
+    "observed_at": "2026-10-19T07:37:59.313Z",
+    "expected_pattern": "Size 12 is listed",
+    "pass": true
+  },
+  {
+    "number": 19,
+    "flow": "fresh-build",
+    "prompt": "Find women's wedding guest dresses and shoes for $280 total.",
+    "observed_at": "2026-10-19T07:38:31.005Z",
+    "expected_pattern": "A\\$265\\.00",
+    "pass": true
+  },
+  {
+    "number": 20,
+    "flow": "fresh-build",
+    "prompt": "Show women's wedding guest dresses under $180, excluding white and cream.",
+    "observed_at": "2026-10-19T07:38:40.745Z",
+    "expected_pattern": "I found Olive Maxi Dress",
+    "pass": true
+  }
+]

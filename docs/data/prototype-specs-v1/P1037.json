@@ -1,0 +1,51 @@
+{
+  "product_id": "P1037",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:26.396Z",
+  "identity_snapshot": {
+    "product_id": "P1037",
+    "product_name": "Grey Tailored Trousers",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Tailored Trousers",
+    "gender": "Women",
+    "colour": "Grey",
+    "material": "Viscose",
+    "fit": "Tailored",
+    "style": "Classic",
+    "occasion": "Work",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1037",
+    "description": "Classic grey tailored trousers in viscose with a defined tailored fit, smooth drape and understated finish for work wardrobes.",
+    "construction_details": [
+      "Structured waistband with belt loops",
+      "Concealed hook-and-bar and zip fastening",
+      "Front crease detailing",
+      "Slanted side pockets and welt back pockets"
+    ],
+    "care_instructions": "Do not machine wash; professional dry clean recommended. Press on the reverse side at low heat.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Work",
+      "Evening"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 104,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "dd6fe8c825af8d84dc9598af6aad23311714cf42c990737ed9590d6c5b53d689"
+}

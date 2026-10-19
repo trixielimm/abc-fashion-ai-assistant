@@ -1,0 +1,55 @@
+[
+  {
+    "message": "New search: skirts in AU 12 under $140, any colour, any occasion. No construction checks. I just want to browse what's actually there.",
+    "result": {
+      "status": "ready_for_validation",
+      "preferences": {
+        "gender": null,
+        "category": null,
+        "subcategory": null,
+        "product_type": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "size": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      }
+    }
+  },
+  {
+    "message": "New search: dresses in AU 12 under $140, any colour, any occasion. No construction checks. I just want to browse what's actually there.",
+    "result": {
+      "error": "PlanValidationError",
+      "message": "A new_search clears the old item scope, so it must include the stated item/category even if it was previously selected. For a repeated request for the same item category, use refine and retain all existing requirements instead of an empty new_search."
+    }
+  },
+  {
+    "message": "New search: jackets in AU 12 under $140, any colour, any occasion. No construction checks. I just want to browse what's actually there.",
+    "result": {
+      "status": "ready_for_validation",
+      "preferences": {
+        "gender": null,
+        "category": null,
+        "subcategory": null,
+        "product_type": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "size": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      }
+    }
+  }
+]

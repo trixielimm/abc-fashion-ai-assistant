@@ -1,0 +1,22 @@
+PASS: The screenshot's uncertain request asks one easy question without inventing preferences
+PASS: Everyday discovery asks one routine question, then browsing skips optional inputs
+PASS: Repeated uncertainty moves to inspiration and never repeats a skipped question
+PASS: The two-question limit survives short-history eviction
+PASS: An unspecified occasion is never saved as a fabricated filter
+PASS: Skipping immediately browses, and surprise me does not start a questionnaire
+PASS: Fresh batches do not recycle rejected ideas and exhaustion is honest
+PASS: None of these also skips the current shortlist before discovery has started
+PASS: Discovery honours budgets, exclusions, sizes, features, rejected items and cart items
+PASS: Unknown and conflicting restrictions still block inspiration
+PASS: A blocking discovery requirement can be explicitly removed without losing other limits
+PASS: Explicit feature requirements also filter broad ideas, and cannot be omitted
+PASS: Choosing an item after discovery keeps the earlier budget and exclusions
+PASS: A discovery answer is not a blocking continuation even if the model copies the prior question
+PASS: More like this narrows the item without selecting it or guessing colour and budget
+PASS: Compound uncertainty is interpreted instead of dropping trailing constraints or questions
+PASS: Active combined-budget outfits and pending product questions are not hijacked
+PASS: Pure answers and cancellation retain discovery memory without another discovery question
+PASS: Broad discovery is an explicit search permission, never a global removal of search safeguards
+PASS: Stylist prose removes em dashes, including model questions, without rewriting evidence
+
+20 guided-discovery checks passed.

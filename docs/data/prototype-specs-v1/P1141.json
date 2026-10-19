@@ -1,0 +1,50 @@
+{
+  "product_id": "P1141",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:51.191Z",
+  "identity_snapshot": {
+    "product_id": "P1141",
+    "product_name": "Cream Leather Belt",
+    "category": "Accessories",
+    "subcategory": "Belts",
+    "product_type": "Leather Belt",
+    "gender": "Unisex",
+    "colour": "Cream",
+    "material": "Faux Leather",
+    "fit": "Standard",
+    "style": "Minimalist",
+    "occasion": "Work",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1141",
+    "description": "A cream slim leather belt with a minimalist profile, interpreted in faux leather for a clean finishing touch to work outfits.",
+    "construction_details": [
+      "Slim faux-leather strap",
+      "Simple buckle fastening",
+      "Single belt keeper",
+      "Smooth edge finish"
+    ],
+    "care_instructions": "Wipe clean with a soft, slightly damp cloth and allow to air dry away from direct heat; do not soak.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": null,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Work"
+    ],
+    "closure": "buckle",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": "Brushed silver-tone"
+  },
+  "content_sha256": "12f37cb06f9852e41f98248bcf69176ea92f29ca9b9f166573ab63a5e6b9a484"
+}

@@ -1,0 +1,51 @@
+{
+  "product_id": "P1315",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:21.086Z",
+  "identity_snapshot": {
+    "product_id": "P1315",
+    "product_name": "Burgundy Blouse",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "product_type": "Blouse",
+    "gender": "Women",
+    "colour": "Burgundy",
+    "material": "Cotton",
+    "fit": "Slim",
+    "style": "Relaxed",
+    "occasion": "Wedding Guest",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1315",
+    "description": "Burgundy cotton blouse with a slim relaxed profile and understated detailing for wedding guest dressing.",
+    "construction_details": [
+      "Slim shape with shaped side seams",
+      "Button-through front with tonal buttons",
+      "Neat pointed collar and softly gathered cuffs",
+      "Curved hem with narrow topstitching"
+    ],
+    "care_instructions": "Cold machine wash with similar colours; line dry and press while slightly damp.",
+    "lining": false,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Wedding Guest",
+      "Work"
+    ],
+    "closure": "button",
+    "garment_length_cm": 64,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "1391f104fe511dd1bd4d25206b4674532ff57027784fdb52328701ebfa461c25"
+}

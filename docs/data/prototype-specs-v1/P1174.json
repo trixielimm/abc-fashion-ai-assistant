@@ -1,0 +1,51 @@
+{
+  "product_id": "P1174",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:13.779Z",
+  "identity_snapshot": {
+    "product_id": "P1174",
+    "product_name": "Sage Two-Piece Set",
+    "category": "Clothing",
+    "subcategory": "Sets",
+    "product_type": "Two-Piece Set",
+    "gender": "Women",
+    "colour": "Sage",
+    "material": "Viscose",
+    "fit": "Oversized",
+    "style": "Bohemian",
+    "occasion": "Brunch",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1174",
+    "description": "Bohemian sage two-piece set with an oversized silhouette and fluid viscose construction, combining an easy top with coordinating relaxed bottoms.",
+    "construction_details": [
+      "Relaxed top with softly gathered neckline",
+      "Elasticated waistband on the coordinating bottoms",
+      "Wide, flowing leg shape",
+      "Clean-finished seams throughout"
+    ],
+    "care_instructions": "Hand wash separately in cool water; do not wring. Hang to air dry and use a cool iron if needed.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Brunch",
+      "Weekend"
+    ],
+    "closure": "tie",
+    "garment_length_cm": 76,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "70ace46feefe90d60a566f4c94d32dd9970493dee86dbce634348c829c7e8ec7"
+}

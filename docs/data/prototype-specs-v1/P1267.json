@@ -1,0 +1,49 @@
+{
+  "product_id": "P1267",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:42.490Z",
+  "identity_snapshot": {
+    "product_id": "P1267",
+    "product_name": "Lavender Low-Top Sneakers",
+    "category": "Shoes",
+    "subcategory": "Sneakers",
+    "product_type": "Low-Top Sneakers",
+    "gender": "Women",
+    "colour": "Lavender",
+    "material": "Leather",
+    "fit": "Standard",
+    "style": "Relaxed",
+    "occasion": "Casual",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1267",
+    "description": "Relaxed lavender low-top sneakers with a standard fit and smooth leather construction, suited to Casual styling.",
+    "construction_details": [
+      "Padded low-cut collar",
+      "Flat cotton laces through reinforced eyelets",
+      "Stitched rubber toe bumper and outsole"
+    ],
+    "care_instructions": "Wipe with a soft, slightly damp cloth and condition the leather sparingly; air dry away from direct heat.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Casual"
+    ],
+    "closure": "lace_up",
+    "garment_length_cm": null,
+    "heel_height_cm": 0,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": null
+  },
+  "content_sha256": "a2bb2215c2b8201dc06b99c3654f17a9372271649a3e6b9e4ec96aada321a7b0"
+}

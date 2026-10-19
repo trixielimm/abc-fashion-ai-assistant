@@ -1,0 +1,51 @@
+{
+  "product_id": "P1226",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:33.946Z",
+  "identity_snapshot": {
+    "product_id": "P1226",
+    "product_name": "Blue Straight Jeans",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Straight Jeans",
+    "gender": "Unisex",
+    "colour": "Blue",
+    "material": "Denim",
+    "fit": "Relaxed",
+    "style": "Minimalist",
+    "occasion": "Casual",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1226",
+    "description": "Blue relaxed straight jeans in denim with a clean minimalist profile, classic five-pocket construction and an easy casual fit.",
+    "construction_details": [
+      "Five-pocket construction with reinforced pocket corners",
+      "Belt loops at the contoured waistband",
+      "Zip fly with button closure",
+      "Straight leg with topstitched outseam"
+    ],
+    "care_instructions": "Machine wash cold with similar colours; turn inside out and line dry.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Casual",
+      "Weekend"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 106,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "be7aa6393c2be73be60266d93098db35c95c7dbc9f4b1d0929c7a59a060485c7"
+}

@@ -1,0 +1,52 @@
+{
+  "product_id": "P1272",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:11.568Z",
+  "identity_snapshot": {
+    "product_id": "P1272",
+    "product_name": "Blue Suit Set",
+    "category": "Clothing",
+    "subcategory": "Sets",
+    "product_type": "Suit Set",
+    "gender": "Women",
+    "colour": "Blue",
+    "material": "Polyester",
+    "fit": "Regular",
+    "style": "Contemporary",
+    "occasion": "Formal",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1272",
+    "description": "Contemporary blue polyester suit set with a regular fit, structured jacket and coordinating tailored trousers for polished formal dressing.",
+    "construction_details": [
+      "Single-breasted jacket front",
+      "Notched lapels",
+      "Pressed trouser crease",
+      "Matching jacket and trouser set",
+      "Welt and side-seam pockets"
+    ],
+    "care_instructions": "Dry clean recommended; press on a low heat setting with a cloth between the iron and fabric.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Formal",
+      "Work"
+    ],
+    "closure": "button",
+    "garment_length_cm": 70,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "61dd1368a73880fdb8cab99b04a75f1fa0b1a569da7233d4b233b4ce8121db10"
+}

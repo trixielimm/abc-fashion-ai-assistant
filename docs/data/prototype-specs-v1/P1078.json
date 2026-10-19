@@ -1,0 +1,50 @@
+{
+  "product_id": "P1078",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:35.747Z",
+  "identity_snapshot": {
+    "product_id": "P1078",
+    "product_name": "Pink Oxford Shirt",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "product_type": "Oxford Shirt",
+    "gender": "Men",
+    "colour": "Pink",
+    "material": "Linen Blend",
+    "fit": "Oversized",
+    "style": "Minimalist",
+    "occasion": "Work",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1078",
+    "description": "Pink linen-blend Oxford shirt with a minimalist finish, oversized proportions and a relaxed summer feel for work styling.",
+    "construction_details": [
+      "Button-down collar",
+      "Full front button placket",
+      "Box pleat at the back yoke",
+      "Rounded hem with double-needle stitching"
+    ],
+    "care_instructions": "Cold gentle machine wash with similar colours; reshape and line dry. Press on a low setting.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Work"
+    ],
+    "closure": "button",
+    "garment_length_cm": 78,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "ffcef418c43896e4cf19e7ec5396eb3cd9c8d890511742f690cdd947b3fcd30b"
+}

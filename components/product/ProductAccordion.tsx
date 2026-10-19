@@ -3,15 +3,16 @@
 import { useState } from "react";
 import { cn } from "@/lib/cn";
 import type { ProductDetailMock } from "@/lib/product-detail-mock";
-
-const DELIVERY_COPY =
-  "Standard delivery is available across Australia. Returns are accepted within 30 days of delivery.";
+import { DELIVERY_AND_RETURNS_COPY } from "@/lib/storePolicies";
+import { getProductSpecification, specificationDetails } from "@/lib/stylist/productSpecifications";
 
 export function ProductAccordion({ product }: { product: ProductDetailMock }) {
   const [openSections, setOpenSections] = useState<Set<string>>(
     () => new Set(),
   );
+  const specification = getProductSpecification(product);
   const details = [
+    ...(specification ? specificationDetails(specification) : []),
     product.fit ? `Fit: ${product.fit}` : null,
     product.style ? `Style: ${product.style}` : null,
     product.occasion ? `Occasion: ${product.occasion}` : null,
@@ -22,15 +23,15 @@ export function ProductAccordion({ product }: { product: ProductDetailMock }) {
     { title: "Details", content: details.join(" · ") },
     {
       title: "Material and Care",
-      content: product.material ? `Material: ${product.material}` : "",
+      content: [product.material ? `Material: ${product.material}` : null, specification?.care_instructions].filter(Boolean).join(" · "),
     },
-    { title: "Delivery and Returns", content: DELIVERY_COPY },
+    { title: "Delivery and Returns", content: DELIVERY_AND_RETURNS_COPY },
   ];
 
   return (
     <div className="mt-4 border-t border-border">
       {sections.map((section) => (
-        <div key={section.title} className="border-b border-border">
+        <div key={section.title} id={section.title === "Delivery and Returns" ? "delivery-returns" : undefined} className="border-b border-border">
           <button
             type="button"
             aria-expanded={openSections.has(section.title)}
@@ -55,9 +56,9 @@ export function ProductAccordion({ product }: { product: ProductDetailMock }) {
             hidden={!openSections.has(section.title)}
           >
             {section.content ? (
-              <p className={cn("pb-4 text-[12px] leading-5 text-muted")}>
-                {section.content}
-              </p>
+              section.title === "Details" ? <ul className="space-y-2 pb-4 text-[12px] leading-5 text-muted">
+                {details.map(detail => <li key={detail}>{detail}</li>)}
+              </ul> : <p className={cn("pb-4 text-[12px] leading-5 text-muted")}>{section.content}</p>
             ) : null}
           </div>
         </div>

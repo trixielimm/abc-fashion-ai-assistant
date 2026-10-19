@@ -1,0 +1,49 @@
+{
+  "product_id": "P1085",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:24.043Z",
+  "identity_snapshot": {
+    "product_id": "P1085",
+    "product_name": "Red Block Heels",
+    "category": "Shoes",
+    "subcategory": "Heels",
+    "product_type": "Block Heels",
+    "gender": "Women",
+    "colour": "Red",
+    "material": "Faux Leather",
+    "fit": "Standard",
+    "style": "Contemporary",
+    "occasion": "Formal",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1085",
+    "description": "Contemporary red faux-leather block heels with a standard fit and a confident formal silhouette.",
+    "construction_details": [
+      "Smooth faux-leather closed toe",
+      "Adjustable ankle strap with side buckle",
+      "Squared block heel and lightly padded insole"
+    ],
+    "care_instructions": "Wipe with a soft damp cloth and dry naturally; avoid abrasive cleaners.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": true,
+    "zip_closure": false,
+    "machine_washable": null,
+    "capacity_litres": null,
+    "use_cases": [
+      "Formal"
+    ],
+    "closure": "buckle",
+    "garment_length_cm": null,
+    "heel_height_cm": 6,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": "Gold-tone"
+  },
+  "content_sha256": "7da9ec8a4e1e6baa9866329049982be5029cfbfb9cd26f673dee6a149fd9a1c1"
+}

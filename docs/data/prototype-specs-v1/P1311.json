@@ -1,0 +1,51 @@
+{
+  "product_id": "P1311",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:21.085Z",
+  "identity_snapshot": {
+    "product_id": "P1311",
+    "product_name": "Cream Maxi Dress",
+    "category": "Clothing",
+    "subcategory": "Dresses",
+    "product_type": "Maxi Dress",
+    "gender": "Women",
+    "colour": "Cream",
+    "material": "Viscose",
+    "fit": "Regular",
+    "style": "Elegant",
+    "occasion": "Party",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1311",
+    "description": "Cream viscose maxi dress with an elegant regular fit and fluid drape for party dressing across seasons.",
+    "construction_details": [
+      "Long, softly gathered skirt with clean vertical seams",
+      "Round neckline with narrow binding",
+      "Concealed side-seam zip fastening",
+      "Slim self-fabric waist tie and narrow hem"
+    ],
+    "care_instructions": "Hand wash separately in cool water; do not wring. Lay flat to dry and steam gently on the reverse.",
+    "lining": false,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Party",
+      "Evening"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 145,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "cce5141311fc8842551ccf0183ca49248808b87119cd4b12267e77c6ec9c49fe"
+}

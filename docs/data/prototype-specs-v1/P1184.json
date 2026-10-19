@@ -1,0 +1,50 @@
+{
+  "product_id": "P1184",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:14.650Z",
+  "identity_snapshot": {
+    "product_id": "P1184",
+    "product_name": "Cream Straight Jeans",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Straight Jeans",
+    "gender": "Men",
+    "colour": "Cream",
+    "material": "Denim",
+    "fit": "Regular",
+    "style": "Elegant",
+    "occasion": "Brunch",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1184",
+    "description": "Elegant cream straight jeans in denim with a regular fit, classic five-pocket construction and a clean brunch-ready finish.",
+    "construction_details": [
+      "Five-pocket construction with rivet details",
+      "Button waist fastening with concealed zip fly",
+      "Straight leg with topstitched outer seams"
+    ],
+    "care_instructions": "Machine wash cold inside out; wash separately at first and line dry away from direct heat.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Brunch",
+      "Weekend"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 106,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "259f0697442376850ee89baa8cdb95b987fd1fc3c348094cf229ae7f05c1a50a"
+}

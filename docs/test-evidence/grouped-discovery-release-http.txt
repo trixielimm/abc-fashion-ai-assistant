@@ -1,0 +1,7 @@
+PASS: HTTP 200 matches: I want a dress and shoes for formal events, my budget for both of them is 400 aud
+PASS: HTTP 200 needs_clarification: zibble flomp splatch
+PASS: HTTP 200 no_match: Actually my combined budget is 1 aud. Keep both items and the formal occasion.
+PASS: HTTP 200 matches: Make the combined budget 400 aud again, keeping everything else.
+PASS: HTTP 200 answered: What material is the first dress in these results?
+PASS: HTTP 200 matches: Build a complete outfit with a dress, shoes and bag for formal events under $400 total.
+{"passed":6,"failed":0,"evidence":"/Users/beatricelim/Documents/Session%202%202026/COMP3850%20PACE/abc-fashion-ai-assistant/docs/test-evidence/outfit-budget-http-2026-10-17T12-12-06-792Z.json"}

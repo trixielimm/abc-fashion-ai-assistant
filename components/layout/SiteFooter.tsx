@@ -104,7 +104,9 @@ export function SiteFooter() {
       </Container>
 
       <Container className="flex flex-col gap-3 border-t border-border py-5 text-[10px] tracking-[0.14em] text-muted uppercase sm:flex-row sm:items-center sm:justify-between">
-        <p>© 2026 ABC Fashion Inc. All rights reserved.</p>
+        <div><p>© 2026 ABC Fashion Inc. All rights reserved.</p>
+          <p className="mt-2 normal-case tracking-normal">Prototype store — sample products and AI-generated specifications.</p>
+        </div>
         <p className="flex gap-4">
           <Link href="/terms-of-service" className="hover:text-foreground">
             AI Terms

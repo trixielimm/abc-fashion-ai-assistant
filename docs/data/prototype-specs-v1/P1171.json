@@ -1,0 +1,51 @@
+{
+  "product_id": "P1171",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:13.779Z",
+  "identity_snapshot": {
+    "product_id": "P1171",
+    "product_name": "Brown Chinos",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Chinos",
+    "gender": "Men",
+    "colour": "Brown",
+    "material": "Cotton",
+    "fit": "Slim",
+    "style": "Romantic",
+    "occasion": "Beach Wedding",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1171",
+    "description": "Slim brown chinos with a clean tailored line and versatile cotton construction, offering a composed option for beach wedding dressing.",
+    "construction_details": [
+      "Flat-front waistband with belt loops",
+      "Concealed hook-and-bar with zip fly",
+      "Slanted front pockets",
+      "Two welted back pockets with button closures"
+    ],
+    "care_instructions": "Cold machine wash with similar colours; line dry and press on a moderate setting.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Beach Wedding",
+      "Work"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 105,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "c68583febbf1934164d98f648e9b57fd8c6bf6248b5ad8da0eb7d41df3efaeda"
+}

@@ -1,0 +1,51 @@
+{
+  "product_id": "P1244",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:57.570Z",
+  "identity_snapshot": {
+    "product_id": "P1244",
+    "product_name": "Yellow Leather Belt",
+    "category": "Accessories",
+    "subcategory": "Belts",
+    "product_type": "Leather Belt",
+    "gender": "Women",
+    "colour": "Yellow",
+    "material": "Faux Leather",
+    "fit": "Standard",
+    "style": "Minimalist",
+    "occasion": "Smart Casual",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1244",
+    "description": "Minimalist yellow faux leather belt for smart casual styling, finished with a neat standard-width profile.",
+    "construction_details": [
+      "Smooth faux leather strap",
+      "Single-prong buckle",
+      "Five adjustment holes",
+      "Edge-painted finish"
+    ],
+    "care_instructions": "Wipe clean with a lightly damp cloth and allow to air dry away from direct heat; do not soak.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": true,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Smart Casual",
+      "Work"
+    ],
+    "closure": "buckle",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": "Yellow-gold tone"
+  },
+  "content_sha256": "83f473756c35c40928b18f640118e53cce72cee3947876309d7ba901b7856284"
+}

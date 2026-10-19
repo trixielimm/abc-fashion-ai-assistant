@@ -1,0 +1,15 @@
+{
+  "audited_at": "2026-10-19T07:40:27.530Z",
+  "catalogue_count": 318,
+  "specification_count": 316,
+  "baseline_count": 316,
+  "new_product_ids": [
+    "P1011",
+    "P1024"
+  ],
+  "missing_specification_ids": [
+    "P1011",
+    "P1024"
+  ],
+  "baseline_field_changes": []
+}

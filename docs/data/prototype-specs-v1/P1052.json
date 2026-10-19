@@ -1,0 +1,49 @@
+{
+  "product_id": "P1052",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:21.193Z",
+  "identity_snapshot": {
+    "product_id": "P1052",
+    "product_name": "Brown Low-Top Sneakers",
+    "category": "Shoes",
+    "subcategory": "Sneakers",
+    "product_type": "Low-Top Sneakers",
+    "gender": "Women",
+    "colour": "Brown",
+    "material": "Canvas",
+    "fit": "Standard",
+    "style": "Contemporary",
+    "occasion": "Casual",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1052",
+    "description": "Contemporary brown low-top sneakers in durable canvas with a clean, understated profile. Standard fit and a flexible construction for casual summer outfits.",
+    "construction_details": [
+      "Canvas upper with reinforced toe cap",
+      "Padded collar and textile lining",
+      "Cotton laces through metal eyelets with flexible rubber outsole"
+    ],
+    "care_instructions": "Spot clean the canvas with mild soapy water and a soft brush. Air dry fully and avoid prolonged soaking.",
+    "lining": true,
+    "pockets": null,
+    "adjustable_strap": false,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Casual"
+    ],
+    "closure": "lace_up",
+    "garment_length_cm": null,
+    "heel_height_cm": 1.5,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": "Gunmetal"
+  },
+  "content_sha256": "9707c622d87773c8350dae6e901775ab26795bd572aa4d8f1b229f238a7ea5d7"
+}

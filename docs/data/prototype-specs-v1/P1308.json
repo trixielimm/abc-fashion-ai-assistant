@@ -1,0 +1,52 @@
+{
+  "product_id": "P1308",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:13.348Z",
+  "identity_snapshot": {
+    "product_id": "P1308",
+    "product_name": "White Polo Shirt",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "product_type": "Polo Shirt",
+    "gender": "Men",
+    "colour": "White",
+    "material": "Polyester",
+    "fit": "Slim",
+    "style": "Contemporary",
+    "occasion": "Smart Casual",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1308",
+    "description": "White polyester polo shirt with a slim contemporary fit, crisp collar shaping and a streamlined finish for smart-casual outfits.",
+    "construction_details": [
+      "Flat-knit polo collar",
+      "Two-button placket",
+      "Set-in sleeves",
+      "Side-vented hem"
+    ],
+    "care_instructions": "Machine wash cold with similar colours; reshape and air dry.",
+    "lining": false,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Smart Casual",
+      "Work",
+      "Weekend"
+    ],
+    "closure": "button",
+    "garment_length_cm": 69,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "32ffa7e66a15337ad8535be0e1fdc0a8834cce98c5c473e0b9f008a139d5c40a"
+}

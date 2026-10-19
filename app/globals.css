@@ -95,12 +95,18 @@ button:not(:disabled) {
 }
 
 .stylist-dialog {
+  position: fixed;
   top: var(--stylist-viewport-top, 0px);
+  inset-inline: 0;
   margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
   width: 100%;
   max-width: none;
   height: var(--stylist-viewport-height, 100dvh);
   max-height: none;
+  overflow: hidden;
 }
 
 /* Keep text-entry controls legible and avoid focus zoom on iOS. */
@@ -115,9 +121,11 @@ button:not(:disabled) {
 @media (min-width: 640px) {
   .stylist-dialog {
     margin-inline: auto;
-    margin-top: max(1rem, calc((var(--stylist-viewport-height, 100dvh) - 680px) / 2));
-    width: min(920px, calc(100vw - 2rem));
-    height: min(680px, calc(var(--stylist-viewport-height, 100dvh) - 2rem));
+    margin-top: max(1.5rem, calc((var(--stylist-viewport-height, 100dvh) - 780px) / 2));
+    width: min(1100px, calc(100vw - 3rem));
+    height: min(780px, calc(var(--stylist-viewport-height, 100dvh) - 3rem));
+    border: 1px solid var(--border);
+    border-radius: 4px;
   }
 }
 

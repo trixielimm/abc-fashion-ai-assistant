@@ -1,0 +1,51 @@
+{
+  "product_id": "P1057",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:42.135Z",
+  "identity_snapshot": {
+    "product_id": "P1057",
+    "product_name": "Grey Co-ord Set",
+    "category": "Clothing",
+    "subcategory": "Sets",
+    "product_type": "Co-ord Set",
+    "gender": "Women",
+    "colour": "Grey",
+    "material": "Cotton",
+    "fit": "Relaxed",
+    "style": "Minimalist",
+    "occasion": "Wedding Guest",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1057",
+    "description": "Grey cotton co-ord set with a relaxed, minimalist silhouette and coordinated top and bottom pieces for polished summer wedding-guest dressing.",
+    "construction_details": [
+      "Softly structured top with clean neckline",
+      "Elasticated trouser waistband",
+      "Side-seam pockets in the lower piece",
+      "Neat double-needle hems"
+    ],
+    "care_instructions": "Machine wash cold on a gentle cycle; wash with similar colours and line dry.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Wedding Guest",
+      "Brunch"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": 72,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "20a14636c7246453a6bc023eefb7dcd4645a8d0c656ac3f3fa1fc345f0aec667"
+}

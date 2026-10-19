@@ -104,12 +104,14 @@ export default function TermsOfServicePage() {
             <h2>Privacy &amp; personal information</h2>
             <p>
               When you send a message, it goes to the ABC Fashion server and
-              then to OpenAI&apos;s API solely for preference extraction. The
-              message and the extracted fields appear in your browser during
-              the current page session. ABC Fashion does not save this chat
-              history or these preferences to an account or database in the
-              current version. Resetting the chat or reloading the page clears
-              the conversation from your browser.
+              then to OpenAI&apos;s API with the current structured preferences
+              for extraction. If products match, the shortlist and preferences
+              are also sent to OpenAI to help choose recommendation wording.
+              The message and updated preferences appear in your browser
+              during the current page session. ABC Fashion does not save this
+              chat history or these preferences to an account or database in
+              the current version. Closing the chat keeps the current session;
+              resetting it or reloading the page clears the conversation.
             </p>
             <p>
               We request that OpenAI not store response state, but OpenAI may

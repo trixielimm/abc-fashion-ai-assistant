@@ -1,0 +1,53 @@
+{
+  "product_id": "P1153",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:04.814Z",
+  "identity_snapshot": {
+    "product_id": "P1153",
+    "product_name": "Gold Knit Top",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "product_type": "Knit Top",
+    "gender": "Women",
+    "colour": "Gold",
+    "material": "Knit",
+    "fit": "Relaxed",
+    "style": "Streetwear",
+    "occasion": "Wedding Guest",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1153",
+    "description": "Streetwear gold knit top with a relaxed fit and softly textured knit construction, adding a refined metallic accent to wedding guest styling.",
+    "construction_details": [
+      "Ribbed crew neckline",
+      "Dropped shoulders",
+      "Straight hem",
+      "Tidy sleeve cuffs",
+      "Fine-gauge knit texture"
+    ],
+    "care_instructions": "Hand wash in cool water with mild detergent; reshape while damp and dry flat.",
+    "lining": false,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Wedding Guest",
+      "Brunch",
+      "Evening"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": 60,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "85274041fec2b2f7bee4ffd16a4898c6437f5d738f5e81eac8e7eee5eb7ff3eb"
+}

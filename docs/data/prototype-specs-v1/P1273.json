@@ -1,0 +1,54 @@
+{
+  "product_id": "P1273",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:22:27.088Z",
+  "identity_snapshot": {
+    "product_id": "P1273",
+    "product_name": "Gold Mini Clutch",
+    "category": "Bags",
+    "subcategory": "Clutches",
+    "product_type": "Mini Clutch",
+    "gender": "Unisex",
+    "colour": "Gold",
+    "material": "Faux Leather",
+    "fit": "Standard",
+    "style": "Romantic",
+    "occasion": "Date Night",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1273",
+    "description": "Gold faux leather mini clutch with a romantic profile and standard shape, suited to Date Night styling. The compact envelope silhouette adds a polished finish for evening essentials.",
+    "construction_details": [
+      "Envelope-shaped faux leather shell with clean folded edges",
+      "Slim detachable wristlet strap",
+      "Magnetic flap fastening with a single interior card slot"
+    ],
+    "care_instructions": "Wipe with a soft, dry or slightly damp cloth. Store flat away from direct sunlight and heat.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": false,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": 0.8,
+    "use_cases": [
+      "Date Night",
+      "Evening"
+    ],
+    "closure": "snap",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": {
+      "width": 19,
+      "height": 11,
+      "depth": 4
+    },
+    "strap_drop_cm": 16,
+    "compartments": 1,
+    "sole_material": null,
+    "hardware_finish": "polished gold-tone"
+  },
+  "content_sha256": "254bd4a70e2605bd42d76f5759bd2b25022d166ea2aad1ad02cdf4bbf8138f84"
+}

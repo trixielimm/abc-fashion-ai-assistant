@@ -1,0 +1,52 @@
+{
+  "product_id": "P1307",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:13.348Z",
+  "identity_snapshot": {
+    "product_id": "P1307",
+    "product_name": "Olive Co-ord Set",
+    "category": "Clothing",
+    "subcategory": "Sets",
+    "product_type": "Co-ord Set",
+    "gender": "Women",
+    "colour": "Olive",
+    "material": "Polyester",
+    "fit": "Regular",
+    "style": "Contemporary",
+    "occasion": "Wedding Guest",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1307",
+    "description": "Olive polyester co-ord set with a contemporary regular fit, pairing coordinated clean lines for polished wedding-guest dressing.",
+    "construction_details": [
+      "Coordinated top and trouser pieces",
+      "Neat bound neckline",
+      "Elasticated rear waistband",
+      "Side-seam trouser pockets"
+    ],
+    "care_instructions": "Gently hand wash in cool water or dry clean; air dry on a hanger away from direct heat.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Wedding Guest",
+      "Party",
+      "Evening"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": 68,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "f50f4d37088a5d51f1c464439926aa751ec25a83bd435e472064d6b3894f92f6"
+}

@@ -1,0 +1,53 @@
+{
+  "product_id": "P1172",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:49.635Z",
+  "identity_snapshot": {
+    "product_id": "P1172",
+    "product_name": "Lavender Crossbody Bag",
+    "category": "Bags",
+    "subcategory": "Crossbody",
+    "product_type": "Crossbody Bag",
+    "gender": "Unisex",
+    "colour": "Lavender",
+    "material": "Leather",
+    "fit": "Standard",
+    "style": "Minimalist",
+    "occasion": "Travel",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1172",
+    "description": "Minimalist lavender leather crossbody bag for travel in spring, proportioned in a standard medium shape.",
+    "construction_details": [
+      "Smooth leather body with reinforced base seams",
+      "Adjustable crossbody strap with edge paint",
+      "Top zip and two internal sections"
+    ],
+    "care_instructions": "Wipe with a soft dry cloth; use a leather conditioner sparingly and store away from direct sunlight.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": true,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": 2.2,
+    "use_cases": [
+      "Travel"
+    ],
+    "closure": "zip",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": {
+      "width": 25,
+      "height": 18,
+      "depth": 7
+    },
+    "strap_drop_cm": 65,
+    "compartments": 2,
+    "sole_material": null,
+    "hardware_finish": "pale gold-tone"
+  },
+  "content_sha256": "b9180e7c5a000c5b11d5f1f028bfa7d5f010b49a8f22544ead686015987ada95"
+}

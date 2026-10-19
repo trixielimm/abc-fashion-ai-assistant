@@ -1,0 +1,274 @@
+
+> abc-fashion-ai-assistant@0.1.0 start
+> next start --hostname 127.0.0.1 --port 3002
+
+▲ Next.js 16.3.8
+- Local:         http://127.0.0.1:3002
+- Network:       http://127.0.0.1:3002
+✓ Ready in 71ms
+✓ Running next.config.ts took 13ms
+Conversation plan rejected { attempt: 1, type: 'ZodError', field: null }
+Stylist diagnostic {
+  request_id: 'c9034193-baae-4d86-b77c-bab5dec4372f',
+  stage: 'plan_rejected',
+  elapsed_ms: 4959,
+  attempt: 1,
+  type: 'ZodError',
+  field: null,
+  rule: 'ZodError'
+}
+Stylist diagnostic {
+  request_id: 'a8623d7f-cf8c-4610-b77d-3384e768c653',
+  stage: 'interpretation',
+  elapsed_ms: 4686,
+  action: 'discover',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'a8623d7f-cf8c-4610-b77d-3384e768c653',
+  stage: 'validation',
+  elapsed_ms: 4696,
+  status: 'no_action',
+  action: 'discover',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'a8623d7f-cf8c-4610-b77d-3384e768c653',
+  stage: 'response',
+  elapsed_ms: 4700,
+  status: 'no_action',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Conversation plan rejected { attempt: 1, type: 'ZodError', field: null }
+Stylist diagnostic {
+  request_id: '02365edf-46b9-4797-9b2d-3dfbae34a0d3',
+  stage: 'plan_rejected',
+  elapsed_ms: 4326,
+  attempt: 1,
+  type: 'ZodError',
+  field: null,
+  rule: 'ZodError'
+}
+Stylist diagnostic {
+  request_id: '11d1a197-1368-4a35-a479-4afaeb22dcf8',
+  stage: 'interpretation',
+  elapsed_ms: 5131,
+  action: 'refine',
+  changed_fields: [ 'item.preferred_colours' ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: '11d1a197-1368-4a35-a479-4afaeb22dcf8',
+  stage: 'validation',
+  elapsed_ms: 5135,
+  status: 'ready_for_validation',
+  action: 'refine',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '11d1a197-1368-4a35-a479-4afaeb22dcf8',
+  stage: 'response',
+  elapsed_ms: 7963,
+  status: 'matches',
+  issue_codes: [],
+  issue_fields: [],
+  products: 4,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '02365edf-46b9-4797-9b2d-3dfbae34a0d3',
+  stage: 'interpretation',
+  elapsed_ms: 7610,
+  action: 'refine',
+  changed_fields: [ 'item.fit' ],
+  has_outfit_request: true
+}
+Stylist diagnostic {
+  request_id: '02365edf-46b9-4797-9b2d-3dfbae34a0d3',
+  stage: 'validation',
+  elapsed_ms: 7611,
+  status: 'ready_for_validation',
+  action: 'refine',
+  fields: [],
+  generation: 0
+}
+Conversation plan rejected { attempt: 2, type: 'ZodError', field: null }
+Stylist diagnostic {
+  request_id: 'c9034193-baae-4d86-b77c-bab5dec4372f',
+  stage: 'plan_rejected',
+  elapsed_ms: 9563,
+  attempt: 2,
+  type: 'ZodError',
+  field: null,
+  rule: 'ZodError'
+}
+Stylist diagnostic {
+  request_id: 'c9034193-baae-4d86-b77c-bab5dec4372f',
+  stage: 'validation',
+  elapsed_ms: 9565,
+  status: 'needs_clarification',
+  action: 'clarify',
+  fields: [ 'task.request' ],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'c9034193-baae-4d86-b77c-bab5dec4372f',
+  stage: 'response',
+  elapsed_ms: 9567,
+  status: 'needs_clarification',
+  issue_codes: [ 'interpretation_failed' ],
+  issue_fields: [ 'task.request' ],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '098bfe56-b644-4ccf-ba6b-2d7e5229325f',
+  stage: 'interpretation',
+  elapsed_ms: 8409,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.product_type',
+    'item.occasion',
+    'item.preferred_colours',
+    'item.fit',
+    'item.size',
+    'item.max_price',
+    'item.unresolved'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: '098bfe56-b644-4ccf-ba6b-2d7e5229325f',
+  stage: 'validation',
+  elapsed_ms: 8415,
+  status: 'needs_clarification',
+  action: 'new_search',
+  fields: [
+    'item.requirement',
+    'item.requirement',
+    'item.requirement',
+    'item.requirement'
+  ],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '098bfe56-b644-4ccf-ba6b-2d7e5229325f',
+  stage: 'response',
+  elapsed_ms: 8418,
+  status: 'needs_clarification',
+  issue_codes: [
+    'unverified_requirement',
+    'unverified_requirement',
+    'unverified_requirement',
+    'unverified_requirement'
+  ],
+  issue_fields: [
+    'item.requirement',
+    'item.requirement',
+    'item.requirement',
+    'item.requirement'
+  ],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '02365edf-46b9-4797-9b2d-3dfbae34a0d3',
+  stage: 'response',
+  elapsed_ms: 10608,
+  status: 'no_match',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '20e4c03d-1b57-4988-b240-807bc883db64',
+  stage: 'interpretation',
+  elapsed_ms: 2410,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Stylist diagnostic {
+  request_id: '20e4c03d-1b57-4988-b240-807bc883db64',
+  stage: 'plan_rejected',
+  elapsed_ms: 2412,
+  attempt: 1,
+  type: 'PlanValidationError',
+  field: null,
+  rule: 'A pure answer MUST have changes=[] and top-level reference=null'
+}
+Stylist diagnostic {
+  request_id: 'd7b26e2c-db02-479e-86ee-a595d2bbca78',
+  stage: 'interpretation',
+  elapsed_ms: 3195,
+  action: 'refine',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'd7b26e2c-db02-479e-86ee-a595d2bbca78',
+  stage: 'validation',
+  elapsed_ms: 3198,
+  status: 'ready_for_validation',
+  action: 'refine',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'd7b26e2c-db02-479e-86ee-a595d2bbca78',
+  stage: 'response',
+  elapsed_ms: 5910,
+  status: 'alternatives',
+  issue_codes: [],
+  issue_fields: [],
+  products: 1,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '20e4c03d-1b57-4988-b240-807bc883db64',
+  stage: 'interpretation',
+  elapsed_ms: 5866,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Conversation plan rejected { attempt: 2, type: 'PlanEvidenceError', field: 'intent_evidence' }
+Stylist diagnostic {
+  request_id: '20e4c03d-1b57-4988-b240-807bc883db64',
+  stage: 'plan_rejected',
+  elapsed_ms: 5867,
+  attempt: 2,
+  type: 'PlanEvidenceError',
+  field: 'intent_evidence',
+  rule: 'Plan evidence is not present in the latest message (intent_evidence)'
+}
+Stylist diagnostic {
+  request_id: '20e4c03d-1b57-4988-b240-807bc883db64',
+  stage: 'validation',
+  elapsed_ms: 5868,
+  status: 'needs_clarification',
+  action: 'clarify',
+  fields: [ 'task.request' ],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '20e4c03d-1b57-4988-b240-807bc883db64',
+  stage: 'response',
+  elapsed_ms: 5870,
+  status: 'needs_clarification',
+  issue_codes: [ 'interpretation_failed' ],
+  issue_fields: [ 'task.request' ],
+  products: 0,
+  generation: 0
+}

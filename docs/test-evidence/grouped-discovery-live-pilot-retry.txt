@@ -1,0 +1,6 @@
+
+> abc-fashion-ai-assistant@0.1.0 test:scenarios
+> node --env-file=.env.local --conditions=react-server --import tsx scripts/test-customer-scenarios.mjs
+
+Fail: B5 run 1 (3/5 turns) T2: Expected values to be strictly deep-equal:; T4: Expected values to be strictly deep-equal:
+{"counts":{"Pass":0,"Fail":1,"Blocked":0,"Feature gap":0},"evidence":"/Users/beatricelim/Documents/Session%202%202026/COMP3850%20PACE/abc-fashion-ai-assistant/docs/test-evidence/customer-scenarios-2026-10-17T11-53-26-101Z/"}

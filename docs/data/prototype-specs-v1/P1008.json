@@ -1,0 +1,52 @@
+{
+  "product_id": "P1008",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:14:57.211Z",
+  "identity_snapshot": {
+    "product_id": "P1008",
+    "product_name": "Black Low-Top Sneakers",
+    "category": "Shoes",
+    "subcategory": "Sneakers",
+    "product_type": "Low-Top Sneakers",
+    "gender": "Women",
+    "colour": "Black",
+    "material": "Faux Leather",
+    "fit": "Standard",
+    "style": "Contemporary",
+    "occasion": "Travel",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1008",
+    "description": "Black faux leather low-top sneakers with a contemporary standard fit, finished with a streamlined upper and understated everyday detailing for Travel styling.",
+    "construction_details": [
+      "Faux leather low-top upper",
+      "Padded collar and tongue",
+      "Lace-up front with metal eyelets",
+      "Lightweight rubber cupsole with textured tread"
+    ],
+    "care_instructions": "Wipe clean with a soft damp cloth and leave to air dry. Do not soak or use heat to dry.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Travel",
+      "Casual",
+      "Weekend"
+    ],
+    "closure": "lace_up",
+    "garment_length_cm": null,
+    "heel_height_cm": 0,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": "Silver-tone"
+  },
+  "content_sha256": "e98c7383f90fa10d4d29f8e6d5aaeb215d72508c87a9cc7b33d3d2f05ec2f379"
+}

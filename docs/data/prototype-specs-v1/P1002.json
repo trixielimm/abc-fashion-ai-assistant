@@ -1,0 +1,52 @@
+{
+  "product_id": "P1002",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:14:59.048Z",
+  "identity_snapshot": {
+    "product_id": "P1002",
+    "product_name": "Lavender Co-ord Set",
+    "category": "Clothing",
+    "subcategory": "Sets",
+    "product_type": "Co-ord Set",
+    "gender": "Women",
+    "colour": "Lavender",
+    "material": "Linen Blend",
+    "fit": "Oversized",
+    "style": "Relaxed",
+    "occasion": "Beach Wedding",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1002",
+    "description": "Relaxed lavender co-ord set in a linen blend, with an oversized silhouette suited to beach wedding styling and easy warm-weather layering.",
+    "construction_details": [
+      "Two-piece coordinated construction",
+      "Relaxed seam shaping",
+      "Clean-finished hems",
+      "Lightweight woven texture"
+    ],
+    "care_instructions": "Cold gentle machine wash with similar colours; reshape while damp and line dry. Cool iron if needed.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Beach Wedding",
+      "Travel",
+      "Weekend"
+    ],
+    "closure": "none",
+    "garment_length_cm": 72,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "98d7daeec6c52383f407dc2b8191ee77b00ccc20b53d96925cf0f1d3965de10d"
+}

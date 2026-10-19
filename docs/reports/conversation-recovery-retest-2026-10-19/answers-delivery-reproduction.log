@@ -1,0 +1,10 @@
+PASS (4897ms): Show me dresses under $150 → matches
+PASS (2562ms): Why would you recommend the second dress for a beach wedding? → answered
+FAIL: Explanation, delivery interjection, material and matching bag: Expected values to be strictly equal:
++ actual - expected
+
++ 'needs_clarification'
+- 'answered'
+
+
+2 live requests passed; 1 failed scenarios. Evidence: /Users/salvi/MQ/abc-fashion-ai-assistant/docs/test-evidence/answers-live-2026-10-19T07-32-49-816Z.json

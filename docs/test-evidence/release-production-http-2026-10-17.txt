@@ -1,0 +1,13 @@
+PASS: The customer conversation route accepts a valid request in production
+PASS: The customer UI envelope works in production
+PASS: Same-origin requests remain accepted
+PASS: Production cancellation restores pending preferences
+PASS: Cross-origin requests remain rejected
+PASS: Malformed origins remain rejected
+PASS: Unsupported content types remain rejected
+PASS: Malformed JSON remains rejected
+PASS: Invalid conversation input remains rejected
+PASS: Oversized bodies remain rejected
+PASS: Expired retries still return a useful conflict instead of running a new model call
+
+11 production-route checks passed; HTTP against the local production server.

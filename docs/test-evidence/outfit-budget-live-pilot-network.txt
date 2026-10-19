@@ -1,0 +1,9 @@
+
+> abc-fashion-ai-assistant@0.1.0 test:scenarios
+> node --env-file=.env.local --conditions=react-server --import tsx scripts/test-customer-scenarios.mjs
+
+Pass: B2 run 1 (1/1 turns) 
+Pass: B4 run 1 (1/1 turns) 
+Pass: B3 run 1 (2/2 turns) 
+Pass: B1 run 1 (2/2 turns) 
+{"counts":{"Pass":4,"Fail":0,"Blocked":0,"Feature gap":0},"evidence":"/Users/beatricelim/Documents/Session%202%202026/COMP3850%20PACE/abc-fashion-ai-assistant/docs/test-evidence/customer-scenarios-2026-10-17T05-52-06-138Z/"}

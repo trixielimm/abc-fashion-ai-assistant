@@ -1,0 +1,49 @@
+{
+  "product_id": "P1090",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:45.113Z",
+  "identity_snapshot": {
+    "product_id": "P1090",
+    "product_name": "Brown Fitted Tee",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "product_type": "Fitted Tee",
+    "gender": "Women",
+    "colour": "Brown",
+    "material": "Cotton",
+    "fit": "Relaxed",
+    "style": "Bohemian",
+    "occasion": "Date Night",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1090",
+    "description": "Brown fitted tee in cotton with a bohemian feel and relaxed stated fit, finished for date-night styling.",
+    "construction_details": [
+      "Ribbed crew neckline",
+      "Short sleeves with twin-needle hems",
+      "Curved side seams for a neat silhouette"
+    ],
+    "care_instructions": "Machine wash cold with similar colours; reshape and dry flat.",
+    "lining": false,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Date Night"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": 58,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "23168acde4ca9ee52a9ddfff21a976086a0fac653c75960aab673b04be081610"
+}

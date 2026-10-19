@@ -1,0 +1,53 @@
+{
+  "product_id": "P1218",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:26.574Z",
+  "identity_snapshot": {
+    "product_id": "P1218",
+    "product_name": "Brown Blazer",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Blazer",
+    "gender": "Men",
+    "colour": "Brown",
+    "material": "Polyester",
+    "fit": "Regular",
+    "style": "Minimalist",
+    "occasion": "Smart Casual",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1218",
+    "description": "Brown polyester blazer with a regular minimalist cut, clean tailoring and a versatile profile for autumn smart casual dressing.",
+    "construction_details": [
+      "Notched lapels",
+      "Two-button front fastening",
+      "Long sleeves with button cuffs",
+      "Chest welt pocket",
+      "Front flap pockets"
+    ],
+    "care_instructions": "Cold machine wash on a gentle cycle; line dry on a hanger and cool iron.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Smart Casual",
+      "Work",
+      "Travel"
+    ],
+    "closure": "button",
+    "garment_length_cm": 74,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "c6d2914e65076eddddf5adc0b82108bd657fe632b18b6fbab375d1e4741df490"
+}

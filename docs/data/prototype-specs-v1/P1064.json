@@ -1,0 +1,52 @@
+{
+  "product_id": "P1064",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:42.135Z",
+  "identity_snapshot": {
+    "product_id": "P1064",
+    "product_name": "Pink Straight Jeans",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Straight Jeans",
+    "gender": "Women",
+    "colour": "Pink",
+    "material": "Denim",
+    "fit": "Slim",
+    "style": "Classic",
+    "occasion": "Travel",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1064",
+    "description": "Pink denim straight jeans with a slim fit through the seat and thigh, a clean straight leg, and classic five-pocket construction.",
+    "construction_details": [
+      "Five-pocket layout",
+      "Belt loops at the waistband",
+      "Button closure with concealed fly zip",
+      "Contrast topstitching",
+      "Straight finished hems"
+    ],
+    "care_instructions": "Machine wash cold inside out with similar colours; line dry and wash sparingly to preserve colour.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Travel",
+      "Casual"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 104,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "209907e336b823edd07e9e3b6de9630595884f81a68e1bf7e980b93432b1aa86"
+}

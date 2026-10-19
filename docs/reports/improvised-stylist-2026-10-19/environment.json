@@ -1,0 +1,17 @@
+{
+  "git_head": "83f1f2aa3e5f3eb1fdea4bc6d6e7be6b067b9ebc",
+  "source_hashes_at_report_time": {
+    "components/stylist/ConversationChat.tsx": "c4fa5453f4df0318cc2545fffb81f3d81a7e0c4a8e7109096e08d8e911a0ecd0",
+    "components/stylist/OutfitGuidance.tsx": "f50da0649ccad5bdf92c4d7df7f249591809508d1f31789df032d07e09422a80",
+    "lib/stylist/conversationPlan.ts": "5021aecc8cb6a7dd1676938050540d1e89bd7b0d904561366cdaf5a21a635da5",
+    "lib/stylist/conversationTurn.ts": "d9a09c547d283eb11af6054adb2437269a1db2283fe56d0555e3ff957e89bca7",
+    "lib/stylist/conversationProtocol.ts": "c03720d77ac1960db247c9056daf70d1edb93cb68351b406230facf9110b330d",
+    "lib/stylist/shoppingPresentation.ts": "832030d025786d9f81b7cfdaa29bda5bbe52e0c544ba8743863213d5040d6a24",
+    "lib/stylist/productCardPresentation.ts": "69261bd59ff74a16134d48a6939c1da817e307a5933f9bd23044934301d4faf7",
+    "lib/stylist/productReference.ts": "a3f1f6f61216c2138966c359c4a5130c020b2ce9dea2e0d10e6e22526fc21240",
+    "lib/stylist/conversationAnswers.ts": "8781a04bffb071e9c169a9331adc60696cfb44edf3093d88dd8eee4c5af95163",
+    "lib/stylist/discovery.ts": "1ce532255d5aa20f1520d3292a3052a34086b8fae1f6fdad4283dca19e01cecc",
+    "lib/stylist/dressCode.ts": "7793e36bd60f5e51ae1613e552ae7b1d378c1970357cf4cda5df0840eb0ce8e6"
+  },
+  "note": "Running local working tree already had source modifications before this evaluation. This is not a deployed release certification."
+}

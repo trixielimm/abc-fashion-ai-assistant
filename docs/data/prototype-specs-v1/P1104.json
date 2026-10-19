@@ -1,0 +1,49 @@
+{
+  "product_id": "P1104",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:51.188Z",
+  "identity_snapshot": {
+    "product_id": "P1104",
+    "product_name": "Burgundy Lightweight Scarf",
+    "category": "Accessories",
+    "subcategory": "Scarves",
+    "product_type": "Lightweight Scarf",
+    "gender": "Men",
+    "colour": "Burgundy",
+    "material": "Silk Blend",
+    "fit": "Standard",
+    "style": "Bohemian",
+    "occasion": "Date Night",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1104",
+    "description": "A burgundy lightweight scarf with a relaxed bohemian character, finished in a smooth silk blend for softly draped styling at date-night occasions.",
+    "construction_details": [
+      "Narrow rolled hems",
+      "Lightweight woven construction",
+      "Evenly finished rectangular edges"
+    ],
+    "care_instructions": "Hand wash gently in cool water or dry clean; reshape flat and keep away from direct heat.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": null,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Date Night"
+    ],
+    "closure": "none",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "70fbb80be2f282b70b42a94e90dd44ad34ec5b819ca07027448f1b9853b83dbc"
+}

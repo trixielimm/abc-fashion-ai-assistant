@@ -1,0 +1,50 @@
+{
+  "product_id": "P1017",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:16.428Z",
+  "identity_snapshot": {
+    "product_id": "P1017",
+    "product_name": "Yellow Suit Set",
+    "category": "Clothing",
+    "subcategory": "Sets",
+    "product_type": "Suit Set",
+    "gender": "Women",
+    "colour": "Yellow",
+    "material": "Viscose",
+    "fit": "Relaxed",
+    "style": "Romantic",
+    "occasion": "Smart Casual",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1017",
+    "description": "Yellow Suit Set in viscose with a romantic relaxed fit for smart casual styling.",
+    "construction_details": [
+      "Two-piece set with tailored jacket and matching trousers",
+      "Jacket has a single-button front and notched lapels",
+      "Trousers feature a flat front, elasticated back waist and pressed crease"
+    ],
+    "care_instructions": "Dry clean recommended; spot clean lightly and store on a broad hanger.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Smart Casual",
+      "Work"
+    ],
+    "closure": "button",
+    "garment_length_cm": 73,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "f57e69ced8f2b472af54f0def49daa621fe6335fefd5cd60a2103b6cd93eabb2"
+}

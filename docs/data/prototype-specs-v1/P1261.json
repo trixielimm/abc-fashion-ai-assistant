@@ -1,0 +1,49 @@
+{
+  "product_id": "P1261",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:54.622Z",
+  "identity_snapshot": {
+    "product_id": "P1261",
+    "product_name": "Silver Blazer",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Blazer",
+    "gender": "Women",
+    "colour": "Silver",
+    "material": "Viscose",
+    "fit": "Relaxed",
+    "style": "Minimalist",
+    "occasion": "Work",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1261",
+    "description": "Minimalist silver viscose blazer in a relaxed shape, with a softly structured finish suited to work layering.",
+    "construction_details": [
+      "Notched lapels with tailored shoulder seams",
+      "Single-button front fastening",
+      "Back vent and two welt front pockets"
+    ],
+    "care_instructions": "Dry clean only; steam lightly on the reverse and store on a broad hanger.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Work"
+    ],
+    "closure": "button",
+    "garment_length_cm": 72,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "28531ea42ee906ddf9d137690cee588ff981eccada0e726b827c764b2f22089a"
+}

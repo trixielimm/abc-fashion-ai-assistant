@@ -1,0 +1,1017 @@
+{
+  "id": "S5-B",
+  "name": "Replacement preserves all hard requirements",
+  "repeat": 3,
+  "turns": [
+    {
+      "number": 1,
+      "message": "I need a blue dress for a beach wedding in size 10, under $150.",
+      "input": {
+        "message": "I need a blue dress for a beach wedding in size 10, under $150.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T05:57:42.455Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": null,
+        "action": "new_search",
+        "intent_evidence": "I need a blue dress for a beach wedding in size 10, under $150.",
+        "reference": null,
+        "changes": [
+          {
+            "scope": "item",
+            "evidence": "beach wedding",
+            "operation": "set",
+            "field": "occasion",
+            "value": "Beach wedding"
+          },
+          {
+            "scope": "item",
+            "evidence": "blue",
+            "field": "preferred_colours",
+            "operation": "set",
+            "value": [
+              "Blue"
+            ]
+          },
+          {
+            "scope": "item",
+            "field": "category",
+            "operation": "set",
+            "value": "Clothing",
+            "evidence": "dress"
+          },
+          {
+            "scope": "item",
+            "field": "subcategory",
+            "operation": "set",
+            "value": "Dresses",
+            "evidence": "dress"
+          },
+          {
+            "scope": "item",
+            "field": "size",
+            "operation": "set",
+            "value": "10",
+            "evidence": "size 10"
+          },
+          {
+            "scope": "item",
+            "field": "max_price",
+            "operation": "set",
+            "value": 150,
+            "evidence": "under $150"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": null
+      },
+      "reply": {
+        "outfit_budget": null,
+        "status": "matches",
+        "action": "new_search",
+        "message": "I've found 2 blue clothing options for you to explore.\n\nThese options range from A$95.00 to A$140.00. I've kept this selection within your A$150.00 per-item limit. Your requested size, 10, is listed for each item.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach wedding",
+            "style": null,
+            "preferred_colours": [
+              "Blue"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "10",
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": "Beach Wedding",
+          "style": null,
+          "preferred_colours": [
+            "Blue"
+          ],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": "10",
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "VB-ORIGINAL",
+            "product_name": "VB-ORIGINAL Dress",
+            "price_aud": 95,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Blue",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": null,
+            "image_src": null
+          },
+          {
+            "product_id": "VB-ELIGIBLE",
+            "product_name": "VB-ELIGIBLE Dress",
+            "price_aud": 140,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Blue",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": null,
+            "image_src": null
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 2904,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach wedding",
+            "style": null,
+            "preferred_colours": [
+              "Blue"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "10",
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "VB-ORIGINAL",
+              "product_name": "VB-ORIGINAL Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 95
+            },
+            {
+              "product_id": "VB-ELIGIBLE",
+              "product_name": "VB-ELIGIBLE Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 140
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I need a blue dress for a beach wedding in size 10, under $150."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 blue clothing options for you to explore.\n\nThese options range from A$95.00 to A$140.00. I've kept this selection within your A$150.00 per-item limit. Your requested size, 10, is listed for each item.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 2,
+      "message": "Compare a replacement for VB-ORIGINAL Dress with pockets. Keep the beach wedding occasion, blue, size 10 and the $150 maximum as requirements.",
+      "input": {
+        "message": "Compare a replacement for VB-ORIGINAL Dress with pockets. Keep the beach wedding occasion, blue, size 10 and the $150 maximum as requirements.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach wedding",
+            "style": null,
+            "preferred_colours": [
+              "Blue"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "10",
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "VB-ORIGINAL",
+              "product_name": "VB-ORIGINAL Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 95
+            },
+            {
+              "product_id": "VB-ELIGIBLE",
+              "product_name": "VB-ELIGIBLE Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 140
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I need a blue dress for a beach wedding in size 10, under $150."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 blue clothing options for you to explore.\n\nThese options range from A$95.00 to A$140.00. I've kept this selection within your A$150.00 per-item limit. Your requested size, 10, is listed for each item.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T05:57:45.359Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": null,
+        "action": "upsell",
+        "intent_evidence": "Compare a replacement for VB-ORIGINAL Dress with pockets",
+        "reference": {
+          "kind": "id",
+          "value": "VB-ORIGINAL"
+        },
+        "changes": [
+          {
+            "scope": "item",
+            "field": "size",
+            "operation": "set",
+            "value": "10",
+            "evidence": "size 10"
+          },
+          {
+            "scope": "item",
+            "field": "max_price",
+            "operation": "set",
+            "value": 150,
+            "evidence": "$150 maximum"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": {
+          "external_items": [],
+          "preferences": [
+            {
+              "kind": "priority",
+              "operation": "add",
+              "value": "pockets",
+              "evidence": "with pockets"
+            },
+            {
+              "kind": "requirement",
+              "operation": "add",
+              "value": "pockets",
+              "evidence": "with pockets"
+            }
+          ],
+          "outfit_changes": [],
+          "offers": null,
+          "owned_categories": []
+        }
+      },
+      "reply": {
+        "outfit_budget": null,
+        "status": "matches",
+        "action": "upsell",
+        "message": "I've found a replacement to compare because it adds a demonstrated benefit for your request.\n\nI've kept this selection within your A$150.00 per-item limit. Your requested size, 10, is listed for this item.\n\nEach card explains the benefit, price difference and trade-offs. A higher price alone doesn't establish better quality, and choosing an alternative won't automatically remove the original from your cart.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach wedding",
+            "style": null,
+            "preferred_colours": [
+              "Blue"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "10",
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": "Beach Wedding",
+          "style": null,
+          "preferred_colours": [
+            "Blue"
+          ],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": "10",
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "VB-ELIGIBLE",
+            "product_name": "VB-ELIGIBLE Dress",
+            "price_aud": 140,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Blue",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "explanation": "Optional replacement, A$45.00 more. Benefits: Pockets.",
+            "extra_target": null,
+            "image_src": null,
+            "value_comparison": {
+              "policy_version": "stylist-commerce-v1",
+              "primary_product_id": "VB-ORIGINAL",
+              "primary_price_aud": 95,
+              "extra_cost_aud": 45,
+              "benefits": [
+                {
+                  "feature_key": "pockets",
+                  "label": "Pockets",
+                  "evidence_kind": "synthetic",
+                  "before": false,
+                  "after": true,
+                  "source_references": [
+                    "prototype:prototype-specs-v1/VB-ORIGINAL",
+                    "prototype:prototype-specs-v1/VB-ELIGIBLE"
+                  ]
+                }
+              ],
+              "context_benefits": [],
+              "tradeoffs": [],
+              "kind": "upgrade"
+            }
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "pockets"
+          ],
+          "required_features": [
+            "pockets"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": "VB-ORIGINAL"
+      },
+      "elapsed_ms": 2860,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach wedding",
+            "style": null,
+            "preferred_colours": [
+              "Blue"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "10",
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "pockets"
+          ],
+          "required_features": [
+            "pockets"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "VB-ELIGIBLE",
+              "product_name": "VB-ELIGIBLE Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 140,
+              "recommendation_context": {
+                "anchor_ids": [],
+                "primary_product_id": "VB-ORIGINAL"
+              }
+            }
+          ],
+          "comparison": {
+            "product_id": "VB-ORIGINAL",
+            "product_name": "VB-ORIGINAL Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "price_aud": 95
+          }
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I need a blue dress for a beach wedding in size 10, under $150."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 blue clothing options for you to explore.\n\nThese options range from A$95.00 to A$140.00. I've kept this selection within your A$150.00 per-item limit. Your requested size, 10, is listed for each item.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "Compare a replacement for VB-ORIGINAL Dress with pockets. Keep the beach wedding occasion, blue, size 10 and the $150 maximum as requirements."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found a replacement to compare because it adds a demonstrated benefit for your request.\n\nI've kept this selection within your A$150.00 per-item limit. Your requested size, 10, is listed for this item.\n\nEach card explains the benefit, price difference and trade-offs. A higher price alone doesn't establish better quality, and choosing an alternative won't automatically remove the original from your cart.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 3,
+      "message": "Would this still meet my beach wedding requirements?",
+      "input": {
+        "message": "Would this still meet my beach wedding requirements?",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach wedding",
+            "style": null,
+            "preferred_colours": [
+              "Blue"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "10",
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "VB-ELIGIBLE",
+              "product_name": "VB-ELIGIBLE Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 140,
+              "recommendation_context": {
+                "anchor_ids": [],
+                "primary_product_id": "VB-ORIGINAL"
+              }
+            }
+          ],
+          "comparison": {
+            "product_id": "VB-ORIGINAL",
+            "product_name": "VB-ORIGINAL Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "price_aud": 95
+          }
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I need a blue dress for a beach wedding in size 10, under $150."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 blue clothing options for you to explore.\n\nThese options range from A$95.00 to A$140.00. I've kept this selection within your A$150.00 per-item limit. Your requested size, 10, is listed for each item.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "Compare a replacement for VB-ORIGINAL Dress with pockets. Keep the beach wedding occasion, blue, size 10 and the $150 maximum as requirements."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found a replacement to compare because it adds a demonstrated benefit for your request.\n\nI've kept this selection within your A$150.00 per-item limit. Your requested size, 10, is listed for this item.\n\nEach card explains the benefit, price difference and trade-offs. A higher price alone doesn't establish better quality, and choosing an alternative won't automatically remove the original from your cart.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "pockets"
+          ],
+          "required_features": [
+            "pockets"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T05:57:48.219Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": null,
+        "action": "none",
+        "intent_evidence": "Would this still meet my beach wedding requirements?",
+        "reference": null,
+        "changes": [],
+        "question": null,
+        "continuation": false,
+        "answer": {
+          "kind": "product",
+          "topics": [
+            "recommendation"
+          ],
+          "references": [
+            {
+              "kind": "context"
+            }
+          ],
+          "purpose": "beach wedding",
+          "continuation": false
+        },
+        "styling_intent": null
+      },
+      "reply": {
+        "outfit_budget": null,
+        "status": "answered",
+        "action": "none",
+        "message": "VB-ELIGIBLE Dress\nPockets: false → true, recorded in the prototype product specifications. Original price: A$95.00; this option: A$140.00. A higher price alone does not establish quality. For beach wedding, the strongest recorded reason is that the catalogue explicitly lists Beach Wedding as this item's occasion. Its recorded styling details are colour: Blue, style: Relaxed, season: Summer. At A$140.00, it is within your A$150.00 maximum. Its colour also matches your saved colour preference. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach wedding",
+            "style": null,
+            "preferred_colours": [
+              "Blue"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "10",
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "VB-ELIGIBLE Dress — catalogue details",
+            "url": "/products/VB-ELIGIBLE"
+          }
+        ],
+        "answer_product_ids": [
+          "VB-ELIGIBLE"
+        ],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "pockets"
+          ],
+          "required_features": [
+            "pockets"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 4814,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach wedding",
+            "style": null,
+            "preferred_colours": [
+              "Blue"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "10",
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "pockets"
+          ],
+          "required_features": [
+            "pockets"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": {
+            "product_id": "VB-ELIGIBLE",
+            "product_name": "VB-ELIGIBLE Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "price_aud": 140,
+            "recommendation_context": {
+              "anchor_ids": [],
+              "primary_product_id": "VB-ORIGINAL"
+            }
+          },
+          "latest": [
+            {
+              "product_id": "VB-ELIGIBLE",
+              "product_name": "VB-ELIGIBLE Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 140,
+              "recommendation_context": {
+                "anchor_ids": [],
+                "primary_product_id": "VB-ORIGINAL"
+              }
+            }
+          ],
+          "comparison": {
+            "product_id": "VB-ORIGINAL",
+            "product_name": "VB-ORIGINAL Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "price_aud": 95
+          }
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I need a blue dress for a beach wedding in size 10, under $150."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 blue clothing options for you to explore.\n\nThese options range from A$95.00 to A$140.00. I've kept this selection within your A$150.00 per-item limit. Your requested size, 10, is listed for each item.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "Compare a replacement for VB-ORIGINAL Dress with pockets. Keep the beach wedding occasion, blue, size 10 and the $150 maximum as requirements."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found a replacement to compare because it adds a demonstrated benefit for your request.\n\nI've kept this selection within your A$150.00 per-item limit. Your requested size, 10, is listed for this item.\n\nEach card explains the benefit, price difference and trade-offs. A higher price alone doesn't establish better quality, and choosing an alternative won't automatically remove the original from your cart.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "Would this still meet my beach wedding requirements?"
+          },
+          {
+            "role": "assistant",
+            "content": "VB-ELIGIBLE Dress\nPockets: false → true, recorded in the prototype product specifications. Original price: A$95.00; this option: A$140.00. A higher price alone does not establish quality. For beach wedding, the strongest recorded reason is that the catalogue explicitly lists Beach Wedding as this item's occasion. Its recorded styling details are colour: Blue, style: Relaxed, season: Summer. At A$140.00, it is within your A$150.00 maximum. Its colour also matches your saved colour preference. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you."
+          }
+        ]
+      },
+      "checks": "Pass"
+    }
+  ],
+  "started": "2026-10-17T05:57:42.455Z",
+  "result": "Pass",
+  "issues": [],
+  "finished": "2026-10-17T05:57:53.033Z"
+}

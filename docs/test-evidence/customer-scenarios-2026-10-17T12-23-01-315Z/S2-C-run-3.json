@@ -1,0 +1,926 @@
+{
+  "id": "S2-C",
+  "name": "Zip question becomes explicit must-have",
+  "repeat": 3,
+  "turns": [
+    {
+      "number": 1,
+      "message": "Show me bags under $100.",
+      "input": {
+        "message": "Show me bags under $100.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T12:23:01.412Z",
+      "plan_source": "recorded model plan replay",
+      "plan": {
+        "outfit_request": null,
+        "action": "new_search",
+        "intent_evidence": "Show me bags under $100",
+        "reference": null,
+        "changes": [
+          {
+            "scope": "item",
+            "field": "category",
+            "operation": "set",
+            "value": "Bags",
+            "evidence": "bags"
+          },
+          {
+            "scope": "item",
+            "field": "max_price",
+            "operation": "set",
+            "value": 100,
+            "evidence": "under $100"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": null
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "status": "matches",
+        "action": "new_search",
+        "message": "I've found 2 bag options for you to explore.\n\nThese options range from A$45.00 to A$60.00. I've kept this selection within your A$100.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 100,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Bags",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 100,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "B-OPEN-45",
+            "product_name": "B-OPEN-45 Bag",
+            "price_aud": 45,
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Clutch",
+            "brand_line": null,
+            "colour": "Beige",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": null,
+            "image_src": null
+          },
+          {
+            "product_id": "B-ZIP-60",
+            "product_name": "B-ZIP-60 Bag",
+            "price_aud": 60,
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Clutch",
+            "brand_line": null,
+            "colour": "Black",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": null,
+            "image_src": null
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 1,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 100,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "B-OPEN-45",
+              "product_name": "B-OPEN-45 Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 45
+            },
+            {
+              "product_id": "B-ZIP-60",
+              "product_name": "B-ZIP-60 Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 60
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me bags under $100."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 bag options for you to explore.\n\nThese options range from A$45.00 to A$60.00. I've kept this selection within your A$100.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 2,
+      "message": "Does the first bag have a zip closure?",
+      "input": {
+        "message": "Does the first bag have a zip closure?",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 100,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "B-OPEN-45",
+              "product_name": "B-OPEN-45 Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 45
+            },
+            {
+              "product_id": "B-ZIP-60",
+              "product_name": "B-ZIP-60 Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 60
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me bags under $100."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 bag options for you to explore.\n\nThese options range from A$45.00 to A$60.00. I've kept this selection within your A$100.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T12:23:01.413Z",
+      "plan_source": "recorded model plan replay",
+      "plan": {
+        "outfit_request": null,
+        "action": "none",
+        "intent_evidence": "Does the first bag have a zip closure?",
+        "reference": null,
+        "changes": [],
+        "question": null,
+        "continuation": false,
+        "answer": {
+          "kind": "product",
+          "topics": [
+            "general"
+          ],
+          "references": [
+            {
+              "kind": "id",
+              "value": "B-OPEN-45"
+            }
+          ],
+          "purpose": null,
+          "continuation": false
+        },
+        "styling_intent": null
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "status": "answered",
+        "action": "none",
+        "message": "B-OPEN-45 Bag\nZip closure: No Fastening: slip on",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 100,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "B-OPEN-45 Bag — catalogue details",
+            "url": "/products/B-OPEN-45"
+          }
+        ],
+        "answer_product_ids": [
+          "B-OPEN-45"
+        ],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 0,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 100,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": {
+            "product_id": "B-OPEN-45",
+            "product_name": "B-OPEN-45 Bag",
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Clutch",
+            "price_aud": 45
+          },
+          "latest": [
+            {
+              "product_id": "B-OPEN-45",
+              "product_name": "B-OPEN-45 Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 45
+            },
+            {
+              "product_id": "B-ZIP-60",
+              "product_name": "B-ZIP-60 Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 60
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me bags under $100."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 bag options for you to explore.\n\nThese options range from A$45.00 to A$60.00. I've kept this selection within your A$100.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "Does the first bag have a zip closure?"
+          },
+          {
+            "role": "assistant",
+            "content": "B-OPEN-45 Bag\nZip closure: No Fastening: slip on"
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 3,
+      "message": "I only want bags with a zip closure. Keep the $100 limit.",
+      "input": {
+        "message": "I only want bags with a zip closure. Keep the $100 limit.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 100,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": {
+            "product_id": "B-OPEN-45",
+            "product_name": "B-OPEN-45 Bag",
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Clutch",
+            "price_aud": 45
+          },
+          "latest": [
+            {
+              "product_id": "B-OPEN-45",
+              "product_name": "B-OPEN-45 Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 45
+            },
+            {
+              "product_id": "B-ZIP-60",
+              "product_name": "B-ZIP-60 Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 60
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me bags under $100."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 bag options for you to explore.\n\nThese options range from A$45.00 to A$60.00. I've kept this selection within your A$100.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "Does the first bag have a zip closure?"
+          },
+          {
+            "role": "assistant",
+            "content": "B-OPEN-45 Bag\nZip closure: No Fastening: slip on"
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T12:23:01.413Z",
+      "plan_source": "recorded model plan replay",
+      "plan": {
+        "outfit_request": null,
+        "action": "refine",
+        "intent_evidence": "I only want bags with a zip closure. Keep the $100 limit.",
+        "reference": null,
+        "changes": [
+          {
+            "scope": "item",
+            "field": "category",
+            "operation": "set",
+            "value": "Bags",
+            "evidence": "bags"
+          },
+          {
+            "scope": "item",
+            "field": "max_price",
+            "operation": "set",
+            "value": 100,
+            "evidence": "$100 limit"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": {
+          "external_items": [],
+          "preferences": [
+            {
+              "kind": "requirement",
+              "operation": "add",
+              "value": "zip_closure",
+              "evidence": "zip closure"
+            }
+          ],
+          "outfit_changes": [],
+          "offers": null,
+          "owned_categories": []
+        }
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "status": "matches",
+        "action": "refine",
+        "message": "I found B-ZIP-60 Bag for A$60.00.\n\nI've kept this selection within your A$100.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 100,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Bags",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 100,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "B-ZIP-60",
+            "product_name": "B-ZIP-60 Bag",
+            "price_aud": 60,
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Clutch",
+            "brand_line": null,
+            "colour": "Black",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": null,
+            "image_src": null
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [
+            "zip_closure"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 1,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 100,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [
+            "zip_closure"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "B-ZIP-60",
+              "product_name": "B-ZIP-60 Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 60
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "B-OPEN-45",
+                "product_name": "B-OPEN-45 Bag",
+                "category": "Bags",
+                "subcategory": "Clutches",
+                "product_type": "Clutch",
+                "price_aud": 45
+              },
+              {
+                "product_id": "B-ZIP-60",
+                "product_name": "B-ZIP-60 Bag",
+                "category": "Bags",
+                "subcategory": "Clutches",
+                "product_type": "Clutch",
+                "price_aud": 60
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me bags under $100."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 bag options for you to explore.\n\nThese options range from A$45.00 to A$60.00. I've kept this selection within your A$100.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "Does the first bag have a zip closure?"
+          },
+          {
+            "role": "assistant",
+            "content": "B-OPEN-45 Bag\nZip closure: No Fastening: slip on"
+          },
+          {
+            "role": "user",
+            "content": "I only want bags with a zip closure. Keep the $100 limit."
+          },
+          {
+            "role": "assistant",
+            "content": "I found B-ZIP-60 Bag for A$60.00.\n\nI've kept this selection within your A$100.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "checks": "Pass"
+    }
+  ],
+  "started": "2026-10-17T12:23:01.412Z",
+  "result": "Pass",
+  "issues": [],
+  "finished": "2026-10-17T12:23:01.414Z"
+}

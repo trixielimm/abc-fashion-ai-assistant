@@ -1,0 +1,51 @@
+{
+  "product_id": "P1175",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:13.779Z",
+  "identity_snapshot": {
+    "product_id": "P1175",
+    "product_name": "Yellow Wide-Leg Pants",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Wide-Leg Pants",
+    "gender": "Women",
+    "colour": "Yellow",
+    "material": "Linen Blend",
+    "fit": "Slim",
+    "style": "Bohemian",
+    "occasion": "Formal",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1175",
+    "description": "Bohemian yellow wide-leg pants with a relaxed flowing shape and tailored waistband, bringing soft structure to formal styling.",
+    "construction_details": [
+      "High-rise waistband with belt loops",
+      "Concealed front fastening with zip fly",
+      "Wide-leg silhouette with pressed front crease",
+      "Slanted side pockets and neat back welt pocket"
+    ],
+    "care_instructions": "Cold hand wash with similar colours; line dry in shade and press on the reverse.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Formal",
+      "Work"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 109,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "9b3cd2e4b67da1204ddc9fdcf7f6e95273585c6a90e5faf32d954b1077e3bf27"
+}

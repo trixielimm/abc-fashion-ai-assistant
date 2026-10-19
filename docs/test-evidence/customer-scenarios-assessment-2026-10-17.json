@@ -1,0 +1,21 @@
+{
+  "scope": "Real model + shortcutPlan + finishConversationTurn + acceptReply; in-process with isolated synthetic fixtures. Not HTTP/browser acceptance.",
+  "counts": {
+    "Pass": 23,
+    "Fail": 33,
+    "Blocked": 1,
+    "Feature gap": 3
+  },
+  "source_capture": "docs/test-evidence/customer-scenarios-2026-10-17T04-00-42-131Z",
+  "assessed_results": "docs/test-evidence/customer-scenarios-2026-10-17T04-05-28-005Z",
+  "assessment": "189 turns: 121 pass, 53 fail, 15 dependent blocked/excluded; 60 case runs: 23 pass, 33 fail, 1 blocked, 3 feature gap.",
+  "test_script_sha256": "47197c63e0e974e25e95c3dc308f232bb7e27d408f774c17ce615ebaa4f4c30a",
+  "card_audit": {
+    "displayed_occurrences": 143,
+    "absent_fixture_ids": 0,
+    "mismatched_recorded_prices": 0,
+    "unavailable_fixture_products": 0
+  },
+  "ui_acceptance": "Blocked by missing @vercel/analytics/next, HTTP 500",
+  "code_commit": "b0067a6cd70588ffe120d809614096381ac303a4"
+}

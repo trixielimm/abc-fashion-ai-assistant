@@ -1,0 +1,51 @@
+{
+  "product_id": "P1277",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:11.569Z",
+  "identity_snapshot": {
+    "product_id": "P1277",
+    "product_name": "Blue Midi Skirt",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Midi Skirt",
+    "gender": "Women",
+    "colour": "Blue",
+    "material": "Polyester",
+    "fit": "Slim",
+    "style": "Romantic",
+    "occasion": "Casual",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1277",
+    "description": "Romantic blue polyester midi skirt with a slim profile, clean waistband and streamlined finish for considered casual outfits.",
+    "construction_details": [
+      "Slim midi silhouette",
+      "Contoured waistband",
+      "Back invisible zip",
+      "Straight panel construction",
+      "Narrow folded hem"
+    ],
+    "care_instructions": "Machine wash on a gentle cycle in cool water; line dry and press on low heat.",
+    "lining": false,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Casual"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 80,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "0766b30ec1c8d58669facd6923e994fa09a9b0184e44acd23c19e95d571db8e6"
+}

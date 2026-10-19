@@ -1,5 +1,9 @@
 import type { ShoppingPreferences } from "@/lib/ai/preferenceSchema";
 import type { CatalogueProduct } from "@/lib/recommendations/catalogue";
+import type { z } from "zod";
+import type { PairingEvidenceSchema, ValueComparisonSchema } from "../stylist/commerceSchema";
+import { matchesProductType } from "../catalogue/productFamilies";
+import { auditedImagePresent } from "../catalogue/imageHealth";
 
 export type StylistProduct = {
   product_id: string;
@@ -10,8 +14,21 @@ export type StylistProduct = {
   subcategory: string | null;
   product_type: string | null;
   colour: string | null;
+  occasion?: string | null;
+  style?: string | null;
   image_key: string | null;
   sizes_available: string[];
+  pairing_evidence?: z.infer<typeof PairingEvidenceSchema>;
+  value_comparison?: z.infer<typeof ValueComparisonSchema>;
+};
+
+export type PreferenceSearchOptions = {
+  eligible?: (product: CatalogueProduct) => boolean;
+  compare?: (a: CatalogueProduct, b: CatalogueProduct) => number;
+  limit?: number;
+  // Explicit catalogue inspiration may browse without a product/context anchor.
+  allowUnanchored?: boolean;
+  diversify?: boolean;
 };
 
 export type PreferenceSearchResult = {
@@ -56,7 +73,7 @@ function labelMatches(actual: string | null, requested: string): boolean {
   return requestedWords.every((word) => actualWords.has(word));
 }
 
-function relatedLabel(actual: string | null, requested: string): boolean {
+ export function relatedLabel(actual: string | null, requested: string): boolean {
   if (!actual) return false;
   const actualWords = words(actual);
   const requestedWords = words(requested);
@@ -68,21 +85,30 @@ function relatedLabel(actual: string | null, requested: string): boolean {
     actualWords.every((word) => requestedWords.includes(word))
   );
 }
+function sizeLabelsMatch(actual: string, requested: string): boolean {
+  const normaliseSize = (value: string) =>
+    value.trim().replace(/\s+/g, " ").toLowerCase();
 
+  return normaliseSize(actual) === normaliseSize(requested);
+}
 function validProduct(product: CatalogueProduct): product is AvailableProduct {
   return (
     product.is_available === true &&
     typeof product.product_id === "string" &&
-    product.product_id.length > 0 &&
+    product.product_id.trim().length > 0 &&
     typeof product.product_name === "string" &&
-    product.product_name.length > 0 &&
+    product.product_name.trim().length > 0 &&
     typeof product.price_aud === "number" &&
     Number.isFinite(product.price_aud) &&
     product.price_aud >= 0 &&
     typeof product.stock_qty === "number" &&
+    Number.isSafeInteger(product.stock_qty) &&
     product.stock_qty > 0 &&
     Array.isArray(product.sizes_available) &&
-    product.sizes_available.some((size) => typeof size === "string" && size.trim())
+    product.sizes_available.length > 0 &&
+    product.sizes_available.every(
+      (size) => typeof size === "string" && size.trim().length > 0
+    )
   );
 }
 
@@ -93,6 +119,7 @@ function hasText(value: string | null): value is string {
 export function searchByPreferences(
   catalogue: readonly CatalogueProduct[],
   preferences: ShoppingPreferences,
+  options: PreferenceSearchOptions = {},
 ): PreferenceSearchResult {
   const preferredColours = preferences.preferred_colours.filter((colour) => colour.trim());
   const excludedColours = preferences.excluded_colours.filter((colour) => colour.trim());
@@ -113,7 +140,7 @@ export function searchByPreferences(
       hasText(preferences.fit),
   );
 
-  if (!productAnchor && !contextAnchor) {
+  if (!productAnchor && !contextAnchor && !options.allowUnanchored) {
     return {
       status: "needs_more_detail",
       message: "What kind of item are you looking for? Try adding a product, colour, style, or occasion.",
@@ -148,11 +175,12 @@ export function searchByPreferences(
   }
 
   const candidates = catalogue.filter(validProduct).filter((product) => {
+    if (options.eligible && !options.eligible(product)) return false;
     if (preferences.min_price !== null && product.price_aud < preferences.min_price) return false;
     if (preferences.max_price !== null && product.price_aud > preferences.max_price) return false;
-    if (size && !product.sizes_available?.some((available) => labelMatches(available, size))) {
-      return false;
-    }
+    if (size && !product.sizes_available.some((available) => sizeLabelsMatch(available, size))) {
+  return false;
+}
     if (preferences.gender) {
       const requested = words(preferences.gender).join(" ");
       const actual = words(product.gender ?? "").join(" ");
@@ -160,10 +188,17 @@ export function searchByPreferences(
     }
     if (category && !labelMatches(product.category, category)) return false;
     if (subcategory && !labelMatches(product.subcategory, subcategory)) return false;
-    if (productType && !labelMatches(product.product_type, productType)) return false;
+    if (productType && !(matchesProductType(product, productType) ?? labelMatches(product.product_type, productType))) return false;
     if (brandLine && !labelMatches(product.brand_line, brandLine)) return false;
     if (material && !labelMatches(product.material, material)) return false;
-    if (excludedColours.some((colour) => relatedLabel(product.colour, colour))) return false;
+   if (excludedColours.length > 0) {
+  // A missing colour cannot be checked against the customer's exclusions.
+  if (!hasText(product.colour)) return false;
+
+  if (excludedColours.some((colour) => relatedLabel(product.colour, colour))) {
+    return false;
+  }
+}
     // A requested colour is central to a fashion recommendation. Don't show
     // a different colour merely because the other attributes happen to match.
     if (preferredColours.length && !preferredColours.some((colour) => relatedLabel(product.colour, colour))) {
@@ -196,11 +231,12 @@ export function searchByPreferences(
   const contextMatches = ranked.filter((item) => item.score > 0);
   const relevant = contextMatches.length > 0
     ? contextMatches
-    : productAnchor
+    : productAnchor || options.allowUnanchored
       ? ranked
       : [];
   relevant.sort(
     (a, b) =>
+      (options.compare?.(a.product, b.product) ?? 0) ||
       b.score - a.score ||
       b.genderBonus - a.genderBonus ||
       b.product.stock_qty - a.product.stock_qty ||
@@ -209,14 +245,31 @@ export function searchByPreferences(
   );
 
   const seenProducts = new Set<string>();
-  const selected = relevant.filter(({ product }) => {
+  const distinct = relevant.filter(({ product }) => {
     const key = [product.product_name, product.colour, product.brand_line]
       .map((value) => words(value ?? "").join(" "))
       .join("|");
     if (seenProducts.has(key)) return false;
     seenProducts.add(key);
     return true;
-  }).slice(0, MAX_RECOMMENDATIONS);
+  });
+  const selected: typeof distinct = [];
+  const photographed = options.diversify ? distinct.filter(item => auditedImagePresent(item.product) === true) : [];
+  const remaining = [...(photographed.length >= (options.limit ?? MAX_RECOMMENDATIONS) ? photographed : distinct)];
+  if (options.diversify) remaining.sort((a, b) => Number(auditedImagePresent(b.product) === true) - Number(auditedImagePresent(a.product) === true));
+  while (remaining.length && selected.length < (options.limit ?? MAX_RECOMMENDATIONS)) {
+    let next = 0;
+    if (options.diversify && selected.length) {
+      const novelty = (candidate: typeof distinct[number]) =>
+        ([['category', 8], ['product_type', 4], ['colour', 2], ['style', 1]] as const)
+          .reduce((score, [field, weight]) => score + (candidate.product[field] &&
+            !selected.some(item => item.product[field] === candidate.product[field]) ? weight : 0), 0);
+      for (let index = 1; index < remaining.length; index++) {
+        if (novelty(remaining[index]) > novelty(remaining[next])) next = index;
+      }
+    }
+    selected.push(remaining.splice(next, 1)[0]);
+  }
   if (selected.length === 0) {
     return {
       status: "no_match",
@@ -241,6 +294,8 @@ export function searchByPreferences(
       product_type: product.product_type,
       colour: product.colour,
       image_key: product.image_key,
+      occasion: product.occasion,
+      style: product.style,
       sizes_available: Array.from(new Set(product.sizes_available
         .filter((size): size is string => typeof size === "string" && size.trim().length > 0)
         .map((size) => size.trim()))),

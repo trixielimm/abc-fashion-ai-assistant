@@ -1,0 +1,49 @@
+{
+  "product_id": "P1181",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:14.650Z",
+  "identity_snapshot": {
+    "product_id": "P1181",
+    "product_name": "Silver Wide-Leg Pants",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Wide-Leg Pants",
+    "gender": "Women",
+    "colour": "Silver",
+    "material": "Linen Blend",
+    "fit": "Oversized",
+    "style": "Minimalist",
+    "occasion": "Formal",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1181",
+    "description": "Minimalist silver wide-leg pants in a linen blend with an oversized silhouette and fluid movement for formal summer styling.",
+    "construction_details": [
+      "Wide-leg cut with pressed front creases",
+      "Flat front waistband with concealed fastening",
+      "Full-length hems with reinforced side seams"
+    ],
+    "care_instructions": "Gentle dry clean recommended; cool iron on the reverse and store folded.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Formal"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 108,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "8287848afe7037fbe7910d617371397062c98ca980313c0ec50df74b189a4893"
+}

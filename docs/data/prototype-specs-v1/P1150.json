@@ -1,0 +1,51 @@
+{
+  "product_id": "P1150",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:33.753Z",
+  "identity_snapshot": {
+    "product_id": "P1150",
+    "product_name": "Sage Loafers",
+    "category": "Shoes",
+    "subcategory": "Flats",
+    "product_type": "Loafers",
+    "gender": "Men",
+    "colour": "Sage",
+    "material": "Suede",
+    "fit": "Standard",
+    "style": "Minimalist",
+    "occasion": "Formal",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1150",
+    "description": "Sage suede loafers with a minimalist shape, standard fit and formal styling. A low stacked heel adds subtle structure while retaining the ease of a slip-on.",
+    "construction_details": [
+      "Slip-on loafer construction",
+      "Suede vamp with apron seam",
+      "Low stacked heel",
+      "Textured rubber outsole"
+    ],
+    "care_instructions": "Protect with a suede brush and suitable suede protector; spot clean gently and keep away from prolonged moisture.",
+    "lining": true,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Formal",
+      "Work"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": null,
+    "heel_height_cm": 2,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": null
+  },
+  "content_sha256": "d1d9e6c5d571cf9bdf2a0e4e39e9918a176ea13b2fba2db92453b13b2c13d4b6"
+}

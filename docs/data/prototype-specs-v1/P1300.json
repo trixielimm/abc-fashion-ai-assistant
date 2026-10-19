@@ -1,0 +1,52 @@
+{
+  "product_id": "P1300",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:13.346Z",
+  "identity_snapshot": {
+    "product_id": "P1300",
+    "product_name": "Grey Cropped Jacket",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Cropped Jacket",
+    "gender": "Women",
+    "colour": "Grey",
+    "material": "Polyester",
+    "fit": "Regular",
+    "style": "Smart",
+    "occasion": "Date Night",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1300",
+    "description": "Grey cropped jacket in polyester with a smart regular shape, defined shoulder seams and a neat cropped hem for date-night layering.",
+    "construction_details": [
+      "Structured shoulder seams",
+      "Front welt pockets",
+      "Smooth sleeve hems",
+      "Single front button fastening"
+    ],
+    "care_instructions": "Dry clean or gently spot clean; reshape and air dry away from direct heat.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Date Night",
+      "Evening",
+      "Work"
+    ],
+    "closure": "button",
+    "garment_length_cm": 47,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "6b789899e2210c49376bb258143d172f26a88da8701d4f392d4ba8c1568a44bc"
+}

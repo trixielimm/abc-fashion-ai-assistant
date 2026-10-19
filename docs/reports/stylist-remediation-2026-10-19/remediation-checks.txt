@@ -1,0 +1,19 @@
+PASS: A trailing show-options phrase retains a complete mens shirt brief and canonical medium size
+PASS: Jacket and flats umbrellas use the same catalogue family in search and reply validation
+PASS: Named blockers carry exact values and a real shared conflict never disappears
+PASS: An explicit group relaxation removes only local fabric, waist and length requirements
+PASS: Provisional browsing needs explicit permission, retains unknowns and excludes known violations
+PASS: Replacing a stuck task keeps the saved look and explicit global constraints
+PASS: Compound name/number edits resume the validated draft without dropping its exclusions
+PASS: A saved purchase uses current prices and a one-component addition cannot overspend
+PASS: Keeping a named dress and requesting only shoes cannot rebuild the whole outfit
+PASS: An explicit any-fit and any-colour refinement clears the local restrictions
+PASS: Expired recovery controls cannot mutate a later task
+PASS: Cancelling a pending outfit change restores task fields while keeping independently saved pieces
+PASS: Work outfits have no event picker and old request shapes remain valid
+PASS: A cocktail wedding is a supported event context rather than an unverified product feature
+PASS: A collection answer followed by a volunteered routine does not repeat the collection question
+PASS: The task rollback flag keeps legacy turns and hides new transition behavior
+PASS: Requirement quotation repair uses only explicit literal requirements and rejects invented evidence
+PASS: A scalar removal with null normalizes to the domain clear operation, without weakening other transport checks
+18 stylist remediation state and budget checks passed.

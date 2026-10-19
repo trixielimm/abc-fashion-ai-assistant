@@ -1,0 +1,51 @@
+{
+  "product_id": "P1207",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:33.467Z",
+  "identity_snapshot": {
+    "product_id": "P1207",
+    "product_name": "Cream Tailored Shorts",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Tailored Shorts",
+    "gender": "Men",
+    "colour": "Cream",
+    "material": "Cotton",
+    "fit": "Relaxed",
+    "style": "Streetwear",
+    "occasion": "Date Night",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1207",
+    "description": "Cream tailored shorts with a relaxed streetwear cut, combining a clean front with practical cotton construction. The knee-skimming length gives the pair an easy date-night shape.",
+    "construction_details": [
+      "Flat front waistband with belt loops",
+      "Button-and-zip fly",
+      "Angled side pockets",
+      "Turned lower hems"
+    ],
+    "care_instructions": "Machine wash cold with similar colours; line dry and press on a low setting.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Date Night",
+      "Weekend"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 52,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "2daac18aa4c5bbfcb5fa55fae2c84425053c41f5f9d32a2f3096f4a3773eb8bb"
+}

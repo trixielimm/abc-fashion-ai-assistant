@@ -1,0 +1,54 @@
+{
+  "product_id": "P1081",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:30.452Z",
+  "identity_snapshot": {
+    "product_id": "P1081",
+    "product_name": "Grey Sling Bag",
+    "category": "Bags",
+    "subcategory": "Crossbody",
+    "product_type": "Sling Bag",
+    "gender": "Women",
+    "colour": "Grey",
+    "material": "Faux Leather",
+    "fit": "Standard",
+    "style": "Streetwear",
+    "occasion": "Beach Wedding",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1081",
+    "description": "Streetwear grey faux leather sling bag with a streamlined compact shape, suited to beach wedding styling. The angled front gives easy access while keeping the profile close to the body.",
+    "construction_details": [
+      "Adjustable webbing sling strap",
+      "Front zip pocket with shaped panel",
+      "Reinforced bartacks at strap anchors"
+    ],
+    "care_instructions": "Wipe clean with a slightly damp cloth and dry naturally. Do not use solvents, bleach or abrasive products.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": true,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": 1.8,
+    "use_cases": [
+      "Beach Wedding",
+      "Travel"
+    ],
+    "closure": "zip",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": {
+      "width": 24,
+      "height": 17,
+      "depth": 6
+    },
+    "strap_drop_cm": 62,
+    "compartments": 2,
+    "sole_material": null,
+    "hardware_finish": "matte gunmetal"
+  },
+  "content_sha256": "95c78b4c2a6e01aa7614e8465243f4e865906d5c8a57df24d84bd77e50a341f9"
+}

@@ -1,0 +1,53 @@
+{
+  "product_id": "P1145",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:04.814Z",
+  "identity_snapshot": {
+    "product_id": "P1145",
+    "product_name": "White Cropped Jacket",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Cropped Jacket",
+    "gender": "Women",
+    "colour": "White",
+    "material": "Linen Blend",
+    "fit": "Relaxed",
+    "style": "Smart",
+    "occasion": "Wedding Guest",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1145",
+    "description": "Smart white cropped jacket with a relaxed shape and breathable linen blend construction, designed to layer neatly over wedding guest looks.",
+    "construction_details": [
+      "Cropped straight hem",
+      "Single-breasted button fastening",
+      "Notched collar",
+      "Patch front pockets",
+      "Sleeve cuff vents"
+    ],
+    "care_instructions": "Dry clean or gently hand wash in cool water; press on low heat and air dry flat.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Wedding Guest",
+      "Work",
+      "Brunch"
+    ],
+    "closure": "button",
+    "garment_length_cm": 50,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "128de4180481d6e5f6d279693aed9c940a1f06bbc6d3ba4e09e13fd05395dd9d"
+}

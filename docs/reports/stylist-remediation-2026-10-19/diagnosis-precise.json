@@ -1,0 +1,644 @@
+{
+  "configured_model": "gpt-5.6-luna",
+  "features": {
+    "commerce": true
+  },
+  "catalogue_count": 318,
+  "vocabulary": {
+    "subcategory": [
+      "Scarves",
+      "Sets",
+      "Crossbody",
+      "Dresses",
+      "Jewellery",
+      "Bottoms",
+      "Flats",
+      "Sneakers",
+      "Sandals",
+      "Outerwear",
+      "Hats",
+      "Tops",
+      "Belts",
+      "Clutches",
+      "Heels",
+      "Handbags"
+    ],
+    "product_type": [
+      "Silk Scarf",
+      "Co-ord Set",
+      "Crossbody Bag",
+      "Wrap Dress",
+      "Bracelet",
+      "Wide-Leg Pants",
+      "Loafers",
+      "Low-Top Sneakers",
+      "Flat Sandals",
+      "Cropped Jacket",
+      "Wide-Brim Hat",
+      "Oversized Shirt",
+      "Denim Jacket",
+      "Fitted Tee",
+      "Suit Set",
+      "Slim Belt",
+      "Slip Dress",
+      "Linen Shirt",
+      "Statement Earrings",
+      "Envelope Clutch",
+      "Hoop Earrings",
+      "Straight Jeans",
+      "Trench Coat",
+      "Leather Belt",
+      "Tailored Trousers",
+      "Bomber Jacket",
+      "Midi Skirt",
+      "Chinos",
+      "Kitten Heels",
+      "Retro Sneakers",
+      "Sling Bag",
+      "Relaxed Co-ord Set",
+      "Knit Top",
+      "Pleated Trousers",
+      "Strappy Heels",
+      "Pleated Skirt",
+      "Pendant Necklace",
+      "Lightweight Scarf",
+      "Platform Sandals",
+      "Cap",
+      "Oxford Shirt",
+      "Two-Piece Set",
+      "Block Heels",
+      "Oversized Tee",
+      "Ballet Flats",
+      "Cardigan",
+      "Structured Handbag",
+      "Mini Dress",
+      "Mules",
+      "Relaxed Tee",
+      "Blazer",
+      "Satin Camisole",
+      "Maxi Dress",
+      "Mini Clutch",
+      "Polo Shirt",
+      "Mini Tote",
+      "Blouse",
+      "Shoulder Bag",
+      "Midi Dress",
+      "Tailored Shorts",
+      "Knit Polo"
+    ],
+    "fit": [
+      "Standard",
+      "Oversized",
+      "Regular",
+      "Relaxed",
+      "Slim",
+      "Flowy",
+      "Tailored"
+    ],
+    "occasion": [
+      "Date Night",
+      "Beach Wedding",
+      "Wedding Guest",
+      "Brunch",
+      "Party",
+      "Smart Casual",
+      "Travel",
+      "Casual",
+      "Formal",
+      "Work"
+    ]
+  },
+  "cases": [
+    {
+      "name": "precise",
+      "input": {
+        "message": "I know exactly what I want: women's black high-waisted wide-leg trousers, full length not cropped, AU 12. No polyester, no elasticated waist, under $140 AUD. It's for work, not a party. What actually matches?",
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "uaovnl",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        }
+      },
+      "plan": {
+        "outfit_request": null,
+        "action": "new_search",
+        "discovery_intent": null,
+        "intent_evidence": "I know exactly what I want: women's black high-waisted wide-leg trousers, full length not cropped, AU 12. No polyester, no elasticated waist, under $140 AUD. It's for work, not a party. What actually matches?",
+        "reference": null,
+        "changes": [
+          {
+            "scope": "item",
+            "evidence": "women's",
+            "operation": "set",
+            "field": "gender",
+            "value": "Women"
+          },
+          {
+            "scope": "item",
+            "evidence": "black",
+            "field": "preferred_colours",
+            "operation": "set",
+            "value": [
+              "Black"
+            ]
+          },
+          {
+            "scope": "item",
+            "evidence": "AU 12",
+            "operation": "set",
+            "field": "size",
+            "value": "12"
+          },
+          {
+            "scope": "item",
+            "evidence": "high-waisted wide-leg trousers, full length not cropped, AU 12. No polyester, no elasticated waist",
+            "field": "unresolved",
+            "operation": "add",
+            "value": [
+              "high-waisted",
+              "full length",
+              "not cropped",
+              "no polyester",
+              "no elasticated waist"
+            ]
+          },
+          {
+            "scope": "item",
+            "field": "occasion",
+            "operation": "set",
+            "value": "Work",
+            "evidence": "work"
+          },
+          {
+            "scope": "item",
+            "field": "category",
+            "operation": "set",
+            "value": "Clothing",
+            "evidence": "trousers"
+          },
+          {
+            "scope": "item",
+            "field": "subcategory",
+            "operation": "set",
+            "value": "Bottoms",
+            "evidence": "trousers"
+          },
+          {
+            "scope": "item",
+            "field": "product_type",
+            "operation": "set",
+            "value": "Wide-Leg Pants",
+            "evidence": "wide-leg"
+          },
+          {
+            "scope": "item",
+            "field": "max_price",
+            "operation": "set",
+            "value": 140,
+            "evidence": "under $140"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": {
+          "external_items": [],
+          "preferences": [],
+          "outfit_changes": [],
+          "offers": null,
+          "owned_categories": []
+        }
+      },
+      "checked": {
+        "status": "needs_clarification",
+        "action": "new_search",
+        "reference_product_ids": [],
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Bottoms",
+            "product_type": "Wide-Leg Pants",
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "12",
+            "min_price": null,
+            "max_price": 140,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [
+            "high-waisted",
+            "full length",
+            "not cropped",
+            "no polyester",
+            "no elasticated waist"
+          ],
+          "unresolved_shared": []
+        },
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "discovery_intent": null,
+        "styling_question": false,
+        "preferences": null,
+        "message": "These requirements cannot yet be applied safely: high-waisted; full length; not cropped; no polyester; no elasticated waist. They have not been dropped.",
+        "issues": [
+          {
+            "id": "unverified_requirement:item:requirement:\"high-waisted\"",
+            "code": "unverified_requirement",
+            "field": "requirement",
+            "scope": "item",
+            "value": "high-waisted",
+            "saved_value": null,
+            "options": []
+          },
+          {
+            "id": "unverified_requirement:item:requirement:\"full length\"",
+            "code": "unverified_requirement",
+            "field": "requirement",
+            "scope": "item",
+            "value": "full length",
+            "saved_value": null,
+            "options": []
+          },
+          {
+            "id": "unverified_requirement:item:requirement:\"not cropped\"",
+            "code": "unverified_requirement",
+            "field": "requirement",
+            "scope": "item",
+            "value": "not cropped",
+            "saved_value": null,
+            "options": []
+          },
+          {
+            "id": "unverified_requirement:item:requirement:\"no polyester\"",
+            "code": "unverified_requirement",
+            "field": "requirement",
+            "scope": "item",
+            "value": "no polyester",
+            "saved_value": null,
+            "options": []
+          },
+          {
+            "id": "unverified_requirement:item:requirement:\"no elasticated waist\"",
+            "code": "unverified_requirement",
+            "field": "requirement",
+            "scope": "item",
+            "value": "no elasticated waist",
+            "saved_value": null,
+            "options": []
+          }
+        ]
+      },
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "uaovnl",
+          "preview_unverified": false,
+          "blocker_signature": "unverified_requirement:item:requirement:\"high-waisted\"|unverified_requirement:item:requirement:\"full length\"|unverified_requirement:item:requirement:\"not cropped\"|unverified_requirement:item:requirement:\"no polyester\"|unverified_requirement:item:requirement:\"no elasticated waist\"",
+          "blocker_repeats": 1,
+          "issues": [
+            {
+              "id": "unverified_requirement:item:requirement:\"high-waisted\"",
+              "code": "unverified_requirement",
+              "field": "requirement",
+              "scope": "item",
+              "value": "high-waisted",
+              "saved_value": null,
+              "options": []
+            },
+            {
+              "id": "unverified_requirement:item:requirement:\"full length\"",
+              "code": "unverified_requirement",
+              "field": "requirement",
+              "scope": "item",
+              "value": "full length",
+              "saved_value": null,
+              "options": []
+            },
+            {
+              "id": "unverified_requirement:item:requirement:\"not cropped\"",
+              "code": "unverified_requirement",
+              "field": "requirement",
+              "scope": "item",
+              "value": "not cropped",
+              "saved_value": null,
+              "options": []
+            },
+            {
+              "id": "unverified_requirement:item:requirement:\"no polyester\"",
+              "code": "unverified_requirement",
+              "field": "requirement",
+              "scope": "item",
+              "value": "no polyester",
+              "saved_value": null,
+              "options": []
+            },
+            {
+              "id": "unverified_requirement:item:requirement:\"no elasticated waist\"",
+              "code": "unverified_requirement",
+              "field": "requirement",
+              "scope": "item",
+              "value": "no elasticated waist",
+              "saved_value": null,
+              "options": []
+            }
+          ]
+        },
+        "issues": [
+          {
+            "id": "unverified_requirement:item:requirement:\"high-waisted\"",
+            "code": "unverified_requirement",
+            "field": "requirement",
+            "scope": "item",
+            "value": "high-waisted",
+            "saved_value": null,
+            "options": []
+          },
+          {
+            "id": "unverified_requirement:item:requirement:\"full length\"",
+            "code": "unverified_requirement",
+            "field": "requirement",
+            "scope": "item",
+            "value": "full length",
+            "saved_value": null,
+            "options": []
+          },
+          {
+            "id": "unverified_requirement:item:requirement:\"not cropped\"",
+            "code": "unverified_requirement",
+            "field": "requirement",
+            "scope": "item",
+            "value": "not cropped",
+            "saved_value": null,
+            "options": []
+          },
+          {
+            "id": "unverified_requirement:item:requirement:\"no polyester\"",
+            "code": "unverified_requirement",
+            "field": "requirement",
+            "scope": "item",
+            "value": "no polyester",
+            "saved_value": null,
+            "options": []
+          },
+          {
+            "id": "unverified_requirement:item:requirement:\"no elasticated waist\"",
+            "code": "unverified_requirement",
+            "field": "requirement",
+            "scope": "item",
+            "value": "no elasticated waist",
+            "saved_value": null,
+            "options": []
+          }
+        ],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "status": "needs_clarification",
+        "action": "new_search",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I can't verify high-waisted from the product information. Keep it as a hard requirement, remove it, or explicitly ask to browse with that detail unverified. Known violations will still be excluded.\n\nI can't verify full length from the product information. Keep it as a hard requirement, remove it, or explicitly ask to browse with that detail unverified. Known violations will still be excluded.\n\nI can't verify not cropped from the product information. Keep it as a hard requirement, remove it, or explicitly ask to browse with that detail unverified. Known violations will still be excluded.\n\nI can't verify no polyester from the product information. Keep it as a hard requirement, remove it, or explicitly ask to browse with that detail unverified. Known violations will still be excluded.\n\nI can't verify no elasticated waist from the product information. Keep it as a hard requirement, remove it, or explicitly ask to browse with that detail unverified. Known violations will still be excluded.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Bottoms",
+            "product_type": "Wide-Leg Pants",
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "12",
+            "min_price": null,
+            "max_price": 140,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [
+            "high-waisted",
+            "full length",
+            "not cropped",
+            "no polyester",
+            "no elasticated waist"
+          ],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": {
+          "action": "new_search",
+          "reference": null,
+          "goal": "I know exactly what I want: women's black high-waisted wide-leg trousers, full length not cropped, AU 12. No polyester, no elasticated waist, under $140 AUD. It's for work, not a party. What actually matches?",
+          "question": "I can't verify high-waisted from the product information. Keep it as a hard requirement, remove it, or explicitly ask to browse with that detail unverified. Known violations will still be excluded.\n\nI can't verify full length from the product information. Keep it as a hard requirement, remove it, or explicitly ask to browse with that detail unverified. Known violations will still be excluded.\n\nI can't verify not cropped from the product information. Keep it as a hard requirement, remove it, or explicitly ask to browse with that detail unverified. Known violations will still be excluded.\n\nI can't verify no polyester from the product information. Keep it as a hard requirement, remove it, or explicitly ask to browse with that detail unverified. Known violations will still be excluded.\n\nI can't verify no elasticated waist from the product information. Keep it as a hard requirement, remove it, or explicitly ask to browse with that detail unverified. Known violations will still be excluded.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "before_styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "before_collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          }
+        },
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "duration_ms": 8444
+    }
+  ]
+}

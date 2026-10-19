@@ -1,0 +1,49 @@
+{
+  "product_id": "P1020",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:45.723Z",
+  "identity_snapshot": {
+    "product_id": "P1020",
+    "product_name": "Blue Slim Belt",
+    "category": "Accessories",
+    "subcategory": "Belts",
+    "product_type": "Slim Belt",
+    "gender": "Women",
+    "colour": "Blue",
+    "material": "Faux Leather",
+    "fit": "Standard",
+    "style": "Minimalist",
+    "occasion": "Casual",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1020",
+    "description": "Minimalist blue slim belt with a clean faux-leather strap and understated fastening for casual styling.",
+    "construction_details": [
+      "Slim faux-leather strap",
+      "Neatly finished edges",
+      "Single-prong buckle fastening"
+    ],
+    "care_instructions": "Wipe clean with a soft, lightly damp cloth and keep away from prolonged moisture.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": null,
+    "capacity_litres": null,
+    "use_cases": [
+      "Casual"
+    ],
+    "closure": "buckle",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": "brushed silver-tone"
+  },
+  "content_sha256": "3da859cab01f34d22e43bfb3519e189399e88dad12bb5c584ffe2575b60acca6"
+}

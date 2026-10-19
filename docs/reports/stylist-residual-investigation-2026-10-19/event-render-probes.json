@@ -1,0 +1,29 @@
+{
+  "method": "Isolated SSR of the current DressCodeChoices function; styling omitted. No application source edits.",
+  "states": [
+    {
+      "value": null,
+      "heading": "What kind of formal event?",
+      "selected_button": "Any formal event",
+      "html": "<section aria-label=\"Event dress code\"><h3>What kind of formal event?</h3><p>Optional · Choose a dress code to narrow your picks.</p><div role=\"group\" aria-label=\"Choose a dress code\"><button type=\"button\" aria-pressed=\"true\">Any formal event</button><button type=\"button\" aria-pressed=\"false\">Black tie</button><button type=\"button\" aria-pressed=\"false\">Wedding guest</button><button type=\"button\" aria-pressed=\"false\">Formal dinner</button><button type=\"button\" aria-pressed=\"false\">Cocktail</button></div><p>Explore the full formal selection. Check the invitation before choosing a hem length or shoe style.</p></section>"
+    },
+    {
+      "value": "wedding_guest",
+      "heading": "What kind of formal event?",
+      "selected_button": "Wedding guest",
+      "html": "<section aria-label=\"Event dress code\"><h3>What kind of formal event?</h3><p>Optional · Choose a dress code to narrow your picks.</p><div role=\"group\" aria-label=\"Choose a dress code\"><button type=\"button\" aria-pressed=\"false\">Any formal event</button><button type=\"button\" aria-pressed=\"false\">Black tie</button><button type=\"button\" aria-pressed=\"true\">Wedding guest</button><button type=\"button\" aria-pressed=\"false\">Formal dinner</button><button type=\"button\" aria-pressed=\"false\">Cocktail</button></div><p>Focus on midi or maxi dresses and dress shoes, excluding white, ivory and cream dresses. Follow the couple’s dress code.</p></section>"
+    },
+    {
+      "value": "cocktail",
+      "heading": "What kind of formal event?",
+      "selected_button": "Cocktail",
+      "html": "<section aria-label=\"Event dress code\"><h3>What kind of formal event?</h3><p>Optional · Choose a dress code to narrow your picks.</p><div role=\"group\" aria-label=\"Choose a dress code\"><button type=\"button\" aria-pressed=\"false\">Any formal event</button><button type=\"button\" aria-pressed=\"false\">Black tie</button><button type=\"button\" aria-pressed=\"false\">Wedding guest</button><button type=\"button\" aria-pressed=\"false\">Formal dinner</button><button type=\"button\" aria-pressed=\"true\">Cocktail</button></div><p>Explore midi dresses and dress shoes or formal flats. Follow the invitation and consider the venue when choosing shoes.</p></section>"
+    },
+    {
+      "value": "black_tie",
+      "heading": "What kind of formal event?",
+      "selected_button": "Black tie",
+      "html": "<section aria-label=\"Event dress code\"><h3>What kind of formal event?</h3><p>Optional · Choose a dress code to narrow your picks.</p><div role=\"group\" aria-label=\"Choose a dress code\"><button type=\"button\" aria-pressed=\"false\">Any formal event</button><button type=\"button\" aria-pressed=\"true\">Black tie</button><button type=\"button\" aria-pressed=\"false\">Wedding guest</button><button type=\"button\" aria-pressed=\"false\">Formal dinner</button><button type=\"button\" aria-pressed=\"false\">Cocktail</button></div><p>Focus on maxi dresses or gowns with heels or formal flats. Check the invitation and product details for the required level of formality.</p></section>"
+    }
+  ]
+}

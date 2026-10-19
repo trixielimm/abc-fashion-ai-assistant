@@ -1,8 +1,34 @@
 "use client";
 
+import {
+  FollowUpKindSchema,
+  type FollowUpKind,
+} from "@/lib/ai/resolveFollowUp";
+import {
+  ChatRequestError,
+  postChatJson,
+} from "@/lib/ai/chatRequest";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import {
+  automaticCartSize,
+  prepareProductAction,
+  ProductActionInputError,
+  type ProductAction,
+  type ProductActionKind,
+} from "@/lib/stylist/productActions";
+
 import { CloseIcon, PersonIcon } from "@/components/ui/icons";
+import {
+  chooseCheaperContext,
+  preferencesForViewedProduct,
+  type ViewedPageContext,
+} from "@/lib/stylist/viewedProduct";
+import {
+  isCheaperMessage,
+  rememberPriceContext,
+  type PriceContext,
+} from "@/lib/stylist/priceContext";
 import { ProductImage } from "@/components/commerce/ProductImage";
 import { getProductImageSrc } from "@/lib/product-image";
 import { cn } from "@/lib/cn";
@@ -25,6 +51,7 @@ const StylistProductSchema = z.object({
   colour: z.string().nullable(),
   image_key: z.string().nullable().optional(),
   sizes_available: z.array(z.string().min(1)).min(1),
+  explanation: z.string().optional(),
 });
 
 const StylistSearchResponseSchema = z.object({
@@ -33,6 +60,39 @@ const StylistSearchResponseSchema = z.object({
   products: z.array(StylistProductSchema).max(4),
 });
 
+const ExtractionResponseSchema = z.object({
+  preferences: ShoppingPreferencesSchema,
+  issues: z.array(z.object({
+    field: z.string(),
+    value: z.union([z.string(), z.number()]),
+    code: z.enum(["unsupported_value", "category_mismatch", "invalid_budget"]),
+    blocking: z.boolean(),
+  })),
+  needs_clarification: z.boolean(),
+  follow_up_question: z
+  .object({
+    kind: FollowUpKindSchema,
+    message: z.string().min(1),
+  })
+  .nullable()
+  .optional(),
+});
+
+type PreferenceIssue = z.infer<typeof ExtractionResponseSchema>["issues"][number];
+
+function describeIssue(issue: PreferenceIssue): string {
+  if (issue.code === "invalid_budget") {
+    return "Your minimum price is higher than your maximum price. Please check your budget.";
+  }
+  if (issue.code === "category_mismatch") {
+    return `The ${issue.value} subcategory does not match the selected category. Please clarify which you want.`;
+  }
+  const field = issue.field.replaceAll("_", " ");
+  return issue.blocking
+    ? `I couldn't find ${issue.value} as a catalogue ${field}. Please choose another ${field}.`
+    : `I couldn't find an exact catalogue label for ${issue.value} (${field}). I have kept this preference, but available results may not match it.`;
+}
+
 type StylistProduct = z.infer<typeof StylistProductSchema>;
 
 type Entry = {
@@ -40,9 +100,26 @@ type Entry = {
   from: "stylist" | "you";
   text: string;
   preferences?: ShoppingPreferences;
+  issues?: PreferenceIssue[];
   products?: StylistProduct[];
+  crossSellPreferences?: ShoppingPreferences;
 };
-
+type ChatAttempt =
+  | {
+      stage: "extraction";
+      message: string;
+      currentPreferences: ShoppingPreferences | null;
+      pendingFollowUp: FollowUpKind | null;
+    }
+  | {
+      stage: "search";
+      preferences: ShoppingPreferences;
+      cheaperThan?: PriceContext["references"];
+    }
+  | {
+      stage: "product_action";
+      action: ProductAction;
+    };
 const GREETING =
   "Welcome to ABC Fashion. Tell me what you're shopping for, and I'll find a few items that fit your preferences.";
 
@@ -93,7 +170,7 @@ function Avatar({ from }: { from: Entry["from"] }) {
   );
 }
 
-function PreferenceDetails({ preferences }: { preferences: ShoppingPreferences }) {
+function PreferenceDetails({ preferences, issues = [] }: { preferences: ShoppingPreferences; issues?: PreferenceIssue[] }) {
   const found = preferenceFields.flatMap(({ key, label }) => {
     const value = preferences[key];
     if (value === null || (Array.isArray(value) && value.length === 0)) return [];
@@ -131,6 +208,13 @@ function PreferenceDetails({ preferences }: { preferences: ShoppingPreferences }
           </div>
         ))}
       </dl>
+      {issues.length > 0 ? (
+        <ul className="mt-3 space-y-1 border-t border-hairline pt-3 text-[12px]">
+          {issues.map((issue, index) => (
+            <li key={`${issue.field}-${index}`}>{describeIssue(issue)}</li>
+          ))}
+        </ul>
+      ) : null}
     </div>
   );
 }
@@ -138,19 +222,39 @@ function PreferenceDetails({ preferences }: { preferences: ShoppingPreferences }
 function RecommendationCard({
   product,
   onProductOpen,
+  preferences,
 }: {
   product: StylistProduct;
   onProductOpen: () => void;
+  preferences?: ShoppingPreferences;
 }) {
   const sizes = product.sizes_available;
-  const [selectedSize, setSelectedSize] = useState(sizes.length === 1 ? sizes[0] : "");
+  const automaticSize = automaticCartSize(sizes);
+
+const knownSize =
+  preferences?.category &&
+  preferences.category === product.category &&
+  preferences.size
+    ? sizes.find(
+        (label) =>
+          label.trim().toLowerCase() ===
+          preferences.size!.trim().toLowerCase()
+      ) ?? ""
+    : "";
+
+const [selectedSize, setSelectedSize] = useState(
+  automaticSize ?? knownSize
+);
+
+const [choosingSize, setChoosingSize] = useState(false);
   const [feedback, setFeedback] = useState("");
 
   function addProduct() {
-    if (!selectedSize) {
-      setFeedback("Select a size first.");
-      return;
-    }
+    if (!selectedSize || !sizes.includes(selectedSize)) {
+  setChoosingSize(true);
+  setFeedback("Choose a size to add this item to your cart.");
+  return;
+}
 
     try {
       addToCart({
@@ -162,6 +266,7 @@ function RecommendationCard({
         image: getProductImageSrc(product.product_id, product.image_key),
         category: product.category,
       });
+      setChoosingSize(false);
       setFeedback("Added to cart.");
     } catch {
       setFeedback("Could not add this item. Please try again.");
@@ -200,37 +305,60 @@ function RecommendationCard({
           <span className="text-muted">{product.colour}</span>
           <span>{formatPrice(product.price_aud)}</span>
         </div>
-        <div className="mt-3 flex flex-wrap gap-2">
-          {sizes.length === 1 ? (
-            <span className="flex min-h-9 items-center text-[11px] text-muted">
-              Size: {sizes[0]}
-            </span>
-          ) : (
-            <label className="min-w-[90px] flex-1">
-              <span className="sr-only">Size for {product.product_name}</span>
-              <select
-                value={selectedSize}
-                onChange={(event) => {
-                  setSelectedSize(event.target.value);
-                  setFeedback("");
-                }}
-                className="h-9 w-full border border-hairline bg-background px-2 text-[11px]"
-              >
-                <option value="">Select size</option>
-                {sizes.map((size) => (
-                  <option key={size} value={size}>{size}</option>
-                ))}
-              </select>
-            </label>
-          )}
-          <button
-            type="button"
-            onClick={addProduct}
-            className="min-h-9 min-w-[105px] flex-1 bg-foreground px-3 text-[10px] font-medium tracking-[0.08em] text-background uppercase transition-opacity hover:opacity-80"
-          >
-            Add to cart
-          </button>
-        </div>
+        {product.explanation ? (
+  <p className="mt-2 text-[11px] leading-5 text-muted">
+    {product.explanation}
+  </p>
+) : null}
+
+<div className="mt-3 flex flex-wrap gap-2">
+  {choosingSize ? (
+    <label className="min-w-[90px] flex-1">
+      <span className="sr-only">
+        Size for {product.product_name}
+      </span>
+
+      <select
+        value={selectedSize}
+        onChange={(event) => {
+          setSelectedSize(event.target.value);
+          setFeedback("");
+        }}
+        className="h-9 w-full border border-hairline bg-background px-2 text-[11px]"
+      >
+        <option value="">Select size</option>
+
+        {sizes.map((size) => (
+          <option key={size} value={size}>
+            {size}
+          </option>
+        ))}
+      </select>
+    </label>
+  ) : null}
+
+  <button
+    type="button"
+    onClick={addProduct}
+    className="min-h-9 min-w-[105px] flex-1 bg-foreground px-3 text-[10px] font-medium tracking-[0.08em] text-background uppercase transition-opacity hover:opacity-80"
+  >
+    {choosingSize ? "Confirm add" : "Add to cart"}
+  </button>
+
+  {choosingSize ? (
+    <button
+      type="button"
+      onClick={() => {
+        setChoosingSize(false);
+        setSelectedSize(automaticSize ?? knownSize);
+        setFeedback("");
+      }}
+      className="text-[11px] underline"
+    >
+      Cancel
+    </button>
+  ) : null}
+</div>
         {feedback ? <p role="status" className="mt-2 text-[11px]">{feedback}</p> : null}
       </div>
     </article>
@@ -240,18 +368,47 @@ function RecommendationCard({
 function ProductRecommendations({
   products,
   onProductOpen,
+  onAction,
+  preferences,
 }: {
   products: StylistProduct[];
+  preferences?: ShoppingPreferences;
   onProductOpen: () => void;
+  onAction?: (
+    kind: ProductActionKind,
+    product: StylistProduct
+  ) => void;
 }) {
   return (
     <div className="mt-4 grid grid-cols-1 gap-3 border-t border-hairline pt-4 lg:grid-cols-2">
       {products.map((product) => (
-        <RecommendationCard
-          key={product.product_id}
-          product={product}
-          onProductOpen={onProductOpen}
-        />
+        <div key={product.product_id}>
+          <RecommendationCard
+            product={product}
+            onProductOpen={onProductOpen}
+            preferences={preferences}
+          />
+
+          {onAction ? (
+            <div className="mt-2 flex flex-wrap gap-3 text-[11px]">
+              <button
+                type="button"
+                onClick={() => onAction("cross_sell", product)}
+                className="underline underline-offset-2"
+              >
+                Find an extra
+              </button>
+
+              <button
+                type="button"
+                onClick={() => onAction("upsell", product)}
+                className="underline underline-offset-2"
+              >
+                Compare higher-priced options
+              </button>
+            </div>
+          ) : null}
+        </div>
       ))}
     </div>
   );
@@ -336,27 +493,38 @@ function Message({
   onTick,
   onTyped,
   onProductOpen,
+  showUpsell = false,
+  onProductAction,
 }: {
   entry: Entry;
   live?: boolean;
   onTick?: () => void;
   onTyped?: () => void;
   onProductOpen: () => void;
+  showUpsell?: boolean;
+  onProductAction: (
+    kind: ProductActionKind,
+    product: StylistProduct,
+    preferences: ShoppingPreferences
+  ) => void;
 }) {
+  const context = entry.crossSellPreferences;
   const isYou = entry.from === "you";
+
   return (
     <div className={cn("flex gap-4", isYou && "flex-row-reverse")}>
       <Avatar from={entry.from} />
+
       <div
         className={cn(
           "flex min-w-0 flex-1 flex-col",
-          isYou ? "items-end" : "items-start",
+          isYou ? "items-end" : "items-start"
         )}
       >
         <div
           className={cn(
             "flex items-baseline gap-2",
-            isYou && "flex-row-reverse",
+            isYou && "flex-row-reverse"
           )}
         >
           <p className="text-[10px] font-semibold tracking-[0.14em] uppercase">
@@ -364,21 +532,36 @@ function Message({
           </p>
           <p className="text-[10px] text-muted">Just now</p>
         </div>
+
         <div
           className={cn(
             "mt-2 max-w-full border p-3 text-[14px] leading-6 [overflow-wrap:anywhere] sm:p-4",
             !entry.products?.length && "sm:max-w-[74%]",
             isYou
               ? "border-foreground bg-foreground text-background"
-              : "border-hairline bg-surface",
+              : "border-hairline bg-surface"
           )}
         >
           {entry.preferences ? (
-            <PreferenceDetails preferences={entry.preferences} />
+            <PreferenceDetails
+              preferences={entry.preferences}
+              issues={entry.issues}
+            />
           ) : entry.products?.length ? (
             <div>
               <p>{entry.text}</p>
-              <ProductRecommendations products={entry.products} onProductOpen={onProductOpen} />
+
+              <ProductRecommendations
+                products={entry.products}
+                preferences={context}
+                onProductOpen={onProductOpen}
+                onAction={
+                  showUpsell && context
+                    ? (kind, product) =>
+                        onProductAction(kind, product, context)
+                    : undefined
+                }
+              />
             </div>
           ) : live && onTick && onTyped ? (
             <p>
@@ -400,21 +583,32 @@ function Message({
 export function StylistChat({
   onClose,
   onReset,
+  viewedPage = null,
 }: {
   onClose: () => void;
   onReset: () => void;
+  viewedPage?: ViewedPageContext | null;
 }) {
   const [entries, setEntries] = useState<Entry[]>([]);
   const [pending, setPending] = useState<Entry | null>(null);
   const [thinking, setThinking] = useState(true);
   const [draft, setDraft] = useState("");
+  const [retryAttempt, setRetryAttempt] =
+  useState<ChatAttempt | null>(null);
   const [tick, setTick] = useState(0);
   const transcriptRef = useRef<HTMLDivElement>(null);
   const replyCount = useRef(0);
   const requestRef = useRef<AbortController | null>(null);
+  const currentPreferencesRef = useRef<ShoppingPreferences | null>(null);
+  const consumedPageKeyRef = useRef<number | null>(null);
+  const activePriceContextRef = useRef<PriceContext | null>(null);
+  const pendingFollowUpRef = useRef<FollowUpKind | null>(null);
   const busy = thinking || pending !== null;
 
-  useEffect(() => () => requestRef.current?.abort(), []);
+  useEffect(() => () => {
+  requestRef.current?.abort();
+  requestRef.current = null;
+}, []);
 
   useEffect(() => {
     const transcript = transcriptRef.current;
@@ -450,84 +644,382 @@ export function StylistChat({
     setPending(null);
   }
 
-  async function extract(message: string) {
-    const controller = new AbortController();
-    requestRef.current = controller;
-    setThinking(true);
-    let stage: "extraction" | "search" = "extraction";
+  async function runChatAttempt(attempt: ChatAttempt) {
+  if (requestRef.current !== null) return;
 
-    try {
-      const response = await fetch("/api/extraction", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message }),
-        signal: controller.signal,
-      });
-      if (!response.ok) throw new Error("Preference extraction failed.");
+  const controller = new AbortController();
+  requestRef.current = controller;
 
-      const data: unknown = await response.json();
-      const parsed = ShoppingPreferencesSchema.safeParse(
-        typeof data === "object" && data !== null && "preferences" in data
-          ? data.preferences
-          : undefined,
-      );
-      if (!parsed.success) throw new Error("Invalid preference response.");
+  setThinking(true);
+  setRetryAttempt(null);
+  activePriceContextRef.current = null;
 
-      replyCount.current += 1;
-      setEntries((current) => [
-        ...current,
-        {
-          id: `preferences-${replyCount.current}`,
-          from: "stylist",
-          text: "",
-          preferences: parsed.data,
-        },
-      ]);
+  // After extraction succeeds, retry search rather than extraction.
+  let failedAttempt: ChatAttempt = attempt;
 
-      stage = "search";
-      const searchResponse = await fetch("/api/stylist-search", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ preferences: parsed.data }),
-        signal: controller.signal,
-      });
-      if (!searchResponse.ok) throw new Error("Product search failed.");
-
-      const searchData = StylistSearchResponseSchema.safeParse(await searchResponse.json());
-      if (!searchData.success) throw new Error("Invalid product search response.");
-
-      replyCount.current += 1;
-      setEntries((current) => [
-        ...current,
-        {
-          id: `products-${replyCount.current}`,
-          from: "stylist",
-          text: searchData.data.message,
-          products: searchData.data.products,
-        },
-      ]);
-    } catch {
-      if (controller.signal.aborted) return;
-      replyCount.current += 1;
-      setEntries((current) => [
-        ...current,
-        {
-          id: `error-${replyCount.current}`,
-          from: "stylist",
-          text: stage === "extraction"
-            ? "I couldn't extract preferences from that message. Please try again."
-            : "I found your preferences, but couldn't search the products right now. Please try again.",
-        },
-      ]);
-    } finally {
-      if (!controller.signal.aborted) setThinking(false);
-      if (requestRef.current === controller) requestRef.current = null;
-    }
+  function isCurrent() {
+    return (
+      requestRef.current === controller &&
+      !controller.signal.aborted
+    );
   }
 
+  try {
+    if (attempt.stage === "product_action") {
+  const prepared = prepareProductAction(attempt.action);
+
+  const data = await postChatJson(
+    prepared.endpoint,
+    prepared.body,
+    { signal: controller.signal }
+  );
+
+  if (!isCurrent()) return;
+
+  const result = prepared.read(data);
+
+  const context =
+    result.preferences ?? attempt.action.preferences;
+    activePriceContextRef.current = rememberPriceContext(
+  result.products,
+  context
+);
+
+  if (result.preferences !== null) {
+    currentPreferencesRef.current =
+      ShoppingPreferencesSchema.parse(result.preferences);
+  }
+
+  pendingFollowUpRef.current = null;
+
+  replyCount.current += 1;
+  const id = `action-result-${replyCount.current}`;
+
+  setEntries((current) => [
+    ...current,
+    {
+      id,
+      from: "stylist",
+      text: result.message,
+      products: result.products,
+      crossSellPreferences:
+        ShoppingPreferencesSchema.parse(context),
+    },
+  ]);
+
+  return;
+}
+    let preferences: ShoppingPreferences;
+
+    if (attempt.stage === "search") {
+      preferences = ShoppingPreferencesSchema.parse(
+        attempt.preferences
+      );
+    } else {
+      const data = await postChatJson(
+        "/api/extraction",
+        {
+          message: attempt.message,
+
+          ...(attempt.currentPreferences
+            ? {
+                current_preferences:
+                  attempt.currentPreferences,
+              }
+            : {}),
+
+          ...(attempt.pendingFollowUp
+            ? {
+                pending_follow_up:
+                  attempt.pendingFollowUp,
+              }
+            : {}),
+        },
+        { signal: controller.signal }
+      );
+
+      if (!isCurrent()) return;
+
+      const parsed = ExtractionResponseSchema.safeParse(data);
+
+      if (!parsed.success) {
+        throw new Error("Invalid preference response.");
+      }
+
+      preferences = parsed.data.preferences;
+      currentPreferencesRef.current = preferences;
+
+      const question = parsed.data.follow_up_question ?? null;
+      pendingFollowUpRef.current = question?.kind ?? null;
+
+      replyCount.current += 1;
+      const preferenceEntryId =
+        `preferences-${replyCount.current}`;
+
+      setEntries((current) => [
+        ...current,
+        {
+          id: preferenceEntryId,
+          from: "stylist",
+          text: "",
+          preferences,
+          issues: parsed.data.issues,
+        },
+      ]);
+
+      if (question) {
+        replyCount.current += 1;
+        const questionId =
+          `clarification-${replyCount.current}`;
+
+        setEntries((current) => [
+          ...current,
+          {
+            id: questionId,
+            from: "stylist",
+            text: question.message,
+          },
+        ]);
+
+        return;
+      }
+
+      if (parsed.data.needs_clarification) return;
+    }
+
+   const cheaperThan =
+  attempt.stage === "search"
+    ? attempt.cheaperThan
+    : undefined;
+
+failedAttempt = {
+  stage: "search",
+  preferences: ShoppingPreferencesSchema.parse(preferences),
+  cheaperThan,
+};
+
+const data = await postChatJson(
+  "/api/stylist-search",
+  {
+    preferences,
+    ...(cheaperThan ? { cheaper_than: cheaperThan } : {}),
+  },
+  { signal: controller.signal }
+);
+
+    if (!isCurrent()) return;
+
+    const search = StylistSearchResponseSchema.safeParse(data);
+
+    if (!search.success) {
+      throw new Error("Invalid search response.");
+    }
+
+    const hasMatches =
+      search.data.status === "matches" ||
+      search.data.status === "partial";
+
+    if (hasMatches !== (search.data.products.length > 0)) {
+      throw new Error(
+        "Search status and product list disagree."
+      );
+    }
+
+    replyCount.current += 1;
+    const productEntryId = `products-${replyCount.current}`;
+    currentPreferencesRef.current =
+  ShoppingPreferencesSchema.parse(preferences);
+    activePriceContextRef.current = rememberPriceContext(
+  search.data.products,
+  preferences
+);
+
+    setEntries((current) => [
+      ...current,
+      {
+        id: productEntryId,
+        from: "stylist",
+        text: search.data.message,
+        products: search.data.products,
+        crossSellPreferences:
+          ShoppingPreferencesSchema.parse(preferences),
+      },
+    ]);
+  } catch (error) {
+    if (!isCurrent()) return;
+
+    const invalidAction = error instanceof ProductActionInputError;
+
+if (!invalidAction) {
+  setRetryAttempt(failedAttempt);
+}
+
+    const timedOut =
+      error instanceof ChatRequestError &&
+      error.kind === "timeout";
+
+   const step =
+  failedAttempt.stage === "product_action"
+    ? "finding options for that product"
+    : failedAttempt.stage === "search"
+      ? "searching the catalogue"
+      : "reading your request";
+
+    const message = invalidAction
+  ? error.message
+  : timedOut
+      ? `The request timed out while ${step}. No new products were returned. Use Retry failed step or send a new message.`
+      : `I couldn't finish ${step}. This is a technical failure, not a no-match result. Use Retry failed step or send a new message.`;
+
+    replyCount.current += 1;
+    const errorId = `error-${replyCount.current}`;
+
+    setEntries((current) => [
+      ...current,
+      {
+        id: errorId,
+        from: "stylist",
+        text: message,
+      },
+    ]);
+  } finally {
+    if (requestRef.current === controller) {
+      requestRef.current = null;
+      setThinking(false);
+    }
+  }
+}
+
+async function extract(message: string) {
+  if (isCheaperMessage(message)) {
+    const chosen = chooseCheaperContext(
+  activePriceContextRef.current,
+  viewedPage,
+  consumedPageKeyRef.current,
+  currentPreferencesRef.current
+);
+
+consumedPageKeyRef.current = chosen.pageKey;
+const context = chosen.context;
+
+    setRetryAttempt(null);
+    pendingFollowUpRef.current = null;
+
+    if (!context) {
+      replyCount.current += 1;
+      const id = `price-context-${replyCount.current}`;
+
+      setEntries((current) => [
+        ...current,
+        {
+          id,
+          from: "stylist",
+          text:
+            "I need a recent product result to compare prices. Tell me what item you are looking for, or run the main search again.",
+        },
+      ]);
+
+      return;
+    }
+
+    await runChatAttempt({
+      stage: "search",
+      preferences: ShoppingPreferencesSchema.parse(
+        context.preferences
+      ),
+      cheaperThan: context.references,
+    });
+
+    return;
+  }
+consumedPageKeyRef.current = viewedPage?.key ?? null;
+  await runChatAttempt({
+    stage: "extraction",
+    message,
+    currentPreferences: currentPreferencesRef.current
+      ? ShoppingPreferencesSchema.parse(
+          currentPreferencesRef.current
+        )
+      : null,
+    pendingFollowUp: pendingFollowUpRef.current,
+  });
+}
+function compareViewedProduct() {
+  if (
+    !viewedPage ||
+    busy ||
+    requestRef.current !== null
+  ) {
+    return;
+  }
+
+  const context = rememberPriceContext(
+    [viewedPage.product],
+    preferencesForViewedProduct(
+      viewedPage.product,
+      currentPreferencesRef.current
+    )
+  );
+
+  if (!context) return;
+
+  consumedPageKeyRef.current = viewedPage.key;
+
+  replyCount.current += 1;
+  const id = `page-comparison-${replyCount.current}`;
+
+  setEntries((current) => [
+    ...current,
+    {
+      id,
+      from: "you",
+      text:
+        `Find cheaper alternatives to ${viewedPage.product.product_name}.`,
+    },
+  ]);
+
+  void runChatAttempt({
+    stage: "search",
+    preferences: context.preferences,
+    cheaperThan: context.references,
+  });
+}
+
+function startProductAction(
+  kind: ProductActionKind,
+  product: StylistProduct,
+  preferences: ShoppingPreferences
+) {
+  if (busy || requestRef.current !== null) return;
+  consumedPageKeyRef.current = viewedPage?.key ?? null;
+
+  const action: ProductAction = {
+    kind,
+    product: StylistProductSchema.parse(product),
+    preferences: ShoppingPreferencesSchema.parse(preferences),
+  };
+
+  const text =
+    kind === "cross_sell"
+      ? `Find an optional extra for ${product.product_name}.`
+      : `Compare higher-priced alternatives to ${product.product_name}.`;
+
+  replyCount.current += 1;
+  const id = `action-request-${replyCount.current}`;
+
+  setEntries((current) => [
+    ...current,
+    { id, from: "you", text },
+  ]);
+
+  void runChatAttempt({
+    stage: "product_action",
+    action,
+  });
+}
   function send() {
     const message = draft.trim();
-    if (!message || busy) return;
+    if (!message || busy || requestRef.current !== null) return;
 
     setEntries((current) => [
       ...current,
@@ -562,7 +1054,13 @@ export function StylistChat({
         <div className="ml-auto flex shrink-0 items-center gap-2">
           <button
             type="button"
-            onClick={onReset}
+            onClick={() => {
+  requestRef.current?.abort();
+  currentPreferencesRef.current = null;
+  pendingFollowUpRef.current = null;
+ activePriceContextRef.current = null;
+  onReset();
+}}
             aria-label="Reset chat"
             className="min-h-11 border border-hairline bg-panel px-3 py-2 text-[11px] font-medium tracking-[0.12em] uppercase transition-opacity hover:opacity-60"
           >
@@ -583,8 +1081,8 @@ export function StylistChat({
         aria-label="AI Stylist terms notice"
         className="max-h-[25%] shrink-0 overflow-y-auto border-b border-hairline bg-background px-4 py-2 text-[11px] leading-5 text-muted sm:px-8 sm:py-3"
       >
-        Your message is sent to OpenAI to extract shopping preferences. By using
-        this stylist, you agree to the{" "}
+        Your message and current shopping preferences are sent to OpenAI to
+        update your preferences. By using this stylist, you agree to the{" "}
         <Link
           href="/terms-of-service"
           target="_blank"
@@ -604,7 +1102,53 @@ export function StylistChat({
         </Link>
         .
       </aside>
+{viewedPage ? (
+  <aside
+    aria-label="Current product page context"
+    className="shrink-0 border-b border-hairline bg-background px-6 py-3 text-[12px]"
+  >
+    <p>
+      Page product:{" "}
+      <strong>{viewedPage.product.product_name}</strong>
+      {" · "}
+      {formatPrice(viewedPage.product.price_aud)}
+    </p>
 
+    <p className="mt-1 text-[11px] text-muted">
+      Existing limits and exclusions stay in place.
+      A saved size is reused only within the same category.
+    </p>
+
+    <div className="mt-2 flex flex-wrap gap-4">
+      <button
+        type="button"
+        disabled={busy}
+        onClick={compareViewedProduct}
+        className="underline underline-offset-2 disabled:opacity-50"
+      >
+        Cheaper alternatives to this item
+      </button>
+
+      <button
+        type="button"
+        disabled={busy}
+        onClick={() =>
+          startProductAction(
+            "cross_sell",
+            viewedPage.product,
+            preferencesForViewedProduct(
+              viewedPage.product,
+              currentPreferencesRef.current
+            )
+          )
+        }
+        className="underline underline-offset-2 disabled:opacity-50"
+      >
+        Find an extra for this item
+      </button>
+    </div>
+  </aside>
+) : null}
       <div
         ref={transcriptRef}
         role="log"
@@ -617,6 +1161,10 @@ export function StylistChat({
           <Message
             key={entry.id}
             entry={entry}
+            onProductAction={startProductAction}
+            showUpsell={
+  !busy && entry.id === entries[entries.length - 1]?.id
+}
             live={pending?.id === entry.id}
             onTick={() => setTick((value) => value + 1)}
             onTyped={() => commitPending(entry)}
@@ -625,9 +1173,32 @@ export function StylistChat({
         ))}
         {thinking ? <TypingDots /> : null}
       </div>
+{retryAttempt ? (
+  <div className="shrink-0 border-t border-hairline bg-background px-6 py-3 text-[12px]">
+    <p className="text-muted">
+      {retryAttempt.stage === "product_action"
+  ? "Retry the same product action without changing its preferences."
+  : retryAttempt.stage === "search"
+    ? "Your preferences were saved. Retry only the product search."
+    : "Retry the message using the same earlier shopping context."}
+    </p>
 
-      <div className="flex shrink-0 items-center gap-2 overflow-x-auto border-t border-hairline bg-panel px-4 py-2 sm:px-6 sm:py-2.5">
-        <span className="sr-only shrink-0 text-[10px] tracking-[0.14em] text-muted uppercase sm:not-sr-only">
+    <button
+      type="button"
+      disabled={busy}
+      onClick={() => {
+        if (retryAttempt) {
+          void runChatAttempt(retryAttempt);
+        }
+      }}
+      className="mt-2 border border-hairline px-3 py-2 disabled:opacity-50"
+    >
+      Retry failed step
+    </button>
+  </div>
+) : null}
+      <div className="flex items-center gap-2 overflow-x-auto border-t border-hairline bg-panel px-6 py-2.5">
+        <span className="shrink-0 text-[10px] tracking-[0.14em] text-muted uppercase">
           Suggestions:
         </span>
         {stylistSuggestions.map((suggestion) => (

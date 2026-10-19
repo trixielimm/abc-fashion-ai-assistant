@@ -1,0 +1,1577 @@
+{
+  "id": "S2-A",
+  "name": "Guided beach wedding shopping",
+  "repeat": 1,
+  "turns": [
+    {
+      "number": 1,
+      "message": "I need a dress for a beach wedding under $150, but I don't know which colour or style.",
+      "input": {
+        "message": "I need a dress for a beach wedding under $150, but I don't know which colour or style.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T12:11:46.832Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": null,
+        "action": "new_search",
+        "intent_evidence": "I need a dress for a beach wedding under $150",
+        "reference": null,
+        "changes": [
+          {
+            "scope": "item",
+            "field": "occasion",
+            "operation": "set",
+            "value": "Beach Wedding",
+            "evidence": "beach wedding"
+          },
+          {
+            "scope": "item",
+            "field": "category",
+            "operation": "set",
+            "value": "Clothing",
+            "evidence": "dress"
+          },
+          {
+            "scope": "item",
+            "field": "subcategory",
+            "operation": "set",
+            "value": "Dresses",
+            "evidence": "dress"
+          },
+          {
+            "scope": "item",
+            "field": "max_price",
+            "operation": "set",
+            "value": 150,
+            "evidence": "under $150"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": null
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "status": "matches",
+        "action": "new_search",
+        "message": "I've found 4 clothing options for you to explore.\n\nThese options range from A$80.00 to A$140.00. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": "Beach Wedding",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "D-BLACK-120",
+            "product_name": "D-BLACK-120 Dress",
+            "price_aud": 120,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Black",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": "Bags",
+            "image_src": null
+          },
+          {
+            "product_id": "D-BLUE-80",
+            "product_name": "D-BLUE-80 Dress",
+            "price_aud": 80,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Blue",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": "Bags",
+            "image_src": null
+          },
+          {
+            "product_id": "D-BLACK-90",
+            "product_name": "D-BLACK-90 Dress",
+            "price_aud": 90,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Black",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": "Bags",
+            "image_src": null
+          },
+          {
+            "product_id": "D-BLUE-140",
+            "product_name": "D-BLUE-140 Dress",
+            "price_aud": 140,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Blue",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": "Bags",
+            "image_src": null
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 2623,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "D-BLACK-120",
+              "product_name": "D-BLACK-120 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 120
+            },
+            {
+              "product_id": "D-BLUE-80",
+              "product_name": "D-BLUE-80 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 80
+            },
+            {
+              "product_id": "D-BLACK-90",
+              "product_name": "D-BLACK-90 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 90
+            },
+            {
+              "product_id": "D-BLUE-140",
+              "product_name": "D-BLUE-140 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 140
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I need a dress for a beach wedding under $150, but I don't know which colour or style."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 4 clothing options for you to explore.\n\nThese options range from A$80.00 to A$140.00. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 2,
+      "message": "Let's try blue. I don't know my size yet; can I browse first?",
+      "input": {
+        "message": "Let's try blue. I don't know my size yet; can I browse first?",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "D-BLACK-120",
+              "product_name": "D-BLACK-120 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 120
+            },
+            {
+              "product_id": "D-BLUE-80",
+              "product_name": "D-BLUE-80 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 80
+            },
+            {
+              "product_id": "D-BLACK-90",
+              "product_name": "D-BLACK-90 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 90
+            },
+            {
+              "product_id": "D-BLUE-140",
+              "product_name": "D-BLUE-140 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 140
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I need a dress for a beach wedding under $150, but I don't know which colour or style."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 4 clothing options for you to explore.\n\nThese options range from A$80.00 to A$140.00. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T12:11:49.455Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": null,
+        "action": "refine",
+        "intent_evidence": "Let's try blue",
+        "reference": null,
+        "changes": [
+          {
+            "scope": "item",
+            "field": "preferred_colours",
+            "operation": "set",
+            "value": [
+              "Blue"
+            ],
+            "evidence": "blue"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": {
+          "external_items": [],
+          "preferences": [],
+          "outfit_changes": [],
+          "offers": null,
+          "owned_categories": []
+        }
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "status": "matches",
+        "action": "refine",
+        "message": "I've found 2 blue clothing options for you to explore.\n\nThese options range from A$80.00 to A$140.00. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [
+              "Blue"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": "Beach Wedding",
+          "style": null,
+          "preferred_colours": [
+            "Blue"
+          ],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "D-BLUE-80",
+            "product_name": "D-BLUE-80 Dress",
+            "price_aud": 80,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Blue",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": "Bags",
+            "image_src": null
+          },
+          {
+            "product_id": "D-BLUE-140",
+            "product_name": "D-BLUE-140 Dress",
+            "price_aud": 140,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Blue",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": "Bags",
+            "image_src": null
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 2095,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [
+              "Blue"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "D-BLUE-80",
+              "product_name": "D-BLUE-80 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 80
+            },
+            {
+              "product_id": "D-BLUE-140",
+              "product_name": "D-BLUE-140 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 140
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "D-BLACK-120",
+                "product_name": "D-BLACK-120 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 120
+              },
+              {
+                "product_id": "D-BLUE-80",
+                "product_name": "D-BLUE-80 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 80
+              },
+              {
+                "product_id": "D-BLACK-90",
+                "product_name": "D-BLACK-90 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 90
+              },
+              {
+                "product_id": "D-BLUE-140",
+                "product_name": "D-BLUE-140 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 140
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I need a dress for a beach wedding under $150, but I don't know which colour or style."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 4 clothing options for you to explore.\n\nThese options range from A$80.00 to A$140.00. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "Let's try blue. I don't know my size yet; can I browse first?"
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 blue clothing options for you to explore.\n\nThese options range from A$80.00 to A$140.00. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 3,
+      "message": "Compare the first and second dresses and explain the differences.",
+      "input": {
+        "message": "Compare the first and second dresses and explain the differences.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [
+              "Blue"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "D-BLUE-80",
+              "product_name": "D-BLUE-80 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 80
+            },
+            {
+              "product_id": "D-BLUE-140",
+              "product_name": "D-BLUE-140 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 140
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "D-BLACK-120",
+                "product_name": "D-BLACK-120 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 120
+              },
+              {
+                "product_id": "D-BLUE-80",
+                "product_name": "D-BLUE-80 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 80
+              },
+              {
+                "product_id": "D-BLACK-90",
+                "product_name": "D-BLACK-90 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 90
+              },
+              {
+                "product_id": "D-BLUE-140",
+                "product_name": "D-BLUE-140 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 140
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I need a dress for a beach wedding under $150, but I don't know which colour or style."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 4 clothing options for you to explore.\n\nThese options range from A$80.00 to A$140.00. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "Let's try blue. I don't know my size yet; can I browse first?"
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 blue clothing options for you to explore.\n\nThese options range from A$80.00 to A$140.00. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T12:11:51.550Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": null,
+        "action": "none",
+        "intent_evidence": "Compare the first and second dresses and explain the differences.",
+        "reference": null,
+        "changes": [],
+        "question": null,
+        "continuation": false,
+        "answer": {
+          "kind": "compare",
+          "topics": [
+            "general",
+            "price"
+          ],
+          "references": [
+            {
+              "kind": "position",
+              "position": 1,
+              "subcategory": "Dresses"
+            },
+            {
+              "kind": "position",
+              "position": 2,
+              "subcategory": "Dresses"
+            }
+          ],
+          "purpose": null,
+          "continuation": false
+        },
+        "styling_intent": null
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "status": "answered",
+        "action": "none",
+        "message": "D-BLUE-80 Dress\nThe recorded price is A$80.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for D-BLUE-80 Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on Sample garment length: 110 cm (varies by size)\n\nD-BLUE-140 Dress\nThe recorded price is A$140.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for D-BLUE-140 Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on Sample garment length: 110 cm (varies by size)\n\nD-BLUE-80 Dress costs A$60.00 less. A higher price alone doesn't establish better quality.\n\nChoose using the recorded differences above and your occasion, budget and size needs. I can't establish a comfort or quality winner from these records.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [
+              "Blue"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "D-BLUE-80 Dress — catalogue details",
+            "url": "/products/D-BLUE-80"
+          },
+          {
+            "label": "D-BLUE-140 Dress — catalogue details",
+            "url": "/products/D-BLUE-140"
+          }
+        ],
+        "answer_product_ids": [
+          "D-BLUE-80",
+          "D-BLUE-140"
+        ],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 2098,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [
+              "Blue"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "D-BLUE-80",
+              "product_name": "D-BLUE-80 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 80
+            },
+            {
+              "product_id": "D-BLUE-140",
+              "product_name": "D-BLUE-140 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 140
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "D-BLACK-120",
+                "product_name": "D-BLACK-120 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 120
+              },
+              {
+                "product_id": "D-BLUE-80",
+                "product_name": "D-BLUE-80 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 80
+              },
+              {
+                "product_id": "D-BLACK-90",
+                "product_name": "D-BLACK-90 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 90
+              },
+              {
+                "product_id": "D-BLUE-140",
+                "product_name": "D-BLUE-140 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 140
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I need a dress for a beach wedding under $150, but I don't know which colour or style."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 4 clothing options for you to explore.\n\nThese options range from A$80.00 to A$140.00. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "Let's try blue. I don't know my size yet; can I browse first?"
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 blue clothing options for you to explore.\n\nThese options range from A$80.00 to A$140.00. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "Compare the first and second dresses and explain the differences."
+          },
+          {
+            "role": "assistant",
+            "content": "D-BLUE-80 Dress\nThe recorded price is A$80.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for D-BLUE-80 Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on Sample garment length: 110 cm (varies by size)\n\nD-BLUE-140 Dress\nThe recorded price is A$140.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for D-BLUE-140 Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on Sample garment length: 110 cm (varies by size)\n\nD-BLUE-80 Dress costs A$60.00 less. A higher price alone doesn't establish better quality.\n\nChoose using the recorded differences above and your occasion, budget and size needs. I can't establish a comfort or quality winner from these records."
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 4,
+      "message": "I'd prefer something more relaxed. Keep blue and the same budget.",
+      "input": {
+        "message": "I'd prefer something more relaxed. Keep blue and the same budget.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [
+              "Blue"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "D-BLUE-80",
+              "product_name": "D-BLUE-80 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 80
+            },
+            {
+              "product_id": "D-BLUE-140",
+              "product_name": "D-BLUE-140 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 140
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "D-BLACK-120",
+                "product_name": "D-BLACK-120 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 120
+              },
+              {
+                "product_id": "D-BLUE-80",
+                "product_name": "D-BLUE-80 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 80
+              },
+              {
+                "product_id": "D-BLACK-90",
+                "product_name": "D-BLACK-90 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 90
+              },
+              {
+                "product_id": "D-BLUE-140",
+                "product_name": "D-BLUE-140 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 140
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I need a dress for a beach wedding under $150, but I don't know which colour or style."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 4 clothing options for you to explore.\n\nThese options range from A$80.00 to A$140.00. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "Let's try blue. I don't know my size yet; can I browse first?"
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 blue clothing options for you to explore.\n\nThese options range from A$80.00 to A$140.00. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "Compare the first and second dresses and explain the differences."
+          },
+          {
+            "role": "assistant",
+            "content": "D-BLUE-80 Dress\nThe recorded price is A$80.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for D-BLUE-80 Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on Sample garment length: 110 cm (varies by size)\n\nD-BLUE-140 Dress\nThe recorded price is A$140.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for D-BLUE-140 Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on Sample garment length: 110 cm (varies by size)\n\nD-BLUE-80 Dress costs A$60.00 less. A higher price alone doesn't establish better quality.\n\nChoose using the recorded differences above and your occasion, budget and size needs. I can't establish a comfort or quality winner from these records."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T12:11:53.648Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": null,
+        "action": "refine",
+        "intent_evidence": "I'd prefer something more relaxed.",
+        "reference": null,
+        "changes": [
+          {
+            "scope": "item",
+            "evidence": "more relaxed",
+            "operation": "set",
+            "field": "style",
+            "value": "Relaxed"
+          },
+          {
+            "scope": "item",
+            "field": "preferred_colours",
+            "operation": "set",
+            "value": [
+              "Blue"
+            ],
+            "evidence": "blue"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": null
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "status": "matches",
+        "action": "refine",
+        "message": "I found D-BLUE-80 Dress for A$80.00.\n\nI've kept this selection within your A$150.00 per-item limit.\n\nI've also included alternatives separately below. Some requested details differ or can't be verified; the cards explain those differences.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach Wedding",
+            "style": "Relaxed",
+            "preferred_colours": [
+              "Blue"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": "Beach Wedding",
+          "style": "Relaxed",
+          "preferred_colours": [
+            "Blue"
+          ],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "D-BLUE-80",
+            "product_name": "D-BLUE-80 Dress",
+            "price_aud": 80,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Blue",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": "Bags",
+            "image_src": null
+          }
+        ],
+        "alternatives": [
+          {
+            "product_id": "D-BLUE-140",
+            "product_name": "D-BLUE-140 Dress",
+            "price_aud": 140,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Blue",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": "Bags",
+            "image_src": null,
+            "differences": [
+              "Style: Formal; you requested Relaxed."
+            ]
+          }
+        ],
+        "alternatives_preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": "Beach Wedding",
+          "style": "Relaxed",
+          "preferred_colours": [
+            "Blue"
+          ],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "alternative_kind": "context_difference",
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 1809,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach Wedding",
+            "style": "Relaxed",
+            "preferred_colours": [
+              "Blue"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "D-BLUE-80",
+              "product_name": "D-BLUE-80 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 80
+            },
+            {
+              "product_id": "D-BLUE-140",
+              "product_name": "D-BLUE-140 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 140
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "D-BLUE-80",
+                "product_name": "D-BLUE-80 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 80
+              },
+              {
+                "product_id": "D-BLUE-140",
+                "product_name": "D-BLUE-140 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 140
+              }
+            ],
+            [
+              {
+                "product_id": "D-BLACK-120",
+                "product_name": "D-BLACK-120 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 120
+              },
+              {
+                "product_id": "D-BLUE-80",
+                "product_name": "D-BLUE-80 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 80
+              },
+              {
+                "product_id": "D-BLACK-90",
+                "product_name": "D-BLACK-90 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 90
+              },
+              {
+                "product_id": "D-BLUE-140",
+                "product_name": "D-BLUE-140 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 140
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Let's try blue. I don't know my size yet; can I browse first?"
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 blue clothing options for you to explore.\n\nThese options range from A$80.00 to A$140.00. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "Compare the first and second dresses and explain the differences."
+          },
+          {
+            "role": "assistant",
+            "content": "D-BLUE-80 Dress\nThe recorded price is A$80.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for D-BLUE-80 Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on Sample garment length: 110 cm (varies by size)\n\nD-BLUE-140 Dress\nThe recorded price is A$140.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for D-BLUE-140 Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on Sample garment length: 110 cm (varies by size)\n\nD-BLUE-80 Dress costs A$60.00 less. A higher price alone doesn't establish better quality.\n\nChoose using the recorded differences above and your occasion, budget and size needs. I can't establish a comfort or quality winner from these records."
+          },
+          {
+            "role": "user",
+            "content": "I'd prefer something more relaxed. Keep blue and the same budget."
+          },
+          {
+            "role": "assistant",
+            "content": "I found D-BLUE-80 Dress for A$80.00.\n\nI've kept this selection within your A$150.00 per-item limit.\n\nI've also included alternatives separately below. Some requested details differ or can't be verified; the cards explain those differences.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "checks": "Pass"
+    }
+  ],
+  "started": "2026-10-17T12:11:46.832Z",
+  "result": "Pass",
+  "issues": [],
+  "finished": "2026-10-17T12:11:55.458Z"
+}

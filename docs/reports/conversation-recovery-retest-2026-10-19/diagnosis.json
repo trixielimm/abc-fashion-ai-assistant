@@ -1,0 +1,269 @@
+[
+  {
+    "name": "Delivery after product explanation",
+    "plan": {
+      "action": "clarify",
+      "intent_evidence": "Can this arrive by Friday?",
+      "reference": null,
+      "changes": [],
+      "question": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.",
+      "continuation": false
+    }
+  },
+  {
+    "id": "S5-B",
+    "repeat": 1,
+    "number": 1,
+    "message": "I need a blue dress for a beach wedding in size 10, under $150.",
+    "recorded_plan": {
+      "outfit_request": null,
+      "action": "new_search",
+      "discovery_intent": null,
+      "intent_evidence": "I need a blue dress for a beach wedding in size 10, under $150.",
+      "reference": null,
+      "changes": [
+        {
+          "scope": "item",
+          "field": "occasion",
+          "operation": "set",
+          "value": "Beach Wedding",
+          "evidence": "beach wedding"
+        },
+        {
+          "scope": "item",
+          "field": "category",
+          "operation": "set",
+          "value": "Clothing",
+          "evidence": "dress"
+        },
+        {
+          "scope": "item",
+          "field": "subcategory",
+          "operation": "set",
+          "value": "Dresses",
+          "evidence": "dress"
+        },
+        {
+          "scope": "item",
+          "field": "size",
+          "operation": "set",
+          "value": "10",
+          "evidence": "size 10"
+        },
+        {
+          "scope": "item",
+          "field": "max_price",
+          "operation": "set",
+          "value": 150,
+          "evidence": "under $150"
+        }
+      ],
+      "question": null,
+      "continuation": false,
+      "answer": null,
+      "styling_intent": null
+    },
+    "replay_status": "matches",
+    "replay_message": "I've found 3 clothing options for you to explore.\n\nThese options range from A$95.00 to A$140.00. I've kept this selection within your A$150.00 per-item limit. Your requested size, 10, is listed for each item.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+    "applied_preferences": {
+      "gender": "Women",
+      "category": "Clothing",
+      "subcategory": "Dresses",
+      "product_type": null,
+      "occasion": "Beach Wedding",
+      "style": null,
+      "preferred_colours": [],
+      "excluded_colours": [],
+      "season": null,
+      "material": null,
+      "fit": null,
+      "size": "10",
+      "min_price": null,
+      "max_price": 150,
+      "brand_line": null
+    },
+    "products": [
+      "VB-ORIGINAL",
+      "VB-BLACK",
+      "VB-ELIGIBLE"
+    ],
+    "issues": []
+  },
+  {
+    "id": "S5-B",
+    "repeat": 1,
+    "number": 2,
+    "message": "Compare a replacement for VB-ORIGINAL Dress with pockets. Keep the beach wedding occasion, blue, size 10 and the $150 maximum as requirements.",
+    "recorded_plan": {
+      "outfit_request": null,
+      "action": "upsell",
+      "discovery_intent": null,
+      "intent_evidence": "Compare a replacement for VB-ORIGINAL Dress with pockets",
+      "reference": {
+        "kind": "id",
+        "value": "VB-ORIGINAL"
+      },
+      "changes": [
+        {
+          "scope": "item",
+          "field": "size",
+          "operation": "set",
+          "value": "10",
+          "evidence": "size 10"
+        },
+        {
+          "scope": "item",
+          "field": "max_price",
+          "operation": "set",
+          "value": 150,
+          "evidence": "$150 maximum"
+        }
+      ],
+      "question": null,
+      "continuation": false,
+      "answer": null,
+      "styling_intent": {
+        "external_items": [],
+        "preferences": [
+          {
+            "kind": "priority",
+            "operation": "add",
+            "value": "pockets",
+            "evidence": "with pockets"
+          },
+          {
+            "kind": "requirement",
+            "operation": "add",
+            "value": "pockets",
+            "evidence": "with pockets"
+          }
+        ],
+        "outfit_changes": [],
+        "offers": null,
+        "owned_categories": []
+      }
+    },
+    "replay_status": "matches",
+    "replay_message": "I've found 2 replacements with demonstrated benefits to compare.\n\nThese options range from A$110.00 to A$140.00. I've kept this selection within your A$150.00 per-item limit. Your requested size, 10, is listed for each item.\n\nEach card explains the benefit, price difference and trade-offs. A higher price alone doesn't establish better quality, and choosing an alternative won't automatically remove the original from your cart.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+    "applied_preferences": {
+      "gender": "Women",
+      "category": "Clothing",
+      "subcategory": "Dresses",
+      "product_type": null,
+      "occasion": "Beach Wedding",
+      "style": null,
+      "preferred_colours": [],
+      "excluded_colours": [],
+      "season": null,
+      "material": null,
+      "fit": null,
+      "size": "10",
+      "min_price": null,
+      "max_price": 150,
+      "brand_line": null
+    },
+    "products": [
+      "VB-BLACK",
+      "VB-ELIGIBLE"
+    ],
+    "issues": []
+  },
+  {
+    "id": "SET-A",
+    "repeat": 1,
+    "number": 2,
+    "message": "Make the combined budget 600 aud, keep the same pieces and jacket.",
+    "recorded_plan": {
+      "outfit_request": {
+        "total_budget_aud": 600,
+        "items": [
+          {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Bottoms",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Shirt",
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          }
+        ],
+        "evidence": "Make the combined budget 600 aud, keep the same pieces and jacket."
+      },
+      "action": "refine",
+      "discovery_intent": null,
+      "intent_evidence": "Make the combined budget 600 aud",
+      "reference": {
+        "kind": "context"
+      },
+      "changes": [],
+      "question": null,
+      "continuation": false,
+      "answer": null,
+      "styling_intent": null
+    },
+    "replay_status": "needs_clarification",
+    "replay_message": "Which item do you mean? 1. SET-BOTTOM Dress; 2. SET-SHIRT Dress",
+    "applied_preferences": {
+      "gender": null,
+      "category": null,
+      "subcategory": null,
+      "product_type": null,
+      "occasion": null,
+      "style": null,
+      "preferred_colours": [],
+      "excluded_colours": [],
+      "season": null,
+      "material": null,
+      "fit": null,
+      "size": null,
+      "min_price": null,
+      "max_price": null,
+      "brand_line": null
+    },
+    "products": [],
+    "issues": [
+      {
+        "id": "ambiguous_reference:task:product:null",
+        "code": "ambiguous_reference",
+        "field": "product",
+        "scope": "task",
+        "value": null,
+        "saved_value": null,
+        "options": []
+      }
+    ],
+    "explicit_anchor_comparison": {
+      "status": "matches",
+      "products": [
+        "SET-BOTTOM",
+        "SET-SHIRT"
+      ],
+      "issues": []
+    }
+  }
+]

@@ -1,0 +1,54 @@
+{
+  "product_id": "P1263",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:22:27.088Z",
+  "identity_snapshot": {
+    "product_id": "P1263",
+    "product_name": "Silver Mini Tote",
+    "category": "Bags",
+    "subcategory": "Handbags",
+    "product_type": "Mini Tote",
+    "gender": "Unisex",
+    "colour": "Silver",
+    "material": "Woven",
+    "fit": "Standard",
+    "style": "Smart",
+    "occasion": "Wedding Guest",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1263",
+    "description": "Silver woven mini tote with a smart profile and standard shape, suited to Wedding Guest styling. Compact top handles and a clean interior give the occasion-ready silhouette a composed finish.",
+    "construction_details": [
+      "Woven exterior with lightly reinforced corners",
+      "Twin top handles with wrapped attachment points",
+      "Open top with a removable interior pouch"
+    ],
+    "care_instructions": "Wipe gently with a soft, dry cloth and store upright in its dust bag. Keep away from rain and rough surfaces.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": false,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": 2.1,
+    "use_cases": [
+      "Wedding Guest",
+      "Evening"
+    ],
+    "closure": "open",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": {
+      "width": 23,
+      "height": 17,
+      "depth": 6
+    },
+    "strap_drop_cm": 10,
+    "compartments": 1,
+    "sole_material": null,
+    "hardware_finish": "silver-tone"
+  },
+  "content_sha256": "fa3c3d0f5f0ba31d8750c27eda4eb34ee190b2ad105fb9bb412d9df30cea4585"
+}

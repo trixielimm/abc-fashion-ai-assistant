@@ -1,0 +1,50 @@
+{
+  "product_id": "P1220",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:39.942Z",
+  "identity_snapshot": {
+    "product_id": "P1220",
+    "product_name": "Olive Flat Sandals",
+    "category": "Shoes",
+    "subcategory": "Sandals",
+    "product_type": "Flat Sandals",
+    "gender": "Men",
+    "colour": "Olive",
+    "material": "Leather",
+    "fit": "Standard",
+    "style": "Classic",
+    "occasion": "Casual",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1220",
+    "description": "Classic olive flat sandals for men, shaped in a standard fit with a clean leather construction for casual spring dressing.",
+    "construction_details": [
+      "Smooth leather upper with paired straps",
+      "Cushioned footbed with neat edge finishing",
+      "Textured outsole for everyday walking"
+    ],
+    "care_instructions": "Wipe gently with a soft, dry or lightly damp cloth; condition the leather occasionally and air dry away from direct heat.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": true,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Casual",
+      "Weekend"
+    ],
+    "closure": "buckle",
+    "garment_length_cm": null,
+    "heel_height_cm": 0,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": "Antique brass"
+  },
+  "content_sha256": "97091eea3236935bfb33570344771bb1ec89edcab850b9ca84e9e091bdef3d50"
+}

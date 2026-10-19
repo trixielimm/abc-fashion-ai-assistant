@@ -1,0 +1,50 @@
+{
+  "product_id": "P1235",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:45.677Z",
+  "identity_snapshot": {
+    "product_id": "P1235",
+    "product_name": "Sage Midi Dress",
+    "category": "Clothing",
+    "subcategory": "Dresses",
+    "product_type": "Midi Dress",
+    "gender": "Women",
+    "colour": "Sage",
+    "material": "Polyester",
+    "fit": "Slim",
+    "style": "Relaxed",
+    "occasion": "Formal",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1235",
+    "description": "Sage polyester midi dress with a slim, relaxed shape and understated formal finish for winter occasions.",
+    "construction_details": [
+      "Smooth polyester construction",
+      "Shaped waist seams",
+      "Midi-length straight hem",
+      "Concealed back fastening"
+    ],
+    "care_instructions": "Machine wash cold on a gentle cycle; line dry and cool iron on the reverse.",
+    "lining": true,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Formal"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 124,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "102df9301e757fb9795abf766733429106059e56ef65a8ddf9c6fde63a926cda"
+}

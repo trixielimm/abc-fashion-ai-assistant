@@ -1,0 +1,50 @@
+{
+  "product_id": "P1183",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:14.650Z",
+  "identity_snapshot": {
+    "product_id": "P1183",
+    "product_name": "White Polo Shirt",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "product_type": "Polo Shirt",
+    "gender": "Men",
+    "colour": "White",
+    "material": "Cotton",
+    "fit": "Relaxed",
+    "style": "Relaxed",
+    "occasion": "Brunch",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1183",
+    "description": "Relaxed white cotton polo shirt with a soft collar, understated placket and an easy shape suited to brunch dressing.",
+    "construction_details": [
+      "Ribbed polo collar and sleeve cuffs",
+      "Two-button front placket",
+      "Straight hem with side vents"
+    ],
+    "care_instructions": "Machine wash cold with similar colours; reshape and dry flat or hang to air.",
+    "lining": false,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Brunch",
+      "Casual"
+    ],
+    "closure": "button",
+    "garment_length_cm": 72,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "d934553a0b61e8422793a8a7baae691002730a27a1ac19b52bf6e6d4ac8341b5"
+}

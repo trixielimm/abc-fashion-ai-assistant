@@ -1,0 +1,49 @@
+{
+  "product_id": "P1205",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:54.427Z",
+  "identity_snapshot": {
+    "product_id": "P1205",
+    "product_name": "Grey Lightweight Scarf",
+    "category": "Accessories",
+    "subcategory": "Scarves",
+    "product_type": "Lightweight Scarf",
+    "gender": "Unisex",
+    "colour": "Grey",
+    "material": "Silk Blend",
+    "fit": "Standard",
+    "style": "Relaxed",
+    "occasion": "Travel",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1205",
+    "description": "Relaxed grey lightweight scarf in a silk blend, designed as a soft layering accent for travel.",
+    "construction_details": [
+      "Lightweight woven construction with a gently draping shape",
+      "Slim rolled hems for a tidy edge",
+      "Muted tonal border detail"
+    ],
+    "care_instructions": "Hand wash gently in cool water with mild detergent; reshape flat and air dry away from direct heat.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": null,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Travel"
+    ],
+    "closure": "none",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "8ece579714143d694825223d79de8137703fab8ab807cbb978b994edd1b7d9eb"
+}

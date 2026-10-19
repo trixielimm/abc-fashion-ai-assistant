@@ -1,9 +1,11 @@
 import type { Database } from "@/lib/database.types";
+import type { SyntheticSpecification } from "./stylist/productSpecifications";
 
 export type ProductDetailMock =
   Database["public"]["Views"]["product_catalog"]["Row"] & {
     image_gallery?: string[];
     size_stock?: Record<string, number>;
+    synthetic_specification?: SyntheticSpecification;
   };
 
 export const productDetailMocks: ProductDetailMock[] = [

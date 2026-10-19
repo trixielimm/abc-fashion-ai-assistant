@@ -1,0 +1,52 @@
+{
+  "product_id": "P1257",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:52.741Z",
+  "identity_snapshot": {
+    "product_id": "P1257",
+    "product_name": "Olive Cardigan",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Cardigan",
+    "gender": "Women",
+    "colour": "Olive",
+    "material": "Knit",
+    "fit": "Regular",
+    "style": "Minimalist",
+    "occasion": "Party",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1257",
+    "description": "Minimalist olive knit cardigan with a regular fit, softly textured handle and a practical buttoned front for winter party layering.",
+    "construction_details": [
+      "V-neckline",
+      "Button-through front",
+      "Long sleeves with ribbed cuffs",
+      "Ribbed hem and neckline",
+      "Straight side seams"
+    ],
+    "care_instructions": "Hand wash in cool water with mild detergent. Reshape and dry flat.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Party",
+      "Weekend"
+    ],
+    "closure": "button",
+    "garment_length_cm": 61,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "349b3b5b07d6d9496e8112eabafaeaa4da3a58b3b2bd38674f5166f161cfa4fe"
+}

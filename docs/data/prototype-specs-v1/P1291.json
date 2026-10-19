@@ -1,0 +1,49 @@
+{
+  "product_id": "P1291",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:42.490Z",
+  "identity_snapshot": {
+    "product_id": "P1291",
+    "product_name": "Brown Flat Sandals",
+    "category": "Shoes",
+    "subcategory": "Sandals",
+    "product_type": "Flat Sandals",
+    "gender": "Men",
+    "colour": "Brown",
+    "material": "Faux Leather",
+    "fit": "Standard",
+    "style": "Romantic",
+    "occasion": "Brunch",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1291",
+    "description": "Romantic brown flat sandals in faux leather with a standard fit, suited to Brunch styling.",
+    "construction_details": [
+      "Two broad crossed upper straps",
+      "Adjustable ankle buckle with punched fastening holes",
+      "Contoured footbed on a low flexible sole"
+    ],
+    "care_instructions": "Wipe clean with a soft damp cloth and allow to air dry; avoid prolonged exposure to moisture.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": true,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Brunch"
+    ],
+    "closure": "buckle",
+    "garment_length_cm": null,
+    "heel_height_cm": 0,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": "Antique brass"
+  },
+  "content_sha256": "99d1c58b6a243a65e6a35577f64f3429da8386bb3fda3020616ae6d63c7a8b80"
+}

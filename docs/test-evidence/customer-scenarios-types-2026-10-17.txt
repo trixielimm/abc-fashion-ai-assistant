@@ -1,0 +1,1 @@
+app/layout.tsx(3,27): error TS2307: Cannot find module '@vercel/analytics/next' or its corresponding type declarations.

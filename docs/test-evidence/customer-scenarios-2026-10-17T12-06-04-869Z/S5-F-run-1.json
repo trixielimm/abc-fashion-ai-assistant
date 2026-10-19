@@ -1,0 +1,837 @@
+{
+  "id": "S5-F",
+  "name": "Unknown lining cannot prove improvement",
+  "repeat": 1,
+  "turns": [
+    {
+      "number": 1,
+      "message": "Is this dress lined?",
+      "input": {
+        "message": "Is this dress lined?",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": {
+            "product_id": "VF-UNKNOWN",
+            "product_name": "VF-UNKNOWN Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "price_aud": 95
+          },
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T12:08:22.659Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": null,
+        "action": "none",
+        "intent_evidence": "Is this dress lined?",
+        "reference": null,
+        "changes": [],
+        "question": null,
+        "continuation": false,
+        "answer": {
+          "kind": "product",
+          "topics": [
+            "general"
+          ],
+          "references": [
+            {
+              "kind": "context"
+            }
+          ],
+          "purpose": null,
+          "continuation": false
+        },
+        "styling_intent": null
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "status": "answered",
+        "action": "none",
+        "message": "VF-UNKNOWN Dress\nThat detail is not specified for this product.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "VF-UNKNOWN Dress — catalogue details",
+            "url": "/products/VF-UNKNOWN"
+          }
+        ],
+        "answer_product_ids": [
+          "VF-UNKNOWN"
+        ],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 3760,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": {
+            "product_id": "VF-UNKNOWN",
+            "product_name": "VF-UNKNOWN Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "price_aud": 95
+          },
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Is this dress lined?"
+          },
+          {
+            "role": "assistant",
+            "content": "VF-UNKNOWN Dress\nThat detail is not specified for this product."
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 2,
+      "message": "Find a replacement under $150 that adds lining compared with this dress.",
+      "input": {
+        "message": "Find a replacement under $150 that adds lining compared with this dress.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": {
+            "product_id": "VF-UNKNOWN",
+            "product_name": "VF-UNKNOWN Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "price_aud": 95
+          },
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Is this dress lined?"
+          },
+          {
+            "role": "assistant",
+            "content": "VF-UNKNOWN Dress\nThat detail is not specified for this product."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T12:08:26.420Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": null,
+        "action": "upsell",
+        "intent_evidence": "Find a replacement under $150 that adds lining compared with this dress.",
+        "reference": {
+          "kind": "context"
+        },
+        "changes": [
+          {
+            "scope": "item",
+            "field": "max_price",
+            "operation": "set",
+            "value": 150,
+            "evidence": "under $150"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": {
+          "external_items": [],
+          "preferences": [
+            {
+              "kind": "priority",
+              "operation": "add",
+              "value": "lining",
+              "evidence": "adds lining"
+            },
+            {
+              "kind": "requirement",
+              "operation": "add",
+              "value": "lining",
+              "evidence": "adds lining"
+            }
+          ],
+          "outfit_changes": [],
+          "offers": null,
+          "owned_categories": []
+        }
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "status": "no_upsell",
+        "action": "upsell",
+        "message": "No additional replacement benefit could be established within your requirements. Missing feature information was not treated as proof of an improvement. Your existing choice remains valid.\n\nYou can keep your original choice. I haven't found an additional benefit for the priority you gave me, and your budget is unchanged.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "lining"
+          ],
+          "required_features": [
+            "lining"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": "VF-UNKNOWN"
+      },
+      "elapsed_ms": 3424,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "lining"
+          ],
+          "required_features": [
+            "lining"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": {
+            "product_id": "VF-UNKNOWN",
+            "product_name": "VF-UNKNOWN Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "price_aud": 95
+          },
+          "latest": [],
+          "comparison": {
+            "product_id": "VF-UNKNOWN",
+            "product_name": "VF-UNKNOWN Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "price_aud": 95
+          }
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Is this dress lined?"
+          },
+          {
+            "role": "assistant",
+            "content": "VF-UNKNOWN Dress\nThat detail is not specified for this product."
+          },
+          {
+            "role": "user",
+            "content": "Find a replacement under $150 that adds lining compared with this dress."
+          },
+          {
+            "role": "assistant",
+            "content": "No additional replacement benefit could be established within your requirements. Missing feature information was not treated as proof of an improvement. Your existing choice remains valid.\n\nYou can keep your original choice. I haven't found an additional benefit for the priority you gave me, and your budget is unchanged."
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 3,
+      "message": "Can you confirm that the original has no lining?",
+      "input": {
+        "message": "Can you confirm that the original has no lining?",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": {
+            "product_id": "VF-UNKNOWN",
+            "product_name": "VF-UNKNOWN Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "price_aud": 95
+          },
+          "latest": [],
+          "comparison": {
+            "product_id": "VF-UNKNOWN",
+            "product_name": "VF-UNKNOWN Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "price_aud": 95
+          }
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Is this dress lined?"
+          },
+          {
+            "role": "assistant",
+            "content": "VF-UNKNOWN Dress\nThat detail is not specified for this product."
+          },
+          {
+            "role": "user",
+            "content": "Find a replacement under $150 that adds lining compared with this dress."
+          },
+          {
+            "role": "assistant",
+            "content": "No additional replacement benefit could be established within your requirements. Missing feature information was not treated as proof of an improvement. Your existing choice remains valid.\n\nYou can keep your original choice. I haven't found an additional benefit for the priority you gave me, and your budget is unchanged."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "lining"
+          ],
+          "required_features": [
+            "lining"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T12:08:29.844Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": null,
+        "action": "none",
+        "intent_evidence": "Can you confirm that the original has no lining?",
+        "reference": null,
+        "changes": [],
+        "question": null,
+        "continuation": false,
+        "answer": {
+          "kind": "product",
+          "topics": [
+            "general"
+          ],
+          "references": [
+            {
+              "kind": "context"
+            }
+          ],
+          "purpose": null,
+          "continuation": false
+        },
+        "styling_intent": null
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "status": "answered",
+        "action": "none",
+        "message": "VF-UNKNOWN Dress\nThat detail is not specified for this product.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "VF-UNKNOWN Dress — catalogue details",
+            "url": "/products/VF-UNKNOWN"
+          }
+        ],
+        "answer_product_ids": [
+          "VF-UNKNOWN"
+        ],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "lining"
+          ],
+          "required_features": [
+            "lining"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 2251,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "lining"
+          ],
+          "required_features": [
+            "lining"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": {
+            "product_id": "VF-UNKNOWN",
+            "product_name": "VF-UNKNOWN Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "price_aud": 95
+          },
+          "latest": [],
+          "comparison": {
+            "product_id": "VF-UNKNOWN",
+            "product_name": "VF-UNKNOWN Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "price_aud": 95
+          }
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Is this dress lined?"
+          },
+          {
+            "role": "assistant",
+            "content": "VF-UNKNOWN Dress\nThat detail is not specified for this product."
+          },
+          {
+            "role": "user",
+            "content": "Find a replacement under $150 that adds lining compared with this dress."
+          },
+          {
+            "role": "assistant",
+            "content": "No additional replacement benefit could be established within your requirements. Missing feature information was not treated as proof of an improvement. Your existing choice remains valid.\n\nYou can keep your original choice. I haven't found an additional benefit for the priority you gave me, and your budget is unchanged."
+          },
+          {
+            "role": "user",
+            "content": "Can you confirm that the original has no lining?"
+          },
+          {
+            "role": "assistant",
+            "content": "VF-UNKNOWN Dress\nThat detail is not specified for this product."
+          }
+        ]
+      },
+      "checks": "Pass"
+    }
+  ],
+  "started": "2026-10-17T12:08:22.659Z",
+  "result": "Pass",
+  "issues": [],
+  "finished": "2026-10-17T12:08:32.095Z"
+}

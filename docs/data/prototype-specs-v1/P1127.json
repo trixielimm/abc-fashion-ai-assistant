@@ -1,0 +1,50 @@
+{
+  "product_id": "P1127",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:30.791Z",
+  "identity_snapshot": {
+    "product_id": "P1127",
+    "product_name": "Pink Flat Sandals",
+    "category": "Shoes",
+    "subcategory": "Sandals",
+    "product_type": "Flat Sandals",
+    "gender": "Men",
+    "colour": "Pink",
+    "material": "Faux Leather",
+    "fit": "Standard",
+    "style": "Elegant",
+    "occasion": "Beach Wedding",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1127",
+    "description": "Elegant pink flat sandals with slim faux-leather straps and a refined low profile for beach wedding styling.",
+    "construction_details": [
+      "Faux-leather upper with delicate strappy construction",
+      "Adjustable ankle strap with small buckle",
+      "Smooth footbed with lightly padded heel area",
+      "Flexible textured outsole"
+    ],
+    "care_instructions": "Wipe with a dry or slightly damp soft cloth and store flat in a cool, dry place.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": true,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Beach Wedding"
+    ],
+    "closure": "buckle",
+    "garment_length_cm": null,
+    "heel_height_cm": 0.5,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": "Gold-tone metal"
+  },
+  "content_sha256": "e43e7c319d57dbacbf89dc35d29e74824cb934068b9fd5d7f690858e20ce7672"
+}

@@ -1,0 +1,54 @@
+{
+  "product_id": "P1187",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:49.636Z",
+  "identity_snapshot": {
+    "product_id": "P1187",
+    "product_name": "White Mini Clutch",
+    "category": "Bags",
+    "subcategory": "Clutches",
+    "product_type": "Mini Clutch",
+    "gender": "Men",
+    "colour": "White",
+    "material": "Satin",
+    "fit": "Standard",
+    "style": "Contemporary",
+    "occasion": "Wedding Guest",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1187",
+    "description": "Contemporary white satin mini clutch for a summer wedding guest look, finished in a compact standard shape.",
+    "construction_details": [
+      "Smooth satin outer with framed top edge",
+      "Lightly padded rectangular body",
+      "Slim metal clasp fastening"
+    ],
+    "care_instructions": "Spot clean carefully with a soft dry cloth; avoid water, oils and contact with dark or textured materials.",
+    "lining": true,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": 0.35,
+    "use_cases": [
+      "Wedding Guest",
+      "Evening"
+    ],
+    "closure": "clasp",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": {
+      "width": 18,
+      "height": 11,
+      "depth": 3.5
+    },
+    "strap_drop_cm": null,
+    "compartments": 1,
+    "sole_material": null,
+    "hardware_finish": "silver-tone"
+  },
+  "content_sha256": "9ed6a3adeeec0511a81bd23b12472ee420d33352632b600938f6b1336bb3ccdb"
+}

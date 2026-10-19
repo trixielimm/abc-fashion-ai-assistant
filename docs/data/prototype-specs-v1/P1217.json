@@ -1,0 +1,53 @@
+{
+  "product_id": "P1217",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:26.574Z",
+  "identity_snapshot": {
+    "product_id": "P1217",
+    "product_name": "Grey Suit Set",
+    "category": "Clothing",
+    "subcategory": "Sets",
+    "product_type": "Suit Set",
+    "gender": "Women",
+    "colour": "Grey",
+    "material": "Polyester",
+    "fit": "Relaxed",
+    "style": "Bohemian",
+    "occasion": "Smart Casual",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1217",
+    "description": "Grey polyester suit set with a relaxed bohemian feel, pairing an easy jacket shape with coordinated tailored trousers for smart casual styling.",
+    "construction_details": [
+      "Notched jacket lapels",
+      "Single-button jacket front",
+      "Elasticated trouser waistband at the back",
+      "Front trouser pleats",
+      "Two-piece coordinated construction"
+    ],
+    "care_instructions": "Cold machine wash on a gentle cycle; line dry and cool iron.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Smart Casual",
+      "Work",
+      "Travel"
+    ],
+    "closure": "button",
+    "garment_length_cm": 70,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "02f8e4ce9bf9ded3839ca5386bf155c20f10d9a6ac6bdd9fca6f08473605318d"
+}
