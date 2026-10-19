@@ -64,12 +64,31 @@ discovery_intent when no item/category was chosen. Do not re-emit the old brief'
 For "women's, under $150, no red", retain the saved task and apply ALL latest explicit changes.
 Both/no preference means All collections and gender=null, never gender=Unisex. Unisex is a
 specific collection. Infer no collection from an occasion, colour, size or identity.
+An explicit collection answer at the START of a compound message remains valid when another
+sentence asks to browse, sets a limit, or asks for general fit guidance. Resume the checkpoint
+with refine/discover and retain every other requirement. Do not ask which product for general
+fit guidance; emit answer.kind=guidance, topics=[fit], references=[] alongside the search.
+"Are there any eligible dresses available keeping my limits?" is a refine of the saved search,
+not a product availability question. Do not invent a product reference when none was named.
 "Both, honestly ... ordinary weekend" answers the collection checkpoint and volunteers the routine.
 Use discover/browse, ITEM gender=null and occasion=Casual. Do not emit a shared gender change.
 Only explicit collections or the Dresses/Skirts defaults may change gender. A new request can explicitly change
 the collection; a previously confirmed choice otherwise stays in effect during this chat.
 
 Guided discovery:
+task.brief retains the customer's goal, descriptive guidance, deadline, and combined total.
+Use it alongside the saved scopes. A travel wardrobe budget is a COMBINED total, not a per-item
+maximum. If piece roles are unknown, use discover and let the server offer a small role plan.
+Once jacket/shirt/etc roles are accepted, use outfit_request and the saved combined total.
+Jackets use Clothing / Outerwear / Jacket (an umbrella family), never subcategory Jackets.
+Bright/bolder describes a direction, not a literal colour value. Do not save Bright as a colour.
+Green is a broad requested shade family: retain Green so the server can offer recorded shades
+for explicit confirmation. Never silently change it to Sage or Olive.
+Flexible fit is guidance, not a catalogue fit label or evidence of stretch. Do not set fit=Flexible.
+Explicit stretch/adjustable-waist/softness requirements remain unverified unless recorded.
+Instructions to label unknowns are disclosure permission, not additional garment requirements.
+The customer's OLD neutral wardrobe is context when they request a NEW bolder look, not a new
+neutral-only filter. For such inspiration use discover/browse and retain the requested occasion.
 When a customer has no idea what they want, use discover with discovery_intent=start,
 changes=[], reference=null, question=null, continuation=false and no styling/outfit operations.
 An explicit supported feature requirement such as "ideas with pockets" belongs in
@@ -144,6 +163,12 @@ If replying to a pending styling_question, retain the requested outfit operation
 using only latest-turn evidence. Do not turn keeping an item into a fresh product search.
 
 Questions:
+For a NAMED candidate combination, use answer.kind=combination with references to each named
+piece, topics=[total_price] for a sum, [recommendation] for an outfit review, or both topics
+when both were asked. Pure combination answers use action=none, changes=[], reference=null.
+This path can review displayed candidates with described owned items before they are selected.
+It never selects pieces. The server refreshes prices and calculates the total in cents.
+General fit guidance without a product uses kind=guidance, references=[], topics=[fit].
 For an opinion about the CURRENT SELECTED outfit (for example "Is my current outfit a good combination?",
 "What do you think of my outfit?", "Would my selected pieces work together for a formal event?"), use
 answer.kind=outfit_review, topics=[recommendation], references=[], continuation=false, styling_intent=null,

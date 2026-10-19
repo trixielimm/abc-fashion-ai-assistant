@@ -1,7 +1,8 @@
 "use client";
 
 import { dressCodes, dressCodeMessage, type DressCode } from "@/lib/stylist/dressCode";
-import { outfitMoney, suggestedOutfit } from "@/lib/stylist/outfitPresentation";
+import { formatAud } from "@/lib/format-price";
+import { suggestedOutfit } from "@/lib/stylist/outfitPresentation";
 import type { ChatProduct } from "@/lib/stylist/conversationProtocol";
 import type { OutfitChoices } from "@/lib/stylist/outfitBudgetSchema";
 import styles from "./ShoppingConversation.module.css";
@@ -31,8 +32,8 @@ export function OutfitGuidance({ products, choices, limit }: {
     .format(suggestion.products.map(product => product.product_name));
   return <>
     <p className={styles.message}>
-      I’d start with the <strong>{pairing}</strong>. Together, they come to <strong>{outfitMoney(suggestion.total)} total</strong>,
-      {" "}leaving {outfitMoney(suggestion.remaining)} of your {outfitMoney(limit)} budget.
+      I’d start with the <strong>{pairing}</strong>. Together, they come to <strong>{formatAud(suggestion.total)} total</strong>,
+      {" "}leaving {formatAud(suggestion.remaining)} of your {formatAud(limit)} budget.
       {" "}You can also mix and match one item from each group below.
     </p>
     <details className={`${styles.messageDetails} ${styles.pairingDetails}`}>

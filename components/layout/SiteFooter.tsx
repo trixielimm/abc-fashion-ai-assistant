@@ -1,12 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
+import { ProductImage } from "@/components/commerce/ProductImage";
 import { Container } from "@/components/layout/Container";
-import {
-  footerConnect,
-  footerDepartments,
-  footerSocial,
-  instagramImages,
-} from "@/lib/mock-data";
+import { getLandingContent } from "@/lib/catalogue/landing";
+import { footerHelpLinks, footerShopLinks } from "@/lib/navigation";
+
+async function CollectionPreview() {
+  const collection = await getLandingContent().catch(() => null);
+  if (!collection?.featured.length) {
+    return <Link href="/search" className="mt-4 inline-flex min-h-11 items-center text-xs underline underline-offset-4">Explore the collection →</Link>;
+  }
+
+  return <div className="mt-4 grid max-w-[168px] grid-cols-2 gap-1.5">
+    {collection.featured.slice(0, 4).map(product => <Link key={product.id} href={product.href}
+      aria-label={product.name} className="relative aspect-square overflow-hidden">
+      <div className="absolute inset-0">
+        <ProductImage src={product.image} name={product.name} category={product.category}
+          fill compact sizes="80px" />
+      </div>
+    </Link>)}
+  </div>;
+}
 
 export function SiteFooter() {
   return (
@@ -33,33 +48,19 @@ export function SiteFooter() {
 
         <div>
           <p className="text-[10px] tracking-[0.22em] text-muted uppercase">
-            On Instagram
+            From the collection
           </p>
-          <div className="mt-4 grid max-w-[168px] grid-cols-2 gap-1.5">
-            {instagramImages.map((image) => (
-              <Link
-                key={image.src}
-                href="#"
-                className="relative aspect-square overflow-hidden"
-              >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  sizes="80px"
-                  className="object-cover"
-                />
-              </Link>
-            ))}
-          </div>
+          <Suspense fallback={<div className="mt-4 aspect-square max-w-[168px] animate-pulse bg-surface" aria-label="Loading collection preview" />}>
+            <CollectionPreview />
+          </Suspense>
         </div>
 
         <div>
           <p className="text-[10px] tracking-[0.22em] text-muted uppercase">
-            Our Department
+            Shop
           </p>
           <ul className="mt-4 space-y-2.5">
-            {footerDepartments.map((item) => (
+            {footerShopLinks.map((item) => (
               <li key={item.label}>
                 <Link
                   href={item.href}
@@ -74,26 +75,14 @@ export function SiteFooter() {
 
         <div>
           <p className="text-[10px] tracking-[0.22em] text-muted uppercase">
-            Connect
+            Help &amp; information
           </p>
           <ul className="mt-4 space-y-2.5">
-            {footerConnect.map((item) => (
+            {footerHelpLinks.map((item) => (
               <li key={item.label}>
                 <Link
                   href={item.href}
-                  className="text-[12px] tracking-[0.08em] text-foreground/80 uppercase transition-opacity hover:opacity-60"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <ul className="mt-6 space-y-2">
-            {footerSocial.map((item) => (
-              <li key={item.label}>
-                <Link
-                  href={item.href}
-                  className="text-[11px] tracking-[0.16em] text-muted uppercase transition-opacity hover:opacity-60"
+                  className="text-[12px] text-foreground/80 transition-opacity hover:opacity-60"
                 >
                   {item.label}
                 </Link>
@@ -113,9 +102,6 @@ export function SiteFooter() {
           </Link>
           <Link href="/terms-of-service#privacy" className="hover:text-foreground">
             AI Privacy
-          </Link>
-          <Link href="#" className="hover:text-foreground">
-            Cookies
           </Link>
         </p>
       </Container>

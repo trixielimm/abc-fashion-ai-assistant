@@ -5,7 +5,8 @@ import { ProductImage } from "@/components/commerce/ProductImage";
 import { CloseIcon } from "@/components/ui/icons";
 import { getProductImageEndpoint } from "@/lib/product-image";
 import type { StylingState } from "@/lib/stylist/commerceSchema";
-import { outfitMoney, outfitTotals } from "@/lib/stylist/outfitPresentation";
+import { formatAud } from "@/lib/format-price";
+import { outfitTotals } from "@/lib/stylist/outfitPresentation";
 import styles from "./ShoppingConversation.module.css";
 
 export function OutfitSummary({ styling, disabled, open, feedback = "", onRemove, onRemoveExternal }: {
@@ -22,10 +23,10 @@ export function OutfitSummary({ styling, disabled, open, feedback = "", onRemove
   const count = styling.outfit.length + styling.external_items.length;
   const totals = outfitTotals(styling);
   const budgetLabel = <span className={styles.outfitBudget}>
-    <strong>{outfitMoney(totals.total)} {totals.completePrices
+    <strong>{formatAud(totals.total)} {totals.completePrices
       ? styling.outfit_request?.anchor_product_ids?.length ? "new pieces" : "total" : "known subtotal"}</strong>
     {totals.remaining !== null ? <span className={totals.remaining < 0 ? styles.overBudget : undefined}>
-      {outfitMoney(Math.abs(totals.remaining))} {totals.remaining < 0 ? "over budget" : "remaining"}
+      {formatAud(Math.abs(totals.remaining))} {totals.remaining < 0 ? "over budget" : "remaining"}
     </span> : !totals.completePrices ? <span>Some prices unavailable</span> : null}
   </span>;
 
@@ -52,7 +53,7 @@ export function OutfitSummary({ styling, disabled, open, feedback = "", onRemove
           <div className={styles.outfitPiece}>
             <span>{piece.product_name}</span>
             <small>{piece.ownership === "owned" ? "Already owned · No new cost"
-              : piece.price_aud !== undefined ? outfitMoney(piece.price_aud) : "Price unavailable"}</small>
+              : piece.price_aud !== undefined ? formatAud(piece.price_aud) : "Price unavailable"}</small>
           </div>
           <button type="button" className={styles.outfitRemove} disabled={disabled}
             aria-label={`Remove ${piece.product_name} from your look`}

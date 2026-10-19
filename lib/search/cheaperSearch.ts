@@ -121,7 +121,7 @@ export function searchCheaper(
     references.map((reference) => reference.product_id)
   );
 
-  // Apply the relative price filter BEFORE the four-item shortlist.
+  // Apply the relative price filter before shortlisting.
   const candidates = catalogue.filter((product) => {
     const price = cents(product.price_aud);
 

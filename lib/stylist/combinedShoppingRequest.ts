@@ -7,7 +7,10 @@ export function requestedComponents(message: string) {
     .replace(/\b(?:to match|to go with)\s+(?:(?:the|this|that|my)\s+)?(?:jacket|blazer)\b/gi, "")
     .replace(/\b(?:to match|to go with|with my|my owned)\b[^,;]*(?=[,;]|$)/gi, "");
   const components = new Map<string, ShoppingPreferences>();
-  for (const match of brief.matchAll(/\bdress(?:es)?(?![ -]+(?:shirts?|shoes?|code)\b)|\b(?:bottoms?|trousers?|pants)\b|\bshirts?\b|\b(?:shoes?|flats?)\b|\bbags?\b|\bnecklaces?\b/gi)) {
+  for (const match of brief.matchAll(/\bdress(?:es)?(?![ -]+(?:shirts?|shoes?|code)\b)|\b(?:bottoms?|trousers?|pants)\b|\bshirts?\b|\b(?:jackets?|blazers?)\b|\b(?:shoes?|flats?)\b|\bbags?\b|\bnecklaces?\b/gi)) {
+    const clause = brief.slice(0, match.index).split(/[.;!?]/).at(-1) ?? "";
+    const intents = [...clause.replace(/\bhave no idea\b/gi, "").matchAll(/\b(?:own|owned|already have|bought|wear|show|find|want|need|browse|add|include)\b/gi)];
+    if (/^(?:own|owned|already have|bought|wear)$/i.test(intents.at(-1)?.[0] ?? "")) continue;
     if (/\b(?:no|not|without|instead of|rather than)(?:\s+(?:a|any|some))?\s*$/i.test(brief.slice(0, match.index))) continue;
     // A removed component is not a purchase request. A later positive verb
     // starts a new clause: "Drop shoes and find dresses" still requests dresses.
@@ -15,11 +18,12 @@ export function requestedComponents(message: string) {
     if (/^(?:drop|remove|forget|exclude)$/i.test(directives.at(-1)?.[0] ?? "")) continue;
     const word = match[0];
     const role = /^dress/i.test(word) ? "Dresses" : /^(?:bottom|trouser|pant)/i.test(word) ? "Bottoms" : /^shirt/i.test(word) ? "Shirts"
-      : /^(?:shoe|flat)/i.test(word) ? "Shoes" : /^bag/i.test(word) ? "Bags" : "Necklace";
+      : /^(?:jacket|blazer)/i.test(word) ? "Outerwear" : /^(?:shoe|flat)/i.test(word) ? "Shoes" : /^bag/i.test(word) ? "Bags" : "Necklace";
     const preferences = emptyShoppingPreferences();
     Object.assign(preferences, role === "Dresses" ? { category: "Clothing", subcategory: "Dresses" }
       : role === "Bottoms" ? { category: "Clothing", subcategory: "Bottoms" }
       : role === "Shirts" ? { category: "Clothing", subcategory: "Tops", product_type: "Shirt" }
+      : role === "Outerwear" ? { category: "Clothing", subcategory: "Outerwear", product_type: "Jacket" }
       : role === "Necklace" ? { category: "Accessories", subcategory: "Jewellery", product_type: "Necklace" }
       : { category: role });
     components.set(role, preferences);

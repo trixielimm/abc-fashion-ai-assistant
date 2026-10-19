@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 import type { ViewedPageContext } from "@/lib/stylist/viewedProduct";
 
-import { ConversationChat as StylistChat } from "@/components/stylist/ConversationChat";
+import { ConversationChat } from "@/components/stylist/ConversationChat";
 
 type StylistModalProps = {
   open: boolean;
@@ -71,7 +71,7 @@ export function StylistModal({
       }}
       className="stylist-dialog bg-background text-foreground backdrop:bg-black/40"
     >
-      <StylistChat
+      <ConversationChat
         key={chatVersion}
         open={open}
         viewedPage={viewedPage}

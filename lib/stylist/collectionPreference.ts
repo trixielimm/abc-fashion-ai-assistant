@@ -102,7 +102,20 @@ export function resolveCollection(input: {
 
 // These words identify a requested collection, not the customer's identity.
 // Bare "both"/"skip" only mean collections when answering our own question.
-export function explicitCollection(message: string, answering = false) {
+export function explicitCollection(message: string, answering = false): { choice: z.infer<typeof CollectionChoiceSchema>; evidence: string } | null {
+  // A checkpoint reply may have its own clause before a new shopping verb.
+  // Resolve that clause before shoppingTarget removes earlier clauses.
+  if (answering) {
+    const prefix = message.trim().match(/^(?:(?:I'd like|I would like|let['’]s browse)\s+)?((?:women|men)(?:['’]s|s)?(?:\s+(?:clothing|clothes|collection))?|ladies|unisex|both(?:\s+collections)?|all collections|either|no preference)(?=\s*(?:[,;.!?]|$)|\s+(?:are fine|is fine|please)\b)/i);
+    if (prefix) return { choice: /both|all|either|no preference/i.test(prefix[1]) ? "All" as const
+      : /women|ladies/i.test(prefix[1]) ? "Women" as const : /unisex/i.test(prefix[1]) ? "Unisex" as const : "Men" as const,
+      evidence: prefix[0] };
+    const firstClause = message.split(/[.!?;\n]/, 1)[0];
+    if (!/\b(?:owned|own|owns|wear|wears|wife|husband|already have)\b/i.test(firstClause)) {
+      const choice = explicitCollection(firstClause, false);
+      if (choice) return choice;
+    }
+  }
   // Resolve the requested products, excluding an owned/matching garment or an
   // earlier direction. A product mentioned as an anchor is not a new filter.
   const target = shoppingTarget(message);

@@ -15,7 +15,7 @@ import { discoveryPresentation, type DiscoveryIntent } from "./discovery";
 import { collectionPresentation, explicitCollection, emptyCollectionState, defaultCollectionCategory } from "./collectionPreference";
 import { simpleMatchingSet } from "./combinedShoppingRequest";
 import { prepareConversationTask, TaskStateSchema } from "./taskState";
-import { issueMessage } from "./conversationIssues";
+import { issueMessage, confirmedColourChoice } from "./conversationIssues";
 
 export function interpreterInput(input: unknown) {
   const turn = prepareConversationTask(TurnSchema.parse(input));
@@ -27,6 +27,22 @@ export function interpreterInput(input: unknown) {
 }
 export function shortcutPlan(input: ConversationTurn): z.infer<typeof ConversationPlanSchema> | null {
   const turn = prepareConversationTask(input);
+  const colourChoice = confirmedColourChoice(turn.message, turn.task?.issues ?? []);
+  if (colourChoice && new RegExp(`^(?:let['’]s try |try )?${colourChoice.value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?: instead| is fine|,? please)?[.!?]*$`, "i").test(turn.message.trim())) {
+    return ConversationPlanSchema.parse({ action: "refine", intent_evidence: turn.message.slice(0, 250),
+      changes: [], reference: null, question: null, continuation: false });
+  }
+  const named = [...new Map([...turn.context.latest, ...(turn.context.previous?.flat() ?? []), ...(turn.context.selected ?? [])]
+    .filter(product => turn.message.toLowerCase().includes(product.product_name.toLowerCase())).map(product => [product.product_id, product])).values()];
+  const totalQuestion = /\b(?:total|sum|altogether|combined (?:cost|price)|cost (?:together|in total)|what (?:would|will|do) I pay)\b/i.test(turn.message);
+  const combinationQuestion = /\b(?:work|go)\b.{0,50}\b(?:together|with|outfit)|\b(?:one outfit|combination)\b/i.test(turn.message);
+  if (!turn.shortcut && named.length && named.length <= 4 && (totalQuestion || combinationQuestion) &&
+      !/\b(?:show|find|browse|looking for|keep|select|reject|add to (?:my )?cart)\b/i.test(turn.message)) {
+    return ConversationPlanSchema.parse({ action: "none", intent_evidence: turn.message.slice(0, 250), changes: [], reference: null,
+      question: null, continuation: false, answer: { kind: "combination", topics: [
+        ...(totalQuestion ? ["total_price"] : []), ...(combinationQuestion ? ["recommendation"] : [])],
+        references: [...new Set(named.map(product => product.product_name))].map(value => ({ kind: "name", value })), purpose: null, continuation: false } });
+  }
   if (turn.recovery) {
     const target = turn.task?.issues.find(value => value.id === turn.recovery!.issue_id);
     if (turn.recovery.operation === "drop_requirement" && target?.code === "unverified_requirement" && typeof target.value === "string") {
@@ -255,6 +271,19 @@ function finishPreparedConversationTurn(
   checkConversationPlan(interpreterInput(turn), output);
   const plan = groundConversationPlan(turn, ConversationPlanSchema.parse(output));
   const checked = checkConversationPlan(interpreterInput(turn), plan);
+  if (turn.task?.brief.goal === "travel_layers" && turn.task.brief.total_budget_aud !== null && !checked.styling.outfit_request &&
+      checked.collection.current && !checked.collection.checkpoint && plan.action === "discover" && !checked.issues.length) {
+    return TurnReplySchema.parse({ action: "discover", status: "no_action", products: [], pending: null,
+      proposed_scopes: checked.proposed_scopes, styling: checked.styling, collection: checked.collection,
+      discovery: { ...(checked.discovery ?? { asked: [], skipped: [], seen_product_ids: [] }), stage: "components" },
+      applied_preferences: null,
+      message: `For a compact layered wardrobe, shall we start with a shirt and a removable jacket, or add trousers? Your A$${turn.task.brief.total_budget_aud.toFixed(2)} total stays saved. Warmth and comfort cannot be confirmed from catalogue labels.`,
+      suggested_replies: [
+        { label: "Jacket and shirt", message: "Find a jacket and shirt using my saved total budget." },
+        { label: "Add trousers", message: "Find a jacket, shirt and trousers using my saved total budget." },
+        { label: "Choose other pieces", message: "I want to choose different pieces for the travel wardrobe." },
+      ] });
+  }
   const compoundReference = turn.pending_answer?.follow_up && !plan.answer && plan.action !== "none"
     ? messageProductReference(turn.context, turn.message) : null;
   if (compoundReference?.status === "resolved") {
@@ -370,6 +399,21 @@ function finishPreparedConversationTurn(
   if (result.purchase_budget) {
     const budget = result.purchase_budget;
     message += `\n\nYour selected purchases count as A$${budget.fixed_total_aud.toFixed(2)} of the A$${budget.limit_aud.toFixed(2)} combined budget, leaving A$${budget.remaining_aud.toFixed(2)} for this addition.${budget.maximum_total_aud !== null ? ` The displayed choices bring the purchase total to A$${budget.minimum_total_aud!.toFixed(2)}${budget.maximum_total_aud !== budget.minimum_total_aud ? `–A$${budget.maximum_total_aud.toFixed(2)}` : ""}.` : ""} Delivery and discounts are not included.`;
+  }
+  const visible = [...presentation.products, ...presentation.alternatives];
+  if (visible.length && turn.task?.brief.goal === "bolder_style" && plan.action === "discover") {
+    const directions = visible.slice(0, 3).map(product => `${product.product_name}: try ${product.colour ?? "its recorded silhouette"}${product.category === "Accessories" ? " as a small accent" : product.category === "Shoes" ? " through footwear" : " as a focal piece"}.`);
+    message += `\n\nWays to try a bolder direction:\n${directions.join("\n")} These are styling suggestions; check the exact colours and event dress code.`;
+  }
+  if (turn.task?.brief.goal === "flexible_fit" && visible.length) {
+    message += "\n\nThese options use recorded fit labels. Stretch, adjustable-waist construction and future fit are not established by those labels. Your size remains unspecified unless you choose one.";
+  }
+  if (presentation.alternatives.length && result.applied_preferences?.occasion === "Work") {
+    message += "\n\nWhy these are alternatives: " + presentation.alternatives.slice(0, 2)
+      .map(product => `${product.product_name}: ${product.differences.slice(0, 2).join(" ")}`).join(" ");
+  }
+  if (turn.task?.brief.deadline && ["new_search", "refine", "discover", "cross_sell"].includes(plan.action)) {
+    message += `\n\nYour deadline is ${turn.task.brief.deadline}. I can't confirm arrival for that deadline because live delivery estimates and dispatch cut-offs are unavailable.`;
   }
   return TurnReplySchema.parse({
     ...result, ...presentation,

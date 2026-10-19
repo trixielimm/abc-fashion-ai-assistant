@@ -3,7 +3,7 @@ import { z } from "zod";
 const QuestionSchema = z.enum(["collection", "direction", "routine", "occasion"]);
 export const DiscoveryIntentSchema = z.enum(["start", "everyday", "occasion", "browse", "different"]);
 export const DiscoveryStateSchema = z.strictObject({
-  stage: z.enum(["collection", "direction", "routine", "occasion", "browsing", "complete"]),
+  stage: z.enum(["collection", "direction", "routine", "occasion", "browsing", "complete", "components"]),
   asked: z.array(QuestionSchema).max(2),
   skipped: z.array(QuestionSchema).max(4),
   seen_product_ids: z.array(z.string().trim().min(1).max(250)).max(64),

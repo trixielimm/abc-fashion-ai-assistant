@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { formatPrice, featuredProducts } from "@/lib/mock-data";
+import { featuredProducts } from "@/lib/mock-data";
+import { formatPrice } from "@/lib/format-price";
 
 export function RelatedProducts({
   currentProductId,

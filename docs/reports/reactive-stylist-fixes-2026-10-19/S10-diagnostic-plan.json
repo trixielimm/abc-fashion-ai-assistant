@@ -1,0 +1,29 @@
+{
+  "outfit_request": null,
+  "action": "refine",
+  "discovery_intent": null,
+  "intent_evidence": "Sage is fine. Change green to sage, keep A$100, and keep bag size labelled unverified.",
+  "reference": null,
+  "changes": [
+    {
+      "scope": "item",
+      "evidence": "Change green to sage",
+      "field": "preferred_colours",
+      "operation": "set",
+      "value": [
+        "Sage"
+      ]
+    },
+    {
+      "scope": "item",
+      "field": "category",
+      "operation": "set",
+      "value": "Bags",
+      "evidence": "bag"
+    }
+  ],
+  "question": null,
+  "continuation": false,
+  "answer": null,
+  "styling_intent": null
+}

@@ -1,3 +1,4 @@
+import { formatAud } from "@/lib/format-price";
 import type { CatalogueProduct } from "../recommendations/catalogue";
 import type { CataloguePreferenceValues } from "../catalogue/preferenceValues";
 import { ShoppingPreferencesSchema, type ShoppingPreferences } from "../ai/preferenceSchema";
@@ -12,7 +13,6 @@ import { issueMessage } from "./conversationIssues";
 import { auditedImagePresent } from "../catalogue/imageHealth";
 
 type SearchResult = ReturnType<typeof executeConversationSearch>;
-const money = (value: number) => `A$${value.toFixed(2)}`;
 const same = (a: string | null, b: string | null) =>
   (a ?? "").trim().toLowerCase() === (b ?? "").trim().toLowerCase();
 
@@ -94,12 +94,13 @@ export function presentShoppingResult(
             ? [`${requested} ${field}`] : [];
         });
         if (added.length && product.price_aud > primary.price_aud) {
-          explanation = `${money(product.price_aud - primary.price_aud)} more than the original. It also matches your ${added.join(" and ")} preference${added.length > 1 ? "s" : ""}.`;
+          explanation = `${formatAud(product.price_aud - primary.price_aud)} more than the original. It also matches your ${added.join(" and ")} preference${added.length > 1 ? "s" : ""}.`;
         }
       }
     }
     return ChatProductSchema.parse({
       ...product, explanation,
+      unverified_requirements: result.unverified_requirements,
       occasion: record.occasion, style: record.style,
       image_src: catalogueImageSource(record),
       extra_target: target && unique.size === 1 ? target : null,
@@ -111,7 +112,8 @@ export function presentShoppingResult(
   if (result.styling.outfit_request && ["new_search", "refine"].includes(result.action) &&
       result.status !== "needs_clarification") {
     return {
-    status: result.status, message: result.message,
+    status: result.status, message: result.unverified_requirements.length
+      ? `These are provisional choices. I can't verify ${result.unverified_requirements.join("; ")}; those requirements remain saved.\n\n${result.message}` : result.message,
     products: result.products.map(decorate), alternatives: [],
     alternatives_preferences: null, alternative_kind: null,
     optional_question: null,
@@ -182,7 +184,7 @@ export function presentShoppingResult(
   if (products.length) {
     status = "matches";
     message = products.length === 1
-      ? `I found ${products[0].product_name} for ${money(products[0].price_aud)}.`
+      ? `I found ${products[0].product_name} for ${formatAud(products[0].price_aud)}.`
       : `Here are ${products.length} options to consider.`;
     if (result.action === "cross_sell") {
       const primary = catalogue.find(row => row.product_id === result.reference_product_ids[0]);
@@ -193,7 +195,7 @@ export function presentShoppingResult(
     if (result.action === "cheaper") {
       const prices = result.reference_product_ids.map(id => catalogue.find(row => row.product_id === id)?.price_aud);
       if (prices.length && prices.every((price): price is number => typeof price === "number")) {
-        message = `Here ${products.length === 1 ? "is a lower-priced option" : "are some lower-priced options"}, below ${money(Math.min(...prices))}.`;
+        message = `Here ${products.length === 1 ? "is a lower-priced option" : "are some lower-priced options"}, below ${formatAud(Math.min(...prices))}.`;
       }
     }
     if (result.action === "upsell") message = "These replacement comparisons have a demonstrated benefit. Price differences, evidence and trade-offs are shown on each card.";

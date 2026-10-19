@@ -4,6 +4,7 @@ import type { z } from "zod";
 import type { PairingEvidenceSchema, ValueComparisonSchema } from "../stylist/commerceSchema";
 import { matchesProductType } from "../catalogue/productFamilies";
 import { auditedImagePresent } from "../catalogue/imageHealth";
+import { MAX_RECOMMENDATIONS } from "../stylist/conversationLimits";
 
 export type StylistProduct = {
   product_id: string;
@@ -44,8 +45,6 @@ type AvailableProduct = CatalogueProduct & {
   stock_qty: number;
   sizes_available: string[];
 };
-
-const MAX_RECOMMENDATIONS = 4;
 
 function words(value: string): string[] {
   return value
@@ -227,7 +226,7 @@ export function searchByPreferences(
   });
 
   // When a catalogue item matches the requested context, show only items with
-  // a context match. A short, relevant list is better than padding it to four.
+  // a context match. A short, relevant list is better than padding it to the limit.
   const contextMatches = ranked.filter((item) => item.score > 0);
   const relevant = contextMatches.length > 0
     ? contextMatches

@@ -6,7 +6,6 @@ import type { ReactElement } from "react";
 import {
   GridIcon,
   HomeIcon,
-  PersonIcon,
   ShoppingBagIcon,
   SparkleIcon,
 } from "@/components/ui/icons";
@@ -70,7 +69,7 @@ export function BottomNavBar() {
       aria-label="Primary mobile"
       className="fixed inset-x-0 bottom-0 z-40 border-t border-hairline bg-panel pb-[env(safe-area-inset-bottom)] lg:hidden"
     >
-      <ul className="grid grid-cols-5">
+      <ul className="grid grid-cols-4">
         {leadingItems.map((item) => (
           <NavTab key={item.label} item={item} active={pathname === item.href} />
         ))}
@@ -89,15 +88,6 @@ export function BottomNavBar() {
         </li>
 
         <NavTab item={{ label: "Bag", href: "/cart", Icon: ShoppingBagIcon, badge: count }} active={pathname === "/cart"} />
-        <li>
-          <button type="button" disabled aria-label="Account coming soon" className="flex h-16 w-full flex-col items-center justify-center gap-1.5 text-muted">
-            <span className="relative">
-              <PersonIcon className="h-5 w-5" />
-              <span className="absolute -top-1 -right-4 bg-panel text-[7px] uppercase">Soon</span>
-            </span>
-            <span className={labelClass}>Account</span>
-          </button>
-        </li>
       </ul>
     </nav>
   );

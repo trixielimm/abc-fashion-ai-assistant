@@ -1,0 +1,23 @@
+PASS: Compound collection answer survives a later shopping clause
+PASS: Collection plus fit guidance resumes the search without a product-reference question
+PASS: Saved-search availability does not ask for a nonexistent product
+PASS: A referenced combination is an explicit answer operation
+PASS: Named three-piece total is A$245 with A$155 remaining, without selection changes
+PASS: Rejecting one dress does not save its Maxi Dress type
+PASS: Jacket and shirt component extraction uses Outerwear and Tops
+PASS: An owned blazer is a styling anchor rather than a purchase component
+PASS: Named candidates are reviewed with an owned blazer without saving them
+PASS: Duplicate references, quantities and current prices produce an exact total
+PASS: A missing current price prevents a fabricated full total
+PASS: Owned catalogue pieces cost zero in a new purchase total
+PASS: Bright and flexible are guidance rather than literal hard labels
+PASS: Green prompts recorded shade choices without changing the saved request
+PASS: Confirmed shade choices survive compound wording while questions do not select a shade
+PASS: Named-combination shortcuts do not swallow an explicit new search
+PASS: Duplicate product names ask for a reference rather than summing both records
+PASS: A model cannot omit a literal linen material or replace it with blend
+PASS: Travel goal and combined total survive collection and accepted piece roles
+PASS: Grouped provisional results label the unknown on every card and retain a deadline
+PASS: Permission to browse softness unverified cannot make the requirement disappear
+PASS: No substitutions is a scope instruction rather than a garment feature
+22 passed; 0 failed.

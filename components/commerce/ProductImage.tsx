@@ -12,6 +12,7 @@ export function ProductImage({
   compact = false,
   sizes,
   preload = false,
+  fill = false,
   className,
 }: {
   src?: string | null;
@@ -20,16 +21,17 @@ export function ProductImage({
   compact?: boolean;
   sizes: string;
   preload?: boolean;
+  fill?: boolean;
   className?: string;
 }) {
   const [failedSrc, setFailedSrc] = useState<string | null>(null);
 
   if (!src || failedSrc === src) {
-    return <ProductVisual name={name} category={category} compact={compact} className={className} />;
+    return <ProductVisual name={name} category={category} compact={compact} className={cn(fill && "h-full w-full", className)} />;
   }
 
   return (
-    <div className={cn("relative aspect-[3/4] overflow-hidden bg-surface", className)}>
+    <div className={cn("relative overflow-hidden bg-surface", fill ? "h-full w-full" : "aspect-[3/4]", className)}>
       <Image
         src={src}
         alt={name}
