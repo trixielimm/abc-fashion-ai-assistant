@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { catalogueImageSource, safeLocalImagePath, safeProductImageSource } from "../lib/stylist/catalogueImages.ts";
-import { newSession, makeTurn, acceptReply, TurnReplySchema } from "../lib/stylist/conversationProtocol.ts";
+import { makeTurn, acceptReply, TurnReplySchema } from "../lib/stylist/conversationProtocol.ts";
+import { allCollectionSession as newSession } from "./fixtures/collection-session.mjs";
 import { finishConversationTurn, shortcutPlan } from "../lib/stylist/conversationTurn.ts";
 
 // Synthetic catalogue and model decisions only. No network or database calls.

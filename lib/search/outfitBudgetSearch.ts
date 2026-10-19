@@ -6,11 +6,13 @@ import { type OutfitBudget, type OutfitChoices, type OutfitRequest, priceCents }
 import { OPTIONS_PER_COMPONENT } from "../stylist/conversationLimits";
 import { searchWithValidatedPreferences } from "./validatedPreferenceSearch";
 import { relatedLabel, type StylistProduct } from "./preferenceSearch";
+import { scoreCompatibility } from "./stylingCompatibility";
 
 export function searchOutfitBudget(
   catalogue: readonly CatalogueProduct[], request: OutfitRequest,
   common: ShoppingPreferences, vocabulary: CataloguePreferenceValues,
-  eligible: (product: CatalogueProduct) => boolean
+  eligible: (product: CatalogueProduct) => boolean,
+  anchors: readonly CatalogueProduct[] = []
 ): { status: "matches" | "no_match" | "needs_clarification"; message: string;
   products: StylistProduct[]; outfit_budget: OutfitBudget | null; outfit_choices: OutfitChoices | null } {
   const fail = (status: "no_match" | "needs_clarification", message: string) =>
@@ -25,7 +27,7 @@ export function searchOutfitBudget(
     const composed = composePreferences(scopes);
     if (composed.status !== "ready") return fail("needs_clarification", composed.message);
     const searched = searchWithValidatedPreferences(catalogue, composed.preferences, vocabulary, {
-      eligible: product => eligible(product) && (["occasion", "style", "fit", "season"] as const).every(field =>
+      eligible: product => eligible(product) && (!anchors.length || scoreCompatibility(product, anchors, composed.preferences.occasion).score > 0) && (["occasion", "style", "fit", "season"] as const).every(field =>
         !composed.preferences[field] || relatedLabel(product[field], composed.preferences[field]!)),
       // A cheap feasible component must not disappear behind the normal top four.
       limit: catalogue.length,
@@ -34,7 +36,12 @@ export function searchOutfitBudget(
     if (searched.validation.needs_clarification) return fail("needs_clarification", searched.result.message);
     if (!searched.result.products.length) return fail("no_match",
       `I couldn't find a complete set within A$${request.total_budget_aud.toFixed(2)}: no available ${item.product_type ?? item.subcategory ?? item.category} meets the saved requirements. I haven't changed your budget or item requirements.`);
-    groups.push({ preferences: searched.validation.preferences, products: searched.result.products });
+    groups.push({ preferences: searched.validation.preferences, products: searched.result.products.map(product => {
+      if (!anchors.length) return product;
+      const record = catalogue.find(row => row.product_id === product.product_id)!;
+      const evidence = scoreCompatibility(record, anchors, composed.preferences.occasion).evidence;
+      return { ...product, pairing_evidence: evidence, explanation: [...evidence.reasons, ...evidence.limitations].join(" ") };
+    }) });
   }
 
   // Branch and bound in integer cents; one product per requested component.
@@ -82,10 +89,10 @@ export function searchOutfitBudget(
     }
   }
   const outfitChoices: OutfitChoices = {
-    groups: groups.map((group, i) => ({ label: group.preferences.subcategory ?? group.preferences.product_type ?? group.preferences.category!,
+    groups: groups.map((group, i) => ({ label: group.preferences.product_type === "Shirt" ? "Shirts" : group.preferences.subcategory ?? group.preferences.product_type ?? group.preferences.category!,
       product_ids: choices[i].map(product => product.product_id), preferences: group.preferences })),
     maximum_total_aud: choices.reduce((sum, items) => sum + maxPrice(items), 0) / 100,
   };
   return { status: "matches", products: choices.flat(), outfit_budget: budget, outfit_choices: outfitChoices,
-    message: `Here are choices for ${outfitChoices.groups.map(group => group.label.toLowerCase()).join(" and ")}. Choose one item from each group; every displayed combination stays within your A$${budget.limit_aud.toFixed(2)} combined budget. Combinations range from A$${budget.total_aud.toFixed(2)} to A$${outfitChoices.maximum_total_aud.toFixed(2)}.` };
+    message: `Here are choices for ${outfitChoices.groups.map(group => group.label.toLowerCase()).join(" and ")}${anchors.length ? ` to style with ${anchors.map(anchor => anchor.product_name).join(" and ")}` : ""}. Choose one item from each group; every displayed combination stays within your A$${budget.limit_aud.toFixed(2)} combined budget. Combinations range from A$${budget.total_aud.toFixed(2)} to A$${outfitChoices.maximum_total_aud.toFixed(2)}.${anchors.length ? " The jacket is a styling reference; this total covers the new pieces only." : ""}` };
 }

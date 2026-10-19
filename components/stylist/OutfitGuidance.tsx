@@ -11,8 +11,8 @@ export function DressCodeChoices({ value, disabled, onChoose }: {
 }) {
   const current = dressCodes.find(code => code.value === (value ?? "any_formal"))!;
   return <section className={styles.dressCode} aria-label="Event dress code">
-    <h3>What kind of formal event?</h3>
-    <p>Optional · Choose a dress code to narrow your picks.</p>
+    <h3>{value && value !== "any_formal" ? `${current.label} guidance` : "What kind of formal event?"}</h3>
+    <p>{value && value !== "any_formal" ? "You can change the dress code below." : "Optional · Choose a dress code to narrow your picks."}</p>
     <div className={styles.dressCodeChoices} role="group" aria-label="Choose a dress code">
       {dressCodes.map(code => <button key={code.value} type="button" className={styles.chip}
         aria-pressed={current.value === code.value} disabled={disabled}

@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { issue, type ConversationIssue } from "./conversationIssues";
 
 import {
   ShoppingPreferencesSchema,
@@ -36,6 +37,7 @@ type Composition =
       status: "needs_clarification";
       message: string;
       fields: string[];
+      issues: ConversationIssue[];
     };
 
 export function emptyShoppingPreferences(): ShoppingPreferences {
@@ -97,7 +99,7 @@ function uniqueLabels(values: readonly string[]): string[] {
   ];
 }
 
-export function composePreferences(input: unknown): Composition {
+export function composePreferences(input: unknown, options: { allowUnverified?: boolean } = {}): Composition {
   const state = PreferenceScopesSchema.parse(input);
   const preferences = ShoppingPreferencesSchema.parse(state.item);
   const shared = state.shared;
@@ -108,12 +110,16 @@ export function composePreferences(input: unknown): Composition {
     ...state.unresolved_item,
   ];
 
-  if (unsupported.length > 0) {
+  if (unsupported.length > 0 && !options.allowUnverified) {
     return {
       status: "needs_clarification",
       message:
         `These requirements cannot yet be applied safely: ${unsupported.join("; ")}. They have not been dropped.`,
       fields: ["unresolved_requirements"],
+      issues: [
+        ...state.unresolved_item.map(value => issue("unverified_requirement", "requirement", "item", value)),
+        ...state.unresolved_shared.map(value => issue("unverified_requirement", "requirement", "shared", value)),
+      ],
     };
   }
 
@@ -221,6 +227,9 @@ export function composePreferences(input: unknown): Composition {
         message:
           `The item request conflicts with saved shared restrictions: ${conflicts.join(", ")}. Please clarify which restriction to change.`,
         fields: conflicts,
+        issues: conflicts.map(field => issue("shared_conflict", field, "shared",
+          field in state.item ? state.item[field as keyof ShoppingPreferences] : null,
+          field in shared ? shared[field as keyof typeof shared] : null)),
       }
     : {
         status: "ready",

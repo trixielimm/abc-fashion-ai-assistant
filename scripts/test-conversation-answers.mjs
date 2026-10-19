@@ -42,7 +42,7 @@ await check("Recommendation answers identify the requested product and factual o
   assert.match(reply.message, /A\$100.00.*A\$120.00/);
   assert.match(reply.message, /colour also matches/);
   assert.deepEqual(reply.answer_product_ids, ["D1"]);
-  assert.deepEqual(reply.answer_sources, [{ label: "Lavender Wrap Dress — catalogue details", url: "/products/D1" }]);
+  assert.deepEqual(reply.answer_sources, [{ label: "Lavender Wrap Dress: catalogue details", url: "/products/D1" }]);
   assert.deepEqual(reply.products, []);
   assert.deepEqual(reply.proposed_scopes, turn.scopes);
 });

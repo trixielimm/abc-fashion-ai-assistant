@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { randomUUID } from "node:crypto";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { acceptReply, makeTurn, newSession } from "../lib/stylist/conversationProtocol.ts";
+import { allCollectionSession } from "./fixtures/collection-session.mjs";
 
 // Explicit live test: calls the local development API, real model and catalogue.
 // Usage: node --import tsx scripts/test-conversation-answers-live.mjs http://localhost:3000
@@ -49,7 +50,7 @@ async function scenario(name, run) {
 }
 
 try {
-  const seed = await send(newSession(), "Show me dresses under $150", reply => {
+  const seed = await send(allCollectionSession(), "Show me dresses under $150", reply => {
     assert.ok(reply.products.length >= 2, "Need at least two live dresses for reference tests.");
   });
   await scenario("Explanation, delivery interjection, material and matching bag", async () => {

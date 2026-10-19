@@ -9,6 +9,8 @@ import { resolveAnswerProducts } from "@/lib/stylist/conversationAnswers";
 import { EnvelopeSchema, TurnReplySchema, TurnSchema } from "@/lib/stylist/conversationProtocol";
 import { ConversationStore, RequestConflictError, RetryExpiredError } from "@/lib/stylist/conversationStore";
 import { cancellationReply, finishConversationTurn, interpreterInput, resumesAnswerSearch, shortcutPlan } from "@/lib/stylist/conversationTurn";
+import { prepareConversationTask } from "@/lib/stylist/taskState";
+import { conversationDiagnostic, withConversationDiagnostics } from "@/lib/stylist/conversationDiagnostics";
 
 export const runtime = "nodejs";
 const headers = { "Cache-Control": "no-store" };
@@ -58,13 +60,16 @@ export async function POST(request: Request) {
     return Response.json({ error: "Invalid conversation request." }, { status: 400, headers });
   }
   const { request_id, retry } = parsed.data;
-  const turn = TurnSchema.parse(parsed.data.turn);
+  let turn;
+  try { turn = prepareConversationTask(TurnSchema.parse(parsed.data.turn)); }
+  catch { return Response.json({ error: "That recovery choice is no longer current. Reply to the latest question.", code: "STALE_RECOVERY" }, { status: 409, headers }); }
   const cancelled = cancellationReply(turn);
   if (cancelled) return Response.json(cancelled, { headers });
 
   let stage = "interpretation";
   try {
-    const result = await store.run(
+    const began = Date.now();
+    const result = await withConversationDiagnostics(request_id, () => store.run(
       request_id, turn, retry,
       async () => {
         const input = interpreterInput(turn);
@@ -97,6 +102,8 @@ export async function POST(request: Request) {
           }
         }
         const decision = checkConversationPlan(interpreterInput(turn), plan);
+        conversationDiagnostic("validation", { status: decision.status, action: decision.action,
+          fields: decision.issues.map(value => `${value.scope}.${value.field}`), generation: turn.task?.generation ?? 0 });
         if (decision.status !== "ready_for_validation" && !resumesAnswerSearch(turn, plan)) {
           return finishConversationTurn([], turn, plan, { rows: [], sizes: [], categories: [] });
         }
@@ -109,7 +116,11 @@ export async function POST(request: Request) {
         stage = "execution";
         return finishConversationTurn(catalogue, turn, plan, vocabulary);
       }
-    );
+    ));
+    const reply = TurnReplySchema.parse(result);
+    conversationDiagnostic("response", { request_id, elapsed_ms: Date.now() - began, status: reply.status,
+      issue_codes: reply.issues.map(value => value.code), issue_fields: reply.issues.map(value => `${value.scope}.${value.field}`),
+      products: reply.products.length + reply.alternatives.length, generation: turn.task?.generation ?? 0 });
     return Response.json(result, { headers });
   } catch (error) {
     console.error("Conversation request failed:", {

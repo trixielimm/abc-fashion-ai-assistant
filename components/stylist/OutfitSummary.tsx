@@ -20,23 +20,21 @@ export function OutfitSummary({ styling, disabled, open, feedback = "", onRemove
   const titleId = useId();
   const [expanded, setExpanded] = useState(false);
   const count = styling.outfit.length + styling.external_items.length;
-  const hasOutfit = count > 0 || styling.owned_categories.length > 0 || Boolean(styling.outfit_request) || Boolean(feedback);
   const totals = outfitTotals(styling);
   const budgetLabel = <span className={styles.outfitBudget}>
-    <strong>{outfitMoney(totals.total)} {totals.completePrices ? "total" : "known subtotal"}</strong>
+    <strong>{outfitMoney(totals.total)} {totals.completePrices
+      ? styling.outfit_request?.anchor_product_ids?.length ? "new pieces" : "total" : "known subtotal"}</strong>
     {totals.remaining !== null ? <span className={totals.remaining < 0 ? styles.overBudget : undefined}>
       {outfitMoney(Math.abs(totals.remaining))} {totals.remaining < 0 ? "over budget" : "remaining"}
     </span> : !totals.completePrices ? <span>Some prices unavailable</span> : null}
   </span>;
 
   useEffect(() => {
-    if (!open || !hasOutfit) sheet.current?.close();
-  }, [open, hasOutfit]);
-
-  if (!hasOutfit) return null;
+    if (!open) sheet.current?.close();
+  }, [open]);
 
   const label = <>
-    <strong>Your outfit</strong>
+    <strong>Your look</strong>
     <span key={`${count}:${styling.owned_categories.join(",")}`} className={styles.outfitCount}>
       {count ? `${count} ${count === 1 ? "item" : "items"}` : styling.owned_categories.length ? "Owned items" : "0 items"}
     </span>
@@ -57,7 +55,7 @@ export function OutfitSummary({ styling, disabled, open, feedback = "", onRemove
               : piece.price_aud !== undefined ? outfitMoney(piece.price_aud) : "Price unavailable"}</small>
           </div>
           <button type="button" className={styles.outfitRemove} disabled={disabled}
-            aria-label={`Remove ${piece.product_name} from outfit`}
+            aria-label={`Remove ${piece.product_name} from your look`}
             onClick={() => {
               if (inSheet) sheet.current?.close();
               onRemove(piece.product_id, piece.product_name);
@@ -68,7 +66,7 @@ export function OutfitSummary({ styling, disabled, open, feedback = "", onRemove
             <span>{piece.description}</span><small>Already owned · From your description</small>
           </div>
           <button type="button" className={styles.outfitRemove} disabled={disabled}
-            aria-label={`Remove ${piece.description} from outfit`}
+            aria-label={`Remove ${piece.description} from your look`}
             onClick={() => { if (inSheet) sheet.current?.close(); onRemoveExternal(piece.description); }}>Remove</button>
         </li>)}
       </ul> : null}
@@ -76,37 +74,37 @@ export function OutfitSummary({ styling, disabled, open, feedback = "", onRemove
   }
 
   return (
-    <aside className={styles.outfitSummary} aria-label="Selected outfit">
+    <aside className={styles.outfitSummary} aria-label="Your look">
       <div className={styles.outfitBar}>
         <span className={styles.outfitLabel}>{label}</span>
         <p className={styles.selectionStatus} role="status" aria-live="polite" aria-atomic="true">
-          {feedback || (styling.outfit_request ? "Choose one item from each group." : "")}
+          {feedback || (styling.outfit_request ? "Choose one item from each group." : count ? "Saved for styling · Separate from your cart." : "Save pieces here to build a look.")}
         </p>
         {budgetLabel}
         <button type="button" className={`${styles.outfitToggle} ${styles.outfitDesktopToggle}`}
           aria-expanded={expanded} aria-controls={`${titleId}-panel`}
           onClick={() => setExpanded(previous => !previous)}>
-          {expanded ? "Hide outfit" : "View outfit"} <span aria-hidden="true">{expanded ? "⌃" : "⌄"}</span>
+          {expanded ? "Hide look" : "View look"} <span aria-hidden="true">{expanded ? "⌃" : "⌄"}</span>
         </button>
         <button type="button" className={`${styles.outfitToggle} ${styles.outfitMobileToggle}`}
           aria-haspopup="dialog" aria-controls={titleId}
           onClick={() => sheet.current?.showModal()}>
-          View outfit <span aria-hidden="true">⌄</span>
+          View look <span aria-hidden="true">⌄</span>
         </button>
       </div>
       <div id={`${titleId}-panel`} className={styles.outfitPanel} hidden={!expanded}>
-        {count || styling.owned_categories.length ? items() : <p className={styles.ownedCategories}>Your selected items will appear here.</p>}
+        {count || styling.owned_categories.length ? items() : <p className={styles.ownedCategories}>Use “Save to look” on a product to save it here. This does not add it to your cart.</p>}
       </div>
       <dialog ref={sheet} id={titleId} className={styles.outfitSheet} aria-labelledby={`${titleId}-heading`}
         onClose={event => event.stopPropagation()}
         onCancel={event => event.stopPropagation()}
         onClick={event => { event.stopPropagation(); if (event.target === sheet.current) sheet.current?.close(); }}>
         <header className={styles.outfitSheetHeader}>
-          <h3 id={`${titleId}-heading`}>Your outfit <span>{count ? `${count} ${count === 1 ? "item" : "items"}` : styling.owned_categories.length ? "Owned items" : "0 items"}</span></h3>
-          <button type="button" className={styles.iconButton} aria-label="Close your outfit" onClick={() => sheet.current?.close()}><CloseIcon /></button>
+          <h3 id={`${titleId}-heading`}>Your look <span>{count ? `${count} ${count === 1 ? "item" : "items"}` : styling.owned_categories.length ? "Owned items" : "0 items"}</span></h3>
+          <button type="button" className={styles.iconButton} aria-label="Close your look" onClick={() => sheet.current?.close()}><CloseIcon /></button>
         </header>
         <div className={styles.outfitSheetBody}>{budgetLabel}
-          {count || styling.owned_categories.length ? items(true) : <p className={styles.ownedCategories}>Your selected items will appear here.</p>}
+          {count || styling.owned_categories.length ? items(true) : <p className={styles.ownedCategories}>Use “Save to look” on a product to save it here. This does not add it to your cart.</p>}
         </div>
       </dialog>
     </aside>

@@ -3,6 +3,7 @@ import { AnswerIntentSchema } from "../stylist/answerPlan";
 import { ExternalItemChangeSchema, StylingIntentSchema } from "../stylist/commerceSchema";
 import { ConversationPlanSchema, PlanValidationError } from "../stylist/conversationPlan";
 import { OutfitRequestSchema } from "../stylist/outfitBudgetSchema";
+import { DiscoveryIntentSchema } from "../stylist/discovery";
 
 // A uniform transport shape avoids making the model choose between many almost
 // identical union branches. The domain schema still validates field/value types.
@@ -16,7 +17,8 @@ export const ModelChangeSchema = z.strictObject({
   evidence: z.string().min(1).max(250).describe("Exact contiguous quotation from the latest customer message."),
 });
 export const ModelPlanSchema = ConversationPlanSchema.extend({
-  outfit_request: OutfitRequestSchema.nullable(),
+  discovery_intent: DiscoveryIntentSchema.nullable(),
+  outfit_request: OutfitRequestSchema.omit({ anchor_product_ids: true }).nullable(),
   changes: z.array(ModelChangeSchema).max(24),
   continuation: z.boolean(),
   answer: AnswerIntentSchema.nullable(),
@@ -38,7 +40,10 @@ export function decodeModelPlan(input: unknown) {
         throw new PlanValidationError(`${change.field} ${change.operation} needs at least one label. Omit unused list changes; do not emit an empty unresolved or exclusion change.`);
       }
     }
-    return [{ ...change, value: list ? list_values : price ? number_value : text_value }];
+    const value = list ? list_values : price ? number_value : text_value;
+    // Scalar removal has one unambiguous representation in the domain: set
+    // null. Preserve quotation validation and reject removing non-null values.
+    return [{ ...change, operation: !list && change.operation === "remove" && value === null ? "set" as const : change.operation, value }];
   });
   return ConversationPlanSchema.parse({ ...plan, changes });
 }

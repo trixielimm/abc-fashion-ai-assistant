@@ -1,0 +1,158 @@
+{
+  "captured_at": "2026-10-19T04:14:56.401400+00:00",
+  "changed_baseline_files": [
+    {
+      "path": "lib/stylist/shoppingPresentation.ts",
+      "baseline_sha256": "832030d025786d9f81b7cfdaa29bda5bbe52e0c544ba8743863213d5040d6a24",
+      "implemented_sha256": "5840aef2a3f667278c914b93c0a9ef80f8daf4a4dd9a2b9c64f35f3d0610ce58"
+    },
+    {
+      "path": "lib/stylist/conversationGrounding.ts",
+      "baseline_sha256": "11e5124f7a0640d1538a67cb22bb003b7db4d85dd331884cfc7aa7cc1d716bbb",
+      "implemented_sha256": "b85efeb9ee7e2e55f01e99114c354fe08f2b995d6072f82ccfe1586cf99c3c2b"
+    },
+    {
+      "path": "lib/stylist/preferenceScope.ts",
+      "baseline_sha256": "c85a6dec32f68f6e954b08fe261ab86cf55805edd88b62cd294871176cb88ef7",
+      "implemented_sha256": "d85fee4d052e2177acef926756257947b80eb010bd8f2ce7d757cf4e71cd9d1e"
+    },
+    {
+      "path": "lib/stylist/outfitPresentation.ts",
+      "baseline_sha256": "b5b54983c09a0260cb0db7d0d75b2abf6ef2fc5f84bffcf6c09c422d31f18565",
+      "implemented_sha256": "42a54b243802c47110a7f14da568cd1cc5ac756d95feae2aa74833aeb2b1cd10"
+    },
+    {
+      "path": "lib/stylist/conversationSearch.ts",
+      "baseline_sha256": "a3ddf8c913cf35b13c53682c7620012be073f31fd39d514950b5c7611df4f7cb",
+      "implemented_sha256": "f05cf615ded0b78cf1b8e5a2f9dce65a1d4c2daeb51d63e7daa9ef4447034259"
+    },
+    {
+      "path": "lib/stylist/conversationAnswers.ts",
+      "baseline_sha256": "8781a04bffb071e9c169a9331adc60696cfb44edf3093d88dd8eee4c5af95163",
+      "implemented_sha256": "7cb5c50c7b4f896024607cd429b4702d1fd649c53cab7008a53cd41a638f59e6"
+    },
+    {
+      "path": "lib/stylist/collectionPreference.ts",
+      "baseline_sha256": "9a857d2326c7618a49b7d471fd8b44a68fc7b896d0d014b53bc2e3ee32491a85",
+      "implemented_sha256": "e92a014085277a2c0d3f5583abcc66b433a3f20a705724afa440522ce8aa9bd9"
+    },
+    {
+      "path": "lib/stylist/commerceSchema.ts",
+      "baseline_sha256": "9df70886d454064995d777784a0f7cb7ce7b6f7b0147dd2998292b533994a9a9",
+      "implemented_sha256": "789977b83b367d577dce8288e6af79e7c9904a3d942b7ab515c49753a2168a40"
+    },
+    {
+      "path": "lib/stylist/conversationProtocol.ts",
+      "baseline_sha256": "c03720d77ac1960db247c9056daf70d1edb93cb68351b406230facf9110b330d",
+      "implemented_sha256": "cef661eee96442cbee0d332fcd8344a64303322498f4610eac936e04a674bf85"
+    },
+    {
+      "path": "lib/stylist/dressCode.ts",
+      "baseline_sha256": "7793e36bd60f5e51ae1613e552ae7b1d378c1970357cf4cda5df0840eb0ce8e6",
+      "implemented_sha256": "83aa33146fef1ac0a0a0c8c58494a5ec728968d44249819e06dc94ec7fca34a0"
+    },
+    {
+      "path": "lib/stylist/productReference.ts",
+      "baseline_sha256": "a3f1f6f61216c2138966c359c4a5130c020b2ce9dea2e0d10e6e22526fc21240",
+      "implemented_sha256": "a96bbfec463ee380ad849194f8ec0d12e69f379a786a1aba0314cdcbf528c8dd"
+    },
+    {
+      "path": "lib/stylist/discovery.ts",
+      "baseline_sha256": "1ce532255d5aa20f1520d3292a3052a34086b8fae1f6fdad4283dca19e01cecc",
+      "implemented_sha256": "26fba143605bfcb3db14e05820d0597ec29f5a6f15959b0f58d3280058d4e226"
+    },
+    {
+      "path": "lib/stylist/productCardPresentation.ts",
+      "baseline_sha256": "69261bd59ff74a16134d48a6939c1da817e307a5933f9bd23044934301d4faf7",
+      "implemented_sha256": "4130193ee803899b35dbaef788ccfdcc7cd1f7437b38800a5e545ea570e04807"
+    },
+    {
+      "path": "lib/stylist/conversationTurn.ts",
+      "baseline_sha256": "d9a09c547d283eb11af6054adb2437269a1db2283fe56d0555e3ff957e89bca7",
+      "implemented_sha256": "6cd0239f9e95ba36d23f32560447de6e13ad4a59f8e7a433377701cbba21f042"
+    },
+    {
+      "path": "lib/stylist/combinedShoppingRequest.ts",
+      "baseline_sha256": "4546de4d2e9856b224c4f3e82da8f3b45e9b8d63725403bbe8130557c25f9f62",
+      "implemented_sha256": "a0bdc7941e63a0ce3c19e56ec1ad49860ad9d3dfa16b1bbeb976f4cd305c3e44"
+    },
+    {
+      "path": "lib/stylist/conversationPlan.ts",
+      "baseline_sha256": "5021aecc8cb6a7dd1676938050540d1e89bd7b0d904561366cdaf5a21a635da5",
+      "implemented_sha256": "4c0ce21981967ab0a2c017019e9113afa25194aa0fac42ecf03d313f7e81b79c"
+    },
+    {
+      "path": "lib/ai/conversationModelPlan.ts",
+      "baseline_sha256": "dbecdd4c48682eb3cdc5d2a161e13568ad09a70cee54ce1d49189358e4e864e7",
+      "implemented_sha256": "86eb79c9bd03072f39d4a82f6fcc323cc978632a69295a858d79e93641905a32"
+    },
+    {
+      "path": "lib/ai/interpretConversation.ts",
+      "baseline_sha256": "31c13eefd6305d1a4c4797c8bacbeb1c05573679e75a0b4c43b4109078520361",
+      "implemented_sha256": "ac1a57ac4b035a07d5dbe74bd86902a593709088b57abbf23adb29350b8917cc"
+    },
+    {
+      "path": "lib/ai/validatePreferences.ts",
+      "baseline_sha256": "8030ad8451438f11a5df82ebf08f77338b8786c2d433a8247cdcdfbafb60ebaa",
+      "implemented_sha256": "6180a4b243aa23b070872e770fa6fdb30cafbd3694f44205e5188089b060d779"
+    },
+    {
+      "path": "lib/search/preferenceSearch.ts",
+      "baseline_sha256": "e8ef4738841e0feb6e9d46bd8c506d0f0b19e796bf588d11890d7dac9f6f0085",
+      "implemented_sha256": "b1cac1a44cdd0afa22c1c227230191edfaf6ceae38b6bc827bab5307c6e5e9b9"
+    },
+    {
+      "path": "components/stylist/ConversationChat.tsx",
+      "baseline_sha256": "c4fa5453f4df0318cc2545fffb81f3d81a7e0c4a8e7109096e08d8e911a0ecd0",
+      "implemented_sha256": "f725b89ade063c0e002d02e0085c6ce692dbe07b5562ae18003be5088bad6ff0"
+    },
+    {
+      "path": "app/api/conversation-search/route.ts",
+      "baseline_sha256": "63039863e98786885252b1f07b7554c91982b98f106d40267661b4df8cab113d",
+      "implemented_sha256": "05369d5bc1f2e23c9e6b52c564f2331a18c8637f6e273fddaa73cab1f802c5e7"
+    }
+  ],
+  "new_task_files": [
+    {
+      "path": "lib/catalogue/productFamilies.ts",
+      "implemented_sha256": "70098aab45b39b30f1e2e7119777be2a3a0481a3c50c2e93a1b3fe12e175f799"
+    },
+    {
+      "path": "lib/catalogue/imageHealth.ts",
+      "implemented_sha256": "a2fb696bd4f197518859ed2e19fe5c5431b5fb3ec1f4fb0c6bb223b4e5065a03"
+    },
+    {
+      "path": "lib/catalogue/image-health.json",
+      "implemented_sha256": "bea5bb84582cce35078f05c284613f88933fe988cb518e6885b2909b78f14026"
+    },
+    {
+      "path": "lib/stylist/taskState.ts",
+      "implemented_sha256": "d0e36d3912a4b159b3f4f961fd9bb29b5bcc99b84f4e9a6737ac47088f6474e3"
+    },
+    {
+      "path": "lib/stylist/conversationIssues.ts",
+      "implemented_sha256": "4f3b53ce59cf1f00aa729180185df4c25cc84cbd30ba10e00ee63b06f6ec705b"
+    },
+    {
+      "path": "lib/stylist/purchaseBudget.ts",
+      "implemented_sha256": "b4f9b1155a8a200bb7ecc61b8ade7e87031a8a7a07d6642c3e013e7793a27c83"
+    },
+    {
+      "path": "lib/stylist/conversationDiagnostics.ts",
+      "implemented_sha256": "a44c5a0baeaa2238119ae2f25cee33406edc863ceb14d9a579b669ea2191027a"
+    },
+    {
+      "path": "scripts/test-stylist-remediation.mjs",
+      "implemented_sha256": "b3f18c797ee183dd25897547d85cb3381d7c97895d9a5da99f1f94f01f3f40e6"
+    },
+    {
+      "path": "scripts/diagnose-stylist-remediation.mjs",
+      "implemented_sha256": "fd32ea333533dfeadc41c8df27c6f35907ad14dc7c8ac7d9d9d0a263c8c7f408"
+    },
+    {
+      "path": "scripts/audit-missing-product-images.mjs",
+      "implemented_sha256": "059141e0475308c078ef41ef79dccba9abfaf54532f86e0bd51fc78a556ef32f"
+    }
+  ],
+  "note": "Comparison is against preserved dirty baseline, not Git HEAD. Existing untracked baseline files are not labelled as newly authored."
+}

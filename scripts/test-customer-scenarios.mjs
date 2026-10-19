@@ -9,7 +9,7 @@ import { interpretConversation } from '../lib/ai/interpretConversation.ts';
 import { newSession, makeTurn, snapshot, acceptReply } from '../lib/stylist/conversationProtocol.ts';
 import { interpreterInput, shortcutPlan, finishConversationTurn } from '../lib/stylist/conversationTurn.ts';
 import { getProductSpecification } from '../lib/stylist/productSpecifications.ts';
-import { catalogue, fixtures } from './fixtures/customer-scenarios.mjs';
+import { catalogue, fixtures, product } from './fixtures/customer-scenarios.mjs';
 
 const started = new Date().toISOString();
 const output = new URL(`../docs/test-evidence/customer-scenarios-${started.replace(/[:.]/g, '-')}/`, import.meta.url);
@@ -78,6 +78,7 @@ scenario('S3-A', 'Uncertain customer to similar dresses', [
 ], (n, r, s) => {
   if (n === 1) { eq(s.scopes.item.category, null); eq(s.scopes.item.gender, null); eq(s.scopes.item.max_price, null); assert.match(r.message, /everyday|occasion|what|which|start|browse/i); assert.doesNotMatch(r.message, /Could you rephrase|provide more details/i); }
   if (n <= 3) { eq(s.scopes.item.size, null); eq(s.scopes.item.max_price, null); }
+  if (n === 2) { browse(r); assert.doesNotMatch(r.message, /Could you rephrase|provide more details/i); }
   if (n === 3) { browse(r); checkBrief(r, { category: 'Clothing', subcategory: 'Dresses', max: null }); }
   if (n === 4) { browse(r); checkBrief(r, { category: 'Clothing', subcategory: 'Dresses', max: 100 }); eq(s.styling.outfit, [], 'Liking is not selecting'); }
 });
@@ -204,7 +205,106 @@ scenario('B5', 'Grouped broad discovery, optional refinement and memory through 
   if (n === 5) { eq(r.status, 'answered'); eq(r.answer_product_ids, ['DISC-WRAP']); eq(r.pending_answer, null); eq(s.scopes, before.scopes); }
 });
 
-const fixtureFile = { version: 'customer-scenarios-v4', provenance: 'Hand-authored synthetic fixtures; never supplier verification.', catalogue, fixtures,
+const collectionCatalogue = ['Men', 'Women', 'Unisex'].flatMap(gender => [
+  product(`COL-${gender}-formal`, 'Clothing', 90, { gender, occasion: 'Formal', style: 'Formal' }),
+  product(`COL-${gender}-red`, 'Clothing', 80, { gender, occasion: 'Formal', style: 'Formal', colour: 'Red' }),
+  product(`COL-${gender}-casual`, 'Clothing', 70, { gender, occasion: 'Casual' }),
+]);
+for (const [suffix, answer, choice] of [['A', "Men's, please.", 'Men'], ['B', "Women's, please.", 'Women'], ['C', 'Both collections, please.', 'All'], ['D', "Women's, under $100, no red", 'Women']]) {
+  scenario(`COL-${suffix}`, `Collection-first formal clothing: ${answer}`, [
+    'I dont know what I want, can you show me some formal clothes', answer,
+  ], (n, r, s, _before, run) => {
+    if (n === 1) {
+      none(r); eq(r.status, 'no_action'); eq(r.pending, null); eq(r.suggested_replies.length, 3);
+      eq(s.discovery.stage, 'collection'); eq(s.scopes.item.category, 'Clothing'); eq(s.scopes.item.occasion, 'Formal');
+    } else {
+      browse(r); eq(s.collection.choice, choice); eq(s.collection.checkpoint, null);
+      eq(r.applied_preferences.gender, choice === 'All' ? null : choice); eq(r.applied_preferences.occasion, 'Formal');
+      for (const p of all(r)) {
+        const row = run.catalogue.find(row => row.product_id === p.product_id);
+        eq(row.occasion, 'Formal');
+        if (choice !== 'All') assert.ok([choice, 'Unisex'].includes(row.gender));
+      }
+      if (suffix === 'D') { eq(r.applied_preferences.max_price, 100); has(r.applied_preferences.excluded_colours, 'Red'); }
+    }
+  }, { freshCollection: true, catalogue: collectionCatalogue });
+}
+
+const categoryDefaultsCatalogue = [
+  ...['Dresses', 'Bottoms'].flatMap(subcategory => [
+    product(`CAT-${subcategory}-work`, 'Clothing', 150, { gender: 'Women', subcategory, product_type: subcategory === 'Dresses' ? 'Midi Dress' : 'Midi Skirt', occasion: 'Work' }),
+    product(`CAT-${subcategory}-cheaper`, 'Clothing', 90, { gender: 'Women', subcategory, product_type: subcategory === 'Dresses' ? 'Wrap Dress' : 'Pleated Skirt', occasion: 'Work' }),
+  ]),
+  ...['Men', 'Women'].map(gender => product(`CAT-${gender}-shirt`, 'Clothing', 80, { gender, subcategory: 'Tops', product_type: 'Dress Shirt', occasion: 'Work' })),
+];
+const categoryOptions = { freshCollection: true, catalogue: categoryDefaultsCatalogue };
+scenario('CAT-A', 'Default dress and short budget refinement', [
+  'I want a dress for work under 200 aud', 'Under 120 aud, please.',
+], (n, r, s) => {
+  browse(r); eq(r.pending, null); eq(r.applied_preferences.gender, 'Women');
+  checkBrief(r, { category: 'Clothing', subcategory: 'Dresses', max: n === 1 ? 200 : 120 });
+  eq(r.applied_preferences.occasion, 'Work'); eq(s.collection.choice, null);
+}, categoryOptions);
+scenario('CAT-B', 'Skirt defaults use actual Bottoms hierarchy', ['I want a skirt for work under 200 aud'], (_n, r, s) => {
+  browse(r); eq(r.applied_preferences.gender, 'Women'); eq(r.applied_preferences.subcategory, 'Bottoms');
+  assert.match(r.applied_preferences.product_type, /skirt/i); eq(s.collection.current.source, 'category_default');
+  assert.ok(all(r).every(p => /skirt/i.test(p.product_type)));
+}, categoryOptions);
+scenario('CAT-C', 'Legacy collection checkpoint recovers after repeating the complete dress request', [
+  "Men's, please.", 'I want a dress for work under 200 aud',
+], (n, r, s) => {
+  if (n === 1) { none(r); eq(r.status, 'no_match'); eq(r.applied_preferences.gender, 'Men'); }
+  else { browse(r); eq(r.applied_preferences.gender, 'Women'); eq(s.collection.choice, 'Men'); checkBrief(r, { subcategory: 'Dresses', max: 200 }); }
+}, { ...categoryOptions, initialState: () => {
+  const state = newSession();
+  Object.assign(state.scopes.item, { category: 'Clothing', subcategory: 'Dresses', occasion: 'Work', max_price: 200 });
+  state.collection = { choice: null, checkpoint: { action: 'new_search', discovery_intent: null } };
+  state.discovery = { stage: 'collection', asked: ['collection'], skipped: [], seen_product_ids: [] };
+  return state;
+} });
+scenario('CAT-D', 'Explicit mens dresses stay Men until a new full dress request', [
+  "I want men's dresses for work under 200 aud", 'Show more dresses.', 'I want a dress for work under 200 aud',
+], (n, r, s) => {
+  eq(r.applied_preferences.gender, n < 3 ? 'Men' : 'Women');
+  if (n < 3) { none(r); eq(r.status, 'no_match'); }
+  else { browse(r); eq(s.collection.choice, 'Men'); }
+}, categoryOptions);
+scenario('CAT-E', 'Dress shirt remains ambiguous rather than being converted to Dresses', ['I want a dress shirt for work under 200 aud'], (_n, r, s) => {
+  none(r); eq(r.discovery.stage, 'collection'); eq(s.scopes.item.category, 'Clothing');
+  assert.ok(s.scopes.item.subcategory === null || s.scopes.item.subcategory === 'Tops');
+  assert.match(s.scopes.item.product_type, /shirt/i); eq(s.collection.choice, null);
+}, categoryOptions);
+scenario('CAT-F', 'Shared Men restriction blocks an implicit women category switch', [
+  "Show men's clothing for all recommendations, for work under 200 aud", 'I want a dress for work under 200 aud',
+], (n, r, s) => {
+  eq(s.scopes.shared.gender, 'Men');
+  if (n === 1) browse(r);
+  else { none(r); eq(r.status, 'needs_clarification'); assert.match(r.message, /shared collection restriction/); }
+}, categoryOptions);
+
+const matchingSetCatalogue = [
+  product('SET-JACKET', 'Clothing', 800, { product_name: 'Navy Denim Jacket', gender: 'Men', subcategory: 'Outerwear', product_type: 'Denim Jacket', occasion: 'Work', style: 'Classic', colour: 'Navy', season: 'All Season' }),
+  product('SET-BOTTOM', 'Clothing', 240, { gender: 'Men', subcategory: 'Bottoms', product_type: 'Tailored Trousers', occasion: 'Work', style: 'Classic', season: 'All Season' }),
+  product('SET-SHIRT', 'Clothing', 260, { gender: 'Men', subcategory: 'Tops', product_type: 'Oxford Shirt', occasion: 'Work', style: 'Classic', colour: 'White', season: 'All Season' }),
+];
+const matchingSetState = () => {
+  const state = newSession(); state.collection.choice = 'Men'; state.context.focused = snapshot(matchingSetCatalogue[0]); state.context.latest = [snapshot(matchingSetCatalogue[0])]; return state;
+};
+for (const [id, prompt] of [
+  ['SET-A', 'can you find me bottoms to match the jacket, or some shirt as well, total budget is 500 aud'],
+  ['SET-B', 'Please find some bottoms and a shirt that go with this jacket, total budget 500 aud.'],
+  ['SET-C', 'Can I get some bottoms, and also a shirt to match the jacket? My total budget is 500 AUD.'],
+]) {
+  scenario(id, 'Matching bottoms and shirt with one total budget', [prompt, 'Make the combined budget 600 aud, keep the same pieces and jacket.'], (n, r, s) => {
+    eq(r.status, 'matches'); eq(r.pending, null); eq(r.outfit_budget.limit_aud, n === 1 ? 500 : 600);
+    eq(r.outfit_choices.groups.length, 2); assert.ok(r.outfit_choices.maximum_total_aud <= r.outfit_budget.limit_aud);
+    eq(s.scopes.item.max_price, null); eq(s.styling.outfit_request.anchor_product_ids, ['SET-JACKET']);
+    assert.ok(all(r).every(p => p.product_id !== 'SET-JACKET' && p.pairing_evidence?.anchor_ids.includes('SET-JACKET')));
+    eq(s.styling.outfit, []);
+  }, { freshCollection: true, catalogue: matchingSetCatalogue, initialState: matchingSetState });
+}
+
+const fixtureFile = { version: 'customer-scenarios-v7', provenance: 'Hand-authored synthetic fixtures; never supplier verification.', catalogue, fixtures, collectionCatalogue, categoryDefaultsCatalogue, matchingSetCatalogue,
   expected: { 'S5-A': ['VA-POCKETS'], 'S5-B': ['VB-ELIGIBLE'], 'S5-C': [], 'S5-D': ['VD-EQUAL', 'VD-CHEAPER'], 'S5-E': ['VE-TRADEOFF'], 'S5-F': [], 'S6-A': ['SH-WORK-110', 'SH-WORK-75'], 'S6-B': ['N-SILVER-65', 'N-SILVER-40'] } };
 writeFileSync(new URL('fixtures.json', output), JSON.stringify(fixtureFile, null, 2));
 const summary = { started, commit: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(), node: process.version,
@@ -218,11 +318,15 @@ const repeats = Number(process.env.SCENARIO_REPEATS ?? 3);
 const selected = cases.filter(c => !process.env.SCENARIO_FILTER || new RegExp(process.env.SCENARIO_FILTER).test(c.id));
 const jobs = selected.flatMap(c => Array.from({ length: repeats }, (_, i) => [c, i + 1]));
 async function runCase(c, repeat) {
-  const rows = fixtures[c.id] ?? catalogue;
+  const rows = c.catalogue ?? fixtures[c.id] ?? catalogue;
   const vocabulary = { rows, sizes: [...new Set(rows.flatMap(p => p.sizes_available))], categories: rows.flatMap(p => [{ category: p.category, subcategory: null }, { category: p.category, subcategory: p.subcategory }]) };
   const run = { id: c.id, name: c.name, repeat, catalogue: rows, turns: [], started: new Date().toISOString(), result: 'Pass', issues: [] };
   const cached = process.env.SCENARIO_REPLAY ? JSON.parse(readFileSync(`${process.env.SCENARIO_REPLAY}/${c.id}-run-${repeat}.json`, 'utf8')) : null;
-  let state = newSession();
+  let state = c.initialState?.() ?? newSession();
+  // Existing product scenarios begin after choosing unrestricted browsing;
+  // COL-* cases exercise fresh-session collection onboarding explicitly.
+  if (!c.freshCollection) state.collection = { choice: 'All', checkpoint: null };
+  run.collection_setup = c.freshCollection ? 'Fresh session; collection unanswered' : 'Shopper already chose all collections';
   // Product page focus is part of the specification setup for these cases.
   const focus = fixtures[c.id] && !c.id.startsWith('B') && c.id !== 'S5-B' ? snapshot(rows[0]) : null;
   for (let i = 0; i < c.prompts.length; i++) {

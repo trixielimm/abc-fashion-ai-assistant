@@ -1,12 +1,40 @@
 import type { z } from "zod";
 import type { ConversationPlanRequest, ConversationPlanSchema } from "./conversationPlan";
 import type { ConversationChangeSchema } from "./conversationChanges";
-import { matchesRole, resolveProductReference } from "./productReference";
+import { matchesRole, resolveProductReference, messageProductReference } from "./productReference";
+import { explicitCollection, requestedClothing, shoppingTarget, defaultCollectionCategory } from "./collectionPreference";
+import { simpleMatchingSet, requestedComponents, jacketPairingRequest, isJacket } from "./combinedShoppingRequest";
+import { removedRequirements, taskReplacement, replacesOutfitRequest, isShoppingRequest } from "./taskState";
+import { explicitDressCode } from "./dressCode";
+import { explicitSizeEdit } from "./sizeEdit";
 
 type Plan = z.infer<typeof ConversationPlanSchema>;
 type Change = z.infer<typeof ConversationChangeSchema>;
 const colours = "black|white|ivory|cream|blue|navy|red|pink|green|beige|brown|silver|gold|grey|gray|lavender|purple|yellow|orange|taupe";
-const rolePattern = /\b(dresses|dress|bags|bag|shoes|shoe|necklaces|necklace|accessories|accessory|clothing)\b/i;
+const rolePattern = /\b(dress(?:es)?(?![ -]+(?:shirts?|shoes?|code|me|us|up|down)\b)|skirts?|jackets?|blazers?|shirts?|trousers?|pants|bags?|shoes?|flats?|necklaces?|accessories|accessory|clothing|clothes)\b/i;
+
+// Repair only known requirement paraphrases against explicit, literal words in
+// this message. Arbitrary labels and every other evidence field still fail closed.
+export function groundRequirementEvidence(message: string, candidate: Plan): Plan {
+  const plan = structuredClone(candidate);
+  const rules = [
+    { label: /^(?:no polyester|without polyester|polyester[- ]free)$/i, quote: /\b(?:(?:no|without) polyester|polyester[- ]free)\b/i },
+    { label: /^(?:no (?:elastic|elasticated)(?: waist(?:band)?)?|non[- ]elastic(?:ated)? waist(?:band)?)$/i, quote: /\bno (?:elastic|elasticated)(?: waist(?:band)?)?\b/i },
+    { label: /^(?:full[- ]length(?: not cropped)?|not cropped|no cropped(?: length)?)$/i, quote: /\b(?:full[- ]length(?: not cropped)?|not cropped|no cropped(?: length)?)\b/i },
+    { label: /^(?:high[- ]waist(?:ed)?)$/i, quote: /\bhigh[- ]waist(?:ed)?\b/i },
+  ];
+  plan.changes = plan.changes.flatMap(change => {
+    if (change.field !== "unresolved" || change.operation !== "add" ||
+        message.toLowerCase().includes(change.evidence.toLowerCase())) return [change];
+    const quotes = change.value.map(label => rules.find(rule => rule.label.test(label.trim()))?.quote.exec(message)?.[0]);
+    if (quotes.some(quote => !quote)) return [change];
+    const starts = quotes.map(quote => message.toLowerCase().indexOf(quote!.toLowerCase()));
+    const start = Math.min(...starts);
+    const end = Math.max(...starts.map((position, index) => position + quotes[index]!.length));
+    return [{ ...change, evidence: message.slice(start, end) }];
+  });
+  return plan;
+}
 
 // Ground a few unambiguous shopping constraints in the customer's actual words.
 // This is deliberately not a general language parser: unknown/compound requests
@@ -14,6 +42,104 @@ const rolePattern = /\b(dresses|dress|bags|bag|shoes|shoe|necklaces|necklace|acc
 export function groundConversationPlan(request: ConversationPlanRequest, candidate: Plan): Plan {
   const plan = structuredClone(candidate);
   const message = request.message;
+  // Exhausted interpretation repair must remain fail-closed. In particular,
+  // recognizing a task replacement does not verify its remaining constraints.
+  if (plan.action === "clarify" && /^(?:Could you rephrase|I couldn't reliably interpret)/.test(plan.question ?? "")) return plan;
+  const identity = messageProductReference(request.context, message);
+  const compoundEdit = /\b(?:under|below|cheaper|similar|more like|different colou?r|no (?:beige|yellow|black|white)|instead)\b/i.test(message);
+  if (identity.status === "resolved") {
+    if (plan.reference) plan.reference = identity.reference;
+    if (plan.action === "none" && plan.answer?.kind === "product" && !plan.answer.continuation) plan.answer.references = [identity.reference];
+    if (request.pending_answer && compoundEdit && !/\b(?:why|what|made of|material|wash|fit me)\b/i.test(message)) {
+      plan.action = "refine"; plan.reference = identity.reference; plan.answer = null; plan.question = null; plan.continuation = false;
+    }
+  }
+  if (identity.conflict && (plan.reference || plan.answer?.kind === "product")) {
+    plan.action = "clarify"; plan.reference = null; plan.answer = null; plan.changes = [];
+    plan.question = "The product name and position are ambiguous. Which product should I use?"; plan.continuation = false;
+  }
+  if (replacesOutfitRequest(message, Boolean(request.styling?.outfit_request)) && ["new_search", "refine", "cross_sell", "clarify"].includes(plan.action) && requestedClothing(message)) {
+    plan.action = "new_search"; plan.outfit_request = null; plan.reference = null; plan.answer = null; plan.question = null; plan.continuation = false;
+  }
+  if (isShoppingRequest(message) && requestedClothing(message) && request.pending_answer && identity.status === "absent") {
+    plan.answer = null; plan.continuation = false;
+  }
+  const allItems = /\b(?:shared|global|all (?:items|recommendations|future searches)|every item|throughout|for everything)\b/i.test(message);
+  // A collection answer is remembered by collection.choice. It is not a hard
+  // global restriction unless the customer explicitly asks for one.
+  if (!allItems && request.collection?.checkpoint && explicitCollection(message, true)) {
+    plan.changes = plan.changes.map(change => change.field === "gender" ? { ...change, scope: "item" } : change);
+  }
+  if (!allItems) plan.changes = plan.changes.map(change =>
+    change.scope === "shared" && !["gender", "category", "subcategory", "product_type", "size", "unresolved"].includes(change.field) ? { ...change, scope: "item" } : change);
+  const event = message.match(/\b(?:wedding(?: guest)?|cocktail|office|work)\b/i);
+  if (event && !/\b(?:not|no)\s*$/i.test(message.slice(0, event.index))) {
+    const mapped = explicitDressCode(message) === "wedding_guest" ? "Wedding Guest" : /cocktail/i.test(event[0]) ? "Formal" : /wedding/i.test(event[0]) ? "Wedding Guest" : "Work";
+    plan.changes = plan.changes.map(change => change.field === "occasion" && /^(?:cocktail|office)$/i.test(String(change.value)) ? { ...change, value: mapped } : change);
+    // An event supplies an occasion, not an additional hard style choice.
+    plan.changes = plan.changes.filter(change => !(change.field === "style" && typeof change.value === "string" &&
+      /\b(?:wedding|cocktail|office|work)\b/i.test(change.evidence) && !message.toLowerCase().includes(change.value.toLowerCase())));
+    if (plan.outfit_request) plan.outfit_request.items = plan.outfit_request.items.map(item => ({ ...item,
+      occasion: /^(?:cocktail|office)$/i.test(item.occasion ?? "") ? mapped : item.occasion }));
+    // These are supported event contexts, not construction/certification facts.
+    // Remove only a duplicated bare label, retaining compound unknowns.
+    plan.changes = plan.changes.flatMap(change => {
+      if (change.field !== "unresolved" || change.operation !== "add") return [change];
+      const value = change.value.filter(label => !/^(?:cocktail(?: dress code)?|office(?: wear)?)$/i.test(label.trim()));
+      return value.length ? [{ ...change, value }] : [];
+    });
+  }
+  for (const scope of ["item", "shared"] as const) {
+    if (scope === "shared" && !allItems) continue;
+    const labels = request.scopes[scope === "item" ? "unresolved_item" : "unresolved_shared"];
+    const removed = removedRequirements(message, labels);
+    if (removed.length) {
+      plan.changes = plan.changes.filter(change => !(change.scope === scope && change.field === "unresolved" && change.operation === "remove"));
+      plan.changes.push({ scope, field: "unresolved", operation: "remove", value: removed, evidence: message.slice(0, 250) });
+      if (plan.action === "clarify") { plan.action = "refine"; plan.question = null; plan.continuation = false; }
+    }
+  }
+  const matchingSet = simpleMatchingSet(message);
+  if (matchingSet && ["new_search", "refine", "cross_sell", "clarify"].includes(plan.action)) {
+    plan.action = request.styling?.outfit_request ? "refine" : "new_search";
+    plan.outfit_request = matchingSet; plan.discovery_intent = null;
+    plan.question = null; plan.continuation = false;
+    plan.changes = plan.changes.filter(change => !["category", "subcategory", "product_type", "size", "min_price", "max_price"].includes(change.field));
+  }
+  const addition = message.match(/\b(?:show|find|need|want)(?: me)?\s+(?:(?:some|other|new|flat|black|formal|a|one|pair of)\s+)*(shoes?|flats?|bags?|necklaces?)\b/i)
+    ?? (/\b(?:show|find|need|want)\b/i.test(message) ? message.match(/\b(?:one|a) pair of (shoes?|flats?)\b/i) : null);
+  let savedAddition: { category: "Shoes" | "Bags" | "Accessories"; evidence: string } | null = null;
+  if (addition && !taskReplacement(message) && /\b(?:keep|saved|selected|owned|already own|to go with|to match)\b/i.test(message)) {
+    const saved = request.styling?.outfit ?? [];
+    const named = saved.filter(piece => message.toLowerCase().includes(piece.product_name.toLowerCase()));
+    const anchors = named.length ? named : saved.filter(piece => /\b(?:keep|saved|selected|owned|own)\b[^.!?]{0,50}\bdress\b/i.test(message) && piece.subcategory === "Dresses");
+    if (anchors.length === 1 && ["new_search", "refine", "cross_sell", "clarify", "none"].includes(plan.action)) {
+      plan.action = "cross_sell"; plan.reference = { kind: "id", value: anchors[0].product_id };
+      plan.outfit_request = null; plan.answer = null; plan.question = null; plan.continuation = false;
+      const category = /shoe|flat/i.test(addition[1]) ? "Shoes" : /bag/i.test(addition[1]) ? "Bags" : "Accessories";
+      savedAddition = { category, evidence: addition[0] };
+      plan.changes = plan.changes.filter(change => !["category", "subcategory", "product_type", "size"].includes(change.field));
+      plan.changes.push({ scope: "item", field: "category", operation: "set", value: category, evidence: addition[0] });
+      const flat = message.match(/\bflats?\b/i);
+      if (category === "Shoes" && flat) plan.changes.push({ scope: "item", field: "product_type", operation: "set", value: "Flats", evidence: flat[0] });
+    }
+  }
+  if (plan.outfit_request && jacketPairingRequest(message)) {
+    const focused = request.context.focused;
+    const candidates = [...request.context.latest, ...(request.context.selected ?? []), ...(request.context.previous?.flat() ?? [])].filter(isJacket);
+    const ids = [...new Set(candidates.map(product => product.product_id))];
+    if (!plan.reference || plan.reference.kind === "context") {
+      plan.reference = focused && isJacket(focused) ? { kind: "id", value: focused.product_id }
+        : ids.length === 1 ? { kind: "id", value: ids[0] } : { kind: "context" };
+    }
+  }
+  // Discovery prompts are optional suggestions, not pending transactions.
+  // A model may copy their question or mark a short reply as a continuation;
+  // neither should prevent a clear search from proceeding through validation.
+  if (request.discovery && !request.pending && ["new_search", "refine", "discover"].includes(plan.action)) {
+    plan.continuation = false;
+    plan.question = null;
+  }
   const pause = message.match(/\b(?:no other items|no extras|no extra recommendations(?: after [^.]+)?|i only need (?:a |an )?(?:dress|shoes|necklace))\b/i);
   if (pause) {
     plan.styling_intent ??= { preferences: [], outfit_changes: [], owned_categories: [], offers: null };
@@ -23,7 +149,7 @@ export function groundConversationPlan(request: ConversationPlanRequest, candida
     plan.action = "cross_sell"; plan.reference = null; plan.answer = null; plan.question = null;
     plan.changes = []; plan.continuation = false;
   }
-  if (plan.action === "refine" && plan.reference?.kind === "context") plan.reference = null;
+  if (plan.action === "refine" && plan.reference?.kind === "context" && !plan.outfit_request) plan.reference = null;
   if (plan.answer?.purpose && !plan.answer.continuation) {
     const purpose = plan.answer.purpose.match(/\b(?:beach wedding|wedding guest|smart casual|date night|everyday wear|wedding|work|casual|brunch|party|formal|travel)\b/i);
     if (purpose) plan.answer.purpose = purpose[0];
@@ -32,6 +158,13 @@ export function groundConversationPlan(request: ConversationPlanRequest, candida
   if (plan.answer && !plan.answer.continuation && plan.answer.kind !== "policy" &&
       /\b(?:material|made (?:of|from)|fabric|composition)\b/i.test(message) && !plan.answer.topics.includes("material")) {
     plan.answer.topics.push("material");
+  }
+  if (plan.answer && !plan.answer.continuation && plan.answer.kind !== "policy") {
+    for (const [pattern, topic] of [
+      [/\b(?:wash|washable|care instructions|clean)\b/i, "care"],
+      [/\b(?:waist|length|measurements?|construction)\b/i, "general"],
+      [/\b(?:sizes? (?:listed|available)|is (?:XS|S|M|L|XL|[0-9]+) listed)\b/i, "sizes"],
+    ] as const) if (pattern.test(message) && !plan.answer.topics.includes(topic)) plan.answer.topics.push(topic);
   }
   if (plan.action === "none" && plan.answer?.kind === "product" && !plan.answer.continuation && !/\b(?:compare|versus|difference)\b/i.test(message)) {
     const ordinal = message.match(/\b(first|second|third|fourth|fifth)\s+(dress(?:es)?|bags?|shoes?|necklaces?)\b/i);
@@ -55,11 +188,40 @@ export function groundConversationPlan(request: ConversationPlanRequest, candida
     const matching = roles.length === 1 ? request.context.latest.filter(product => matchesRole(product, roles[0])) : [];
     if (matching.length === 1) plan.answer.references = [{ kind: "id", value: matching[0].product_id }];
   }
-  const searching = ["new_search", "refine", "cheaper", "cross_sell", "upsell"].includes(plan.action);
+  const searching = ["new_search", "refine", "cheaper", "cross_sell", "upsell", "discover"].includes(plan.action);
   if (!searching) return plan;
+  for (const [pattern, field] of [[/\b(?:any fit|drop (?:the )?fit restriction)\b/i, "fit"], [/\bany colou?r\b/i, "preferred_colours"]] as const) {
+    const permission = message.match(pattern);
+    if (!permission) continue;
+    plan.changes = plan.changes.filter(change => !(change.scope === "item" && change.field === field));
+    plan.changes.push(field === "fit" ? { scope: "item", field, operation: "set", value: null, evidence: permission[0] }
+      : { scope: "item", field, operation: "set", value: [], evidence: permission[0] });
+    if (plan.outfit_request) plan.outfit_request.items = plan.outfit_request.items.map(item => ({ ...item, [field]: field === "fit" ? null : [] }));
+  }
+  if (plan.action === "discover" && /\bweekends?\b/i.test(message)) {
+    const evidence = message.match(/\bweekends?\b/i)![0];
+    plan.changes = plan.changes.filter(change => change.field !== "occasion");
+    plan.changes.push({ scope: "item", field: "occasion", operation: "set", value: "Casual", evidence });
+  }
+  const collection = explicitCollection(message, Boolean(request.collection?.checkpoint));
+  if (request.collection?.checkpoint && collection && ["new_search", "refine", "discover"].includes(plan.action)) {
+    // The saved scopes already contain the original brief. A collection answer
+    // must not start a fresh item and erase that brief. A genuinely different
+    // requested item can still take its ordinary new_search path below.
+    const role = message.match(rolePattern);
+    const differentItem = role && !/clothing|clothes/i.test(role[0]) &&
+      !(/dress/i.test(role[0]) && request.scopes.item.subcategory === "Dresses");
+    if (!differentItem) {
+      const checkpoint = request.collection.checkpoint;
+      plan.action = checkpoint.action === "discover" && !request.scopes.item.category ? "discover" : "refine";
+      plan.discovery_intent = plan.action === "discover" ? plan.discovery_intent ?? checkpoint.discovery_intent ?? "browse" : null;
+      plan.continuation = false; plan.question = null;
+    }
+  }
   const shoppingStart = message.search(/\b(?:show(?: me)?|find(?: me)?|i want|i need|let['’]s (?:try|start with)|browse)\b/i);
   const shoppingBrief = shoppingStart >= 0 ? message.slice(shoppingStart) : message;
-  const occasion = shoppingBrief.match(/\bfor\s+(?:(?:a|an|the)\s+)?(beach wedding|wedding guest|formal(?:\s+(?:events?|occasions?))?|work|everyday wear)\b/i);
+  const occasion = shoppingBrief.match(/\bfor\s+(?:(?:a|an|the)\s+)?(beach wedding|wedding guest|formal(?:\s+(?:events?|occasions?))?|work|everyday wear)\b/i)
+    ?? shoppingBrief.match(/\b(formal)\s+(?:clothes|clothing|wear)\b/i);
   if (occasion && !/\b(?:not|except)\s*$/i.test(shoppingBrief.slice(0, occasion.index))) {
     const label = /^formal/i.test(occasion[1]) ? "Formal" : /^work/i.test(occasion[1]) ? "Work"
       : /^everyday/i.test(occasion[1]) ? "Casual" : /^beach/i.test(occasion[1]) ? "Beach Wedding" : "Wedding Guest";
@@ -118,9 +280,10 @@ export function groundConversationPlan(request: ConversationPlanRequest, candida
   // the target brief: "own a navy dress ... I want black shoes" filters shoes.
   const start = message.search(/\b(?:show(?: me)?|find(?: me)?|i want|i need|let['’]s (?:try|start with)|browse)\b/i);
   const brief = start >= 0 ? message.slice(start) : message;
-  const role = brief.match(rolePattern);
-  const category = role ? /dress|clothing/i.test(role[1]) ? "Clothing"
-    : /bag/i.test(role[1]) ? "Bags" : /shoe/i.test(role[1]) ? "Shoes" : "Accessories" : null;
+  const clothing = savedAddition ? null : requestedClothing(message);
+  const role = (savedAddition?.evidence ?? shoppingTarget(message)).match(rolePattern);
+  const category = savedAddition?.category ?? clothing?.category ?? (role ? /dress|skirt|cloth|jacket|blazer|shirt|trouser|pant/i.test(role[1]) ? "Clothing"
+    : /bag/i.test(role[1]) ? "Bags" : /shoe|flat/i.test(role[1]) ? "Shoes" : "Accessories" : null);
   const put = (change: Change) => {
     plan.changes = plan.changes.filter(old => old.scope !== change.scope || old.field !== change.field);
     plan.changes.push(change);
@@ -131,15 +294,41 @@ export function groundConversationPlan(request: ConversationPlanRequest, candida
   // category change still starts a fresh item scope.
   if (plan.action === "new_search" && category && category === request.scopes.item.category &&
       !/\b(?:forget|start over|new search|reset)\b/i.test(message)) plan.action = "refine";
+  if (plan.action === "new_search" && request.discovery && request.discovery.stage !== "complete" &&
+      !request.scopes.item.category && !/\b(?:forget|start over|new search|reset)\b/i.test(message)) plan.action = "refine";
   const pairingStart = brief.search(/\b(?:to match|to go with|for my|for (?:this|that)|with my|accompany)\b/i);
   const explicitAddition = plan.action === "cross_sell" && role && (pairingStart < 0 || role.index! < pairingStart);
-  if (category && role && (["new_search", "refine"].includes(plan.action) || explicitAddition)) {
-    put({ scope: "item", field: "category", operation: "set", value: category, evidence: role[0] });
-    if (/dress/i.test(role[1])) {
-      put({ scope: "item", field: "subcategory", operation: "set", value: "Dresses", evidence: role[0] });
-      plan.changes = plan.changes.filter(c => !(c.field === "product_type" && typeof c.value === "string" && /^dresses?$/i.test(c.value)));
+  if (category && (clothing || role) && (["new_search", "refine", "discover"].includes(plan.action) || explicitAddition)) {
+    const evidence = clothing?.evidence ?? role![0];
+    put({ scope: "item", field: "category", operation: "set", value: category, evidence });
+    if (clothing?.subcategory && !/dress|skirt/i.test(clothing.evidence)) {
+      put({ scope: "item", field: "subcategory", operation: "set", value: clothing.subcategory, evidence });
     }
-    if (/necklace/i.test(role[1])) {
+    const wideLeg = plan.changes.find(change => change.field === "fit" && typeof change.value === "string" && /wide[ -]?leg/i.test(change.value));
+    if (wideLeg && clothing?.subcategory === "Bottoms") {
+      plan.changes = plan.changes.filter(change => change !== wideLeg);
+      put({ scope: "item", field: "product_type", operation: "set", value: "Wide-Leg Pants", evidence: wideLeg.evidence });
+    }
+    if (clothing && (clothing.subcategory === "Dresses" || /^skirts?$/i.test(clothing.evidence))) {
+      put({ scope: "item", field: "subcategory", operation: "set", value: clothing.subcategory, evidence });
+      plan.changes = plan.changes.filter(c => !(c.field === "product_type" && typeof c.value === "string" && /^dress(?:es)?$/i.test(c.value)));
+      if (/^skirts?$/i.test(clothing.evidence) && !plan.changes.some(c => c.field === "product_type" && typeof c.value === "string" && /\bskirt\b/i.test(c.value))) {
+        put({ scope: "item", field: "product_type", operation: "set", value: "Skirt", evidence });
+      }
+    }
+    if (clothing && request.collection?.current?.source === "category_default" &&
+        defaultCollectionCategory(request.scopes.item) !==
+          (clothing.subcategory === "Dresses" ? "Dresses" : /^skirts?$/i.test(clothing.evidence) ? "Skirts" : null)) {
+      // Switching away from a defaulted item cannot retain its old Dresses or
+      // Skirts identity merely because both belong to Clothing.
+      if (!plan.changes.some(c => c.scope === "item" && c.field === "subcategory")) {
+        put({ scope: "item", field: "subcategory", operation: "set", value: null, evidence });
+      }
+      if (!plan.changes.some(c => c.scope === "item" && c.field === "product_type")) {
+        put({ scope: "item", field: "product_type", operation: "set", value: null, evidence });
+      }
+    }
+    if (role && /necklace/i.test(role[1])) {
       put({ scope: "item", field: "subcategory", operation: "set", value: "Jewellery", evidence: role[0] });
       put({ scope: "item", field: "product_type", operation: "set", value: "Necklace", evidence: role[0] });
     }
@@ -158,13 +347,15 @@ export function groundConversationPlan(request: ConversationPlanRequest, candida
     plan.changes = plan.changes.filter(c => !(["style", "material", "fit", "season"].includes(c.field) &&
       typeof c.value === "string" && new RegExp(`^(?:${colours})$`, "i").test(c.value)));
   }
-  const size = brief.match(/\bsize\s+([\w./-]+)\b/i);
-  if (size && !/^(?:yet|unknown|please|or|and)$/i.test(size[1])) {
-    put({ scope: "item", field: "size", operation: "set", value: size[1], evidence: size[0] });
+  const size = explicitSizeEdit(message);
+  if (size) {
+    put({ scope: "item", field: "size", operation: "set", value: size.value, evidence: size.evidence });
   }
   const maximum = brief.match(/\b(?:under|below|up to|at or below|maximum(?: is(?: now)?)?|max(?:imum)?(?: of)?|budget(?: is)?)\s*(?:A?\$)\s*(\d+(?:\.\d{1,2})?)/i)
-    ?? brief.match(/(?:A?\$)\s*(\d+(?:\.\d{1,2})?)\s+(?:limit|maximum)/i);
-  if (maximum && !/\b(?:total|combined|whole outfit|complete outfit)\b/i.test(message)) {
+    ?? brief.match(/(?:A?\$)\s*(\d+(?:\.\d{1,2})?)\s+(?:limit|maximum)/i)
+    ?? brief.match(/\b(?:under|below|up to|maximum(?: of)?|budget(?: is)?)\s+(\d+(?:\.\d{1,2})?)\s+(?:aud|australian dollars?)\b/i);
+  const discardedCombinedSearch = taskReplacement(message) && requestedComponents(message).size === 1;
+  if (maximum && (discardedCombinedSearch || !/\b(?:total|combined|whole outfit|complete outfit)\b/i.test(message))) {
     put({ scope, field: "max_price", operation: "set", value: Number(maximum[1]), evidence: maximum[0] });
   }
   return plan;

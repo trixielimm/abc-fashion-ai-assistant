@@ -1,0 +1,6 @@
+{
+  "source_line": "const prefix = new RegExp(`\\\\b(${colours})\\\\s+(?:dresses?|bags?|shoes?|necklaces?|clothing)\\\\b`, \"i\");",
+  "compiled_pattern": "\\b(blue)\\s+(?:dresses?|bags?|shoes?|necklaces?|clothing)\\b",
+  "input": "I need a blue dress for a beach wedding in size 10, under 150 AUD.",
+  "matches": false
+}

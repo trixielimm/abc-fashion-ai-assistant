@@ -7,6 +7,8 @@ export const OutfitRequestSchema = z.strictObject({
   total_budget_aud: z.number().finite().nonnegative().multipleOf(0.01),
   items: z.array(ShoppingPreferencesSchema).min(2).max(4),
   evidence: z.string().trim().min(1).max(250),
+  // Server-resolved styling references. Their prices are not new purchases.
+  anchor_product_ids: z.array(z.string().trim().min(1).max(250)).max(4).optional(),
 });
 export type OutfitRequest = z.infer<typeof OutfitRequestSchema>;
 

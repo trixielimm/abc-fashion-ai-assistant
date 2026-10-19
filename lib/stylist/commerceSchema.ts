@@ -55,6 +55,10 @@ export type ExternalOutfitItem = z.infer<typeof ExternalOutfitItemSchema>;
 export const StylingStateSchema = z.strictObject({
   dress_code: DressCodeSchema.nullable().default(null),
   outfit_request: OutfitRequestSchema.nullable().default(null),
+  purchase_budget: z.strictObject({
+    limit_aud: z.number().finite().nonnegative(),
+    product_ids: z.array(z.string().min(1).max(250)).max(8),
+  }).nullable().default(null),
   outfit: z.array(OutfitPieceSchema).max(8).default([]),
   external_items: z.array(ExternalOutfitItemSchema).max(8).default([]),
   rejected_ids: z.array(z.string().trim().min(1).max(250)).max(50).default([]),

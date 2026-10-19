@@ -1,0 +1,21 @@
+{
+  "public/logo.svg": "0b5c985e5b540a1948c9b4d05449e77c9b5c7888dd0c9fe3d7739d00738bdfae",
+  "public/images/campaign.jpg": "1388b7c7546a0fc30a1cc29d96d16f7d3edb5fa534560611b4e53d3d58335ea0",
+  "public/images/hero.jpg": "9432cd7eb3c55c86c9dc1d256151567a4a127436df06aa9a408bf743fb7a0e30",
+  "public/images/product-blazer.jpg": "bb0c6678a480b97db122c89c123aebaa15318218979483f83ca9c242516c97fb",
+  "public/images/product-shirts.jpg": "db44f97fd829abadf4ecc1cc9f9808681db3eab3dab44279319dadba79094625",
+  "public/images/product-blouse.jpg": "c88dff67bf8426760d1d585c505263ec1a29e86cb7c96b305cd4a9727142616b",
+  "public/images/category-essentials.jpg": "423f874a7182e2fa8edb2dac2ef3b528996a96d43a09e73b3a9beb70c94d8c21",
+  "public/images/product-jacket.jpg": "2cf3048b26d1b18e77cd3a51cc024c9ed7915b48daadd264fea8fd7b03f924d6",
+  "public/images/product-trousers.jpg": "b79adc7e4d84ceb988efc500762adbe3e4a6f7f4dd3b4d5d4168d14cd92c099c",
+  "public/images/category-outerwear.jpg": "5b75801f072a692d84a6701e280308e96dd87425629bf2828f776b0c85e09c93",
+  "public/images/category-accessories.jpg": "3b20df7d6aa5bc4291c3cc6f037a2b65d2c75aff6241044786f076518ca28bd1",
+  "public/images/product-necklace.jpg": "dcd6c887a50de8e3afce609c781e798e565c7e32529e90fff878ded511e93196",
+  "public/images/ig-3.jpg": "e824e722c1914d78984ac58b3abde96876f78e20b34515ac77a2bbd510cddb7c",
+  "public/images/ig-1.jpg": "e0f81a41cb976566ab82a9f0e409f3bd94cdc71e63a7a281f92e6a34ab80d187",
+  "lib/catalogue/preferenceValues.ts": "1961f4e73791b7a0faedc87190d5d6a3561280a944c7aa933a414fb11e314f46",
+  "lib/catalogue/productFamilies.ts": "70098aab45b39b30f1e2e7119777be2a3a0481a3c50c2e93a1b3fe12e175f799",
+  "lib/catalogue/imageHealth.ts": "a2fb696bd4f197518859ed2e19fe5c5431b5fb3ec1f4fb0c6bb223b4e5065a03",
+  "lib/catalogue/image-health.json": "bea5bb84582cce35078f05c284613f88933fe988cb518e6885b2909b78f14026",
+  "lib/stylist/productSpecifications.ts": "95c32d405f0c4cb21b85c359bc058214dd34a518777bb4511403b083a7286970"
+}

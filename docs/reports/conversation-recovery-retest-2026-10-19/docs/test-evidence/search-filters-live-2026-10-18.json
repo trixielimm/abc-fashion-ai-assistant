@@ -1,0 +1,185 @@
+{
+  "started": "2026-10-19T07:32:46.117Z",
+  "base": "http://127.0.0.1:3000",
+  "checks": [
+    {
+      "query": "",
+      "total": 316,
+      "elapsed_ms": 1106,
+      "pass": true
+    },
+    {
+      "query": "gender=women&category=clothing&features=pockets",
+      "total": 74,
+      "elapsed_ms": 684,
+      "pass": true
+    },
+    {
+      "query": "gender=women",
+      "total": 183,
+      "elapsed_ms": 713,
+      "pass": true
+    },
+    {
+      "query": "gender=women&category=clothing",
+      "total": 120,
+      "elapsed_ms": 754,
+      "pass": true
+    },
+    {
+      "query": "gender=women&category=clothing&features=pockets&max_price=150",
+      "total": 42,
+      "elapsed_ms": 874,
+      "pass": true
+    },
+    {
+      "query": "gender=men",
+      "total": 75,
+      "elapsed_ms": 586,
+      "pass": true
+    },
+    {
+      "query": "size=shoes%3A5",
+      "total": 42,
+      "elapsed_ms": 614,
+      "pass": true
+    },
+    {
+      "query": "subcategory=belts",
+      "total": 9,
+      "elapsed_ms": 712,
+      "pass": true
+    },
+    {
+      "query": "category=accessories",
+      "total": 40,
+      "elapsed_ms": 1012,
+      "pass": true
+    },
+    {
+      "query": "colour=beige",
+      "total": 24,
+      "elapsed_ms": 586,
+      "pass": true
+    },
+    {
+      "query": "material=canvas",
+      "total": 12,
+      "elapsed_ms": 702,
+      "pass": true
+    },
+    {
+      "query": "style=bohemian",
+      "total": 42,
+      "elapsed_ms": 722,
+      "pass": true
+    },
+    {
+      "query": "fit=flowy",
+      "total": 13,
+      "elapsed_ms": 737,
+      "pass": true
+    },
+    {
+      "query": "product_type=ballet+flats",
+      "total": 6,
+      "elapsed_ms": 660,
+      "pass": true
+    },
+    {
+      "query": "occasion=beach+wedding",
+      "total": 33,
+      "elapsed_ms": 686,
+      "pass": true
+    },
+    {
+      "query": "brand_line=abc+accessories",
+      "total": 78,
+      "elapsed_ms": 729,
+      "pass": true
+    },
+    {
+      "query": "season=all+season",
+      "total": 80,
+      "elapsed_ms": 748,
+      "pass": true
+    },
+    {
+      "query": "sole_material=leather",
+      "total": 1,
+      "elapsed_ms": 416,
+      "pass": true
+    },
+    {
+      "query": "use_cases=autumn",
+      "total": 1,
+      "elapsed_ms": 596,
+      "pass": true
+    },
+    {
+      "query": "closure=buckle",
+      "total": 38,
+      "elapsed_ms": 616,
+      "pass": true
+    },
+    {
+      "query": "tags=all+season",
+      "total": 80,
+      "elapsed_ms": 716,
+      "pass": true
+    },
+    {
+      "query": "hardware_finish=antique+brass",
+      "total": 6,
+      "elapsed_ms": 622,
+      "pass": true
+    },
+    {
+      "query": "gender=women&category=clothing&features=pockets&max_price=150&page=2",
+      "total": 42,
+      "elapsed_ms": 666,
+      "pass": true
+    },
+    {
+      "query": "page=9999",
+      "total": 316,
+      "elapsed_ms": 624,
+      "pass": true
+    },
+    {
+      "query": "max_price=-1",
+      "http": 400,
+      "pass": true
+    },
+    {
+      "query": "min_price=200&max_price=50",
+      "http": 400,
+      "pass": true
+    },
+    {
+      "query": "features=unknown",
+      "http": 400,
+      "pass": true
+    },
+    {
+      "name": "Server-rendered filtered page contains exact total and controls",
+      "pass": true
+    },
+    {
+      "name": "Invalid URL has an explicit recovery state",
+      "pass": true
+    },
+    {
+      "query": "",
+      "total": 316,
+      "elapsed_ms": 933,
+      "pass": true
+    },
+    {
+      "name": "Successive requests return fresh retrieval timestamps",
+      "pass": true
+    }
+  ],
+  "success": true,
+  "finished": "2026-10-19T07:32:54.816Z"
+}

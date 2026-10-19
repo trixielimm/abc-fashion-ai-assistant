@@ -1,0 +1,37 @@
+[
+  {
+    "suite": "test-recommendation-api-validation.mjs",
+    "started": "2026-10-19T07:32:45.960Z",
+    "exit_code": 1,
+    "finished": "2026-10-19T07:32:46.081Z",
+    "pass": false
+  },
+  {
+    "suite": "test-search-filters-live.mjs",
+    "started": "2026-10-19T07:32:46.081Z",
+    "exit_code": 0,
+    "finished": "2026-10-19T07:32:54.822Z",
+    "pass": true
+  },
+  {
+    "suite": "test-prototype-specs-live.mjs",
+    "started": "2026-10-19T07:32:54.822Z",
+    "exit_code": 1,
+    "finished": "2026-10-19T07:32:55.729Z",
+    "pass": false
+  },
+  {
+    "suite": "test-outfit-budget-live.mjs",
+    "started": "2026-10-19T07:32:55.729Z",
+    "exit_code": 1,
+    "finished": "2026-10-19T07:33:03.636Z",
+    "pass": false
+  },
+  {
+    "suite": "test-stylist-commerce-live.mjs",
+    "started": "2026-10-19T07:33:03.636Z",
+    "exit_code": 1,
+    "finished": "2026-10-19T07:33:56.337Z",
+    "pass": false
+  }
+]

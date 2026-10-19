@@ -1,0 +1,28 @@
+PASS (7872ms): Show me dresses under $150 → matches
+PASS (2975ms): Why would you recommend the second dress for a beach wedding? → answered
+FAIL: Explanation, delivery interjection, material and matching bag: Expected values to be strictly equal:
++ actual - expected
+
++ 'needs_clarification'
+- 'answered'
+
+PASS (5983ms): Compare the first and second dresses: price, material and fit. → answered
+PASS (5476ms): Will the first dress fit me? What sizes are available? → answered
+PASS (2944ms): Is the first dress breathable and comfortable? Can I machine wash it? → answered
+PASS (5259ms): Does the first dress have pockets? → answered
+PASS (4726ms): Is the first dress in stock? → answered
+PASS (2467ms): Can I return this? Is return postage free? → answered
+PASS (3039ms): Do you accept PayPal? → answered
+PASS (2902ms): Why would you recommend this item for a beach wedding? → answered
+PASS (2108ms): What is your returns policy? → answered
+PASS (522ms): The second dress → answered
+PASS (5258ms): Why the first dress, and show me a cheaper option? → matches
+PASS (3091ms): Why this dress, and show me a cheaper option? → answered
+PASS (3575ms): The first dress → matches
+PASS (3026ms): Find a bag to match one of these dresses → needs_clarification
+PASS (3232ms): Can this arrive by Friday? → answered
+PASS (4607ms): The second dress → no_match
+PASS (1903ms): Why would you recommend this item for a beach wedding? → answered
+PASS (1968ms): Thank you → no_action
+
+20 live requests passed; 1 failed scenarios. Evidence: /Users/salvi/MQ/abc-fashion-ai-assistant/docs/test-evidence/answers-live-2026-10-19T07-30-51-298Z.json

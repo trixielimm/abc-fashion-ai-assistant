@@ -7,7 +7,7 @@ export function product(id, category, price, options = {}, features = {}) {
     product_id: id, product_name: `${id} ${category === 'Clothing' ? 'Dress' : category === 'Shoes' ? 'Shoes' : category === 'Accessories' ? 'Necklace' : 'Bag'}`,
     category, subcategory: { Clothing: 'Dresses', Bags: 'Clutches', Shoes: 'Heels', Accessories: 'Jewellery' }[category],
     product_type: { Clothing: 'Midi Dress', Bags: 'Clutch', Shoes: 'Block Heels', Accessories: 'Necklace' }[category],
-    gender: null, brand_line: null, colour: 'Black', style: 'Relaxed', occasion: 'Beach Wedding', season: 'Summer',
+    gender: category === 'Clothing' ? 'Women' : null, brand_line: null, colour: 'Black', style: 'Relaxed', occasion: 'Beach Wedding', season: 'Summer',
     material: category === 'Accessories' ? 'Silver-tone Metal' : 'Polyester', fit: 'Regular',
     price_aud: price, sizes_available: category === 'Clothing' ? ['10', '12'] : category === 'Shoes' ? ['38', '39'] : ['One Size'],
     stock_qty: 20, is_available: true, description: null, tags: [], image_key: null,

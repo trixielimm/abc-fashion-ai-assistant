@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { CloseIcon, ChevronIcon } from "@/components/ui/icons";
+import { CloseIcon, ChevronIcon, StopIcon } from "@/components/ui/icons";
 import { ChatRequestError, postChatJson } from "@/lib/ai/chatRequest";
 import type { ViewedPageContext } from "@/lib/stylist/viewedProduct";
 import { readCart } from "@/lib/cart";
@@ -15,6 +15,7 @@ import { ShoppingProductResults, type ShoppingAction } from "./ShoppingProductRe
 import styles from "./ShoppingConversation.module.css";
 import { OutfitSummary } from "./OutfitSummary";
 import { DressCodeChoices, OutfitGuidance } from "./OutfitGuidance";
+import { hasEventContext } from "@/lib/stylist/dressCode";
 import { suggestedOutfit } from "@/lib/stylist/outfitPresentation";
 import { outfitReviewSections } from "@/lib/stylist/outfitReview";
 
@@ -100,7 +101,7 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
     setRetry(null);
     if (quietBusy) {
       setQuietBusy(false);
-      setSelectionFeedback("Cancelled that update. Your outfit is unchanged.");
+      setSelectionFeedback("Cancelled that update. Your look is unchanged.");
       return;
     }
     setEntries(previous => [...previous, {
@@ -115,7 +116,7 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
     requestRef.current = controller;
     setBusy(true);
     setQuietBusy(Boolean(quietMessage));
-    if (quietMessage) setSelectionFeedback("Updating your outfit…");
+    if (quietMessage) setSelectionFeedback("Updating your look…");
     setRetry(null);
     try {
       const raw = await postChatJson("/api/conversation-search", envelope, {
@@ -147,7 +148,7 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
       const expired = error instanceof ChatRequestError && error.status === 409;
       const invalid = error instanceof ChatRequestError && [400, 403, 413, 415].includes(error.status ?? 0);
       if (!expired && !invalid) setRetry({ envelope: { ...envelope, retry: true }, quietMessage });
-      if (quietMessage) setSelectionFeedback("Couldn't update your outfit. Your selections are unchanged. Please try again.");
+      if (quietMessage) setSelectionFeedback("Couldn't update your look. Your selections are unchanged. Please try again.");
       else setEntries(previous => [...previous, {
         id: crypto.randomUUID(), role: "assistant",
         text: expired
@@ -163,7 +164,7 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
     }
   }
 
-  function send(message: string, kind?: ShoppingAction, product?: ChatProduct, previewOtherColours = false, selectedId?: string, quietMessage?: string) {
+  function send(message: string, kind?: ShoppingAction | "similar", product?: ChatProduct, previewOtherColours = false, selectedId?: string, quietMessage?: string, recovery?: TurnEnvelope["turn"]["recovery"]) {
     const text = message.trim();
     if (!text || text.length > 2000 || requestRef.current || busy) return;
     const focus = previewOtherColours ? null : product ? snapshot(product)
@@ -173,7 +174,7 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
       const current = { ...session.current, cart_product_ids: [...new Set(readCart().map(item => item.productId))].slice(0, 50) };
       const turn = makeTurn(current, text, focus,
         kind && (product || selectedId) ? { kind, product_id: product?.product_id ?? selectedId! } : undefined,
-        previewOtherColours);
+        previewOtherColours, recovery);
       usedPageKey.current = viewedPage?.key ?? null;
       const envelope: TurnEnvelope = { request_id: crypto.randomUUID(), retry: false, turn };
       if (!quietMessage) {
@@ -197,8 +198,8 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
       : kind === "own" ? `I already own ${product.product_name}.`
       : kind === "reject" ? `Skip ${product.product_name} in future recommendations.`
       : `Remove ${product.product_name} from my selected outfit.`;
-    const quietMessage = kind === "keep" ? `${product.product_name} selected for your outfit.`
-      : kind === "remove" ? `${product.product_name} removed from your outfit.`
+    const quietMessage = kind === "keep" ? `${product.product_name} added to your look.`
+      : kind === "remove" ? `${product.product_name} removed from your look.`
       : kind === "own" ? `${product.product_name} marked as already owned.`
       : kind === "reject" ? `${product.product_name} skipped for future recommendations.` : undefined;
     send(text, kind, product, false, undefined, quietMessage);
@@ -228,18 +229,18 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
           </button>
         </div>
       </header>
-      {sessionState.styling ? <OutfitSummary styling={sessionState.styling} open={open} feedback={selectionFeedback} disabled={busy || Boolean(pending)}
-        onRemoveExternal={description => send(`Remove the owned item I described as "${description}".`, undefined, undefined, false, undefined, "Owned item removed from your outfit.")}
-        onRemove={(productId, productName) => send(`Remove ${productName} from my outfit.`, "remove", undefined, false, productId, `${productName} removed from your outfit.`)} /> : null}
+      {!welcome && sessionState.styling ? <OutfitSummary styling={sessionState.styling} open={open} feedback={selectionFeedback} disabled={busy || Boolean(pending)}
+        onRemoveExternal={description => send(`Remove the owned item I described as "${description}".`, undefined, undefined, false, undefined, "Owned item removed from your look.")}
+        onRemove={(productId, productName) => send(`Remove ${productName} from my outfit.`, "remove", undefined, false, productId, `${productName} removed from your look.`)} /> : null}
       <div ref={transcript} role="log" aria-live="polite" aria-relevant="additions" aria-busy={busy}
         className={`${styles.transcript} ${welcome ? styles.transcriptWelcome : ""}`}>
         {welcome ? (
           <div className={styles.welcome}>
             <p className={styles.eyebrow}>A little inspiration, just for you</p>
             <h3>Find your next<br /><em>favourite.</em></h3>
-            <p className={styles.welcomeDescription}>Tell me an item, a style or an occasion.<br />Let’s find something that feels like you.</p>
+            <p className={styles.welcomeDescription}>Tell me an item, a style or an occasion.<br />Not sure yet? I’ll help you explore.</p>
             <div className={styles.welcomeStarters}>
-              {["Find a dress", "Show me bags", "Something for work"].map(text => (
+              {["Find a dress", "Something for work", "Help me choose"].map(text => (
                 <button key={text} type="button" className={styles.starter} onClick={() => send(text)}>
                   {text}<ChevronIcon direction="right" />
                 </button>
@@ -253,7 +254,7 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
           const actionsAvailable = entry.id === activeReply && (!busy || quietBusy) && !pending;
           // Do not attach another sales offer to every cross-sell response.
           const lookAction = actionsAvailable ? act : undefined;
-          const allowOffers = !result?.outfit_budget && result?.action !== "cross_sell" && !sessionState.styling?.offers_paused;
+          const allowOffers = !result?.outfit_budget && result?.action !== "cross_sell" && result?.action !== "discover" && !sessionState.styling?.offers_paused;
           const selectedIds = sessionState.styling?.outfit.map(piece => piece.product_id) ?? [];
           const recommendedIds = result?.outfit_choices && result.outfit_budget
             ? suggestedOutfit(result.products, result.outfit_choices, result.outfit_budget.limit_aud)?.products.map(product => product.product_id) ?? [] : [];
@@ -273,35 +274,60 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
                       ? `–A$${result.outfit_choices.maximum_total_aud.toFixed(2)}` : ""}</strong> combined</span>
                   <span>Within your <strong>A${result.outfit_budget.limit_aud.toFixed(2)}</strong> budget</span>
                 </div> : null}
+                {result?.purchase_budget ? <div className={styles.budgetSummary} aria-label="Selected purchases budget">
+                  <span>A${result.purchase_budget.fixed_total_aud.toFixed(2)} selected</span>
+                  <span>A${result.purchase_budget.remaining_aud.toFixed(2)} left of A${result.purchase_budget.limit_aud.toFixed(2)}</span>
+                </div> : null}
                 {result?.answer_sources.length ? <p className={styles.notice}>
                   Sources: {result.answer_sources.map((source, sourceIndex) => <span key={source.url}>
                     {sourceIndex > 0 ? " · " : ""}<Link href={source.url} onClick={close}>{source.label}</Link>
                   </span>)}
                 </p> : null}
               </div>
+              {index === entries.length - 1 && result?.task_transition_applied && result.issues.length ? <div className={styles.starters} role="group" aria-label="Resolve shopping request">
+                {result.issues.filter(issue => issue.code === "unverified_requirement").map(issue => <button key={issue.id} type="button" className={styles.chip} disabled={busy}
+                  onClick={() => send(`Remove my ${issue.scope} requirement: ${issue.value}.`, undefined, undefined, false, undefined, undefined,
+                    { issue_id: issue.id, generation: sessionState.task?.generation ?? 0, operation: "drop_requirement" })}>Remove {String(issue.value)}</button>)}
+                {result.issues.some(issue => issue.code === "unverified_requirement") ? <button type="button" className={styles.chip} disabled={busy}
+                  onClick={() => send("Browse provisional options with my requirements kept unverified; exclude known violations.", undefined, undefined, false, undefined, undefined,
+                    { issue_id: result.issues.find(issue => issue.code === "unverified_requirement")!.id, generation: sessionState.task?.generation ?? 0, operation: "preview_unverified" })}>Browse with unknown details labelled</button> : null}
+                <button type="button" className={styles.chip} disabled={busy}
+                  onClick={() => send("Cancel the current shopping task. Help me start a new search.", undefined, undefined, false, undefined, undefined,
+                    { issue_id: result.issues[0].id, generation: sessionState.task?.generation ?? 0, operation: "restart_task" })}>Start a new shopping task</button>
+              </div> : null}
               {result?.outfit_choices ? result.outfit_choices.groups.map((group, groupIndex) => (
                 <ShoppingProductResults key={`${entry.id}-group-${groupIndex}`}
                   products={group.product_ids.map(id => result.products.find(product => product.product_id === id)!)}
-                  heading={group.label} preferences={group.preferences} label={`${group.label} options`} onOpen={close} onAction={lookAction}
+                  heading={group.label} preferences={group.preferences} label={`${group.label} options`} onOpen={close} onAction={lookAction} open={open}
                   selectedIds={selectedIds} allowOffers={false} outfitMode actionDisabled={busy} recommendedIds={recommendedIds}
                   onEvent={(event_type, product_id, position) => trackRecommendationEvents(entry.groupRecommendationIds?.[groupIndex] ?? entry.id,
                     [{ event_type, product_id, position }])} />
               )) : result?.products.length ? <ShoppingProductResults
                 products={result.products} preferences={result.applied_preferences}
                 preferencesByProduct={result.outfit_budget ? Object.fromEntries(result.outfit_budget.items.map(item => [item.product_id, item.preferences])) : undefined}
-                label={result.outfit_budget ? "Items in one complete set" : "Recommended products"} onOpen={close} onAction={lookAction}
+                label={result.outfit_budget ? "Items in one complete set" : "Recommended products"} onOpen={close} onAction={lookAction} open={open}
                 selectedIds={selectedIds} onEvent={onEvent} allowOffers={allowOffers} actionDisabled={busy} outfitMode={Boolean(result.outfit_budget)}
+                onSimilar={actionsAvailable && result.action === "discover" ? product => send(`Show me more like ${product.product_name}.`, "similar", product) : undefined}
               /> : null}
               {result?.alternatives.length ? (
                 <div>
                   <h3 className={styles.alternativeHeading}>Alternatives <span>Details differ</span></h3>
                   <ShoppingProductResults products={result.alternatives} preferences={result.alternatives_preferences}
-                    label="Alternative products with disclosed differences" onOpen={close} onAction={lookAction}
-                    selectedIds={selectedIds} onEvent={onEvent} allowOffers={allowOffers} actionDisabled={busy} positionOffset={result.products.length} />
+                    label="Alternative products with disclosed differences" onOpen={close} onAction={lookAction} open={open}
+                    selectedIds={selectedIds} onEvent={onEvent} allowOffers={allowOffers} actionDisabled={busy} positionOffset={result.products.length}
+                    onSimilar={actionsAvailable && result.action === "discover" ? product => send(`Show me more like ${product.product_name}.`, "similar", product) : undefined} />
                 </div>
               ) : null}
               {result?.optional_question && !result.outfit_choices && !result.outfit_budget ?
                 <p className={styles.optionalQuestion}>{result.optional_question}</p> : null}
+              {Boolean(result?.suggested_replies.length) && index === entries.length - 1 && !retry ? (
+                <div className={styles.starters} role="group" aria-label="Suggested replies">
+                  {result!.suggested_replies.map(choice => <button key={choice.message} type="button"
+                    className={styles.chip} disabled={busy || Boolean(pending)} onClick={() => send(choice.message)}>
+                    {choice.label}
+                  </button>)}
+                </div>
+              ) : null}
               {actionsAvailable && result?.can_preview_other_colours ? (
                 <div className={styles.starters}>
                   <button type="button" className={styles.chip} onClick={() =>
@@ -310,7 +336,7 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
                   <p className={styles.notice}>Preview only. Your original colour and other restrictions stay saved.</p>
                 </div>
               ) : null}
-              {entry.id === activeReply && sessionState.styling?.outfit_request ?
+              {entry.id === activeReply && sessionState.styling?.outfit_request && hasEventContext(sessionState.styling) ?
                 <DressCodeChoices value={sessionState.styling.dress_code ?? null}
                   disabled={busy || Boolean(pending)} onChoose={message => send(message)} /> : null}
             </div>
@@ -321,13 +347,9 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
           <span>Checking your request…</span>
         </div> : null}
       </div>
-      {pending && !busy ? <div className={styles.controls}>
-        Reply to continue, or <button type="button" className={styles.textButton} onClick={() => send("cancel")}>cancel this question</button>.
-      </div> : null}
       {retry && !busy ? <div className={styles.controls}>
         <button type="button" className={styles.textButton} onClick={() => void run(retry.envelope, retry.quietMessage)}>Retry this request</button>
       </div> : null}
-      {busy ? <div className={styles.controls}><button type="button" className={styles.textButton} onClick={cancelRequest}>Cancel request</button></div> : null}
       <div className={styles.composerArea}>
         <form className={styles.composer} onSubmit={event => { event.preventDefault(); send(draft); }}>
           <textarea ref={input} rows={1} aria-label="Message your stylist" value={draft} onChange={event => setDraft(event.target.value)}
@@ -337,7 +359,11 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
                 event.preventDefault(); send(draft);
               }
             }} />
-          <button type="submit" disabled={busy || !draft.trim()} className={styles.send}>Send</button>
+          <button type={busy ? "button" : "submit"} disabled={!busy && !draft.trim()} className={styles.send}
+            aria-label={busy ? "Cancel request" : "Send message"} title={busy ? "Cancel request" : undefined}
+            onClick={busy ? event => { event.preventDefault(); cancelRequest(); } : undefined}>
+            {busy ? <StopIcon /> : "Send"}
+          </button>
         </form>
         <div className={styles.legal}>
           <span>Messages may be sent to OpenAI.</span>

@@ -2,6 +2,8 @@ import type { ShoppingPreferences } from "@/lib/ai/preferenceSchema";
 import type { CatalogueProduct } from "@/lib/recommendations/catalogue";
 import type { z } from "zod";
 import type { PairingEvidenceSchema, ValueComparisonSchema } from "../stylist/commerceSchema";
+import { matchesProductType } from "../catalogue/productFamilies";
+import { auditedImagePresent } from "../catalogue/imageHealth";
 
 export type StylistProduct = {
   product_id: string;
@@ -24,6 +26,9 @@ export type PreferenceSearchOptions = {
   eligible?: (product: CatalogueProduct) => boolean;
   compare?: (a: CatalogueProduct, b: CatalogueProduct) => number;
   limit?: number;
+  // Explicit catalogue inspiration may browse without a product/context anchor.
+  allowUnanchored?: boolean;
+  diversify?: boolean;
 };
 
 export type PreferenceSearchResult = {
@@ -135,7 +140,7 @@ export function searchByPreferences(
       hasText(preferences.fit),
   );
 
-  if (!productAnchor && !contextAnchor) {
+  if (!productAnchor && !contextAnchor && !options.allowUnanchored) {
     return {
       status: "needs_more_detail",
       message: "What kind of item are you looking for? Try adding a product, colour, style, or occasion.",
@@ -183,7 +188,7 @@ export function searchByPreferences(
     }
     if (category && !labelMatches(product.category, category)) return false;
     if (subcategory && !labelMatches(product.subcategory, subcategory)) return false;
-    if (productType && !labelMatches(product.product_type, productType)) return false;
+    if (productType && !(matchesProductType(product, productType) ?? labelMatches(product.product_type, productType))) return false;
     if (brandLine && !labelMatches(product.brand_line, brandLine)) return false;
     if (material && !labelMatches(product.material, material)) return false;
    if (excludedColours.length > 0) {
@@ -226,7 +231,7 @@ export function searchByPreferences(
   const contextMatches = ranked.filter((item) => item.score > 0);
   const relevant = contextMatches.length > 0
     ? contextMatches
-    : productAnchor
+    : productAnchor || options.allowUnanchored
       ? ranked
       : [];
   relevant.sort(
@@ -240,14 +245,31 @@ export function searchByPreferences(
   );
 
   const seenProducts = new Set<string>();
-  const selected = relevant.filter(({ product }) => {
+  const distinct = relevant.filter(({ product }) => {
     const key = [product.product_name, product.colour, product.brand_line]
       .map((value) => words(value ?? "").join(" "))
       .join("|");
     if (seenProducts.has(key)) return false;
     seenProducts.add(key);
     return true;
-  }).slice(0, options.limit ?? MAX_RECOMMENDATIONS);
+  });
+  const selected: typeof distinct = [];
+  const photographed = options.diversify ? distinct.filter(item => auditedImagePresent(item.product) === true) : [];
+  const remaining = [...(photographed.length >= (options.limit ?? MAX_RECOMMENDATIONS) ? photographed : distinct)];
+  if (options.diversify) remaining.sort((a, b) => Number(auditedImagePresent(b.product) === true) - Number(auditedImagePresent(a.product) === true));
+  while (remaining.length && selected.length < (options.limit ?? MAX_RECOMMENDATIONS)) {
+    let next = 0;
+    if (options.diversify && selected.length) {
+      const novelty = (candidate: typeof distinct[number]) =>
+        ([['category', 8], ['product_type', 4], ['colour', 2], ['style', 1]] as const)
+          .reduce((score, [field, weight]) => score + (candidate.product[field] &&
+            !selected.some(item => item.product[field] === candidate.product[field]) ? weight : 0), 0);
+      for (let index = 1; index < remaining.length; index++) {
+        if (novelty(remaining[index]) > novelty(remaining[next])) next = index;
+      }
+    }
+    selected.push(remaining.splice(next, 1)[0]);
+  }
   if (selected.length === 0) {
     return {
       status: "no_match",

@@ -1,5 +1,6 @@
 import { ShoppingPreferencesSchema, type ShoppingPreferences } from "./preferenceSchema";
 import type { CataloguePreferenceValues } from "../catalogue/preferenceValues";
+import { canonicalSize, matchesProductType, productFamily } from "../catalogue/productFamilies";
 
 export type PreferenceIssue = {
   field: keyof ShoppingPreferences;
@@ -34,8 +35,8 @@ export function validatePreferences(input: ShoppingPreferences, catalogue: Catal
     if (match !== undefined) return match;
     // A generic necklace is a safe umbrella over Pendant Necklace, etc.; it
     // must not be converted to one particular style merely to pass validation.
-    if (field === "product_type" && /^necklace$/i.test(value) &&
-        allowed.some(candidate => /\bnecklace\b/i.test(candidate))) return "Necklace";
+    if (field === "product_type" && productFamily(value) && catalogue.rows.some(row =>
+      matchesProductType(row, value))) return value[0].toUpperCase() + value.slice(1).toLowerCase();
 
     const blocking = hardFields.has(field);
     issues.push({
@@ -50,7 +51,7 @@ export function validatePreferences(input: ShoppingPreferences, catalogue: Catal
     return value;
   }
   for (const field of fields) {
-    const value = preferences[field];
+    const value = field === "size" && preferences.size ? canonicalSize(preferences.size, catalogue.sizes) : preferences[field];
     if (value === null) continue;
     const allowed = field === "size" ? catalogue.sizes
       : field === "category" || field === "subcategory" ? catalogue.categories.map(row => row[field])

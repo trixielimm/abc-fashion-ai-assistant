@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { writeFileSync } from 'node:fs';
-import { makeTurn, newSession, acceptReply } from '../lib/stylist/conversationProtocol.ts';
+import { makeTurn, acceptReply } from '../lib/stylist/conversationProtocol.ts';
+import { allCollectionSession } from './fixtures/collection-session.mjs';
 const base=new URL(process.argv[2]??'http://localhost:3000');
 if(!['localhost','127.0.0.1','[::1]'].includes(base.hostname)) throw new Error('Use a local test server.');
 const started=new Date().toISOString();
@@ -16,7 +17,7 @@ async function send(state,message,verify,shortcut){
 }
 const visible=reply=>[...reply.products,...reply.alternatives];
 try{
- const seed=await send(newSession(),'Show me dresses under $150',reply=>assert.ok(reply.products.length>=2));
+ const seed=await send(allCollectionSession(),'Show me dresses under $150',reply=>assert.ok(reply.products.length>=2));
  let state=await send(structuredClone(seed),'Keep the second dress for my outfit',(reply,next)=>{assert.equal(next.styling.outfit.length,1);assert.equal(next.styling.outfit[0].product_id,seed.context.latest[1].product_id);assert.deepEqual(reply.products,[]);});
  const kept=state.styling.outfit[0];
  state=await send(state,'Show me bags',(reply,next)=>{assert.ok(visible(reply).length);assert.equal(next.styling.outfit[0].product_id,kept.product_id);});

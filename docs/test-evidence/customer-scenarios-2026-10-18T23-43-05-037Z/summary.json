@@ -1,0 +1,49 @@
+{
+  "started": "2026-10-18T23:43:05.037Z",
+  "commit": "83f1f2aa3e5f3eb1fdea4bc6d6e7be6b067b9ebc",
+  "node": "v24.14.0",
+  "model": "gpt-5.6-luna",
+  "reasoning": "low",
+  "fixture_sha256": "8955340811be98cd7bdfb20e022105a1be8f1a052057da83c7f99eeea598115e",
+  "scope": "Real model + shortcutPlan + finishConversationTurn + acceptReply; in-process with isolated synthetic fixtures. Not HTTP/browser acceptance.",
+  "human_review": "Pairing taste, aesthetic variety and end-user usefulness require human assessment.",
+  "runs": [
+    {
+      "id": "S3-B",
+      "name": "Browse without preferences",
+      "repeat": 1,
+      "started": "2026-10-18T23:43:05.064Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-18T23:43:11.475Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S3-C",
+      "name": "Switch from dresses to bags",
+      "repeat": 1,
+      "started": "2026-10-18T23:43:05.067Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-18T23:43:12.396Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S3-A",
+      "name": "Uncertain customer to similar dresses",
+      "repeat": 1,
+      "started": "2026-10-18T23:43:05.049Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-18T23:43:20.770Z",
+      "turns_recorded": 4
+    }
+  ],
+  "finished": "2026-10-18T23:43:20.772Z",
+  "counts": {
+    "Pass": 3,
+    "Fail": 0,
+    "Blocked": 0,
+    "Feature gap": 0
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "started": "2026-10-19T02:18:09.559Z",
+  "commit": "83f1f2aa3e5f3eb1fdea4bc6d6e7be6b067b9ebc",
+  "node": "v24.14.0",
+  "model": "gpt-5.6-luna",
+  "reasoning": "low",
+  "fixture_sha256": "bc8426fb83b2b0cdf9dcb857c942fc373d3ecdc6fbe900836ff030d6a0ead8d7",
+  "scope": "Real model + shortcutPlan + finishConversationTurn + acceptReply; in-process with isolated synthetic fixtures. Not HTTP/browser acceptance.",
+  "human_review": "Pairing taste, aesthetic variety and end-user usefulness require human assessment.",
+  "runs": [
+    {
+      "id": "COL-A",
+      "name": "Collection-first formal clothing: Men's, please.",
+      "repeat": 1,
+      "started": "2026-10-19T02:18:09.598Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Fresh session; collection unanswered",
+      "finished": "2026-10-19T02:18:15.005Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "COL-C",
+      "name": "Collection-first formal clothing: Both collections, please.",
+      "repeat": 1,
+      "started": "2026-10-19T02:18:09.711Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Fresh session; collection unanswered",
+      "finished": "2026-10-19T02:18:16.311Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "COL-B",
+      "name": "Collection-first formal clothing: Women's, please.",
+      "repeat": 1,
+      "started": "2026-10-19T02:18:09.689Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Fresh session; collection unanswered",
+      "finished": "2026-10-19T02:18:18.009Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "CAT-B",
+      "name": "Skirt defaults use actual Bottoms hierarchy",
+      "repeat": 1,
+      "started": "2026-10-19T02:18:18.013Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Fresh session; collection unanswered",
+      "finished": "2026-10-19T02:18:21.549Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "CAT-A",
+      "name": "Default dress and short budget refinement",
+      "repeat": 1,
+      "started": "2026-10-19T02:18:16.313Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Fresh session; collection unanswered",
+      "finished": "2026-10-19T02:18:22.663Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "COL-D",
+      "name": "Collection-first formal clothing: Women's, under $100, no red",
+      "repeat": 1,
+      "started": "2026-10-19T02:18:15.007Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Fresh session; collection unanswered",
+      "finished": "2026-10-19T02:18:24.972Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "CAT-C",
+      "name": "Legacy collection checkpoint recovers after repeating the complete dress request",
+      "repeat": 1,
+      "started": "2026-10-19T02:18:21.551Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Fresh session; collection unanswered",
+      "finished": "2026-10-19T02:18:25.556Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "CAT-E",
+      "name": "Dress shirt remains ambiguous rather than being converted to Dresses",
+      "repeat": 1,
+      "started": "2026-10-19T02:18:24.975Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Fresh session; collection unanswered",
+      "finished": "2026-10-19T02:18:28.775Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "CAT-D",
+      "name": "Explicit mens dresses stay Men until a new full dress request",
+      "repeat": 1,
+      "started": "2026-10-19T02:18:22.665Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Fresh session; collection unanswered",
+      "finished": "2026-10-19T02:18:32.083Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "CAT-F",
+      "name": "Shared Men restriction blocks an implicit women category switch",
+      "repeat": 1,
+      "started": "2026-10-19T02:18:25.558Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Fresh session; collection unanswered",
+      "finished": "2026-10-19T02:18:35.238Z",
+      "turns_recorded": 2
+    }
+  ],
+  "finished": "2026-10-19T02:18:35.240Z",
+  "counts": {
+    "Pass": 10,
+    "Fail": 0,
+    "Blocked": 0,
+    "Feature gap": 0
+  }
+}

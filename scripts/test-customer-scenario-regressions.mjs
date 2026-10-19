@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';
 import { catalogue, fixtures } from './fixtures/customer-scenarios.mjs';
 import { checkConversationPlan } from '../lib/stylist/conversationPlan.ts';
-import { newSession, makeTurn, snapshot, acceptReply } from '../lib/stylist/conversationProtocol.ts';
+import { makeTurn, snapshot, acceptReply } from '../lib/stylist/conversationProtocol.ts';
+import { allCollectionSession as newSession } from './fixtures/collection-session.mjs';
 import { finishConversationTurn, shortcutPlan } from '../lib/stylist/conversationTurn.ts';
 import { decodeModelPlan } from '../lib/ai/conversationModelPlan.ts';
 import { resolveProductReference } from '../lib/stylist/productReference.ts';
@@ -172,7 +173,7 @@ await check('Closure equality is explained without selling an identical expensiv
 });
 await check('Transport decoding rejects wrong slots and preserves typed domain validation', () => {
   const message = 'Show me bags under $80';
-  const base = { ...plan(message, {}), action: 'new_search', answer: null, styling_intent: null, outfit_request: null };
+  const base = { ...plan(message, {}), action: 'new_search', answer: null, styling_intent: null, outfit_request: null, discovery_intent: null };
   const price = { scope: 'item', field: 'max_price', operation: 'set', number_value: 80, text_value: null, list_values: [], evidence: 'under $80' };
   assert.equal(decodeModelPlan({ ...base, changes: [price] }).changes[0].value, 80);
   assert.throws(() => decodeModelPlan({ ...base, changes: [{ ...price, text_value: '80' }] }), /matching value slot/);

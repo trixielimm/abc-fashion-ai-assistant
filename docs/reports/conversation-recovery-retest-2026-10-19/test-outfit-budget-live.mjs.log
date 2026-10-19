@@ -1,0 +1,13 @@
+AssertionError [ERR_ASSERTION]: null == true
+    at file:///Users/salvi/MQ/abc-fashion-ai-assistant/scripts/test-outfit-budget-live.mjs:51:12
+    at send (file:///Users/salvi/MQ/abc-fashion-ai-assistant/scripts/test-outfit-budget-live.mjs:32:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async file:///Users/salvi/MQ/abc-fashion-ai-assistant/scripts/test-outfit-budget-live.mjs:47:3 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: null,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+{"passed":0,"failed":1,"evidence":"/Users/salvi/MQ/abc-fashion-ai-assistant/docs/test-evidence/outfit-budget-http-2026-10-19T07-32-55-861Z.json"}

@@ -87,7 +87,25 @@ export function matchesRole(product: z.infer<typeof ReferenceProductSchema>, rol
   return [product.category, product.subcategory, product.product_type].some(value =>
     value != null && (singular(value) === wanted ||
       (wanted === "dress" && normalise(value) === "dresses") ||
+      (["jacket", "blazer", "shirt", "skirt"].includes(wanted) && new RegExp(`\\b${wanted}\\b`, "i").test(value)) ||
       (wanted === "necklace" && /\bnecklace\b/i.test(value))));
+}
+
+// Resolve a customer's identity phrase while leaving accompanying edits for
+// normal interpretation. The displayed order is the ordinal's namespace.
+export function messageProductReference(context: z.infer<typeof ContextSchema>, message: string) {
+  const pool = [...context.latest, ...(context.previous?.flat() ?? []), ...(context.selected ?? []), ...(context.focused ? [context.focused] : [])];
+  const named = [...new Map(pool.filter(product => message.toLowerCase().includes(product.product_name.toLowerCase())).map(product => [product.product_id, product])).values()];
+  const ordinal = message.match(/^(?:the\s+|number\s+)?(first|second|third|fourth|fifth|[1-5])(?:\b|[,.])/i)
+    ?? message.match(/\b(?:the|number)\s+(first|second|third|fourth|fifth|[1-5])\b/i);
+  const position = ordinal ? ({ first: 1, second: 2, third: 3, fourth: 4, fifth: 5 }[ordinal[1].toLowerCase()] ?? Number(ordinal[1])) : null;
+  const numbered = position ? context.latest[position - 1] : null;
+  if (named.length > 1 || named.length && numbered && named[0].product_id !== numbered.product_id) return { status: "ambiguous" as const, reference: null, conflict: true };
+  if (named.length === 1 || numbered) return { status: "resolved" as const, reference: { kind: "id" as const, value: (named[0] ?? numbered!).product_id }, conflict: false };
+  const role = message.match(/\b(?:the|that|this)\s+(jacket|blazer|shirt|skirt|dress|bag|shoes?|necklace)\b/i)?.[1];
+  const candidates = role ? context.latest.filter(product => matchesRole(product, role)) : [];
+  return candidates.length === 1 ? { status: "resolved" as const, reference: { kind: "id" as const, value: candidates[0].product_id }, conflict: false }
+    : { status: candidates.length > 1 ? "ambiguous" as const : "absent" as const, reference: null, conflict: false };
 }
 
 export function resolveProductReference(

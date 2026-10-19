@@ -1,0 +1,8 @@
+PASS: Blank message rejected (HTTP 400)
+PASS: Missing message rejected (HTTP 400)
+PASS: Limit above six rejected (HTTP 400)
+PASS: Unsupported history rejected (HTTP 400)
+PASS: Malformed JSON rejected (HTTP 400)
+PASS: Wrong content type rejected (HTTP 415)
+
+6 API validation checks passed.

@@ -1,0 +1,12 @@
+{
+  "recorded_at": "2026-10-19T04:18:48.343813+00:00",
+  "next": "16.3.8",
+  "node_build": "webpack production build",
+  "configured_model": "gpt-5.6-luna",
+  "browser_target": "http://127.0.0.1:3002/",
+  "existing_user_dev_server": "port 3000 left running",
+  "source_model_setting_changed": false,
+  "task_recovery_rollback": "STYLIST_TASK_RECOVERY_ENABLED=false",
+  "diagnostics_opt_in": "STYLIST_DIAGNOSTICS_ENABLED=true",
+  "live_build_note": "Saved-purchase and gift recovery verified live. Last generic-Mules exclusion verified by full regression and build; its browser repetition was prevented by approval-service failure."
+}

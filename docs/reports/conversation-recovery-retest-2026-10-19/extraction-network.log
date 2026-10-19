@@ -1,0 +1,129 @@
+PASS: blank input rejected
+{
+  "message": "I need a black dress under $150 for a wedding in size 10.",
+  "preferences": {
+    "gender": null,
+    "category": "Clothing",
+    "subcategory": "Dresses",
+    "product_type": null,
+    "occasion": "Wedding Guest",
+    "style": null,
+    "preferred_colours": [
+      "Black"
+    ],
+    "excluded_colours": [],
+    "season": null,
+    "material": null,
+    "fit": null,
+    "size": "10",
+    "min_price": null,
+    "max_price": 150,
+    "brand_line": null
+  }
+}
+{
+  "message": "I’m going to a beach wedding and want something elegant, maybe sage or blue.",
+  "preferences": {
+    "gender": null,
+    "category": null,
+    "subcategory": null,
+    "product_type": null,
+    "occasion": "Beach Wedding",
+    "style": "Elegant",
+    "preferred_colours": [
+      "Sage",
+      "Blue"
+    ],
+    "excluded_colours": [],
+    "season": null,
+    "material": null,
+    "fit": null,
+    "size": null,
+    "min_price": null,
+    "max_price": null,
+    "brand_line": null
+  }
+}
+{
+  "message": "I need something casual for brunch under $100.",
+  "preferences": {
+    "gender": null,
+    "category": null,
+    "subcategory": null,
+    "product_type": null,
+    "occasion": "Brunch",
+    "style": "Casual",
+    "preferred_colours": [],
+    "excluded_colours": [],
+    "season": null,
+    "material": null,
+    "fit": null,
+    "size": null,
+    "min_price": null,
+    "max_price": 100,
+    "brand_line": null
+  }
+}
+{
+  "message": "Show me men’s shoes for work in size 11.",
+  "preferences": {
+    "gender": "Men",
+    "category": "Shoes",
+    "subcategory": null,
+    "product_type": null,
+    "occasion": "Work",
+    "style": null,
+    "preferred_colours": [],
+    "excluded_colours": [],
+    "season": null,
+    "material": null,
+    "fit": null,
+    "size": "11",
+    "min_price": null,
+    "max_price": null,
+    "brand_line": null
+  }
+}
+{
+  "message": "I want a romantic outfit for date night but nothing red.",
+  "preferences": {
+    "gender": null,
+    "category": null,
+    "subcategory": null,
+    "product_type": null,
+    "occasion": "Date Night",
+    "style": "Romantic",
+    "preferred_colours": [],
+    "excluded_colours": [
+      "Red"
+    ],
+    "season": null,
+    "material": null,
+    "fit": null,
+    "size": null,
+    "min_price": null,
+    "max_price": null,
+    "brand_line": null
+  }
+}
+{
+  "message": "A bag costing at least $100 and up to $150.",
+  "preferences": {
+    "gender": null,
+    "category": "Bags",
+    "subcategory": null,
+    "product_type": null,
+    "occasion": null,
+    "style": null,
+    "preferred_colours": [],
+    "excluded_colours": [],
+    "season": null,
+    "material": null,
+    "fit": null,
+    "size": null,
+    "min_price": 100,
+    "max_price": 150,
+    "brand_line": null
+  }
+}
+PASS: 6 live extraction cases

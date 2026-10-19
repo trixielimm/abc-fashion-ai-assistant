@@ -1,0 +1,346 @@
+- scrollbar "Page scroll"
+- banner:
+  - link "ABC Fashion":
+    - /url: /
+    - generic: ABC Fashion
+  - navigation "Primary":
+    - link "Shop":
+      - /url: /search
+    - link "Collections":
+      - /url: /#featured-categories
+    - link "For him":
+      - /url: /#this-season
+    - link "For her":
+      - /url: /#this-season
+    - button "AI Stylist"
+  - search "Product search":
+    - button "Search products":
+    - searchbox "Search"
+  - button "Account coming soon" [disabled]:
+  - link "Bag, 0 items":
+    - /url: /cart
+- main:
+  - img "Model in a long wool coat"
+  - paragraph: VOLUME
+  - paragraph: One
+  - paragraph: Autumn | Winter 2024
+  - heading "Refined Simplicity in Every Thread." [level=1]
+  - paragraph: For those who believe that true style is found in the details and in the quality of materials.
+  - link "Shop New Arrivals →":
+    - /url: "#this-season"
+  - link "See more":
+    - /url: "#featured-categories"
+  - paragraph: Featured Categories
+  - link "Shop all →":
+    - /url: "#this-season"
+  - link:
+    - /url: "#this-season"
+    - article:
+      - img "The Essentials"
+      - paragraph: The Essentials
+      - heading "The Essentials" [level=3]
+      - paragraph: Timeless wardrobe foundations designed for effortless everyday dressing.
+      - generic: See more →
+  - link:
+    - /url: "#this-season"
+    - article:
+      - img "Accessories"
+      - paragraph: Accessories
+      - heading "Accessories" [level=3]
+      - paragraph: Considered finishing pieces that bring character and refinement to every look.
+      - generic: See more →
+  - link:
+    - /url: "#this-season"
+    - article:
+      - img "Outerwear"
+      - paragraph: Outerwear
+      - heading "Outerwear" [level=3]
+      - paragraph: Structured layers designed to balance warmth, form and understated elegance.
+      - generic: See more →
+  - paragraph: This Season
+  - button "Previous products":
+  - button "Next products":
+  - link:
+    - /url: /products/silk-blend-blouse
+    - article:
+      - img "Silk Blend Blouse"
+      - heading "Silk Blend Blouse" [level=3]
+      - paragraph: $129.00
+  - link:
+    - /url: /products/tailored-trouser
+    - article:
+      - img "Tailored Trouser"
+      - heading "Tailored Trouser" [level=3]
+      - paragraph: $159.00
+  - link:
+    - /url: /products/silver-chain
+    - article:
+      - img "Silver Chain, Long Drop"
+      - heading "Silver Chain, Long Drop" [level=3]
+      - paragraph: $79.00
+  - link:
+    - /url: /products/structured-blazer
+    - article:
+      - img "Structured Blazer"
+      - heading "Structured Blazer" [level=3]
+      - paragraph: $289.00
+  - link:
+    - /url: /products/leather-jacket
+    - article:
+      - img "Leather Biker Jacket"
+      - heading "Leather Biker Jacket" [level=3]
+      - paragraph: $349.00
+  - link:
+    - /url: /products/work-shirt
+    - article:
+      - img "Relaxed Work Shirt"
+      - heading "Relaxed Work Shirt" [level=3]
+      - paragraph: $119.00
+  - paragraph: Campaign 04
+  - heading "The Modernist Dialogue" [level=2]
+  - paragraph: A conversation between architecture and attire. Our latest campaign explores the intersection of sculpted forms and fluid silhouettes, captured in the heart of Copenhagen's modernist landscape.
+  - link "Read the story →":
+    - /url: "#"
+  - img "Campaign models photographed against concrete architecture"
+  - paragraph: Stay informed
+  - paragraph: Join us on our journey for early access to new collections and exclusive offers for members.
+  - generic: Email address
+  - textbox "Email address":
+    - /placeholder: EMAIL ADDRESS
+  - button "Subscribe"
+- contentinfo:
+  - paragraph:
+    - text: ABC Fashion
+  - paragraph:
+    - text: Copenhagen & Stockholm
+    - text: London / Paris / New York
+  - paragraph: On Instagram
+  - link "Neutral knitwear on a rail":
+    - /url: "#"
+    - img "Neutral knitwear on a rail"
+  - link "Stacked denim":
+    - /url: "#"
+    - img "Stacked denim"
+  - link "Jackets on a chrome rail":
+    - /url: "#"
+    - img "Jackets on a chrome rail"
+  - link "Black leather jacket":
+    - /url: "#"
+    - img "Black leather jacket"
+  - paragraph: Our Department
+  - list:
+    - link "Women's Collection":
+      - /url: /#this-season
+    - link "Men's Collection":
+      - /url: /#this-season
+    - link "Accessories":
+      - /url: /#featured-categories
+  - paragraph: Connect
+  - list:
+    - link "Shipping":
+      - /url: "#"
+    - link "AI Stylist Privacy":
+      - /url: /terms-of-service#privacy
+    - link "Contact Us":
+      - /url: "#"
+  - list:
+    - link "Instagram":
+      - /url: "#"
+    - link "Facebook":
+      - /url: "#"
+    - link "Pinterest":
+      - /url: "#"
+  - paragraph: © 2026 ABC Fashion Inc. All rights reserved.
+  - paragraph: Prototype store — sample products and AI-generated specifications.
+  - paragraph:
+    - link "AI Terms":
+      - /url: /terms-of-service
+    - link "AI Privacy":
+      - /url: /terms-of-service#privacy
+    - link "Cookies":
+      - /url: "#"
+- button "Chat with stylist":
+  - text: Chat with stylist
+- dialog "AI Stylist":
+  - banner:
+    - generic: ABC
+    - paragraph: Personal shopping
+    - heading "AI Stylist" [level=2]
+    - button "New chat"
+    - button "Close AI Stylist":
+  - complementary "Your look":
+    - strong: Your look
+    - generic: 1 item
+    - status: Saved for styling · Separate from your cart.
+    - strong: A$155.00 total
+    - generic: A$125.00 remaining
+    - button "View look":
+      - text: View look
+      - generic: ⌄
+  - log:
+    - generic: You
+    - paragraph: Help! I've got a friend's wedding at a winery and the invite says cocktail. I basically live in jeans. Around $280 for a dress AND shoes, not $280 each. Where do I start?
+    - generic: AI Stylist
+    - paragraph: "Wedding guest: Focus on midi or maxi dresses and dress shoes, excluding white, ivory and cream dresses. Follow the couple’s dress code. I couldn't find a complete set within A$280.00: no available Dresses meets the saved requirements. I haven't changed your budget or item requirements."
+    - generic: You
+    - paragraph: No dress at all? I haven't asked for a size or colour yet. Women's wedding guest dresses and shoes, $280 together. Show me what you do have.
+    - generic: AI Stylist
+    - paragraph: "Wedding guest: Focus on midi or maxi dresses and dress shoes, excluding white, ivory and cream dresses. Follow the couple’s dress code. I couldn't find a complete set within A$280.00: no available Dresses meets the saved requirements. I haven't changed your budget or item requirements."
+    - generic: You
+    - paragraph: Drop the inferred style filter, please. I only asked for wedding guest dresses and shoes, not a particular aesthetic. Keep the $280 total and the wedding context.
+    - generic: AI Stylist
+    - paragraph: I couldn't reliably interpret the requested change. No unverified changes were applied. You can clarify the item and change, or start a new shopping task below.
+    - generic: You
+    - paragraph: "Forget that outfit. Start a new search: a wedding guest dress and shoes for $280 together, women's collection. No particular style, exclude white dresses."
+    - generic: AI Stylist
+    - paragraph:
+      - text: I’d start with the
+      - strong: Olive Maxi Dress and Navy Strappy Heels
+      - text: . Together, they come to
+      - strong: A$265.00 total
+      - text: ", leaving A$15.00 of your A$280.00 budget. You can also mix and match one item from each group below."
+    - generic "Why this pairing?"
+    - generic "Combined outfit budget":
+      - strong: A$265.00
+      - text: combined
+      - text: Within your
+      - strong: A$280.00
+      - text: budget
+    - region "Dresses options":
+      - heading "Dresses" [level=3]
+      - generic: 1 option
+      - list "Dresses options":
+        - article:
+          - link "View Olive Maxi Dress":
+            - /url: /products/P1189
+            - generic: ABC
+            - generic: Photo unavailable
+          - paragraph: Suggested pairing
+          - link "Olive Maxi Dress":
+            - /url: /products/P1189
+          - paragraph: A$155.00
+          - paragraph: ABC Occasion · Olive
+          - paragraph: Listed for wedding guest occasions.
+          - button "Add to cart"
+    - region "Shoes options":
+      - heading "Shoes" [level=3]
+      - generic: 1 option
+      - list "Shoes options":
+        - article:
+          - link "View Navy Strappy Heels":
+            - /url: /products/P1075
+            - generic: ABC
+            - generic: Photo unavailable
+          - paragraph: Suggested pairing
+          - link "Navy Strappy Heels":
+            - /url: /products/P1075
+          - paragraph: A$110.00
+          - paragraph: ABC Footwear · Navy
+          - paragraph: Listed for wedding guest occasions.
+          - button "Add to cart"
+    - generic: You
+    - paragraph: I'll keep the Olive Maxi Dress, but heels on winery grass sound awful. Show flat shoes instead, still $280 for the dress and shoes together. I haven't bought the dress yet.
+    - generic: AI Stylist
+    - paragraph: "Wedding guest: Focus on midi or maxi dresses and dress shoes, excluding white, ivory and cream dresses. Follow the couple’s dress code. I couldn't find a complete set within A$280.00: no available Flats meets the saved requirements. I haven't changed your budget or item requirements."
+    - generic: You
+    - paragraph: Keep the saved Olive Maxi Dress. Show flat shoes instead, with $280 combined for the dress and shoes. The dress is a purchase, not something I already own.
+    - generic: AI Stylist
+    - paragraph: "To go with Olive Maxi Dress, here's one option to consider: Olive Mules at A$110.00."
+    - generic "Details about these picks"
+    - generic "Selected purchases budget":
+      - generic: A$155.00 selected
+      - generic: A$125.00 left of A$280.00
+    - region "Recommended products":
+      - list "Recommended products":
+        - article:
+          - link "View Olive Mules":
+            - /url: /products/P1161
+            - generic: ABC
+            - generic: Photo unavailable
+          - link "Olive Mules":
+            - /url: /products/P1161
+          - paragraph: A$110.00
+          - paragraph: ABC Footwear · Olive
+          - paragraph: Within your A$125.00 limit.
+          - button "More options for Olive Mules":
+            - generic: ···
+          - paragraph: Its Classic style differs from Olive Maxi Dress's Bohemian label.
+          - paragraph: Pairing uses recorded attributes; visual compatibility is unverified.
+          - 'button "Save to look: Olive Mules"': Save to look
+          - button "Add to cart"
+          - generic "Why this item?"
+    - heading "Alternatives Details differ" [level=3]:
+      - text: Alternatives
+      - generic: Details differ
+    - region "Alternative products with disclosed differences":
+      - generic: 3 pieces
+      - list "Alternative products with disclosed differences":
+        - article:
+          - link "View Sage Ballet Flats":
+            - /url: /products/P1230
+            - generic: ABC
+            - generic: Photo unavailable
+          - link "Sage Ballet Flats":
+            - /url: /products/P1230
+          - paragraph: A$60.00
+          - paragraph: ABC Footwear · Sage
+          - paragraph: Within your A$125.00 limit.
+          - button "More options for Sage Ballet Flats":
+            - generic: ···
+          - strong: "Alternative: details differ"
+          - list:
+            - listitem: Outfit compatibility has limited catalogue evidence; this is an available alternative.
+          - paragraph: The recorded occasion differs from Olive Maxi Dress.
+          - paragraph: Its Streetwear style differs from Olive Maxi Dress's Bohemian label.
+          - paragraph: Pairing uses recorded attributes; visual compatibility is unverified.
+          - 'button "Save to look: Sage Ballet Flats"': Save to look
+          - button "Add to cart"
+          - generic "Why this item?"
+        - article:
+          - link "View Olive Flat Sandals":
+            - /url: /products/P1220
+            - generic: ABC
+            - generic: Photo unavailable
+          - link "Olive Flat Sandals":
+            - /url: /products/P1220
+          - paragraph: A$120.00
+          - paragraph: ABC Footwear · Olive
+          - paragraph: Within your A$125.00 limit.
+          - button "More options for Olive Flat Sandals":
+            - generic: ···
+          - strong: "Alternative: details differ"
+          - list:
+            - listitem: Outfit compatibility has limited catalogue evidence; this is an available alternative.
+          - paragraph: The recorded occasion differs from Olive Maxi Dress.
+          - paragraph: Its Classic style differs from Olive Maxi Dress's Bohemian label.
+          - paragraph: Pairing uses recorded attributes; visual compatibility is unverified.
+          - 'button "Save to look: Olive Flat Sandals"': Save to look
+          - button "Add to cart"
+          - generic "Why this item?"
+        - article:
+          - link "View Sage Loafers":
+            - /url: /products/P1150
+            - generic: ABC
+            - generic: Photo unavailable
+          - link "Sage Loafers":
+            - /url: /products/P1150
+          - paragraph: A$105.00
+          - paragraph: ABC Footwear · Sage
+          - paragraph: Within your A$125.00 limit.
+          - button "More options for Sage Loafers":
+            - generic: ···
+          - strong: "Alternative: details differ"
+          - list:
+            - listitem: Outfit compatibility has limited catalogue evidence; this is an available alternative.
+          - paragraph: The recorded occasion differs from Olive Maxi Dress.
+          - paragraph: Its Minimalist style differs from Olive Maxi Dress's Bohemian label.
+          - paragraph: Pairing uses recorded attributes; visual compatibility is unverified.
+          - 'button "Save to look: Sage Loafers"': Save to look
+          - button "Add to cart"
+          - generic "Why this item?"
+  - textbox "Message your stylist":
+    - /placeholder: What can I help you find?
+  - button "Send message" [disabled]: Send
+  - generic: Messages may be sent to OpenAI.
+  - generic "Privacy & details"
+- alert

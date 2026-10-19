@@ -10,15 +10,21 @@ import { emptyStylingState, PairingEvidenceSchema, StylingStateSchema, ValueComp
 import { OutfitBudgetSchema, OutfitChoicesSchema, priceCents } from "./outfitBudgetSchema";
 import { HISTORY_MESSAGES, MAX_DISPLAYED_PRODUCTS } from "./conversationLimits";
 import { OutfitReviewSchema } from "./outfitReview";
+import { DiscoveryStateSchema, SuggestedReplySchema, type DiscoveryState } from "./discovery";
+import { CollectionStateSchema, emptyCollectionState, type CollectionState } from "./collectionPreference";
+import { TaskStateSchema, emptyTaskState, prepareConversationTask, type TaskState } from "./taskState";
+import { ConversationIssueSchema, RecoverySchema } from "./conversationIssues";
+import { matchesProductType } from "../catalogue/productFamilies";
 
 export const ShortcutSchema = z.strictObject({
-  kind: z.enum(["cross_sell", "cheaper", "upsell", "keep", "own", "remove", "reject"]),
+  kind: z.enum(["cross_sell", "cheaper", "upsell", "keep", "own", "remove", "reject", "similar"]),
   product_id: z.string().trim().min(1).max(250),
 });
 export const TurnSchema = ConversationPlanRequestSchema.extend({
   shortcut: ShortcutSchema.optional(),
   // An explicit, one-turn request to PREVIEW other colours, not change saved preferences.
   preview_other_colours: z.boolean().optional(),
+  recovery: RecoverySchema.optional(),
 });
 export type ConversationTurn = z.infer<typeof TurnSchema>;
 export const EnvelopeSchema = z.strictObject({
@@ -53,20 +59,36 @@ export const AlternativeProductSchema = ChatProductSchema.extend({
 export type AlternativeProduct = z.infer<typeof AlternativeProductSchema>;
 
 const normalise = (value: string) => value.trim().replace(/\s+/g, " ").toLowerCase();
+// Also enforce the writing preference on model-authored questions and prose
+// containing catalogue text. Keep raw evidence and product identity untouched.
+const responseText = (value: string) => value.replace(/\s*\u2014\s*/g, ", ");
 export const TurnReplySchema = z.object({
+  task_transition_applied: z.boolean().default(false),
+  task: TaskStateSchema.optional(),
+  issues: z.array(ConversationIssueSchema).max(12).default([]),
+  unverified_requirements: z.array(z.string().min(1)).max(12).default([]),
+  purchase_budget: z.object({
+    version: z.literal("purchase-v1"), limit_aud: z.number().nonnegative(),
+    fixed_total_aud: z.number().nonnegative(), remaining_aud: z.number().nonnegative(),
+    fixed_product_ids: z.array(z.string().min(1)).max(8),
+    minimum_total_aud: z.number().nonnegative().nullable(), maximum_total_aud: z.number().nonnegative().nullable(),
+  }).nullable().default(null),
   intent_understood: z.boolean().default(true),
   outfit_budget: OutfitBudgetSchema.nullable().default(null),
   outfit_choices: OutfitChoicesSchema.nullable().default(null),
   outfit_review: OutfitReviewSchema.nullable().default(null),
   status: z.enum(["matches", "partial", "alternatives", "no_match", "no_action", "answered", "needs_clarification", "no_upsell", "no_rule", "rule_unavailable", "primary_unavailable", "primary_mismatch"]),
-  action: z.enum(["new_search", "refine", "cross_sell", "cheaper", "upsell", "clarify", "none"]),
+  action: z.enum(["new_search", "refine", "cross_sell", "cheaper", "upsell", "clarify", "none", "discover"]),
+  discovery: DiscoveryStateSchema.nullable().default(null),
+  collection: CollectionStateSchema.nullable().default(null),
+  suggested_replies: z.array(SuggestedReplySchema).max(3).default([]),
   message: z.string().min(1),
   proposed_scopes: PreferenceScopesSchema,
   applied_preferences: ShoppingPreferencesSchema.nullable(),
   products: z.array(ChatProductSchema).max(MAX_DISPLAYED_PRODUCTS),
   alternatives: z.array(AlternativeProductSchema).max(4).default([]),
   alternatives_preferences: ShoppingPreferencesSchema.nullable().default(null),
-  alternative_kind: z.enum(["context_difference", "colour_preview"]).nullable().default(null),
+  alternative_kind: z.enum(["context_difference", "colour_preview", "unverified_preview"]).nullable().default(null),
   optional_question: z.string().min(1).nullable().default(null),
   can_preview_other_colours: z.boolean().default(false),
   pending: PendingConversationSchema.nullable(),
@@ -84,9 +106,28 @@ export const TurnReplySchema = z.object({
   if (reply.status === "alternatives" && !reply.alternatives.length) reject("Alternatives status requires alternatives.");
   if (reply.alternatives.length && !["matches", "partial", "alternatives"].includes(reply.status)) reject("Alternatives cannot hide a blocking result.");
   const all = [...reply.products, ...reply.alternatives];
+  if (reply.collection?.checkpoint && all.length) reject("Resolve the collection checkpoint before showing products.");
+  if (reply.discovery?.stage === "collection" && reply.collection?.checkpoint && reply.suggested_replies.length &&
+      (reply.status !== "no_action" || all.length || reply.pending || reply.applied_preferences)) {
+    reject("A collection question cannot search, show products or create a blocking pending request.");
+  }
   if (reply.outfit_review && (reply.status !== "answered" || reply.action !== "none" || all.length || reply.outfit_budget || reply.outfit_choices)) reject("An outfit review must be an answer without shopping results.");
   const budget = reply.outfit_budget;
   const choices = reply.outfit_choices;
+  const purchase = reply.purchase_budget;
+  if (purchase) {
+    const fixed = reply.styling.outfit.filter(piece => purchase.fixed_product_ids.includes(piece.product_id) && piece.ownership === "selected");
+    const fixedCents = fixed.reduce((sum, piece) => sum + priceCents(piece.price_aud ?? NaN), 0);
+    const visiblePrices = all.map(product => priceCents(product.price_aud));
+    if (new Set(purchase.fixed_product_ids).size !== purchase.fixed_product_ids.length || fixed.length !== purchase.fixed_product_ids.length ||
+      fixedCents !== priceCents(purchase.fixed_total_aud) ||
+      priceCents(purchase.remaining_aud) !== priceCents(purchase.limit_aud) - fixedCents ||
+      visiblePrices.some(price => price > priceCents(purchase.remaining_aud)) ||
+      (visiblePrices.length ? purchase.minimum_total_aud === null || purchase.maximum_total_aud === null ||
+        priceCents(purchase.minimum_total_aud) !== fixedCents + Math.min(...visiblePrices) ||
+        priceCents(purchase.maximum_total_aud) !== fixedCents + Math.max(...visiblePrices) || purchase.maximum_total_aud > purchase.limit_aud
+        : purchase.minimum_total_aud !== null || purchase.maximum_total_aud !== null)) reject("The saved purchases and remaining-item budget are inconsistent.");
+  }
   if (budget) {
     const total = budget.items.reduce((sum, item) => sum + priceCents(reply.products.find(product => product.product_id === item.product_id)?.price_aud ?? NaN), 0);
     if (reply.status !== "matches" || reply.alternatives.length || !reply.styling.outfit_request ||
@@ -136,7 +177,7 @@ export const TurnReplySchema = z.object({
           (preferences.min_price !== null && product.price_aud < preferences.min_price) ||
           (preferences.size !== null && !product.sizes_available.some(s => normalise(s) === normalise(preferences.size!)))) reject("Returned products violate price or size constraints.");
       for (const field of ["category", "subcategory", "product_type"] as const) {
-        if (preferences[field] !== null && !relatedLabel(product[field], preferences[field]!)) reject("Returned product identity differs from its filters.");
+        if (preferences[field] !== null && !(field === "product_type" ? matchesProductType(product, preferences[field]!) ?? relatedLabel(product[field], preferences[field]!) : relatedLabel(product[field], preferences[field]!))) reject("Returned product identity differs from its filters.");
       }
       if (preferences.preferred_colours.length && !preferences.preferred_colours.some(c => relatedLabel(product.colour, c))) reject("A required colour was not met.");
       if (preferences.excluded_colours.length && (!product.colour || preferences.excluded_colours.some(c => relatedLabel(product.colour, c)))) reject("A colour exclusion was not respected.");
@@ -165,7 +206,25 @@ export const TurnReplySchema = z.object({
     if (reply.alternative_kind === "colour_preview" &&
         (reply.proposed_scopes.shared.preferred_colours.length > 0 || compared.preferred_colours.length > 0)) reject("A colour preview cannot override a shared colour rule.");
   }
-});
+}).transform(reply => ({
+  ...reply,
+  message: responseText(reply.message),
+  optional_question: reply.optional_question ? responseText(reply.optional_question) : null,
+  pending: reply.pending ? { ...reply.pending, question: responseText(reply.pending.question) } : null,
+  products: reply.products.map(product => ({ ...product,
+    ...(product.explanation ? { explanation: responseText(product.explanation) } : {}),
+  })),
+  alternatives: reply.alternatives.map(product => ({ ...product,
+    ...(product.explanation ? { explanation: responseText(product.explanation) } : {}),
+    differences: product.differences.map(responseText),
+  })),
+  outfit_review: reply.outfit_review ? {
+    works: responseText(reply.outfit_review.works),
+    considerations: responseText(reply.outfit_review.considerations),
+    limitations: responseText(reply.outfit_review.limitations),
+  } : null,
+  answer_sources: reply.answer_sources.map(source => ({ ...source, label: responseText(source.label) })),
+}));
 export type TurnReply = z.infer<typeof TurnReplySchema>;
 
 export type Session = {
@@ -175,10 +234,13 @@ export type Session = {
   context: ConversationTurn["context"];
   history: ConversationTurn["history"];
   styling?: z.infer<typeof StylingStateSchema>;
+  discovery?: DiscoveryState | null;
+  collection?: CollectionState;
   cart_product_ids?: string[];
+  task?: TaskState;
 };
 export function newSession(): Session {
-  return { scopes: createPreferenceScopes(), pending: null, pending_answer: null, context: { focused: null, latest: [] }, history: [], styling: emptyStylingState() };
+  return { scopes: createPreferenceScopes(), pending: null, pending_answer: null, context: { focused: null, latest: [] }, history: [], styling: emptyStylingState(), discovery: null, collection: emptyCollectionState(), task: emptyTaskState() };
 }
 export function snapshot(product: {
   product_id: string; product_name: string; price_aud?: number;
@@ -199,36 +261,46 @@ export function makeTurn(
   session: Session, message: string,
   focus: ConversationTurn["context"]["focused"] = null,
   shortcut?: z.infer<typeof ShortcutSchema>,
-  previewOtherColours = false
+  previewOtherColours = false,
+  recovery?: z.infer<typeof RecoverySchema>
 ): ConversationTurn {
   const scopes = PreferenceScopesSchema.parse(session.scopes);
+  const collection = CollectionStateSchema.parse(session.collection ?? emptyCollectionState());
   const styling = StylingStateSchema.parse(session.styling ?? emptyStylingState());
   const known = [...session.context.latest, ...(session.context.previous?.flat() ?? []), ...(session.context.focused ? [session.context.focused] : []), ...(session.context.comparison ? [session.context.comparison] : []), ...styling.outfit];
   if (focus && !known.some(p => p.product_id === focus.product_id) && !session.pending) {
     const savedSize = scopes.item.category === focus.category ? scopes.item.size : null;
     scopes.item = { ...emptyShoppingPreferences(), size: savedSize };
     scopes.unresolved_item = [];
+    collection.current = null;
   }
   return TurnSchema.parse({
-    message, scopes, pending: shortcut && ["cross_sell", "cheaper", "upsell"].includes(shortcut.kind) ? null : session.pending,
-    pending_answer: (shortcut && ["cross_sell", "cheaper", "upsell"].includes(shortcut.kind)) || previewOtherColours ? null : session.pending_answer ?? null,
+    message, scopes, discovery: session.discovery ?? null, collection,
+    pending: shortcut && ["cross_sell", "cheaper", "upsell", "similar"].includes(shortcut.kind) ? null : session.pending,
+    pending_answer: (shortcut && ["cross_sell", "cheaper", "upsell", "similar"].includes(shortcut.kind)) || previewOtherColours ? null : session.pending_answer ?? null,
     context: { focused: focus ?? session.context.focused, latest: session.context.latest,
       ...(session.context.previous?.length ? { previous: session.context.previous } : {}),
       ...(session.context.comparison ? { comparison: session.context.comparison } : {}),
       ...(styling.outfit.length ? { selected: styling.outfit.map(snapshot) } : {}) },
     styling, cart_product_ids: session.cart_product_ids ?? [],
     history: session.history.slice(-HISTORY_MESSAGES), ...(shortcut ? { shortcut } : {}),
+    task: session.task ?? emptyTaskState(),
+    ...(recovery ? { recovery } : {}),
     ...(previewOtherColours ? { preview_other_colours: true } : {}),
   });
 }
 export function acceptReply(turn: ConversationTurn, input: unknown): { reply: TurnReply; session: Session } {
   const reply = TurnReplySchema.parse(input);
+  if (reply.task_transition_applied) turn = prepareConversationTask(turn);
   if (!reply.intent_understood && (JSON.stringify(reply.proposed_scopes) !== JSON.stringify(turn.scopes) ||
       JSON.stringify(reply.styling) !== JSON.stringify(turn.styling ?? emptyStylingState()))) {
     throw new Error("An unclear intention cannot change remembered shopping preferences or outfit choices.");
   }
   if (reply.alternative_kind === "colour_preview" && turn.preview_other_colours !== true) {
     throw new Error("Colour alternatives require the explicit preview action.");
+  }
+  if (reply.alternative_kind === "unverified_preview" && (!turn.task?.preview_unverified || !reply.unverified_requirements.length)) {
+    throw new Error("Unverified alternatives require explicit browsing permission and disclosed unknowns.");
   }
   const visible = [...reply.products, ...reply.alternatives];
   const previous = [turn.context.latest, ...(turn.context.previous ?? [])].filter(products => products.length).slice(0, 2);
@@ -273,7 +345,10 @@ export function acceptReply(turn: ConversationTurn, input: unknown): { reply: Tu
     scopes: PreferenceScopesSchema.parse(reply.proposed_scopes), pending: reply.pending,
     pending_answer: reply.pending_answer,
     styling: reply.styling,
+    discovery: reply.discovery ?? turn.discovery ?? null,
+    collection: reply.collection ?? turn.collection ?? emptyCollectionState(),
     cart_product_ids: turn.cart_product_ids,
+    task: reply.task ?? turn.task ?? emptyTaskState(),
     context, history: history.slice(-HISTORY_MESSAGES),
   } };
 }

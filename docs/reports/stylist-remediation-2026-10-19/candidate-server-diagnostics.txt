@@ -1,0 +1,333 @@
+
+> abc-fashion-ai-assistant@0.1.0 start
+> next start --hostname 127.0.0.1 --port 3002
+
+▲ Next.js 16.3.8
+- Local:         http://127.0.0.1:3002
+- Network:       http://127.0.0.1:3002
+✓ Ready in 51ms
+✓ Running next.config.ts took 11ms
+Stylist diagnostic {
+  request_id: 'b3b24919-e666-47cf-84d3-548a0f9bb895',
+  stage: 'interpretation',
+  elapsed_ms: 5925,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.product_type',
+    'item.occasion',
+    'item.preferred_colours',
+    'item.fit',
+    'item.size',
+    'item.max_price',
+    'item.unresolved'
+  ],
+  has_outfit_request: false
+}
+Conversation plan rejected {
+  attempt: 1,
+  type: 'PlanEvidenceError',
+  field: 'changes.item.unresolved.evidence'
+}
+Stylist diagnostic {
+  request_id: 'b3b24919-e666-47cf-84d3-548a0f9bb895',
+  stage: 'plan_rejected',
+  elapsed_ms: 5929,
+  attempt: 1,
+  type: 'PlanEvidenceError',
+  field: 'changes.item.unresolved.evidence',
+  rule: 'Plan evidence is not present in the latest message (changes'
+}
+Stylist diagnostic {
+  request_id: 'b3b24919-e666-47cf-84d3-548a0f9bb895',
+  stage: 'interpretation',
+  elapsed_ms: 10395,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.product_type',
+    'item.occasion',
+    'item.preferred_colours',
+    'item.size',
+    'item.max_price',
+    'item.unresolved'
+  ],
+  has_outfit_request: false
+}
+Conversation plan rejected {
+  attempt: 2,
+  type: 'PlanEvidenceError',
+  field: 'changes.item.unresolved.evidence'
+}
+Stylist diagnostic {
+  request_id: 'b3b24919-e666-47cf-84d3-548a0f9bb895',
+  stage: 'plan_rejected',
+  elapsed_ms: 10397,
+  attempt: 2,
+  type: 'PlanEvidenceError',
+  field: 'changes.item.unresolved.evidence',
+  rule: 'Plan evidence is not present in the latest message (changes'
+}
+Stylist diagnostic {
+  request_id: 'b3b24919-e666-47cf-84d3-548a0f9bb895',
+  stage: 'validation',
+  elapsed_ms: 10404,
+  status: 'needs_clarification',
+  action: 'clarify',
+  fields: [ 'task.request' ],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'b3b24919-e666-47cf-84d3-548a0f9bb895',
+  stage: 'response',
+  elapsed_ms: 10413,
+  status: 'needs_clarification',
+  issue_codes: [ 'needs_detail' ],
+  issue_fields: [ 'task.request' ],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '46a8cd96-1e6c-4243-b621-7e7b4b758df8',
+  stage: 'interpretation',
+  elapsed_ms: 1718,
+  action: 'discover',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: '46a8cd96-1e6c-4243-b621-7e7b4b758df8',
+  stage: 'validation',
+  elapsed_ms: 1727,
+  status: 'no_action',
+  action: 'discover',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '46a8cd96-1e6c-4243-b621-7e7b4b758df8',
+  stage: 'response',
+  elapsed_ms: 1728,
+  status: 'no_action',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'd579ba97-45b4-4e3e-b08a-db61531a9b01',
+  stage: 'interpretation',
+  elapsed_ms: 2443,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'd579ba97-45b4-4e3e-b08a-db61531a9b01',
+  stage: 'validation',
+  elapsed_ms: 2444,
+  status: 'no_action',
+  action: 'none',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'd579ba97-45b4-4e3e-b08a-db61531a9b01',
+  stage: 'response',
+  elapsed_ms: 2446,
+  status: 'no_action',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '49fc80af-1658-45d1-8dce-ae40dfbebadf',
+  stage: 'interpretation',
+  elapsed_ms: 4993,
+  action: 'new_search',
+  changed_fields: [ 'shared.gender', 'shared.occasion' ],
+  has_outfit_request: true
+}
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Stylist diagnostic {
+  request_id: '49fc80af-1658-45d1-8dce-ae40dfbebadf',
+  stage: 'plan_rejected',
+  elapsed_ms: 4996,
+  attempt: 1,
+  type: 'PlanValidationError',
+  field: null,
+  rule: 'A collection change needs an explicit collection request or a supported Dresses/Skirts category default'
+}
+Stylist diagnostic {
+  request_id: '6a18ab99-1194-4a59-9450-1599e69abd47',
+  stage: 'interpretation',
+  elapsed_ms: 7320,
+  action: 'new_search',
+  changed_fields: [ 'item.occasion', 'item.style' ],
+  has_outfit_request: true
+}
+Stylist diagnostic {
+  request_id: '6a18ab99-1194-4a59-9450-1599e69abd47',
+  stage: 'validation',
+  elapsed_ms: 7324,
+  status: 'ready_for_validation',
+  action: 'new_search',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '6a18ab99-1194-4a59-9450-1599e69abd47',
+  stage: 'response',
+  elapsed_ms: 11273,
+  status: 'no_match',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '49fc80af-1658-45d1-8dce-ae40dfbebadf',
+  stage: 'interpretation',
+  elapsed_ms: 10341,
+  action: 'new_search',
+  changed_fields: [ 'item.occasion' ],
+  has_outfit_request: true
+}
+Stylist diagnostic {
+  request_id: '49fc80af-1658-45d1-8dce-ae40dfbebadf',
+  stage: 'validation',
+  elapsed_ms: 10343,
+  status: 'ready_for_validation',
+  action: 'new_search',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '49fc80af-1658-45d1-8dce-ae40dfbebadf',
+  stage: 'response',
+  elapsed_ms: 13517,
+  status: 'matches',
+  issue_codes: [],
+  issue_fields: [],
+  products: 2,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'ecf95c35-3a8a-4bc3-8702-560469fc523b',
+  stage: 'interpretation',
+  elapsed_ms: 3796,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.preferred_colours',
+    'item.max_price'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'ecf95c35-3a8a-4bc3-8702-560469fc523b',
+  stage: 'validation',
+  elapsed_ms: 3802,
+  status: 'ready_for_validation',
+  action: 'new_search',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '27ad1646-e505-4742-99c9-541a5c8dc614',
+  stage: 'interpretation',
+  elapsed_ms: 4321,
+  action: 'discover',
+  changed_fields: [ 'item.occasion' ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: '27ad1646-e505-4742-99c9-541a5c8dc614',
+  stage: 'validation',
+  elapsed_ms: 4323,
+  status: 'no_action',
+  action: 'discover',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '27ad1646-e505-4742-99c9-541a5c8dc614',
+  stage: 'response',
+  elapsed_ms: 4324,
+  status: 'no_action',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'bee21ef4-dec9-44ec-b04c-c4dab12ec3e9',
+  stage: 'interpretation',
+  elapsed_ms: 5518,
+  action: 'refine',
+  changed_fields: [],
+  has_outfit_request: true
+}
+Stylist diagnostic {
+  request_id: 'bee21ef4-dec9-44ec-b04c-c4dab12ec3e9',
+  stage: 'validation',
+  elapsed_ms: 5521,
+  status: 'ready_for_validation',
+  action: 'refine',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'd2396009-715e-4d8c-be05-aca91d81c9f4',
+  stage: 'interpretation',
+  elapsed_ms: 5451,
+  action: 'refine',
+  changed_fields: [],
+  has_outfit_request: true
+}
+Stylist diagnostic {
+  request_id: 'd2396009-715e-4d8c-be05-aca91d81c9f4',
+  stage: 'validation',
+  elapsed_ms: 5453,
+  status: 'ready_for_validation',
+  action: 'refine',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'ecf95c35-3a8a-4bc3-8702-560469fc523b',
+  stage: 'response',
+  elapsed_ms: 7010,
+  status: 'no_match',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'bee21ef4-dec9-44ec-b04c-c4dab12ec3e9',
+  stage: 'response',
+  elapsed_ms: 8596,
+  status: 'no_match',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'd2396009-715e-4d8c-be05-aca91d81c9f4',
+  stage: 'response',
+  elapsed_ms: 7641,
+  status: 'no_match',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}

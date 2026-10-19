@@ -20,6 +20,8 @@ import { PreferenceScopesSchema } from "./preferenceScope";
 import { searchOutfitBudget } from "../search/outfitBudgetSearch";
 import type { OutfitBudget, OutfitChoices } from "./outfitBudgetSchema";
 import { dressCodes, meetsDressCode } from "./dressCode";
+import { issue, type ConversationIssue } from "./conversationIssues";
+import { preparePurchaseBudget, completePurchaseBudget, type PurchaseBudgetSummary } from "./purchaseBudget";
 
 type Status =
   | "matches"
@@ -48,13 +50,22 @@ export function executeConversationSearch(
 ) {
   const request = ConversationPlanRequestSchema.parse(input);
   const checked = checkConversationPlan(request, modelPlan);
+  let issues: ConversationIssue[] = checked.issues ?? [];
 
   let applied = checked.preferences;
   const styling = checked.styling;
   let outfitBudget: OutfitBudget | null = null;
   let outfitChoices: OutfitChoices | null = null;
+  let purchaseBudget: PurchaseBudgetSummary | null = null;
   const excluded = new Set([...styling.rejected_ids, ...(request.cart_product_ids ?? [])]);
+  if (checked.action === "refine" && /\b(?:more like|similar)\b/i.test(request.message)) {
+    checked.reference_product_ids.forEach(id => excluded.add(id));
+  }
   const eligible = (product: CatalogueProduct) => !excluded.has(product.product_id ?? "") &&
+    (!request.task?.preview_unverified || [...checked.proposed_scopes.unresolved_item, ...checked.proposed_scopes.unresolved_shared].every(requirement => {
+      const negative = requirement.match(/\b(?:no|without|avoid|excluding|exclude)\s+(polyester|leather|wool|silk|cotton|linen|nylon|suede|fur)\b/i);
+      return !negative || !new RegExp(`\\b${negative[1]}\\b`, "i").test(product.material ?? "");
+    })) &&
     (!styling.outfit_request || meetsDressCode(product, styling.dress_code)) &&
     meetsFeatureRequirements(product, styling.required_features) &&
     (["occasion", "style", "fit", "season"] as const).every(field =>
@@ -95,8 +106,11 @@ export function executeConversationSearch(
 
     return {
       status,
+      issues: status === "needs_clarification" ? issues.slice(0, 12) : [],
+      unverified_requirements: request.task?.preview_unverified ? [...scopes.unresolved_shared, ...scopes.unresolved_item] : [],
       action: checked.action,
-      message,
+      message: purchaseBudget ? `${message}\n\nThe selected purchases count as A$${purchaseBudget.fixed_total_aud.toFixed(2)} of your A$${purchaseBudget.limit_aud.toFixed(2)} total, leaving A$${purchaseBudget.remaining_aud.toFixed(2)} for this addition. Delivery and discounts are not included.` : message,
+      purchase_budget: completePurchaseBudget(purchaseBudget, products),
       reference_product_ids: checked.reference_product_ids,
       proposed_scopes: scopes,
       styling,
@@ -135,6 +149,11 @@ export function executeConversationSearch(
   applied = validation.preferences;
 
   if (validation.needs_clarification) {
+    issues = validation.issues.filter(value => value.blocking).map(value => issue("invalid_preference", value.field,
+      value.field in checked.proposed_scopes.shared && (() => { const saved = checked.proposed_scopes.shared[value.field as keyof typeof checked.proposed_scopes.shared]; return saved !== null && (!Array.isArray(saved) || saved.length > 0); })() ? "shared" : "item",
+      value.value, null, value.field === "size" ? vocabulary.sizes : [...new Set(vocabulary.rows.flatMap(row => {
+        const label = row[value.field as keyof typeof row]; return typeof label === "string" ? [label] : [];
+      }))]));
     return reply(
       "needs_clarification",
       validation.issues
@@ -148,11 +167,29 @@ export function executeConversationSearch(
   }
 
   if (styling.outfit_request && ["new_search", "refine"].includes(checked.action)) {
-    const result = searchOutfitBudget(catalogue, styling.outfit_request, applied, vocabulary, eligible);
+    const ids = styling.outfit_request.anchor_product_ids ?? [];
+    const anchors = catalogue.filter(product => ids.includes(product.product_id ?? ""));
+    if (anchors.length !== ids.length) return reply("needs_clarification", "I couldn't verify the jacket to style these pieces with. Reopen the jacket or choose it again; your total budget is still saved.");
+    const result = searchOutfitBudget(catalogue, styling.outfit_request, applied, vocabulary,
+      product => eligible(product) && !ids.includes(product.product_id ?? ""), anchors);
     outfitBudget = result.outfit_budget;
     outfitChoices = result.outfit_choices;
     const code = dressCodes.find(code => code.value === styling.dress_code);
     return reply(result.status, code ? `${code.label}: ${code.guidance}\n\n${result.message}` : result.message, result.products);
+  }
+
+  if (checked.action === "discover") {
+    // Keep all existing eligibility/feature/shared filters. Exclude seen ideas
+    // only for a fresh batch; exhausting it must not silently recycle dislikes.
+    const seen = new Set([...(request.discovery?.seen_product_ids ?? []),
+      ...(checked.discovery_intent === "different" ? request.context.latest.map(product => product.product_id) : [])]);
+    const result = searchWithValidatedPreferences(catalogue, applied, vocabulary, {
+      eligible: product => eligible(product) && !seen.has(product.product_id ?? ""),
+      allowUnanchored: true, diversify: true,
+    });
+    applied = result.validation.preferences;
+    return reply(result.result.status === "needs_more_detail" ? "needs_clarification" : result.result.status,
+      result.result.message, result.result.products);
   }
 
   const contextProducts = [
@@ -208,6 +245,14 @@ export function executeConversationSearch(
   }
 
   if (checked.action === "cross_sell") {
+    if (applied.category) {
+      const budget = preparePurchaseBudget(catalogue, request, styling, checked.reference_product_ids, applied);
+      if (budget && "error" in budget) {
+        issues = [issue("needs_detail", "purchase budget", "task", null)];
+        return reply("needs_clarification", budget.error!);
+      }
+      purchaseBudget = budget?.summary ?? null;
+    }
     if (!references.length && styling.external_items.length) {
       if (!applied.category) return reply("needs_clarification", "What would you like to add to the item you described: shoes, a bag or an accessory?");
       const result = retrieveDescriptionCrossSell(catalogue, applied, vocabulary, styling.external_items, eligible);

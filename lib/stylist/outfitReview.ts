@@ -131,7 +131,7 @@ export function reviewSelectedOutfit(catalogue: readonly CatalogueProduct[], tur
   return {
     message: outfitReviewSections.map(section => `${section.title}\n${review[section.key]}`).join("\n\n"),
     outfit_review: review,
-    answer_sources: verified.map(({ record }) => ({ label: `${record.product_name} — catalogue details`, url: `/products/${encodeURIComponent(record.product_id!)}` })),
+    answer_sources: verified.map(({ record }) => ({ label: `${record.product_name}: catalogue details`, url: `/products/${encodeURIComponent(record.product_id!)}` })),
     answer_product_ids: selected.map(piece => piece.product_id),
     pending_answer: turn.pending_answer ?? null,
   };

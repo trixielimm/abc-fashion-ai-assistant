@@ -1,0 +1,259 @@
+- scrollbar "Page scroll"
+- banner:
+  - link "ABC Fashion":
+    - /url: /
+    - generic: ABC Fashion
+  - navigation "Primary":
+    - link "Shop":
+      - /url: /search
+    - link "Collections":
+      - /url: /#featured-categories
+    - link "For him":
+      - /url: /#this-season
+    - link "For her":
+      - /url: /#this-season
+    - button "AI Stylist"
+  - search "Product search":
+    - button "Search products":
+    - searchbox "Search"
+  - button "Account coming soon" [disabled]:
+  - link "Bag, 0 items":
+    - /url: /cart
+- main:
+  - img "Model in a long wool coat"
+  - paragraph: VOLUME
+  - paragraph: One
+  - paragraph: Autumn | Winter 2024
+  - heading "Refined Simplicity in Every Thread." [level=1]
+  - paragraph: For those who believe that true style is found in the details and in the quality of materials.
+  - link "Shop New Arrivals →":
+    - /url: "#this-season"
+  - link "See more":
+    - /url: "#featured-categories"
+  - paragraph: Featured Categories
+  - link "Shop all →":
+    - /url: "#this-season"
+  - link:
+    - /url: "#this-season"
+    - article:
+      - img "The Essentials"
+      - paragraph: The Essentials
+      - heading "The Essentials" [level=3]
+      - paragraph: Timeless wardrobe foundations designed for effortless everyday dressing.
+      - generic: See more →
+  - link:
+    - /url: "#this-season"
+    - article:
+      - img "Accessories"
+      - paragraph: Accessories
+      - heading "Accessories" [level=3]
+      - paragraph: Considered finishing pieces that bring character and refinement to every look.
+      - generic: See more →
+  - link:
+    - /url: "#this-season"
+    - article:
+      - img "Outerwear"
+      - paragraph: Outerwear
+      - heading "Outerwear" [level=3]
+      - paragraph: Structured layers designed to balance warmth, form and understated elegance.
+      - generic: See more →
+  - paragraph: This Season
+  - button "Previous products":
+  - button "Next products":
+  - link:
+    - /url: /products/silk-blend-blouse
+    - article:
+      - img "Silk Blend Blouse"
+      - heading "Silk Blend Blouse" [level=3]
+      - paragraph: $129.00
+  - link:
+    - /url: /products/tailored-trouser
+    - article:
+      - img "Tailored Trouser"
+      - heading "Tailored Trouser" [level=3]
+      - paragraph: $159.00
+  - link:
+    - /url: /products/silver-chain
+    - article:
+      - img "Silver Chain, Long Drop"
+      - heading "Silver Chain, Long Drop" [level=3]
+      - paragraph: $79.00
+  - link:
+    - /url: /products/structured-blazer
+    - article:
+      - img "Structured Blazer"
+      - heading "Structured Blazer" [level=3]
+      - paragraph: $289.00
+  - link:
+    - /url: /products/leather-jacket
+    - article:
+      - img "Leather Biker Jacket"
+      - heading "Leather Biker Jacket" [level=3]
+      - paragraph: $349.00
+  - link:
+    - /url: /products/work-shirt
+    - article:
+      - img "Relaxed Work Shirt"
+      - heading "Relaxed Work Shirt" [level=3]
+      - paragraph: $119.00
+  - paragraph: Campaign 04
+  - heading "The Modernist Dialogue" [level=2]
+  - paragraph: A conversation between architecture and attire. Our latest campaign explores the intersection of sculpted forms and fluid silhouettes, captured in the heart of Copenhagen's modernist landscape.
+  - link "Read the story →":
+    - /url: "#"
+  - img "Campaign models photographed against concrete architecture"
+  - paragraph: Stay informed
+  - paragraph: Join us on our journey for early access to new collections and exclusive offers for members.
+  - generic: Email address
+  - textbox "Email address":
+    - /placeholder: EMAIL ADDRESS
+  - button "Subscribe"
+- contentinfo:
+  - paragraph:
+    - text: ABC Fashion
+  - paragraph:
+    - text: Copenhagen & Stockholm
+    - text: London / Paris / New York
+  - paragraph: On Instagram
+  - link "Neutral knitwear on a rail":
+    - /url: "#"
+    - img "Neutral knitwear on a rail"
+  - link "Stacked denim":
+    - /url: "#"
+    - img "Stacked denim"
+  - link "Jackets on a chrome rail":
+    - /url: "#"
+    - img "Jackets on a chrome rail"
+  - link "Black leather jacket":
+    - /url: "#"
+    - img "Black leather jacket"
+  - paragraph: Our Department
+  - list:
+    - link "Women's Collection":
+      - /url: /#this-season
+    - link "Men's Collection":
+      - /url: /#this-season
+    - link "Accessories":
+      - /url: /#featured-categories
+  - paragraph: Connect
+  - list:
+    - link "Shipping":
+      - /url: "#"
+    - link "AI Stylist Privacy":
+      - /url: /terms-of-service#privacy
+    - link "Contact Us":
+      - /url: "#"
+  - list:
+    - link "Instagram":
+      - /url: "#"
+    - link "Facebook":
+      - /url: "#"
+    - link "Pinterest":
+      - /url: "#"
+  - paragraph: © 2026 ABC Fashion Inc. All rights reserved.
+  - paragraph: Prototype store — sample products and AI-generated specifications.
+  - paragraph:
+    - link "AI Terms":
+      - /url: /terms-of-service
+    - link "AI Privacy":
+      - /url: /terms-of-service#privacy
+    - link "Cookies":
+      - /url: "#"
+- button "Chat with stylist":
+  - text: Chat with stylist
+- dialog "AI Stylist":
+  - banner:
+    - generic: ABC
+    - paragraph: Personal shopping
+    - heading "AI Stylist" [level=2]
+    - button "New chat"
+    - button "Close AI Stylist":
+  - complementary "Your look":
+    - strong: Your look
+    - generic: 0 items
+    - status: Save pieces here to build a look.
+    - strong: A$0.00 total
+    - button "View look":
+      - text: View look
+      - generic: ⌄
+  - log:
+    - generic: You
+    - paragraph: hey, just killing time tbh. Everything in my wardrobe feels boring but I don't even know what I'd buy 😅
+    - generic: AI Stylist
+    - paragraph: Sure. Would you like men's clothing, women's clothing, or both?
+    - generic: You
+    - paragraph: Both. Mostly coffee runs, weekend markets, nothing dressy. Don't quiz me — surprise me with a few ideas.
+    - generic: AI Stylist
+    - paragraph: Sure. Would you like men's clothing, women's clothing, or both?
+    - generic: You
+    - paragraph: Both collections, please. I said coffee and weekend markets. Show me some ideas now.
+    - generic: AI Stylist
+    - paragraph: Sure. Would you like men's clothing, women's clothing, or both?
+    - generic: You
+    - paragraph: Both collections, please. I said coffee and weekend markets. Show me some ideas now.
+    - generic: AI Stylist
+    - paragraph: Here are a few different ideas to react to. Nothing needs to be decided yet.
+    - region "Recommended products":
+      - generic: 4 pieces
+      - list "Recommended products":
+        - article:
+          - link "View White Denim Jacket":
+            - /url: /products/P1094
+            - img "White Denim Jacket"
+          - link "White Denim Jacket":
+            - /url: /products/P1094
+          - paragraph: A$120.00
+          - paragraph: ABC Essentials · White
+          - paragraph: "Denim Jacket · Colour: White · Style: Streetwear · Occasion: Smart Casual"
+          - button "More options for White Denim Jacket":
+            - generic: ···
+          - 'button "Save to look: White Denim Jacket"': Save to look
+          - button "Add to cart"
+        - article:
+          - link "View Lavender Lightweight Scarf":
+            - /url: /products/P1066
+            - img "Lavender Lightweight Scarf"
+          - link "Lavender Lightweight Scarf":
+            - /url: /products/P1066
+          - paragraph: A$30.00
+          - paragraph: ABC Accessories · Lavender · One Size
+          - paragraph: "Lightweight Scarf · Colour: Lavender · Style: Bohemian · Occasion: Casual"
+          - button "More options for Lavender Lightweight Scarf":
+            - generic: ···
+          - 'button "Save to look: Lavender Lightweight Scarf"': Save to look
+          - button "Add to cart"
+        - article:
+          - link "View Brown Low-Top Sneakers":
+            - /url: /products/P1052
+            - img "Brown Low-Top Sneakers"
+          - link "Brown Low-Top Sneakers":
+            - /url: /products/P1052
+          - paragraph: A$90.00
+          - paragraph: ABC Footwear · Brown
+          - paragraph: "Low-Top Sneakers · Colour: Brown · Style: Contemporary · Occasion: Casual"
+          - button "More options for Brown Low-Top Sneakers":
+            - generic: ···
+          - 'button "Save to look: Brown Low-Top Sneakers"': Save to look
+          - button "Add to cart"
+        - article:
+          - link "View Yellow Oversized Tee":
+            - /url: /products/P1087
+            - img "Yellow Oversized Tee"
+          - link "Yellow Oversized Tee":
+            - /url: /products/P1087
+          - paragraph: A$220.00
+          - paragraph: ABC Casual · Yellow
+          - paragraph: "Oversized Tee · Colour: Yellow · Style: Relaxed · Occasion: Casual"
+          - button "More options for Yellow Oversized Tee":
+            - generic: ···
+          - 'button "Save to look: Yellow Oversized Tee"': Save to look
+          - button "Add to cart"
+    - paragraph: Which of these feels closest to something you'd wear? You can choose More like this, or describe what you'd change.
+    - group "Suggested replies":
+      - button "None of these / different ideas"
+  - textbox "Message your stylist":
+    - /placeholder: What can I help you find?
+  - button "Send message" [disabled]: Send
+  - generic: Messages may be sent to OpenAI.
+  - generic "Privacy & details"
+- alert

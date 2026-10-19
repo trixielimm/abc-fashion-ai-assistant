@@ -95,7 +95,8 @@ function productAnswer(product: CatalogueProduct, turn: ConversationPlanRequest,
     lines.push("Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you.");
   }
   if (topics.has("material")) lines.push(product.material ? `The recorded material is ${label(product.material)}. A material label doesn't verify the full composition or certifications.` : "The material isn't recorded, so I can't verify its fabric or composition.");
-  if (topics.has("fit")) lines.push(`${product.fit ? `The recorded fit is ${label(product.fit)}.` : "No fit information is recorded."} ${specification?.garment_length_cm ? `The sample garment length is ${specification.garment_length_cm} cm and varies by size. I don't have a verified size chart, so I can't confirm your size or guarantee fit.` : "I don't have garment measurements or a verified size chart, so I can't confirm your size, true-to-size fit or a fit guarantee."}`);
+  if (topics.has("fit")) lines.push(`${product.fit ? `The recorded fit is ${label(product.fit)}.` : "No fit information is recorded."} ${specification?.garment_length_cm ? "I don't have a verified size chart, so I can't confirm your size or guarantee fit." : "I don't have garment measurements or a verified size chart, so I can't confirm your size or guarantee fit."}`);
+  if (/\b(?:waist|waistband)\b/i.test(question) && /stretch|elastic/i.test(question)) lines.push("Waist stretch or elasticated-waist construction is not recorded, so I can't confirm that detail.");
   if (topics.has("sizes")) lines.push(product.sizes_available?.length ? `Recorded sizes: ${product.sizes_available.join(", ")}. These are catalogue size labels; I can't convert them to body measurements or guarantee fit.` : "No sizes are recorded for this item.");
   if (topics.has("availability")) lines.push(product.is_available === true && product.stock_qty !== null && product.stock_qty > 0
     ? "The current catalogue marks this item as available. Stock isn't reserved, and I can't verify stock for an individual size."
@@ -105,16 +106,19 @@ function productAnswer(product: CatalogueProduct, turn: ConversationPlanRequest,
   if (topics.has("quality")) lines.push("The catalogue doesn't verify comfort, breathability, durability, sustainability or manufacturing quality. I can't infer those claims from price, material or brand alone.");
   if (topics.has("general")) {
     if (specification) {
-      const details = specificationDetails(specification);
-      const patterns: Array<[RegExp, RegExp]> = [
-        [/pockets?/i, /^Pockets:/], [/lin(?:ing|ed)/i, /^Lining:/], [/adjust|strap/i, /Adjustable straps:|Strap drop:/],
-        [/zip|clos(?:ure|ing)|fasten/i, /Zip closure:|Fastening:/], [/capacity|litres?|liters?/i, /^Capacity:/],
-        [/dimensions?|width|depth|height|large|big|measure|length/i, /Dimensions:|length:|height:/],
-        [/heels?/i, /^Heel height:/], [/sole/i, /^Sole:/], [/compartments?/i, /^Compartments:/], [/hardware/i, /^Hardware:/],
+      const details = specificationDetails(specification).filter(detail => !/^Sample garment length:/.test(detail));
+      const patterns: Array<[RegExp, RegExp, string]> = [
+        [/pockets?/i, /^Pockets:/, "Pockets"], [/lin(?:ing|ed)/i, /^Lining:/, "Lining"], [/adjust|strap/i, /Adjustable straps:|Strap drop:/, "Strap details"],
+        [/zip|clos(?:ure|ing)|fasten/i, /Zip closure:|Fastening:/, "Fastening"], [/capacity|litres?|liters?/i, /^Capacity:/, "Capacity"],
+        [/dimensions?|width|depth|height|large|big|measure|length/i, /Dimensions:|length:|height:/, "Measurements"],
+        [/heels?/i, /^Heel height:/, "Heel height"], [/sole/i, /^Sole:/, "Sole"], [/compartments?/i, /^Compartments:/, "Compartments"], [/hardware/i, /^Hardware:/, "Hardware"],
       ];
       const wanted = patterns.filter(([pattern]) => pattern.test(question));
-      const matching = details.filter(detail => wanted.some(([, pattern]) => pattern.test(detail)));
-      if (wanted.length) lines.push(matching.length ? matching.join(" ") : "That detail is not specified for this product.");
+      if (wanted.length) for (const [, pattern, name] of wanted) {
+        const matching = details.filter(detail => pattern.test(detail));
+        if (name === "Measurements" && specification.garment_length_cm !== null) continue;
+        lines.push(matching.length ? matching.join(" ") : `${name}: not specified for this product.`);
+      }
       else if (/\b(?:tell me (?:more )?about|details|overview|difference|compare|construct)\b/i.test(question) || intent.kind === "compare") lines.push(specification.description, details.join(" "));
       else lines.push("The product specifications don't establish that detail. I can check construction, fastening, measurements, care or the listed features.");
     } else if (/\b(?:tell me (?:more )?about|details|overview|difference|compare)\b/i.test(question) || intent.kind === "compare") {
@@ -122,7 +126,13 @@ function productAnswer(product: CatalogueProduct, turn: ConversationPlanRequest,
       lines.push(details.length ? `Recorded details: ${details.join("; ")}.` : "No additional product details are recorded.");
     } else lines.push("I don't have verified catalogue information that answers that specific question. I can check the recorded price, material, fit, sizes, availability or occasion.");
   }
-  return lines.length ? `${product.product_name}\n${lines.join(" ")}` : "";
+  if (specification?.garment_length_cm && (topics.has("fit") || /length|measure|tall/i.test(question) || topics.has("general"))) {
+    lines.push(`The sample garment length is ${specification.garment_length_cm} cm (varies by size).`);
+  } else if (/\blength\b/i.test(question) && product.category === "Clothing") lines.push("Garment length is not recorded.");
+  if (specification && (topics.has("care") || topics.has("general") || topics.has("fit") || /length|measure/i.test(question))) {
+    lines.push("These construction, measurement or care details are synthetic prototype specifications, not manufacturer-verified facts. Check the real garment's label and measurements before relying on them.");
+  }
+  return lines.length ? `${product.product_name}\n${[...new Set(lines)].join(" ")}` : "";
 }
 
 // Answer text is assembled from authoritative records, never free-form model claims.
@@ -149,7 +159,7 @@ export function answerConversationQuestion(catalogue: readonly CatalogueProduct[
       };
     }
     products.push(product);
-    sources.push({ label: `${product.product_name} — catalogue details`, url: `/products/${encodeURIComponent(id)}` });
+    sources.push({ label: `${product.product_name}: catalogue details`, url: `/products/${encodeURIComponent(id)}` });
   }
   for (const product of products) {
     const text = productAnswer(product, turn, intent, catalogue);

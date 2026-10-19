@@ -7,6 +7,9 @@ import type { executeConversationSearch } from "./conversationSearch";
 import { ChatProductSchema, type AlternativeProduct, type ChatProduct, type ConversationTurn } from "./conversationProtocol";
 import { catalogueImageSource } from "./catalogueImages";
 import { friendlyShoppingMessage } from "./friendlyShoppingMessage";
+import { discoveryPresentation } from "./discovery";
+import { issueMessage } from "./conversationIssues";
+import { auditedImagePresent } from "../catalogue/imageHealth";
 
 type SearchResult = ReturnType<typeof executeConversationSearch>;
 const money = (value: number) => `A$${value.toFixed(2)}`;
@@ -25,13 +28,18 @@ function contextDifferences(record: CatalogueProduct, preferences: ShoppingPrefe
 }
 
 function clarificationText(result: SearchResult, turn: ConversationTurn): string {
+  if (result.message.includes("Would you like to change that shared collection restriction?")) return result.message;
+  if (result.action === "clarify") return result.message;
+  const explanation = result.issues.map(issueMessage).filter(Boolean);
+  if (explanation.length) return explanation.join("\n\n");
   const scopes = result.proposed_scopes;
   const unknown = [...scopes.unresolved_shared, ...scopes.unresolved_item];
   if (unknown.length) {
     return `I can't verify or apply this requirement with the catalogue information available: ${unknown.join("; ")}. I haven't ignored it. Please change or remove that part before I recommend products.`;
   }
-  // Preserve a genuine model question. Never invent details in its place.
-  if (result.action === "clarify") return result.message;
+  // Preserve specific reference questions rather than replacing their context.
+  if (result.message.startsWith("Which jacket should I match")) return result.message;
+  if (result.message.includes("Would you like to change that shared collection restriction?")) return result.message;
   if (/which|identify|more than one/i.test(result.message) && turn.context.latest.length > 1) {
     const choices = turn.context.latest.map((p, index) => `${index + 1}. ${p.product_name}`).join("; ");
     return `Which item do you mean? ${choices}`;
@@ -40,10 +48,10 @@ function clarificationText(result: SearchResult, turn: ConversationTurn): string
     return "I need to refresh the referenced product details before comparing them. Please reopen the item or run the search again.";
   }
   if (/conflicts with saved shared restrictions/i.test(result.message)) {
-    return "That change conflicts with a restriction you asked me to keep for all items. Which restriction would you like to change?";
+    return result.message;
   }
   if (/not recognised|not recognized|not supported|not applied|clarify these preferences/i.test(result.message)) {
-    return "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions.";
+    return result.message;
   }
   return result.message;
 }
@@ -72,6 +80,11 @@ export function presentShoppingResult(
     const targets = vocabulary.categories.filter(row => same(row.subcategory ?? row.category, target));
     const unique = new Set(targets.map(row => JSON.stringify(row)));
     let explanation = product.explanation;
+    if (result.action === "discover") {
+      const details = [record.product_type, record.colour && `Colour: ${record.colour}`,
+        record.style && `Style: ${record.style}`, record.occasion && `Occasion: ${record.occasion}`].filter(Boolean);
+      explanation = details.length ? details.join(" · ") : "An available catalogue idea to explore.";
+    }
     if (result.action === "upsell" && applied && !product.value_comparison) {
       const primary = catalogue.find(row => row.product_id === result.reference_product_ids[0]);
       if (primary && typeof primary.price_aud === "number") {
@@ -113,7 +126,7 @@ export function presentShoppingResult(
    const products: ChatProduct[] = [];
   let alternatives: AlternativeProduct[] = [];
   let alternativePreferences: ShoppingPreferences | null = null;
-  let alternativeKind: "context_difference" | "colour_preview" | null = null;
+  let alternativeKind: "context_difference" | "colour_preview" | "unverified_preview" | null = null;
 
   if (preview && previewEligible && applied) {
     // A one-turn preview after an explicit click. Saved scopes never change.
@@ -155,6 +168,15 @@ export function presentShoppingResult(
     }
   }
 
+  if (result.unverified_requirements.length && applied && (products.length || alternatives.length)) {
+    const warnings = result.unverified_requirements.map(value => `Unverified requirement: ${value}.`);
+    alternatives = [...products.map(product => ({ ...product, differences: warnings })),
+      ...alternatives.map(product => ({ ...product, differences: [...product.differences, ...warnings] }))];
+    products.length = 0;
+    alternativePreferences = ShoppingPreferencesSchema.parse(applied);
+    alternativeKind = "unverified_preview";
+  }
+
   let status: SearchResult["status"] | "alternatives" = result.status;
   let message = result.message;
   if (products.length) {
@@ -181,6 +203,7 @@ export function presentShoppingResult(
     message = preview
       ? "Here are the other colours you chose to explore. They are alternatives, not exact matches. Your saved colour request and other restrictions are unchanged."
       : "I couldn't find a full match for the requested occasion, style, fit or season. These alternatives keep the required filters; their differences are listed on each card.";
+    if (alternativeKind === "unverified_preview") message = "Here are provisional options, as you requested. The unverified requirements remain saved and are labelled on every card; these are not confirmed matches.";
   } else if (!preview && result.products.length > 0) {
     status = "no_match";
     message = "I couldn't find a result that also meets the preferences you asked me to keep for every item. Those shared restrictions are unchanged.";
@@ -209,12 +232,30 @@ export function presentShoppingResult(
     !turn.history.some(entry => entry.content.includes("What occasion are you shopping for?"))
       ? question : null;
 
+  if (result.action === "discover") {
+    const hasIdeas = products.length + alternatives.length > 0;
+    const missingPhotos = result.products.some(product => auditedImagePresent(product) === false || !product.image_key);
+    return {
+      status, products, alternatives, alternatives_preferences: alternativePreferences,
+      alternative_kind: alternativeKind, can_preview_other_colours: false,
+      optional_question: hasIdeas ? "Which of these feels closest to something you'd wear? You can choose More like this, or describe what you'd change." : null,
+      suggested_replies: hasIdeas ? discoveryPresentation({ stage: "browsing", asked: [], skipped: [], seen_product_ids: [] }).suggestions : [],
+      message: hasIdeas
+        ? products.length ? `Here ${products.length + alternatives.length === 1 ? "is an idea" : "are a few different ideas"} to react to.${alternatives.length ? " Alternatives with different details are labelled below." : ""} Nothing needs to be decided yet.`
+          : `Here are some ideas with different occasion, style, fit or season details, labelled below. Your saved restrictions are still applied.`
+        : status === "no_match" && turn.discovery?.seen_product_ids.length
+          ? "I couldn't find any different available ideas within your saved preferences. You can revisit an earlier idea or tell me one thing you'd change."
+          : message,
+      ...(hasIdeas && missingPhotos ? { message: "Here are a few catalogue ideas to react to. Some suitable items do not have a working photo in the image audit; their descriptions are available, but visual matching is not verified." } : {}),
+    };
+  }
+
    const canPreviewOtherColours =
     !preview && result.status === "no_match" && previewEligible;
 
   return {
     status,
-    message: friendlyShoppingMessage({
+    message: alternativeKind === "unverified_preview" ? message : friendlyShoppingMessage({
       hasReplacementPriority: result.styling.priorities.length > 0,
       status,
       action: result.action,
@@ -234,7 +275,7 @@ export function presentShoppingResult(
       }),
       alternativeKind,
       canPreviewOtherColours,
-      unresolved: [
+      unresolved: result.issues.length ? [] : [
         ...scopes.unresolved_shared,
         ...scopes.unresolved_item,
       ],

@@ -180,6 +180,7 @@ await check("A well-shaped outfit plan cannot silently reinterpret the total as 
 
 await check("Explicitly removing an unsupported requirement or switching to a single item still works", () => {
   const session = newSession();
+  session.collection = { choice: "All", checkpoint: null };
   session.scopes.unresolved_item = ["no leather"];
   const message = "Remove my no leather restriction.";
   const result = checkConversationPlan(makeTurn(session, message), {

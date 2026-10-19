@@ -11,7 +11,13 @@ import { emptyStylingState, PrioritySchema, RecommendationContextSchema, Styling
 import { groundConversationPlan } from "./conversationGrounding";
 import { OutfitRequestSchema } from "./outfitBudgetSchema";
 import { HISTORY_MESSAGES, MAX_DISPLAYED_PRODUCTS } from "./conversationLimits";
-import { dressCodeFromMessage } from "./dressCode";
+import { dressCodeFromMessage, explicitDressCode } from "./dressCode";
+import { advanceDiscovery, DiscoveryIntentSchema, DiscoveryStateSchema } from "./discovery";
+import { CollectionStateSchema, emptyCollectionState, explicitCollection, collectionPresentation, resolveCollection } from "./collectionPreference";
+import { additiveCombinedRequest, requestedComponents, jacketPairingRequest, isJacket } from "./combinedShoppingRequest";
+import { TaskStateSchema, prepareConversationTask } from "./taskState";
+import { issue } from "./conversationIssues";
+import { matchesProductType } from "../catalogue/productFamilies";
 export { ConversationChangeSchema } from "./conversationChanges";
 
 const text = z.string().trim().min(1).max(250);
@@ -26,16 +32,20 @@ const ContextProductSchema = z.strictObject({
 });
 
 export const PendingConversationSchema = z.strictObject({
-  action: z.enum(["new_search", "refine", "cross_sell", "cheaper", "upsell", "clarify"]),
+  action: z.enum(["new_search", "refine", "cross_sell", "cheaper", "upsell", "clarify", "discover"]),
   reference: ProductReferenceSchema.nullable(),
   goal: z.string().min(1).max(2000),
   question: z.string().min(1).max(4000),
   before_scopes: PreferenceScopesSchema,
+  before_styling: StylingStateSchema.optional(),
+  before_collection: CollectionStateSchema.optional(),
   styling_question: z.boolean().optional(),
 });
 
 export const ConversationPlanRequestSchema = z.strictObject({
   message: z.string().trim().min(1).max(2000),
+  collection: CollectionStateSchema.optional(),
+  discovery: DiscoveryStateSchema.nullable().optional(),
   scopes: PreferenceScopesSchema.default(createPreferenceScopes),
   context: z.strictObject({
     focused: ContextProductSchema.nullable(),
@@ -52,12 +62,14 @@ export const ConversationPlanRequestSchema = z.strictObject({
   pending_answer: PendingAnswerSchema.nullable().optional(),
   styling: StylingStateSchema.optional(),
   cart_product_ids: z.array(text).max(50).optional(),
+  task: TaskStateSchema.optional(),
 });
 
 
 export const ConversationPlanSchema = z.strictObject({
   outfit_request: OutfitRequestSchema.nullable().optional(),
-  action: z.enum(["new_search", "refine", "cross_sell", "cheaper", "upsell", "clarify", "none"]),
+  action: z.enum(["new_search", "refine", "cross_sell", "cheaper", "upsell", "clarify", "none", "discover"]),
+  discovery_intent: DiscoveryIntentSchema.nullable().optional(),
   intent_evidence: text,
   reference: ProductReferenceSchema.nullable(),
   changes: z.array(ConversationChangeSchema).max(24),
@@ -82,7 +94,7 @@ function unsupportedRequestDetails(message: string) {
 }
 
 export function checkConversationPlan(input: unknown, output: unknown) {
-  const request = ConversationPlanRequestSchema.parse(input);
+  const request = prepareConversationTask(ConversationPlanRequestSchema.parse(input));
   const originalPlan = ConversationPlanSchema.parse(output);
   // Validate model quotations before any normalization can replace a change.
   for (const change of originalPlan.changes) {
@@ -102,6 +114,11 @@ export function checkConversationPlan(input: unknown, output: unknown) {
     if (!normalise(request.message).includes(normalise(quote))) throw new PlanEvidenceError("styling.evidence");
   }
   const plan = groundConversationPlan(request, originalPlan);
+  const combined = additiveCombinedRequest(request.message);
+  if (combined && (combined.components.has("Bottoms") || combined.components.has("Shirts")) &&
+      ["new_search", "refine", "cross_sell", "clarify"].includes(plan.action) && !plan.outfit_request) {
+    throw new PlanValidationError("Use outfit_request with every requested component and one combined total. Bottoms and a shirt as well requests both pieces, even when phrased 'or ... as well'. Do not ask bottoms only or both or put the total on each item. Keep the referenced jacket for styling via reference.");
+  }
   let scopes = PreferenceScopesSchema.parse(request.scopes);
   const continuing = plan.continuation === true;
   const originalStyling = StylingStateSchema.parse(request.styling ?? emptyStylingState());
@@ -133,15 +150,29 @@ export function checkConversationPlan(input: unknown, output: unknown) {
   }
 
   requireEvidence(plan.intent_evidence, "intent_evidence");
-  const dressCode = dressCodeFromMessage(request.message);
+  if (plan.action === "discover") {
+    const intent = plan.styling_intent;
+    if (!plan.discovery_intent || plan.reference || plan.answer || plan.outfit_request ||
+        intent && (intent.outfit_changes.length || intent.owned_categories.length || intent.external_items?.length || intent.offers)) {
+      throw new PlanValidationError("Discovery needs discovery_intent and no reference, answer or outfit operations. Explicit filters may use changes and styling feature requirements.");
+    }
+    if (originalStyling.outfit_request) {
+      throw new PlanValidationError("Keep the active outfit and combined budget. Use refine to browse its components; do not replace it with discovery.");
+    }
+  } else if (plan.discovery_intent) {
+    throw new PlanValidationError("Only discover may include discovery_intent.");
+  }
+  const dressCode = dressCodeFromMessage(request.message) ?? explicitDressCode(request.message);
   if (plan.action === "new_search") styling.dress_code = null;
-  if (plan.action === "refine" && originalStyling.outfit_request && dressCode) styling.dress_code = dressCode;
+  if (["new_search", "refine", "cross_sell"].includes(plan.action) && dressCode) styling.dress_code = dressCode;
   if (plan.action === "clarify") {
     if (!plan.question) throw new PlanValidationError("A clarification plan must include a question.");
-    const composition = composePreferences(scopes);
+    const composition = composePreferences(scopes, { allowUnverified: request.task?.preview_unverified });
     return { status: "needs_clarification", action: plan.action, reference_product_ids: [] as string[],
       proposed_scopes: scopes, styling: originalStyling, styling_question: false,
+      collection: request.collection ?? emptyCollectionState(),
       preferences: composition.status === "ready" ? composition.preferences : null,
+      issues: [issue(plan.question?.startsWith("I couldn't reliably interpret") || plan.question?.startsWith("Could you rephrase") ? "interpretation_failed" : "needs_detail", "request", "task", null)],
       message: plan.question ?? "Could you rephrase that change? Your saved shopping preferences are unchanged." };
   }
   if (plan.outfit_request) {
@@ -162,7 +193,11 @@ export function checkConversationPlan(input: unknown, output: unknown) {
     if (plan.changes.some(change => ["min_price", "max_price"].includes(change.field) && change.value === outfit.total_budget_aud)) {
       throw new PlanValidationError("Store the combined total only in outfit_request.total_budget_aud, never as a per-item price change.");
     }
-    styling.outfit_request = outfit;
+    // Only server-resolved references can become persistent pairing anchors.
+    const { anchor_product_ids: ignoredAnchors, ...requestedOutfit } = outfit;
+    void ignoredAnchors;
+    styling.outfit_request = { ...requestedOutfit,
+      ...(plan.action === "refine" && previous?.anchor_product_ids?.length ? { anchor_product_ids: previous.anchor_product_ids } : {}) };
   } else if (["new_search", "cross_sell", "cheaper", "upsell"].includes(plan.action)) {
     styling.outfit_request = null;
   }
@@ -229,6 +264,9 @@ export function checkConversationPlan(input: unknown, output: unknown) {
       if (change.operation === "keep" || change.operation === "own") {
         styling.outfit = styling.outfit.filter(row => !(row.category === product.category && row.subcategory === product.subcategory));
         styling.outfit.push({ ...product, ownership: change.operation === "own" || alreadyOwned ? "owned" : "selected" });
+        if (styling.purchase_budget && change.operation === "keep" && request.scopes.item.category === product.category) {
+          styling.purchase_budget.product_ids = [...new Set([...styling.purchase_budget.product_ids.filter(id => styling.outfit.some(piece => piece.product_id === id)), product.product_id])];
+        }
         styling.rejected_ids = styling.rejected_ids.filter(id => id !== product.product_id);
       } else if (change.operation === "reject") {
         styling.rejected_ids = [...new Set([...styling.rejected_ids, product.product_id])].slice(-50);
@@ -300,6 +338,12 @@ export function checkConversationPlan(input: unknown, output: unknown) {
     if (field !== "unresolved" && labelsToCheck.some(value => typeof value === "string" && featureLabels.includes(normalise(value)))) {
       throw new PlanValidationError("Construction and care features belong only in styling_intent.preferences with a supported feature/priority key. Never store pockets, lining, adjustable straps, closures or care as colours, style, material or another catalogue label. Remove the misplaced change.");
     }
+    if (field === "gender") {
+      const explicit = explicitCollection(request.message, Boolean(request.collection?.checkpoint));
+      if (change.scope === "shared" && (!explicit || !/\b(?:all (?:items|recommendations|future searches)|every item|throughout|globally)\b/i.test(request.message))) {
+        throw new PlanValidationError("A shared collection rule needs an explicit request for all recommendations. Keep collection-question answers in item scope; the server remembers the browsing choice separately.");
+      }
+    }
     const key = `${change.scope}.${field}`;
     if (touched.has(key)) throw new PlanValidationError("Use one change per field per turn.");
     touched.add(key);
@@ -349,6 +393,26 @@ export function checkConversationPlan(input: unknown, output: unknown) {
     }
   }
 
+  const searching = ["new_search", "refine", "discover", "cross_sell", "cheaper", "upsell"].includes(plan.action);
+  const browseCollection = ["new_search", "refine", "discover"].includes(plan.action) && !reference && !styling.outfit_request;
+  const resolution = searching ? resolveCollection({
+    message: request.message, previous: request.collection, before: request.scopes.item, preferences: scopes.item,
+    newItem: !continuing && (plan.action === "new_search" || plan.action === "cross_sell" && !resumesDescription),
+    allowDefault: browseCollection,
+  }) : null;
+  const collection = resolution?.state ?? CollectionStateSchema.parse(request.collection ?? emptyCollectionState());
+  const effectiveCollection = resolution?.choice ?? request.scopes.shared.gender;
+  for (const change of plan.changes.filter(change => change.field === "gender")) {
+    const expected = resolution?.explicit?.choice ?? resolution?.categoryDefault?.choice;
+    if (!expected || change.value !== (expected === "All" ? null : expected)) {
+      throw new PlanValidationError("A collection change needs an explicit collection request or a supported Dresses/Skirts category default. Never infer it from an occasion, size or identity.");
+    }
+  }
+  if (searching && (resolution?.explicit || browseCollection) && !touched.has("shared.gender")) {
+    scopes.item.gender = effectiveCollection === "All" ? null : effectiveCollection;
+  }
+  // An explicit All answer may clear the local filter, but cannot weaken a
+  // shared restriction. composePreferences still resolves shared constraints.
   scopes = PreferenceScopesSchema.parse(scopes);
   if (styling.outfit_request && ["new_search", "refine"].includes(plan.action)) {
     // Item identity and sizes live on each component, not on the complete set.
@@ -369,7 +433,7 @@ export function checkConversationPlan(input: unknown, output: unknown) {
       { pattern: /\bwith\s+(?:a\s+)?(?:zip|zipper) closure\b/i, key: "zip_closure" },
     ];
     const softOrNegative = /\b(?:not necessary|not required|not needed|optional|prefer|would be|don't need|do not need)\b/i.test(request.message);
-    if (!softOrNegative && ["new_search", "refine", "cross_sell", "upsell"].includes(plan.action)) {
+    if (!softOrNegative && ["new_search", "refine", "cross_sell", "upsell", "discover"].includes(plan.action)) {
       for (const feature of explicitFeatures) {
         if (feature.pattern.test(request.message) && !styling.required_features.includes(feature.key as "pockets" | "adjustable_strap" | "zip_closure")) {
           throw new PlanValidationError(`Use styling_intent.preferences kind=requirement, operation=add, value=${feature.key} for the explicit feature request. This feature is supported through reviewed facts; do not replace it with a priority or unresolved text. Keep the category and all other requirements.`);
@@ -383,7 +447,7 @@ export function checkConversationPlan(input: unknown, output: unknown) {
     if (material) {
       const mentionsMaterial = (label: string) => normalise(label).includes(material);
       const removalPermission = new RegExp(`\\b(?:(?:remove|drop)\\s+(?:(?:my|the|that)\\s+)?(?:no\\s+|without\\s+)?${material}|(?:stop excluding|no longer exclude|allow)\\s+${material})\\b`, "i");
-      const explicitRemoval = removalPermission.test(request.message) &&
+      const explicitRemoval = (removalPermission.test(request.message) || new RegExp(`\\bremove\\b[^.!?]{0,70}\\brequirement[^.!?]{0,20}\\b${material}\\b`, "i").test(request.message)) &&
         [...request.scopes.unresolved_item, ...request.scopes.unresolved_shared].some(mentionsMaterial) &&
         plan.changes.some(change => change.field === "unresolved" && change.operation === "remove" &&
           change.value.some(mentionsMaterial));
@@ -391,17 +455,22 @@ export function checkConversationPlan(input: unknown, output: unknown) {
         throw new PlanValidationError(`The ${material} exclusion must remain an unresolved requirement. Do not omit it or store it as a style, occasion or positive material filter.`);
       }
     }
-    const targetBrief = request.message.split(/\b(?:to go with|to match|with my|my owned)\b/i)[0];
-    const requestedRoles = new Set(targetBrief.match(/\b(?:dress(?:es)?|shoes?|bags?|necklaces?)\b/gi)?.map(role =>
-      /dress/i.test(role) ? "Dresses" : /shoe/i.test(role) ? "Shoes" : /bag/i.test(role) ? "Bags" : "Necklace"));
+    const requestedRoles = new Set(requestedComponents(request.message).keys());
     const explicitTotal = ["new_search", "refine"].includes(plan.action) && requestedRoles.size > 1 && /\b(?:total|combined|both|together|all of them)\b/i.test(request.message);
     if (explicitTotal && !styling.outfit_request) {
       throw new PlanValidationError("Use outfit_request with every requested component and the combined total. Do not fulfil a shared-budget request with a single-item search or mark this supported request unresolved.");
     }
-    if (explicitTotal && styling.outfit_request && [...requestedRoles].some(role =>
-        !styling.outfit_request!.items.some(item => role === "Dresses" ? item.category === "Clothing" && item.subcategory === "Dresses"
-          : role === "Necklace" ? item.product_type === "Necklace" : item.category === role))) {
+    if (explicitTotal && styling.outfit_request && [...requestedComponents(request.message)].some(([role, requested]) =>
+        !styling.outfit_request!.items.some(item => item.category === requested.category &&
+          (role === "Necklace" || !requested.subcategory || item.subcategory === requested.subcategory) &&
+          (!requested.product_type || (matchesProductType(item, requested.product_type) ?? item.product_type === requested.product_type))))) {
       throw new PlanValidationError("The outfit_request must include every explicitly requested component.");
+    }
+    if (combined && (combined.components.has("Bottoms") || combined.components.has("Shirts")) && styling.outfit_request && [...combined.components].some(([role, requested]) =>
+      !styling.outfit_request!.items.some(item => item.category === requested.category &&
+        (!requested.subcategory || item.subcategory === requested.subcategory) &&
+        (role !== "Shirts" || /\bshirt\b/i.test(item.product_type ?? ""))))) {
+      throw new PlanValidationError("The outfit_request must include every explicitly requested component, including Bottoms and Tops / Shirt. The jacket is the styling reference, not an extra purchase.");
     }
     if (!plan.outfit_request && styling.outfit_request && plan.changes.some(change => change.field === "max_price") &&
         /\b(?:budget|total|combined|both)\b/i.test(request.message)) {
@@ -411,9 +480,11 @@ export function checkConversationPlan(input: unknown, output: unknown) {
       throw new PlanValidationError("A complete-outfit request must remain unresolved. Do not turn its total budget into a per-item maximum or fulfil it with one item.");
     }
   }
-  const composition = composePreferences(scopes);
+  const composition = composePreferences(scopes, { allowUnverified: request.task?.preview_unverified });
   const referenceIds: string[] = [];
   let referenceQuestion: string | null = null;
+  const pairingJacket = styling.outfit_request && (jacketPairingRequest(request.message) ||
+    continuing && Boolean(request.pending && jacketPairingRequest(request.pending.goal)));
 
   if (plan.action === "cheaper" && reference === null) {
     const products = request.context.focused ? [request.context.focused] : request.context.latest;
@@ -422,26 +493,61 @@ export function checkConversationPlan(input: unknown, output: unknown) {
   } else if (plan.action === "cross_sell" && styling.external_items.length && (!reference || reference.kind === "context") && !styling.outfit.length) {
     // A customer description has no SKU to resolve or verify in the catalogue.
   } else if (reference !== null || plan.action === "cross_sell" || plan.action === "upsell") {
-    const resolved = resolveProductReference(request.context, reference ?? { kind: "context" });
+    const context = pairingJacket && reference?.kind === "context" ? {
+      ...request.context, focused: request.context.focused && isJacket(request.context.focused) ? request.context.focused : null,
+      latest: request.context.latest.filter(isJacket), selected: request.context.selected?.filter(isJacket),
+    } : request.context;
+    const resolved = resolveProductReference(context, reference ?? { kind: "context" });
     if (resolved.status === "resolved") referenceIds.push(resolved.product_id);
-    else referenceQuestion = resolved.message;
+    else referenceQuestion = pairingJacket ? "Which jacket should I match the bottoms and shirt to? Choose a jacket by name or position; I'll keep your combined budget." : resolved.message;
+  }
+  if (styling.outfit_request && pairingJacket) {
+    if (referenceIds.length) styling.outfit_request.anchor_product_ids = referenceIds;
+  } else if (styling.outfit_request?.anchor_product_ids?.length && ["new_search", "refine"].includes(plan.action)) {
+    referenceIds.push(...styling.outfit_request.anchor_product_ids);
   }
 
-  const clarification = stylingQuestion ?? (composition.status === "needs_clarification"
+  const collectionConflict = resolution?.categoryDefault && composition.status === "needs_clarification" &&
+    composition.fields.includes("gender") && scopes.shared.gender
+    ? `${resolution.categoryDefault.subcategory} use the women's collection by default, but you've asked for ${scopes.shared.gender} for all items. Would you like to change that shared collection restriction?` : null;
+  const clarification = stylingQuestion ?? collectionConflict ?? (composition.status === "needs_clarification"
     ? composition.message
     : referenceQuestion);
 
+  const needsCollection = !clarification && !request.pending_answer &&
+    !styling.outfit_request && !plan.answer && !reference &&
+    ["new_search", "refine", "discover"].includes(plan.action) &&
+    (plan.action === "discover" || scopes.item.category === "Clothing") &&
+    !effectiveCollection && composition.status === "ready" && !composition.preferences.gender;
+  if (searching && (effectiveCollection || !needsCollection && !clarification)) collection.checkpoint = null;
+  if (needsCollection) {
+    collection.checkpoint = { action: plan.action as "new_search" | "refine" | "discover",
+      discovery_intent: plan.discovery_intent ?? null };
+  }
+  const discovery = needsCollection ? DiscoveryStateSchema.parse({
+    ...(request.discovery ?? { skipped: [], seen_product_ids: [] }), stage: "collection",
+    asked: [...new Set([...(request.discovery?.asked ?? []), "collection"])].slice(-2),
+  }) : plan.action === "discover" ? advanceDiscovery(request.discovery, plan.discovery_intent!,
+    Boolean(scopes.item.category || scopes.item.subcategory || scopes.item.product_type),
+    /\b(?:weekends?|office|work|everyday)\b/i.test(request.message) && /\b(?:ideas|surprise|weekend|ordinary|relaxed)\b/i.test(request.message)) : null;
+
   return {
-    status: stylingQuestion ? "needs_clarification" : plan.action === "none" ? "no_action" : clarification ? "needs_clarification" : "ready_for_validation",
+    status: stylingQuestion ? "needs_clarification" : plan.action === "none" ? "no_action" : clarification ? "needs_clarification"
+      : discovery && discovery.stage !== "browsing" ? "no_action" : "ready_for_validation",
     action: plan.action,
     reference_product_ids: referenceIds,
     proposed_scopes: scopes,
     styling,
+    discovery,
+    collection,
+    discovery_intent: plan.discovery_intent ?? null,
     styling_question: stylingQuestion !== null,
     preferences: composition.status === "ready" ? composition.preferences : null,
-    message: clarification ?? (plan.action === "none"
+    message: clarification ?? (needsCollection ? collectionPresentation.message : plan.action === "none"
       ? "No shopping action was requested."
       : "Interpretation checked. Catalogue validation and retrieval have not run."),
+    issues: composition.status === "needs_clarification" ? composition.issues
+      : referenceQuestion ? [issue("ambiguous_reference", "product", "task", null)] : [],
   };
 }
 
@@ -463,7 +569,8 @@ export class PlanEvidenceError extends PlanValidationError {
 
 export async function generateValidatedConversationPlan(
   input: unknown,
-  generate: (failedEvidenceField: string | null, validationFeedback: string | null) => Promise<unknown>
+  generate: (failedEvidenceField: string | null, validationFeedback: string | null) => Promise<unknown>,
+  onRejected?: (attempt: number, type: string, field: string | null, rule: string) => void
 ): Promise<z.infer<typeof ConversationPlanSchema>> {
   const request = ConversationPlanRequestSchema.parse(input);
   let failedEvidenceField: string | null = null;
@@ -482,8 +589,11 @@ export async function generateValidatedConversationPlan(
       validationFeedback = error instanceof z.ZodError
         ? error.issues.slice(0, 3).map(issue => `${issue.path.join(".")}: ${issue.message}`).join("; ").slice(0, 1200)
         : error instanceof SyntaxError ? "The model output was not valid JSON." : error.message;
-      console.warn("Conversation plan rejected", { attempt: attempt + 1, type: error.name,
-        field: failedEvidenceField, reason: validationFeedback });
+      console.warn("Conversation plan rejected", { attempt: attempt + 1, type: error.name, field: failedEvidenceField });
+      // Domain errors contain validator rules, never provider output or raw input.
+      const rejectionType = error.name;
+      onRejected?.(attempt + 1, rejectionType, failedEvidenceField,
+        error instanceof PlanValidationError ? error.message.split(".")[0].slice(0, 160) : rejectionType);
     }
   }
 

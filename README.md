@@ -22,6 +22,20 @@ preferences stay active until explicitly changed or New chat is used. An
 unrecognised intention does not evict useful history, erase the product context
 or overwrite the current shopping requirements.
 
+The stylist now returns named blockers and task-scoped recovery choices. A
+customer can explicitly browse provisional options with unknown requirements
+labelled, remove a requirement, or start a new shopping task while retaining
+their saved look and shared rules. Selected purchases count toward a combined
+budget; already-owned styling references have no new purchase cost. Product
+cards distinguish a listed size from confirmed variant stock. Sample garment
+measurements and care instructions are labelled as synthetic prototype data.
+
+`STYLIST_TASK_RECOVERY_ENABLED=false` rolls back the new task transitions.
+`STYLIST_DIAGNOSTICS_ENABLED=true` enables local stage, issue and timing logs;
+raw messages and signed image URLs are excluded from those logs. See the
+[implementation and improvised retest report](docs/reports/stylist-remediation-2026-10-19/report.md)
+for evidence and remaining limitations.
+
 ## Stylist tests
 
 Run `npm test` for the offline regression suites and `npm run lint` for lint.
@@ -66,6 +80,12 @@ through the existing RLS policies, then redirects to an S3 URL valid for five
 minutes. It supports public and private buckets without changing bucket
 permissions. Temporary signatures are never saved in the cart. Missing or
 unavailable photos show the existing product placeholder.
+
+The read-only `scripts/audit-missing-product-images.mjs` audit produces an image
+health manifest and a list of missing assets. Discovery prefers photo-backed
+eligible options when the audit is current. It never drops a shopping constraint
+to obtain a photo. Missing source files still need real product photography;
+the audit does not upload files or change storage permissions.
 
 Storage photos bypass Next.js image optimization so the browser can follow
 fresh storage signatures without caching them in the optimizer. Upload suitably

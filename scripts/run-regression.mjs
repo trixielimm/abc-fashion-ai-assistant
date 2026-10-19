@@ -36,6 +36,13 @@ function record(text) {
 }
 
 const suites = [
+  ["stylist-remediation", "test-stylist-remediation.mjs"],
+  ["conversation-recovery", "test-conversation-recovery.mjs"],
+  ["matching-set-budget", "test-matching-set-budget.mjs"],
+  ["category-collection-defaults", "test-category-collection-defaults.mjs"],
+  ["collection-first", "test-collection-first.mjs"],
+  ["product-card-presentation", "test-product-card-presentation.mjs"],
+  ["guided-discovery", "test-guided-discovery.mjs"],
   ["search-filters", "test-search-filters.mjs"],
   ["selected-outfit-review", "test-selected-outfit-review.mjs"],
   ["outfit-interface", "test-outfit-interface.mjs"],

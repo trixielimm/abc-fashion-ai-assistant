@@ -1,0 +1,52 @@
+{
+  "started": "2026-10-19T02:40:03.570Z",
+  "commit": "83f1f2aa3e5f3eb1fdea4bc6d6e7be6b067b9ebc",
+  "node": "v24.14.0",
+  "model": "gpt-5.6-luna",
+  "reasoning": "low",
+  "fixture_sha256": "c8da1240549e568d8f4b2252325633f7f5d8f9d9094376d2ed04228bef245889",
+  "scope": "Real model + shortcutPlan + finishConversationTurn + acceptReply; in-process with isolated synthetic fixtures. Not HTTP/browser acceptance.",
+  "human_review": "Pairing taste, aesthetic variety and end-user usefulness require human assessment.",
+  "runs": [
+    {
+      "id": "SET-A",
+      "name": "Matching bottoms and shirt with one total budget",
+      "repeat": 1,
+      "started": "2026-10-19T02:40:03.582Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Fresh session; collection unanswered",
+      "finished": "2026-10-19T02:40:09.013Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "SET-B",
+      "name": "Matching bottoms and shirt with one total budget",
+      "repeat": 1,
+      "started": "2026-10-19T02:40:03.601Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Fresh session; collection unanswered",
+      "finished": "2026-10-19T02:40:12.083Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "SET-C",
+      "name": "Matching bottoms and shirt with one total budget",
+      "repeat": 1,
+      "started": "2026-10-19T02:40:03.604Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Fresh session; collection unanswered",
+      "finished": "2026-10-19T02:40:13.528Z",
+      "turns_recorded": 2
+    }
+  ],
+  "finished": "2026-10-19T02:40:13.529Z",
+  "counts": {
+    "Pass": 3,
+    "Fail": 0,
+    "Blocked": 0,
+    "Feature gap": 0
+  }
+}

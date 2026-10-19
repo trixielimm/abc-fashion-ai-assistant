@@ -1,0 +1,402 @@
+{
+  "id": "S3-A",
+  "name": "Uncertain customer to similar dresses",
+  "repeat": 1,
+  "turns": [
+    {
+      "number": 1,
+      "message": "I feel like buying something new, but I have no idea what I want.",
+      "input": {
+        "message": "I feel like buying something new, but I have no idea what I want.",
+        "collection": {
+          "choice": "All",
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        }
+      },
+      "began": "2026-10-19T07:30:31.158Z",
+      "plan_source": "production shortcut",
+      "plan": {
+        "action": "discover",
+        "discovery_intent": "start",
+        "intent_evidence": "I feel like buying something new, but I have no idea what I want.",
+        "reference": null,
+        "changes": [],
+        "question": null,
+        "continuation": false
+      },
+      "reply": {
+        "task_transition_applied": true,
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "status": "no_action",
+        "action": "discover",
+        "discovery": {
+          "stage": "direction",
+          "asked": [
+            "direction"
+          ],
+          "skipped": [],
+          "seen_product_ids": []
+        },
+        "collection": {
+          "choice": "All",
+          "current": {
+            "choice": "All",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [
+          {
+            "label": "Everyday wear",
+            "message": "Something for everyday wear."
+          },
+          {
+            "label": "An occasion",
+            "message": "Something for an occasion."
+          },
+          {
+            "label": "Show me ideas",
+            "message": "Show me a few different ideas."
+          }
+        ],
+        "message": "Perfect! Would you like something for everyday wear, something for an occasion, or a few different ideas to react to?",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null,
+        "task": {
+          "generation": 0,
+          "prepared_key": "199hey0",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        }
+      },
+      "elapsed_ms": 7,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": {
+          "stage": "direction",
+          "asked": [
+            "direction"
+          ],
+          "skipped": [],
+          "seen_product_ids": []
+        },
+        "collection": {
+          "choice": "All",
+          "current": {
+            "choice": "All",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "199hey0",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I feel like buying something new, but I have no idea what I want."
+          },
+          {
+            "role": "assistant",
+            "content": "Perfect! Would you like something for everyday wear, something for an occasion, or a few different ideas to react to?"
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 2,
+      "message": "Something for everyday wear. Maybe a dress, but I'm open to ideas.",
+      "input": {
+        "message": "Something for everyday wear. Maybe a dress, but I'm open to ideas.",
+        "collection": {
+          "choice": "All",
+          "current": {
+            "choice": "All",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "discovery": {
+          "stage": "direction",
+          "asked": [
+            "direction"
+          ],
+          "skipped": [],
+          "seen_product_ids": []
+        },
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I feel like buying something new, but I have no idea what I want."
+          },
+          {
+            "role": "assistant",
+            "content": "Perfect! Would you like something for everyday wear, something for an occasion, or a few different ideas to react to?"
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "199hey0",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        }
+      },
+      "began": "2026-10-19T07:30:31.166Z",
+      "checks": "Error",
+      "failure": "Connection error.",
+      "error_type": "Error"
+    }
+  ],
+  "started": "2026-10-19T07:30:31.158Z",
+  "result": "Blocked",
+  "issues": [
+    {
+      "turn": 2,
+      "message": "Connection error."
+    }
+  ],
+  "collection_setup": "Shopper already chose all collections",
+  "unexecuted_turns": 2,
+  "finished": "2026-10-19T07:30:31.173Z"
+}

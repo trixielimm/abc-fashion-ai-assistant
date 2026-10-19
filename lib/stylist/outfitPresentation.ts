@@ -5,10 +5,12 @@ import { priceCents, type OutfitChoices } from "./outfitBudgetSchema";
 export const outfitMoney = (value: number) => `A$${value.toFixed(2)}`;
 
 export function outfitTotals(styling: StylingState) {
-  const selected = styling.outfit.filter(piece => piece.ownership === "selected");
+  const anchors = new Set(styling.outfit_request?.anchor_product_ids ?? []);
+  const selected = styling.outfit.filter(piece => piece.ownership === "selected" && !anchors.has(piece.product_id) &&
+    (!styling.purchase_budget || styling.purchase_budget.product_ids.includes(piece.product_id)));
   const completePrices = selected.every(piece => typeof piece.price_aud === "number" && Number.isFinite(piece.price_aud));
   const cents = selected.reduce((sum, piece) => sum + (typeof piece.price_aud === "number" ? priceCents(piece.price_aud) : 0), 0);
-  const limit = styling.outfit_request?.total_budget_aud ?? null;
+  const limit = styling.purchase_budget?.limit_aud ?? styling.outfit_request?.total_budget_aud ?? null;
   return {
     total: cents / 100,
     completePrices,
@@ -31,7 +33,8 @@ function formality(product: ChatProduct) {
 export function outfitProductNote(product: ChatProduct) {
   if (/mini/i.test(product.product_type ?? "")) return "A shorter option for cocktail-style events; check the invitation’s dress code.";
   if (/loafer/i.test(product.product_type ?? "")) return "A tailored flat option for dinner settings; check whether the event calls for dressier footwear.";
-  return product.occasion ? `Catalogue occasion: ${product.occasion}.` : null;
+  // The card's grounded reason already carries the recorded occasion.
+  return null;
 }
 
 export function suggestedOutfit(products: ChatProduct[], choices: OutfitChoices, limit: number) {
