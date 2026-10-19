@@ -272,7 +272,7 @@ check("Budget can be omitted but the target category is still server-controlled"
   );
 });
 
-check("Input preferences are not mutated and at most four products return", () => {
+check("Input preferences are not mutated and at most five products return", () => {
   const input = {
     ...request,
     excluded_colours: ["Brown"],
@@ -290,7 +290,7 @@ check("Input preferences are not mutated and at most four products return", () =
 
   const result = retrieveCrossSell(rows, input, vocabulary);
 
-  assert.equal(result.products.length, 4);
+  assert.equal(result.products.length, 5);
   assert.equal(JSON.stringify(input), before);
 });
 

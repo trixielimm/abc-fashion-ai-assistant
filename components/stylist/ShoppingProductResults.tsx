@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
 import { CheckIcon, ChevronIcon } from "@/components/ui/icons";
 import { addToCart } from "@/lib/cart";
+import { formatAud } from "@/lib/format-price";
 import { automaticCartSize } from "@/lib/stylist/productActions";
 import { preferredCardSize, productCardReason } from "@/lib/stylist/productCardPresentation";
 import type { ShoppingPreferences } from "@/lib/ai/preferenceSchema";
@@ -15,15 +16,15 @@ import styles from "./ShoppingConversation.module.css";
 export type ShoppingAction = "cross_sell" | "cheaper" | "upsell" | "keep" | "own" | "remove" | "reject";
 type DisplayProduct = ChatProduct & { differences?: string[] };
 type ProductEvent = (type: "select" | "own" | "reject" | "add_to_cart", productId: string, position: number) => void;
-const money = (value: number) => `A$${value.toFixed(2)}`;
 const featureValue = (value: boolean | number | string[], key: string) => typeof value === "boolean"
   ? value ? "Yes" : "No" : Array.isArray(value) ? value.join(", ") : `${value}${key === "capacity_litres" ? " L" : ""}`;
 
 function ProductCautions({ product, outfitMode }: { product: DisplayProduct; outfitMode: boolean }) {
   const note = outfitMode ? outfitProductNote(product) : null;
   const comparison = product.value_comparison;
-  if (!note && !product.differences?.length && !product.pairing_evidence && !comparison) return null;
+  if (!note && !product.differences?.length && !product.pairing_evidence && !comparison && !product.unverified_requirements?.length) return null;
   return <div className={styles.cardCautions}>
+    {product.unverified_requirements?.map(requirement => <p key={requirement}>{outfitMode ? "Outfit requirement unverified" : "Unverified"}: {requirement}.</p>)}
     {note ? <p>{note}</p> : null}
     {product.differences?.length ? <div className={styles.differences}>
       <strong>Alternative: details differ</strong>
@@ -34,8 +35,8 @@ function ProductCautions({ product, outfitMode }: { product: DisplayProduct; out
       <p>Pairing uses recorded attributes; visual compatibility is unverified.</p>
     </> : null}
     {comparison ? <>
-      <p>{comparison.extra_cost_aud > 0 ? `${money(comparison.extra_cost_aud)} more` : comparison.extra_cost_aud < 0
-        ? `${money(-comparison.extra_cost_aud)} less` : "Same price"} than the original ({money(comparison.primary_price_aud)}).</p>
+      <p>{comparison.extra_cost_aud > 0 ? `${formatAud(comparison.extra_cost_aud)} more` : comparison.extra_cost_aud < 0
+        ? `${formatAud(-comparison.extra_cost_aud)} less` : "Same price"} than the original ({formatAud(comparison.primary_price_aud)}).</p>
       {comparison.tradeoffs.map(tradeoff => <p key={tradeoff}>{tradeoff}</p>)}
       {comparison.benefits.some(benefit => benefit.evidence_kind === "synthetic") ? <p>Benefits use prototype product specifications.</p> : null}
     </> : null}
@@ -56,6 +57,7 @@ function ProductCard({ product, preferences, featured, onOpen, onAction, onSimil
   const [feedback, setFeedback] = useState("");
   const [addedSize, setAddedSize] = useState<string | null>(null);
   const [failedImage, setFailedImage] = useState<string | null>(null);
+  const [imageRatio, setImageRatio] = useState<number | null>(null);
   const [choosingSize, setChoosingSize] = useState(false);
   const sizeInput = useRef<HTMLSelectElement>(null);
   const options = useRef<HTMLDivElement>(null);
@@ -96,7 +98,12 @@ function ProductCard({ product, preferences, featured, onOpen, onAction, onSimil
   function productImage() {
     return showImage ? <Image src={image} alt={product.product_name} fill unoptimized
       sizes="(max-width: 639px) 104px, 232px"
-      className={styles.productImage} onError={() => setFailedImage(image)} /> :
+      className={styles.productImage}
+      onLoad={event => {
+        const { naturalWidth, naturalHeight } = event.currentTarget;
+        if (naturalWidth && naturalHeight) setImageRatio(naturalWidth / naturalHeight);
+      }}
+      onError={() => setFailedImage(image)} /> :
       <span className={styles.imagePlaceholder}><span aria-hidden="true" className={styles.placeholderMark}>ABC</span><span>Photo unavailable</span></span>;
   }
   function outfitButton() {
@@ -121,14 +128,14 @@ function ProductCard({ product, preferences, featured, onOpen, onAction, onSimil
 
   return <article className={`${styles.card} ${featured ? styles.featured : ""} ${selected ? styles.cardSelected : ""}`}>
     <div className={styles.cardLayout}>
-      <div className={styles.imageFrame}>
+      <div className={styles.imageFrame} style={showImage && imageRatio ? { aspectRatio: imageRatio } : undefined}>
         <Link className={styles.imageLink} href={href} onClick={visitProduct} aria-label={`View ${product.product_name}`}>{productImage()}</Link>
       </div>
       <div className={styles.productDetails}>
         {outfitMode ? <div className={styles.recommendationSlot}>{recommended ? <p className={styles.recommendedBadge}>Suggested pairing</p> : null}</div> : null}
         <div className={styles.productIdentity}>
           <Link className={styles.productName} href={href} onClick={visitProduct} title={product.product_name}>{product.product_name}</Link>
-          <p className={styles.price}>{money(product.price_aud)}</p>
+          <p className={styles.price}>{formatAud(product.price_aud)}</p>
         </div>
         <p className={styles.productMeta}>{[product.brand_line, product.colour, automatic].filter(Boolean).join(" · ")}</p>
         {reason ? <p className={styles.cardReason}>{reason}</p> : null}

@@ -5,10 +5,10 @@ import { ConversationPlanRequestSchema, PendingConversationSchema } from "./conv
 import { createPreferenceScopes, emptyShoppingPreferences, PreferenceScopesSchema } from "./preferenceScope";
 import { safeProductImageSource } from "./catalogueImages";
 import { getProductImageEndpoint } from "../product-image";
-import { AnswerSourceSchema, PendingAnswerSchema } from "./answerPlan";
+import { AnswerSourceSchema, PendingAnswerSchema, CombinationSummarySchema } from "./answerPlan";
 import { emptyStylingState, PairingEvidenceSchema, StylingStateSchema, ValueComparisonSchema, COMMERCE_POLICY } from "./commerceSchema";
 import { OutfitBudgetSchema, OutfitChoicesSchema, priceCents } from "./outfitBudgetSchema";
-import { HISTORY_MESSAGES, MAX_DISPLAYED_PRODUCTS } from "./conversationLimits";
+import { HISTORY_MESSAGES, MAX_DISPLAYED_PRODUCTS, MAX_RECOMMENDATIONS } from "./conversationLimits";
 import { OutfitReviewSchema } from "./outfitReview";
 import { DiscoveryStateSchema, SuggestedReplySchema, type DiscoveryState } from "./discovery";
 import { CollectionStateSchema, emptyCollectionState, type CollectionState } from "./collectionPreference";
@@ -47,6 +47,7 @@ export const ChatProductSchema = z.object({
   style: z.string().nullable().optional(),
   sizes_available: z.array(z.string().trim().min(1)).min(1),
   explanation: z.string().optional(),
+  unverified_requirements: z.array(z.string().min(1)).max(12).default([]),
   extra_target: z.string().nullable().optional(),
   image_src: z.string().refine(safeProductImageSource, "Use a local image or the product image route.").nullable().optional(),
   pairing_evidence: PairingEvidenceSchema.optional(),
@@ -77,6 +78,7 @@ export const TurnReplySchema = z.object({
   outfit_budget: OutfitBudgetSchema.nullable().default(null),
   outfit_choices: OutfitChoicesSchema.nullable().default(null),
   outfit_review: OutfitReviewSchema.nullable().default(null),
+  combination_summary: CombinationSummarySchema.nullable().default(null),
   status: z.enum(["matches", "partial", "alternatives", "no_match", "no_action", "answered", "needs_clarification", "no_upsell", "no_rule", "rule_unavailable", "primary_unavailable", "primary_mismatch"]),
   action: z.enum(["new_search", "refine", "cross_sell", "cheaper", "upsell", "clarify", "none", "discover"]),
   discovery: DiscoveryStateSchema.nullable().default(null),
@@ -86,7 +88,7 @@ export const TurnReplySchema = z.object({
   proposed_scopes: PreferenceScopesSchema,
   applied_preferences: ShoppingPreferencesSchema.nullable(),
   products: z.array(ChatProductSchema).max(MAX_DISPLAYED_PRODUCTS),
-  alternatives: z.array(AlternativeProductSchema).max(4).default([]),
+  alternatives: z.array(AlternativeProductSchema).max(MAX_RECOMMENDATIONS).default([]),
   alternatives_preferences: ShoppingPreferencesSchema.nullable().default(null),
   alternative_kind: z.enum(["context_difference", "colour_preview", "unverified_preview"]).nullable().default(null),
   optional_question: z.string().min(1).nullable().default(null),
@@ -101,11 +103,16 @@ export const TurnReplySchema = z.object({
   comparison_reference_id: z.string().min(1).nullable().default(null),
 }).superRefine((reply, ctx) => {
   const reject = (message: string) => ctx.addIssue({ code: "custom", message });
+  if (reply.combination_summary && (reply.status !== "answered" || reply.action !== "none" || reply.products.length ||
+      reply.alternatives.length || JSON.stringify(reply.combination_summary.items.map(item => item.product_id)) !== JSON.stringify(reply.answer_product_ids))) reject("A combination answer must cover only the referenced products without shopping results.");
   const matches = reply.status === "matches" || reply.status === "partial";
   if (matches !== (reply.products.length > 0)) reject("Status and exact products disagree.");
   if (reply.status === "alternatives" && !reply.alternatives.length) reject("Alternatives status requires alternatives.");
   if (reply.alternatives.length && !["matches", "partial", "alternatives"].includes(reply.status)) reject("Alternatives cannot hide a blocking result.");
   const all = [...reply.products, ...reply.alternatives];
+  if (reply.outfit_budget && reply.unverified_requirements.some(value => all.some(product => !product.unverified_requirements.includes(value)))) {
+    reject("Grouped provisional results must disclose every unverified outfit requirement on their cards.");
+  }
   if (reply.collection?.checkpoint && all.length) reject("Resolve the collection checkpoint before showing products.");
   if (reply.discovery?.stage === "collection" && reply.collection?.checkpoint && reply.suggested_replies.length &&
       (reply.status !== "no_action" || all.length || reply.pending || reply.applied_preferences)) {
@@ -157,7 +164,7 @@ export const TurnReplySchema = z.object({
   }
   if (all.some(product => product.image_src?.startsWith("/api/products/") &&
       product.image_src !== getProductImageEndpoint(product.product_id))) reject("The image route must belong to the displayed product.");
-  if (all.length > (choices ? MAX_DISPLAYED_PRODUCTS : 4) || new Set(all.map(p => p.product_id)).size !== all.length) reject("Return unique displayed products within the shortlist limit.");
+  if (all.length > (choices ? MAX_DISPLAYED_PRODUCTS : MAX_RECOMMENDATIONS) || new Set(all.map(p => p.product_id)).size !== all.length) reject("Return unique displayed products within the shortlist limit.");
   if ((reply.status === "needs_clarification") !== (reply.pending !== null) && !["no_action", "answered"].includes(reply.status)) reject("Missing or unexpected pending question.");
   if (reply.status === "answered" && (reply.action !== "none" || all.length || reply.applied_preferences !== null || reply.can_preview_other_colours)) reject("Answer-only replies cannot perform a shopping action.");
   if (reply.pending_answer && !["answered", "no_action"].includes(reply.status)) reject("Resolve the product question before another shopping action.");
@@ -308,6 +315,9 @@ export function acceptReply(turn: ConversationTurn, input: unknown): { reply: Tu
     ? { ...turn.context, latest: [...turn.context.latest] } : { focused: null, latest: visible.map(snapshot),
       ...(previous.length ? { previous } : {}) };
   if (reply.status === "answered") {
+    if (reply.combination_summary && JSON.stringify(reply.styling) !== JSON.stringify(turn.styling)) {
+      throw new Error("A named combination answer cannot change saved outfit choices.");
+    }
     if (JSON.stringify(reply.proposed_scopes) !== JSON.stringify(turn.scopes) ||
         JSON.stringify(reply.pending) !== JSON.stringify(turn.pending ?? null)) {
       throw new Error("An answer cannot change saved shopping preferences or a pending search.");

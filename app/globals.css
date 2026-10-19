@@ -134,16 +134,6 @@ button:not(:disabled) {
   color: #ffffff;
 }
 
-@keyframes stylist-bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-}
-
 @keyframes site-loading-progress {
   from {
     transform: translateX(-100%);
@@ -171,34 +161,13 @@ button:not(:disabled) {
   animation: site-loading-mark 0.9s ease-in-out infinite;
 }
 
-@keyframes stylist-reveal {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.stylist-bounce {
-  animation: stylist-bounce 0.85s ease-in-out infinite;
-}
-
-.stylist-reveal {
-  animation: stylist-reveal 0.55s ease-out both;
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
   .site-loading-progress,
-  .site-loading-mark,
-  .stylist-bounce,
-  .stylist-reveal {
+  .site-loading-mark {
     animation: none;
   }
 }

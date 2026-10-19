@@ -29,7 +29,7 @@ export function searchOutfitBudget(
     const searched = searchWithValidatedPreferences(catalogue, composed.preferences, vocabulary, {
       eligible: product => eligible(product) && (!anchors.length || scoreCompatibility(product, anchors, composed.preferences.occasion).score > 0) && (["occasion", "style", "fit", "season"] as const).every(field =>
         !composed.preferences[field] || relatedLabel(product[field], composed.preferences[field]!)),
-      // A cheap feasible component must not disappear behind the normal top four.
+      // A cheap feasible component must not disappear behind the normal shortlist.
       limit: catalogue.length,
       compare: (a, b) => priceCents(a.price_aud ?? 0) - priceCents(b.price_aud ?? 0),
     });

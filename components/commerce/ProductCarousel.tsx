@@ -6,14 +6,14 @@ import { Container } from "@/components/layout/Container";
 import { IconButton } from "@/components/ui/IconButton";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ChevronIcon } from "@/components/ui/icons";
-import type { Product } from "@/lib/mock-data";
+import type { StorefrontProduct } from "@/lib/catalogue/storefront";
 
 export function ProductCarousel({
   title,
   products,
 }: {
   title: string;
-  products: Product[];
+  products: StorefrontProduct[];
 }) {
   const scrollerRef = useRef<HTMLDivElement>(null);
 

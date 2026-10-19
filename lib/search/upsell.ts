@@ -204,7 +204,7 @@ export function retrieveUpsell(
     ...request.excluded_product_ids,
   ]);
 
-  // Apply replacement rules BEFORE the search's four-item limit.
+  // Apply replacement rules before shortlisting.
   const candidates = catalogue.filter((product) => {
     const price = cents(product.price_aud);
 

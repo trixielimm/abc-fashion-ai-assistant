@@ -1,5 +1,6 @@
 import { cn } from "@/lib/cn";
-import { formatPrice, type Product } from "@/lib/mock-data";
+import type { Product } from "@/lib/mock-data";
+import { formatPrice } from "@/lib/format-price";
 import type { ProductDetailMock } from "@/lib/product-detail-mock";
 import { ProductControls } from "@/components/product/ProductControls";
 import { getProductImageSrc } from "@/lib/product-image";

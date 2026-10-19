@@ -14,6 +14,10 @@ const normalise = (value: string) => value.trim().replace(/\s+/g, " ").toLowerCa
 
 export function validatePreferences(input: ShoppingPreferences, catalogue: CataloguePreferenceValues) {
   const preferences = ShoppingPreferencesSchema.parse(input);
+  if (preferences.category === "Clothing" && /^(?:jackets?|blazers?)$/i.test(preferences.subcategory ?? "")) {
+    preferences.subcategory = "Outerwear";
+    preferences.product_type ??= "Jacket";
+  }
   const issues: PreferenceIssue[] = [];
   const fields = ["gender", "category", "subcategory", "product_type", "occasion", "style", "season", "material", "fit", "size", "brand_line"] as const;
    // These fields are required filters in the current website search.

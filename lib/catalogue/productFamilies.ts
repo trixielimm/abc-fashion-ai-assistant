@@ -2,7 +2,7 @@
 // retrieval and reply checks, so a valid family cannot be rejected downstream.
 const normalise = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, " ").replace(/s$/, "").trim();
 const families: Record<string, { category: string; subcategory?: string; pattern: RegExp }> = {
-  jacket: { category: "Clothing", pattern: /\b(?:jacket|blazer)\b/i },
+  jacket: { category: "Clothing", subcategory: "Outerwear", pattern: /\b(?:jacket|blazer)\b/i },
   shirt: { category: "Clothing", subcategory: "Tops", pattern: /\bshirt\b/i },
   skirt: { category: "Clothing", subcategory: "Bottoms", pattern: /\bskirt\b/i },
   trouser: { category: "Clothing", subcategory: "Bottoms", pattern: /\b(?:trousers?|pants|chinos)\b/i },

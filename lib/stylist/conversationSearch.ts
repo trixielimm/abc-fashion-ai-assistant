@@ -151,7 +151,10 @@ export function executeConversationSearch(
   if (validation.needs_clarification) {
     issues = validation.issues.filter(value => value.blocking).map(value => issue("invalid_preference", value.field,
       value.field in checked.proposed_scopes.shared && (() => { const saved = checked.proposed_scopes.shared[value.field as keyof typeof checked.proposed_scopes.shared]; return saved !== null && (!Array.isArray(saved) || saved.length > 0); })() ? "shared" : "item",
-      value.value, null, value.field === "size" ? vocabulary.sizes : [...new Set(vocabulary.rows.flatMap(row => {
+      value.value, null, value.field === "size" ? vocabulary.sizes : value.field === "preferred_colours" || value.field === "excluded_colours"
+        ? [...new Set(vocabulary.rows.flatMap(row => row.colour ? [row.colour] : []))].filter(label =>
+          !/^green$/i.test(String(value.value)) || /sage|olive|emerald|mint|khaki|green/i.test(label))
+        : [...new Set(vocabulary.rows.flatMap(row => {
         const label = row[value.field as keyof typeof row]; return typeof label === "string" ? [label] : [];
       }))]));
     return reply(

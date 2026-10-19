@@ -116,7 +116,7 @@ export function checkConversationPlan(input: unknown, output: unknown) {
   const plan = groundConversationPlan(request, originalPlan);
   const combined = additiveCombinedRequest(request.message);
   if (combined && (combined.components.has("Bottoms") || combined.components.has("Shirts")) &&
-      ["new_search", "refine", "cross_sell", "clarify"].includes(plan.action) && !plan.outfit_request) {
+      ["new_search", "refine", "cross_sell"].includes(plan.action) && !plan.outfit_request) {
     throw new PlanValidationError("Use outfit_request with every requested component and one combined total. Bottoms and a shirt as well requests both pieces, even when phrased 'or ... as well'. Do not ask bottoms only or both or put the total on each item. Keep the referenced jacket for styling via reference.");
   }
   let scopes = PreferenceScopesSchema.parse(request.scopes);
@@ -186,7 +186,9 @@ export function checkConversationPlan(input: unknown, output: unknown) {
       .map(match => Number(match[1] ?? match[2]));
     const unlabelledBudget = outfit.evidence.match(/\b(?:budget|total|under|maximum|up to)\b[^\d]{0,70}(\d+(?:\.\d{1,2})?)\b/i);
     if (unlabelledBudget) amounts.push(Number(unlabelledBudget[1]));
-    if (outfit.total_budget_aud !== previous?.total_budget_aud && !amounts.includes(outfit.total_budget_aud)) {
+    if (outfit.total_budget_aud !== previous?.total_budget_aud && !amounts.includes(outfit.total_budget_aud) &&
+        !(request.task?.brief.goal === "travel_layers" && request.task.brief.total_budget_aud === outfit.total_budget_aud &&
+          requestedComponents(request.message).size >= 2)) {
       throw new PlanValidationError("The combined budget must be stated in the latest outfit evidence.");
     }
     if (outfit.items.some(item => !item.category)) throw new PlanValidationError("Specify a category for every requested outfit item.");

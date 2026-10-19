@@ -12,9 +12,8 @@ import {
   CloseIcon,
   MenuIcon,
   SearchIcon,
-  UserIcon,
 } from "@/components/ui/icons";
-import { navLinks } from "@/lib/mock-data";
+import { navLinks } from "@/lib/navigation";
 import { useCartCount } from "@/lib/use-cart-count";
 
 function ProductSearch({ className }: { className: string }) {
@@ -87,9 +86,6 @@ function HeaderContent() {
 
         <div className="ml-auto flex items-center gap-2 lg:gap-2.5">
           <ProductSearch className="hidden w-[200px] shrink-0 md:flex" />
-          <button type="button" disabled aria-label="Account coming soon" title="Account coming soon" className="hidden h-11 w-11 items-center justify-center rounded-full border border-border text-muted lg:inline-flex">
-            <UserIcon />
-          </button>
           <IconButton href="/cart" label={`Bag, ${count} ${count === 1 ? "item" : "items"}`} onClick={() => setMenuOpen(false)}>
             <BagIcon />
           </IconButton>

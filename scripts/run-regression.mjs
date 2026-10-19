@@ -36,6 +36,7 @@ function record(text) {
 }
 
 const suites = [
+  ["reactive-demo-fixes", "test-reactive-demo-fixes.mjs"],
   ["stylist-remediation", "test-stylist-remediation.mjs"],
   ["conversation-recovery", "test-conversation-recovery.mjs"],
   ["matching-set-budget", "test-matching-set-budget.mjs"],

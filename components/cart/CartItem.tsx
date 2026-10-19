@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ProductImage } from "@/components/commerce/ProductImage";
-import { formatPrice } from "@/lib/mock-data";
+import { formatPrice } from "@/lib/format-price";
 import type { CartRow } from "@/lib/cart";
 
 type CartItemProps = {

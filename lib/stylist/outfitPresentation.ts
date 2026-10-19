@@ -2,8 +2,6 @@ import type { StylingState } from "./commerceSchema";
 import type { ChatProduct } from "./conversationProtocol";
 import { priceCents, type OutfitChoices } from "./outfitBudgetSchema";
 
-export const outfitMoney = (value: number) => `A$${value.toFixed(2)}`;
-
 export function outfitTotals(styling: StylingState) {
   const anchors = new Set(styling.outfit_request?.anchor_product_ids ?? []);
   const selected = styling.outfit.filter(piece => piece.ownership === "selected" && !anchors.has(piece.product_id) &&

@@ -1,3 +1,5 @@
+import { formatAud } from "@/lib/format-price";
+
 type Product = {
   product_id: string;
   product_name: string;
@@ -30,7 +32,6 @@ type Input = {
   hasReplacementPriority?: boolean;
 };
 
-const money = (value: number) => `A$${value.toFixed(2)}`;
 const normalise = (value: string) =>
   value.trim().replace(/\s+/g, " ").toLowerCase();
 const paragraphs = (...parts: string[]) => parts.filter(Boolean).join("\n\n");
@@ -46,8 +47,8 @@ function selectionDetails(products: readonly Product[], input: Input): string {
 
   if (products.length > 1) {
     sentences.push(low === high
-      ? `Each of these options is ${money(low)}.`
-      : `These options range from ${money(low)} to ${money(high)}.`);
+      ? `Each of these options is ${formatAud(low)}.`
+      : `These options range from ${formatAud(low)} to ${formatAud(high)}.`);
   }
 
   const kinds = [...new Set(products.map(product => product.product_type?.trim()).filter((value): value is string => Boolean(value)))];
@@ -61,7 +62,7 @@ function selectionDetails(products: readonly Product[], input: Input): string {
 
   const maximum = input.preferences?.max_price;
   if (typeof maximum === "number" && Number.isFinite(maximum) && high <= maximum) {
-    sentences.push(`I've kept this selection within your ${money(maximum)} per-item limit.`);
+    sentences.push(`I've kept this selection within your ${formatAud(maximum)} per-item limit.`);
   }
 
   const requestedSize = input.preferences?.size;
@@ -105,12 +106,12 @@ export function friendlyShoppingMessage(input: Input): string {
 
   if (status === "matches" && products.length > 0) {
     let opening = products.length === 1
-      ? `I found ${products[0].product_name} for ${money(products[0].price_aud)}.`
+      ? `I found ${products[0].product_name} for ${formatAud(products[0].price_aud)}.`
       : `I've found ${products.length} ${optionLabel(products)} for you to explore.`;
 
     if (action === "cross_sell" && references.length === 1 && references[0].product_name) {
       opening = products.length === 1
-        ? `To go with ${references[0].product_name}, here's one option to consider: ${products[0].product_name} at ${money(products[0].price_aud)}.`
+        ? `To go with ${references[0].product_name}, here's one option to consider: ${products[0].product_name} at ${formatAud(products[0].price_aud)}.`
         : `To go with ${references[0].product_name}, I've found ${products.length} ${optionLabel(products)} for you to consider.`;
     }
 
@@ -120,11 +121,11 @@ export function friendlyShoppingMessage(input: Input): string {
         const ceiling = Math.min(...prices);
         if (products.every(product => product.price_aud < ceiling)) {
           opening = products.length === 1
-            ? `Here's a lower-priced option: ${products[0].product_name} at ${money(products[0].price_aud)}.`
+            ? `Here's a lower-priced option: ${products[0].product_name} at ${formatAud(products[0].price_aud)}.`
             : `I've found ${products.length} lower-priced options for you.`;
           opening += references.length === 1
-            ? ` ${products.length === 1 ? "It costs" : "They each cost"} less than the ${money(ceiling)} reference item.`
-            : ` ${products.length === 1 ? "It is" : "Each is"} below ${money(ceiling)}, the lowest price in your previous selection.`;
+            ? ` ${products.length === 1 ? "It costs" : "They each cost"} less than the ${formatAud(ceiling)} reference item.`
+            : ` ${products.length === 1 ? "It is" : "Each is"} below ${formatAud(ceiling)}, the lowest price in your previous selection.`;
         }
       }
     }

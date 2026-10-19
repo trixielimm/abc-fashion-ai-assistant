@@ -265,6 +265,8 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
               className={`${styles.entry} ${entry.role === "user" ? styles.userEntry : styles.assistantEntry}`}>
               <div className={entry.role === "assistant" ? styles.replyBubble : undefined}>
                 <span className={styles.speaker}>{entry.role === "user" ? "You" : "AI Stylist"}</span>
+                {result?.outfit_budget && result.unverified_requirements.length ? <p role="note">Provisional choices. Unverified: {result.unverified_requirements.join("; ")}. These requirements remain saved.</p> : null}
+                {result?.outfit_budget && result.task?.brief.deadline ? <p role="note">Arrival {result.task.brief.deadline} is unconfirmed. Live delivery estimates are unavailable.</p> : null}
                 {result?.outfit_review ? <OutfitReviewMessage review={result.outfit_review} /> : result?.outfit_budget && result.outfit_choices ?
                   <OutfitGuidance products={result.products} choices={result.outfit_choices} limit={result.outfit_budget.limit_aud} /> :
                   <ReplyMessage text={entry.text} collapsible={Boolean(result && (result.products.length || result.alternatives.length))} />}

@@ -1,9 +1,10 @@
 import { z } from "zod";
-import { ConversationIssueSchema, RecoverySchema } from "./conversationIssues";
+import { ConversationIssueSchema, RecoverySchema, confirmedColourChoice, isRequirementInstruction } from "./conversationIssues";
 import { emptyShoppingPreferences } from "./preferenceScope";
 import { explicitCollection, requestedClothing, shoppingTarget } from "./collectionPreference";
 import { requestedComponents } from "./combinedShoppingRequest";
 import type { ConversationPlanRequest } from "./conversationPlan";
+import { ShoppingBriefSchema, updateShoppingBrief } from "./shoppingBrief";
 
 export const TaskStateSchema = z.strictObject({
   generation: z.number().int().nonnegative().default(0),
@@ -12,6 +13,7 @@ export const TaskStateSchema = z.strictObject({
   blocker_signature: z.string().max(1000).default(""),
   blocker_repeats: z.number().int().nonnegative().default(0),
   issues: z.array(ConversationIssueSchema).max(12).default([]),
+  brief: ShoppingBriefSchema.default(() => ShoppingBriefSchema.parse({})),
 });
 export type TaskState = z.infer<typeof TaskStateSchema>;
 export const emptyTaskState = (): TaskState => TaskStateSchema.parse({});
@@ -57,14 +59,22 @@ export function prepareConversationTask<T extends ConversationPlanRequest>(input
   if (process.env.STYLIST_TASK_RECOVERY_ENABLED === "false") return input;
   const request = structuredClone(input);
   const task = TaskStateSchema.parse(request.task ?? {});
+  request.scopes.unresolved_item = request.scopes.unresolved_item.filter(value => !isRequirementInstruction(value));
+  request.scopes.unresolved_shared = request.scopes.unresolved_shared.filter(value => !isRequirementInstruction(value));
+  const instructions = task.issues.filter(value => value.code === "unverified_requirement" && typeof value.value === "string" && isRequirementInstruction(value.value));
+  if (instructions.length) {
+    if (instructions.length === task.issues.length) request.pending = null;
+    task.issues = task.issues.filter(value => !instructions.includes(value));
+  }
   const key = messageKey(request.message);
-  if (task.prepared_key === key) return request;
+  if (task.prepared_key === key) { request.task = task; return request; }
   const recovery = "recovery" in request && request.recovery ? RecoverySchema.parse(request.recovery) : null;
   if (recovery && (recovery.generation !== task.generation || !task.issues.some(value => value.id === recovery.issue_id))) {
     throw new Error("That recovery choice is no longer current. Answer the latest question instead.");
   }
   const replacing = replacesOutfitRequest(request.message, Boolean(request.styling?.outfit_request));
   if (replacing) {
+    task.brief = ShoppingBriefSchema.parse({});
     task.generation++;
     task.preview_unverified = false;
     task.issues = []; task.blocker_repeats = 0; task.blocker_signature = "";
@@ -87,13 +97,19 @@ export function prepareConversationTask<T extends ConversationPlanRequest>(input
   // repair. This is browsing memory; shared restrictions remain untouched.
   if (request.collection?.checkpoint) {
     const choice = explicitCollection(request.message, true);
-    if (choice) request.collection.choice = choice.choice;
+    if (choice) {
+      request.collection.choice = choice.choice;
+      request.collection.current = { choice: choice.choice, source: "explicit" };
+    }
   }
+  const colourChoice = confirmedColourChoice(request.message, task.issues);
+  if (colourChoice) request.scopes.item.preferred_colours = [colourChoice.value];
   const permitted = /\b(?:show|browse|explore)\b[^.!?]{0,100}\b(?:unverified|provisional|(?:things|details) to check)\b|\b(?:keep|leave)\b[^.!?]{0,60}\b(?:unverified|things to check)\b/i.test(request.message);
   if (permitted || recovery?.operation === "preview_unverified") {
     task.preview_unverified = true; request.pending = null;
   }
   if (/\b(?:dealbreaker|hard requirement|must (?:be )?verif|reapply)\b/i.test(request.message)) task.preview_unverified = false;
+  task.brief = updateShoppingBrief(task.brief, request.message);
   task.prepared_key = key;
   request.task = task;
   return request;

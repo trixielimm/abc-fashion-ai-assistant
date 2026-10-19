@@ -2,16 +2,16 @@ import { CategoryCard } from "@/components/commerce/CategoryCard";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import type { CategoryTile } from "@/lib/mock-data";
+import type { StorefrontCategory } from "@/lib/catalogue/storefront";
 
-export function CategoryShowcase({ categories }: { categories: CategoryTile[] }) {
+export function CategoryShowcase({ categories }: { categories: StorefrontCategory[] }) {
   return (
     <section id="featured-categories" className="scroll-mt-8 py-12 lg:py-16">
       <Container>
         <SectionHeader
           label="Featured Categories"
           action={
-            <Button variant="ghost" href="#this-season">
+            <Button variant="ghost" href="/search">
               Shop all →
             </Button>
           }

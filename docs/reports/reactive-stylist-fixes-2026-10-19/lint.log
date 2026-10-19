@@ -1,0 +1,13 @@
+
+> abc-fashion-ai-assistant@0.1.0 lint
+> eslint
+
+
+/Users/salvi/MQ/abc-fashion-ai-assistant/docs/reports/reactive-stylist-fixes-2026-10-19/baseline/scripts/upload-generated-product-images.mjs
+  4:22  warning  'mkdirSync' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/salvi/MQ/abc-fashion-ai-assistant/scripts/upload-generated-product-images.mjs
+  4:22  warning  'mkdirSync' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 2 problems (0 errors, 2 warnings)
+

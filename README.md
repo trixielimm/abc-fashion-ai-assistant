@@ -1,4 +1,7 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ABC Fashion AI Assistant
+
+A Next.js storefront with catalogue search, a local shopping cart and an AI
+stylist grounded in the Supabase product catalogue.
 
 ## Getting Started
 
@@ -6,6 +9,14 @@ Install dependencies, then copy `.env.example` to `.env.local`. Set the
 server-only `OPENAI_API_KEY` value to enable the AI Stylist's conversation
 interpreter. The chat sends each message to `/api/conversation-search` and shows
 grounded answers and matching catalogue products.
+
+Run `npm run dev` and open [http://localhost:3000](http://localhost:3000).
+Use `npm run build` to check the production build and `npm start` to serve it.
+
+The app is organised into routes and API handlers in `app/`, UI components in
+`components/`, and catalogue, search and stylist logic in `lib/`. Maintenance
+and regression scripts live in `scripts/`; database changes live in
+`supabase/migrations/`.
 
 For 2–4 named pieces, the stylist supports one combined AUD budget. For example,
 “a dress and shoes for formal events, 400 AUD for both” shows up to five dresses
@@ -38,7 +49,8 @@ for evidence and remaining limitations.
 
 ## Stylist tests
 
-Run `npm test` for the offline regression suites and `npm run lint` for lint.
+Run `npm test` for the offline regression suites, `npm run lint` for lint, and
+`npm run typecheck` for TypeScript checks, including unused local code and parameters.
 `npm run test:scenarios` runs all 25 customer scenarios three times using the
 configured model and an isolated synthetic catalogue. It makes model calls and
 saves every transcript, plan, fixture and result under `docs/test-evidence/`.
@@ -90,38 +102,6 @@ the audit does not upload files or change storage permissions.
 Storage photos bypass Next.js image optimization so the browser can follow
 fresh storage signatures without caching them in the optimizer. Upload suitably
 sized product photos (such as 1200px on the longest side). Local demo photos
-still use Next.js optimization. Homepage and related-product lists currently
-use demo catalogue data.
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+still use Next.js optimization. The homepage uses live catalogue data. Related
+products and cart suggestions retain the demo catalogue in `lib/mock-data.ts`;
+`lib/product-detail-mock.ts` supplies the matching demo product pages.

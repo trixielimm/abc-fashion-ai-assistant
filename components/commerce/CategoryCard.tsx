@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
+import { ProductImage } from "@/components/commerce/ProductImage";
 import { cn } from "@/lib/cn";
-import type { CategoryTile } from "@/lib/mock-data";
+import type { StorefrontCategory } from "@/lib/catalogue/storefront";
 
 /**
  * The cross-fade must never show the resting label and the centred block at the
@@ -47,24 +47,19 @@ const RISE_BODY = "group-hover:delay-[300ms] group-focus-visible:delay-[300ms]";
 const RISE_ACTION =
   "group-hover:delay-[350ms] group-focus-visible:delay-[350ms]";
 
-export function CategoryCard({ category }: { category: CategoryTile }) {
+export function CategoryCard({ category }: { category: StorefrontCategory }) {
   return (
     <Link
       href={category.href}
+      aria-label={`Shop ${category.name}`}
       className="group block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
     >
       <article className="relative aspect-[4/5] overflow-hidden">
-        <Image
-          src={category.image}
-          alt={category.name}
-          fill
-          sizes="(max-width: 768px) 100vw, 33vw"
-          className={cn(
-            "object-cover transition-transform duration-[650ms]",
-            EASE,
-            "group-hover:scale-[1.03] group-focus-visible:scale-[1.03]",
-          )}
-        />
+        <div className={cn("absolute inset-0 transition-transform duration-[650ms]", EASE,
+          "group-hover:scale-[1.03] group-focus-visible:scale-[1.03]")}>
+          <ProductImage src={category.image} name={category.imageAlt} category={category.name}
+            fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+        </div>
         <div
           aria-hidden="true"
           className={cn(
