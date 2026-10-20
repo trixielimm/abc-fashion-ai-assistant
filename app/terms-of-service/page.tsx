@@ -34,7 +34,7 @@ export default function TermsOfServicePage() {
             where Australian consumer and privacy protections fit in.
           </p>
           <p className="mt-5 text-[11px] tracking-[0.1em] text-muted uppercase">
-            Last updated 15 October 2026
+            Last updated 18 October 2026
           </p>
         </Container>
       </div>
@@ -69,14 +69,14 @@ export default function TermsOfServicePage() {
               and continue shopping at any time.
             </p>
             <p>
-              Each message is sent to an AI service to identify preferences
-              such as category, colour, size, occasion, and budget. The
-              extracted preferences are displayed in the chat after each
-              message. The site then searches its catalogue and displays up
-              to four matching or closest available items. Messages are
-              processed separately, so include every requirement in each
-              revised request. The stylist is not a conversation with a human
-              adviser.
+              Each message is sent through the ABC Fashion server to OpenAI
+              to extract shopping preferences such as category, colour, size,
+              occasion, and budget. The extracted preferences are then used to
+              search the ABC Fashion product catalogue. The stylist shows up
+              to four matching available products, or the closest available
+              matches, with a short message. Messages are processed separately;
+              earlier preferences are not carried into the next message. The
+              stylist is not a conversation with a human adviser.
             </p>
           </section>
 
@@ -104,14 +104,13 @@ export default function TermsOfServicePage() {
             <h2>Privacy &amp; personal information</h2>
             <p>
               When you send a message, it goes to the ABC Fashion server and
-              then to OpenAI&apos;s API with the current structured preferences
-              for extraction. If products match, the shortlist and preferences
-              are also sent to OpenAI to help choose recommendation wording.
-              The message and updated preferences appear in your browser
-              during the current page session. ABC Fashion does not save this
-              chat history or these preferences to an account or database in
-              the current version. Closing the chat keeps the current session;
-              resetting it or reloading the page clears the conversation.
+              then to OpenAI&apos;s API for preference extraction. The extracted
+              preferences are then used to search the ABC Fashion product
+              catalogue. The message and extracted fields appear in your browser during
+              the current page session. ABC Fashion does not save this chat
+              history or these preferences to an account or database in the
+              current version. Resetting the chat or reloading the page clears
+              the conversation from your browser.
             </p>
             <p>
               We request that OpenAI not store response state, but OpenAI may
@@ -142,15 +141,15 @@ export default function TermsOfServicePage() {
           </section>
 
           <section id="accuracy" className="scroll-mt-8 border-t border-border pt-10">
-            <h2>Extracted preferences &amp; purchases</h2>
+            <h2>Recommendations &amp; purchases</h2>
             <p>
               Extracted preferences may be incomplete or inaccurate. Check
               the fields shown in chat and restate anything the AI missed or
               misunderstood. Recommendations may differ in occasion, style,
               fit, or season when an exact match is unavailable. Check the
               product details, selected size, availability, and AUD price
-              before adding an item to your bag. Recommendations and cart
-              selections do not reserve stock or place an order. Cart
+              before buying. Recommendations are suggestions only and do not
+              reserve stock or create an order. Cart
               quantity changes do not recheck live stock. Checkout and
               payment are unavailable in this prototype.
             </p>
