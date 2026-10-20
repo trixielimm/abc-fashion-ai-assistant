@@ -1,0 +1,358 @@
+{
+  "id": "CAT-B",
+  "name": "Skirt defaults use actual Bottoms hierarchy",
+  "repeat": 1,
+  "turns": [
+    {
+      "number": 1,
+      "message": "I want a skirt for work under 200 aud",
+      "input": {
+        "message": "I want a skirt for work under 200 aud",
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-19T02:18:18.014Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": null,
+        "action": "new_search",
+        "discovery_intent": null,
+        "intent_evidence": "I want a skirt for work under 200 aud",
+        "reference": null,
+        "changes": [
+          {
+            "scope": "item",
+            "evidence": "skirt",
+            "operation": "set",
+            "field": "gender",
+            "value": "Women"
+          },
+          {
+            "scope": "item",
+            "evidence": "skirt",
+            "operation": "set",
+            "field": "product_type",
+            "value": "Skirt"
+          },
+          {
+            "scope": "item",
+            "field": "occasion",
+            "operation": "set",
+            "value": "Work",
+            "evidence": "work"
+          },
+          {
+            "scope": "item",
+            "field": "category",
+            "operation": "set",
+            "value": "Clothing",
+            "evidence": "skirt"
+          },
+          {
+            "scope": "item",
+            "field": "subcategory",
+            "operation": "set",
+            "value": "Bottoms",
+            "evidence": "skirt"
+          },
+          {
+            "scope": "item",
+            "field": "max_price",
+            "operation": "set",
+            "value": 200,
+            "evidence": "under 200 aud"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": null
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "status": "matches",
+        "action": "new_search",
+        "discovery": null,
+        "collection": {
+          "choice": null,
+          "current": {
+            "choice": "Women",
+            "source": "category_default"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I've found 2 black clothing options for you to explore.\n\nThese options range from A$90.00 to A$150.00. The selection includes pleated skirt and midi skirt options. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Bottoms",
+            "product_type": "Skirt",
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 200,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Bottoms",
+          "product_type": "Skirt",
+          "occasion": "Work",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 200,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "CAT-Bottoms-cheaper",
+            "product_name": "CAT-Bottoms-cheaper Dress",
+            "price_aud": 90,
+            "category": "Clothing",
+            "subcategory": "Bottoms",
+            "product_type": "Pleated Skirt",
+            "brand_line": null,
+            "colour": "Black",
+            "occasion": "Work",
+            "style": "Relaxed",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": null,
+            "image_src": null
+          },
+          {
+            "product_id": "CAT-Bottoms-work",
+            "product_name": "CAT-Bottoms-work Dress",
+            "price_aud": 150,
+            "category": "Clothing",
+            "subcategory": "Bottoms",
+            "product_type": "Midi Skirt",
+            "brand_line": null,
+            "colour": "Black",
+            "occasion": "Work",
+            "style": "Relaxed",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": null,
+            "image_src": null
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 3534,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Bottoms",
+            "product_type": "Skirt",
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 200,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": null,
+          "current": {
+            "choice": "Women",
+            "source": "category_default"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "CAT-Bottoms-cheaper",
+              "product_name": "CAT-Bottoms-cheaper Dress",
+              "category": "Clothing",
+              "subcategory": "Bottoms",
+              "product_type": "Pleated Skirt",
+              "price_aud": 90
+            },
+            {
+              "product_id": "CAT-Bottoms-work",
+              "product_name": "CAT-Bottoms-work Dress",
+              "category": "Clothing",
+              "subcategory": "Bottoms",
+              "product_type": "Midi Skirt",
+              "price_aud": 150
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I want a skirt for work under 200 aud"
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 black clothing options for you to explore.\n\nThese options range from A$90.00 to A$150.00. The selection includes pleated skirt and midi skirt options. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "checks": "Pass"
+    }
+  ],
+  "started": "2026-10-19T02:18:18.013Z",
+  "result": "Pass",
+  "issues": [],
+  "collection_setup": "Fresh session; collection unanswered",
+  "finished": "2026-10-19T02:18:21.549Z"
+}

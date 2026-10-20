@@ -1,0 +1,54 @@
+{
+  "product_id": "P1188",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:01.484Z",
+  "identity_snapshot": {
+    "product_id": "P1188",
+    "product_name": "Brown Mini Clutch",
+    "category": "Bags",
+    "subcategory": "Clutches",
+    "product_type": "Mini Clutch",
+    "gender": "Unisex",
+    "colour": "Brown",
+    "material": "Leather",
+    "fit": "Standard",
+    "style": "Romantic",
+    "occasion": "Wedding Guest",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1188",
+    "description": "Brown Mini Clutch in leather with a romantic profile for Wedding Guest dressing; compact standard shape with a softly structured body.",
+    "construction_details": [
+      "Smooth leather exterior with neat edge painting",
+      "Slim gusseted profile",
+      "Short folded flap with clasp fastening"
+    ],
+    "care_instructions": "Wipe gently with a soft dry cloth; keep away from prolonged moisture and store in a dust bag.",
+    "lining": true,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": 0.5,
+    "use_cases": [
+      "Wedding Guest",
+      "Evening"
+    ],
+    "closure": "clasp",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": {
+      "width": 18,
+      "height": 11,
+      "depth": 4
+    },
+    "strap_drop_cm": null,
+    "compartments": 1,
+    "sole_material": null,
+    "hardware_finish": "Antique gold-tone"
+  },
+  "content_sha256": "b0718e9f368aa11eb402032f96f7a4d7dc5e5cfc6281c42c2a23b934ab02f7c1"
+}

@@ -1,0 +1,50 @@
+{
+  "product_id": "P1067",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:48.818Z",
+  "identity_snapshot": {
+    "product_id": "P1067",
+    "product_name": "Pink Leather Belt",
+    "category": "Accessories",
+    "subcategory": "Belts",
+    "product_type": "Leather Belt",
+    "gender": "Unisex",
+    "colour": "Pink",
+    "material": "Leather",
+    "fit": "Standard",
+    "style": "Minimalist",
+    "occasion": "Work",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1067",
+    "description": "Pink leather belt with a clean minimalist profile and a standard-width silhouette suited to work dressing.",
+    "construction_details": [
+      "Smooth leather strap",
+      "Pronged metal buckle",
+      "Five adjustment holes",
+      "Painted edge finishing"
+    ],
+    "care_instructions": "Wipe with a soft, dry cloth and condition sparingly with a leather-appropriate product; keep away from prolonged moisture.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": null,
+    "capacity_litres": null,
+    "use_cases": [
+      "Work"
+    ],
+    "closure": "buckle",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": "silver-tone"
+  },
+  "content_sha256": "3799e76597f3e1f8c1c4616ca6a2f379bc6885ee58d1bee26470b0e73663321a"
+}

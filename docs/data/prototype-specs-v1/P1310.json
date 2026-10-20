@@ -1,0 +1,51 @@
+{
+  "product_id": "P1310",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:21.085Z",
+  "identity_snapshot": {
+    "product_id": "P1310",
+    "product_name": "Yellow Suit Set",
+    "category": "Clothing",
+    "subcategory": "Sets",
+    "product_type": "Suit Set",
+    "gender": "Men",
+    "colour": "Yellow",
+    "material": "Polyester",
+    "fit": "Relaxed",
+    "style": "Elegant",
+    "occasion": "Smart Casual",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1310",
+    "description": "Yellow polyester suit set with an elegant, relaxed silhouette for smart casual dressing in autumn.",
+    "construction_details": [
+      "Relaxed single-breasted jacket with notched lapels",
+      "Two-button front fastening and welt chest pocket",
+      "Straight-leg trousers with belt loops and side pockets",
+      "Coordinated tailored separates with finished hems"
+    ],
+    "care_instructions": "Gentle cold machine wash or professional dry clean; line dry and press on low heat.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Smart Casual",
+      "Work"
+    ],
+    "closure": "button",
+    "garment_length_cm": 76,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "e876eaaf1be6ee12797c10070d266240766ab02e0663748b1cca9bcfd7f7a179"
+}

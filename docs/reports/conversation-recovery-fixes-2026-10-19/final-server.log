@@ -1,0 +1,1303 @@
+
+> abc-fashion-ai-assistant@0.1.0 start
+> next start --hostname 127.0.0.1 --port 3002
+
+▲ Next.js 16.3.8
+- Local:         http://127.0.0.1:3002
+- Network:       http://127.0.0.1:3002
+✓ Ready in 60ms
+✓ Running next.config.ts took 13ms
+Stylist diagnostic {
+  request_id: 'c3c2dc77-a897-4a31-baa8-0f481723beab',
+  stage: 'interpretation',
+  elapsed_ms: 3709,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.max_price',
+    'item.size'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'c3c2dc77-a897-4a31-baa8-0f481723beab',
+  stage: 'validation',
+  elapsed_ms: 3718,
+  status: 'ready_for_validation',
+  action: 'new_search',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'c3c2dc77-a897-4a31-baa8-0f481723beab',
+  stage: 'response',
+  elapsed_ms: 6306,
+  status: 'matches',
+  issue_codes: [],
+  issue_fields: [],
+  products: 4,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'fdd07620-6bb2-42ae-a4dc-3620b385bc67',
+  stage: 'interpretation',
+  elapsed_ms: 2354,
+  action: 'refine',
+  changed_fields: [ 'item.size' ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'fdd07620-6bb2-42ae-a4dc-3620b385bc67',
+  stage: 'validation',
+  elapsed_ms: 2359,
+  status: 'ready_for_validation',
+  action: 'refine',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'fdd07620-6bb2-42ae-a4dc-3620b385bc67',
+  stage: 'response',
+  elapsed_ms: 5035,
+  status: 'matches',
+  issue_codes: [],
+  issue_fields: [],
+  products: 4,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '12a53e00-218c-4f02-8e1c-279f2e732af4',
+  stage: 'interpretation',
+  elapsed_ms: 3841,
+  action: 'new_search',
+  changed_fields: [ 'item.occasion' ],
+  has_outfit_request: true
+}
+Stylist diagnostic {
+  request_id: '12a53e00-218c-4f02-8e1c-279f2e732af4',
+  stage: 'validation',
+  elapsed_ms: 3845,
+  status: 'ready_for_validation',
+  action: 'new_search',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '12a53e00-218c-4f02-8e1c-279f2e732af4',
+  stage: 'response',
+  elapsed_ms: 6319,
+  status: 'matches',
+  issue_codes: [],
+  issue_fields: [],
+  products: 2,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'f1ad3ad1-02db-4360-844a-f35a9c915258',
+  stage: 'interpretation',
+  elapsed_ms: 4281,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.occasion',
+    'item.max_price',
+    'item.excluded_colours'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'f1ad3ad1-02db-4360-844a-f35a9c915258',
+  stage: 'validation',
+  elapsed_ms: 4291,
+  status: 'ready_for_validation',
+  action: 'new_search',
+  fields: [],
+  generation: 1
+}
+Stylist diagnostic {
+  request_id: 'f1ad3ad1-02db-4360-844a-f35a9c915258',
+  stage: 'response',
+  elapsed_ms: 6905,
+  status: 'matches',
+  issue_codes: [],
+  issue_fields: [],
+  products: 1,
+  generation: 1
+}
+Stylist diagnostic {
+  request_id: '013bbbab-a82b-4d45-8c4c-1f6cd3e5c706',
+  stage: 'interpretation',
+  elapsed_ms: 2550,
+  action: 'new_search',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: '013bbbab-a82b-4d45-8c4c-1f6cd3e5c706',
+  stage: 'validation',
+  elapsed_ms: 2553,
+  status: 'ready_for_validation',
+  action: 'new_search',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '013bbbab-a82b-4d45-8c4c-1f6cd3e5c706',
+  stage: 'response',
+  elapsed_ms: 7849,
+  status: 'matches',
+  issue_codes: [],
+  issue_fields: [],
+  products: 4,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '7e2fee75-1613-4db9-97e5-605c2a46fde4',
+  stage: 'interpretation',
+  elapsed_ms: 2194,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: '7e2fee75-1613-4db9-97e5-605c2a46fde4',
+  stage: 'response',
+  elapsed_ms: 2970,
+  status: 'answered',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'd06bf053-0cbb-422f-9c39-8b8bbe6e27b0',
+  stage: 'interpretation',
+  elapsed_ms: 1806,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Stylist diagnostic {
+  request_id: 'd06bf053-0cbb-422f-9c39-8b8bbe6e27b0',
+  stage: 'plan_rejected',
+  elapsed_ms: 1808,
+  attempt: 1,
+  type: 'PlanValidationError',
+  field: null,
+  rule: 'Policy questions do not select products or invent an occasion'
+}
+Stylist diagnostic {
+  request_id: 'd06bf053-0cbb-422f-9c39-8b8bbe6e27b0',
+  stage: 'interpretation',
+  elapsed_ms: 3940,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Conversation plan rejected { attempt: 2, type: 'PlanValidationError', field: null }
+Stylist diagnostic {
+  request_id: 'd06bf053-0cbb-422f-9c39-8b8bbe6e27b0',
+  stage: 'plan_rejected',
+  elapsed_ms: 3941,
+  attempt: 2,
+  type: 'PlanValidationError',
+  field: null,
+  rule: 'Policy questions do not select products or invent an occasion'
+}
+Stylist diagnostic {
+  request_id: 'd06bf053-0cbb-422f-9c39-8b8bbe6e27b0',
+  stage: 'validation',
+  elapsed_ms: 3941,
+  status: 'needs_clarification',
+  action: 'clarify',
+  fields: [ 'task.request' ],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'd06bf053-0cbb-422f-9c39-8b8bbe6e27b0',
+  stage: 'response',
+  elapsed_ms: 3944,
+  status: 'needs_clarification',
+  issue_codes: [ 'interpretation_failed' ],
+  issue_fields: [ 'task.request' ],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'fcab6187-7c79-4a97-80af-b40e196bf199',
+  stage: 'interpretation',
+  elapsed_ms: 4723,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'fcab6187-7c79-4a97-80af-b40e196bf199',
+  stage: 'response',
+  elapsed_ms: 5979,
+  status: 'answered',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'b1b7ba26-3573-4057-86b7-c09001632ee7',
+  stage: 'interpretation',
+  elapsed_ms: 3998,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.max_price',
+    'item.size'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'b1b7ba26-3573-4057-86b7-c09001632ee7',
+  stage: 'validation',
+  elapsed_ms: 4000,
+  status: 'ready_for_validation',
+  action: 'new_search',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '19bfadc7-563c-4da4-9e64-167462cddeb0',
+  stage: 'interpretation',
+  elapsed_ms: 1942,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Stylist diagnostic {
+  request_id: '19bfadc7-563c-4da4-9e64-167462cddeb0',
+  stage: 'plan_rejected',
+  elapsed_ms: 1943,
+  attempt: 1,
+  type: 'PlanValidationError',
+  field: null,
+  rule: 'A pure answer MUST have changes=[] and top-level reference=null'
+}
+Stylist diagnostic {
+  request_id: '19bfadc7-563c-4da4-9e64-167462cddeb0',
+  stage: 'interpretation',
+  elapsed_ms: 4693,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'b1b7ba26-3573-4057-86b7-c09001632ee7',
+  stage: 'response',
+  elapsed_ms: 7254,
+  status: 'matches',
+  issue_codes: [],
+  issue_fields: [],
+  products: 4,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '19bfadc7-563c-4da4-9e64-167462cddeb0',
+  stage: 'response',
+  elapsed_ms: 5471,
+  status: 'answered',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'cbad9620-6253-48a1-a630-e0ee864032d0',
+  stage: 'interpretation',
+  elapsed_ms: 2496,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'cbad9620-6253-48a1-a630-e0ee864032d0',
+  stage: 'response',
+  elapsed_ms: 2937,
+  status: 'answered',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '750a6cfd-784c-4afc-89d3-b3b162ecaee7',
+  stage: 'interpretation',
+  elapsed_ms: 2225,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Stylist diagnostic {
+  request_id: '750a6cfd-784c-4afc-89d3-b3b162ecaee7',
+  stage: 'plan_rejected',
+  elapsed_ms: 2227,
+  attempt: 1,
+  type: 'PlanValidationError',
+  field: null,
+  rule: 'A pure answer MUST have changes=[] and top-level reference=null'
+}
+Stylist diagnostic {
+  request_id: '750a6cfd-784c-4afc-89d3-b3b162ecaee7',
+  stage: 'interpretation',
+  elapsed_ms: 4563,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: '750a6cfd-784c-4afc-89d3-b3b162ecaee7',
+  stage: 'response',
+  elapsed_ms: 5254,
+  status: 'answered',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'cd293092-3c12-4c57-b53e-5cf2ce90a690',
+  stage: 'interpretation',
+  elapsed_ms: 2117,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Stylist diagnostic {
+  request_id: 'cd293092-3c12-4c57-b53e-5cf2ce90a690',
+  stage: 'plan_rejected',
+  elapsed_ms: 2118,
+  attempt: 1,
+  type: 'PlanValidationError',
+  field: null,
+  rule: 'A pure answer MUST have changes=[] and top-level reference=null'
+}
+Stylist diagnostic {
+  request_id: 'cd293092-3c12-4c57-b53e-5cf2ce90a690',
+  stage: 'interpretation',
+  elapsed_ms: 4127,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'cd293092-3c12-4c57-b53e-5cf2ce90a690',
+  stage: 'response',
+  elapsed_ms: 4719,
+  status: 'answered',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '21e7fe2c-033b-44b8-9626-27abc55c6ffa',
+  stage: 'interpretation',
+  elapsed_ms: 2458,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: '21e7fe2c-033b-44b8-9626-27abc55c6ffa',
+  stage: 'response',
+  elapsed_ms: 2460,
+  status: 'answered',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '6b70b3a0-02b4-4f72-b761-7fbdf9c09229',
+  stage: 'interpretation',
+  elapsed_ms: 3030,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: '6b70b3a0-02b4-4f72-b761-7fbdf9c09229',
+  stage: 'response',
+  elapsed_ms: 3032,
+  status: 'answered',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'd2d120fe-31a6-4ff9-bad7-cedd37999f98',
+  stage: 'interpretation',
+  elapsed_ms: 2163,
+  action: 'refine',
+  changed_fields: [ 'item.size' ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'd2d120fe-31a6-4ff9-bad7-cedd37999f98',
+  stage: 'validation',
+  elapsed_ms: 2164,
+  status: 'ready_for_validation',
+  action: 'refine',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'b54c2aa9-5b04-40be-820a-0c38acfd1754',
+  stage: 'interpretation',
+  elapsed_ms: 2895,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'b54c2aa9-5b04-40be-820a-0c38acfd1754',
+  stage: 'response',
+  elapsed_ms: 2897,
+  status: 'answered',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'cd0ae677-764f-4e84-b2ac-24c695534529',
+  stage: 'interpretation',
+  elapsed_ms: 2099,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'cd0ae677-764f-4e84-b2ac-24c695534529',
+  stage: 'response',
+  elapsed_ms: 2102,
+  status: 'answered',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '7142f88b-1dd7-49c4-b52d-c6c22fed427f',
+  stage: 'response',
+  elapsed_ms: 515,
+  status: 'answered',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'd2d120fe-31a6-4ff9-bad7-cedd37999f98',
+  stage: 'response',
+  elapsed_ms: 5930,
+  status: 'matches',
+  issue_codes: [],
+  issue_fields: [],
+  products: 4,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'c5398c51-ff5e-4300-acf1-b107a7e9a5e2',
+  stage: 'interpretation',
+  elapsed_ms: 2879,
+  action: 'cheaper',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'c5398c51-ff5e-4300-acf1-b107a7e9a5e2',
+  stage: 'validation',
+  elapsed_ms: 2880,
+  status: 'ready_for_validation',
+  action: 'cheaper',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'c5398c51-ff5e-4300-acf1-b107a7e9a5e2',
+  stage: 'response',
+  elapsed_ms: 5252,
+  status: 'matches',
+  issue_codes: [],
+  issue_fields: [],
+  products: 2,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '3b854cff-1d60-408a-a38f-939dbab5449d',
+  stage: 'interpretation',
+  elapsed_ms: 3083,
+  action: 'cheaper',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: '3b854cff-1d60-408a-a38f-939dbab5449d',
+  stage: 'response',
+  elapsed_ms: 3086,
+  status: 'answered',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'c7ee5911-ddf7-4eff-a7b0-1de2124533f7',
+  stage: 'validation',
+  elapsed_ms: 1,
+  status: 'no_action',
+  action: 'none',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'c7ee5911-ddf7-4eff-a7b0-1de2124533f7',
+  stage: 'response',
+  elapsed_ms: 3568,
+  status: 'matches',
+  issue_codes: [],
+  issue_fields: [],
+  products: 2,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '9e8965ac-2dc1-41da-bf0c-93d0fa194883',
+  stage: 'interpretation',
+  elapsed_ms: 3020,
+  action: 'clarify',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: '9e8965ac-2dc1-41da-bf0c-93d0fa194883',
+  stage: 'validation',
+  elapsed_ms: 3021,
+  status: 'needs_clarification',
+  action: 'clarify',
+  fields: [ 'task.request' ],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '9e8965ac-2dc1-41da-bf0c-93d0fa194883',
+  stage: 'response',
+  elapsed_ms: 3022,
+  status: 'needs_clarification',
+  issue_codes: [ 'needs_detail' ],
+  issue_fields: [ 'task.request' ],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '04e8fa1a-7580-4cdf-9567-1e8ab11ea965',
+  stage: 'interpretation',
+  elapsed_ms: 3052,
+  action: 'refine',
+  changed_fields: [ 'item.max_price', 'item.size' ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: '04e8fa1a-7580-4cdf-9567-1e8ab11ea965',
+  stage: 'validation',
+  elapsed_ms: 3053,
+  status: 'ready_for_validation',
+  action: 'refine',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'f8feb156-c2ca-4f39-89b6-ae94f61977c0',
+  stage: 'interpretation',
+  elapsed_ms: 3225,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'f8feb156-c2ca-4f39-89b6-ae94f61977c0',
+  stage: 'response',
+  elapsed_ms: 3227,
+  status: 'answered',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '04e8fa1a-7580-4cdf-9567-1e8ab11ea965',
+  stage: 'response',
+  elapsed_ms: 5872,
+  status: 'needs_clarification',
+  issue_codes: [ 'invalid_preference' ],
+  issue_fields: [ 'item.size' ],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'ca00ef52-0950-4d67-bdbb-3338de7c4a13',
+  stage: 'interpretation',
+  elapsed_ms: 2300,
+  action: 'cross_sell',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'ca00ef52-0950-4d67-bdbb-3338de7c4a13',
+  stage: 'validation',
+  elapsed_ms: 2301,
+  status: 'ready_for_validation',
+  action: 'cross_sell',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'ca00ef52-0950-4d67-bdbb-3338de7c4a13',
+  stage: 'response',
+  elapsed_ms: 4600,
+  status: 'no_match',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'b7df6f73-b948-43e0-920f-bf4337c1b7aa',
+  stage: 'interpretation',
+  elapsed_ms: 4229,
+  action: 'refine',
+  changed_fields: [ 'item.max_price', 'item.size', 'item.excluded_colours' ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'b7df6f73-b948-43e0-920f-bf4337c1b7aa',
+  stage: 'validation',
+  elapsed_ms: 4231,
+  status: 'ready_for_validation',
+  action: 'refine',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '8a7826b6-d597-4070-a9d7-73f13273e560',
+  stage: 'interpretation',
+  elapsed_ms: 1897,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: '8a7826b6-d597-4070-a9d7-73f13273e560',
+  stage: 'response',
+  elapsed_ms: 1898,
+  status: 'answered',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'b7df6f73-b948-43e0-920f-bf4337c1b7aa',
+  stage: 'response',
+  elapsed_ms: 6869,
+  status: 'matches',
+  issue_codes: [],
+  issue_fields: [],
+  products: 2,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '4986038d-3bf8-4986-bb17-c49a3fc7fcbe',
+  stage: 'interpretation',
+  elapsed_ms: 1961,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: '4986038d-3bf8-4986-bb17-c49a3fc7fcbe',
+  stage: 'validation',
+  elapsed_ms: 1962,
+  status: 'no_action',
+  action: 'none',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '4986038d-3bf8-4986-bb17-c49a3fc7fcbe',
+  stage: 'response',
+  elapsed_ms: 1963,
+  status: 'no_action',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '51575056-db2c-4ea4-be2c-866790563e88',
+  stage: 'interpretation',
+  elapsed_ms: 2366,
+  action: 'new_search',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: '51575056-db2c-4ea4-be2c-866790563e88',
+  stage: 'validation',
+  elapsed_ms: 2368,
+  status: 'ready_for_validation',
+  action: 'new_search',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '51575056-db2c-4ea4-be2c-866790563e88',
+  stage: 'response',
+  elapsed_ms: 4877,
+  status: 'matches',
+  issue_codes: [],
+  issue_fields: [],
+  products: 4,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '97908b83-42be-434a-b067-9aa1357d6301',
+  stage: 'interpretation',
+  elapsed_ms: 1759,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: '97908b83-42be-434a-b067-9aa1357d6301',
+  stage: 'response',
+  elapsed_ms: 2556,
+  status: 'answered',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '4c0c7af7-2a0e-45a7-a144-07d41095b6dd',
+  stage: 'interpretation',
+  elapsed_ms: 1786,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Stylist diagnostic {
+  request_id: '4c0c7af7-2a0e-45a7-a144-07d41095b6dd',
+  stage: 'plan_rejected',
+  elapsed_ms: 1787,
+  attempt: 1,
+  type: 'PlanValidationError',
+  field: null,
+  rule: 'Policy questions do not select products or invent an occasion'
+}
+Stylist diagnostic {
+  request_id: 'b55904bc-144a-4660-ab8b-86f2d7975563',
+  stage: 'interpretation',
+  elapsed_ms: 4980,
+  action: 'new_search',
+  changed_fields: [ 'shared.occasion' ],
+  has_outfit_request: true
+}
+Stylist diagnostic {
+  request_id: 'b55904bc-144a-4660-ab8b-86f2d7975563',
+  stage: 'validation',
+  elapsed_ms: 4983,
+  status: 'ready_for_validation',
+  action: 'new_search',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '4c0c7af7-2a0e-45a7-a144-07d41095b6dd',
+  stage: 'interpretation',
+  elapsed_ms: 3932,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Conversation plan rejected { attempt: 2, type: 'PlanValidationError', field: null }
+Stylist diagnostic {
+  request_id: '4c0c7af7-2a0e-45a7-a144-07d41095b6dd',
+  stage: 'plan_rejected',
+  elapsed_ms: 3933,
+  attempt: 2,
+  type: 'PlanValidationError',
+  field: null,
+  rule: 'Policy questions do not select products or invent an occasion'
+}
+Stylist diagnostic {
+  request_id: '4c0c7af7-2a0e-45a7-a144-07d41095b6dd',
+  stage: 'validation',
+  elapsed_ms: 3933,
+  status: 'needs_clarification',
+  action: 'clarify',
+  fields: [ 'task.request' ],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '4c0c7af7-2a0e-45a7-a144-07d41095b6dd',
+  stage: 'response',
+  elapsed_ms: 3934,
+  status: 'needs_clarification',
+  issue_codes: [ 'interpretation_failed' ],
+  issue_fields: [ 'task.request' ],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'b55904bc-144a-4660-ab8b-86f2d7975563',
+  stage: 'response',
+  elapsed_ms: 7453,
+  status: 'matches',
+  issue_codes: [],
+  issue_fields: [],
+  products: 2,
+  generation: 0
+}
+Conversation plan rejected { attempt: 1, type: 'ZodError', field: null }
+Stylist diagnostic {
+  request_id: 'b05aa46a-10ac-4465-af92-58a6b4e3b77e',
+  stage: 'plan_rejected',
+  elapsed_ms: 3301,
+  attempt: 1,
+  type: 'ZodError',
+  field: null,
+  rule: 'ZodError'
+}
+Stylist diagnostic {
+  request_id: 'b05aa46a-10ac-4465-af92-58a6b4e3b77e',
+  stage: 'interpretation',
+  elapsed_ms: 8003,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.occasion',
+    'item.max_price',
+    'item.excluded_colours',
+    'item.size'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'b05aa46a-10ac-4465-af92-58a6b4e3b77e',
+  stage: 'validation',
+  elapsed_ms: 8005,
+  status: 'ready_for_validation',
+  action: 'new_search',
+  fields: [],
+  generation: 1
+}
+Stylist diagnostic {
+  request_id: 'b05aa46a-10ac-4465-af92-58a6b4e3b77e',
+  stage: 'response',
+  elapsed_ms: 10134,
+  status: 'matches',
+  issue_codes: [],
+  issue_fields: [],
+  products: 1,
+  generation: 1
+}
+Stylist diagnostic {
+  request_id: 'afdb74ed-26f9-42f6-8f6d-43276f458995',
+  stage: 'interpretation',
+  elapsed_ms: 1798,
+  action: 'refine',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'afdb74ed-26f9-42f6-8f6d-43276f458995',
+  stage: 'validation',
+  elapsed_ms: 1798,
+  status: 'ready_for_validation',
+  action: 'refine',
+  fields: [],
+  generation: 1
+}
+Stylist diagnostic {
+  request_id: 'afdb74ed-26f9-42f6-8f6d-43276f458995',
+  stage: 'response',
+  elapsed_ms: 3848,
+  status: 'matches',
+  issue_codes: [],
+  issue_fields: [],
+  products: 1,
+  generation: 1
+}
+Stylist diagnostic {
+  request_id: '0d1ca955-369b-44a2-9347-6fc1edda9454',
+  stage: 'validation',
+  elapsed_ms: 2,
+  status: 'no_action',
+  action: 'none',
+  fields: [],
+  generation: 1
+}
+Stylist diagnostic {
+  request_id: '0d1ca955-369b-44a2-9347-6fc1edda9454',
+  stage: 'response',
+  elapsed_ms: 3,
+  status: 'no_action',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 1
+}
+Stylist diagnostic {
+  request_id: '4245bf51-ca33-4fbc-91bb-e93135f87e7d',
+  stage: 'interpretation',
+  elapsed_ms: 5053,
+  action: 'cross_sell',
+  changed_fields: [
+    'item.category',
+    'item.product_type',
+    'item.max_price',
+    'item.unresolved'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: '4245bf51-ca33-4fbc-91bb-e93135f87e7d',
+  stage: 'validation',
+  elapsed_ms: 5061,
+  status: 'needs_clarification',
+  action: 'cross_sell',
+  fields: [ 'item.requirement' ],
+  generation: 1
+}
+Stylist diagnostic {
+  request_id: '4245bf51-ca33-4fbc-91bb-e93135f87e7d',
+  stage: 'response',
+  elapsed_ms: 5064,
+  status: 'needs_clarification',
+  issue_codes: [ 'unverified_requirement' ],
+  issue_fields: [ 'item.requirement' ],
+  products: 0,
+  generation: 1
+}
+Stylist diagnostic {
+  request_id: 'fff09a7d-b992-4767-b651-0a163d7e836a',
+  stage: 'interpretation',
+  elapsed_ms: 5694,
+  action: 'cross_sell',
+  changed_fields: [ 'item.unresolved' ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'fff09a7d-b992-4767-b651-0a163d7e836a',
+  stage: 'validation',
+  elapsed_ms: 5698,
+  status: 'ready_for_validation',
+  action: 'cross_sell',
+  fields: [],
+  generation: 1
+}
+Stylist diagnostic {
+  request_id: 'fff09a7d-b992-4767-b651-0a163d7e836a',
+  stage: 'response',
+  elapsed_ms: 8086,
+  status: 'alternatives',
+  issue_codes: [],
+  issue_fields: [],
+  products: 4,
+  generation: 1
+}
+Stylist diagnostic {
+  request_id: '85290578-2c2f-4eab-a410-ed977e7ba945',
+  stage: 'interpretation',
+  elapsed_ms: 5191,
+  action: 'cross_sell',
+  changed_fields: [ 'item.category', 'item.product_type', 'item.max_price' ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: '85290578-2c2f-4eab-a410-ed977e7ba945',
+  stage: 'validation',
+  elapsed_ms: 5195,
+  status: 'ready_for_validation',
+  action: 'cross_sell',
+  fields: [],
+  generation: 1
+}
+Stylist diagnostic {
+  request_id: '85290578-2c2f-4eab-a410-ed977e7ba945',
+  stage: 'response',
+  elapsed_ms: 7530,
+  status: 'alternatives',
+  issue_codes: [],
+  issue_fields: [],
+  products: 4,
+  generation: 1
+}
+Stylist diagnostic {
+  request_id: 'c3f40a73-74ef-449b-84bd-c72b8a1c9c82',
+  stage: 'interpretation',
+  elapsed_ms: 4656,
+  action: 'cross_sell',
+  changed_fields: [ 'item.max_price' ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'c3f40a73-74ef-449b-84bd-c72b8a1c9c82',
+  stage: 'validation',
+  elapsed_ms: 4657,
+  status: 'ready_for_validation',
+  action: 'cross_sell',
+  fields: [],
+  generation: 1
+}
+Stylist diagnostic {
+  request_id: 'c3f40a73-74ef-449b-84bd-c72b8a1c9c82',
+  stage: 'response',
+  elapsed_ms: 7475,
+  status: 'matches',
+  issue_codes: [],
+  issue_fields: [],
+  products: 4,
+  generation: 1
+}
+Stylist diagnostic {
+  request_id: '60d96439-fcf4-4a8e-8a43-fb52c845d955',
+  stage: 'interpretation',
+  elapsed_ms: 1824,
+  action: 'discover',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: '60d96439-fcf4-4a8e-8a43-fb52c845d955',
+  stage: 'validation',
+  elapsed_ms: 1829,
+  status: 'no_action',
+  action: 'discover',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '60d96439-fcf4-4a8e-8a43-fb52c845d955',
+  stage: 'response',
+  elapsed_ms: 1830,
+  status: 'no_action',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'e97e09da-1aa8-46eb-b36a-9f9c3920483f',
+  stage: 'interpretation',
+  elapsed_ms: 3505,
+  action: 'discover',
+  changed_fields: [ 'item.occasion' ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'e97e09da-1aa8-46eb-b36a-9f9c3920483f',
+  stage: 'validation',
+  elapsed_ms: 3506,
+  status: 'ready_for_validation',
+  action: 'discover',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'e97e09da-1aa8-46eb-b36a-9f9c3920483f',
+  stage: 'response',
+  elapsed_ms: 5957,
+  status: 'matches',
+  issue_codes: [],
+  issue_fields: [],
+  products: 4,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '38bddd0f-8c98-42d6-a415-7f91f7535725',
+  stage: 'interpretation',
+  elapsed_ms: 6149,
+  action: 'refine',
+  changed_fields: [ 'item.max_price', 'item.excluded_colours' ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: '38bddd0f-8c98-42d6-a415-7f91f7535725',
+  stage: 'validation',
+  elapsed_ms: 6151,
+  status: 'ready_for_validation',
+  action: 'refine',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '38bddd0f-8c98-42d6-a415-7f91f7535725',
+  stage: 'response',
+  elapsed_ms: 8413,
+  status: 'matches',
+  issue_codes: [],
+  issue_fields: [],
+  products: 1,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '62448493-1213-477f-b7d1-5c0ea68d8aae',
+  stage: 'interpretation',
+  elapsed_ms: 4473,
+  action: 'new_search',
+  changed_fields: [ 'item.gender', 'item.occasion' ],
+  has_outfit_request: true
+}
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Stylist diagnostic {
+  request_id: '62448493-1213-477f-b7d1-5c0ea68d8aae',
+  stage: 'plan_rejected',
+  elapsed_ms: 4476,
+  attempt: 1,
+  type: 'PlanValidationError',
+  field: null,
+  rule: 'A collection change needs an explicit collection request or a supported Dresses/Skirts category default'
+}
+Stylist diagnostic {
+  request_id: '62448493-1213-477f-b7d1-5c0ea68d8aae',
+  stage: 'interpretation',
+  elapsed_ms: 9747,
+  action: 'new_search',
+  changed_fields: [ 'shared.occasion' ],
+  has_outfit_request: true
+}
+Stylist diagnostic {
+  request_id: '62448493-1213-477f-b7d1-5c0ea68d8aae',
+  stage: 'validation',
+  elapsed_ms: 9749,
+  status: 'ready_for_validation',
+  action: 'new_search',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '62448493-1213-477f-b7d1-5c0ea68d8aae',
+  stage: 'response',
+  elapsed_ms: 12326,
+  status: 'matches',
+  issue_codes: [],
+  issue_fields: [],
+  products: 2,
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '3595c513-6f54-42bb-ab0b-29e215f4c795',
+  stage: 'interpretation',
+  elapsed_ms: 5569,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.product_type',
+    'item.occasion',
+    'item.max_price',
+    'item.size'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: '3595c513-6f54-42bb-ab0b-29e215f4c795',
+  stage: 'validation',
+  elapsed_ms: 5572,
+  status: 'ready_for_validation',
+  action: 'new_search',
+  fields: [],
+  generation: 1
+}
+Stylist diagnostic {
+  request_id: '3595c513-6f54-42bb-ab0b-29e215f4c795',
+  stage: 'response',
+  elapsed_ms: 8370,
+  status: 'alternatives',
+  issue_codes: [],
+  issue_fields: [],
+  products: 3,
+  generation: 1
+}
+Stylist diagnostic {
+  request_id: '2c211337-a01e-45ed-9508-ca5857854360',
+  stage: 'interpretation',
+  elapsed_ms: 4136,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.max_price',
+    'item.size'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: '2c211337-a01e-45ed-9508-ca5857854360',
+  stage: 'validation',
+  elapsed_ms: 4139,
+  status: 'ready_for_validation',
+  action: 'refine',
+  fields: [],
+  generation: 1
+}
+Stylist diagnostic {
+  request_id: '2c211337-a01e-45ed-9508-ca5857854360',
+  stage: 'response',
+  elapsed_ms: 6863,
+  status: 'no_match',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 1
+}
+Stylist diagnostic {
+  request_id: '6479a7a6-ae97-4297-9b5a-656fc4f4f9f6',
+  stage: 'interpretation',
+  elapsed_ms: 2227,
+  action: 'refine',
+  changed_fields: [ 'item.size' ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: '6479a7a6-ae97-4297-9b5a-656fc4f4f9f6',
+  stage: 'validation',
+  elapsed_ms: 2228,
+  status: 'ready_for_validation',
+  action: 'refine',
+  fields: [],
+  generation: 1
+}
+Stylist diagnostic {
+  request_id: '6479a7a6-ae97-4297-9b5a-656fc4f4f9f6',
+  stage: 'response',
+  elapsed_ms: 4443,
+  status: 'no_match',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 1
+}

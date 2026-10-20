@@ -1,0 +1,50 @@
+{
+  "product_id": "P1231",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:45.676Z",
+  "identity_snapshot": {
+    "product_id": "P1231",
+    "product_name": "Yellow Knit Top",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "product_type": "Knit Top",
+    "gender": "Unisex",
+    "colour": "Yellow",
+    "material": "Knit",
+    "fit": "Slim",
+    "style": "Relaxed",
+    "occasion": "Travel",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1231",
+    "description": "Yellow knit top with a clean crew neckline, slim silhouette and softly ribbed cuffs for a relaxed travel-ready layer.",
+    "construction_details": [
+      "Fine-gauge knit construction",
+      "Set-in sleeves with neat shoulder seams",
+      "Ribbed neckline and sleeve cuffs",
+      "Straight hem"
+    ],
+    "care_instructions": "Machine wash cold on a gentle cycle with similar colours; reshape and dry flat.",
+    "lining": false,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Travel"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": 62,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "6ee44942378c16eab6a3d92d8bc783e4de398e31bc74a69bb9a96fdf67c45447"
+}

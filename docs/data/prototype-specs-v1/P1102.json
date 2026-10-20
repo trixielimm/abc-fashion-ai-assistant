@@ -1,0 +1,54 @@
+{
+  "product_id": "P1102",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:30.452Z",
+  "identity_snapshot": {
+    "product_id": "P1102",
+    "product_name": "Lavender Structured Handbag",
+    "category": "Bags",
+    "subcategory": "Handbags",
+    "product_type": "Structured Handbag",
+    "gender": "Unisex",
+    "colour": "Lavender",
+    "material": "Canvas",
+    "fit": "Standard",
+    "style": "Smart",
+    "occasion": "Work",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1102",
+    "description": "Smart lavender canvas structured handbag with a defined top line and upright shape, suited to work styling. The standard-size interior accommodates daily essentials without an oversized silhouette.",
+    "construction_details": [
+      "Firmly shaped body with reinforced base",
+      "Twin rolled handles with stitched attachment tabs",
+      "Top zip closure and protective metal feet"
+    ],
+    "care_instructions": "Brush away surface dust and spot clean with a damp cloth. Allow to air dry fully and store upright.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": true,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": 6.8,
+    "use_cases": [
+      "Work",
+      "Brunch"
+    ],
+    "closure": "zip",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": {
+      "width": 33,
+      "height": 25,
+      "depth": 9
+    },
+    "strap_drop_cm": 52,
+    "compartments": 3,
+    "sole_material": null,
+    "hardware_finish": "brushed gold-tone"
+  },
+  "content_sha256": "951aa7782b501cfbd835b04cd8aea70ce37fd0b00ad3c4653845296da5c05b29"
+}

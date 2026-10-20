@@ -1,0 +1,51 @@
+{
+  "product_id": "P1048",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:25.762Z",
+  "identity_snapshot": {
+    "product_id": "P1048",
+    "product_name": "White Fitted Tee",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "product_type": "Fitted Tee",
+    "gender": "Women",
+    "colour": "White",
+    "material": "Polyester",
+    "fit": "Slim",
+    "style": "Smart",
+    "occasion": "Brunch",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1048",
+    "description": "Smart white fitted tee with a slim silhouette, compact crew neckline and clean short sleeves. Polyester construction gives the everyday top a smooth, polished finish.",
+    "construction_details": [
+      "Ribbed crew neckline",
+      "Set-in short sleeves",
+      "Shoulder-to-shoulder neck tape",
+      "Double-needle sleeve and bottom hems"
+    ],
+    "care_instructions": "Wash cold on a gentle cycle with similar colours; line dry and cool iron if needed.",
+    "lining": false,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Brunch",
+      "Work"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": 61,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "061b579d06cd4c085de40c95f9013544184f9db2d114b8780e89b5a3514b434c"
+}

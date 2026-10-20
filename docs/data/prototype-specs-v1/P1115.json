@@ -1,0 +1,50 @@
+{
+  "product_id": "P1115",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:51.190Z",
+  "identity_snapshot": {
+    "product_id": "P1115",
+    "product_name": "Lavender Pendant Necklace",
+    "category": "Accessories",
+    "subcategory": "Jewellery",
+    "product_type": "Pendant Necklace",
+    "gender": "Women",
+    "colour": "Lavender",
+    "material": "Gold-tone Metal",
+    "fit": "Standard",
+    "style": "Romantic",
+    "occasion": "Date Night",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1115",
+    "description": "A romantic lavender pendant necklace with a delicate gold-tone metal setting, offering a softly coloured accent for date-night dressing.",
+    "construction_details": [
+      "Fine link chain",
+      "Suspended pendant detail",
+      "Lobster clasp fastening",
+      "Short extender chain"
+    ],
+    "care_instructions": "Keep dry and store separately in a soft pouch; avoid contact with perfumes, lotions and abrasive surfaces.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": null,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Date Night"
+    ],
+    "closure": "clasp",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": "Gold-tone"
+  },
+  "content_sha256": "6598894d388b9e4fb6f6e596afb5f04cfeb7728af152880ccb92e370ce24e4a6"
+}

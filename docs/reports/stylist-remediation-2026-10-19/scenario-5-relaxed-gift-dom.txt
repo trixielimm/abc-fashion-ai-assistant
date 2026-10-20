@@ -1,0 +1,318 @@
+- scrollbar "Page scroll"
+- banner:
+  - link "ABC Fashion":
+    - /url: /
+    - generic: ABC Fashion
+  - navigation "Primary":
+    - link "Shop":
+      - /url: /search
+    - link "Collections":
+      - /url: /#featured-categories
+    - link "For him":
+      - /url: /#this-season
+    - link "For her":
+      - /url: /#this-season
+    - button "AI Stylist"
+  - search "Product search":
+    - button "Search products":
+    - searchbox "Search"
+  - button "Account coming soon" [disabled]:
+  - link "Bag, 0 items":
+    - /url: /cart
+- main:
+  - img "Model in a long wool coat"
+  - paragraph: VOLUME
+  - paragraph: One
+  - paragraph: Autumn | Winter 2024
+  - heading "Refined Simplicity in Every Thread." [level=1]
+  - paragraph: For those who believe that true style is found in the details and in the quality of materials.
+  - link "Shop New Arrivals →":
+    - /url: "#this-season"
+  - link "See more":
+    - /url: "#featured-categories"
+  - paragraph: Featured Categories
+  - link "Shop all →":
+    - /url: "#this-season"
+  - link:
+    - /url: "#this-season"
+    - article:
+      - img "The Essentials"
+      - paragraph: The Essentials
+      - heading "The Essentials" [level=3]
+      - paragraph: Timeless wardrobe foundations designed for effortless everyday dressing.
+      - generic: See more →
+  - link:
+    - /url: "#this-season"
+    - article:
+      - img "Accessories"
+      - paragraph: Accessories
+      - heading "Accessories" [level=3]
+      - paragraph: Considered finishing pieces that bring character and refinement to every look.
+      - generic: See more →
+  - link:
+    - /url: "#this-season"
+    - article:
+      - img "Outerwear"
+      - paragraph: Outerwear
+      - heading "Outerwear" [level=3]
+      - paragraph: Structured layers designed to balance warmth, form and understated elegance.
+      - generic: See more →
+  - paragraph: This Season
+  - button "Previous products":
+  - button "Next products":
+  - link:
+    - /url: /products/silk-blend-blouse
+    - article:
+      - img "Silk Blend Blouse"
+      - heading "Silk Blend Blouse" [level=3]
+      - paragraph: $129.00
+  - link:
+    - /url: /products/tailored-trouser
+    - article:
+      - img "Tailored Trouser"
+      - heading "Tailored Trouser" [level=3]
+      - paragraph: $159.00
+  - link:
+    - /url: /products/silver-chain
+    - article:
+      - img "Silver Chain, Long Drop"
+      - heading "Silver Chain, Long Drop" [level=3]
+      - paragraph: $79.00
+  - link:
+    - /url: /products/structured-blazer
+    - article:
+      - img "Structured Blazer"
+      - heading "Structured Blazer" [level=3]
+      - paragraph: $289.00
+  - link:
+    - /url: /products/leather-jacket
+    - article:
+      - img "Leather Biker Jacket"
+      - heading "Leather Biker Jacket" [level=3]
+      - paragraph: $349.00
+  - link:
+    - /url: /products/work-shirt
+    - article:
+      - img "Relaxed Work Shirt"
+      - heading "Relaxed Work Shirt" [level=3]
+      - paragraph: $119.00
+  - paragraph: Campaign 04
+  - heading "The Modernist Dialogue" [level=2]
+  - paragraph: A conversation between architecture and attire. Our latest campaign explores the intersection of sculpted forms and fluid silhouettes, captured in the heart of Copenhagen's modernist landscape.
+  - link "Read the story →":
+    - /url: "#"
+  - img "Campaign models photographed against concrete architecture"
+  - paragraph: Stay informed
+  - paragraph: Join us on our journey for early access to new collections and exclusive offers for members.
+  - generic: Email address
+  - textbox "Email address":
+    - /placeholder: EMAIL ADDRESS
+  - button "Subscribe"
+- contentinfo:
+  - paragraph:
+    - text: ABC Fashion
+  - paragraph:
+    - text: Copenhagen & Stockholm
+    - text: London / Paris / New York
+  - paragraph: On Instagram
+  - link "Neutral knitwear on a rail":
+    - /url: "#"
+    - img "Neutral knitwear on a rail"
+  - link "Stacked denim":
+    - /url: "#"
+    - img "Stacked denim"
+  - link "Jackets on a chrome rail":
+    - /url: "#"
+    - img "Jackets on a chrome rail"
+  - link "Black leather jacket":
+    - /url: "#"
+    - img "Black leather jacket"
+  - paragraph: Our Department
+  - list:
+    - link "Women's Collection":
+      - /url: /#this-season
+    - link "Men's Collection":
+      - /url: /#this-season
+    - link "Accessories":
+      - /url: /#featured-categories
+  - paragraph: Connect
+  - list:
+    - link "Shipping":
+      - /url: "#"
+    - link "AI Stylist Privacy":
+      - /url: /terms-of-service#privacy
+    - link "Contact Us":
+      - /url: "#"
+  - list:
+    - link "Instagram":
+      - /url: "#"
+    - link "Facebook":
+      - /url: "#"
+    - link "Pinterest":
+      - /url: "#"
+  - paragraph: © 2026 ABC Fashion Inc. All rights reserved.
+  - paragraph: Prototype store — sample products and AI-generated specifications.
+  - paragraph:
+    - link "AI Terms":
+      - /url: /terms-of-service
+    - link "AI Privacy":
+      - /url: /terms-of-service#privacy
+    - link "Cookies":
+      - /url: "#"
+- button "Chat with stylist":
+  - text: Chat with stylist
+- dialog "AI Stylist":
+  - banner:
+    - generic: ABC
+    - paragraph: Personal shopping
+    - heading "AI Stylist" [level=2]
+    - button "New chat"
+    - button "Close AI Stylist":
+  - complementary "Your look":
+    - strong: Your look
+    - generic: 0 items
+    - status: Save pieces here to build a look.
+    - strong: A$0.00 total
+    - button "View look":
+      - text: View look
+      - generic: ⌄
+  - log:
+    - generic: You
+    - paragraph: I'm shopping for my dad, not me. He's starting a new office job, hates shopping, and I want to get him a shirt and trousers for under $220 together. No idea what his size is. Can you help without guessing?
+    - generic: AI Stylist
+    - paragraph:
+      - text: I’d start with the
+      - strong: Red Oxford Shirt and Beige Pleated Trousers
+      - text: . Together, they come to
+      - strong: A$175.00 total
+      - text: ", leaving A$45.00 of your A$220.00 budget. You can also mix and match one item from each group below."
+    - generic "Why this pairing?"
+    - generic "Combined outfit budget":
+      - strong: A$175.00
+      - text: combined
+      - text: Within your
+      - strong: A$220.00
+      - text: budget
+    - region "Shirts options":
+      - heading "Shirts" [level=3]
+      - generic: 1 option
+      - list "Shirts options":
+        - article:
+          - link "View Red Oxford Shirt":
+            - /url: /products/P1166
+            - generic: ABC
+            - generic: Photo unavailable
+          - paragraph: Suggested pairing
+          - link "Red Oxford Shirt":
+            - /url: /products/P1166
+          - paragraph: A$115.00
+          - paragraph: ABC Essentials · Red
+          - paragraph: Listed for work occasions.
+          - button "Add to cart"
+    - region "Bottoms options":
+      - heading "Bottoms" [level=3]
+      - generic: 1 option
+      - list "Bottoms options":
+        - article:
+          - link "View Beige Pleated Trousers":
+            - /url: /products/P1177
+            - generic: ABC
+            - generic: Photo unavailable
+          - paragraph: Suggested pairing
+          - link "Beige Pleated Trousers":
+            - /url: /products/P1177
+          - paragraph: A$60.00
+          - paragraph: ABC Essentials · Beige
+          - paragraph: Listed for work occasions.
+          - button "Add to cart"
+    - generic: You
+    - paragraph: "Red is a bit loud for Dad. Any blue or white shirts instead? I found an old shirt label: M, regular fit. Still $220 for both pieces; don't guess the trouser size."
+    - generic: AI Stylist
+    - paragraph: "I couldn't find a complete set within A$220.00: no available Shirt meets the saved requirements. I haven't changed your budget or item requirements."
+    - generic: You
+    - paragraph: Okay, regular is too restrictive. Drop the fit restriction; keep M for the shirt, blue or white, and the $220 combined budget. Any options now?
+    - generic: AI Stylist
+    - paragraph: "I couldn't find a complete set within A$220.00: no available Shirt meets the saved requirements. I haven't changed your budget or item requirements."
+    - generic: You
+    - paragraph: Forget that outfit. Start a new search for a men's shirt, M, under $100. Any fit, any colour. I just need to see what exists before worrying about the trousers.
+    - generic: AI Stylist
+    - paragraph: I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged. You can tell me which detail you're happy to change, and I'll use that in the next search. I haven't changed the request for you.
+    - generic: You
+    - paragraph: Okay, increase the shirt budget to $130. Still men's, M, any colour, any fit. Show whatever matches.
+    - generic: AI Stylist
+    - paragraph: I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged. You can tell me which detail you're happy to change, and I'll use that in the next search. I haven't changed the request for you.
+    - generic: You
+    - paragraph: Drop the fit and colour restrictions. Show men's shirts in M, any fit, any colour, under $130. Start a new search if you need to, but don't guess Dad's measurements.
+    - generic: AI Stylist
+    - paragraph: I've found 4 clothing options for you to explore.
+    - generic "Details about these picks"
+    - region "Recommended products":
+      - generic: 4 pieces
+      - list "Recommended products":
+        - article:
+          - link "View White Linen Shirt":
+            - /url: /products/P1119
+            - generic: ABC
+            - generic: Photo unavailable
+          - link "White Linen Shirt":
+            - /url: /products/P1119
+          - paragraph: A$120.00
+          - paragraph: ABC Occasion · White
+          - paragraph: Size M is listed.
+          - button "More options for White Linen Shirt":
+            - generic: ···
+          - 'button "Save to look: White Linen Shirt"': Save to look
+          - button "Add to cart"
+          - button "Size M · Change"
+        - article:
+          - link "View Red Oxford Shirt":
+            - /url: /products/P1166
+            - generic: ABC
+            - generic: Photo unavailable
+          - link "Red Oxford Shirt":
+            - /url: /products/P1166
+          - paragraph: A$115.00
+          - paragraph: ABC Essentials · Red
+          - paragraph: Size M is listed.
+          - button "More options for Red Oxford Shirt":
+            - generic: ···
+          - 'button "Save to look: Red Oxford Shirt"': Save to look
+          - button "Add to cart"
+          - button "Size M · Change"
+        - article:
+          - link "View White Polo Shirt":
+            - /url: /products/P1308
+            - generic: ABC
+            - generic: Photo unavailable
+          - link "White Polo Shirt":
+            - /url: /products/P1308
+          - paragraph: A$95.00
+          - paragraph: ABC Essentials · White
+          - paragraph: Size M is listed.
+          - button "More options for White Polo Shirt":
+            - generic: ···
+          - 'button "Save to look: White Polo Shirt"': Save to look
+          - button "Add to cart"
+          - button "Size M · Change"
+        - article:
+          - link "View Blue Oxford Shirt":
+            - /url: /products/P1098
+            - generic: ABC
+            - generic: Photo unavailable
+          - link "Blue Oxford Shirt":
+            - /url: /products/P1098
+          - paragraph: A$50.00
+          - paragraph: ABC Occasion · Blue
+          - paragraph: Size M is listed.
+          - button "More options for Blue Oxford Shirt":
+            - generic: ···
+          - 'button "Save to look: Blue Oxford Shirt"': Save to look
+          - button "Add to cart"
+          - button "Size M · Change"
+    - paragraph: What occasion are you shopping for? You can also keep browsing these options.
+  - textbox "Message your stylist":
+    - /placeholder: What can I help you find?
+  - button "Send message" [disabled]: Send
+  - generic: Messages may be sent to OpenAI.
+  - generic "Privacy & details"
+- alert

@@ -1,0 +1,51 @@
+{
+  "product_id": "P1206",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:33.467Z",
+  "identity_snapshot": {
+    "product_id": "P1206",
+    "product_name": "Burgundy Fitted Tee",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "product_type": "Fitted Tee",
+    "gender": "Women",
+    "colour": "Burgundy",
+    "material": "Linen Blend",
+    "fit": "Slim",
+    "style": "Smart",
+    "occasion": "Brunch",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1206",
+    "description": "A slim burgundy fitted tee with a smart, close-to-the-body shape and linen-blend texture. Its compact proportions work neatly with tailored or relaxed separates.",
+    "construction_details": [
+      "Close crew neckline",
+      "Short set-in sleeves",
+      "Shaped side seams",
+      "Narrow double-needle hem"
+    ],
+    "care_instructions": "Cold hand wash; do not wring, and dry flat in shade.",
+    "lining": false,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": null,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Brunch",
+      "Work"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": 58,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "b79c50b1d240c0db3ae461eb73a5f696871596967127cf254c0a287f5e6641ee"
+}

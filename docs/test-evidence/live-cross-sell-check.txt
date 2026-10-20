@@ -1,0 +1,117 @@
+ABC Fashion - Live Cross-Sell Retrieval Check
+
+
+Test reference: LIVE-CROSS-SELL-01
+Related tasks: 20 and 25
+Execution date/time: Not recorded in the captured output
+Environment: Local Next.js server connected to Supabase
+Endpoint: POST http://127.0.0.1:3000/api/cross-sell
+Content-Type: application/json
+Result: PASS for this request and the compared product fields
+
+Purpose
+
+Verify rule-based additional-item retrieval and compare returned product
+facts with the underlying SQL records in live-stock-check.txt.
+
+Request
+
+{
+  "primary_product_id": "P1001",
+  "max_price": 50,
+  "size": "One Size"
+}
+
+The budget applies to each additional item, not a complete outfit.
+No colour, occasion, style or collection preferences were supplied.
+
+Expected result
+
+The response identifies P1001 as the main product.
+Products belong to the recorded cross-sell target.
+Each returned product costs no more than AUD 50.00 and lists One Size.
+P1001 is not returned as its own additional recommendation.
+Returned product facts agree with the corresponding SQL records.
+
+Actual response
+
+status: matches
+primary_product_id: P1001
+target_category: Bags
+budget_scope: per_additional_item
+returned product count: 4
+
+message:
+Optional additions from the recorded Bags cross-sell category. Here are
+a few available items that fit your preferences.
+
+Applied preferences:
+category: Bags
+size: One Size
+max_price: 50
+preferred_colours: []
+excluded_colours: []
+
+The remaining applied preference fields were null.
+
+Returned products in API order
+
+P1070: Lavender Envelope Clutch
+Price: AUD 45.00
+Category: Bags
+Colour: Lavender
+Sizes: One Size
+
+P1187: White Mini Clutch
+Price: AUD 50.00
+Category: Bags
+Colour: White
+Sizes: One Size
+
+P1298: Gold Mini Tote
+Price: AUD 35.00
+Category: Bags
+Colour: Gold
+Sizes: One Size
+
+P1003: Pink Crossbody Bag
+Price: AUD 50.00
+Category: Bags
+Colour: Pink
+Sizes: One Size
+
+Comparison with SQL evidence
+
+ID       API price AUD   SQL price AUD   SQL stock in One Size   Result
+P1070    45              45.00           67                      Match
+P1187    50              50.00           55                      Match
+P1298    35              35.00           40                      Match
+P1003    50              50.00           31                      Match
+
+For all four products, the following fields agreed:
+Product ID, product name, category, colour, numeric price and available sizes.
+
+The SQL records independently showed positive requested-size stock and
+active/available status. The API response did not contain stock quantities.
+
+Conclusion
+
+All four returned bags met the AUD 50.00 maximum and listed One Size.
+None was the main product P1001.
+All compared product fields matched the supplied SQL records.
+
+Limitations
+
+This is a summary of previously captured results, not a new test run.
+Execution times were not captured; the SQL and API results are not claimed
+to be simultaneous snapshots.
+
+The SQL sample verified the returned bag records, not P1001's underlying
+cross-sell rule.
+
+Brand line, subcategory, product type, occasion and style were not
+independently compared with the SQL sample.
+
+This request did not test colour exclusions or occasion/style preferences.
+It does not establish outfit compatibility, ranking quality, frontend/cart
+behaviour, combined-outfit budgeting or complete catalogue coverage.

@@ -1,0 +1,32 @@
+PASS (4956ms): Show me dresses under $150 → matches
+PASS (2752ms): Keep the second dress for my outfit → no_action
+PASS (8156ms): Show me bags → matches
+PASS (7ms): Keep Black Shoulder Bag for my outfit → no_action
+PASS (5565ms): Find shoes to go with Navy Maxi Dress → matches
+PASS (3283ms): Why would you suggest the first product with my outfit? → answered
+PASS (2524ms): Show me bags with pockets → matches
+PASS (2227ms): Remove my pockets requirement and show me bags → matches
+PASS (6ms): Skip Black Shoulder Bag → no_action
+PASS (4577ms): Show me bags → matches
+PASS (2779ms): No extras → no_action
+PASS (2665ms): I already own a bag → no_action
+PASS (6253ms): Compare a replacement for the second dress with adjustable straps → no_upsell
+PASS (2424ms): Pockets would be useful → no_upsell
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ 'needs_clarification'
+- 'answered'
+
+    at file:///Users/salvi/MQ/abc-fashion-ai-assistant/scripts/test-stylist-commerce-live.mjs:37:80
+    at send (file:///Users/salvi/MQ/abc-fashion-ai-assistant/scripts/test-stylist-commerce-live.mjs:15:50)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async file:///Users/salvi/MQ/abc-fashion-ai-assistant/scripts/test-stylist-commerce-live.mjs:37:2 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'needs_clarification',
+  expected: 'answered',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+14/15 live commerce requests passed. Evidence: /Users/salvi/MQ/abc-fashion-ai-assistant/docs/test-evidence/commerce-live-2026-10-19T07-33-03-733Z.json

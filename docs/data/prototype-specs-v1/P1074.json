@@ -1,0 +1,50 @@
+{
+  "product_id": "P1074",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:54.790Z",
+  "identity_snapshot": {
+    "product_id": "P1074",
+    "product_name": "Pink Trench Coat",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Trench Coat",
+    "gender": "Men",
+    "colour": "Pink",
+    "material": "Cotton",
+    "fit": "Slim",
+    "style": "Minimalist",
+    "occasion": "Casual",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1074",
+    "description": "Pink cotton trench coat with a slim minimalist profile, classic storm-flap detailing and a polished autumn finish for casual styling.",
+    "construction_details": [
+      "Double-breasted front with adjustable cuff tabs",
+      "Shoulder epaulettes and rear storm flap",
+      "Belted waist with welt side pockets and reinforced seams"
+    ],
+    "care_instructions": "Dry clean only; spot clean lightly and hang to air between wears.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Casual",
+      "Travel"
+    ],
+    "closure": "button",
+    "garment_length_cm": 105,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "7e2b953292661aa495132a0377815da343a0b3b8ed4e938bcd142f3fe829bc57"
+}

@@ -1,0 +1,52 @@
+{
+  "product_id": "P1099",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:50.559Z",
+  "identity_snapshot": {
+    "product_id": "P1099",
+    "product_name": "Yellow Pleated Trousers",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Pleated Trousers",
+    "gender": "Men",
+    "colour": "Yellow",
+    "material": "Polyester",
+    "fit": "Slim",
+    "style": "Smart",
+    "occasion": "Formal",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1099",
+    "description": "Yellow polyester pleated trousers with a smart finish, slim fit and formal spring styling.",
+    "construction_details": [
+      "Front pleats",
+      "Concealed hook-and-bar fastening",
+      "Zip fly",
+      "Belt loops",
+      "Pressed front creases"
+    ],
+    "care_instructions": "Dry clean or gently hand wash in cool water; hang to dry and press on a low setting.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Formal",
+      "Work"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 105,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "75f1928b93c6c8a98d49fe6831c1ed5095d746a16d8fd4c885998eaff623d136"
+}

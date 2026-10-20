@@ -1,0 +1,52 @@
+{
+  "product_id": "P1305",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:13.348Z",
+  "identity_snapshot": {
+    "product_id": "P1305",
+    "product_name": "Sage Oversized Tee",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "product_type": "Oversized Tee",
+    "gender": "Unisex",
+    "colour": "Sage",
+    "material": "Linen Blend",
+    "fit": "Regular",
+    "style": "Relaxed",
+    "occasion": "Smart Casual",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1305",
+    "description": "Sage oversized tee with a relaxed drape and linen-blend construction, finished with clean edges for smart-casual styling.",
+    "construction_details": [
+      "Dropped shoulder seams",
+      "Ribbed crew neckline",
+      "Straight side seams",
+      "Double-needle sleeve and hem stitching"
+    ],
+    "care_instructions": "Machine wash cold on a gentle cycle; reshape while damp and air dry.",
+    "lining": false,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Smart Casual",
+      "Casual",
+      "Weekend"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": 70,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "deeaa6765a923012f19e490d53cf8bf95212e9d0afb58ae5a574b43473a5dbdf"
+}

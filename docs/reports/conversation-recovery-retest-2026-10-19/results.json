@@ -1,0 +1,45 @@
+{
+  "completed_at": "2026-10-19T07:43:26.023Z",
+  "original_report_regression_scripts": {
+    "passed": 41,
+    "total": 41
+  },
+  "original_report_browser_messages": {
+    "passed": 20,
+    "total": 20
+  },
+  "all_existing_test_scripts": {
+    "passed": 45,
+    "failed": 5,
+    "total": 50
+  },
+  "failed_scripts": [
+    "test-customer-scenarios.mjs",
+    "test-conversation-answers-live.mjs",
+    "test-stylist-commerce-live.mjs",
+    "test-outfit-budget-live.mjs",
+    "test-prototype-specs-live.mjs"
+  ],
+  "real_model_scenarios": {
+    "passed_runs": 103,
+    "failed_runs": 11,
+    "blocked_runs": 0,
+    "total_runs": 114,
+    "passed_turns": 288,
+    "failed_turns": 15,
+    "total_turns": 303
+  },
+  "lint": "passed",
+  "webpack_build_including_typescript": "passed",
+  "application_source_changed": false,
+  "protected_source_changed": false,
+  "original_build_id": "FQZIyJthqvRvhqF_Pdtko",
+  "fresh_build_id": "mBaulyE7G8Gpj7Shbbeu9",
+  "limitations": [
+    "Live suites can stop at their first failing assertion; their later checks are unexecuted.",
+    "Synthetic-fixture model scenarios are not HTTP or browser acceptance.",
+    "The development-only API passed after using its required environment.",
+    "A separate fresh-browser delivery recheck succeeded; scripted delivery failures are contextual or model-sensitive.",
+    "Two wrong-tab harness submissions are preserved but excluded from the 20-message replay."
+  ]
+}

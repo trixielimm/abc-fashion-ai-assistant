@@ -1,0 +1,52 @@
+{
+  "product_id": "P1029",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:25.027Z",
+  "identity_snapshot": {
+    "product_id": "P1029",
+    "product_name": "Beige Wide-Leg Pants",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Wide-Leg Pants",
+    "gender": "Women",
+    "colour": "Beige",
+    "material": "Polyester",
+    "fit": "Slim",
+    "style": "Minimalist",
+    "occasion": "Travel",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1029",
+    "description": "Minimalist beige polyester wide-leg pants with a slim waist fit, fluid legs and a clean profile suited to travel styling.",
+    "construction_details": [
+      "Flat front waistband",
+      "Concealed front fastening",
+      "Pressed leg creases",
+      "Two side pockets"
+    ],
+    "care_instructions": "Hand wash cold or use a delicate cycle; line dry and press on low heat.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Travel",
+      "Work",
+      "Brunch"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 106,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "81c0624368804571f33c88f3dab909348bc7e8f9722c8ddad49e2b91208b3684"
+}

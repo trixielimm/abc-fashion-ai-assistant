@@ -1,0 +1,258 @@
+- scrollbar "Page scroll"
+- banner:
+  - link "ABC Fashion":
+    - /url: /
+    - generic: ABC Fashion
+  - link "Bag, 0 items":
+    - /url: /cart
+  - button "Open menu":
+  - search "Product search":
+    - button "Search products":
+    - searchbox "Search"
+- main:
+  - img "Model in a long wool coat"
+  - paragraph: VOLUME
+  - paragraph: One
+  - paragraph: Autumn | Winter 2024
+  - heading "Refined Simplicity in Every Thread." [level=1]
+  - paragraph: For those who believe that true style is found in the details and in the quality of materials.
+  - link "Shop New Arrivals →":
+    - /url: "#this-season"
+  - link "See more":
+    - /url: "#featured-categories"
+  - paragraph: Featured Categories
+  - link "Shop all →":
+    - /url: "#this-season"
+  - link:
+    - /url: "#this-season"
+    - article:
+      - img "The Essentials"
+      - paragraph: The Essentials
+      - heading "The Essentials" [level=3]
+      - paragraph: Timeless wardrobe foundations designed for effortless everyday dressing.
+      - generic: See more →
+  - link:
+    - /url: "#this-season"
+    - article:
+      - img "Accessories"
+      - paragraph: Accessories
+      - heading "Accessories" [level=3]
+      - paragraph: Considered finishing pieces that bring character and refinement to every look.
+      - generic: See more →
+  - link:
+    - /url: "#this-season"
+    - article:
+      - img "Outerwear"
+      - paragraph: Outerwear
+      - heading "Outerwear" [level=3]
+      - paragraph: Structured layers designed to balance warmth, form and understated elegance.
+      - generic: See more →
+  - paragraph: This Season
+  - button "Previous products":
+  - button "Next products":
+  - link:
+    - /url: /products/silk-blend-blouse
+    - article:
+      - img "Silk Blend Blouse"
+      - heading "Silk Blend Blouse" [level=3]
+      - paragraph: $129.00
+  - link:
+    - /url: /products/tailored-trouser
+    - article:
+      - img "Tailored Trouser"
+      - heading "Tailored Trouser" [level=3]
+      - paragraph: $159.00
+  - link:
+    - /url: /products/silver-chain
+    - article:
+      - img "Silver Chain, Long Drop"
+      - heading "Silver Chain, Long Drop" [level=3]
+      - paragraph: $79.00
+  - link:
+    - /url: /products/structured-blazer
+    - article:
+      - img "Structured Blazer"
+      - heading "Structured Blazer" [level=3]
+      - paragraph: $289.00
+  - link:
+    - /url: /products/leather-jacket
+    - article:
+      - img "Leather Biker Jacket"
+      - heading "Leather Biker Jacket" [level=3]
+      - paragraph: $349.00
+  - link:
+    - /url: /products/work-shirt
+    - article:
+      - img "Relaxed Work Shirt"
+      - heading "Relaxed Work Shirt" [level=3]
+      - paragraph: $119.00
+  - paragraph: Campaign 04
+  - heading "The Modernist Dialogue" [level=2]
+  - paragraph: A conversation between architecture and attire. Our latest campaign explores the intersection of sculpted forms and fluid silhouettes, captured in the heart of Copenhagen's modernist landscape.
+  - link "Read the story →":
+    - /url: "#"
+  - img "Campaign models photographed against concrete architecture"
+  - paragraph: Stay informed
+  - paragraph: Join us on our journey for early access to new collections and exclusive offers for members.
+  - generic: Email address
+  - textbox "Email address":
+    - /placeholder: EMAIL ADDRESS
+  - button "Subscribe"
+- contentinfo:
+  - paragraph:
+    - text: ABC Fashion
+  - paragraph:
+    - text: Copenhagen & Stockholm
+    - text: London / Paris / New York
+  - paragraph: On Instagram
+  - link "Neutral knitwear on a rail":
+    - /url: "#"
+    - img "Neutral knitwear on a rail"
+  - link "Stacked denim":
+    - /url: "#"
+    - img "Stacked denim"
+  - link "Jackets on a chrome rail":
+    - /url: "#"
+    - img "Jackets on a chrome rail"
+  - link "Black leather jacket":
+    - /url: "#"
+    - img "Black leather jacket"
+  - paragraph: Our Department
+  - list:
+    - link "Women's Collection":
+      - /url: /#this-season
+    - link "Men's Collection":
+      - /url: /#this-season
+    - link "Accessories":
+      - /url: /#featured-categories
+  - paragraph: Connect
+  - list:
+    - link "Shipping":
+      - /url: "#"
+    - link "AI Stylist Privacy":
+      - /url: /terms-of-service#privacy
+    - link "Contact Us":
+      - /url: "#"
+  - list:
+    - link "Instagram":
+      - /url: "#"
+    - link "Facebook":
+      - /url: "#"
+    - link "Pinterest":
+      - /url: "#"
+  - paragraph: © 2026 ABC Fashion Inc. All rights reserved.
+  - paragraph: Prototype store — sample products and AI-generated specifications.
+  - paragraph:
+    - link "AI Terms":
+      - /url: /terms-of-service
+    - link "AI Privacy":
+      - /url: /terms-of-service#privacy
+    - link "Cookies":
+      - /url: "#"
+- navigation "Primary mobile":
+  - list:
+    - link "Home":
+      - /url: /
+      - generic: Home
+    - link "Shop":
+      - /url: /search
+      - generic: Shop
+    - button "Stylist":
+      - generic: Stylist
+    - link "Bag, 0 items":
+      - /url: /cart
+      - generic: Bag
+    - button "Account coming soon" [disabled]:
+      - generic: Soon
+      - generic: Account
+- dialog "AI Stylist":
+  - banner:
+    - generic: ABC
+    - paragraph: Personal shopping
+    - heading "AI Stylist" [level=2]
+    - button "New chat"
+    - button "Close AI Stylist":
+  - complementary "Your look":
+    - strong: Your look
+    - generic: 0 items
+    - status: Save pieces here to build a look.
+    - strong: A$0.00 total
+    - button "View look":
+      - text: View look
+      - generic: ⌄
+  - log:
+    - generic: You
+    - paragraph: Find women's wedding guest dresses and shoes for $280 total.
+    - generic: AI Stylist
+    - paragraph:
+      - text: I’d start with the
+      - strong: Olive Maxi Dress and Navy Strappy Heels
+      - text: . Together, they come to
+      - strong: A$265.00 total
+      - text: ", leaving A$15.00 of your A$280.00 budget. You can also mix and match one item from each group below."
+    - generic "Why this pairing?"
+    - generic "Combined outfit budget":
+      - strong: A$265.00
+      - text: combined
+      - text: Within your
+      - strong: A$280.00
+      - text: budget
+    - region "Dresses options":
+      - heading "Dresses" [level=3]
+      - generic: 1 option
+      - list "Dresses options":
+        - article:
+          - link "View Olive Maxi Dress":
+            - /url: /products/P1189
+            - generic: ABC
+            - generic: Photo unavailable
+          - paragraph: Suggested pairing
+          - link "Olive Maxi Dress":
+            - /url: /products/P1189
+          - paragraph: A$155.00
+          - paragraph: ABC Occasion · Olive
+          - paragraph: Listed for wedding guest occasions.
+          - button "Add to cart"
+    - region "Shoes options":
+      - heading "Shoes" [level=3]
+      - generic: 1 option
+      - list "Shoes options":
+        - article:
+          - link "View Navy Strappy Heels":
+            - /url: /products/P1075
+            - generic: ABC
+            - generic: Photo unavailable
+          - paragraph: Suggested pairing
+          - link "Navy Strappy Heels":
+            - /url: /products/P1075
+          - paragraph: A$110.00
+          - paragraph: ABC Footwear · Navy
+          - paragraph: Listed for wedding guest occasions.
+          - button "Add to cart"
+    - generic: You
+    - paragraph: Show women's wedding guest dresses under $180, excluding white and cream.
+    - generic: AI Stylist
+    - paragraph: I found Olive Maxi Dress for A$155.00.
+    - generic "Details about these picks"
+    - region "Recommended products":
+      - list "Recommended products":
+        - article:
+          - link "View Olive Maxi Dress":
+            - /url: /products/P1189
+            - generic: ABC
+            - generic: Photo unavailable
+          - link "Olive Maxi Dress":
+            - /url: /products/P1189
+          - paragraph: A$155.00
+          - paragraph: ABC Occasion · Olive
+          - paragraph: Listed for wedding guest occasions.
+          - button "More options for Olive Maxi Dress":
+            - generic: ···
+          - 'button "Save to look: Olive Maxi Dress"': Save to look
+          - button "Add to cart"
+  - textbox "Message your stylist":
+    - /placeholder: What can I help you find?
+  - button "Send message" [disabled]: Send
+  - generic: Messages may be sent to OpenAI.
+  - generic "Privacy & details"
+- alert

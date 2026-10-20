@@ -1,0 +1,1891 @@
+{
+  "started": "2026-10-17T03:26:58.791Z",
+  "base": "http://localhost:3102",
+  "checks": [
+    {
+      "message": "Show me dresses under $150",
+      "http": 200,
+      "elapsed_ms": 5185,
+      "reply": {
+        "status": "matches",
+        "action": "new_search",
+        "message": "I've found 4 clothing options for you to explore.\n\nThese options range from A$60.00 to A$120.00. The selection includes maxi dress, wrap dress and mini dress options. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1254",
+            "product_name": "Burgundy Maxi Dress",
+            "price_aud": 120,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Casual",
+            "colour": "Burgundy",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1254/image"
+          },
+          {
+            "product_id": "P1178",
+            "product_name": "Navy Maxi Dress",
+            "price_aud": 95,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Navy",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1178/image"
+          },
+          {
+            "product_id": "P1040",
+            "product_name": "Grey Wrap Dress",
+            "price_aud": 60,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Wrap Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Grey",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1040/image"
+          },
+          {
+            "product_id": "P1132",
+            "product_name": "Sage Mini Dress",
+            "price_aud": 120,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Mini Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Sage",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1132/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": "What occasion are you shopping for? You can also keep browsing these options.",
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "pass": true
+    },
+    {
+      "message": "Keep the second dress for my outfit",
+      "http": 200,
+      "elapsed_ms": 2074,
+      "reply": {
+        "status": "no_action",
+        "action": "none",
+        "message": "Updated your outfit choices and styling preferences. Your cart is unchanged.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [
+            {
+              "product_id": "P1178",
+              "product_name": "Navy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 95,
+              "ownership": "selected"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "pass": true
+    },
+    {
+      "message": "Show me bags",
+      "http": 200,
+      "elapsed_ms": 4506,
+      "reply": {
+        "status": "matches",
+        "action": "new_search",
+        "message": "I've found 4 bag options for you to explore.\n\nThese options range from A$55.00 to A$140.00. The selection includes shoulder bag, crossbody bag and sling bag options.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Bags",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1260",
+            "product_name": "Black Shoulder Bag",
+            "price_aud": 90,
+            "category": "Bags",
+            "subcategory": "Handbags",
+            "product_type": "Shoulder Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Black",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1260/image"
+          },
+          {
+            "product_id": "P1172",
+            "product_name": "Lavender Crossbody Bag",
+            "price_aud": 140,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Crossbody Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Lavender",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1172/image"
+          },
+          {
+            "product_id": "P1240",
+            "product_name": "Gold Sling Bag",
+            "price_aud": 55,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Sling Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Gold",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1240/image"
+          },
+          {
+            "product_id": "P1250",
+            "product_name": "Blue Sling Bag",
+            "price_aud": 100,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Sling Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Blue",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1250/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [
+            {
+              "product_id": "P1178",
+              "product_name": "Navy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 95,
+              "ownership": "selected"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "pass": true
+    },
+    {
+      "message": "Keep Black Shoulder Bag for my outfit",
+      "http": 200,
+      "elapsed_ms": 5,
+      "reply": {
+        "status": "no_action",
+        "action": "none",
+        "message": "Updated your outfit choices and styling preferences. Your cart is unchanged.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Bags",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [
+            {
+              "product_id": "P1178",
+              "product_name": "Navy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 95,
+              "ownership": "selected"
+            },
+            {
+              "product_id": "P1260",
+              "product_name": "Black Shoulder Bag",
+              "category": "Bags",
+              "subcategory": "Handbags",
+              "product_type": "Shoulder Bag",
+              "price_aud": 90,
+              "ownership": "selected"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "pass": true
+    },
+    {
+      "message": "Find shoes to go with Navy Maxi Dress",
+      "http": 200,
+      "elapsed_ms": 4818,
+      "reply": {
+        "status": "matches",
+        "action": "cross_sell",
+        "message": "To go with Navy Maxi Dress, I've found 4 shoe options for you to consider.\n\nThese options range from A$70.00 to A$155.00. The selection includes flat sandals, ballet flats and platform sandals options.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Shoes",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1046",
+            "product_name": "Brown Flat Sandals",
+            "price_aud": 70,
+            "category": "Shoes",
+            "subcategory": "Sandals",
+            "product_type": "Flat Sandals",
+            "brand_line": "ABC Footwear",
+            "colour": "Brown",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "explanation": "It shares the recorded Beach Wedding occasion with Navy Maxi Dress. The season labels are compatible with Navy Maxi Dress; this does not verify weather performance. Its Romantic style differs from Navy Maxi Dress's Minimalist label. This is a catalogue-based styling suggestion, not a guarantee of outfit compatibility.",
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1046/image",
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [
+                "P1178",
+                "P1260"
+              ],
+              "reasons": [
+                "It shares the recorded Beach Wedding occasion with Navy Maxi Dress.",
+                "The season labels are compatible with Navy Maxi Dress; this does not verify weather performance.",
+                "Its Romantic style coordinates with the recorded style of Black Shoulder Bag.",
+                "The season labels are compatible with Black Shoulder Bag; this does not verify weather performance."
+              ],
+              "limitations": [
+                "Its Romantic style differs from Navy Maxi Dress's Minimalist label.",
+                "The recorded occasion differs from Black Shoulder Bag."
+              ],
+              "level": "catalogue_supported"
+            }
+          },
+          {
+            "product_id": "P1095",
+            "product_name": "Pink Ballet Flats",
+            "price_aud": 80,
+            "category": "Shoes",
+            "subcategory": "Flats",
+            "product_type": "Ballet Flats",
+            "brand_line": "ABC Footwear",
+            "colour": "Pink",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "explanation": "It shares the recorded Beach Wedding occasion with Navy Maxi Dress. Its Minimalist style coordinates with the recorded style of Navy Maxi Dress. The recorded occasion differs from Black Shoulder Bag. This is a catalogue-based styling suggestion, not a guarantee of outfit compatibility.",
+            "extra_target": "Clothing",
+            "image_src": "/api/products/P1095/image",
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [
+                "P1178",
+                "P1260"
+              ],
+              "reasons": [
+                "It shares the recorded Beach Wedding occasion with Navy Maxi Dress.",
+                "Its Minimalist style coordinates with the recorded style of Navy Maxi Dress.",
+                "The season labels are compatible with Navy Maxi Dress; this does not verify weather performance.",
+                "The season labels are compatible with Black Shoulder Bag; this does not verify weather performance."
+              ],
+              "limitations": [
+                "The recorded occasion differs from Black Shoulder Bag.",
+                "Its Minimalist style differs from Black Shoulder Bag's Romantic label."
+              ],
+              "level": "catalogue_supported"
+            }
+          },
+          {
+            "product_id": "P1180",
+            "product_name": "Black Platform Sandals",
+            "price_aud": 120,
+            "category": "Shoes",
+            "subcategory": "Sandals",
+            "product_type": "Platform Sandals",
+            "brand_line": "ABC Footwear",
+            "colour": "Black",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "explanation": "It shares the recorded Beach Wedding occasion with Navy Maxi Dress. The season labels are compatible with Navy Maxi Dress; this does not verify weather performance. Its Bohemian style differs from Navy Maxi Dress's Minimalist label. This is a catalogue-based styling suggestion, not a guarantee of outfit compatibility.",
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1180/image",
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [
+                "P1178",
+                "P1260"
+              ],
+              "reasons": [
+                "It shares the recorded Beach Wedding occasion with Navy Maxi Dress.",
+                "The season labels are compatible with Navy Maxi Dress; this does not verify weather performance.",
+                "Styling suggestion: its Black colour can act as a neutral alongside Navy Maxi Dress.",
+                "The season labels are compatible with Black Shoulder Bag; this does not verify weather performance.",
+                "Styling suggestion: its Black colour gives a coordinated palette with Black Shoulder Bag."
+              ],
+              "limitations": [
+                "Its Bohemian style differs from Navy Maxi Dress's Minimalist label.",
+                "The recorded occasion differs from Black Shoulder Bag.",
+                "Its Bohemian style differs from Black Shoulder Bag's Romantic label."
+              ],
+              "level": "catalogue_supported"
+            }
+          },
+          {
+            "product_id": "P1146",
+            "product_name": "Lavender Platform Sandals",
+            "price_aud": 155,
+            "category": "Shoes",
+            "subcategory": "Sandals",
+            "product_type": "Platform Sandals",
+            "brand_line": "ABC Footwear",
+            "colour": "Lavender",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "explanation": "The season labels are compatible with Navy Maxi Dress; this does not verify weather performance. It shares the recorded Travel occasion with Black Shoulder Bag. The recorded occasion differs from Navy Maxi Dress. This is a catalogue-based styling suggestion, not a guarantee of outfit compatibility.",
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1146/image",
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [
+                "P1178",
+                "P1260"
+              ],
+              "reasons": [
+                "The season labels are compatible with Navy Maxi Dress; this does not verify weather performance.",
+                "It shares the recorded Travel occasion with Black Shoulder Bag.",
+                "The season labels are compatible with Black Shoulder Bag; this does not verify weather performance."
+              ],
+              "limitations": [
+                "The recorded occasion differs from Navy Maxi Dress.",
+                "Its Bohemian style differs from Navy Maxi Dress's Minimalist label.",
+                "Its Bohemian style differs from Black Shoulder Bag's Romantic label."
+              ],
+              "level": "catalogue_supported"
+            }
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [
+            {
+              "product_id": "P1178",
+              "product_name": "Navy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 95,
+              "ownership": "selected"
+            },
+            {
+              "product_id": "P1260",
+              "product_name": "Black Shoulder Bag",
+              "category": "Bags",
+              "subcategory": "Handbags",
+              "product_type": "Shoulder Bag",
+              "price_aud": 90,
+              "ownership": "selected"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "pass": true
+    },
+    {
+      "message": "Why would you suggest the first product with my outfit?",
+      "http": 200,
+      "elapsed_ms": 3601,
+      "reply": {
+        "status": "answered",
+        "action": "none",
+        "message": "Brown Flat Sandals\nThe season labels are compatible with Navy Maxi Dress; this does not verify weather performance. Its Romantic style coordinates with the recorded style of Black Shoulder Bag. The season labels are compatible with Black Shoulder Bag; this does not verify weather performance. Its occasion is Beach Wedding; with my outfit is not confirmed. Its Romantic style differs from Navy Maxi Dress's Minimalist label. These pairing reasons are styling suggestions from recorded attributes; visual compatibility has not been verified. For with my outfit, the occasion match is uncertain: the catalogue lists Beach Wedding. I wouldn't call it a confirmed match for that event. Its recorded styling details are colour: Brown, style: Romantic, season: Spring. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "Brown Flat Sandals — catalogue details",
+            "url": "/products/P1046"
+          }
+        ],
+        "answer_product_ids": [
+          "P1046"
+        ],
+        "styling": {
+          "outfit": [
+            {
+              "product_id": "P1178",
+              "product_name": "Navy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 95,
+              "ownership": "selected"
+            },
+            {
+              "product_id": "P1260",
+              "product_name": "Black Shoulder Bag",
+              "category": "Bags",
+              "subcategory": "Handbags",
+              "product_type": "Shoulder Bag",
+              "price_aud": 90,
+              "ownership": "selected"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "pass": true
+    },
+    {
+      "message": "Show me bags with pockets",
+      "http": 200,
+      "elapsed_ms": 2823,
+      "reply": {
+        "status": "matches",
+        "action": "new_search",
+        "message": "I've found 4 bag options for you to explore.\n\nThese options range from A$55.00 to A$140.00. The selection includes shoulder bag, crossbody bag and sling bag options.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Bags",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1260",
+            "product_name": "Black Shoulder Bag",
+            "price_aud": 90,
+            "category": "Bags",
+            "subcategory": "Handbags",
+            "product_type": "Shoulder Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Black",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1260/image"
+          },
+          {
+            "product_id": "P1172",
+            "product_name": "Lavender Crossbody Bag",
+            "price_aud": 140,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Crossbody Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Lavender",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1172/image"
+          },
+          {
+            "product_id": "P1240",
+            "product_name": "Gold Sling Bag",
+            "price_aud": 55,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Sling Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Gold",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1240/image"
+          },
+          {
+            "product_id": "P1250",
+            "product_name": "Blue Sling Bag",
+            "price_aud": 100,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Sling Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Blue",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1250/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [
+            {
+              "product_id": "P1178",
+              "product_name": "Navy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 95,
+              "ownership": "selected"
+            },
+            {
+              "product_id": "P1260",
+              "product_name": "Black Shoulder Bag",
+              "category": "Bags",
+              "subcategory": "Handbags",
+              "product_type": "Shoulder Bag",
+              "price_aud": 90,
+              "ownership": "selected"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [
+            "pockets"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "pass": true
+    },
+    {
+      "message": "Remove my pockets requirement and show me bags",
+      "http": 200,
+      "elapsed_ms": 2437,
+      "reply": {
+        "status": "matches",
+        "action": "refine",
+        "message": "I've found 4 bag options for you to explore.\n\nThese options range from A$55.00 to A$140.00. The selection includes shoulder bag, crossbody bag and sling bag options.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Bags",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1260",
+            "product_name": "Black Shoulder Bag",
+            "price_aud": 90,
+            "category": "Bags",
+            "subcategory": "Handbags",
+            "product_type": "Shoulder Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Black",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1260/image"
+          },
+          {
+            "product_id": "P1172",
+            "product_name": "Lavender Crossbody Bag",
+            "price_aud": 140,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Crossbody Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Lavender",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1172/image"
+          },
+          {
+            "product_id": "P1240",
+            "product_name": "Gold Sling Bag",
+            "price_aud": 55,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Sling Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Gold",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1240/image"
+          },
+          {
+            "product_id": "P1250",
+            "product_name": "Blue Sling Bag",
+            "price_aud": 100,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Sling Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Blue",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1250/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [
+            {
+              "product_id": "P1178",
+              "product_name": "Navy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 95,
+              "ownership": "selected"
+            },
+            {
+              "product_id": "P1260",
+              "product_name": "Black Shoulder Bag",
+              "category": "Bags",
+              "subcategory": "Handbags",
+              "product_type": "Shoulder Bag",
+              "price_aud": 90,
+              "ownership": "selected"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "pass": true
+    },
+    {
+      "message": "Skip Black Shoulder Bag",
+      "http": 200,
+      "elapsed_ms": 5,
+      "reply": {
+        "status": "no_action",
+        "action": "none",
+        "message": "Updated your outfit choices and styling preferences. Your cart is unchanged.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Bags",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [
+            {
+              "product_id": "P1178",
+              "product_name": "Navy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 95,
+              "ownership": "selected"
+            }
+          ],
+          "rejected_ids": [
+            "P1260"
+          ],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "pass": true
+    },
+    {
+      "message": "Show me bags",
+      "http": 200,
+      "elapsed_ms": 4240,
+      "reply": {
+        "status": "matches",
+        "action": "refine",
+        "message": "I've found 4 bag options for you to explore.\n\nThese options range from A$55.00 to A$140.00. The selection includes shoulder bag, crossbody bag and sling bag options.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Bags",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1196",
+            "product_name": "Black Shoulder Bag",
+            "price_aud": 140,
+            "category": "Bags",
+            "subcategory": "Handbags",
+            "product_type": "Shoulder Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Black",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": "Clothing",
+            "image_src": "/api/products/P1196/image"
+          },
+          {
+            "product_id": "P1172",
+            "product_name": "Lavender Crossbody Bag",
+            "price_aud": 140,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Crossbody Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Lavender",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1172/image"
+          },
+          {
+            "product_id": "P1240",
+            "product_name": "Gold Sling Bag",
+            "price_aud": 55,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Sling Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Gold",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1240/image"
+          },
+          {
+            "product_id": "P1250",
+            "product_name": "Blue Sling Bag",
+            "price_aud": 100,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Sling Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Blue",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1250/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [
+            {
+              "product_id": "P1178",
+              "product_name": "Navy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 95,
+              "ownership": "selected"
+            }
+          ],
+          "rejected_ids": [
+            "P1260"
+          ],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "pass": true
+    },
+    {
+      "message": "No extras",
+      "http": 200,
+      "elapsed_ms": 1979,
+      "reply": {
+        "status": "no_action",
+        "action": "none",
+        "message": "Updated your outfit choices and styling preferences. Your cart is unchanged.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Bags",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [
+            {
+              "product_id": "P1178",
+              "product_name": "Navy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 95,
+              "ownership": "selected"
+            }
+          ],
+          "rejected_ids": [
+            "P1260"
+          ],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": true,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "pass": true
+    },
+    {
+      "message": "I already own a bag",
+      "http": 200,
+      "elapsed_ms": 2315,
+      "reply": {
+        "status": "no_action",
+        "action": "none",
+        "message": "Updated your outfit choices and styling preferences. Your cart is unchanged.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Bags",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [
+            {
+              "product_id": "P1178",
+              "product_name": "Navy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 95,
+              "ownership": "selected"
+            }
+          ],
+          "rejected_ids": [
+            "P1260"
+          ],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": true,
+          "owned_categories": [
+            "Bags"
+          ]
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "pass": true
+    },
+    {
+      "message": "Compare a replacement for the second dress with adjustable straps",
+      "http": 200,
+      "elapsed_ms": 4782,
+      "reply": {
+        "status": "no_upsell",
+        "action": "upsell",
+        "message": "No verified replacement benefit could be established within your requirements. Missing feature information was not treated as proof of an improvement. Your existing choice remains valid.\n\nYou can stay with the current choice. What would you value in a replacement: adjustability, pockets, lining or easier care? I'll compare only recorded evidence and keep your budget.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [
+            "adjustability"
+          ],
+          "required_features": [
+            "adjustable_strap"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": "P1178"
+      },
+      "pass": true
+    },
+    {
+      "message": "Pockets would be useful",
+      "http": 200,
+      "elapsed_ms": 2510,
+      "reply": {
+        "status": "no_upsell",
+        "action": "upsell",
+        "message": "No verified replacement benefit could be established within your requirements. Missing feature information was not treated as proof of an improvement. Your existing choice remains valid.\n\nYou can stay with the current choice. What would you value in a replacement: adjustability, pockets, lining or easier care? I'll compare only recorded evidence and keep your budget.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [
+            "adjustability",
+            "pockets"
+          ],
+          "required_features": [
+            "adjustable_strap"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": "P1178"
+      },
+      "pass": true
+    },
+    {
+      "message": "Can this arrive by Friday?",
+      "http": 200,
+      "elapsed_ms": 2334,
+      "reply": {
+        "status": "answered",
+        "action": "none",
+        "message": "Standard delivery is available across Australia. I can't confirm arrival by Friday: I don't have live delivery estimates, dispatch cut-offs or carrier information. I also can't confirm other destinations, express delivery or shipping fees from the available policy. A postcode alone won't let me calculate an arrival date yet.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "Published delivery and returns copy",
+            "url": "/products/P1178#delivery-returns"
+          }
+        ],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [
+            "adjustability",
+            "pockets"
+          ],
+          "required_features": [
+            "adjustable_strap"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "pass": true
+    }
+  ],
+  "success": true,
+  "finished": "2026-10-17T03:27:42.419Z"
+}

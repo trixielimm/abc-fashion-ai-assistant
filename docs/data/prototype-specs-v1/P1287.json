@@ -1,0 +1,50 @@
+{
+  "product_id": "P1287",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:03.798Z",
+  "identity_snapshot": {
+    "product_id": "P1287",
+    "product_name": "Beige Maxi Dress",
+    "category": "Clothing",
+    "subcategory": "Dresses",
+    "product_type": "Maxi Dress",
+    "gender": "Women",
+    "colour": "Beige",
+    "material": "Linen Blend",
+    "fit": "Slim",
+    "style": "Minimalist",
+    "occasion": "Date Night",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1287",
+    "description": "Minimalist beige maxi dress in a linen blend, shaped to a slim silhouette for date-night winter dressing.",
+    "construction_details": [
+      "Slim column shape with panelled side seams",
+      "Long sleeves with narrow turned cuffs",
+      "Concealed back fastening and softly finished maxi hem"
+    ],
+    "care_instructions": "Dry clean recommended; if spot cleaning is needed, dab gently with cool water and dry flat.",
+    "lining": true,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Date Night",
+      "Evening"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 145,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "ad5b82f6088da6c27bb98f91f8b0bbdc717f8b6a4ed2762ecb857793d1850da0"
+}

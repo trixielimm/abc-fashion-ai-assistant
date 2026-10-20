@@ -1,0 +1,50 @@
+{
+  "product_id": "P1233",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:45.677Z",
+  "identity_snapshot": {
+    "product_id": "P1233",
+    "product_name": "Brown Cardigan",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Cardigan",
+    "gender": "Unisex",
+    "colour": "Brown",
+    "material": "Knit",
+    "fit": "Slim",
+    "style": "Romantic",
+    "occasion": "Date Night",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1233",
+    "description": "Brown knit cardigan with a slim romantic profile, softly shaped shoulders and an open front suited to date-night layering.",
+    "construction_details": [
+      "Fine-gauge knit construction",
+      "Shaped shoulder seams",
+      "Clean-bound front edges",
+      "Ribbed cuffs and hem"
+    ],
+    "care_instructions": "Hand wash cold with mild detergent; reshape and dry flat away from direct heat.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Date Night"
+    ],
+    "closure": "open",
+    "garment_length_cm": 58,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "113f63370f9190d954ff701216ede20add6503d131c2bcac200ef836fdf3f90e"
+}

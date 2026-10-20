@@ -1,0 +1,1886 @@
+{
+  "id": "S4-A",
+  "name": "Pair a bag with an owned catalogue dress",
+  "repeat": 3,
+  "turns": [
+    {
+      "number": 1,
+      "message": "Show me dresses under $150.",
+      "input": {
+        "message": "Show me dresses under $150.",
+        "collection": {
+          "choice": "All",
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        }
+      },
+      "began": "2026-10-19T07:32:07.269Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": null,
+        "action": "new_search",
+        "discovery_intent": null,
+        "intent_evidence": "Show me dresses under $150.",
+        "reference": null,
+        "changes": [
+          {
+            "scope": "item",
+            "evidence": "dresses",
+            "operation": "set",
+            "field": "gender",
+            "value": "Women"
+          },
+          {
+            "scope": "item",
+            "field": "category",
+            "operation": "set",
+            "value": "Clothing",
+            "evidence": "dresses"
+          },
+          {
+            "scope": "item",
+            "field": "subcategory",
+            "operation": "set",
+            "value": "Dresses",
+            "evidence": "dresses"
+          },
+          {
+            "scope": "item",
+            "field": "max_price",
+            "operation": "set",
+            "value": 150,
+            "evidence": "under $150"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": null
+      },
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "cude17",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "status": "matches",
+        "action": "new_search",
+        "discovery": null,
+        "collection": {
+          "choice": "All",
+          "current": {
+            "choice": "Women",
+            "source": "category_default"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I've found 4 clothing options for you to explore.\n\nThese options range from A$70.00 to A$120.00. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "D-BLACK-120",
+            "product_name": "D-BLACK-120 Dress",
+            "price_aud": 120,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Black",
+            "occasion": "Beach Wedding",
+            "style": "Relaxed",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": "Bags",
+            "image_src": null
+          },
+          {
+            "product_id": "D-WORK-70",
+            "product_name": "D-WORK-70 Dress",
+            "price_aud": 70,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Black",
+            "occasion": "Work",
+            "style": "Relaxed",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": "Bags",
+            "image_src": null
+          },
+          {
+            "product_id": "D-BLUE-80",
+            "product_name": "D-BLUE-80 Dress",
+            "price_aud": 80,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Blue",
+            "occasion": "Beach Wedding",
+            "style": "Relaxed",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": "Bags",
+            "image_src": null
+          },
+          {
+            "product_id": "D-CASUAL-85",
+            "product_name": "D-CASUAL-85 Dress",
+            "price_aud": 85,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Navy",
+            "occasion": "Casual",
+            "style": "Relaxed",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "extra_target": "Bags",
+            "image_src": null
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": "What occasion are you shopping for? You can also keep browsing these options.",
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 3225,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "All",
+          "current": {
+            "choice": "Women",
+            "source": "category_default"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "cude17",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "D-BLACK-120",
+              "product_name": "D-BLACK-120 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 120
+            },
+            {
+              "product_id": "D-WORK-70",
+              "product_name": "D-WORK-70 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 70
+            },
+            {
+              "product_id": "D-BLUE-80",
+              "product_name": "D-BLUE-80 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 80
+            },
+            {
+              "product_id": "D-CASUAL-85",
+              "product_name": "D-CASUAL-85 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 85
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me dresses under $150."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 4 clothing options for you to explore.\n\nThese options range from A$70.00 to A$120.00. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.\nWhat occasion are you shopping for? You can also keep browsing these options."
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 2,
+      "message": "I already own the first dress. Keep it as an owned piece in my outfit.",
+      "input": {
+        "message": "I already own the first dress. Keep it as an owned piece in my outfit.",
+        "collection": {
+          "choice": "All",
+          "current": {
+            "choice": "Women",
+            "source": "category_default"
+          },
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "D-BLACK-120",
+              "product_name": "D-BLACK-120 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 120
+            },
+            {
+              "product_id": "D-WORK-70",
+              "product_name": "D-WORK-70 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 70
+            },
+            {
+              "product_id": "D-BLUE-80",
+              "product_name": "D-BLUE-80 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 80
+            },
+            {
+              "product_id": "D-CASUAL-85",
+              "product_name": "D-CASUAL-85 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 85
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me dresses under $150."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 4 clothing options for you to explore.\n\nThese options range from A$70.00 to A$120.00. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.\nWhat occasion are you shopping for? You can also keep browsing these options."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "cude17",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        }
+      },
+      "began": "2026-10-19T07:32:10.495Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": null,
+        "action": "none",
+        "discovery_intent": null,
+        "intent_evidence": "I already own the first dress. Keep it as an owned piece in my outfit.",
+        "reference": null,
+        "changes": [],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": {
+          "external_items": [],
+          "preferences": [],
+          "outfit_changes": [
+            {
+              "operation": "own",
+              "reference": {
+                "kind": "position",
+                "position": 1,
+                "subcategory": "Dresses"
+              },
+              "evidence": "I already own the first dress. Keep it as an owned piece in my outfit."
+            }
+          ],
+          "offers": null,
+          "owned_categories": []
+        }
+      },
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "1hpi2ii",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "status": "no_action",
+        "action": "none",
+        "discovery": null,
+        "collection": {
+          "choice": "All",
+          "current": {
+            "choice": "Women",
+            "source": "category_default"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "Updated your outfit choices and styling preferences. Your cart is unchanged.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [
+            {
+              "product_id": "D-BLACK-120",
+              "product_name": "D-BLACK-120 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 120,
+              "ownership": "owned"
+            }
+          ],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 2876,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [
+            {
+              "product_id": "D-BLACK-120",
+              "product_name": "D-BLACK-120 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 120,
+              "ownership": "owned"
+            }
+          ],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "All",
+          "current": {
+            "choice": "Women",
+            "source": "category_default"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "1hpi2ii",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "D-BLACK-120",
+              "product_name": "D-BLACK-120 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 120
+            },
+            {
+              "product_id": "D-WORK-70",
+              "product_name": "D-WORK-70 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 70
+            },
+            {
+              "product_id": "D-BLUE-80",
+              "product_name": "D-BLUE-80 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 80
+            },
+            {
+              "product_id": "D-CASUAL-85",
+              "product_name": "D-CASUAL-85 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 85
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me dresses under $150."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 4 clothing options for you to explore.\n\nThese options range from A$70.00 to A$120.00. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.\nWhat occasion are you shopping for? You can also keep browsing these options."
+          },
+          {
+            "role": "user",
+            "content": "I already own the first dress. Keep it as an owned piece in my outfit."
+          },
+          {
+            "role": "assistant",
+            "content": "Updated your outfit choices and styling preferences. Your cart is unchanged."
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 3,
+      "message": "Find a bag to go with my owned dress, under $80. I don't need another dress.",
+      "input": {
+        "message": "Find a bag to go with my owned dress, under $80. I don't need another dress.",
+        "collection": {
+          "choice": "All",
+          "current": {
+            "choice": "Women",
+            "source": "category_default"
+          },
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "D-BLACK-120",
+              "product_name": "D-BLACK-120 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 120
+            },
+            {
+              "product_id": "D-WORK-70",
+              "product_name": "D-WORK-70 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 70
+            },
+            {
+              "product_id": "D-BLUE-80",
+              "product_name": "D-BLUE-80 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 80
+            },
+            {
+              "product_id": "D-CASUAL-85",
+              "product_name": "D-CASUAL-85 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 85
+            }
+          ],
+          "selected": [
+            {
+              "product_id": "D-BLACK-120",
+              "product_name": "D-BLACK-120 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 120
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me dresses under $150."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 4 clothing options for you to explore.\n\nThese options range from A$70.00 to A$120.00. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.\nWhat occasion are you shopping for? You can also keep browsing these options."
+          },
+          {
+            "role": "user",
+            "content": "I already own the first dress. Keep it as an owned piece in my outfit."
+          },
+          {
+            "role": "assistant",
+            "content": "Updated your outfit choices and styling preferences. Your cart is unchanged."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [
+            {
+              "product_id": "D-BLACK-120",
+              "product_name": "D-BLACK-120 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 120,
+              "ownership": "owned"
+            }
+          ],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "1hpi2ii",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        }
+      },
+      "began": "2026-10-19T07:32:13.371Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": null,
+        "action": "cross_sell",
+        "discovery_intent": null,
+        "intent_evidence": "Find a bag to go with my owned dress, under $80.",
+        "reference": {
+          "kind": "id",
+          "value": "D-BLACK-120"
+        },
+        "changes": [
+          {
+            "scope": "item",
+            "field": "category",
+            "operation": "set",
+            "value": "Bags",
+            "evidence": "bag"
+          },
+          {
+            "scope": "item",
+            "field": "max_price",
+            "operation": "set",
+            "value": 80,
+            "evidence": "under $80"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": null
+      },
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "ftb309",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "status": "matches",
+        "action": "cross_sell",
+        "discovery": null,
+        "collection": {
+          "choice": "All",
+          "current": {
+            "choice": "All",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "To go with D-BLACK-120 Dress, I've found 2 bag options for you to consider.\n\nThese options range from A$45.00 to A$60.00. I've kept this selection within your A$80.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Bags",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 80,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "B-ZIP-60",
+            "product_name": "B-ZIP-60 Bag",
+            "price_aud": 60,
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Clutch",
+            "brand_line": null,
+            "colour": "Black",
+            "occasion": "Beach Wedding",
+            "style": "Relaxed",
+            "sizes_available": [
+              "One Size"
+            ],
+            "explanation": "It shares the recorded Beach Wedding occasion with D-BLACK-120 Dress. Its Relaxed style coordinates with the recorded style of D-BLACK-120 Dress. This is a catalogue-based styling suggestion, not a guarantee of outfit compatibility.",
+            "extra_target": null,
+            "image_src": null,
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [
+                "D-BLACK-120"
+              ],
+              "reasons": [
+                "It shares the recorded Beach Wedding occasion with D-BLACK-120 Dress.",
+                "Its Relaxed style coordinates with the recorded style of D-BLACK-120 Dress.",
+                "The season labels are compatible with D-BLACK-120 Dress; this does not verify weather performance.",
+                "Styling suggestion: its Black colour gives a coordinated palette with D-BLACK-120 Dress."
+              ],
+              "limitations": [],
+              "level": "catalogue_supported"
+            }
+          },
+          {
+            "product_id": "B-OPEN-45",
+            "product_name": "B-OPEN-45 Bag",
+            "price_aud": 45,
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Clutch",
+            "brand_line": null,
+            "colour": "Beige",
+            "occasion": "Beach Wedding",
+            "style": "Relaxed",
+            "sizes_available": [
+              "One Size"
+            ],
+            "explanation": "It shares the recorded Beach Wedding occasion with D-BLACK-120 Dress. Its Relaxed style coordinates with the recorded style of D-BLACK-120 Dress. This is a catalogue-based styling suggestion, not a guarantee of outfit compatibility.",
+            "extra_target": null,
+            "image_src": null,
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [
+                "D-BLACK-120"
+              ],
+              "reasons": [
+                "It shares the recorded Beach Wedding occasion with D-BLACK-120 Dress.",
+                "Its Relaxed style coordinates with the recorded style of D-BLACK-120 Dress.",
+                "The season labels are compatible with D-BLACK-120 Dress; this does not verify weather performance.",
+                "Styling suggestion: its Beige colour can act as a neutral alongside D-BLACK-120 Dress."
+              ],
+              "limitations": [],
+              "level": "catalogue_supported"
+            }
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [
+            {
+              "product_id": "D-BLACK-120",
+              "product_name": "D-BLACK-120 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 120,
+              "ownership": "owned"
+            }
+          ],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 2626,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [
+            {
+              "product_id": "D-BLACK-120",
+              "product_name": "D-BLACK-120 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 120,
+              "ownership": "owned"
+            }
+          ],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "All",
+          "current": {
+            "choice": "All",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "ftb309",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "B-ZIP-60",
+              "product_name": "B-ZIP-60 Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 60,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "D-BLACK-120"
+                ],
+                "primary_product_id": null
+              }
+            },
+            {
+              "product_id": "B-OPEN-45",
+              "product_name": "B-OPEN-45 Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 45,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "D-BLACK-120"
+                ],
+                "primary_product_id": null
+              }
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "D-BLACK-120",
+                "product_name": "D-BLACK-120 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 120
+              },
+              {
+                "product_id": "D-WORK-70",
+                "product_name": "D-WORK-70 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 70
+              },
+              {
+                "product_id": "D-BLUE-80",
+                "product_name": "D-BLUE-80 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 80
+              },
+              {
+                "product_id": "D-CASUAL-85",
+                "product_name": "D-CASUAL-85 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 85
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me dresses under $150."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 4 clothing options for you to explore.\n\nThese options range from A$70.00 to A$120.00. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.\nWhat occasion are you shopping for? You can also keep browsing these options."
+          },
+          {
+            "role": "user",
+            "content": "I already own the first dress. Keep it as an owned piece in my outfit."
+          },
+          {
+            "role": "assistant",
+            "content": "Updated your outfit choices and styling preferences. Your cart is unchanged."
+          },
+          {
+            "role": "user",
+            "content": "Find a bag to go with my owned dress, under $80. I don't need another dress."
+          },
+          {
+            "role": "assistant",
+            "content": "To go with D-BLACK-120 Dress, I've found 2 bag options for you to consider.\n\nThese options range from A$45.00 to A$60.00. I've kept this selection within your A$80.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 4,
+      "message": "Why does the first bag go with my dress?",
+      "input": {
+        "message": "Why does the first bag go with my dress?",
+        "collection": {
+          "choice": "All",
+          "current": {
+            "choice": "All",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "B-ZIP-60",
+              "product_name": "B-ZIP-60 Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 60,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "D-BLACK-120"
+                ],
+                "primary_product_id": null
+              }
+            },
+            {
+              "product_id": "B-OPEN-45",
+              "product_name": "B-OPEN-45 Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 45,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "D-BLACK-120"
+                ],
+                "primary_product_id": null
+              }
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "D-BLACK-120",
+                "product_name": "D-BLACK-120 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 120
+              },
+              {
+                "product_id": "D-WORK-70",
+                "product_name": "D-WORK-70 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 70
+              },
+              {
+                "product_id": "D-BLUE-80",
+                "product_name": "D-BLUE-80 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 80
+              },
+              {
+                "product_id": "D-CASUAL-85",
+                "product_name": "D-CASUAL-85 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 85
+              }
+            ]
+          ],
+          "selected": [
+            {
+              "product_id": "D-BLACK-120",
+              "product_name": "D-BLACK-120 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 120
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me dresses under $150."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 4 clothing options for you to explore.\n\nThese options range from A$70.00 to A$120.00. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.\nWhat occasion are you shopping for? You can also keep browsing these options."
+          },
+          {
+            "role": "user",
+            "content": "I already own the first dress. Keep it as an owned piece in my outfit."
+          },
+          {
+            "role": "assistant",
+            "content": "Updated your outfit choices and styling preferences. Your cart is unchanged."
+          },
+          {
+            "role": "user",
+            "content": "Find a bag to go with my owned dress, under $80. I don't need another dress."
+          },
+          {
+            "role": "assistant",
+            "content": "To go with D-BLACK-120 Dress, I've found 2 bag options for you to consider.\n\nThese options range from A$45.00 to A$60.00. I've kept this selection within your A$80.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [
+            {
+              "product_id": "D-BLACK-120",
+              "product_name": "D-BLACK-120 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 120,
+              "ownership": "owned"
+            }
+          ],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "ftb309",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        }
+      },
+      "began": "2026-10-19T07:32:15.998Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": null,
+        "action": "none",
+        "discovery_intent": null,
+        "intent_evidence": "Why does the first bag go with my dress?",
+        "reference": null,
+        "changes": [],
+        "question": null,
+        "continuation": false,
+        "answer": {
+          "kind": "product",
+          "topics": [
+            "recommendation"
+          ],
+          "references": [
+            {
+              "kind": "id",
+              "value": "B-ZIP-60"
+            }
+          ],
+          "purpose": null,
+          "continuation": false
+        },
+        "styling_intent": null
+      },
+      "reply": {
+        "task_transition_applied": true,
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "status": "answered",
+        "action": "none",
+        "discovery": null,
+        "collection": {
+          "choice": "All",
+          "current": {
+            "choice": "All",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "B-ZIP-60 Bag\nIt shares the recorded Beach Wedding occasion with D-BLACK-120 Dress. Its Relaxed style coordinates with the recorded style of D-BLACK-120 Dress. The season labels are compatible with D-BLACK-120 Dress; this does not verify weather performance. These pairing reasons are styling suggestions from recorded attributes; visual compatibility has not been verified. The catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$60.00, it is within your A$80.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "B-ZIP-60 Bag: catalogue details",
+            "url": "/products/B-ZIP-60"
+          }
+        ],
+        "answer_product_ids": [
+          "B-ZIP-60"
+        ],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [
+            {
+              "product_id": "D-BLACK-120",
+              "product_name": "D-BLACK-120 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 120,
+              "ownership": "owned"
+            }
+          ],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null,
+        "task": {
+          "generation": 0,
+          "prepared_key": "1d4ubh9",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        }
+      },
+      "elapsed_ms": 1852,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [
+            {
+              "product_id": "D-BLACK-120",
+              "product_name": "D-BLACK-120 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 120,
+              "ownership": "owned"
+            }
+          ],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "All",
+          "current": {
+            "choice": "All",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "1d4ubh9",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": []
+        },
+        "context": {
+          "focused": {
+            "product_id": "B-ZIP-60",
+            "product_name": "B-ZIP-60 Bag",
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Clutch",
+            "price_aud": 60,
+            "recommendation_context": {
+              "anchor_ids": [
+                "D-BLACK-120"
+              ],
+              "primary_product_id": null
+            }
+          },
+          "latest": [
+            {
+              "product_id": "B-ZIP-60",
+              "product_name": "B-ZIP-60 Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 60,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "D-BLACK-120"
+                ],
+                "primary_product_id": null
+              }
+            },
+            {
+              "product_id": "B-OPEN-45",
+              "product_name": "B-OPEN-45 Bag",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Clutch",
+              "price_aud": 45,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "D-BLACK-120"
+                ],
+                "primary_product_id": null
+              }
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "D-BLACK-120",
+                "product_name": "D-BLACK-120 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 120
+              },
+              {
+                "product_id": "D-WORK-70",
+                "product_name": "D-WORK-70 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 70
+              },
+              {
+                "product_id": "D-BLUE-80",
+                "product_name": "D-BLUE-80 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 80
+              },
+              {
+                "product_id": "D-CASUAL-85",
+                "product_name": "D-CASUAL-85 Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 85
+              }
+            ]
+          ],
+          "selected": [
+            {
+              "product_id": "D-BLACK-120",
+              "product_name": "D-BLACK-120 Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 120
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I already own the first dress. Keep it as an owned piece in my outfit."
+          },
+          {
+            "role": "assistant",
+            "content": "Updated your outfit choices and styling preferences. Your cart is unchanged."
+          },
+          {
+            "role": "user",
+            "content": "Find a bag to go with my owned dress, under $80. I don't need another dress."
+          },
+          {
+            "role": "assistant",
+            "content": "To go with D-BLACK-120 Dress, I've found 2 bag options for you to consider.\n\nThese options range from A$45.00 to A$60.00. I've kept this selection within your A$80.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "Why does the first bag go with my dress?"
+          },
+          {
+            "role": "assistant",
+            "content": "B-ZIP-60 Bag\nIt shares the recorded Beach Wedding occasion with D-BLACK-120 Dress. Its Relaxed style coordinates with the recorded style of D-BLACK-120 Dress. The season labels are compatible with D-BLACK-120 Dress; this does not verify weather performance. These pairing reasons are styling suggestions from recorded attributes; visual compatibility has not been verified. The catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$60.00, it is within your A$80.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you."
+          }
+        ]
+      },
+      "checks": "Pass"
+    }
+  ],
+  "started": "2026-10-19T07:32:07.269Z",
+  "result": "Pass",
+  "issues": [],
+  "collection_setup": "Shopper already chose all collections",
+  "anchor": "D-BLACK-120",
+  "finished": "2026-10-19T07:32:17.850Z"
+}

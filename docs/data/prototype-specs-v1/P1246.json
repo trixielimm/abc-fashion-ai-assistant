@@ -1,0 +1,52 @@
+{
+  "product_id": "P1246",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:20:52.645Z",
+  "identity_snapshot": {
+    "product_id": "P1246",
+    "product_name": "Beige Tailored Shorts",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Tailored Shorts",
+    "gender": "Men",
+    "colour": "Beige",
+    "material": "Cotton",
+    "fit": "Relaxed",
+    "style": "Smart",
+    "occasion": "Party",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1246",
+    "description": "Beige tailored shorts with a relaxed smart shape, pressed front creases and a clean knee-skimming proportion for party dressing.",
+    "construction_details": [
+      "Flat front waistband with belt loops",
+      "Concealed front fastening with button tab",
+      "Two slanted side pockets",
+      "Two welt back pockets with button details",
+      "Turned hem finish"
+    ],
+    "care_instructions": "Cool machine wash with similar colours; press on the reverse side and air dry.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Party",
+      "Brunch"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 48,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "e3db8d774315db9908375f38bb6ad77f47aa7e6b4f5de900ad1fd5260a753a4c"
+}

@@ -1,0 +1,50 @@
+{
+  "product_id": "P1080",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:35.748Z",
+  "identity_snapshot": {
+    "product_id": "P1080",
+    "product_name": "Lavender Relaxed Co-ord Set",
+    "category": "Clothing",
+    "subcategory": "Sets",
+    "product_type": "Relaxed Co-ord Set",
+    "gender": "Men",
+    "colour": "Lavender",
+    "material": "Polyester",
+    "fit": "Slim",
+    "style": "Contemporary",
+    "occasion": "Work",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1080",
+    "description": "Lavender polyester relaxed co-ord set with a contemporary look, slim fit and coordinated tailoring for work outfits.",
+    "construction_details": [
+      "Matching top and trouser separates",
+      "Clean bound neckline on the top",
+      "Elasticated rear waistband",
+      "Pressed front creases on the trousers"
+    ],
+    "care_instructions": "Cold gentle machine wash with similar colours; line dry and press on a low setting.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Work"
+    ],
+    "closure": "none",
+    "garment_length_cm": 72,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "b8883b3061bf96ea5299623d73a2015493ff19acc926c46e3cafa46d33b91ab8"
+}

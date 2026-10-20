@@ -1,0 +1,49 @@
+{
+  "product_id": "P1046",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:21.193Z",
+  "identity_snapshot": {
+    "product_id": "P1046",
+    "product_name": "Brown Flat Sandals",
+    "category": "Shoes",
+    "subcategory": "Sandals",
+    "product_type": "Flat Sandals",
+    "gender": "Women",
+    "colour": "Brown",
+    "material": "Leather",
+    "fit": "Standard",
+    "style": "Romantic",
+    "occasion": "Beach Wedding",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1046",
+    "description": "Romantic brown flat sandals with slim leather straps and a graceful open profile suited to beach wedding styling. Standard fit with a neat ankle fastening.",
+    "construction_details": [
+      "Slim leather toe and vamp straps",
+      "Lightly cushioned footbed with bound edges",
+      "Adjustable ankle buckle and flat rubber sole"
+    ],
+    "care_instructions": "Wipe leather with a dry or slightly damp cloth and apply a suitable leather conditioner sparingly. Allow to dry naturally.",
+    "lining": false,
+    "pockets": null,
+    "adjustable_strap": true,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Beach Wedding"
+    ],
+    "closure": "buckle",
+    "garment_length_cm": null,
+    "heel_height_cm": 0,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": "Gold-tone"
+  },
+  "content_sha256": "e651457ae0ad0f1e98855647c5f0f8bff8b5ce3aece09b478b4e0649ff745ff9"
+}

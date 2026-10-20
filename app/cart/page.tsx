@@ -7,22 +7,12 @@ import { Container } from "@/components/layout/Container";
 import { CartItem } from "@/components/cart/CartItem";
 import { OrderSummary } from "@/components/cart/OrderSummary";
 import { useStylist } from "@/components/stylist/StylistProvider";
-import { CART_UPDATED_EVENT, readCart, writeCart, type CartRow, type StoredCartItem, } from "@/lib/cart";
-import { featuredProducts, formatPrice, } from "@/lib/mock-data";
+import { readCart, subscribeToCart, writeCart, type CartRow, type StoredCartItem } from "@/lib/cart";
+import { featuredProducts } from "@/lib/mock-data";
+import { formatPrice } from "@/lib/format-price";
 import { getProductImageEndpoint } from "@/lib/product-image";
 
 const recommendations = featuredProducts.slice(0, 4);
-
-// Updates the cart when it changes in this tab or another tab.
-function subscribeToCart(onChange: () => void) {
-  window.addEventListener(CART_UPDATED_EVENT, onChange);
-  window.addEventListener("storage", onChange);
-
-  return () => {
-    window.removeEventListener(CART_UPDATED_EVENT, onChange);
-    window.removeEventListener("storage", onChange);
-  };
-}
 
 // Reads the current cart as text so React can detect changes.
 function getCartSnapshot() {

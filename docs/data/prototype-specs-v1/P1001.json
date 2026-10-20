@@ -1,0 +1,51 @@
+{
+  "product_id": "P1001",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:15:03.519Z",
+  "identity_snapshot": {
+    "product_id": "P1001",
+    "product_name": "Beige Silk Scarf",
+    "category": "Accessories",
+    "subcategory": "Scarves",
+    "product_type": "Silk Scarf",
+    "gender": "Unisex",
+    "colour": "Beige",
+    "material": "Viscose",
+    "fit": "Standard",
+    "style": "Bohemian",
+    "occasion": "Date Night",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1001",
+    "description": "A beige bohemian scarf with a soft drape and fluid viscose handle, shaped for standard styling and an understated date-night accent.",
+    "construction_details": [
+      "Hand-finished narrow hems",
+      "Lightweight woven viscose construction",
+      "Generous rectangular scarf shape"
+    ],
+    "care_instructions": "Hand wash gently in cool water with mild detergent; reshape flat and dry away from direct heat.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": null,
+    "machine_washable": null,
+    "capacity_litres": null,
+    "use_cases": [
+      "Date Night",
+      "Travel",
+      "Weekend"
+    ],
+    "closure": "none",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "f3e1778282217604ee60b13a05f027c1d1b2e2ece59b43f88b325c4704e55202"
+}

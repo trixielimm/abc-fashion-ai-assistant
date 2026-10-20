@@ -1,0 +1,49 @@
+{
+  "product_id": "P1269",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:42.490Z",
+  "identity_snapshot": {
+    "product_id": "P1269",
+    "product_name": "Yellow Ballet Flats",
+    "category": "Shoes",
+    "subcategory": "Flats",
+    "product_type": "Ballet Flats",
+    "gender": "Women",
+    "colour": "Yellow",
+    "material": "Suede",
+    "fit": "Standard",
+    "style": "Bohemian",
+    "occasion": "Brunch",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1269",
+    "description": "Bohemian yellow ballet flats in soft suede with a standard fit, shaped for Brunch styling.",
+    "construction_details": [
+      "Rounded toe with a gently gathered topline",
+      "Low-cut vamp with a flexible stitched edge",
+      "Cushioned footbed and slim flat outsole"
+    ],
+    "care_instructions": "Brush gently with a suede brush and treat small marks with a suede-specific cleaner; keep dry.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Brunch"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": null,
+    "heel_height_cm": 0.5,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": null
+  },
+  "content_sha256": "414419eddf05af24e48bceb46b98cf8ba3fbf2cbb641407b047f262b41093e41"
+}

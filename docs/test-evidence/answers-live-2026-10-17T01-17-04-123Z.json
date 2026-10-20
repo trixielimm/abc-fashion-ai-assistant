@@ -1,0 +1,789 @@
+{
+  "started": "2026-10-17T01:17:04.123Z",
+  "base": "http://localhost:3000",
+  "checks": [
+    {
+      "message": "Show me dresses under $150",
+      "http": 200,
+      "elapsed_ms": 2708,
+      "reply": {
+        "status": "matches",
+        "action": "new_search",
+        "message": "I've found 4 clothing options for you to explore.\n\nThese options range from A$60.00 to A$120.00. The selection includes maxi dress, wrap dress and mini dress options. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1254",
+            "product_name": "Burgundy Maxi Dress",
+            "price_aud": 120,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Casual",
+            "colour": "Burgundy",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1254/image"
+          },
+          {
+            "product_id": "P1178",
+            "product_name": "Navy Maxi Dress",
+            "price_aud": 95,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Navy",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1178/image"
+          },
+          {
+            "product_id": "P1040",
+            "product_name": "Grey Wrap Dress",
+            "price_aud": 60,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Wrap Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Grey",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1040/image"
+          },
+          {
+            "product_id": "P1132",
+            "product_name": "Sage Mini Dress",
+            "price_aud": 120,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Mini Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Sage",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1132/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": "What occasion are you shopping for? You can also keep browsing these options.",
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": []
+      },
+      "pass": true
+    },
+    {
+      "message": "Why would you recommend the second dress for a beach wedding?",
+      "http": 200,
+      "elapsed_ms": 1708,
+      "reply": {
+        "status": "answered",
+        "action": "none",
+        "message": "Navy Maxi Dress\nFor beach wedding, the strongest recorded reason is that the catalogue explicitly lists Beach Wedding as this item's occasion. Its recorded styling details are colour: Navy, style: Minimalist, season: All Season. At A$95.00, it is within your A$150.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "Navy Maxi Dress — catalogue details",
+            "url": "/products/P1178"
+          }
+        ],
+        "answer_product_ids": [
+          "P1178"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "message": "Can this arrive by Friday?",
+      "http": 200,
+      "elapsed_ms": 1986,
+      "reply": {
+        "status": "answered",
+        "action": "none",
+        "message": "Standard delivery is available across Australia. I can't confirm arrival by Friday: I don't have live delivery estimates, dispatch cut-offs or carrier information. I also can't confirm other destinations, express delivery or shipping fees from the available policy. A postcode alone won't let me calculate an arrival date yet.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "Published delivery and returns copy",
+            "url": "/products/P1178#delivery-returns"
+          }
+        ],
+        "answer_product_ids": []
+      },
+      "pass": true
+    },
+    {
+      "message": "What is it made of?",
+      "http": 200,
+      "elapsed_ms": 2547,
+      "reply": {
+        "status": "answered",
+        "action": "none",
+        "message": "Navy Maxi Dress\nThe recorded material is Polyester. A material label doesn't verify the full composition or certifications.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "Navy Maxi Dress — catalogue details",
+            "url": "/products/P1178"
+          }
+        ],
+        "answer_product_ids": [
+          "P1178"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "message": "Find a bag to match it",
+      "http": 200,
+      "elapsed_ms": 3347,
+      "reply": {
+        "status": "matches",
+        "action": "cross_sell",
+        "message": "To go with Navy Maxi Dress, I've found 4 bag options for you to consider.\n\nThese options range from A$55.00 to A$140.00. The selection includes shoulder bag, crossbody bag and sling bag options.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Bags",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1260",
+            "product_name": "Black Shoulder Bag",
+            "price_aud": 90,
+            "category": "Bags",
+            "subcategory": "Handbags",
+            "product_type": "Shoulder Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Black",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1260/image"
+          },
+          {
+            "product_id": "P1172",
+            "product_name": "Lavender Crossbody Bag",
+            "price_aud": 140,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Crossbody Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Lavender",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1172/image"
+          },
+          {
+            "product_id": "P1240",
+            "product_name": "Gold Sling Bag",
+            "price_aud": 55,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Sling Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Gold",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1240/image"
+          },
+          {
+            "product_id": "P1250",
+            "product_name": "Blue Sling Bag",
+            "price_aud": 100,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Sling Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Blue",
+            "sizes_available": [
+              "One Size"
+            ],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1250/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": []
+      },
+      "pass": true
+    },
+    {
+      "message": "Why the first dress, and show me a cheaper option?",
+      "http": 200,
+      "elapsed_ms": 3517,
+      "reply": {
+        "status": "matches",
+        "action": "cheaper",
+        "message": "Burgundy Maxi Dress\nThe catalogue lists this item for Brunch. Its recorded styling details are colour: Burgundy, style: Relaxed, season: Summer. At A$120.00, it is within your A$150.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you.\n\nI've found 2 lower-priced options for you. They each cost less than the A$120.00 reference item.\n\nThese options range from A$70.00 to A$95.00. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": "Maxi Dress",
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1178",
+            "product_name": "Navy Maxi Dress",
+            "price_aud": 95,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Navy",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1178/image"
+          },
+          {
+            "product_id": "P1311",
+            "product_name": "Cream Maxi Dress",
+            "price_aud": 70,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Cream",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1311/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "Burgundy Maxi Dress — catalogue details",
+            "url": "/products/P1254"
+          }
+        ],
+        "answer_product_ids": []
+      },
+      "pass": true
+    },
+    {
+      "message": "Why this dress, and show me a cheaper option?",
+      "http": 200,
+      "elapsed_ms": 2835,
+      "reply": {
+        "status": "answered",
+        "action": "none",
+        "message": "More than one product could match. Which item do you mean?",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": {
+          "intent": {
+            "kind": "product",
+            "topics": [
+              "recommendation"
+            ],
+            "references": [
+              {
+                "kind": "context"
+              }
+            ],
+            "purpose": null,
+            "continuation": false
+          },
+          "question": "Why this dress, and show me a cheaper option?",
+          "follow_up": {
+            "action": "cheaper",
+            "reference": {
+              "kind": "context"
+            },
+            "changes": []
+          }
+        },
+        "answer_sources": [],
+        "answer_product_ids": []
+      },
+      "pass": true
+    },
+    {
+      "message": "The first dress",
+      "http": 200,
+      "elapsed_ms": 6548,
+      "reply": {
+        "status": "needs_clarification",
+        "action": "clarify",
+        "message": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": {
+          "action": "clarify",
+          "reference": null,
+          "goal": "The first dress",
+          "question": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 150,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": []
+      },
+      "failure": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'clarify'\n- 'cheaper'\n"
+    }
+  ],
+  "finished": "2026-10-17T01:17:29.339Z",
+  "passed": 7,
+  "failed_scenarios": 1
+}

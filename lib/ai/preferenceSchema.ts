@@ -11,6 +11,7 @@ export const ShoppingPreferencesSchema = z.object({
 
   product_type: z.string().nullable(),
 
+  
   occasion: z.string().nullable(),
 
   style: z.string().nullable(),

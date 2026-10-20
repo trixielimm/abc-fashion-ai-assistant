@@ -1,0 +1,53 @@
+{
+  "product_id": "P1119",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:54.410Z",
+  "identity_snapshot": {
+    "product_id": "P1119",
+    "product_name": "White Linen Shirt",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "product_type": "Linen Shirt",
+    "gender": "Men",
+    "colour": "White",
+    "material": "Linen Blend",
+    "fit": "Relaxed",
+    "style": "Relaxed",
+    "occasion": "Beach Wedding",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1119",
+    "description": "White linen blend shirt with a relaxed cut and understated finish, appropriate for a light beach-wedding ensemble.",
+    "construction_details": [
+      "Point collar",
+      "Button-through front",
+      "Long sleeves with button cuffs",
+      "Back yoke with centre pleat",
+      "Curved hem"
+    ],
+    "care_instructions": "Hand wash in cool water; press while slightly damp and line dry.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Beach Wedding",
+      "Work",
+      "Travel"
+    ],
+    "closure": "button",
+    "garment_length_cm": 75,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "919a877d38db20414c8fac79fbbc62d87d83e2d5a628b160a738c74acb764899"
+}

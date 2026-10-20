@@ -1,0 +1,52 @@
+{
+  "product_id": "P1114",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:54.409Z",
+  "identity_snapshot": {
+    "product_id": "P1114",
+    "product_name": "Red Straight Jeans",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Straight Jeans",
+    "gender": "Unisex",
+    "colour": "Red",
+    "material": "Denim",
+    "fit": "Tailored",
+    "style": "Relaxed",
+    "occasion": "Casual",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1114",
+    "description": "Red denim straight-leg jeans with a tailored fit and relaxed styling, finished for casual winter wear.",
+    "construction_details": [
+      "Five-pocket construction",
+      "Belt loops at the waistband",
+      "Buttoned waist with concealed zip fly",
+      "Topstitched leg seams"
+    ],
+    "care_instructions": "Machine wash cold inside out; line dry and avoid prolonged direct sunlight.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Casual",
+      "Weekend",
+      "Travel"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 105,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "5e5c7683411007b718732c1948378ffb8c4dba902fbc79948f1ab10b57be2026"
+}

@@ -1,0 +1,114 @@
+{
+  "generated_at": "2026-10-19T12:47:51.204Z",
+  "counts": {
+    "main_scenarios": 20,
+    "fresh_variations": 6,
+    "attempts": 72,
+    "http_200": 66,
+    "http_502": 1,
+    "http_503": 5
+  },
+  "interpretation": "Final accepted paths after iterative fixes and retries. Every intermediate attempt is retained.",
+  "checks": [
+    {
+      "case": "S1",
+      "check": "Firm no-match and no-extras constraints survive availability question",
+      "pass": true
+    },
+    {
+      "case": "S2",
+      "check": "Discovery narrows to the A$55 denim jacket",
+      "pass": true
+    },
+    {
+      "case": "S3",
+      "check": "Grouped provisional requirements and deadline remain visible",
+      "pass": true
+    },
+    {
+      "case": "S4",
+      "check": "A$245 total and A$155 remaining, with no selections",
+      "pass": true
+    },
+    {
+      "case": "S5",
+      "check": "Owned blazer review and A$175 new purchase total",
+      "pass": true
+    },
+    {
+      "case": "S6",
+      "check": "Only colour changed to blue",
+      "pass": true
+    },
+    {
+      "case": "S7",
+      "check": "Pure linen remains required without an invented substitute",
+      "pass": true
+    },
+    {
+      "case": "S8",
+      "check": "Browsing without a guessed size and honest work mismatch",
+      "pass": true
+    },
+    {
+      "case": "S9",
+      "check": "Two bag records compared with synthetic source labels",
+      "pass": true
+    },
+    {
+      "case": "S10",
+      "check": "Confirmed Sage under A$100 with size uncertainty preserved",
+      "pass": true
+    },
+    {
+      "case": "S11",
+      "check": "Both collections consumed and softness labelled provisionally",
+      "pass": true
+    },
+    {
+      "case": "S12",
+      "check": "Concrete red office alternatives explain their differences",
+      "pass": true
+    },
+    {
+      "case": "S13",
+      "check": "A$300 travel total survives confirmed jacket and shirt roles",
+      "pass": true
+    },
+    {
+      "case": "S14",
+      "check": "Heel height does not become a comfort guarantee",
+      "pass": true
+    },
+    {
+      "case": "S15",
+      "check": "A zip question precedes an explicit zip requirement",
+      "pass": true
+    },
+    {
+      "case": "S16",
+      "check": "Rejected ID excluded without Maxi Dress restriction",
+      "pass": true
+    },
+    {
+      "case": "S17",
+      "check": "Concert and bolder direction survive collection reply",
+      "pass": true
+    },
+    {
+      "case": "S18",
+      "check": "Fit-label guidance accompanies browsing with size unknown",
+      "pass": true
+    },
+    {
+      "case": "S19",
+      "check": "Silver necklace-only no-match stays within scope",
+      "pass": true
+    },
+    {
+      "case": "S20",
+      "check": "Waterproof and laptop facts remain explicitly unverified",
+      "pass": true
+    }
+  ]
+}

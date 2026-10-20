@@ -1,0 +1,49 @@
+{
+  "product_id": "P1028",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:45.724Z",
+  "identity_snapshot": {
+    "product_id": "P1028",
+    "product_name": "Grey Hoop Earrings",
+    "category": "Accessories",
+    "subcategory": "Jewellery",
+    "product_type": "Hoop Earrings",
+    "gender": "Women",
+    "colour": "Grey",
+    "material": "Gold-tone Metal",
+    "fit": "Standard",
+    "style": "Relaxed",
+    "occasion": "Wedding Guest",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1028",
+    "description": "Relaxed grey hoop earrings in gold-tone metal, adding a simple rounded accent to wedding guest looks.",
+    "construction_details": [
+      "Smooth circular hoops",
+      "Hinged wire closures",
+      "Polished metal finish"
+    ],
+    "care_instructions": "Store dry in a jewellery pouch and wipe gently with a soft cloth after wear.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": null,
+    "machine_washable": null,
+    "capacity_litres": null,
+    "use_cases": [
+      "Wedding Guest"
+    ],
+    "closure": "hook_and_eye",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": "gold-tone"
+  },
+  "content_sha256": "2aa2296ee421cc0d959aec9810e30fcf8eed6ff740f3dca602e38765a59f92e9"
+}

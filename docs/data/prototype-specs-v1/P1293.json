@@ -1,0 +1,50 @@
+{
+  "product_id": "P1293",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:22.199Z",
+  "identity_snapshot": {
+    "product_id": "P1293",
+    "product_name": "Beige Maxi Dress",
+    "category": "Clothing",
+    "subcategory": "Dresses",
+    "product_type": "Maxi Dress",
+    "gender": "Women",
+    "colour": "Beige",
+    "material": "Polyester",
+    "fit": "Regular",
+    "style": "Streetwear",
+    "occasion": "Brunch",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1293",
+    "description": "Beige polyester maxi dress with a regular silhouette and streetwear-inspired ease, finished for relaxed brunch styling in cooler weather.",
+    "construction_details": [
+      "Long flowing skirt with clean side seams",
+      "Round neckline with neatly bound edge",
+      "Straight hem designed to fall near the ankle"
+    ],
+    "care_instructions": "Hand wash in cool water or dry clean; reshape and lay flat to dry.",
+    "lining": true,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Brunch",
+      "Weekend"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 142,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "88e0ecd0648e459b865902579bb52f52b941c03fde9f7d4f5238560ba85d1fa5"
+}

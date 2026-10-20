@@ -1,0 +1,49 @@
+{
+  "product_id": "P1089",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:24.043Z",
+  "identity_snapshot": {
+    "product_id": "P1089",
+    "product_name": "Beige Loafers",
+    "category": "Shoes",
+    "subcategory": "Flats",
+    "product_type": "Loafers",
+    "gender": "Men",
+    "colour": "Beige",
+    "material": "Leather",
+    "fit": "Standard",
+    "style": "Minimalist",
+    "occasion": "Smart Casual",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1089",
+    "description": "Minimalist beige leather loafers with a standard fit and a neat smart-casual finish.",
+    "construction_details": [
+      "Smooth leather upper with moccasin apron seam",
+      "Cushioned insole and low heel",
+      "Flexible rubber outsole with slip-on entry"
+    ],
+    "care_instructions": "Wipe with a soft cloth, condition occasionally with a suitable leather cream, and air dry naturally.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": null,
+    "capacity_litres": null,
+    "use_cases": [
+      "Smart Casual"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": null,
+    "heel_height_cm": 1.5,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": null
+  },
+  "content_sha256": "d04baf0310f66b92461858f324f8261f02685dcc67ac1974d4f1ea5d81189e7f"
+}

@@ -1,0 +1,49 @@
+{
+  "product_id": "P1266",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:54.622Z",
+  "identity_snapshot": {
+    "product_id": "P1266",
+    "product_name": "Navy Suit Set",
+    "category": "Clothing",
+    "subcategory": "Sets",
+    "product_type": "Suit Set",
+    "gender": "Women",
+    "colour": "Navy",
+    "material": "Viscose",
+    "fit": "Relaxed",
+    "style": "Relaxed",
+    "occasion": "Smart Casual",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1266",
+    "description": "Relaxed navy viscose suit set with an easy drape and coordinated tailoring for smart casual dressing.",
+    "construction_details": [
+      "Relaxed single-breasted jacket with notched lapels",
+      "Flat-front trousers with elasticated rear waistband",
+      "Two jacket welt pockets and pressed trouser creases"
+    ],
+    "care_instructions": "Dry clean only; press on low heat through a pressing cloth and store folded or on a padded hanger.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Smart Casual"
+    ],
+    "closure": "button",
+    "garment_length_cm": 73,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "d1800c52fc75f200b37ef1f8c9a91afa6372ba2e14e799fb50a94128091cef69"
+}

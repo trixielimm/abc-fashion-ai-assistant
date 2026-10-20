@@ -1,0 +1,49 @@
+{
+  "product_id": "P1301",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:42.490Z",
+  "identity_snapshot": {
+    "product_id": "P1301",
+    "product_name": "Beige Retro Sneakers",
+    "category": "Shoes",
+    "subcategory": "Sneakers",
+    "product_type": "Retro Sneakers",
+    "gender": "Unisex",
+    "colour": "Beige",
+    "material": "Faux Leather",
+    "fit": "Standard",
+    "style": "Streetwear",
+    "occasion": "Casual",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1301",
+    "description": "Streetwear beige retro sneakers with a standard fit, layered faux leather panels and a Casual profile.",
+    "construction_details": [
+      "Layered panelled upper with contrast heel tab",
+      "Padded tongue and collar",
+      "Flat lace fastening over a textured rubber outsole"
+    ],
+    "care_instructions": "Wipe with a damp cloth and mild soap, then air dry away from direct heat.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Casual"
+    ],
+    "closure": "lace_up",
+    "garment_length_cm": null,
+    "heel_height_cm": 1.8,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": null
+  },
+  "content_sha256": "81b7a995b5c0e8b9d7dd64d448c06cdbdbb4d7bdbbe00d815017202cad90d291"
+}

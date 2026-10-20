@@ -1,0 +1,2101 @@
+{
+  "configured_model": "gpt-5.6-luna",
+  "features": {
+    "commerce": true
+  },
+  "catalogue_count": 318,
+  "vocabulary": {
+    "subcategory": [
+      "Scarves",
+      "Sets",
+      "Crossbody",
+      "Dresses",
+      "Jewellery",
+      "Bottoms",
+      "Flats",
+      "Sneakers",
+      "Sandals",
+      "Outerwear",
+      "Hats",
+      "Tops",
+      "Belts",
+      "Clutches",
+      "Heels",
+      "Handbags"
+    ],
+    "product_type": [
+      "Silk Scarf",
+      "Co-ord Set",
+      "Crossbody Bag",
+      "Wrap Dress",
+      "Bracelet",
+      "Wide-Leg Pants",
+      "Loafers",
+      "Low-Top Sneakers",
+      "Flat Sandals",
+      "Cropped Jacket",
+      "Wide-Brim Hat",
+      "Oversized Shirt",
+      "Denim Jacket",
+      "Fitted Tee",
+      "Suit Set",
+      "Slim Belt",
+      "Slip Dress",
+      "Linen Shirt",
+      "Statement Earrings",
+      "Envelope Clutch",
+      "Hoop Earrings",
+      "Straight Jeans",
+      "Trench Coat",
+      "Leather Belt",
+      "Tailored Trousers",
+      "Bomber Jacket",
+      "Midi Skirt",
+      "Chinos",
+      "Kitten Heels",
+      "Retro Sneakers",
+      "Sling Bag",
+      "Relaxed Co-ord Set",
+      "Knit Top",
+      "Pleated Trousers",
+      "Strappy Heels",
+      "Pleated Skirt",
+      "Pendant Necklace",
+      "Lightweight Scarf",
+      "Platform Sandals",
+      "Cap",
+      "Oxford Shirt",
+      "Two-Piece Set",
+      "Block Heels",
+      "Oversized Tee",
+      "Ballet Flats",
+      "Cardigan",
+      "Structured Handbag",
+      "Mini Dress",
+      "Mules",
+      "Relaxed Tee",
+      "Blazer",
+      "Satin Camisole",
+      "Maxi Dress",
+      "Mini Clutch",
+      "Polo Shirt",
+      "Mini Tote",
+      "Blouse",
+      "Shoulder Bag",
+      "Midi Dress",
+      "Tailored Shorts",
+      "Knit Polo"
+    ],
+    "fit": [
+      "Standard",
+      "Oversized",
+      "Regular",
+      "Relaxed",
+      "Slim",
+      "Flowy",
+      "Tailored"
+    ],
+    "occasion": [
+      "Date Night",
+      "Beach Wedding",
+      "Wedding Guest",
+      "Brunch",
+      "Party",
+      "Smart Casual",
+      "Travel",
+      "Casual",
+      "Formal",
+      "Work"
+    ]
+  },
+  "cases": [
+    {
+      "name": "event",
+      "input": {
+        "message": "Help! I've got a friend's wedding at a winery and the invite says cocktail. I basically live in jeans. Around $280 for a dress AND shoes, not $280 each. Where do I start?",
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "plan": {
+        "outfit_request": {
+          "total_budget_aud": 280,
+          "items": [
+            {
+              "gender": "Women",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            {
+              "gender": null,
+              "category": "Shoes",
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            }
+          ],
+          "evidence": "a dress AND shoes, not $280 each"
+        },
+        "action": "new_search",
+        "discovery_intent": null,
+        "intent_evidence": "a friend's wedding at a winery and the invite says cocktail",
+        "reference": null,
+        "changes": [
+          {
+            "scope": "item",
+            "evidence": "invite says cocktail",
+            "operation": "set",
+            "field": "occasion",
+            "value": "Cocktail"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": null
+      },
+      "checked": {
+        "status": "ready_for_validation",
+        "action": "new_search",
+        "reference_product_ids": [],
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Cocktail",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 280,
+            "items": [
+              {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": null,
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "a dress AND shoes, not $280 each"
+          },
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": null
+        },
+        "discovery_intent": null,
+        "styling_question": false,
+        "preferences": {
+          "gender": null,
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Cocktail",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "message": "Interpretation checked. Catalogue validation and retrieval have not run."
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "status": "no_match",
+        "action": "new_search",
+        "discovery": null,
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I couldn't find a complete set within A$280.00: no available Dresses meets the saved requirements. I haven't changed your budget or item requirements.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Cocktail",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Cocktail",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 280,
+            "items": [
+              {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": null,
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "a dress AND shoes, not $280 each"
+          },
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "duration_ms": 8747
+    },
+    {
+      "name": "event",
+      "input": {
+        "message": "I don't mean a particular product — you haven't shown me one. Please find a wedding guest dress and shoes for $280 total, excluding white. Women's collection.",
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Cocktail",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Help! I've got a friend's wedding at a winery and the invite says cocktail. I basically live in jeans. Around $280 for a dress AND shoes, not $280 each. Where do I start?"
+          },
+          {
+            "role": "assistant",
+            "content": "I couldn't find a complete set within A$280.00: no available Dresses meets the saved requirements. I haven't changed your budget or item requirements."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 280,
+            "items": [
+              {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": null,
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "a dress AND shoes, not $280 each"
+          },
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "plan": {
+        "outfit_request": {
+          "total_budget_aud": 280,
+          "items": [
+            {
+              "gender": "Women",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": null,
+              "occasion": "Wedding Guest",
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [
+                "White"
+              ],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            {
+              "gender": "Women",
+              "category": "Shoes",
+              "subcategory": null,
+              "product_type": null,
+              "occasion": "Wedding Guest",
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [
+                "White"
+              ],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            }
+          ],
+          "evidence": "a wedding guest dress and shoes for $280 total, excluding white"
+        },
+        "action": "refine",
+        "discovery_intent": null,
+        "intent_evidence": "Please find a wedding guest dress and shoes for $280 total, excluding white. Women's collection.",
+        "reference": null,
+        "changes": [
+          {
+            "scope": "item",
+            "evidence": "Women's collection",
+            "operation": "set",
+            "field": "gender",
+            "value": "Women"
+          },
+          {
+            "scope": "item",
+            "evidence": "wedding guest",
+            "operation": "set",
+            "field": "occasion",
+            "value": "Wedding Guest"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": null
+      },
+      "checked": {
+        "status": "ready_for_validation",
+        "action": "refine",
+        "reference_product_ids": [],
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Wedding Guest",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 280,
+            "items": [
+              {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": "Wedding Guest",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [
+                  "White"
+                ],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Wedding Guest",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [
+                  "White"
+                ],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "a wedding guest dress and shoes for $280 total, excluding white"
+          },
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "discovery_intent": null,
+        "styling_question": false,
+        "preferences": {
+          "gender": "Women",
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Wedding Guest",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "message": "Interpretation checked. Catalogue validation and retrieval have not run."
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": {
+          "limit_aud": 280,
+          "total_aud": 265,
+          "remaining_aud": 15,
+          "items": [
+            {
+              "product_id": "P1189",
+              "preferences": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": "Wedding Guest",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [
+                  "White"
+                ],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "product_id": "P1161",
+              "preferences": {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Wedding Guest",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [
+                  "White"
+                ],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ]
+        },
+        "outfit_choices": {
+          "groups": [
+            {
+              "label": "Dresses",
+              "product_ids": [
+                "P1189"
+              ],
+              "preferences": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": "Wedding Guest",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [
+                  "White"
+                ],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "label": "Shoes",
+              "product_ids": [
+                "P1161",
+                "P1075"
+              ],
+              "preferences": {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Wedding Guest",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [
+                  "White"
+                ],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ],
+          "maximum_total_aud": 265
+        },
+        "outfit_review": null,
+        "status": "matches",
+        "action": "refine",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "Here are choices for dresses and shoes. Choose one item from each group; every displayed combination stays within your A$280.00 combined budget. Combinations range from A$265.00 to A$265.00.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Wedding Guest",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Wedding Guest",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1189",
+            "product_name": "Olive Maxi Dress",
+            "price_aud": 155,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Olive",
+            "occasion": "Wedding Guest",
+            "style": "Bohemian",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1189/image"
+          },
+          {
+            "product_id": "P1161",
+            "product_name": "Olive Mules",
+            "price_aud": 110,
+            "category": "Shoes",
+            "subcategory": "Flats",
+            "product_type": "Mules",
+            "brand_line": "ABC Footwear",
+            "colour": "Olive",
+            "occasion": "Wedding Guest",
+            "style": "Classic",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1161/image"
+          },
+          {
+            "product_id": "P1075",
+            "product_name": "Navy Strappy Heels",
+            "price_aud": 110,
+            "category": "Shoes",
+            "subcategory": "Heels",
+            "product_type": "Strappy Heels",
+            "brand_line": "ABC Footwear",
+            "colour": "Navy",
+            "occasion": "Wedding Guest",
+            "style": "Contemporary",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "extra_target": "Clothing",
+            "image_src": "/api/products/P1075/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 280,
+            "items": [
+              {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": "Wedding Guest",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [
+                  "White"
+                ],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Wedding Guest",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [
+                  "White"
+                ],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "a wedding guest dress and shoes for $280 total, excluding white"
+          },
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "duration_ms": 6798
+    },
+    {
+      "name": "jackets",
+      "input": {
+        "message": "Show jackets under $120, both men's and women's. No beige or yellow.",
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "plan": {
+        "outfit_request": null,
+        "action": "new_search",
+        "discovery_intent": null,
+        "intent_evidence": "Show jackets under $120, both men's and women's. No beige or yellow.",
+        "reference": null,
+        "changes": [
+          {
+            "scope": "item",
+            "evidence": "Show jackets",
+            "operation": "set",
+            "field": "product_type",
+            "value": "Jacket"
+          },
+          {
+            "scope": "item",
+            "evidence": "both men's and women's",
+            "operation": "set",
+            "field": "gender",
+            "value": null
+          },
+          {
+            "scope": "item",
+            "evidence": "No beige or yellow",
+            "field": "excluded_colours",
+            "operation": "add",
+            "value": [
+              "beige",
+              "yellow"
+            ]
+          },
+          {
+            "scope": "item",
+            "field": "category",
+            "operation": "set",
+            "value": "Clothing",
+            "evidence": "jackets"
+          },
+          {
+            "scope": "item",
+            "field": "max_price",
+            "operation": "set",
+            "value": 120,
+            "evidence": "under $120"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": null
+      },
+      "checked": {
+        "status": "ready_for_validation",
+        "action": "new_search",
+        "reference_product_ids": [],
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": null,
+            "product_type": "Jacket",
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [
+              "beige",
+              "yellow"
+            ],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 120,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "All",
+          "current": {
+            "choice": "All",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "discovery_intent": null,
+        "styling_question": false,
+        "preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": null,
+          "product_type": "Jacket",
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [
+            "beige",
+            "yellow"
+          ],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 120,
+          "brand_line": null
+        },
+        "message": "Interpretation checked. Catalogue validation and retrieval have not run."
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "status": "needs_clarification",
+        "action": "new_search",
+        "discovery": null,
+        "collection": {
+          "choice": "All",
+          "current": {
+            "choice": "All",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": null,
+            "product_type": "Jacket",
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [
+              "beige",
+              "yellow"
+            ],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 120,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": null,
+          "product_type": "Jacket",
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [
+            "Beige",
+            "Yellow"
+          ],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 120,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": {
+          "action": "new_search",
+          "reference": null,
+          "goal": "Show jackets under $120, both men's and women's. No beige or yellow.",
+          "question": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "duration_ms": 4945
+    },
+    {
+      "name": "shirt",
+      "input": {
+        "message": "I'm buying my dad a men's work shirt. Medium, regular fit, under $100. Show me options.",
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "plan": {
+        "action": "clarify",
+        "intent_evidence": "I'm buying my dad a men's work shirt. Medium, regular fit, under $100. Show me options.",
+        "reference": null,
+        "changes": [],
+        "question": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.",
+        "continuation": false
+      },
+      "checked": {
+        "status": "needs_clarification",
+        "action": "clarify",
+        "reference_product_ids": [],
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "styling_question": false,
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": null
+        },
+        "preferences": {
+          "gender": null,
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "message": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements."
+      },
+      "reply": {
+        "intent_understood": false,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "status": "needs_clarification",
+        "action": "clarify",
+        "discovery": null,
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": {
+          "action": "clarify",
+          "reference": null,
+          "goal": "I'm buying my dad a men's work shirt. Medium, regular fit, under $100. Show me options.",
+          "question": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "duration_ms": 9080
+    },
+    {
+      "name": "saved-dress",
+      "input": {
+        "message": "Show flat shoes under $125 to go with my saved Olive Maxi Dress. Keep the dress.",
+        "collection": {
+          "choice": "Women",
+          "current": null,
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Wedding Guest",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 180,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1189",
+              "product_name": "Olive Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 155
+            }
+          ],
+          "selected": [
+            {
+              "product_id": "P1189",
+              "product_name": "Olive Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 155
+            }
+          ]
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "outfit": [
+            {
+              "product_id": "P1189",
+              "product_name": "Olive Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 155,
+              "ownership": "selected"
+            }
+          ],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "plan": {
+        "outfit_request": null,
+        "action": "cross_sell",
+        "discovery_intent": null,
+        "intent_evidence": "Show flat shoes under $125 to go with my saved Olive Maxi Dress. Keep the dress.",
+        "reference": {
+          "kind": "name",
+          "value": "Olive Maxi Dress"
+        },
+        "changes": [
+          {
+            "scope": "item",
+            "evidence": "flat shoes",
+            "operation": "set",
+            "field": "product_type",
+            "value": "Flats"
+          },
+          {
+            "scope": "item",
+            "field": "category",
+            "operation": "set",
+            "value": "Shoes",
+            "evidence": "shoes"
+          },
+          {
+            "scope": "item",
+            "field": "max_price",
+            "operation": "set",
+            "value": 125,
+            "evidence": "under $125"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": {
+          "external_items": [],
+          "preferences": [],
+          "outfit_changes": [
+            {
+              "operation": "keep",
+              "reference": {
+                "kind": "name",
+                "value": "Olive Maxi Dress"
+              },
+              "evidence": "Keep the dress"
+            }
+          ],
+          "offers": null,
+          "owned_categories": []
+        }
+      },
+      "checked": {
+        "status": "ready_for_validation",
+        "action": "cross_sell",
+        "reference_product_ids": [
+          "P1189"
+        ],
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": "Flats",
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 125,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "outfit": [
+            {
+              "product_id": "P1189",
+              "product_name": "Olive Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 155,
+              "ownership": "selected"
+            }
+          ],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "discovery_intent": null,
+        "styling_question": false,
+        "preferences": {
+          "gender": null,
+          "category": "Shoes",
+          "subcategory": null,
+          "product_type": "Flats",
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 125,
+          "brand_line": null
+        },
+        "message": "Interpretation checked. Catalogue validation and retrieval have not run."
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "status": "needs_clarification",
+        "action": "cross_sell",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": "Flats",
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 125,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Shoes",
+          "subcategory": null,
+          "product_type": "Flats",
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 125,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": {
+          "action": "cross_sell",
+          "reference": {
+            "kind": "name",
+            "value": "Olive Maxi Dress"
+          },
+          "goal": "Show flat shoes under $125 to go with my saved Olive Maxi Dress. Keep the dress.",
+          "question": "I couldn't verify one of those product details in the catalogue. Please rephrase that detail; I haven't changed your restrictions.",
+          "before_scopes": {
+            "item": {
+              "gender": "Women",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": null,
+              "occasion": "Wedding Guest",
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 180,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "outfit": [
+            {
+              "product_id": "P1189",
+              "product_name": "Olive Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 155,
+              "ownership": "selected"
+            }
+          ],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "duration_ms": 4129
+    }
+  ]
+}

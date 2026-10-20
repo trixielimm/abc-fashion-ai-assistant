@@ -1,0 +1,51 @@
+{
+  "product_id": "P1241",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:20:52.643Z",
+  "identity_snapshot": {
+    "product_id": "P1241",
+    "product_name": "Beige Cropped Jacket",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Cropped Jacket",
+    "gender": "Women",
+    "colour": "Beige",
+    "material": "Polyester",
+    "fit": "Oversized",
+    "style": "Bohemian",
+    "occasion": "Casual",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1241",
+    "description": "Beige cropped jacket with an oversized bohemian silhouette, softly structured shoulders and a clean cropped hem. Designed for casual autumn layering.",
+    "construction_details": [
+      "Dropped shoulders with roomy sleeves",
+      "Front button fastening",
+      "Two welt hand pockets",
+      "Straight cropped hem with neat topstitching"
+    ],
+    "care_instructions": "Cool hand wash with similar colours; reshape while damp and dry flat or on a broad hanger. Do not tumble dry.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Casual",
+      "Weekend"
+    ],
+    "closure": "button",
+    "garment_length_cm": 48,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "1532e23917fb03d810a694e5b4d4805ab5bef7ab00b8ffe83af038e18da9cb23"
+}

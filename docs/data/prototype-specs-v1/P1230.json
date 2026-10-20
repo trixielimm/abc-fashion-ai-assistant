@@ -1,0 +1,50 @@
+{
+  "product_id": "P1230",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:39.942Z",
+  "identity_snapshot": {
+    "product_id": "P1230",
+    "product_name": "Sage Ballet Flats",
+    "category": "Shoes",
+    "subcategory": "Flats",
+    "product_type": "Ballet Flats",
+    "gender": "Women",
+    "colour": "Sage",
+    "material": "Suede",
+    "fit": "Standard",
+    "style": "Streetwear",
+    "occasion": "Party",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1230",
+    "description": "Streetwear sage ballet flats for women, shaped in a standard fit with suede construction for party styling in winter.",
+    "construction_details": [
+      "Soft suede upper with rounded toe",
+      "Elasticated topline for a close, flexible finish",
+      "Flat outsole with a stitched perimeter"
+    ],
+    "care_instructions": "Protect from moisture and brush gently with a suede brush; treat marks with a suitable suede cleaner and store away from heat.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Party",
+      "Evening"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": null,
+    "heel_height_cm": 0,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": null
+  },
+  "content_sha256": "b4dd7727e6ffecd91c0916629c6009666806c90ce8305bea9a2fcdd6bae88003"
+}

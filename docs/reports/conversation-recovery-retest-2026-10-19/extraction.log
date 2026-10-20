@@ -1,0 +1,2 @@
+PASS: blank input rejected
+FAIL: extraction or preference assertion failed. Check configuration and the results above.

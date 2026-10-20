@@ -1,0 +1,50 @@
+{
+  "product_id": "P1018",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:15:03.519Z",
+  "identity_snapshot": {
+    "product_id": "P1018",
+    "product_name": "Sage Slim Belt",
+    "category": "Accessories",
+    "subcategory": "Belts",
+    "product_type": "Slim Belt",
+    "gender": "Women",
+    "colour": "Sage",
+    "material": "Faux Leather",
+    "fit": "Standard",
+    "style": "Classic",
+    "occasion": "Date Night",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1018",
+    "description": "A classic sage slim belt in smooth faux leather, finished with a neat buckle for a restrained date-night styling detail.",
+    "construction_details": [
+      "Slim faux-leather strap",
+      "Pronged buckle fastening",
+      "Clean edge finishing"
+    ],
+    "care_instructions": "Wipe clean with a soft, slightly damp cloth and allow to air dry; avoid soaking, heat and abrasive cleaners.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": null,
+    "capacity_litres": null,
+    "use_cases": [
+      "Date Night",
+      "Work"
+    ],
+    "closure": "buckle",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": "Silver-tone"
+  },
+  "content_sha256": "6273d8671d3cac6116e4758f1725ca6c95ec1524336e4445e5a9b92a6fbe9d84"
+}

@@ -1,0 +1,777 @@
+{
+  "started": "2026-10-17T04:58:32.578Z",
+  "commit": "47d677a7a986c9aadc8bd90574741a83779d983f",
+  "node": "v24.14.0",
+  "model": "gpt-5.6-luna",
+  "reasoning": "low",
+  "fixture_sha256": "9a8f800d556e969e5495ed70d25318e5903ad26b74fc1a71deb6dfe3e3119f6f",
+  "scope": "Real model + shortcutPlan + finishConversationTurn + acceptReply; in-process with isolated synthetic fixtures. Not HTTP/browser acceptance.",
+  "human_review": "Pairing taste, aesthetic variety and end-user usefulness require human assessment.",
+  "runs": [
+    {
+      "id": "S1-A",
+      "name": "Complete brief, cheaper, material",
+      "repeat": 1,
+      "started": "2026-10-17T04:58:32.609Z",
+      "result": "Pass",
+      "issues": [],
+      "first": {
+        "product_id": "D-BLACK-120",
+        "product_name": "D-BLACK-120 Dress",
+        "price_aud": 120,
+        "category": "Clothing",
+        "subcategory": "Dresses",
+        "product_type": "Midi Dress",
+        "brand_line": null,
+        "colour": "Black",
+        "sizes_available": [
+          "10",
+          "12"
+        ],
+        "extra_target": "Bags",
+        "image_src": null
+      },
+      "finished": "2026-10-17T04:58:41.504Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S1-A",
+      "name": "Complete brief, cheaper, material",
+      "repeat": 3,
+      "started": "2026-10-17T04:58:32.625Z",
+      "result": "Pass",
+      "issues": [],
+      "first": {
+        "product_id": "D-BLACK-120",
+        "product_name": "D-BLACK-120 Dress",
+        "price_aud": 120,
+        "category": "Clothing",
+        "subcategory": "Dresses",
+        "product_type": "Midi Dress",
+        "brand_line": null,
+        "colour": "Black",
+        "sizes_available": [
+          "10",
+          "12"
+        ],
+        "extra_target": "Bags",
+        "image_src": null
+      },
+      "finished": "2026-10-17T04:58:42.294Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S1-A",
+      "name": "Complete brief, cheaper, material",
+      "repeat": 2,
+      "started": "2026-10-17T04:58:32.623Z",
+      "result": "Pass",
+      "issues": [],
+      "first": {
+        "product_id": "D-BLACK-120",
+        "product_name": "D-BLACK-120 Dress",
+        "price_aud": 120,
+        "category": "Clothing",
+        "subcategory": "Dresses",
+        "product_type": "Midi Dress",
+        "brand_line": null,
+        "colour": "Black",
+        "sizes_available": [
+          "10",
+          "12"
+        ],
+        "extra_target": "Bags",
+        "image_src": null
+      },
+      "finished": "2026-10-17T04:58:44.995Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S1-B",
+      "name": "Change colour and price only",
+      "repeat": 1,
+      "started": "2026-10-17T04:58:41.505Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:58:51.457Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S1-B",
+      "name": "Change colour and price only",
+      "repeat": 2,
+      "started": "2026-10-17T04:58:42.294Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:58:51.680Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S1-B",
+      "name": "Change colour and price only",
+      "repeat": 3,
+      "started": "2026-10-17T04:58:44.997Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:58:54.623Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S1-C",
+      "name": "Deliberate no match",
+      "repeat": 2,
+      "started": "2026-10-17T04:58:51.682Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "The input did not match the regular expression /no|couldn't|cannot|can't/i. Input:\n\n'Updated your outfit choices and styling preferences. Your cart is unchanged.'\n"
+        }
+      ],
+      "finished": "2026-10-17T04:58:57.441Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S1-C",
+      "name": "Deliberate no match",
+      "repeat": 1,
+      "started": "2026-10-17T04:58:51.459Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:58:58.004Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S1-C",
+      "name": "Deliberate no match",
+      "repeat": 3,
+      "started": "2026-10-17T04:58:54.624Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:59:00.899Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S2-A",
+      "name": "Guided beach wedding shopping",
+      "repeat": 1,
+      "started": "2026-10-17T04:58:57.442Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:59:07.896Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S2-A",
+      "name": "Guided beach wedding shopping",
+      "repeat": 2,
+      "started": "2026-10-17T04:58:58.005Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:59:08.405Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S2-A",
+      "name": "Guided beach wedding shopping",
+      "repeat": 3,
+      "started": "2026-10-17T04:59:00.900Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:59:12.629Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S2-B",
+      "name": "Reject a dress across searches",
+      "repeat": 1,
+      "started": "2026-10-17T04:59:07.898Z",
+      "result": "Pass",
+      "issues": [],
+      "rejected": "D-WORK-70",
+      "finished": "2026-10-17T04:59:15.193Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S2-B",
+      "name": "Reject a dress across searches",
+      "repeat": 2,
+      "started": "2026-10-17T04:59:08.407Z",
+      "result": "Pass",
+      "issues": [],
+      "rejected": "D-WORK-70",
+      "finished": "2026-10-17T04:59:15.640Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S2-B",
+      "name": "Reject a dress across searches",
+      "repeat": 3,
+      "started": "2026-10-17T04:59:12.630Z",
+      "result": "Pass",
+      "issues": [],
+      "rejected": "D-WORK-70",
+      "finished": "2026-10-17T04:59:19.769Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S2-C",
+      "name": "Zip question becomes explicit must-have",
+      "repeat": 1,
+      "started": "2026-10-17T04:59:15.195Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:59:23.463Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S2-C",
+      "name": "Zip question becomes explicit must-have",
+      "repeat": 2,
+      "started": "2026-10-17T04:59:15.642Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:59:24.489Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S2-C",
+      "name": "Zip question becomes explicit must-have",
+      "repeat": 3,
+      "started": "2026-10-17T04:59:19.771Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:59:30.034Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S3-A",
+      "name": "Uncertain customer to similar dresses",
+      "repeat": 1,
+      "started": "2026-10-17T04:59:23.464Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:59:34.274Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S3-A",
+      "name": "Uncertain customer to similar dresses",
+      "repeat": 2,
+      "started": "2026-10-17T04:59:24.490Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:59:37.622Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S3-B",
+      "name": "Browse without preferences",
+      "repeat": 1,
+      "started": "2026-10-17T04:59:34.276Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:59:38.793Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S3-B",
+      "name": "Browse without preferences",
+      "repeat": 2,
+      "started": "2026-10-17T04:59:37.623Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:59:41.797Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S3-B",
+      "name": "Browse without preferences",
+      "repeat": 3,
+      "started": "2026-10-17T04:59:38.794Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:59:43.067Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S3-A",
+      "name": "Uncertain customer to similar dresses",
+      "repeat": 3,
+      "started": "2026-10-17T04:59:30.035Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:59:43.725Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S3-C",
+      "name": "Switch from dresses to bags",
+      "repeat": 1,
+      "started": "2026-10-17T04:59:41.798Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:59:47.075Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S3-C",
+      "name": "Switch from dresses to bags",
+      "repeat": 2,
+      "started": "2026-10-17T04:59:43.068Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:59:47.794Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S3-C",
+      "name": "Switch from dresses to bags",
+      "repeat": 3,
+      "started": "2026-10-17T04:59:43.726Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T04:59:48.608Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S4-A",
+      "name": "Pair a bag with an owned catalogue dress",
+      "repeat": 1,
+      "started": "2026-10-17T04:59:47.077Z",
+      "result": "Pass",
+      "issues": [],
+      "anchor": "D-BLACK-120",
+      "finished": "2026-10-17T04:59:57.074Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S4-A",
+      "name": "Pair a bag with an owned catalogue dress",
+      "repeat": 2,
+      "started": "2026-10-17T04:59:47.796Z",
+      "result": "Pass",
+      "issues": [],
+      "anchor": "D-BLACK-120",
+      "finished": "2026-10-17T04:59:58.415Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S4-A",
+      "name": "Pair a bag with an owned catalogue dress",
+      "repeat": 3,
+      "started": "2026-10-17T04:59:48.610Z",
+      "result": "Pass",
+      "issues": [],
+      "anchor": "D-BLACK-120",
+      "finished": "2026-10-17T04:59:58.833Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S4-B",
+      "name": "Style an external owned garment",
+      "repeat": 1,
+      "started": "2026-10-17T04:59:57.075Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T05:00:03.463Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S4-B",
+      "name": "Style an external owned garment",
+      "repeat": 3,
+      "started": "2026-10-17T04:59:58.835Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T05:00:04.879Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S4-B",
+      "name": "Style an external owned garment",
+      "repeat": 2,
+      "started": "2026-10-17T04:59:58.416Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T05:00:05.099Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S4-C",
+      "name": "Pair shoes with two owned pieces",
+      "repeat": 1,
+      "started": "2026-10-17T05:00:03.465Z",
+      "result": "Pass",
+      "issues": [],
+      "dress": "D-BLACK-120",
+      "bag": "B-OPEN-45",
+      "finished": "2026-10-17T05:00:18.499Z",
+      "turns_recorded": 6
+    },
+    {
+      "id": "S4-C",
+      "name": "Pair shoes with two owned pieces",
+      "repeat": 3,
+      "started": "2026-10-17T05:00:05.100Z",
+      "result": "Pass",
+      "issues": [],
+      "dress": "D-BLACK-120",
+      "bag": "B-OPEN-45",
+      "finished": "2026-10-17T05:00:20.409Z",
+      "turns_recorded": 6
+    },
+    {
+      "id": "S4-C",
+      "name": "Pair shoes with two owned pieces",
+      "repeat": 2,
+      "started": "2026-10-17T05:00:04.880Z",
+      "result": "Pass",
+      "issues": [],
+      "dress": "D-BLACK-120",
+      "bag": "B-OPEN-45",
+      "finished": "2026-10-17T05:00:20.652Z",
+      "turns_recorded": 6
+    },
+    {
+      "id": "S5-A",
+      "name": "Pockets justify A$25 more",
+      "repeat": 3,
+      "started": "2026-10-17T05:00:20.654Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T05:00:26.908Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S5-A",
+      "name": "Pockets justify A$25 more",
+      "repeat": 1,
+      "started": "2026-10-17T05:00:18.501Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 3,
+          "message": "The input did not match the regular expression /pockets/i. Input:\n\n'Which two products would you like me to compare? Use their names or positions in the results.'\n"
+        },
+        {
+          "turn": 4,
+          "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   'VA-POCKETS'\n- ]\n"
+        }
+      ],
+      "finished": "2026-10-17T05:00:29.039Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S5-A",
+      "name": "Pockets justify A$25 more",
+      "repeat": 2,
+      "started": "2026-10-17T05:00:20.412Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T05:00:29.617Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S5-B",
+      "name": "Replacement preserves all hard requirements",
+      "repeat": 1,
+      "started": "2026-10-17T05:00:26.910Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T05:00:35.812Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-B",
+      "name": "Replacement preserves all hard requirements",
+      "repeat": 3,
+      "started": "2026-10-17T05:00:29.618Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T05:00:38.780Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-B",
+      "name": "Replacement preserves all hard requirements",
+      "repeat": 2,
+      "started": "2026-10-17T05:00:29.040Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   'VB-ELIGIBLE'\n- ]\n"
+        },
+        {
+          "turn": 3,
+          "message": "Answer must reference the intended product\n+ actual - expected\n\n  [\n+   'VB-ORIGINAL'\n-   'VB-ELIGIBLE'\n  ]\n"
+        }
+      ],
+      "finished": "2026-10-17T05:00:44.293Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-C",
+      "name": "No demonstrated improvement",
+      "repeat": 1,
+      "started": "2026-10-17T05:00:35.814Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T05:00:44.968Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-C",
+      "name": "No demonstrated improvement",
+      "repeat": 2,
+      "started": "2026-10-17T05:00:38.781Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T05:00:47.997Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-C",
+      "name": "No demonstrated improvement",
+      "repeat": 3,
+      "started": "2026-10-17T05:00:44.295Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T05:00:53.774Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-D",
+      "name": "Same-price and cheaper adjustable alternatives",
+      "repeat": 1,
+      "started": "2026-10-17T05:00:44.970Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "The input did not match the regular expression /adjust/i. Input:\n\n'More than one product could match. Which item do you mean?'\n"
+        },
+        {
+          "turn": 3,
+          "message": "The input did not match the regular expression /15/. Input:\n\n'More than one product could match. Which item do you mean?'\n"
+        }
+      ],
+      "finished": "2026-10-17T05:00:58.413Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-D",
+      "name": "Same-price and cheaper adjustable alternatives",
+      "repeat": 2,
+      "started": "2026-10-17T05:00:47.998Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "The input did not match the regular expression /adjust/i. Input:\n\n'More than one product could match. Which item do you mean?'\n"
+        },
+        {
+          "turn": 3,
+          "message": "The input did not match the regular expression /15/. Input:\n\n'More than one product could match. Which item do you mean?'\n"
+        }
+      ],
+      "finished": "2026-10-17T05:00:59.125Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-D",
+      "name": "Same-price and cheaper adjustable alternatives",
+      "repeat": 3,
+      "started": "2026-10-17T05:00:53.775Z",
+      "result": "Fail",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "The input did not match the regular expression /adjust/i. Input:\n\n'More than one product could match. Which item do you mean?'\n"
+        },
+        {
+          "turn": 3,
+          "message": "The input did not match the regular expression /15/. Input:\n\n'Which two products would you like me to compare? Use their names or positions in the results.'\n"
+        }
+      ],
+      "finished": "2026-10-17T05:01:02.125Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-E",
+      "name": "Lining trade-off then both required",
+      "repeat": 1,
+      "started": "2026-10-17T05:00:58.414Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T05:01:07.595Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-E",
+      "name": "Lining trade-off then both required",
+      "repeat": 2,
+      "started": "2026-10-17T05:00:59.126Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T05:01:09.887Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-E",
+      "name": "Lining trade-off then both required",
+      "repeat": 3,
+      "started": "2026-10-17T05:01:02.127Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T05:01:11.692Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-F",
+      "name": "Unknown lining cannot prove improvement",
+      "repeat": 1,
+      "started": "2026-10-17T05:01:07.596Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T05:01:14.702Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-F",
+      "name": "Unknown lining cannot prove improvement",
+      "repeat": 2,
+      "started": "2026-10-17T05:01:09.888Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T05:01:20.398Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S5-F",
+      "name": "Unknown lining cannot prove improvement",
+      "repeat": 3,
+      "started": "2026-10-17T05:01:11.693Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T05:01:20.418Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S6-A",
+      "name": "Shoe size and construction details",
+      "repeat": 1,
+      "started": "2026-10-17T05:01:14.703Z",
+      "result": "Pass",
+      "issues": [],
+      "first": {
+        "product_id": "SH-WORK-110",
+        "product_name": "SH-WORK-110 Shoes",
+        "price_aud": 110,
+        "category": "Shoes",
+        "subcategory": "Heels",
+        "product_type": "Block Heels",
+        "brand_line": null,
+        "colour": "Black",
+        "sizes_available": [
+          "38",
+          "39"
+        ],
+        "extra_target": null,
+        "image_src": null
+      },
+      "finished": "2026-10-17T05:01:23.519Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S6-A",
+      "name": "Shoe size and construction details",
+      "repeat": 2,
+      "started": "2026-10-17T05:01:20.399Z",
+      "result": "Pass",
+      "issues": [],
+      "first": {
+        "product_id": "SH-WORK-110",
+        "product_name": "SH-WORK-110 Shoes",
+        "price_aud": 110,
+        "category": "Shoes",
+        "subcategory": "Heels",
+        "product_type": "Block Heels",
+        "brand_line": null,
+        "colour": "Black",
+        "sizes_available": [
+          "38",
+          "39"
+        ],
+        "extra_target": null,
+        "image_src": null
+      },
+      "finished": "2026-10-17T05:01:28.276Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S6-B",
+      "name": "Silver necklaces and fastening facts",
+      "repeat": 1,
+      "started": "2026-10-17T05:01:23.520Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T05:01:30.639Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S6-A",
+      "name": "Shoe size and construction details",
+      "repeat": 3,
+      "started": "2026-10-17T05:01:20.418Z",
+      "result": "Pass",
+      "issues": [],
+      "first": {
+        "product_id": "SH-WORK-110",
+        "product_name": "SH-WORK-110 Shoes",
+        "price_aud": 110,
+        "category": "Shoes",
+        "subcategory": "Heels",
+        "product_type": "Block Heels",
+        "brand_line": null,
+        "colour": "Black",
+        "sizes_available": [
+          "38",
+          "39"
+        ],
+        "extra_target": null,
+        "image_src": null
+      },
+      "finished": "2026-10-17T05:01:31.115Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S6-B",
+      "name": "Silver necklaces and fastening facts",
+      "repeat": 2,
+      "started": "2026-10-17T05:01:28.277Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T05:01:35.953Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S6-B",
+      "name": "Silver necklaces and fastening facts",
+      "repeat": 3,
+      "started": "2026-10-17T05:01:30.640Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T05:01:38.206Z",
+      "turns_recorded": 3
+    }
+  ],
+  "finished": "2026-10-17T05:01:38.208Z",
+  "counts": {
+    "Pass": 54,
+    "Fail": 6,
+    "Blocked": 0,
+    "Feature gap": 0
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "product_id": "P1240",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:22:27.087Z",
+  "identity_snapshot": {
+    "product_id": "P1240",
+    "product_name": "Gold Sling Bag",
+    "category": "Bags",
+    "subcategory": "Crossbody",
+    "product_type": "Sling Bag",
+    "gender": "Unisex",
+    "colour": "Gold",
+    "material": "Woven",
+    "fit": "Standard",
+    "style": "Contemporary",
+    "occasion": "Formal",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1240",
+    "description": "Gold woven sling bag with a contemporary profile and standard shape, suited to formal styling. Its compact silhouette is finished with a softly lustrous surface and a neat shoulder strap.",
+    "construction_details": [
+      "Woven exterior with softly structured base",
+      "Slim adjustable shoulder strap",
+      "Fold-over flap with concealed magnetic snap"
+    ],
+    "care_instructions": "Wipe lightly with a soft, dry cloth and store in its dust bag. Keep away from moisture and abrasive surfaces.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": true,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": 1.1,
+    "use_cases": [
+      "Formal",
+      "Evening"
+    ],
+    "closure": "snap",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": {
+      "width": 21,
+      "height": 15,
+      "depth": 5
+    },
+    "strap_drop_cm": 58,
+    "compartments": 2,
+    "sole_material": null,
+    "hardware_finish": "polished gold-tone"
+  },
+  "quality_adjustments": [
+    "Synthetic capacity defined as 70% of external volume, rounded down to 0.1 L, to correct impossible generated volume."
+  ],
+  "content_sha256": "a4365e0130087f4f3e216c8203efdd3d52f5b9f9b3d6eac9d5e6c4a071dc6537"
+}

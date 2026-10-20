@@ -18,27 +18,6 @@ export function SearchIcon({ className }: IconProps) {
   );
 }
 
-export function UserIcon({ className }: IconProps) {
-  return (
-    <svg
-      className={className}
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-      aria-hidden="true"
-    >
-      <circle cx="8" cy="5.5" r="2.25" stroke="currentColor" strokeWidth="1.2" />
-      <path
-        d="M3.5 13.25c.6-2.4 2.3-3.5 4.5-3.5s3.9 1.1 4.5 3.5"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
 export function BagIcon({ className }: IconProps) {
   return (
     <svg
@@ -126,6 +105,21 @@ export function CloseIcon({ className }: IconProps) {
   );
 }
 
+export function StopIcon({ className }: IconProps) {
+  return (
+    <svg
+      className={className}
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <rect x="3" y="3" width="10" height="10" rx="1" />
+    </svg>
+  );
+}
+
 export function HomeIcon({ className }: IconProps) {
   return (
     <svg
@@ -199,26 +193,6 @@ export function ShoppingBagIcon({ className }: IconProps) {
   );
 }
 
-export function PersonIcon({ className }: IconProps) {
-  return (
-    <svg
-      className={className}
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      aria-hidden="true"
-    >
-      <circle cx="10" cy="5.6" r="4" stroke="currentColor" strokeWidth="1.7" />
-      <path
-        d="M2.6 17.8V16a5.4 5.4 0 0 1 5.4-5.4h4a5.4 5.4 0 0 1 5.4 5.4v1.8Z"
-        stroke="currentColor"
-        strokeWidth="1.7"
-      />
-    </svg>
-  );
-}
-
 export function CheckIcon({ className }: IconProps) {
   return (
     <svg
@@ -240,57 +214,6 @@ export function CheckIcon({ className }: IconProps) {
   );
 }
 
-export function ShieldIcon({ className }: IconProps) {
-  return (
-    <svg
-      className={className}
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M6 1 10.2 2.5v3.4c0 2.4-1.7 4.1-4.2 5.1-2.5-1-4.2-2.7-4.2-5.1V2.5L6 1Z"
-        stroke="currentColor"
-        strokeWidth="1.1"
-      />
-      <path
-        d="M4.2 6 5.6 7.4 8 4.8"
-        stroke="currentColor"
-        strokeWidth="1.1"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-export function ChevronUpDownIcon({ className }: IconProps) {
-  return (
-    <svg
-      className={className}
-      width="14"
-      height="14"
-      viewBox="0 0 14 14"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M4 5.6 7 2.4l3 3.2"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-      />
-      <path
-        d="M4 8.4 7 11.6l3-3.2"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
 export function ChatIcon({ className }: IconProps) {
   return (
     <svg
@@ -303,21 +226,6 @@ export function ChatIcon({ className }: IconProps) {
     >
       <path d="M1.5 1.7h13v10.6h-13z" stroke="currentColor" strokeWidth="1.4" />
       <path d="M2.2 12.3v3.2l3-3.2z" fill="currentColor" />
-    </svg>
-  );
-}
-
-export function MarkIcon({ className }: IconProps) {
-  return (
-    <svg
-      className={className}
-      width="10"
-      height="10"
-      viewBox="0 0 10 10"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <path d="M5 0 10 8.5H0z" />
     </svg>
   );
 }

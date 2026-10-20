@@ -1,0 +1,51 @@
+{
+  "product_id": "P1009",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:14:57.211Z",
+  "identity_snapshot": {
+    "product_id": "P1009",
+    "product_name": "Lavender Flat Sandals",
+    "category": "Shoes",
+    "subcategory": "Sandals",
+    "product_type": "Flat Sandals",
+    "gender": "Men",
+    "colour": "Lavender",
+    "material": "Leather",
+    "fit": "Standard",
+    "style": "Elegant",
+    "occasion": "Casual",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1009",
+    "description": "Lavender leather flat sandals with an elegant standard fit, designed with clean crossover straps for refined Casual styling.",
+    "construction_details": [
+      "Leather upper with crossover forefoot straps",
+      "Adjustable ankle strap with buckle fastening",
+      "Contoured footbed with stitched edge",
+      "Flat textured rubber outsole"
+    ],
+    "care_instructions": "Wipe gently with a soft dry or lightly damp cloth and condition occasionally with a suitable leather product. Store away from moisture and direct heat.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": true,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Casual",
+      "Brunch"
+    ],
+    "closure": "buckle",
+    "garment_length_cm": null,
+    "heel_height_cm": 0,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": "Silver-tone"
+  },
+  "content_sha256": "60056c056d638cfe4df85f7501c8b269642a579eda2573e531aacb6aa9115232"
+}

@@ -1,0 +1,51 @@
+{
+  "product_id": "P1210",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:33.468Z",
+  "identity_snapshot": {
+    "product_id": "P1210",
+    "product_name": "Beige Linen Shirt",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "product_type": "Linen Shirt",
+    "gender": "Women",
+    "colour": "Beige",
+    "material": "Cotton",
+    "fit": "Regular",
+    "style": "Relaxed",
+    "occasion": "Brunch",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1210",
+    "description": "A beige cotton linen-shirt style with a relaxed finish and regular fit, designed for polished brunch dressing in a soft neutral tone. The straightforward shape layers easily through winter.",
+    "construction_details": [
+      "Stand collar",
+      "Button-through front",
+      "Long sleeves with button cuffs",
+      "Straight hem with side vents"
+    ],
+    "care_instructions": "Cold hand wash; reshape and dry flat in shade.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Brunch",
+      "Weekend"
+    ],
+    "closure": "button",
+    "garment_length_cm": 71,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "7cd41e0b5a422a6321ac33721ccec69fe0a88c0316d4ba45283317bb4ca2f925"
+}

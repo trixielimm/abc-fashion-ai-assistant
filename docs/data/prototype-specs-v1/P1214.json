@@ -1,0 +1,53 @@
+{
+  "product_id": "P1214",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:26.574Z",
+  "identity_snapshot": {
+    "product_id": "P1214",
+    "product_name": "Pink Mini Dress",
+    "category": "Clothing",
+    "subcategory": "Dresses",
+    "product_type": "Mini Dress",
+    "gender": "Women",
+    "colour": "Pink",
+    "material": "Cotton",
+    "fit": "Slim",
+    "style": "Romantic",
+    "occasion": "Formal",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1214",
+    "description": "Pink cotton mini dress with a slim romantic shape, softly defined waist and a neat finish for formal summer occasions.",
+    "construction_details": [
+      "Fitted bodice",
+      "Shaped waist seams",
+      "Back zip fastening",
+      "Short sleeves",
+      "Clean-finished mini hem"
+    ],
+    "care_instructions": "Cold machine wash on a gentle cycle; air dry and press on a low setting.",
+    "lining": true,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Formal",
+      "Party",
+      "Wedding Guest"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 84,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "4c92b7d82da9827aadbe1d08d44a52f07b3b03be8826bbc6fc4295205226f190"
+}

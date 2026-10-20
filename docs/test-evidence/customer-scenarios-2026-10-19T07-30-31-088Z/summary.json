@@ -1,0 +1,1957 @@
+{
+  "started": "2026-10-19T07:30:31.088Z",
+  "commit": "83f1f2aa3e5f3eb1fdea4bc6d6e7be6b067b9ebc",
+  "node": "v24.14.0",
+  "model": "gpt-5.6-luna",
+  "reasoning": "low",
+  "fixture_sha256": "c8da1240549e568d8f4b2252325633f7f5d8f9d9094376d2ed04228bef245889",
+  "scope": "Real model + shortcutPlan + finishConversationTurn + acceptReply; in-process with isolated synthetic fixtures. Not HTTP/browser acceptance.",
+  "human_review": "Pairing taste, aesthetic variety and end-user usefulness require human assessment.",
+  "runs": [
+    {
+      "id": "S1-A",
+      "name": "Complete brief, cheaper, material",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.101Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.129Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S1-A",
+      "name": "Complete brief, cheaper, material",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.112Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.132Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S1-A",
+      "name": "Complete brief, cheaper, material",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.116Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.135Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S1-B",
+      "name": "Change colour and price only",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.129Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.137Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S1-B",
+      "name": "Change colour and price only",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.132Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.138Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S1-B",
+      "name": "Change colour and price only",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.135Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.141Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S1-C",
+      "name": "Deliberate no match",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.137Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.143Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S1-C",
+      "name": "Deliberate no match",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.139Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.144Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S1-C",
+      "name": "Deliberate no match",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.141Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.146Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S2-A",
+      "name": "Guided beach wedding shopping",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.143Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 3,
+      "finished": "2026-10-19T07:30:31.148Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S2-A",
+      "name": "Guided beach wedding shopping",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.145Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 3,
+      "finished": "2026-10-19T07:30:31.150Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S2-A",
+      "name": "Guided beach wedding shopping",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.146Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 3,
+      "finished": "2026-10-19T07:30:31.152Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S2-B",
+      "name": "Reject a dress across searches",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.148Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.153Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S2-B",
+      "name": "Reject a dress across searches",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.150Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.155Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S2-B",
+      "name": "Reject a dress across searches",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.152Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.156Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S2-C",
+      "name": "Zip question becomes explicit must-have",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.153Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.158Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S2-C",
+      "name": "Zip question becomes explicit must-have",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.155Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.168Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S2-C",
+      "name": "Zip question becomes explicit must-have",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.157Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.171Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S3-A",
+      "name": "Uncertain customer to similar dresses",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.158Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.173Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S3-A",
+      "name": "Uncertain customer to similar dresses",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.168Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.174Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S3-A",
+      "name": "Uncertain customer to similar dresses",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.171Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.176Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S3-B",
+      "name": "Browse without preferences",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.173Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.179Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S3-B",
+      "name": "Browse without preferences",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.175Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.180Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S3-B",
+      "name": "Browse without preferences",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.176Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.182Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S3-C",
+      "name": "Switch from dresses to bags",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.179Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.183Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S3-C",
+      "name": "Switch from dresses to bags",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.181Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.185Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S3-C",
+      "name": "Switch from dresses to bags",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.182Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.186Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S4-A",
+      "name": "Pair a bag with an owned catalogue dress",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.184Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 3,
+      "finished": "2026-10-19T07:30:31.188Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S4-A",
+      "name": "Pair a bag with an owned catalogue dress",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.185Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 3,
+      "finished": "2026-10-19T07:30:31.190Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S4-A",
+      "name": "Pair a bag with an owned catalogue dress",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.187Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 3,
+      "finished": "2026-10-19T07:30:31.191Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S4-B",
+      "name": "Style an external owned garment",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.188Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.193Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S4-B",
+      "name": "Style an external owned garment",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.190Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.194Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S4-B",
+      "name": "Style an external owned garment",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.191Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.196Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S4-C",
+      "name": "Pair shoes with two owned pieces",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.193Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 5,
+      "finished": "2026-10-19T07:30:31.198Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S4-C",
+      "name": "Pair shoes with two owned pieces",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.194Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 5,
+      "finished": "2026-10-19T07:30:31.200Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S4-C",
+      "name": "Pair shoes with two owned pieces",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.197Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 5,
+      "finished": "2026-10-19T07:30:31.202Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S5-A",
+      "name": "Pockets justify A$25 more",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.198Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 3,
+      "finished": "2026-10-19T07:30:31.203Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S5-A",
+      "name": "Pockets justify A$25 more",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.200Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 3,
+      "finished": "2026-10-19T07:30:31.204Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S5-A",
+      "name": "Pockets justify A$25 more",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.202Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 3,
+      "finished": "2026-10-19T07:30:31.206Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S5-B",
+      "name": "Replacement preserves all hard requirements",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.203Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.207Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S5-B",
+      "name": "Replacement preserves all hard requirements",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.205Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.209Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S5-B",
+      "name": "Replacement preserves all hard requirements",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.206Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.211Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S5-C",
+      "name": "No demonstrated improvement",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.208Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.212Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S5-C",
+      "name": "No demonstrated improvement",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.209Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.215Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S5-C",
+      "name": "No demonstrated improvement",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.211Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.217Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S5-D",
+      "name": "Same-price and cheaper adjustable alternatives",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.213Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.218Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S5-D",
+      "name": "Same-price and cheaper adjustable alternatives",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.215Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.220Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S5-D",
+      "name": "Same-price and cheaper adjustable alternatives",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.217Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.221Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S5-E",
+      "name": "Lining trade-off then both required",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.218Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.223Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S5-E",
+      "name": "Lining trade-off then both required",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.220Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.224Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S5-E",
+      "name": "Lining trade-off then both required",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.221Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.226Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S5-F",
+      "name": "Unknown lining cannot prove improvement",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.223Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.227Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S5-F",
+      "name": "Unknown lining cannot prove improvement",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.224Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.229Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S5-F",
+      "name": "Unknown lining cannot prove improvement",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.226Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.230Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S6-A",
+      "name": "Shoe size and construction details",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.227Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.232Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S6-A",
+      "name": "Shoe size and construction details",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.229Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.234Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S6-A",
+      "name": "Shoe size and construction details",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.230Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.236Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S6-B",
+      "name": "Silver necklaces and fastening facts",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.233Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.237Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S6-B",
+      "name": "Silver necklaces and fastening facts",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.234Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.239Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "S6-B",
+      "name": "Silver necklaces and fastening facts",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.236Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.240Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "B1",
+      "name": "Shared total for formal dress and shoes, then reduce total",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.237Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 3,
+      "finished": "2026-10-19T07:30:31.241Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "B1",
+      "name": "Shared total for formal dress and shoes, then reduce total",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.239Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 3,
+      "finished": "2026-10-19T07:30:31.243Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "B1",
+      "name": "Shared total for formal dress and shoes, then reduce total",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.240Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 3,
+      "finished": "2026-10-19T07:30:31.244Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "B2",
+      "name": "Per-item affordability must not bypass combined total",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.241Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 0,
+      "finished": "2026-10-19T07:30:31.246Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "B2",
+      "name": "Per-item affordability must not bypass combined total",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.243Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 0,
+      "finished": "2026-10-19T07:30:31.247Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "B2",
+      "name": "Per-item affordability must not bypass combined total",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.245Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 0,
+      "finished": "2026-10-19T07:30:31.250Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "B3",
+      "name": "Separate dress and shoe sizes and colours",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.246Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.252Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "B3",
+      "name": "Separate dress and shoe sizes and colours",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.248Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.253Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "B3",
+      "name": "Separate dress and shoe sizes and colours",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.250Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.255Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "B4",
+      "name": "Three-piece outfit under one total",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.252Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 0,
+      "finished": "2026-10-19T07:30:31.256Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "B4",
+      "name": "Three-piece outfit under one total",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.254Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 0,
+      "finished": "2026-10-19T07:30:31.258Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "B4",
+      "name": "Three-piece outfit under one total",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.255Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 0,
+      "finished": "2026-10-19T07:30:31.259Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "B5",
+      "name": "Grouped broad discovery, optional refinement and memory through unclear intent",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.256Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 4,
+      "finished": "2026-10-19T07:30:31.260Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "B5",
+      "name": "Grouped broad discovery, optional refinement and memory through unclear intent",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.258Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 4,
+      "finished": "2026-10-19T07:30:31.262Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "B5",
+      "name": "Grouped broad discovery, optional refinement and memory through unclear intent",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.259Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Shopper already chose all collections",
+      "unexecuted_turns": 4,
+      "finished": "2026-10-19T07:30:31.263Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "COL-A",
+      "name": "Collection-first formal clothing: Men's, please.",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.261Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.266Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "COL-A",
+      "name": "Collection-first formal clothing: Men's, please.",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.262Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.268Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "COL-A",
+      "name": "Collection-first formal clothing: Men's, please.",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.264Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.269Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "COL-B",
+      "name": "Collection-first formal clothing: Women's, please.",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.266Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.271Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "COL-B",
+      "name": "Collection-first formal clothing: Women's, please.",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.268Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.272Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "COL-B",
+      "name": "Collection-first formal clothing: Women's, please.",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.270Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.274Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "COL-C",
+      "name": "Collection-first formal clothing: Both collections, please.",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.271Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.275Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "COL-C",
+      "name": "Collection-first formal clothing: Both collections, please.",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.273Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.277Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "COL-C",
+      "name": "Collection-first formal clothing: Both collections, please.",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.274Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.278Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "COL-D",
+      "name": "Collection-first formal clothing: Women's, under $100, no red",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.276Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.280Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "COL-D",
+      "name": "Collection-first formal clothing: Women's, under $100, no red",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.277Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.282Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "COL-D",
+      "name": "Collection-first formal clothing: Women's, under $100, no red",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.279Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.284Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "CAT-A",
+      "name": "Default dress and short budget refinement",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.280Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.286Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "CAT-A",
+      "name": "Default dress and short budget refinement",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.282Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.287Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "CAT-A",
+      "name": "Default dress and short budget refinement",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.284Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.288Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "CAT-B",
+      "name": "Skirt defaults use actual Bottoms hierarchy",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.286Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 0,
+      "finished": "2026-10-19T07:30:31.290Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "CAT-B",
+      "name": "Skirt defaults use actual Bottoms hierarchy",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.287Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 0,
+      "finished": "2026-10-19T07:30:31.295Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "CAT-B",
+      "name": "Skirt defaults use actual Bottoms hierarchy",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.289Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 0,
+      "finished": "2026-10-19T07:30:31.299Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "CAT-C",
+      "name": "Legacy collection checkpoint recovers after repeating the complete dress request",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.290Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 0,
+      "finished": "2026-10-19T07:30:31.301Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "CAT-C",
+      "name": "Legacy collection checkpoint recovers after repeating the complete dress request",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.295Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 0,
+      "finished": "2026-10-19T07:30:31.303Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "CAT-C",
+      "name": "Legacy collection checkpoint recovers after repeating the complete dress request",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.299Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 0,
+      "finished": "2026-10-19T07:30:31.305Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "CAT-D",
+      "name": "Explicit mens dresses stay Men until a new full dress request",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.302Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.306Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "CAT-D",
+      "name": "Explicit mens dresses stay Men until a new full dress request",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.303Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.308Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "CAT-D",
+      "name": "Explicit mens dresses stay Men until a new full dress request",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.305Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 2,
+      "finished": "2026-10-19T07:30:31.310Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "CAT-E",
+      "name": "Dress shirt remains ambiguous rather than being converted to Dresses",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.306Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 0,
+      "finished": "2026-10-19T07:30:31.311Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "CAT-E",
+      "name": "Dress shirt remains ambiguous rather than being converted to Dresses",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.308Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 0,
+      "finished": "2026-10-19T07:30:31.313Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "CAT-E",
+      "name": "Dress shirt remains ambiguous rather than being converted to Dresses",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.310Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 0,
+      "finished": "2026-10-19T07:30:31.314Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "CAT-F",
+      "name": "Shared Men restriction blocks an implicit women category switch",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.311Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.316Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "CAT-F",
+      "name": "Shared Men restriction blocks an implicit women category switch",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.313Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.322Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "CAT-F",
+      "name": "Shared Men restriction blocks an implicit women category switch",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.315Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.325Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "SET-A",
+      "name": "Matching bottoms and shirt with one total budget",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.316Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 0,
+      "finished": "2026-10-19T07:30:31.329Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "SET-A",
+      "name": "Matching bottoms and shirt with one total budget",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.323Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 0,
+      "finished": "2026-10-19T07:30:31.331Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "SET-A",
+      "name": "Matching bottoms and shirt with one total budget",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.326Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 2,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 0,
+      "finished": "2026-10-19T07:30:31.333Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "SET-B",
+      "name": "Matching bottoms and shirt with one total budget",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.329Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.335Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "SET-B",
+      "name": "Matching bottoms and shirt with one total budget",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.331Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.336Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "SET-B",
+      "name": "Matching bottoms and shirt with one total budget",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.333Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.338Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "SET-C",
+      "name": "Matching bottoms and shirt with one total budget",
+      "repeat": 1,
+      "started": "2026-10-19T07:30:31.335Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.339Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "SET-C",
+      "name": "Matching bottoms and shirt with one total budget",
+      "repeat": 2,
+      "started": "2026-10-19T07:30:31.336Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.339Z",
+      "turns_recorded": 1
+    },
+    {
+      "id": "SET-C",
+      "name": "Matching bottoms and shirt with one total budget",
+      "repeat": 3,
+      "started": "2026-10-19T07:30:31.338Z",
+      "result": "Blocked",
+      "issues": [
+        {
+          "turn": 1,
+          "message": "Connection error."
+        }
+      ],
+      "collection_setup": "Fresh session; collection unanswered",
+      "unexecuted_turns": 1,
+      "finished": "2026-10-19T07:30:31.340Z",
+      "turns_recorded": 1
+    }
+  ],
+  "finished": "2026-10-19T07:30:31.340Z",
+  "counts": {
+    "Pass": 0,
+    "Fail": 0,
+    "Blocked": 114,
+    "Feature gap": 0
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "product_id": "P1198",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:23.859Z",
+  "identity_snapshot": {
+    "product_id": "P1198",
+    "product_name": "Brown Cardigan",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Cardigan",
+    "gender": "Unisex",
+    "colour": "Brown",
+    "material": "Knit",
+    "fit": "Regular",
+    "style": "Minimalist",
+    "occasion": "Work",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1198",
+    "description": "Brown knit cardigan with a minimalist regular fit and a softly textured hand, designed as a composed layer for workwear.",
+    "construction_details": [
+      "V-neckline with fully fashioned shaping",
+      "Front button fastening",
+      "Ribbed cuffs and hem",
+      "Two front patch pockets"
+    ],
+    "care_instructions": "Hand wash cold with mild detergent; reshape and dry flat. Store folded to help retain the knit shape.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Work",
+      "Weekend"
+    ],
+    "closure": "button",
+    "garment_length_cm": 66,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "06e1f3c864019a874080918b598bba4a1937b092fc52336d9486626c98a68829"
+}

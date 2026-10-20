@@ -1,0 +1,50 @@
+{
+  "product_id": "P1288",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:03.799Z",
+  "identity_snapshot": {
+    "product_id": "P1288",
+    "product_name": "Sage Wide-Leg Pants",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Wide-Leg Pants",
+    "gender": "Women",
+    "colour": "Sage",
+    "material": "Viscose",
+    "fit": "Oversized",
+    "style": "Bohemian",
+    "occasion": "Work",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1288",
+    "description": "Bohemian sage wide-leg pants in viscose, designed with an oversized drape and fluid movement for relaxed work dressing.",
+    "construction_details": [
+      "Wide-leg cut with softly pressed front pleats",
+      "Comfortable flat-front waistband with rear elastic section",
+      "Side-seam pockets and cleanly turned leg hems"
+    ],
+    "care_instructions": "Hand wash separately in cool water or use professional cleaning; reshape while damp and dry flat.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Work",
+      "Brunch"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 106,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "d153ddff5390952cdede86c70831e452739ea95e5b5e043503174d492e78feec"
+}

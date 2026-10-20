@@ -1,0 +1,5 @@
+FAIL: test-recommendation-api-validation.mjs
+PASS: test-search-filters-live.mjs
+FAIL: test-prototype-specs-live.mjs
+FAIL: test-outfit-budget-live.mjs
+FAIL: test-stylist-commerce-live.mjs

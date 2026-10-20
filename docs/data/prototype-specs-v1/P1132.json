@@ -1,0 +1,51 @@
+{
+  "product_id": "P1132",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:03.602Z",
+  "identity_snapshot": {
+    "product_id": "P1132",
+    "product_name": "Sage Mini Dress",
+    "category": "Clothing",
+    "subcategory": "Dresses",
+    "product_type": "Mini Dress",
+    "gender": "Women",
+    "colour": "Sage",
+    "material": "Linen Blend",
+    "fit": "Flowy",
+    "style": "Relaxed",
+    "occasion": "Date Night",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1132",
+    "description": "A flowy sage mini dress in a linen blend, shaped with an easy drape and softly feminine lines for date-night dressing.",
+    "construction_details": [
+      "Rounded neckline with neat binding",
+      "Relaxed bodice with gathered waist seam",
+      "Short sleeves with turned hems",
+      "Curved mini-length hem"
+    ],
+    "care_instructions": "Gentle hand wash in cool water; reshape while damp and dry flat away from direct heat.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Date Night",
+      "Brunch"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 84,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "dd44f18ce97a139ad9c93ff5cd28706d4bc56a618e9d4cbbaba2b3cac4a33097"
+}

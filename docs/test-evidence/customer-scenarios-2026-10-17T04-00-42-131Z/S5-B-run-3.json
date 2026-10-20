@@ -1,0 +1,1140 @@
+{
+  "id": "S5-B",
+  "name": "Replacement preserves all hard requirements",
+  "repeat": 3,
+  "turns": [
+    {
+      "number": 1,
+      "message": "I need a blue dress for a beach wedding in size 10, under $150.",
+      "input": {
+        "message": "I need a blue dress for a beach wedding in size 10, under $150.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T04:03:06.346Z",
+      "plan_source": "live model",
+      "plan": {
+        "action": "clarify",
+        "intent_evidence": "I need a blue dress for a beach wedding in size 10, under $150.",
+        "reference": null,
+        "changes": [],
+        "question": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.",
+        "continuation": false
+      },
+      "reply": {
+        "status": "needs_clarification",
+        "action": "clarify",
+        "message": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": {
+          "action": "clarify",
+          "reference": null,
+          "goal": "I need a blue dress for a beach wedding in size 10, under $150.",
+          "question": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 8041,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": {
+          "action": "clarify",
+          "reference": null,
+          "goal": "I need a blue dress for a beach wedding in size 10, under $150.",
+          "question": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": null,
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I need a blue dress for a beach wedding in size 10, under $150."
+          },
+          {
+            "role": "assistant",
+            "content": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements."
+          }
+        ]
+      },
+      "checks": "Fail",
+      "failure": "Expected eligible results, got needs_clarification: Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements."
+    },
+    {
+      "number": 2,
+      "message": "Compare a replacement for VB-ORIGINAL Dress with pockets. Keep the beach wedding occasion, blue, size 10 and the $150 maximum as requirements.",
+      "input": {
+        "message": "Compare a replacement for VB-ORIGINAL Dress with pockets. Keep the beach wedding occasion, blue, size 10 and the $150 maximum as requirements.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I need a blue dress for a beach wedding in size 10, under $150."
+          },
+          {
+            "role": "assistant",
+            "content": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements."
+          }
+        ],
+        "pending": {
+          "action": "clarify",
+          "reference": null,
+          "goal": "I need a blue dress for a beach wedding in size 10, under $150.",
+          "question": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": null,
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T04:03:14.388Z",
+      "plan_source": "live model",
+      "plan": {
+        "action": "upsell",
+        "intent_evidence": "Compare a replacement for VB-ORIGINAL Dress with pockets.",
+        "reference": {
+          "kind": "id",
+          "value": "VB-ORIGINAL"
+        },
+        "changes": [
+          {
+            "scope": "item",
+            "evidence": "beach wedding",
+            "operation": "set",
+            "field": "occasion",
+            "value": "Beach Wedding"
+          },
+          {
+            "scope": "item",
+            "evidence": "blue",
+            "operation": "set",
+            "field": "category",
+            "value": "Clothing"
+          },
+          {
+            "scope": "item",
+            "evidence": "blue",
+            "operation": "set",
+            "field": "subcategory",
+            "value": "Dresses"
+          },
+          {
+            "scope": "item",
+            "evidence": "blue",
+            "operation": "set",
+            "field": "size",
+            "value": "10"
+          },
+          {
+            "scope": "item",
+            "evidence": "$150 maximum",
+            "operation": "set",
+            "field": "max_price",
+            "value": 150
+          },
+          {
+            "scope": "item",
+            "evidence": "blue",
+            "operation": "set",
+            "field": "gender",
+            "value": null
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": {
+          "preferences": [
+            {
+              "kind": "priority",
+              "operation": "add",
+              "value": "pockets",
+              "evidence": "with pockets"
+            },
+            {
+              "kind": "requirement",
+              "operation": "add",
+              "value": "pockets",
+              "evidence": "with pockets"
+            }
+          ],
+          "outfit_changes": [],
+          "offers": null,
+          "owned_categories": []
+        }
+      },
+      "reply": {
+        "status": "needs_clarification",
+        "action": "upsell",
+        "message": "I could not identify that product in the current context. Which item do you mean?",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "10",
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": "Beach Wedding",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": "10",
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": {
+          "action": "upsell",
+          "reference": {
+            "kind": "id",
+            "value": "VB-ORIGINAL"
+          },
+          "goal": "Compare a replacement for VB-ORIGINAL Dress with pockets. Keep the beach wedding occasion, blue, size 10 and the $150 maximum as requirements.",
+          "question": "I could not identify that product in the current context. Which item do you mean?",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [
+            "pockets"
+          ],
+          "required_features": [
+            "pockets"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 9435,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "10",
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": {
+          "action": "upsell",
+          "reference": {
+            "kind": "id",
+            "value": "VB-ORIGINAL"
+          },
+          "goal": "Compare a replacement for VB-ORIGINAL Dress with pockets. Keep the beach wedding occasion, blue, size 10 and the $150 maximum as requirements.",
+          "question": "I could not identify that product in the current context. Which item do you mean?",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": null,
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [
+            "pockets"
+          ],
+          "required_features": [
+            "pockets"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I need a blue dress for a beach wedding in size 10, under $150."
+          },
+          {
+            "role": "assistant",
+            "content": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements."
+          },
+          {
+            "role": "user",
+            "content": "Compare a replacement for VB-ORIGINAL Dress with pockets. Keep the beach wedding occasion, blue, size 10 and the $150 maximum as requirements."
+          },
+          {
+            "role": "assistant",
+            "content": "I could not identify that product in the current context. Which item do you mean?"
+          }
+        ]
+      },
+      "checks": "Fail",
+      "failure": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   'VB-ELIGIBLE'\n- ]\n"
+    },
+    {
+      "number": 3,
+      "message": "Would this still meet my beach wedding requirements?",
+      "input": {
+        "message": "Would this still meet my beach wedding requirements?",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "10",
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I need a blue dress for a beach wedding in size 10, under $150."
+          },
+          {
+            "role": "assistant",
+            "content": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements."
+          },
+          {
+            "role": "user",
+            "content": "Compare a replacement for VB-ORIGINAL Dress with pockets. Keep the beach wedding occasion, blue, size 10 and the $150 maximum as requirements."
+          },
+          {
+            "role": "assistant",
+            "content": "I could not identify that product in the current context. Which item do you mean?"
+          }
+        ],
+        "pending": {
+          "action": "upsell",
+          "reference": {
+            "kind": "id",
+            "value": "VB-ORIGINAL"
+          },
+          "goal": "Compare a replacement for VB-ORIGINAL Dress with pockets. Keep the beach wedding occasion, blue, size 10 and the $150 maximum as requirements.",
+          "question": "I could not identify that product in the current context. Which item do you mean?",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": null,
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [
+            "pockets"
+          ],
+          "required_features": [
+            "pockets"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T04:03:23.824Z",
+      "plan_source": "live model",
+      "plan": {
+        "action": "none",
+        "intent_evidence": "Would this still meet my beach wedding requirements?",
+        "reference": null,
+        "changes": [],
+        "question": null,
+        "continuation": false,
+        "answer": {
+          "kind": "product",
+          "topics": [
+            "recommendation"
+          ],
+          "references": [
+            {
+              "kind": "context"
+            }
+          ],
+          "purpose": "beach wedding",
+          "continuation": false
+        },
+        "styling_intent": null
+      },
+      "reply": {
+        "status": "answered",
+        "action": "none",
+        "message": "I could not identify that product in the current context. Which item do you mean?",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "10",
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": {
+          "action": "upsell",
+          "reference": {
+            "kind": "id",
+            "value": "VB-ORIGINAL"
+          },
+          "goal": "Compare a replacement for VB-ORIGINAL Dress with pockets. Keep the beach wedding occasion, blue, size 10 and the $150 maximum as requirements.",
+          "question": "I could not identify that product in the current context. Which item do you mean?",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": {
+          "intent": {
+            "kind": "product",
+            "topics": [
+              "recommendation"
+            ],
+            "references": [
+              {
+                "kind": "context"
+              }
+            ],
+            "purpose": "beach wedding",
+            "continuation": false
+          },
+          "question": "Would this still meet my beach wedding requirements?",
+          "follow_up": null
+        },
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [
+            "pockets"
+          ],
+          "required_features": [
+            "pockets"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 3131,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "10",
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": {
+          "action": "upsell",
+          "reference": {
+            "kind": "id",
+            "value": "VB-ORIGINAL"
+          },
+          "goal": "Compare a replacement for VB-ORIGINAL Dress with pockets. Keep the beach wedding occasion, blue, size 10 and the $150 maximum as requirements.",
+          "question": "I could not identify that product in the current context. Which item do you mean?",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          }
+        },
+        "pending_answer": {
+          "intent": {
+            "kind": "product",
+            "topics": [
+              "recommendation"
+            ],
+            "references": [
+              {
+                "kind": "context"
+              }
+            ],
+            "purpose": "beach wedding",
+            "continuation": false
+          },
+          "question": "Would this still meet my beach wedding requirements?",
+          "follow_up": null
+        },
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [
+            "pockets"
+          ],
+          "required_features": [
+            "pockets"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I need a blue dress for a beach wedding in size 10, under $150."
+          },
+          {
+            "role": "assistant",
+            "content": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements."
+          },
+          {
+            "role": "user",
+            "content": "Compare a replacement for VB-ORIGINAL Dress with pockets. Keep the beach wedding occasion, blue, size 10 and the $150 maximum as requirements."
+          },
+          {
+            "role": "assistant",
+            "content": "I could not identify that product in the current context. Which item do you mean?"
+          },
+          {
+            "role": "user",
+            "content": "Would this still meet my beach wedding requirements?"
+          },
+          {
+            "role": "assistant",
+            "content": "I could not identify that product in the current context. Which item do you mean?"
+          }
+        ]
+      },
+      "checks": "Fail",
+      "failure": "Answer must reference the intended product\n+ actual - expected\n\n+ []\n- [\n-   'VB-ELIGIBLE'\n- ]\n"
+    }
+  ],
+  "started": "2026-10-17T04:03:06.345Z",
+  "result": "Fail",
+  "issues": [
+    {
+      "turn": 1,
+      "message": "Expected eligible results, got needs_clarification: Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements."
+    },
+    {
+      "turn": 2,
+      "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   'VB-ELIGIBLE'\n- ]\n"
+    },
+    {
+      "turn": 3,
+      "message": "Answer must reference the intended product\n+ actual - expected\n\n+ []\n- [\n-   'VB-ELIGIBLE'\n- ]\n"
+    }
+  ],
+  "finished": "2026-10-17T04:03:26.956Z"
+}

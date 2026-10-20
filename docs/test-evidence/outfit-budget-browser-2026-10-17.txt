@@ -1,0 +1,38 @@
+Browser tab: 3, Title: "ABC Fashion", URL: "http://127.0.0.1:3002/".
+1 AXWebArea ABC Fashion, URL: 127.0.0.1:3002/
+	2 container AI Stylist
+		3 container
+			4 text PERSONAL SHOPPING
+			5 heading AI Stylist, Value: 2
+				6 text AI Stylist
+			7 button New chat
+			8 button Close AI Stylist
+		9 container
+			26 text YOU I want a dress and shoes for formal events, my budget for both of them is 400 aud AI STYLIST Here is one complete set: Cream Slip Dress (A$75.00) + Red Block Heels (A$60.00). Total: A$135.00 of your A$400.00 combined budget; A$265.00 remaining. One complete set · Total A$ 135.00  / A$ 400.00  budget  ·  A$ 265.00  remaining
+			27 container Items in one complete set
+				28 text 2  pieces
+				29 content list Items in one complete set
+					30 container
+						31 link Description: View Cream Slip Dress, Value: 127.0.0.1:3002/products/P1021
+						32 link Description: Cream Slip Dress, Value: 127.0.0.1:3002/products/P1021
+						33 text ABC Occasion A$75.00 Colour:  Cream
+						34 button ADD TO CART
+						35 button Keep for my outfit
+						36 button I already own this
+						37 button Skip this item
+					38 container
+						39 link Description: View Red Block Heels, Value: 127.0.0.1:3002/products/P1085
+						40 link Description: Red Block Heels, Value: 127.0.0.1:3002/products/P1085
+						41 text ABC Footwear A$60.00 Colour:  Red
+						42 button ADD TO CART
+						43 button Keep for my outfit
+						44 button I already own this
+						45 button Skip this item
+		20 container
+			21 text entry area (settable) Message your stylist
+			22 button (disabled) SEND
+		23 text Messages may be sent to OpenAI.
+		24 button (collapsed) Privacy & details, Secondary Actions: Expand
+			25 text Privacy & details
+
+The focused UI element is 21 text entry area (settable) Message your stylist

@@ -1,0 +1,674 @@
+{
+  "id": "S4-B",
+  "name": "Style an external owned garment",
+  "repeat": 1,
+  "turns": [
+    {
+      "number": 1,
+      "message": "I already own a plain navy midi dress from another shop. I want shoes to match it for a wedding, under $100.",
+      "input": {
+        "message": "I already own a plain navy midi dress from another shop. I want shoes to match it for a wedding, under $100.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T11:57:53.017Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": null,
+        "action": "cross_sell",
+        "intent_evidence": "I want shoes to match it for a wedding, under $100.",
+        "reference": null,
+        "changes": [
+          {
+            "scope": "item",
+            "evidence": "for a wedding",
+            "operation": "set",
+            "field": "occasion",
+            "value": "Wedding"
+          },
+          {
+            "scope": "item",
+            "field": "category",
+            "operation": "set",
+            "value": "Shoes",
+            "evidence": "shoes"
+          },
+          {
+            "scope": "item",
+            "field": "max_price",
+            "operation": "set",
+            "value": 100,
+            "evidence": "under $100"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": {
+          "external_items": [
+            {
+              "description": "plain navy midi dress",
+              "category": "Clothing",
+              "product_type": "midi dress",
+              "colour": "navy",
+              "occasion": null,
+              "operation": "add"
+            }
+          ],
+          "preferences": [],
+          "outfit_changes": [],
+          "offers": null,
+          "owned_categories": []
+        }
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "status": "matches",
+        "action": "cross_sell",
+        "message": "Based on your description of plain navy midi dress, these are styling suggestions. I can't verify the exact shade, material or visual match of the item you own.\n\nI found SH-WEDDING-90 Shoes for A$90.00.\n\nI've kept this selection within your A$100.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 100,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Shoes",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Wedding",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 100,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "SH-WEDDING-90",
+            "product_name": "SH-WEDDING-90 Shoes",
+            "price_aud": 90,
+            "category": "Shoes",
+            "subcategory": "Heels",
+            "product_type": "Block Heels",
+            "brand_line": null,
+            "colour": "Beige",
+            "sizes_available": [
+              "38",
+              "39"
+            ],
+            "explanation": "Its recorded occasion matches Wedding. Styling suggestion: its Beige colour can act as a neutral alongside your described plain navy midi dress. The owned garment details are customer-provided; its exact shade, material and visual match have not been verified.",
+            "extra_target": null,
+            "image_src": null,
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [],
+              "external_anchor_ids": [
+                "external-1"
+              ],
+              "reasons": [
+                "Its recorded occasion matches Wedding.",
+                "Styling suggestion: its Beige colour can act as a neutral alongside your described plain navy midi dress."
+              ],
+              "limitations": [
+                "The owned garment details are customer-provided; its exact shade, material and visual match have not been verified."
+              ],
+              "level": "catalogue_supported"
+            }
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [
+            {
+              "description": "plain navy midi dress",
+              "category": "Clothing",
+              "product_type": "midi dress",
+              "colour": "navy",
+              "occasion": null,
+              "external_id": "external-1",
+              "source": "customer_description"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 3185,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 100,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [
+            {
+              "description": "plain navy midi dress",
+              "category": "Clothing",
+              "product_type": "midi dress",
+              "colour": "navy",
+              "occasion": null,
+              "external_id": "external-1",
+              "source": "customer_description"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "SH-WEDDING-90",
+              "product_name": "SH-WEDDING-90 Shoes",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Block Heels",
+              "price_aud": 90,
+              "recommendation_context": {
+                "anchor_ids": [],
+                "primary_product_id": null
+              }
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I already own a plain navy midi dress from another shop. I want shoes to match it for a wedding, under $100."
+          },
+          {
+            "role": "assistant",
+            "content": "Based on your description of plain navy midi dress, these are styling suggestions. I can't verify the exact shade, material or visual match of the item you own.\n\nI found SH-WEDDING-90 Shoes for A$90.00.\n\nI've kept this selection within your A$100.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 2,
+      "message": "I don't have a product link or photo. Please work from that description.",
+      "input": {
+        "message": "I don't have a product link or photo. Please work from that description.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 100,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "SH-WEDDING-90",
+              "product_name": "SH-WEDDING-90 Shoes",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Block Heels",
+              "price_aud": 90,
+              "recommendation_context": {
+                "anchor_ids": [],
+                "primary_product_id": null
+              }
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I already own a plain navy midi dress from another shop. I want shoes to match it for a wedding, under $100."
+          },
+          {
+            "role": "assistant",
+            "content": "Based on your description of plain navy midi dress, these are styling suggestions. I can't verify the exact shade, material or visual match of the item you own.\n\nI found SH-WEDDING-90 Shoes for A$90.00.\n\nI've kept this selection within your A$100.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [
+            {
+              "description": "plain navy midi dress",
+              "category": "Clothing",
+              "product_type": "midi dress",
+              "colour": "navy",
+              "occasion": null,
+              "external_id": "external-1",
+              "source": "customer_description"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T11:57:56.203Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": null,
+        "action": "cross_sell",
+        "intent_evidence": "Please work from that description.",
+        "reference": null,
+        "changes": [],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": null
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "status": "matches",
+        "action": "cross_sell",
+        "message": "Based on your description of plain navy midi dress, these are styling suggestions. I can't verify the exact shade, material or visual match of the item you own.\n\nI found SH-WEDDING-90 Shoes for A$90.00.\n\nI've kept this selection within your A$100.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 100,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Shoes",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Wedding",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 100,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "SH-WEDDING-90",
+            "product_name": "SH-WEDDING-90 Shoes",
+            "price_aud": 90,
+            "category": "Shoes",
+            "subcategory": "Heels",
+            "product_type": "Block Heels",
+            "brand_line": null,
+            "colour": "Beige",
+            "sizes_available": [
+              "38",
+              "39"
+            ],
+            "explanation": "Its recorded occasion matches Wedding. Styling suggestion: its Beige colour can act as a neutral alongside your described plain navy midi dress. The owned garment details are customer-provided; its exact shade, material and visual match have not been verified.",
+            "extra_target": null,
+            "image_src": null,
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [],
+              "external_anchor_ids": [
+                "external-1"
+              ],
+              "reasons": [
+                "Its recorded occasion matches Wedding.",
+                "Styling suggestion: its Beige colour can act as a neutral alongside your described plain navy midi dress."
+              ],
+              "limitations": [
+                "The owned garment details are customer-provided; its exact shade, material and visual match have not been verified."
+              ],
+              "level": "catalogue_supported"
+            }
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [
+            {
+              "description": "plain navy midi dress",
+              "category": "Clothing",
+              "product_type": "midi dress",
+              "colour": "navy",
+              "occasion": null,
+              "external_id": "external-1",
+              "source": "customer_description"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 2794,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 100,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [
+            {
+              "description": "plain navy midi dress",
+              "category": "Clothing",
+              "product_type": "midi dress",
+              "colour": "navy",
+              "occasion": null,
+              "external_id": "external-1",
+              "source": "customer_description"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "SH-WEDDING-90",
+              "product_name": "SH-WEDDING-90 Shoes",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Block Heels",
+              "price_aud": 90,
+              "recommendation_context": {
+                "anchor_ids": [],
+                "primary_product_id": null
+              }
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "SH-WEDDING-90",
+                "product_name": "SH-WEDDING-90 Shoes",
+                "category": "Shoes",
+                "subcategory": "Heels",
+                "product_type": "Block Heels",
+                "price_aud": 90,
+                "recommendation_context": {
+                  "anchor_ids": [],
+                  "primary_product_id": null
+                }
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I already own a plain navy midi dress from another shop. I want shoes to match it for a wedding, under $100."
+          },
+          {
+            "role": "assistant",
+            "content": "Based on your description of plain navy midi dress, these are styling suggestions. I can't verify the exact shade, material or visual match of the item you own.\n\nI found SH-WEDDING-90 Shoes for A$90.00.\n\nI've kept this selection within your A$100.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "I don't have a product link or photo. Please work from that description."
+          },
+          {
+            "role": "assistant",
+            "content": "Based on your description of plain navy midi dress, these are styling suggestions. I can't verify the exact shade, material or visual match of the item you own.\n\nI found SH-WEDDING-90 Shoes for A$90.00.\n\nI've kept this selection within your A$100.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "checks": "Pass"
+    }
+  ],
+  "started": "2026-10-17T11:57:53.016Z",
+  "result": "Pass",
+  "issues": [],
+  "finished": "2026-10-17T11:57:58.997Z"
+}

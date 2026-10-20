@@ -1,0 +1,51 @@
+{
+  "product_id": "P1023",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:10.981Z",
+  "identity_snapshot": {
+    "product_id": "P1023",
+    "product_name": "Cream Loafers",
+    "category": "Shoes",
+    "subcategory": "Flats",
+    "product_type": "Loafers",
+    "gender": "Men",
+    "colour": "Cream",
+    "material": "Leather",
+    "fit": "Standard",
+    "style": "Minimalist",
+    "occasion": "Work",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1023",
+    "description": "Cream leather loafers with a minimalist penny-bar detail, softly structured shape and a polished work-ready finish.",
+    "construction_details": [
+      "Slip-on vamp with penny-bar saddle",
+      "Low-cut topline with reinforced collar",
+      "Leather upper on a stacked-look flat sole",
+      "Fine tonal stitching around the apron"
+    ],
+    "care_instructions": "Brush away surface dust and wipe with a dry cloth. Apply a small amount of neutral leather conditioner and store with the uppers supported.",
+    "lining": true,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Work",
+      "Travel"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": null,
+    "heel_height_cm": 1.5,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": "Silver-tone"
+  },
+  "content_sha256": "a0ee8172f14d9d45f8a6740a554d8d859da42374591cf6a30292d266bd438677"
+}

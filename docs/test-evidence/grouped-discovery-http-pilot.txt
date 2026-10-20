@@ -1,0 +1,20 @@
+PASS: HTTP 200 matches: I want a dress and shoes for formal events, my budget for both of them is 400 aud
+PASS: HTTP 200 needs_clarification: zibble flomp splatch
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ 'needs_clarification'
+- 'no_match'
+
+    at file:///Users/beatricelim/Documents/Session%202%202026/COMP3850%20PACE/abc-fashion-ai-assistant/scripts/test-outfit-budget-live.mjs:63:12
+    at send (file:///Users/beatricelim/Documents/Session%202%202026/COMP3850%20PACE/abc-fashion-ai-assistant/scripts/test-outfit-budget-live.mjs:32:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async file:///Users/beatricelim/Documents/Session%202%202026/COMP3850%20PACE/abc-fashion-ai-assistant/scripts/test-outfit-budget-live.mjs:62:3 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'needs_clarification',
+  expected: 'no_match',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+{"passed":2,"failed":1,"evidence":"/Users/beatricelim/Documents/Session%202%202026/COMP3850%20PACE/abc-fashion-ai-assistant/docs/test-evidence/outfit-budget-http-2026-10-17T11-53-41-762Z.json"}

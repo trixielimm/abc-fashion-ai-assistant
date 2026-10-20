@@ -1,0 +1,51 @@
+{
+  "product_id": "P1012",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:10.980Z",
+  "identity_snapshot": {
+    "product_id": "P1012",
+    "product_name": "Brown Flat Sandals",
+    "category": "Shoes",
+    "subcategory": "Sandals",
+    "product_type": "Flat Sandals",
+    "gender": "Men",
+    "colour": "Brown",
+    "material": "Faux Leather",
+    "fit": "Standard",
+    "style": "Romantic",
+    "occasion": "Brunch",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1012",
+    "description": "Brown faux-leather flat sandals with a clean romantic profile and an easy open construction for brunch dressing.",
+    "construction_details": [
+      "Two-strap upper with softly rounded edges",
+      "Cemented upper and footbed construction",
+      "Lightly textured flat outsole",
+      "Clean edge finishing at the straps"
+    ],
+    "care_instructions": "Wipe gently with a damp cloth and allow to air dry away from direct heat. Do not use leather polish.",
+    "lining": false,
+    "pockets": null,
+    "adjustable_strap": true,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Brunch",
+      "Weekend"
+    ],
+    "closure": "buckle",
+    "garment_length_cm": null,
+    "heel_height_cm": 0,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": "Antique brass"
+  },
+  "content_sha256": "f67b83eea1cd43edc26e21f056068396e68e1206790a98ddd60ba9c3094ee9c1"
+}

@@ -1,0 +1,50 @@
+{
+  "product_id": "P1126",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:51.190Z",
+  "identity_snapshot": {
+    "product_id": "P1126",
+    "product_name": "Sage Statement Earrings",
+    "category": "Accessories",
+    "subcategory": "Jewellery",
+    "product_type": "Statement Earrings",
+    "gender": "Men",
+    "colour": "Sage",
+    "material": "Silver-tone Metal",
+    "fit": "Standard",
+    "style": "Romantic",
+    "occasion": "Wedding Guest",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1126",
+    "description": "Sage statement earrings with a romantic silhouette and sculptural silver-tone metal detailing, sized to bring definition to wedding guest styling.",
+    "construction_details": [
+      "Bold drop design",
+      "Smooth formed metal surfaces",
+      "Secure push-back closures",
+      "Lightly polished finish"
+    ],
+    "care_instructions": "Wipe with a dry, soft cloth after wearing and store separately; keep away from water and fragrance.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": null,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Wedding Guest"
+    ],
+    "closure": "clasp",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": "Silver-tone"
+  },
+  "content_sha256": "88f117bfbf3290d6ae2eb3be63c0d7ba7f9ce14d3451ad06e15820a5f27b51d8"
+}

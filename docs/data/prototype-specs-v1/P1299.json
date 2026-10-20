@@ -1,0 +1,50 @@
+{
+  "product_id": "P1299",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:22.200Z",
+  "identity_snapshot": {
+    "product_id": "P1299",
+    "product_name": "Silver Suit Set",
+    "category": "Clothing",
+    "subcategory": "Sets",
+    "product_type": "Suit Set",
+    "gender": "Women",
+    "colour": "Silver",
+    "material": "Viscose",
+    "fit": "Regular",
+    "style": "Bohemian",
+    "occasion": "Formal",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1299",
+    "description": "Silver viscose suit set with a regular fit and bohemian character, pairing a softly tailored jacket with coordinating trousers for formal winter dressing.",
+    "construction_details": [
+      "Notched jacket lapels with clean edge finishing",
+      "Front fastening with tonal buttons",
+      "Straight-leg trousers with pressed crease and finished hems"
+    ],
+    "care_instructions": "Dry clean recommended; use a cool iron on the reverse side and store on a shaped hanger.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Formal",
+      "Evening"
+    ],
+    "closure": "button",
+    "garment_length_cm": 70,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "841a9672d4a6293ed1aa44be99e76b4cdaf0e742b9265ea57031da7f9ed7593b"
+}

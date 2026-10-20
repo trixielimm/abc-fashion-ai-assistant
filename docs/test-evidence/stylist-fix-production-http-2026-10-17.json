@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-17T05:17:21.445Z",
+  "mode": "production next start",
+  "base": "http://127.0.0.1:3002",
+  "homepage_http": 200,
+  "conversation_http": 200,
+  "request": "Can this arrive by Friday?",
+  "reply": {
+    "status": "answered",
+    "action": "none",
+    "message": "Standard delivery is available across Australia. I can't confirm arrival by Friday: I don't have live delivery estimates, dispatch cut-offs or carrier information. I also can't confirm other destinations, express delivery or shipping fees from the available policy. A postcode alone won't let me calculate an arrival date yet.",
+    "proposed_scopes": {
+      "item": {
+        "gender": null,
+        "category": null,
+        "subcategory": null,
+        "product_type": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "size": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      },
+      "shared": {
+        "gender": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      },
+      "unresolved_item": [],
+      "unresolved_shared": []
+    },
+    "applied_preferences": null,
+    "products": [],
+    "alternatives": [],
+    "alternatives_preferences": null,
+    "alternative_kind": null,
+    "optional_question": null,
+    "can_preview_other_colours": false,
+    "pending": null,
+    "pending_answer": null,
+    "answer_sources": [],
+    "answer_product_ids": [],
+    "styling": {
+      "outfit": [],
+      "external_items": [],
+      "rejected_ids": [],
+      "priorities": [],
+      "required_features": [],
+      "offers_paused": false,
+      "owned_categories": []
+    },
+    "commerce_policy": "stylist-commerce-v1",
+    "comparison_reference_id": null
+  },
+  "pass": true
+}

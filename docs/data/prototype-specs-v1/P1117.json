@@ -1,0 +1,54 @@
+{
+  "product_id": "P1117",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:30.453Z",
+  "identity_snapshot": {
+    "product_id": "P1117",
+    "product_name": "Navy Sling Bag",
+    "category": "Bags",
+    "subcategory": "Crossbody",
+    "product_type": "Sling Bag",
+    "gender": "Men",
+    "colour": "Navy",
+    "material": "Leather",
+    "fit": "Standard",
+    "style": "Bohemian",
+    "occasion": "Date Night",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1117",
+    "description": "Bohemian navy leather sling bag with a softly shaped profile, suited to date night styling. Compact proportions keep the silhouette refined while allowing room for essentials.",
+    "construction_details": [
+      "Adjustable leather-and-webbing shoulder strap",
+      "Rounded flap with magnetic snap closure",
+      "Stitched edge binding and internal card slot"
+    ],
+    "care_instructions": "Wipe with a soft, dry cloth and apply leather conditioner sparingly when needed. Protect from rain, oils and direct heat.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": true,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": 1.5,
+    "use_cases": [
+      "Date Night",
+      "Weekend"
+    ],
+    "closure": "snap",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": {
+      "width": 21,
+      "height": 15,
+      "depth": 6
+    },
+    "strap_drop_cm": 59,
+    "compartments": 2,
+    "sole_material": null,
+    "hardware_finish": "antique silver-tone"
+  },
+  "content_sha256": "06afe15509e39292e1afee20a4f50e62694a3f5df9049de0e24a576503a6baea"
+}

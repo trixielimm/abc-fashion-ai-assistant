@@ -1,0 +1,51 @@
+{
+  "product_id": "P1059",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:42.135Z",
+  "identity_snapshot": {
+    "product_id": "P1059",
+    "product_name": "Pink Pleated Skirt",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Pleated Skirt",
+    "gender": "Women",
+    "colour": "Pink",
+    "material": "Polyester",
+    "fit": "Flowy",
+    "style": "Bohemian",
+    "occasion": "Casual",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1059",
+    "description": "Pink polyester pleated skirt with a flowy drape and softly moving accordion pleats, suited to casual spring styling.",
+    "construction_details": [
+      "Fine all-over pleating",
+      "Comfortable elasticated waistband",
+      "Cleanly finished lower edge",
+      "Lightweight slip-on construction"
+    ],
+    "care_instructions": "Machine wash cold on a delicate cycle; place in a laundry bag and hang to dry.",
+    "lining": false,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Casual",
+      "Brunch"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": 78,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "05e9e7279345c7deaa22212058e9d8e9bf81d2b46f1077859b124266decf1fd4"
+}

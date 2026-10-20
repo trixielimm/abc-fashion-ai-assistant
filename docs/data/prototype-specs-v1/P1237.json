@@ -1,0 +1,54 @@
+{
+  "product_id": "P1237",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:22:27.086Z",
+  "identity_snapshot": {
+    "product_id": "P1237",
+    "product_name": "Blue Crossbody Bag",
+    "category": "Bags",
+    "subcategory": "Crossbody",
+    "product_type": "Crossbody Bag",
+    "gender": "Unisex",
+    "colour": "Blue",
+    "material": "Canvas",
+    "fit": "Standard",
+    "style": "Bohemian",
+    "occasion": "Travel",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1237",
+    "description": "Blue canvas crossbody bag with a bohemian profile and standard shape, designed for travel styling. The durable canvas body is finished with softly structured panels and an adjustable crossbody strap.",
+    "construction_details": [
+      "Structured canvas panels with reinforced edge binding",
+      "Adjustable webbing crossbody strap",
+      "Top zip fastening with a compact lined interior"
+    ],
+    "care_instructions": "Spot clean gently with a damp cloth; do not soak. Air dry away from direct heat.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": true,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": 2.8,
+    "use_cases": [
+      "Travel",
+      "Weekend"
+    ],
+    "closure": "zip",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": {
+      "width": 24,
+      "height": 18,
+      "depth": 7
+    },
+    "strap_drop_cm": 60,
+    "compartments": 2,
+    "sole_material": null,
+    "hardware_finish": "antique brass"
+  },
+  "content_sha256": "2a985ec89233f64cb071fe9d5719f579ee70f84c6748bc71e9988a9e41872297"
+}

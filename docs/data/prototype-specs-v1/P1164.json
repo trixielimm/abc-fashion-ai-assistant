@@ -1,0 +1,52 @@
+{
+  "product_id": "P1164",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:17.672Z",
+  "identity_snapshot": {
+    "product_id": "P1164",
+    "product_name": "Yellow Straight Jeans",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Straight Jeans",
+    "gender": "Women",
+    "colour": "Yellow",
+    "material": "Denim",
+    "fit": "Slim",
+    "style": "Elegant",
+    "occasion": "Casual",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1164",
+    "description": "Yellow slim-fit straight-leg denim jeans with an elegant update, suited to casual styling in winter.",
+    "construction_details": [
+      "Five-pocket construction",
+      "Classic belt loops with buttoned waistband",
+      "Straight leg from knee to hem",
+      "Reinforced bar-tacks at pocket openings"
+    ],
+    "care_instructions": "Turn inside out and cold hand wash with similar colours; line dry and avoid prolonged direct sunlight.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Casual",
+      "Weekend",
+      "Travel"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 106,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "f9a68699e0d837eca42eb1e8175f90ba7812c23d6afc03d15cda896308e83e2f"
+}

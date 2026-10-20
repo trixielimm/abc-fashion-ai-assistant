@@ -1,0 +1,51 @@
+{
+  "product_id": "P1168",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:13.779Z",
+  "identity_snapshot": {
+    "product_id": "P1168",
+    "product_name": "Burgundy Cardigan",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Cardigan",
+    "gender": "Women",
+    "colour": "Burgundy",
+    "material": "Knit",
+    "fit": "Oversized",
+    "style": "Relaxed",
+    "occasion": "Work",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1168",
+    "description": "Oversized burgundy cardigan with a relaxed drape and softly textured knit surface, designed for polished layered dressing.",
+    "construction_details": [
+      "Open-front design with a clean ribbed edge",
+      "Dropped shoulders with relaxed sleeve shaping",
+      "Rib-knit cuffs and hem",
+      "Two front patch pockets"
+    ],
+    "care_instructions": "Hand wash in cool water with mild detergent; reshape while damp and dry flat. Store folded.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Work",
+      "Weekend"
+    ],
+    "closure": "open",
+    "garment_length_cm": 68,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "e69ab819f6d8208ba2bd079e3c0d69ddac69942fb687001c28f4f58a58f4374e"
+}

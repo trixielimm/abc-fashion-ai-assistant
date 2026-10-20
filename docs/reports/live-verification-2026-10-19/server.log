@@ -1,0 +1,357 @@
+
+> abc-fashion-ai-assistant@0.1.0 dev
+> next dev --webpack --hostname 127.0.0.1 --port 3000
+
+▲ Next.js 16.3.8 (webpack)
+- Local:         http://127.0.0.1:3000
+- Network:       http://127.0.0.1:3000
+- Environments: .env.local
+✓ Ready in 125ms
+✓ Running next.config.ts took 14ms
+
+ GET / 200 in 2.5s (next.js: 2.3s, proxy.ts: 102ms, application-code: 131ms)
+ GET / 200 in 118ms (next.js: 35ms, proxy.ts: 58ms, application-code: 26ms)
+Stylist diagnostic {
+  request_id: 'c4781f18-1618-4180-8c5b-1c2ed090af8a',
+  stage: 'interpretation',
+  elapsed_ms: 7429,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.product_type',
+    'item.occasion',
+    'item.preferred_colours',
+    'item.fit',
+    'item.size',
+    'item.max_price',
+    'item.unresolved'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'c4781f18-1618-4180-8c5b-1c2ed090af8a',
+  stage: 'validation',
+  elapsed_ms: 7448,
+  status: 'needs_clarification',
+  action: 'new_search',
+  fields: [
+    'item.requirement',
+    'item.requirement',
+    'item.requirement',
+    'item.requirement',
+    'item.requirement'
+  ],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'c4781f18-1618-4180-8c5b-1c2ed090af8a',
+  stage: 'response',
+  elapsed_ms: 7455,
+  status: 'needs_clarification',
+  issue_codes: [
+    'unverified_requirement',
+    'unverified_requirement',
+    'unverified_requirement',
+    'unverified_requirement',
+    'unverified_requirement'
+  ],
+  issue_fields: [
+    'item.requirement',
+    'item.requirement',
+    'item.requirement',
+    'item.requirement',
+    'item.requirement'
+  ],
+  products: 0,
+  generation: 0
+}
+ POST /api/conversation-search 200 in 8.5s (next.js: 941ms, proxy.ts: 63ms, application-code: 7.5s)
+⨯ SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>) {
+  page: '/api/conversation-search'
+}
+ POST /api/conversation-search 500 in 1224ms (next.js: 1148ms, proxy.ts: 25ms, application-code: 51ms)
+ GET / 200 in 353ms (next.js: 59ms, proxy.ts: 112ms, application-code: 182ms)
+ GET / 200 in 160ms (next.js: 2ms, proxy.ts: 6ms, application-code: 152ms)
+ GET / 200 in 143ms (next.js: 22ms, proxy.ts: 5ms, application-code: 116ms)
+Conversation request failed: {
+  stage: 'interpretation',
+  type: 'Error',
+  evidence_field: undefined,
+  provider_status: undefined,
+  provider_code: undefined,
+  provider_param: undefined
+}
+ POST /api/conversation-search 409 in 165ms (next.js: 7ms, proxy.ts: 26ms, application-code: 131ms)
+ GET / 200 in 16ms (next.js: 1.1ms, proxy.ts: 2.0ms, application-code: 13ms)
+ GET / 200 in 62ms (next.js: 5ms, proxy.ts: 7ms, application-code: 50ms)
+Stylist diagnostic {
+  request_id: '266aee9b-980c-4a99-872d-73c437a20d44',
+  stage: 'interpretation',
+  elapsed_ms: 4883,
+  action: 'refine',
+  changed_fields: [
+    'item.product_type',
+    'item.preferred_colours',
+    'item.size',
+    'item.max_price'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: '266aee9b-980c-4a99-872d-73c437a20d44',
+  stage: 'validation',
+  elapsed_ms: 4900,
+  status: 'ready_for_validation',
+  action: 'refine',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '266aee9b-980c-4a99-872d-73c437a20d44',
+  stage: 'response',
+  elapsed_ms: 8955,
+  status: 'alternatives',
+  issue_codes: [],
+  issue_fields: [],
+  products: 1,
+  generation: 0
+}
+ POST /api/conversation-search 200 in 9.0s (next.js: 37ms, proxy.ts: 13ms, application-code: 9.0s)
+ POST /api/stylist-events 204 in 467ms (next.js: 399ms, proxy.ts: 3ms, application-code: 64ms)
+ GET / 200 in 91ms (next.js: 42ms, proxy.ts: 3ms, application-code: 46ms)
+ GET /api/products/P1035/image 307 in 1617ms (next.js: 873ms, proxy.ts: 94ms, application-code: 651ms)
+ GET / 200 in 42ms (next.js: 24ms, proxy.ts: 1.3ms, application-code: 16ms)
+Stylist diagnostic {
+  request_id: 'b323d8c0-377f-483b-abac-c17c4fa2c644',
+  stage: 'interpretation',
+  elapsed_ms: 4418,
+  action: 'refine',
+  changed_fields: [ 'item.unresolved' ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'b323d8c0-377f-483b-abac-c17c4fa2c644',
+  stage: 'validation',
+  elapsed_ms: 4432,
+  status: 'ready_for_validation',
+  action: 'refine',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'b323d8c0-377f-483b-abac-c17c4fa2c644',
+  stage: 'response',
+  elapsed_ms: 7934,
+  status: 'alternatives',
+  issue_codes: [],
+  issue_fields: [],
+  products: 1,
+  generation: 0
+}
+ POST /api/conversation-search 200 in 8.1s (next.js: 8ms, proxy.ts: 32ms, application-code: 8.0s)
+ POST /api/stylist-events 204 in 17ms (next.js: 6ms, proxy.ts: 2ms, application-code: 9ms)
+ GET / 200 in 19ms (next.js: 1.6ms, proxy.ts: 1.9ms, application-code: 16ms)
+Stylist diagnostic {
+  request_id: '28379304-b7ae-49c6-bccb-d753489fb026',
+  stage: 'interpretation',
+  elapsed_ms: 4470,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.product_type',
+    'item.occasion',
+    'item.preferred_colours',
+    'item.size',
+    'item.max_price'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: '28379304-b7ae-49c6-bccb-d753489fb026',
+  stage: 'validation',
+  elapsed_ms: 4475,
+  status: 'ready_for_validation',
+  action: 'new_search',
+  fields: [],
+  generation: 1
+}
+Stylist diagnostic {
+  request_id: '28379304-b7ae-49c6-bccb-d753489fb026',
+  stage: 'response',
+  elapsed_ms: 7676,
+  status: 'no_match',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 1
+}
+ POST /api/conversation-search 200 in 7.7s (next.js: 0.9ms, proxy.ts: 4ms, application-code: 7.7s)
+ GET / 200 in 18ms (next.js: 1.7ms, proxy.ts: 1.6ms, application-code: 15ms)
+ GET /products/P1013 200 in 1933ms (next.js: 1158ms, proxy.ts: 2ms, application-code: 773ms)
+ POST /api/conversation-search 200 in 585ms (next.js: 5ms, proxy.ts: 3ms, application-code: 576ms)
+Conversation request failed: {
+  stage: 'interpretation',
+  type: 'Error',
+  evidence_field: undefined,
+  provider_status: undefined,
+  provider_code: undefined,
+  provider_param: undefined
+}
+ GET / 200 in 110ms (next.js: 6ms, proxy.ts: 8ms, application-code: 96ms)
+ GET /api/products/P1013/image 307 in 630ms (next.js: 10ms, proxy.ts: 10ms, application-code: 610ms)
+Stylist diagnostic {
+  request_id: '64d3377d-d702-46bb-bb24-01e6403a9c7c',
+  stage: 'validation',
+  elapsed_ms: 13,
+  status: 'no_action',
+  action: 'discover',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '64d3377d-d702-46bb-bb24-01e6403a9c7c',
+  stage: 'response',
+  elapsed_ms: 19,
+  status: 'no_action',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+ POST /api/conversation-search 200 in 37ms (next.js: 1.7ms, proxy.ts: 6ms, application-code: 29ms)
+Stylist diagnostic {
+  request_id: '959f44ef-7014-48f5-a839-9a1bc8a1068f',
+  stage: 'validation',
+  elapsed_ms: 3,
+  status: 'no_action',
+  action: 'discover',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '959f44ef-7014-48f5-a839-9a1bc8a1068f',
+  stage: 'response',
+  elapsed_ms: 5,
+  status: 'no_action',
+  issue_codes: [],
+  issue_fields: [],
+  products: 0,
+  generation: 0
+}
+ POST /api/conversation-search 200 in 17ms (next.js: 1.9ms, proxy.ts: 4ms, application-code: 11ms)
+Stylist diagnostic {
+  request_id: '25057099-873b-4d8f-a5c3-edf2e277239a',
+  stage: 'validation',
+  elapsed_ms: 2,
+  status: 'ready_for_validation',
+  action: 'discover',
+  fields: [],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: '25057099-873b-4d8f-a5c3-edf2e277239a',
+  stage: 'response',
+  elapsed_ms: 3015,
+  status: 'matches',
+  issue_codes: [],
+  issue_fields: [],
+  products: 4,
+  generation: 0
+}
+ POST /api/conversation-search 200 in 3.0s (next.js: 2ms, proxy.ts: 7ms, application-code: 3.0s)
+ POST /api/stylist-events 204 in 9ms (next.js: 3ms, proxy.ts: 3ms, application-code: 2ms)
+ GET /api/products/P1033/image 307 in 229ms (next.js: 10ms, proxy.ts: 4ms, application-code: 215ms)
+ GET /api/products/P1047/image 307 in 234ms (next.js: 12ms, proxy.ts: 3ms, application-code: 219ms)
+ GET /api/products/P1087/image 307 in 249ms (next.js: 10ms, proxy.ts: 5ms, application-code: 234ms)
+ GET /api/products/P1066/image 307 in 260ms (next.js: 8ms, proxy.ts: 5ms, application-code: 247ms)
+Stylist diagnostic {
+  request_id: 'eaf5c306-5e5e-403d-8231-069dbf572db8',
+  stage: 'interpretation',
+  elapsed_ms: 10847,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.product_type',
+    'item.occasion',
+    'item.preferred_colours',
+    'item.fit',
+    'item.style',
+    'item.size',
+    'item.max_price',
+    'item.unresolved',
+    'item.unresolved'
+  ],
+  has_outfit_request: false
+}
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Stylist diagnostic {
+  request_id: 'eaf5c306-5e5e-403d-8231-069dbf572db8',
+  stage: 'plan_rejected',
+  elapsed_ms: 10852,
+  attempt: 1,
+  type: 'PlanValidationError',
+  field: null,
+  rule: 'Use one change per field per turn'
+}
+Stylist diagnostic {
+  request_id: 'eaf5c306-5e5e-403d-8231-069dbf572db8',
+  stage: 'interpretation',
+  elapsed_ms: 17659,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.product_type',
+    'item.occasion',
+    'item.preferred_colours',
+    'item.fit',
+    'item.size',
+    'item.max_price',
+    'item.unresolved'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'eaf5c306-5e5e-403d-8231-069dbf572db8',
+  stage: 'validation',
+  elapsed_ms: 17666,
+  status: 'needs_clarification',
+  action: 'new_search',
+  fields: [
+    'item.requirement',
+    'item.requirement',
+    'item.requirement',
+    'item.requirement'
+  ],
+  generation: 0
+}
+Stylist diagnostic {
+  request_id: 'eaf5c306-5e5e-403d-8231-069dbf572db8',
+  stage: 'response',
+  elapsed_ms: 17678,
+  status: 'needs_clarification',
+  issue_codes: [
+    'unverified_requirement',
+    'unverified_requirement',
+    'unverified_requirement',
+    'unverified_requirement'
+  ],
+  issue_fields: [
+    'item.requirement',
+    'item.requirement',
+    'item.requirement',
+    'item.requirement'
+  ],
+  products: 0,
+  generation: 0
+}
+ POST /api/conversation-search 200 in 17.7s (next.js: 4ms, proxy.ts: 7ms, application-code: 17.7s)
+[?25h

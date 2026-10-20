@@ -1,11 +1,11 @@
 /**
  * Cart storage helpers.
  * Stores product ID, size, and quantity in localStorage.
- * Components can listen for CART_UPDATED_EVENT to refresh after a cart change.
+ * Components subscribe to refresh after a cart change in this or another tab.
  */
 
 // Notifies other components when the cart changes so they can update.
-export const CART_UPDATED_EVENT = "cart-updated";
+const CART_UPDATED_EVENT = "cart-updated";
 const CART_KEY = "abc-fashion-cart";
 
 // Defines the product details stored in the cart in localStorage.
@@ -26,6 +26,16 @@ export type CartRow = StoredCartItem & {
   image: string | null;
   href: string;
 };
+
+export function subscribeToCart(onChange: () => void) {
+  window.addEventListener(CART_UPDATED_EVENT, onChange);
+  window.addEventListener("storage", onChange);
+
+  return () => {
+    window.removeEventListener(CART_UPDATED_EVENT, onChange);
+    window.removeEventListener("storage", onChange);
+  };
+}
 
 // Read saved items and discard entries with an invalid shape.
 export function readCart(): StoredCartItem[] {

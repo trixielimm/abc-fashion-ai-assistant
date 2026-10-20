@@ -1,0 +1,534 @@
+{
+  "id": "S4-B",
+  "name": "Style an external owned garment",
+  "repeat": 2,
+  "turns": [
+    {
+      "number": 1,
+      "message": "I already own a plain navy midi dress from another shop. I want shoes to match it for a wedding, under $100.",
+      "input": {
+        "message": "I already own a plain navy midi dress from another shop. I want shoes to match it for a wedding, under $100.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T04:05:28.085Z",
+      "plan_source": "live model",
+      "plan": {
+        "action": "new_search",
+        "intent_evidence": "I want shoes to match it for a wedding, under $100",
+        "reference": null,
+        "changes": [
+          {
+            "scope": "item",
+            "evidence": "shoes",
+            "operation": "set",
+            "field": "category",
+            "value": "Shoes"
+          },
+          {
+            "scope": "item",
+            "evidence": "wedding",
+            "operation": "set",
+            "field": "occasion",
+            "value": "Wedding"
+          },
+          {
+            "scope": "item",
+            "evidence": "under $100",
+            "operation": "set",
+            "field": "max_price",
+            "value": 100
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": {
+          "preferences": [],
+          "outfit_changes": [],
+          "offers": null,
+          "owned_categories": [
+            {
+              "category": "Clothing",
+              "operation": "add",
+              "evidence": "I already own a plain navy midi dress from another shop"
+            }
+          ]
+        }
+      },
+      "reply": {
+        "status": "matches",
+        "action": "new_search",
+        "message": "I found SH-WEDDING-90 Shoes for A$90.00.\n\nI've kept this selection within your A$100.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 100,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Shoes",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Wedding",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 100,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "SH-WEDDING-90",
+            "product_name": "SH-WEDDING-90 Shoes",
+            "price_aud": 90,
+            "category": "Shoes",
+            "subcategory": "Heels",
+            "product_type": "Block Heels",
+            "brand_line": null,
+            "colour": "Beige",
+            "sizes_available": [
+              "38",
+              "39"
+            ],
+            "extra_target": null,
+            "image_src": null
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": [
+            "Clothing"
+          ]
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 2887,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 100,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": [
+            "Clothing"
+          ]
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "SH-WEDDING-90",
+              "product_name": "SH-WEDDING-90 Shoes",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Block Heels",
+              "price_aud": 90
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I already own a plain navy midi dress from another shop. I want shoes to match it for a wedding, under $100."
+          },
+          {
+            "role": "assistant",
+            "content": "I found SH-WEDDING-90 Shoes for A$90.00.\n\nI've kept this selection within your A$100.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 2,
+      "message": "I don't have a product link or photo. Please work from that description.",
+      "input": {
+        "message": "I don't have a product link or photo. Please work from that description.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 100,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "SH-WEDDING-90",
+              "product_name": "SH-WEDDING-90 Shoes",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Block Heels",
+              "price_aud": 90
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I already own a plain navy midi dress from another shop. I want shoes to match it for a wedding, under $100."
+          },
+          {
+            "role": "assistant",
+            "content": "I found SH-WEDDING-90 Shoes for A$90.00.\n\nI've kept this selection within your A$100.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": [
+            "Clothing"
+          ]
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T04:05:28.085Z",
+      "plan_source": "live model",
+      "plan": {
+        "action": "none",
+        "intent_evidence": "Please work from that description",
+        "reference": null,
+        "changes": [],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": null
+      },
+      "reply": {
+        "status": "no_action",
+        "action": "none",
+        "message": "Tell me what you'd like to find. I can help with catalogue products, but can't confirm unrecorded details or guarantee fit and delivery.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 100,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Shoes",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Wedding",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 100,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": [
+            "Clothing"
+          ]
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 2421,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 100,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": [
+            "Clothing"
+          ]
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "SH-WEDDING-90",
+              "product_name": "SH-WEDDING-90 Shoes",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Block Heels",
+              "price_aud": 90
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I already own a plain navy midi dress from another shop. I want shoes to match it for a wedding, under $100."
+          },
+          {
+            "role": "assistant",
+            "content": "I found SH-WEDDING-90 Shoes for A$90.00.\n\nI've kept this selection within your A$100.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "I don't have a product link or photo. Please work from that description."
+          },
+          {
+            "role": "assistant",
+            "content": "Tell me what you'd like to find. I can help with catalogue products, but can't confirm unrecorded details or guarantee fit and delivery."
+          }
+        ]
+      },
+      "checks": "Pass"
+    }
+  ],
+  "started": "2026-10-17T04:05:28.085Z",
+  "result": "Feature gap",
+  "issues": [],
+  "feature_gap": "No structured external-garment record: navy, midi and plain cannot persist as an owned matching anchor.",
+  "finished": "2026-10-17T04:05:28.085Z"
+}

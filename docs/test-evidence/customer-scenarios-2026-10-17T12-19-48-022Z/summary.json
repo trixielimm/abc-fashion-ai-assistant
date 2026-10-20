@@ -1,0 +1,49 @@
+{
+  "started": "2026-10-17T12:19:48.022Z",
+  "commit": "47d677a7a986c9aadc8bd90574741a83779d983f",
+  "node": "v24.14.0",
+  "model": "gpt-5.6-luna",
+  "reasoning": "low",
+  "fixture_sha256": "8955340811be98cd7bdfb20e022105a1be8f1a052057da83c7f99eeea598115e",
+  "scope": "Real model + shortcutPlan + finishConversationTurn + acceptReply; in-process with isolated synthetic fixtures. Not HTTP/browser acceptance.",
+  "human_review": "Pairing taste, aesthetic variety and end-user usefulness require human assessment.",
+  "runs": [
+    {
+      "id": "S6-B",
+      "name": "Silver necklaces and fastening facts",
+      "repeat": 1,
+      "started": "2026-10-17T12:19:48.040Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T12:19:54.224Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S6-B",
+      "name": "Silver necklaces and fastening facts",
+      "repeat": 2,
+      "started": "2026-10-17T12:19:48.053Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T12:19:54.738Z",
+      "turns_recorded": 3
+    },
+    {
+      "id": "S6-B",
+      "name": "Silver necklaces and fastening facts",
+      "repeat": 3,
+      "started": "2026-10-17T12:19:48.056Z",
+      "result": "Pass",
+      "issues": [],
+      "finished": "2026-10-17T12:19:55.080Z",
+      "turns_recorded": 3
+    }
+  ],
+  "finished": "2026-10-17T12:19:55.082Z",
+  "counts": {
+    "Pass": 3,
+    "Fail": 0,
+    "Blocked": 0,
+    "Feature gap": 0
+  }
+}

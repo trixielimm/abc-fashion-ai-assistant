@@ -1,0 +1,50 @@
+{
+  "product_id": "P1101",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:25.187Z",
+  "identity_snapshot": {
+    "product_id": "P1101",
+    "product_name": "Navy Ballet Flats",
+    "category": "Shoes",
+    "subcategory": "Flats",
+    "product_type": "Ballet Flats",
+    "gender": "Women",
+    "colour": "Navy",
+    "material": "Suede",
+    "fit": "Standard",
+    "style": "Romantic",
+    "occasion": "Casual",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1101",
+    "description": "Romantic navy ballet flats with a softly shaped suede upper and understated finish, designed in a standard fit for Casual wear.",
+    "construction_details": [
+      "Suede upper with softly squared toe",
+      "Elasticated topline for a close slip-on fit",
+      "Lightly cushioned insole",
+      "Flexible textured sole with bonded edge"
+    ],
+    "care_instructions": "Brush lightly with a suede brush and treat marks with a suitable suede cleaner; keep dry and air dry naturally.",
+    "lining": true,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Casual"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": null,
+    "heel_height_cm": 0.5,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": null
+  },
+  "content_sha256": "185ec20ff126629282b71d1057b52299ddfdf07db150d28360bce70ef2765789"
+}

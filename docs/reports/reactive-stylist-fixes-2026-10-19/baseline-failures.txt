@@ -1,0 +1,40 @@
+FAIL: Compound collection answer survives a later shopping clause — Expected values to be strictly equal:
+
+undefined !== 'All'
+
+FAIL: Collection plus fit guidance resumes the search without a product-reference question — Expected values to be strictly equal:
++ actual - expected
+
++ {
++   action: 'new_search',
++   discovery_intent: null
++ }
+- null
+
+FAIL: Saved-search availability does not ask for a nonexistent product — The input was expected to not match the regular expression /Which item|identify that product/i. Input:
+
+'I could not identify that product in the current context. Which item do you mean?'
+
+FAIL: A referenced combination is an explicit answer operation — Expected values to be strictly equal:
+
+false !== true
+
+FAIL: Named three-piece total is A$245 with A$155 remaining, without selection changes — [
+  {
+    "expected": "object",
+    "code": "invalid_type",
+    "path": [],
+    "message": "Invalid input: expected object, received null"
+  }
+]
+FAIL: Rejecting one dress does not save its Maxi Dress type — Expected values to be strictly equal:
++ actual - expected
+
++ 'Maxi Dress'
+- null
+
+FAIL: Jacket and shirt component extraction uses Outerwear and Tops — Expected values to be strictly equal:
+
+1 !== 2
+
+0 passed; 7 failed.

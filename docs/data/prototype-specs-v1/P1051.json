@@ -1,0 +1,52 @@
+{
+  "product_id": "P1051",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:25.763Z",
+  "identity_snapshot": {
+    "product_id": "P1051",
+    "product_name": "Cream Relaxed Co-ord Set",
+    "category": "Clothing",
+    "subcategory": "Sets",
+    "product_type": "Relaxed Co-ord Set",
+    "gender": "Men",
+    "colour": "Cream",
+    "material": "Linen Blend",
+    "fit": "Regular",
+    "style": "Relaxed",
+    "occasion": "Beach Wedding",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1051",
+    "description": "Relaxed cream co-ord set with an easy regular fit and breathable linen blend construction. The coordinated separates create a composed look for beach wedding dressing.",
+    "construction_details": [
+      "Relaxed collared shirt with button front",
+      "Short sleeves with turned hems",
+      "Matching straight-leg trousers",
+      "Elasticated trouser back waistband",
+      "Side-seam trouser pockets"
+    ],
+    "care_instructions": "Hand wash cold with similar colours; line dry in shade and press on low heat.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Beach Wedding",
+      "Travel"
+    ],
+    "closure": "button",
+    "garment_length_cm": 74,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "1108ea352275877d302538adc1ad4caa6497e112fb6292556df342e0460c775f"
+}

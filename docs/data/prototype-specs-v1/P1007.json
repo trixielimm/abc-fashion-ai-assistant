@@ -1,0 +1,52 @@
+{
+  "product_id": "P1007",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:14:57.206Z",
+  "identity_snapshot": {
+    "product_id": "P1007",
+    "product_name": "Grey Loafers",
+    "category": "Shoes",
+    "subcategory": "Flats",
+    "product_type": "Loafers",
+    "gender": "Women",
+    "colour": "Grey",
+    "material": "Leather",
+    "fit": "Standard",
+    "style": "Smart",
+    "occasion": "Smart Casual",
+    "season": "Autumn"
+  },
+  "specification": {
+    "product_id": "P1007",
+    "description": "Grey leather loafers with a smart silhouette and standard fit, shaped with a rounded toe and a clean apron seam for polished Smart Casual dressing.",
+    "construction_details": [
+      "Leather upper with stitched apron seam",
+      "Padded insole for structured comfort",
+      "Low stacked heel and textured rubber outsole",
+      "Slip-on vamp with reinforced heel counter"
+    ],
+    "care_instructions": "Wipe with a soft dry or lightly damp cloth, then condition with a suitable leather product. Allow to air dry away from direct heat.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Smart Casual",
+      "Work",
+      "Weekend"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": null,
+    "heel_height_cm": 2,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": null
+  },
+  "content_sha256": "e17cf51733ac4308a0b3eba4a0a3fc145479fbf873ce4e07e70bf56f378957d7"
+}

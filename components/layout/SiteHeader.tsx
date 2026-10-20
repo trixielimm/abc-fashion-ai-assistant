@@ -12,10 +12,19 @@ import {
   CloseIcon,
   MenuIcon,
   SearchIcon,
-  UserIcon,
 } from "@/components/ui/icons";
-import { navLinks } from "@/lib/mock-data";
+import { navLinks } from "@/lib/navigation";
 import { useCartCount } from "@/lib/use-cart-count";
+
+function ProductSearch({ className }: { className: string }) {
+  return <form action="/search" method="get" className={`relative h-11 items-center ${className}`} role="search" aria-label="Product search">
+    <button type="submit" aria-label="Search products" className="absolute left-0 flex h-11 w-11 items-center justify-center">
+      <SearchIcon className="text-foreground" />
+    </button>
+    <input type="search" name="q" maxLength={120} placeholder="Search products" aria-label="Search"
+      className="h-11 w-full rounded-full border border-[#d0d0d0] bg-background py-0 pr-4 pl-11 text-base text-foreground outline-none placeholder:text-muted focus-visible:ring-2 focus-visible:ring-foreground md:text-sm" />
+  </form>;
+}
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -76,31 +85,7 @@ function HeaderContent() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2 lg:gap-2.5">
-          <form
-            action="/search"
-            method="get"
-            className="relative hidden h-11 w-[168px] items-center md:flex lg:hidden xl:flex"
-            role="search"
-          >
-            <button
-              type="submit"
-              aria-label="Search products"
-              className="absolute left-0 flex h-11 w-11 items-center justify-center"
-            >
-              <SearchIcon className="text-foreground" />
-            </button>
-            <input
-              type="search"
-              name="q"
-              maxLength={120}
-              placeholder="SEARCH"
-              aria-label="Search"
-              className="h-11 w-full rounded-full border border-[#d0d0d0] bg-background py-0 pr-4 pl-11 text-sm text-foreground outline-none placeholder:text-muted focus-visible:ring-2 focus-visible:ring-foreground"
-            />
-          </form>
-          <button type="button" disabled aria-label="Account coming soon" title="Account coming soon" className="hidden h-11 w-11 items-center justify-center rounded-full border border-border text-muted lg:inline-flex">
-            <UserIcon />
-          </button>
+          <ProductSearch className="hidden w-[200px] shrink-0 md:flex" />
           <IconButton href="/cart" label={`Bag, ${count} ${count === 1 ? "item" : "items"}`} onClick={() => setMenuOpen(false)}>
             <BagIcon />
           </IconButton>
@@ -115,6 +100,10 @@ function HeaderContent() {
             {menuOpen ? <CloseIcon /> : <MenuIcon />}
           </IconButton>
         </div>
+      </Container>
+
+      <Container className="pb-3 md:hidden">
+        <ProductSearch className="flex w-full" />
       </Container>
 
       {menuOpen ? (
@@ -140,23 +129,6 @@ function HeaderContent() {
             >
               AI Stylist
             </button>
-            <form action="/search" method="get" className="relative md:hidden" role="search" onSubmit={() => setMenuOpen(false)}>
-              <button
-                type="submit"
-                aria-label="Search products"
-                className="absolute left-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center"
-              >
-                <SearchIcon />
-              </button>
-              <input
-                type="search"
-                name="q"
-                maxLength={120}
-                placeholder="SEARCH"
-                aria-label="Search"
-                className="h-11 w-full rounded-full border border-[#d0d0d0] pr-4 pl-11 text-base outline-none placeholder:text-muted"
-              />
-            </form>
           </Container>
         </nav>
       ) : null}

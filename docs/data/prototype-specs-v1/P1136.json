@@ -1,0 +1,51 @@
+{
+  "product_id": "P1136",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:03.602Z",
+  "identity_snapshot": {
+    "product_id": "P1136",
+    "product_name": "White Satin Camisole",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "product_type": "Satin Camisole",
+    "gender": "Women",
+    "colour": "White",
+    "material": "Satin",
+    "fit": "Slim",
+    "style": "Romantic",
+    "occasion": "Travel",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1136",
+    "description": "A romantic white satin camisole with a slim fit, delicate shoulder straps and a softly fluid finish suited to light travel wardrobes.",
+    "construction_details": [
+      "V-neckline with clean facing",
+      "Slim shoulder straps with adjustable sliders",
+      "Dart shaping at the bust",
+      "Curved satin hem with narrow turned finish"
+    ],
+    "care_instructions": "Hand wash separately in cool water; do not wring, and dry flat away from direct heat.",
+    "lining": false,
+    "pockets": false,
+    "adjustable_strap": true,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Travel",
+      "Date Night"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": 57,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "e6b68bf0389b550dff40c8cd86ee4978ececedd977a7cc1c48ff865510e47ca4"
+}

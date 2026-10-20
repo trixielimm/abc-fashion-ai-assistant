@@ -1,0 +1,141 @@
+{
+  "mode": "all",
+  "model": "gpt-5.6-luna",
+  "dataset_version": "prototype-specs-v1",
+  "completed": 305,
+  "expected": 316,
+  "failures": [
+    {
+      "ids": [
+        "P1237",
+        "P1240",
+        "P1250",
+        "P1260",
+        "P1263",
+        "P1273"
+      ],
+      "error": "P1237: capacity 3.6 L exceeds external volume 3.456 L; capacity must be smaller"
+    },
+    {
+      "ids": [
+        "P1282",
+        "P1283",
+        "P1285",
+        "P1298",
+        "P1304"
+      ],
+      "error": "P1282: capacity 0.8 L exceeds external volume 0.756 L; capacity must be smaller"
+    }
+  ],
+  "usage": [
+    {
+      "input_tokens": 1419,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 1416
+      },
+      "output_tokens": 1245,
+      "output_tokens_details": {
+        "reasoning_tokens": 86
+      },
+      "total_tokens": 2664
+    },
+    {
+      "input_tokens": 1430,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 1427
+      },
+      "output_tokens": 1229,
+      "output_tokens_details": {
+        "reasoning_tokens": 103
+      },
+      "total_tokens": 2659
+    },
+    {
+      "input_tokens": 1425,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 1422
+      },
+      "output_tokens": 1330,
+      "output_tokens_details": {
+        "reasoning_tokens": 136
+      },
+      "total_tokens": 2755
+    },
+    {
+      "input_tokens": 1451,
+      "input_tokens_details": {
+        "cache_write_tokens": 1448,
+        "cached_tokens": 0
+      },
+      "output_tokens": 1226,
+      "output_tokens_details": {
+        "reasoning_tokens": 84
+      },
+      "total_tokens": 2677
+    },
+    {
+      "input_tokens": 1333,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 1330
+      },
+      "output_tokens": 1137,
+      "output_tokens_details": {
+        "reasoning_tokens": 106
+      },
+      "total_tokens": 2470
+    },
+    {
+      "input_tokens": 1457,
+      "input_tokens_details": {
+        "cache_write_tokens": 1454,
+        "cached_tokens": 0
+      },
+      "output_tokens": 1201,
+      "output_tokens_details": {
+        "reasoning_tokens": 119
+      },
+      "total_tokens": 2658
+    },
+    {
+      "input_tokens": 1451,
+      "input_tokens_details": {
+        "cache_write_tokens": 1448,
+        "cached_tokens": 0
+      },
+      "output_tokens": 1143,
+      "output_tokens_details": {
+        "reasoning_tokens": 87
+      },
+      "total_tokens": 2594
+    },
+    {
+      "input_tokens": 1365,
+      "input_tokens_details": {
+        "cache_write_tokens": 1362,
+        "cached_tokens": 0
+      },
+      "output_tokens": 1128,
+      "output_tokens_details": {
+        "reasoning_tokens": 162
+      },
+      "total_tokens": 2493
+    },
+    {
+      "input_tokens": 1365,
+      "input_tokens_details": {
+        "cache_write_tokens": 1362,
+        "cached_tokens": 0
+      },
+      "output_tokens": 1079,
+      "output_tokens_details": {
+        "reasoning_tokens": 105
+      },
+      "total_tokens": 2444
+    }
+  ],
+  "finished_at": "2026-10-17T03:21:20.567Z"
+}

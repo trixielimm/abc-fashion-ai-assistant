@@ -1,0 +1,53 @@
+{
+  "product_id": "P1147",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:04.814Z",
+  "identity_snapshot": {
+    "product_id": "P1147",
+    "product_name": "Brown Denim Jacket",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Denim Jacket",
+    "gender": "Unisex",
+    "colour": "Brown",
+    "material": "Denim",
+    "fit": "Regular",
+    "style": "Streetwear",
+    "occasion": "Smart Casual",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1147",
+    "description": "Streetwear brown denim jacket in a regular unisex fit, with a sturdy denim body and understated details suited to smart casual styling.",
+    "construction_details": [
+      "Classic collar",
+      "Button-through front",
+      "Chest patch pockets",
+      "Adjustable button cuffs",
+      "Reinforced shoulder seams"
+    ],
+    "care_instructions": "Turn inside out and wash cold on a gentle cycle; air dry and avoid prolonged direct sun.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Smart Casual",
+      "Weekend",
+      "Travel"
+    ],
+    "closure": "button",
+    "garment_length_cm": 66,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "3c95ab24114bb2744f1ea0a1b69e5f6658b42288e06c609fdb4baf4dc5dc12b6"
+}

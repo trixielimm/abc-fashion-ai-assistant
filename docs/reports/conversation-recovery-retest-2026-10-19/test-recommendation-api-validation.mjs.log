@@ -1,0 +1,5 @@
+FAIL: Blank message rejected
+Expected HTTP 400, received 404.
+
+404 !== 400
+

@@ -1,0 +1,53 @@
+{
+  "product_id": "P1030",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:25.027Z",
+  "identity_snapshot": {
+    "product_id": "P1030",
+    "product_name": "Brown Straight Jeans",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "product_type": "Straight Jeans",
+    "gender": "Women",
+    "colour": "Brown",
+    "material": "Denim",
+    "fit": "Relaxed",
+    "style": "Romantic",
+    "occasion": "Beach Wedding",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1030",
+    "description": "Romantic brown denim straight jeans with a relaxed fit, classic five-pocket construction and a softly structured leg for beach wedding styling.",
+    "construction_details": [
+      "Five-pocket construction",
+      "Belt loops",
+      "Button-and-fly fastening",
+      "Straight-cut legs",
+      "Topstitched seams"
+    ],
+    "care_instructions": "Machine wash cold inside out with like colours; line dry and avoid bleach.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": true,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Beach Wedding",
+      "Casual",
+      "Weekend"
+    ],
+    "closure": "zip",
+    "garment_length_cm": 105,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "56735f6e2a9ca78ce11a695cd1375bccffd4c802840c1d767598fb5561946e59"
+}

@@ -1,0 +1,54 @@
+{
+  "product_id": "P1170",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:49.635Z",
+  "identity_snapshot": {
+    "product_id": "P1170",
+    "product_name": "Burgundy Mini Clutch",
+    "category": "Bags",
+    "subcategory": "Clutches",
+    "product_type": "Mini Clutch",
+    "gender": "Unisex",
+    "colour": "Burgundy",
+    "material": "Satin",
+    "fit": "Standard",
+    "style": "Elegant",
+    "occasion": "Date Night",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1170",
+    "description": "Elegant burgundy satin mini clutch for date night in summer, with a compact standard shape and softly lustrous finish.",
+    "construction_details": [
+      "Padded satin outer with neat seam lines",
+      "Slim internal gusset",
+      "Small kiss-lock fastening"
+    ],
+    "care_instructions": "Spot clean with a dry or barely damp soft cloth; avoid rubbing, soaking and contact with rough surfaces.",
+    "lining": true,
+    "pockets": false,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": 0.35,
+    "use_cases": [
+      "Date Night",
+      "Evening"
+    ],
+    "closure": "clasp",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": {
+      "width": 18,
+      "height": 11,
+      "depth": 3
+    },
+    "strap_drop_cm": null,
+    "compartments": 1,
+    "sole_material": null,
+    "hardware_finish": "gold-tone"
+  },
+  "content_sha256": "6ff252dcfbd5d813de1a23799547834b37c9203402742a000d4b87bfe439cfc6"
+}

@@ -1,0 +1,50 @@
+{
+  "product_id": "P1095",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:25.186Z",
+  "identity_snapshot": {
+    "product_id": "P1095",
+    "product_name": "Pink Ballet Flats",
+    "category": "Shoes",
+    "subcategory": "Flats",
+    "product_type": "Ballet Flats",
+    "gender": "Women",
+    "colour": "Pink",
+    "material": "Suede",
+    "fit": "Standard",
+    "style": "Minimalist",
+    "occasion": "Beach Wedding",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1095",
+    "description": "Minimalist pink ballet flats with a neat rounded toe and soft suede upper, shaped for a standard fit and suited to Beach Wedding styling.",
+    "construction_details": [
+      "Suede upper with a rounded toe",
+      "Low-cut topline with clean edge binding",
+      "Cushioned footbed and flexible flat sole",
+      "Stitched outsole perimeter"
+    ],
+    "care_instructions": "Protect from moisture and brush gently with a suede brush; spot-clean cautiously and air dry away from direct heat.",
+    "lining": true,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Beach Wedding"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": null,
+    "heel_height_cm": 0.5,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": null
+  },
+  "content_sha256": "a01261fc2a359bec23f3bfed1ed299895ef14581ef0d7e1b91764e717e7830b7"
+}

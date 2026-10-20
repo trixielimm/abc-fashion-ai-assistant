@@ -1,0 +1,50 @@
+{
+  "product_id": "P1294",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:22.199Z",
+  "identity_snapshot": {
+    "product_id": "P1294",
+    "product_name": "Beige Satin Camisole",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "product_type": "Satin Camisole",
+    "gender": "Women",
+    "colour": "Beige",
+    "material": "Satin",
+    "fit": "Relaxed",
+    "style": "Elegant",
+    "occasion": "Brunch",
+    "season": "Spring"
+  },
+  "specification": {
+    "product_id": "P1294",
+    "description": "Beige satin camisole with a relaxed drape and elegant finish, suitable for layered brunch outfits and softly polished spring dressing.",
+    "construction_details": [
+      "Fine shoulder straps with reinforced attachment points",
+      "V-neckline with narrow self-fabric binding",
+      "Curved hem with delicate double-needle finish"
+    ],
+    "care_instructions": "Hand wash gently in cool water; do not wring, and hang to dry away from direct heat.",
+    "lining": false,
+    "pockets": false,
+    "adjustable_strap": true,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Brunch",
+      "Date Night"
+    ],
+    "closure": "slip_on",
+    "garment_length_cm": 58,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "094d12aa1aafc3dfca72b441d8194446d64ab7582572c7cb7c9a732bd3b19faf"
+}

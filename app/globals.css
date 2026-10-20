@@ -95,12 +95,18 @@ button:not(:disabled) {
 }
 
 .stylist-dialog {
+  position: fixed;
   top: var(--stylist-viewport-top, 0px);
+  inset-inline: 0;
   margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
   width: 100%;
   max-width: none;
   height: var(--stylist-viewport-height, 100dvh);
   max-height: none;
+  overflow: hidden;
 }
 
 /* Keep text-entry controls legible and avoid focus zoom on iOS. */
@@ -115,25 +121,17 @@ button:not(:disabled) {
 @media (min-width: 640px) {
   .stylist-dialog {
     margin-inline: auto;
-    margin-top: max(1rem, calc((var(--stylist-viewport-height, 100dvh) - 680px) / 2));
-    width: min(920px, calc(100vw - 2rem));
-    height: min(680px, calc(var(--stylist-viewport-height, 100dvh) - 2rem));
+    margin-top: max(1.5rem, calc((var(--stylist-viewport-height, 100dvh) - 780px) / 2));
+    width: min(1100px, calc(100vw - 3rem));
+    height: min(780px, calc(var(--stylist-viewport-height, 100dvh) - 3rem));
+    border: 1px solid var(--border);
+    border-radius: 4px;
   }
 }
 
 ::selection {
   background: #111111;
   color: #ffffff;
-}
-
-@keyframes stylist-bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
 }
 
 @keyframes site-loading-progress {
@@ -163,34 +161,13 @@ button:not(:disabled) {
   animation: site-loading-mark 0.9s ease-in-out infinite;
 }
 
-@keyframes stylist-reveal {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.stylist-bounce {
-  animation: stylist-bounce 0.85s ease-in-out infinite;
-}
-
-.stylist-reveal {
-  animation: stylist-reveal 0.55s ease-out both;
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
   .site-loading-progress,
-  .site-loading-mark,
-  .stylist-bounce,
-  .stylist-reveal {
+  .site-loading-mark {
     animation: none;
   }
 }

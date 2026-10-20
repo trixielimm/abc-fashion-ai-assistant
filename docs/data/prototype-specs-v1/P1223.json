@@ -1,0 +1,50 @@
+{
+  "product_id": "P1223",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:39.942Z",
+  "identity_snapshot": {
+    "product_id": "P1223",
+    "product_name": "Olive Flat Sandals",
+    "category": "Shoes",
+    "subcategory": "Sandals",
+    "product_type": "Flat Sandals",
+    "gender": "Women",
+    "colour": "Olive",
+    "material": "Leather",
+    "fit": "Standard",
+    "style": "Elegant",
+    "occasion": "Beach Wedding",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1223",
+    "description": "Elegant olive flat sandals for women, designed in a standard fit with leather construction for a polished beach wedding look in summer.",
+    "construction_details": [
+      "Slim leather straps with a discreet ankle fastening",
+      "Contoured footbed with lightly padded finish",
+      "Low-profile outsole with a refined edge"
+    ],
+    "care_instructions": "Wipe with a soft cloth after wear and store in a breathable dust bag away from moisture; use a suitable leather conditioner sparingly.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": true,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Beach Wedding",
+      "Wedding Guest"
+    ],
+    "closure": "buckle",
+    "garment_length_cm": null,
+    "heel_height_cm": 0,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": "Gold-tone"
+  },
+  "content_sha256": "fa717ea564650364ef2ef1d83231cf1393d68102cee0c1b05dab3e662e9ff5e3"
+}

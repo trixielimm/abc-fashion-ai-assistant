@@ -1,0 +1,49 @@
+{
+  "product_id": "P1157",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:54.426Z",
+  "identity_snapshot": {
+    "product_id": "P1157",
+    "product_name": "Yellow Slim Belt",
+    "category": "Accessories",
+    "subcategory": "Belts",
+    "product_type": "Slim Belt",
+    "gender": "Unisex",
+    "colour": "Yellow",
+    "material": "Faux Leather",
+    "fit": "Standard",
+    "style": "Smart",
+    "occasion": "Brunch",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1157",
+    "description": "Smart yellow slim belt in faux leather with a clean, understated finish for brunch styling.",
+    "construction_details": [
+      "Narrow faux-leather strap with neatly finished edges",
+      "Adjustable buckle fastening with a single keeper loop",
+      "Subtle tonal surface finish"
+    ],
+    "care_instructions": "Wipe clean with a soft, slightly damp cloth and air dry away from direct heat.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": false,
+    "zip_closure": false,
+    "machine_washable": null,
+    "capacity_litres": null,
+    "use_cases": [
+      "Brunch"
+    ],
+    "closure": "buckle",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": "Brushed gold-tone"
+  },
+  "content_sha256": "f58a76aa305b2baefdd7987e4aee392b95e01042a1aacdb4e352976dffcc81fd"
+}

@@ -1,0 +1,85 @@
+ABC Fashion - Live Product and Requested-Size Stock Check
+
+
+Test reference: LIVE-STOCK-01
+Related tasks: 7 and 25
+Execution date/time: Not recorded in the captured output
+Environment: Shared Supabase project
+Method: Read-only SQL query against underlying catalogue tables
+Result: PASS for the five sampled products
+
+Purpose
+
+Check that sampled products exist, are active and available, stay within
+the specified maximum price, and have positive stock in the requested size.
+
+Data sources
+
+public.products
+public.categories
+public.product_sizes
+public.sizes
+
+The query read the underlying tables rather than relying on the
+application's filtering functions or the product_catalog view.
+No database records were changed.
+
+Expected result
+
+Each product is found, active and available.
+Its price is within the specified inclusive maximum.
+Its requested size has positive stock.
+meets_size_stock_budget is true.
+
+Actual results
+
+ID       Price AUD   Requested size   Maximum AUD   Total stock   Stock in requested size
+P1002    55.00       10               100.00        81            14
+P1003    50.00       One Size         50.00         31            31
+P1070    45.00       One Size         50.00         67            67
+P1187    50.00       One Size         50.00         55            55
+P1298    35.00       One Size         50.00         40            40
+
+Product details
+
+P1002: Lavender Co-ord Set; Clothing; Lavender
+Available sizes: 6, 8, 10, 12, 14, 16
+
+P1003: Pink Crossbody Bag; Bags; Pink
+Available sizes: One Size
+
+P1070: Lavender Envelope Clutch; Bags; Lavender
+Available sizes: One Size
+
+P1187: White Mini Clutch; Bags; White
+Available sizes: One Size
+
+P1298: Gold Mini Tote; Bags; Gold
+Available sizes: One Size
+
+All five records returned:
+product_found: true
+is_active: true
+is_available: true
+meets_size_stock_budget: true
+
+Conclusion
+
+All five sampled records passed the specified checks.
+
+P1002 had 14 units specifically in size 10. Its total stock of 81 was
+not used as a substitute for requested-size stock.
+
+P1003 and P1187 cost exactly AUD 50.00 and passed the inclusive
+maximum-price condition.
+
+Limitations
+
+This is a summary of previously captured results, not a new test run.
+The execution date and time were not captured.
+Results apply only to these five records at the time of the original check.
+P1001 and its underlying cross-sell rule were not checked by this SQL sample.
+This does not establish complete catalogue accuracy, database-access
+security, size conversions or styling quality.
+
+Related evidence: live-cross-sell-check.txt

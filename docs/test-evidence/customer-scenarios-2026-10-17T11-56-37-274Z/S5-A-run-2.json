@@ -1,0 +1,1288 @@
+{
+  "id": "S5-A",
+  "name": "Pockets justify A$25 more",
+  "repeat": 2,
+  "turns": [
+    {
+      "number": 1,
+      "message": "Does this dress have pockets?",
+      "input": {
+        "message": "Does this dress have pockets?",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": {
+            "product_id": "VA-ORIGINAL",
+            "product_name": "VA-ORIGINAL Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "price_aud": 95
+          },
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T11:58:14.802Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": null,
+        "action": "none",
+        "intent_evidence": "Does this dress have pockets?",
+        "reference": null,
+        "changes": [],
+        "question": null,
+        "continuation": false,
+        "answer": {
+          "kind": "product",
+          "topics": [
+            "general"
+          ],
+          "references": [
+            {
+              "kind": "context"
+            }
+          ],
+          "purpose": null,
+          "continuation": false
+        },
+        "styling_intent": null
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "status": "answered",
+        "action": "none",
+        "message": "VA-ORIGINAL Dress\nPockets: No",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "VA-ORIGINAL Dress — catalogue details",
+            "url": "/products/VA-ORIGINAL"
+          }
+        ],
+        "answer_product_ids": [
+          "VA-ORIGINAL"
+        ],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 4110,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": {
+            "product_id": "VA-ORIGINAL",
+            "product_name": "VA-ORIGINAL Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "price_aud": 95
+          },
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Does this dress have pockets?"
+          },
+          {
+            "role": "assistant",
+            "content": "VA-ORIGINAL Dress\nPockets: No"
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 2,
+      "message": "Compare a replacement with pockets under $150.",
+      "input": {
+        "message": "Compare a replacement with pockets under $150.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": {
+            "product_id": "VA-ORIGINAL",
+            "product_name": "VA-ORIGINAL Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "price_aud": 95
+          },
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Does this dress have pockets?"
+          },
+          {
+            "role": "assistant",
+            "content": "VA-ORIGINAL Dress\nPockets: No"
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T11:58:18.913Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": null,
+        "action": "upsell",
+        "intent_evidence": "Compare a replacement with pockets under $150",
+        "reference": {
+          "kind": "context"
+        },
+        "changes": [
+          {
+            "scope": "item",
+            "field": "max_price",
+            "operation": "set",
+            "value": 150,
+            "evidence": "under $150"
+          }
+        ],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": {
+          "external_items": [],
+          "preferences": [
+            {
+              "kind": "priority",
+              "operation": "add",
+              "value": "pockets",
+              "evidence": "pockets"
+            },
+            {
+              "kind": "requirement",
+              "operation": "add",
+              "value": "pockets",
+              "evidence": "pockets"
+            }
+          ],
+          "outfit_changes": [],
+          "offers": null,
+          "owned_categories": []
+        }
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "status": "matches",
+        "action": "upsell",
+        "message": "I've found a replacement to compare because it adds a demonstrated benefit for your request.\n\nI've kept this selection within your A$150.00 per-item limit.\n\nEach card explains the benefit, price difference and trade-offs. A higher price alone doesn't establish better quality, and choosing an alternative won't automatically remove the original from your cart.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "VA-POCKETS",
+            "product_name": "VA-POCKETS Dress",
+            "price_aud": 120,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Black",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "explanation": "Optional replacement, A$25.00 more. Benefits: Pockets.",
+            "extra_target": null,
+            "image_src": null,
+            "value_comparison": {
+              "policy_version": "stylist-commerce-v1",
+              "primary_product_id": "VA-ORIGINAL",
+              "primary_price_aud": 95,
+              "extra_cost_aud": 25,
+              "benefits": [
+                {
+                  "feature_key": "pockets",
+                  "label": "Pockets",
+                  "evidence_kind": "synthetic",
+                  "before": false,
+                  "after": true,
+                  "source_references": [
+                    "prototype:prototype-specs-v1/VA-ORIGINAL",
+                    "prototype:prototype-specs-v1/VA-POCKETS"
+                  ]
+                }
+              ],
+              "context_benefits": [],
+              "tradeoffs": [],
+              "kind": "upgrade"
+            }
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "pockets"
+          ],
+          "required_features": [
+            "pockets"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": "VA-ORIGINAL"
+      },
+      "elapsed_ms": 2900,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "pockets"
+          ],
+          "required_features": [
+            "pockets"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "VA-POCKETS",
+              "product_name": "VA-POCKETS Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 120,
+              "recommendation_context": {
+                "anchor_ids": [],
+                "primary_product_id": "VA-ORIGINAL"
+              }
+            }
+          ],
+          "comparison": {
+            "product_id": "VA-ORIGINAL",
+            "product_name": "VA-ORIGINAL Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "price_aud": 95
+          }
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Does this dress have pockets?"
+          },
+          {
+            "role": "assistant",
+            "content": "VA-ORIGINAL Dress\nPockets: No"
+          },
+          {
+            "role": "user",
+            "content": "Compare a replacement with pockets under $150."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found a replacement to compare because it adds a demonstrated benefit for your request.\n\nI've kept this selection within your A$150.00 per-item limit.\n\nEach card explains the benefit, price difference and trade-offs. A higher price alone doesn't establish better quality, and choosing an alternative won't automatically remove the original from your cart.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 3,
+      "message": "What does the extra cost give me?",
+      "input": {
+        "message": "What does the extra cost give me?",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "VA-POCKETS",
+              "product_name": "VA-POCKETS Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 120,
+              "recommendation_context": {
+                "anchor_ids": [],
+                "primary_product_id": "VA-ORIGINAL"
+              }
+            }
+          ],
+          "comparison": {
+            "product_id": "VA-ORIGINAL",
+            "product_name": "VA-ORIGINAL Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "price_aud": 95
+          }
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Does this dress have pockets?"
+          },
+          {
+            "role": "assistant",
+            "content": "VA-ORIGINAL Dress\nPockets: No"
+          },
+          {
+            "role": "user",
+            "content": "Compare a replacement with pockets under $150."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found a replacement to compare because it adds a demonstrated benefit for your request.\n\nI've kept this selection within your A$150.00 per-item limit.\n\nEach card explains the benefit, price difference and trade-offs. A higher price alone doesn't establish better quality, and choosing an alternative won't automatically remove the original from your cart.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "pockets"
+          ],
+          "required_features": [
+            "pockets"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T11:58:21.813Z",
+      "plan_source": "production shortcut",
+      "plan": {
+        "action": "none",
+        "intent_evidence": "What does the extra cost give me?",
+        "reference": null,
+        "changes": [],
+        "question": null,
+        "continuation": false,
+        "answer": {
+          "kind": "compare",
+          "topics": [
+            "price",
+            "general",
+            "recommendation"
+          ],
+          "references": [
+            {
+              "kind": "id",
+              "value": "VA-ORIGINAL"
+            },
+            {
+              "kind": "id",
+              "value": "VA-POCKETS"
+            }
+          ],
+          "purpose": null,
+          "continuation": false
+        }
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "status": "answered",
+        "action": "none",
+        "message": "VA-ORIGINAL Dress\nThe catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$95.00, it is within your A$150.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$95.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for VA-ORIGINAL Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on Sample garment length: 110 cm (varies by size)\n\nVA-POCKETS Dress\nPockets: false → true, recorded in the prototype product specifications. Original price: A$95.00; this option: A$120.00. A higher price alone does not establish quality. The catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$120.00, it is within your A$150.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$120.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for VA-POCKETS Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: Yes Adjustable straps: No Zip closure: No Fastening: slip on Sample garment length: 110 cm (varies by size)\n\nVA-ORIGINAL Dress costs A$25.00 less. A higher price alone doesn't establish better quality.\n\nChoose using the recorded differences above and your occasion, budget and size needs. I can't establish a comfort or quality winner from these records.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "VA-ORIGINAL Dress — catalogue details",
+            "url": "/products/VA-ORIGINAL"
+          },
+          {
+            "label": "VA-POCKETS Dress — catalogue details",
+            "url": "/products/VA-POCKETS"
+          }
+        ],
+        "answer_product_ids": [
+          "VA-ORIGINAL",
+          "VA-POCKETS"
+        ],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "pockets"
+          ],
+          "required_features": [
+            "pockets"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 1,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "pockets"
+          ],
+          "required_features": [
+            "pockets"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "VA-POCKETS",
+              "product_name": "VA-POCKETS Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 120,
+              "recommendation_context": {
+                "anchor_ids": [],
+                "primary_product_id": "VA-ORIGINAL"
+              }
+            }
+          ],
+          "comparison": {
+            "product_id": "VA-ORIGINAL",
+            "product_name": "VA-ORIGINAL Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "price_aud": 95
+          }
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Does this dress have pockets?"
+          },
+          {
+            "role": "assistant",
+            "content": "VA-ORIGINAL Dress\nPockets: No"
+          },
+          {
+            "role": "user",
+            "content": "Compare a replacement with pockets under $150."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found a replacement to compare because it adds a demonstrated benefit for your request.\n\nI've kept this selection within your A$150.00 per-item limit.\n\nEach card explains the benefit, price difference and trade-offs. A higher price alone doesn't establish better quality, and choosing an alternative won't automatically remove the original from your cart.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "What does the extra cost give me?"
+          },
+          {
+            "role": "assistant",
+            "content": "VA-ORIGINAL Dress\nThe catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$95.00, it is within your A$150.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$95.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for VA-ORIGINAL Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on Sample garment length: 110 cm (varies by size)\n\nVA-POCKETS Dress\nPockets: false → true, recorded in the prototype product specifications. Original price: A$95.00; this option: A$120.00. A higher price alone does not establish quality. The catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$120.00, it is within your A$150.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$120.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for VA-POCKETS Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: Yes Adjustable straps: No Zip closure: No Fastening: slip on Sample garment length: 110 cm (varies by size)\n\nVA-ORIGINAL Dress costs A$25.00 less. A higher price alone doesn't establish better quality.\n\nChoose using the recorded differences above and your occasion, budget and size needs. I can't establish a comfort or quality winner from these records."
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 4,
+      "message": "Pockets would be useful.",
+      "input": {
+        "message": "Pockets would be useful.",
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "VA-POCKETS",
+              "product_name": "VA-POCKETS Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 120,
+              "recommendation_context": {
+                "anchor_ids": [],
+                "primary_product_id": "VA-ORIGINAL"
+              }
+            }
+          ],
+          "comparison": {
+            "product_id": "VA-ORIGINAL",
+            "product_name": "VA-ORIGINAL Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "price_aud": 95
+          }
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Does this dress have pockets?"
+          },
+          {
+            "role": "assistant",
+            "content": "VA-ORIGINAL Dress\nPockets: No"
+          },
+          {
+            "role": "user",
+            "content": "Compare a replacement with pockets under $150."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found a replacement to compare because it adds a demonstrated benefit for your request.\n\nI've kept this selection within your A$150.00 per-item limit.\n\nEach card explains the benefit, price difference and trade-offs. A higher price alone doesn't establish better quality, and choosing an alternative won't automatically remove the original from your cart.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "What does the extra cost give me?"
+          },
+          {
+            "role": "assistant",
+            "content": "VA-ORIGINAL Dress\nThe catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$95.00, it is within your A$150.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$95.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for VA-ORIGINAL Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on Sample garment length: 110 cm (varies by size)\n\nVA-POCKETS Dress\nPockets: false → true, recorded in the prototype product specifications. Original price: A$95.00; this option: A$120.00. A higher price alone does not establish quality. The catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$120.00, it is within your A$150.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$120.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for VA-POCKETS Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: Yes Adjustable straps: No Zip closure: No Fastening: slip on Sample garment length: 110 cm (varies by size)\n\nVA-ORIGINAL Dress costs A$25.00 less. A higher price alone doesn't establish better quality.\n\nChoose using the recorded differences above and your occasion, budget and size needs. I can't establish a comfort or quality winner from these records."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "pockets"
+          ],
+          "required_features": [
+            "pockets"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": []
+      },
+      "began": "2026-10-17T11:58:21.814Z",
+      "plan_source": "production shortcut",
+      "plan": {
+        "action": "upsell",
+        "intent_evidence": "Pockets would be useful.",
+        "reference": {
+          "kind": "id",
+          "value": "VA-ORIGINAL"
+        },
+        "changes": [],
+        "question": null,
+        "continuation": false,
+        "styling_intent": {
+          "preferences": [
+            {
+              "kind": "priority",
+              "operation": "add",
+              "value": "pockets",
+              "evidence": "Pockets"
+            }
+          ],
+          "outfit_changes": [],
+          "offers": null,
+          "owned_categories": []
+        }
+      },
+      "reply": {
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "status": "matches",
+        "action": "upsell",
+        "message": "I've found a replacement to compare because it adds a demonstrated benefit for your request.\n\nI've kept this selection within your A$150.00 per-item limit.\n\nEach card explains the benefit, price difference and trade-offs. A higher price alone doesn't establish better quality, and choosing an alternative won't automatically remove the original from your cart.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "VA-POCKETS",
+            "product_name": "VA-POCKETS Dress",
+            "price_aud": 120,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": null,
+            "colour": "Black",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "explanation": "Optional replacement, A$25.00 more. Benefits: Pockets.",
+            "extra_target": null,
+            "image_src": null,
+            "value_comparison": {
+              "policy_version": "stylist-commerce-v1",
+              "primary_product_id": "VA-ORIGINAL",
+              "primary_price_aud": 95,
+              "extra_cost_aud": 25,
+              "benefits": [
+                {
+                  "feature_key": "pockets",
+                  "label": "Pockets",
+                  "evidence_kind": "synthetic",
+                  "before": false,
+                  "after": true,
+                  "source_references": [
+                    "prototype:prototype-specs-v1/VA-ORIGINAL",
+                    "prototype:prototype-specs-v1/VA-POCKETS"
+                  ]
+                }
+              ],
+              "context_benefits": [],
+              "tradeoffs": [],
+              "kind": "upgrade"
+            }
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "pockets"
+          ],
+          "required_features": [
+            "pockets"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": "VA-ORIGINAL"
+      },
+      "elapsed_ms": 2,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "outfit_request": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [
+            "pockets"
+          ],
+          "required_features": [
+            "pockets"
+          ],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "VA-POCKETS",
+              "product_name": "VA-POCKETS Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 120,
+              "recommendation_context": {
+                "anchor_ids": [],
+                "primary_product_id": "VA-ORIGINAL"
+              }
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "VA-POCKETS",
+                "product_name": "VA-POCKETS Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 120,
+                "recommendation_context": {
+                  "anchor_ids": [],
+                  "primary_product_id": "VA-ORIGINAL"
+                }
+              }
+            ]
+          ],
+          "comparison": {
+            "product_id": "VA-ORIGINAL",
+            "product_name": "VA-ORIGINAL Dress",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "price_aud": 95
+          }
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Compare a replacement with pockets under $150."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found a replacement to compare because it adds a demonstrated benefit for your request.\n\nI've kept this selection within your A$150.00 per-item limit.\n\nEach card explains the benefit, price difference and trade-offs. A higher price alone doesn't establish better quality, and choosing an alternative won't automatically remove the original from your cart.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "What does the extra cost give me?"
+          },
+          {
+            "role": "assistant",
+            "content": "VA-ORIGINAL Dress\nThe catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$95.00, it is within your A$150.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$95.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for VA-ORIGINAL Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on Sample garment length: 110 cm (varies by size)\n\nVA-POCKETS Dress\nPockets: false → true, recorded in the prototype product specifications. Original price: A$95.00; this option: A$120.00. A higher price alone does not establish quality. The catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Black, style: Relaxed, season: Summer. At A$120.00, it is within your A$150.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$120.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for VA-POCKETS Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: Yes Adjustable straps: No Zip closure: No Fastening: slip on Sample garment length: 110 cm (varies by size)\n\nVA-ORIGINAL Dress costs A$25.00 less. A higher price alone doesn't establish better quality.\n\nChoose using the recorded differences above and your occasion, budget and size needs. I can't establish a comfort or quality winner from these records."
+          },
+          {
+            "role": "user",
+            "content": "Pockets would be useful."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found a replacement to compare because it adds a demonstrated benefit for your request.\n\nI've kept this selection within your A$150.00 per-item limit.\n\nEach card explains the benefit, price difference and trade-offs. A higher price alone doesn't establish better quality, and choosing an alternative won't automatically remove the original from your cart.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "checks": "Pass"
+    }
+  ],
+  "started": "2026-10-17T11:58:14.802Z",
+  "result": "Pass",
+  "issues": [],
+  "finished": "2026-10-17T11:58:21.816Z"
+}

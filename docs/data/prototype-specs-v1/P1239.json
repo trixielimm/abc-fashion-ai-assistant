@@ -1,0 +1,51 @@
+{
+  "product_id": "P1239",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:17:45.678Z",
+  "identity_snapshot": {
+    "product_id": "P1239",
+    "product_name": "Navy Denim Jacket",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Denim Jacket",
+    "gender": "Women",
+    "colour": "Navy",
+    "material": "Denim",
+    "fit": "Regular",
+    "style": "Streetwear",
+    "occasion": "Travel",
+    "season": "Winter"
+  },
+  "specification": {
+    "product_id": "P1239",
+    "description": "Navy denim jacket with a regular streetwear fit, structured panel lines and practical layering coverage for winter travel.",
+    "construction_details": [
+      "Structured denim construction",
+      "Pointed collar with reinforced neckline",
+      "Button-through front",
+      "Two chest patch pockets",
+      "Adjustable buttoned cuffs"
+    ],
+    "care_instructions": "Machine wash cold inside out with similar colours; line dry and press on the reverse.",
+    "lining": false,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Travel"
+    ],
+    "closure": "button",
+    "garment_length_cm": 61,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "e25bf4c533b47d308ab3ecea78d6356040ed6ffeb30017a8aaf0860ee021c706"
+}

@@ -1,0 +1,49 @@
+{
+  "product_id": "P1203",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:19:33.949Z",
+  "identity_snapshot": {
+    "product_id": "P1203",
+    "product_name": "Brown Retro Sneakers",
+    "category": "Shoes",
+    "subcategory": "Sneakers",
+    "product_type": "Retro Sneakers",
+    "gender": "Women",
+    "colour": "Brown",
+    "material": "Canvas",
+    "fit": "Standard",
+    "style": "Streetwear",
+    "occasion": "Travel",
+    "season": "Summer"
+  },
+  "specification": {
+    "product_id": "P1203",
+    "description": "Brown canvas retro sneakers with a relaxed streetwear shape, standard fit and practical detailing for travel styling.",
+    "construction_details": [
+      "Contrast panelled canvas upper",
+      "Padded tongue and lace-up front",
+      "Flexible rubber outsole with textured tread"
+    ],
+    "care_instructions": "Remove loose dirt with a soft brush and spot-clean with a damp cloth; dry naturally away from direct heat.",
+    "lining": null,
+    "pockets": null,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": false,
+    "capacity_litres": null,
+    "use_cases": [
+      "Travel"
+    ],
+    "closure": "lace_up",
+    "garment_length_cm": null,
+    "heel_height_cm": 2.5,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": "Rubber",
+    "hardware_finish": "Antique brass"
+  },
+  "content_sha256": "c5774ea37130f3d9e4162241f8baf0aa2bf7da2f2818a391bd75d98795f2f3c8"
+}

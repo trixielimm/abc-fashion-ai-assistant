@@ -1,0 +1,101 @@
+ABC Fashion - offline regression run
+Started (UTC): 2026-10-19T03:29:42.950Z
+Node: v24.14.0; platform: darwin
+Scope: listed offline test scripts only. No live/API/browser tests.
+
+RUN: test-matching-set-budget.mjs | Tasks matching-set-budget
+PASS: The exact prompt immediately searches two groups under one A$500 total
+PASS: The reported model clarification is corrected before execution
+PASS: Mistaking the total for a per-item limit cannot bypass the combined solver
+PASS: Individually affordable pieces above the combined limit return no_match
+PASS: Pairing evidence names the actual jacket and excludes incompatible candidates
+PASS: An owned jacket is still a reference, never an A$800 new purchase
+PASS: The look summary uses the same new-pieces budget when the reference was saved earlier
+PASS: Budget-only refinement retains both requested roles and the jacket after history eviction
+PASS: Missing or ambiguous jacket asks only for the jacket and remembers the set
+PASS: A unique jacket can be resolved among a mixed shortlist
+PASS: Genuine either/or wording is not converted into buying both
+PASS: Compound qualifiers remain with the model and all component constraints are retained
+PASS: A non-shortcut model cannot omit one requested component
+PASS: Response contract rejects an inflated displayed combination
+
+14 matching-set combined-budget checks passed.
+PASS: test-matching-set-budget.mjs (exit: 0)
+
+RUN: test-category-collection-defaults.mjs | Tasks category-collection-defaults
+PASS: The exact dress prompt searches Women immediately with Work and A$200
+PASS: Skirts have the same category default, including tentative choices
+PASS: A repeated complete request overrides ordinary Men's browsing without overwriting that preference
+PASS: The exact legacy checkpoint, Men's no-match, repeated dress request recovers
+PASS: Explicit Men, Unisex and All beat category defaults
+PASS: Budget, more, more dresses and cheaper retain the current default after history eviction
+PASS: More dresses and price edits also preserve an explicit men's dress request
+PASS: Defaults remain item-specific when switching to ambiguous clothing
+PASS: Ambiguous categories and dress compounds never default to Women
+PASS: Broad formal clothing retains collection-first onboarding
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Dresses use the women's collection by default.*Men for all items.*change that shared/. Input:
+
+"Your gender request (Women) conflicts with your saved rule for all items (Men). Tell me which rule to change; I haven't removed either restriction."
+
+    at file:///Users/salvi/MQ/abc-fashion-ai-assistant/scripts/test-category-collection-defaults.mjs:132:10
+    at check (file:///Users/salvi/MQ/abc-fashion-ai-assistant/scripts/test-category-collection-defaults.mjs:28:41)
+    at file:///Users/salvi/MQ/abc-fashion-ai-assistant/scripts/test-category-collection-defaults.mjs:127:7 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: "Your gender request (Women) conflicts with your saved rule for all items (Men). Tell me which rule to change; I haven't removed either restriction.",
+  expected: /Dresses use the women's collection by default.*Men for all items.*change that shared/,
+  operator: 'match',
+  diff: 'simple'
+}
+
+Node.js v24.14.0
+FAIL: test-category-collection-defaults.mjs (exit: 1)
+
+SCRIPT SUMMARY
+PASS: test-matching-set-budget.mjs
+FAIL: test-category-collection-defaults.mjs
+NOT RUN: test-collection-first.mjs
+NOT RUN: test-product-card-presentation.mjs
+NOT RUN: test-guided-discovery.mjs
+NOT RUN: test-search-filters.mjs
+NOT RUN: test-selected-outfit-review.mjs
+NOT RUN: test-outfit-interface.mjs
+NOT RUN: test-grouped-discovery-memory.mjs
+NOT RUN: test-outfit-budget.mjs
+NOT RUN: test-customer-scenario-regressions.mjs
+NOT RUN: test-preference-validation.ts
+NOT RUN: test-recommendation-contract.ts
+NOT RUN: test-grounded-recommendation.ts
+NOT RUN: test-validation-search.mjs
+NOT RUN: test-guided-follow-ups.mjs
+NOT RUN: test-cross-sell.mjs
+NOT RUN: test-cross-sell-client.mjs
+NOT RUN: test-upsell.mjs
+NOT RUN: test-upsell-client.mjs
+NOT RUN: test-chat-request.mjs
+NOT RUN: test-optional-discovery.mjs
+NOT RUN: test-card-actions.mjs
+NOT RUN: test-cheaper-search.mjs
+NOT RUN: test-viewed-product.mjs
+NOT RUN: test-conversation-foundation.mjs
+NOT RUN: test-conversation-plan.mjs
+NOT RUN: test-conversation-search.mjs
+NOT RUN: test-plan-evidence.mjs
+NOT RUN: test-plan-recovery.mjs
+NOT RUN: test-conversation-answers.mjs
+NOT RUN: test-conversation-production.mjs
+NOT RUN: test-stylist-commerce.mjs
+NOT RUN: test-stylist-feature-import.mjs
+NOT RUN: test-product-specifications.mjs
+NOT RUN: test-stylist-telemetry.mjs
+NOT RUN: test-conversation-integration.mjs
+NOT RUN: test-shopping-presentation.mjs
+NOT RUN: test-friendly-shopping-message.mjs
+
+1/39 test scripts completed successfully.
+Finished (UTC): 2026-10-19T03:29:43.365Z
+Not covered by this run: live stock, browser journeys, security audit, acceptance testing.

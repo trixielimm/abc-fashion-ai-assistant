@@ -1,0 +1,365 @@
+- scrollbar "Page scroll"
+- banner:
+  - link "ABC Fashion":
+    - /url: /
+    - generic: ABC Fashion
+  - link "Bag, 0 items":
+    - /url: /cart
+  - button "Open menu":
+  - search "Product search":
+    - button "Search products":
+    - searchbox "Search"
+- main:
+  - img "Model in a long wool coat"
+  - paragraph: VOLUME
+  - paragraph: One
+  - paragraph: Autumn | Winter 2024
+  - heading "Refined Simplicity in Every Thread." [level=1]
+  - paragraph: For those who believe that true style is found in the details and in the quality of materials.
+  - link "Shop New Arrivals →":
+    - /url: "#this-season"
+  - link "See more":
+    - /url: "#featured-categories"
+  - paragraph: Featured Categories
+  - link "Shop all →":
+    - /url: "#this-season"
+  - link:
+    - /url: "#this-season"
+    - article:
+      - img "The Essentials"
+      - paragraph: The Essentials
+      - heading "The Essentials" [level=3]
+      - paragraph: Timeless wardrobe foundations designed for effortless everyday dressing.
+      - generic: See more →
+  - link:
+    - /url: "#this-season"
+    - article:
+      - img "Accessories"
+      - paragraph: Accessories
+      - heading "Accessories" [level=3]
+      - paragraph: Considered finishing pieces that bring character and refinement to every look.
+      - generic: See more →
+  - link:
+    - /url: "#this-season"
+    - article:
+      - img "Outerwear"
+      - paragraph: Outerwear
+      - heading "Outerwear" [level=3]
+      - paragraph: Structured layers designed to balance warmth, form and understated elegance.
+      - generic: See more →
+  - paragraph: This Season
+  - button "Previous products":
+  - button "Next products":
+  - link:
+    - /url: /products/silk-blend-blouse
+    - article:
+      - img "Silk Blend Blouse"
+      - heading "Silk Blend Blouse" [level=3]
+      - paragraph: $129.00
+  - link:
+    - /url: /products/tailored-trouser
+    - article:
+      - img "Tailored Trouser"
+      - heading "Tailored Trouser" [level=3]
+      - paragraph: $159.00
+  - link:
+    - /url: /products/silver-chain
+    - article:
+      - img "Silver Chain, Long Drop"
+      - heading "Silver Chain, Long Drop" [level=3]
+      - paragraph: $79.00
+  - link:
+    - /url: /products/structured-blazer
+    - article:
+      - img "Structured Blazer"
+      - heading "Structured Blazer" [level=3]
+      - paragraph: $289.00
+  - link:
+    - /url: /products/leather-jacket
+    - article:
+      - img "Leather Biker Jacket"
+      - heading "Leather Biker Jacket" [level=3]
+      - paragraph: $349.00
+  - link:
+    - /url: /products/work-shirt
+    - article:
+      - img "Relaxed Work Shirt"
+      - heading "Relaxed Work Shirt" [level=3]
+      - paragraph: $119.00
+  - paragraph: Campaign 04
+  - heading "The Modernist Dialogue" [level=2]
+  - paragraph: A conversation between architecture and attire. Our latest campaign explores the intersection of sculpted forms and fluid silhouettes, captured in the heart of Copenhagen's modernist landscape.
+  - link "Read the story →":
+    - /url: "#"
+  - img "Campaign models photographed against concrete architecture"
+  - paragraph: Stay informed
+  - paragraph: Join us on our journey for early access to new collections and exclusive offers for members.
+  - generic: Email address
+  - textbox "Email address":
+    - /placeholder: EMAIL ADDRESS
+  - button "Subscribe"
+- contentinfo:
+  - paragraph:
+    - text: ABC Fashion
+  - paragraph:
+    - text: Copenhagen & Stockholm
+    - text: London / Paris / New York
+  - paragraph: On Instagram
+  - link "Neutral knitwear on a rail":
+    - /url: "#"
+    - img "Neutral knitwear on a rail"
+  - link "Stacked denim":
+    - /url: "#"
+    - img "Stacked denim"
+  - link "Jackets on a chrome rail":
+    - /url: "#"
+    - img "Jackets on a chrome rail"
+  - link "Black leather jacket":
+    - /url: "#"
+    - img "Black leather jacket"
+  - paragraph: Our Department
+  - list:
+    - link "Women's Collection":
+      - /url: /#this-season
+    - link "Men's Collection":
+      - /url: /#this-season
+    - link "Accessories":
+      - /url: /#featured-categories
+  - paragraph: Connect
+  - list:
+    - link "Shipping":
+      - /url: "#"
+    - link "AI Stylist Privacy":
+      - /url: /terms-of-service#privacy
+    - link "Contact Us":
+      - /url: "#"
+  - list:
+    - link "Instagram":
+      - /url: "#"
+    - link "Facebook":
+      - /url: "#"
+    - link "Pinterest":
+      - /url: "#"
+  - paragraph: © 2026 ABC Fashion Inc. All rights reserved.
+  - paragraph: Prototype store — sample products and AI-generated specifications.
+  - paragraph:
+    - link "AI Terms":
+      - /url: /terms-of-service
+    - link "AI Privacy":
+      - /url: /terms-of-service#privacy
+    - link "Cookies":
+      - /url: "#"
+- navigation "Primary mobile":
+  - list:
+    - link "Home":
+      - /url: /
+      - generic: Home
+    - link "Shop":
+      - /url: /search
+      - generic: Shop
+    - button "Stylist":
+      - generic: Stylist
+    - link "Bag, 0 items":
+      - /url: /cart
+      - generic: Bag
+    - button "Account coming soon" [disabled]:
+      - generic: Soon
+      - generic: Account
+- dialog "AI Stylist":
+  - banner:
+    - generic: ABC
+    - paragraph: Personal shopping
+    - heading "AI Stylist" [level=2]
+    - button "New chat"
+    - button "Close AI Stylist":
+  - complementary "Your look":
+    - strong: Your look
+    - generic: 0 items
+    - status: Choose one item from each group.
+    - strong: A$0.00 total
+    - generic: A$400.00 remaining
+    - button "View look":
+      - text: View look
+      - generic: ⌄
+  - log:
+    - generic: You
+    - paragraph: I need a dress, shoes and bag for a formal event, A$400 total.
+    - generic: AI Stylist
+    - paragraph:
+      - text: I’d start with the
+      - strong: Sage Midi Dress, Red Block Heels and Silver Envelope Clutch
+      - text: . Together, they come to
+      - strong: A$245.00 total
+      - text: ", leaving A$155.00 of your A$400.00 budget. You can also mix and match one item from each group below."
+    - generic "Why this pairing?"
+    - generic "Combined outfit budget":
+      - strong: A$185.00–A$360.00
+      - text: combined
+      - text: Within your
+      - strong: A$400.00
+      - text: budget
+    - region "Dresses options":
+      - heading "Dresses" [level=3]
+      - generic: 3 options
+      - generic: 1–3 of 3
+      - button "Previous products" [disabled]:
+      - button "Next products":
+      - list "Dresses options":
+        - article:
+          - link "View Cream Slip Dress":
+            - /url: /products/P1021
+            - img "Cream Slip Dress"
+          - link "Cream Slip Dress":
+            - /url: /products/P1021
+          - paragraph: A$75.00
+          - paragraph: ABC Occasion · Cream
+          - paragraph: Listed for formal occasions.
+          - button "More options for Cream Slip Dress":
+            - generic: ···
+          - 'button "Save to look: Cream Slip Dress"': Save to look
+          - button "Add to cart"
+        - article:
+          - link "View Sage Midi Dress":
+            - /url: /products/P1235
+            - img "Sage Midi Dress"
+          - paragraph: Suggested pairing
+          - link "Sage Midi Dress":
+            - /url: /products/P1235
+          - paragraph: A$135.00
+          - paragraph: ABC Occasion · Sage
+          - paragraph: Listed for formal occasions.
+          - button "More options for Sage Midi Dress":
+            - generic: ···
+          - 'button "Save to look: Sage Midi Dress"': Save to look
+          - button "Add to cart"
+        - article:
+          - link "View Pink Mini Dress":
+            - /url: /products/P1214
+            - img "Pink Mini Dress"
+          - link "Pink Mini Dress":
+            - /url: /products/P1214
+          - paragraph: A$160.00
+          - paragraph: ABC Occasion · Pink
+          - paragraph: Listed for formal occasions.
+          - button "More options for Pink Mini Dress":
+            - generic: ···
+          - paragraph: A shorter option for cocktail-style events; check the invitation’s dress code.
+          - 'button "Save to look: Pink Mini Dress"': Save to look
+          - button "Add to cart"
+    - region "Shoes options":
+      - heading "Shoes" [level=3]
+      - generic: 4 options
+      - generic: 1–3 of 4
+      - button "Previous products" [disabled]:
+      - button "Next products":
+      - list "Shoes options":
+        - article:
+          - link "View Red Block Heels":
+            - /url: /products/P1085
+            - img "Red Block Heels"
+          - paragraph: Suggested pairing
+          - link "Red Block Heels":
+            - /url: /products/P1085
+          - paragraph: A$60.00
+          - paragraph: ABC Footwear · Red
+          - paragraph: Listed for formal occasions.
+          - button "More options for Red Block Heels":
+            - generic: ···
+          - 'button "Save to look: Red Block Heels"': Save to look
+          - button "Add to cart"
+        - article:
+          - link "View Grey Loafers":
+            - /url: /products/P1212
+            - img "Grey Loafers"
+          - link "Grey Loafers":
+            - /url: /products/P1212
+          - paragraph: A$90.00
+          - paragraph: ABC Footwear · Grey
+          - paragraph: Listed for formal occasions.
+          - button "More options for Grey Loafers":
+            - generic: ···
+          - paragraph: A tailored flat option for dinner settings; check whether the event calls for dressier footwear.
+          - 'button "Save to look: Grey Loafers"': Save to look
+          - button "Add to cart"
+        - article:
+          - link "View Blue Strappy Heels":
+            - /url: /products/P1138
+            - generic: ABC
+            - generic: Photo unavailable
+          - link "Blue Strappy Heels":
+            - /url: /products/P1138
+          - paragraph: A$145.00
+          - paragraph: ABC Footwear · Blue
+          - paragraph: Listed for formal occasions.
+          - button "More options for Blue Strappy Heels":
+            - generic: ···
+          - 'button "Save to look: Blue Strappy Heels"': Save to look
+          - button "Add to cart"
+        - article:
+          - link "View Sage Loafers":
+            - /url: /products/P1150
+            - generic: ABC
+            - generic: Photo unavailable
+          - link "Sage Loafers":
+            - /url: /products/P1150
+          - paragraph: A$105.00
+          - paragraph: ABC Footwear · Sage
+          - paragraph: Listed for formal occasions.
+          - button "More options for Sage Loafers":
+            - generic: ···
+          - paragraph: A tailored flat option for dinner settings; check whether the event calls for dressier footwear.
+          - 'button "Save to look: Sage Loafers"': Save to look
+          - button "Add to cart"
+    - region "Bags options":
+      - heading "Bags" [level=3]
+      - generic: 2 options
+      - list "Bags options":
+        - article:
+          - link "View Silver Envelope Clutch":
+            - /url: /products/P1167
+            - generic: ABC
+            - generic: Photo unavailable
+          - paragraph: Suggested pairing
+          - link "Silver Envelope Clutch":
+            - /url: /products/P1167
+          - paragraph: A$50.00
+          - paragraph: ABC Accessories · Silver · One Size
+          - paragraph: Listed for formal occasions.
+          - button "More options for Silver Envelope Clutch":
+            - generic: ···
+          - 'button "Save to look: Silver Envelope Clutch"': Save to look
+          - button "Add to cart"
+        - article:
+          - link "View Gold Sling Bag":
+            - /url: /products/P1240
+            - img "Gold Sling Bag"
+          - link "Gold Sling Bag":
+            - /url: /products/P1240
+          - paragraph: A$55.00
+          - paragraph: ABC Accessories · Gold · One Size
+          - paragraph: Listed for formal occasions.
+          - button "More options for Gold Sling Bag":
+            - generic: ···
+          - 'button "Save to look: Gold Sling Bag"': Save to look
+          - button "Add to cart"
+    - generic: You
+    - paragraph: Would the Sage Midi Dress, Red Block Heels and Silver Envelope Clutch work together? What is their total?
+    - generic: AI Stylist
+    - paragraph: "Sage Midi Dress: A$135.00 Red Block Heels: A$60.00 Silver Envelope Clutch: A$50.00 The new purchase total is A$245.00. That leaves A$155.00 of your A$400.00 combined budget. Delivery and discounts are not included. 1. Things that work Looking at the named Sage Midi Dress, Red Block Heels and Silver Envelope Clutch: The Sage, Red and Silver palette includes a neutral, which can help balance the other colours. The pieces share the recorded Formal occasion, so their intended setting is consistent. The items to buy total A$245.00, leaving A$155.00 of your A$400.00 combined budget. 2. Things to consider The style labels differ (Relaxed, Contemporary and Romantic). Mixing them can be intentional, but check the overall balance when you try the pieces together. Think about how much standing or walking the event involves before committing to the heels. 3. Things I can’t assess I can’t assess the weather or temperature at your event, your measurements and actual fit, comfort, or the exact shades and drape of these pieces together. Catalogue colour and season labels don’t establish those details."
+    - paragraph:
+      - text: "Sources:"
+      - 'link "Sage Midi Dress: catalogue details"':
+        - /url: /products/P1235
+      - text: ·
+      - 'link "Red Block Heels: catalogue details"':
+        - /url: /products/P1085
+      - text: ·
+      - 'link "Silver Envelope Clutch: catalogue details"':
+        - /url: /products/P1167
+  - textbox "Message your stylist" [active]:
+    - /placeholder: What can I help you find?
+  - button "Send message" [disabled]: Send
+  - generic: Messages may be sent to OpenAI.
+  - generic "Privacy & details"
+- button "Open Next.js Dev Tools":
+- alert

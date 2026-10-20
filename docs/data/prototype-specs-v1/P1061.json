@@ -1,0 +1,54 @@
+{
+  "product_id": "P1061",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:18:30.452Z",
+  "identity_snapshot": {
+    "product_id": "P1061",
+    "product_name": "Silver Crossbody Bag",
+    "category": "Bags",
+    "subcategory": "Crossbody",
+    "product_type": "Crossbody Bag",
+    "gender": "Women",
+    "colour": "Silver",
+    "material": "Canvas",
+    "fit": "Standard",
+    "style": "Romantic",
+    "occasion": "Formal",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1061",
+    "description": "Romantic silver canvas crossbody bag with a softly structured profile, suited to formal styling. Standard shape with a neat everyday footprint and understated polished hardware.",
+    "construction_details": [
+      "Reinforced crossbody strap attachment points",
+      "Bound internal seams for a clean finish",
+      "Slim top zip fastening with a compact gusset"
+    ],
+    "care_instructions": "Spot clean gently with a damp cloth; do not soak. Store stuffed lightly in a dust bag away from direct sunlight.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": true,
+    "zip_closure": true,
+    "machine_washable": false,
+    "capacity_litres": 1.6,
+    "use_cases": [
+      "Formal",
+      "Evening"
+    ],
+    "closure": "zip",
+    "garment_length_cm": null,
+    "heel_height_cm": null,
+    "dimensions_cm": {
+      "width": 23,
+      "height": 16,
+      "depth": 5
+    },
+    "strap_drop_cm": 58,
+    "compartments": 2,
+    "sole_material": null,
+    "hardware_finish": "polished silver-tone"
+  },
+  "content_sha256": "565b97f23347ca220729f4402851fdeeaabf57cba80fb2caacb0293a908e89b5"
+}

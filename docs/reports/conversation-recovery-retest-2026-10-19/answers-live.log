@@ -1,0 +1,3 @@
+FAIL: live setup: fetch failed
+
+0 live requests passed; 1 failed scenarios. Evidence: /Users/salvi/MQ/abc-fashion-ai-assistant/docs/test-evidence/answers-live-2026-10-19T07-30-32-224Z.json

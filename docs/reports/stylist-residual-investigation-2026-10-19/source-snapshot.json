@@ -1,0 +1,16 @@
+{
+  "recorded_at": "2026-10-19T04:53:54.750215+00:00",
+  "source_sha256": {
+    "lib/ai/interpretConversation.ts": "ac1a57ac4b035a07d5dbe74bd86902a593709088b57abbf23adb29350b8917cc",
+    "lib/ai/conversationModelPlan.ts": "86eb79c9bd03072f39d4a82f6fcc323cc978632a69295a858d79e93641905a32",
+    "lib/stylist/conversationPlan.ts": "4c0ce21981967ab0a2c017019e9113afa25194aa0fac42ecf03d313f7e81b79c",
+    "lib/stylist/conversationGrounding.ts": "b85efeb9ee7e2e55f01e99114c354fe08f2b995d6072f82ccfe1586cf99c3c2b",
+    "lib/stylist/conversationTurn.ts": "6cd0239f9e95ba36d23f32560447de6e13ad4a59f8e7a433377701cbba21f042",
+    "lib/stylist/collectionPreference.ts": "e92a014085277a2c0d3f5583abcc66b433a3f20a705724afa440522ce8aa9bd9",
+    "lib/stylist/taskState.ts": "d0e36d3912a4b159b3f4f961fd9bb29b5bcc99b84f4e9a6737ac47088f6474e3",
+    "lib/search/preferenceSearch.ts": "b1cac1a44cdd0afa22c1c227230191edfaf6ceae38b6bc827bab5307c6e5e9b9",
+    "components/stylist/OutfitGuidance.tsx": "f50da0649ccad5bdf92c4d7df7f249591809508d1f31789df032d07e09422a80"
+  },
+  "application_changes_made": false,
+  "current_source_matches_prior_report_fingerprints": true
+}

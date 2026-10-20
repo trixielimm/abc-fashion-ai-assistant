@@ -1,0 +1,78 @@
+Browser tab: 4, Title: "ABC Fashion", URL: "http://127.0.0.1:3002/".
+1 AXWebArea ABC Fashion, URL: 127.0.0.1:3002/
+	2 container AI Stylist
+		3 container
+			4 text PERSONAL SHOPPING
+			5 heading AI Stylist, Value: 2
+				6 text AI Stylist
+			7 button New chat
+			8 button Close AI Stylist
+		9 container
+			26 text YOU I want a dress and shoes for formal events, my budget for both of them is 400 aud AI STYLIST Here are choices for dresses and shoes. Choose one item from each group; every displayed combination stays within your A$400.00 combined budget. Combinations range from A$135.00 to A$305.00. Choose one from each group · A$ 400.00  total budget  ·  Displayed combinations A$ 135.00 –A$ 305.00
+			27 heading Dresses 3 options, Value: 3
+				28 text Dresses options
+			29 container Dresses options
+				30 text 3  pieces
+				31 content list Dresses options
+					32 container
+						33 link Description: View Cream Slip Dress, Value: 127.0.0.1:3002/products/P1021
+						34 link Description: Cream Slip Dress, Value: 127.0.0.1:3002/products/P1021
+						35 text ABC Occasion A$75.00 Colour:  Cream
+						36 button ADD TO CART
+						37 button Keep for my outfit
+						38 button I already own this
+						39 button Skip this item
+					40 container
+						41 link Description: View Sage Midi Dress, Value: 127.0.0.1:3002/products/P1235
+						42 link Description: Sage Midi Dress, Value: 127.0.0.1:3002/products/P1235
+						43 text ABC Occasion A$135.00 Colour:  Sage
+						44 button ADD TO CART
+						45 button Keep for my outfit
+						46 button I already own this
+						47 button Skip this item
+					48 container
+						49 link Description: View Pink Mini Dress, Value: 127.0.0.1:3002/products/P1214
+						50 link Description: Pink Mini Dress, Value: 127.0.0.1:3002/products/P1214
+						51 text ABC Occasion A$160.00 Colour:  Pink
+						52 button ADD TO CART
+						53 button Keep for my outfit
+						54 button I already own this
+						55 button Skip this item
+			56 heading Shoes 3 options, Value: 3
+				57 text Shoes options
+			58 container Shoes options
+				59 text 3  pieces
+				60 content list Shoes options
+					61 container
+						62 link Description: View Red Block Heels, Value: 127.0.0.1:3002/products/P1085
+						63 link Description: Red Block Heels, Value: 127.0.0.1:3002/products/P1085
+						64 text ABC Footwear A$60.00 Colour:  Red
+						65 button ADD TO CART
+						66 button Keep for my outfit
+						67 button I already own this
+						68 button Skip this item
+					69 container
+						70 link Description: View Grey Loafers, Value: 127.0.0.1:3002/products/P1212
+						71 link Description: Grey Loafers, Value: 127.0.0.1:3002/products/P1212
+						72 text ABC Footwear A$90.00 Colour:  Grey
+						73 button ADD TO CART
+						74 button Keep for my outfit
+						75 button I already own this
+						76 button Skip this item
+					77 container
+						78 link Description: View Blue Strappy Heels, Value: 127.0.0.1:3002/products/P1138
+						79 link Description: Blue Strappy Heels, Value: 127.0.0.1:3002/products/P1138
+						80 text ABC Footwear A$145.00 Colour:  Blue
+						81 button ADD TO CART
+						82 button Keep for my outfit
+						83 button I already own this
+						84 button Skip this item
+			85 text Would you like a particular dress style or colour? Do you have a preferred shoe style or heel height? You can also keep browsing these options.
+		20 container
+			21 text entry area (settable) Message your stylist
+			22 button (disabled) SEND
+		23 text Messages may be sent to OpenAI.
+		24 button (collapsed) Privacy & details, Secondary Actions: Expand
+			25 text Privacy & details
+
+The focused UI element is 21 text entry area (settable) Message your stylist

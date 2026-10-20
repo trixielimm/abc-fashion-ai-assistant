@@ -1,0 +1,51 @@
+{
+  "product_id": "P1082",
+  "source_kind": "synthetic",
+  "dataset_version": "prototype-specs-v1",
+  "generator_model": "gpt-5.6-luna",
+  "generated_at": "2026-10-17T03:16:35.748Z",
+  "identity_snapshot": {
+    "product_id": "P1082",
+    "product_name": "Beige Trench Coat",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "product_type": "Trench Coat",
+    "gender": "Men",
+    "colour": "Beige",
+    "material": "Polyester",
+    "fit": "Relaxed",
+    "style": "Romantic",
+    "occasion": "Casual",
+    "season": "All Season"
+  },
+  "specification": {
+    "product_id": "P1082",
+    "description": "Beige polyester trench coat with a romantic finish, relaxed proportions and an easy all-season layer for casual dressing.",
+    "construction_details": [
+      "Single-breasted button front",
+      "Wide collar with shoulder epaulettes",
+      "Adjustable sleeve tabs",
+      "Back yoke and centre vent",
+      "Side welt pockets"
+    ],
+    "care_instructions": "Cold gentle machine wash with similar colours; reshape and air dry. Do not tumble dry.",
+    "lining": true,
+    "pockets": true,
+    "adjustable_strap": null,
+    "zip_closure": false,
+    "machine_washable": true,
+    "capacity_litres": null,
+    "use_cases": [
+      "Casual"
+    ],
+    "closure": "button",
+    "garment_length_cm": 105,
+    "heel_height_cm": null,
+    "dimensions_cm": null,
+    "strap_drop_cm": null,
+    "compartments": null,
+    "sole_material": null,
+    "hardware_finish": null
+  },
+  "content_sha256": "526e8a8e4a68b2b5251e6585cc8fe3d9f045c714e5cf33afb371ad7d833146f6"
+}
