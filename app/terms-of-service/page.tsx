@@ -111,7 +111,11 @@ export default function TermsOfServicePage() {
               preferences, and saved look remain in memory during the current
               page session; they are not saved as an account chat history.
               Closing and reopening the chat keeps that session. New chat or
-              reloading the page clears it. The shopping bag is stored
+              reloading the page clears the conversation and saved look.
+              Where browser storage is available, whether optional suggestions
+              have been shown, hidden, or paused is kept in this tab across
+              reloads. These settings do not include messages or product IDs;
+              New chat clears them. The shopping bag is stored
               separately in this browser and is not cleared by New chat.
             </p>
             <p>

@@ -17,4 +17,6 @@ export const footerHelpLinks = [
   { label: "Sizes & fit", href: "/help#sizes-fit" },
   { label: "Orders & delivery", href: "/help#orders" },
   { label: "Using the AI Stylist", href: "/help#ai-stylist" },
+  { label: "Recommendations & extras", href: "/help#recommendations" },
+  { label: "Your look & budget", href: "/help#your-look" },
 ] as const;
