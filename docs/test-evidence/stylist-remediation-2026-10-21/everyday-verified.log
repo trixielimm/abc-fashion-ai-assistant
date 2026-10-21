@@ -1,0 +1,44 @@
+everyday: 10 journeys, 10 trials. Live cases call the configured model and catalogue.
+RUN J01 v1-run1: Direct dress search and material question
+  Turn 1: AUTO_PASS (6207ms)
+  Turn 2: AUTO_PASS (3150ms)
+AUTO_PASS: J01 v1-run1
+RUN J02 v1-run1: Guided beach wedding shopping
+  Turn 1: AUTO_PASS (6527ms)
+  Turn 2: BLOCKED_CATALOGUE (5907ms) Need 1 eligible products, but received 0 (no_match). Inspect the catalogue to distinguish stock limits from a search bug.
+BLOCKED_CATALOGUE: J02 v1-run1
+RUN J03 v1-run1: Discovery from uncertainty
+  Turn 1: AUTO_PASS (2349ms)
+  Turn 2: AUTO_PASS (6892ms)
+  Turn 3: AUTO_PASS (8110ms)
+AUTO_PASS: J03 v1-run1
+RUN J16 v1-run1: Colour edit preserves size and budget
+  Turn 1: BLOCKED_CATALOGUE (7453ms) Need 1 eligible products, but received 0 (no_match). Inspect the catalogue to distinguish stock limits from a search bug.
+BLOCKED_CATALOGUE: J16 v1-run1
+RUN J17 v1-run1: Budget edit preserves item and occasion
+  Turn 1: AUTO_PASS (7114ms)
+  Turn 2: AUTO_PASS (5558ms)
+AUTO_PASS: J17 v1-run1
+RUN J18 v1-run1: Shoe size correction after invalid input
+  Turn 1: AUTO_PASS (7395ms)
+  Turn 2: AUTO_PASS (5330ms)
+AUTO_PASS: J18 v1-run1
+RUN J19 v1-run1: Reject an item permanently within the chat
+  Turn 1: AUTO_PASS (5532ms)
+  Turn 2: AUTO_PASS (3016ms)
+  Turn 3: AUTO_PASS (6773ms)
+AUTO_PASS: J19 v1-run1
+RUN J26 v1-run1: Dress and shoes share one total
+  Turn 1: AUTO_PASS (8003ms)
+  Turn 2: AUTO_PASS (6809ms)
+AUTO_PASS: J26 v1-run1
+RUN J31 v1-run1: Style an external owned garment
+  Turn 1: AUTO_PASS (6636ms)
+  Turn 2: AUTO_PASS (13426ms)
+AUTO_PASS: J31 v1-run1
+RUN J38 v1-run1: Strict no-match keeps every limit
+  Turn 1: AUTO_PASS (6758ms)
+  Turn 2: AUTO_PASS (5784ms)
+AUTO_PASS: J38 v1-run1
+Results: {"AUTO_PASS":8,"FAIL":0,"ERROR":0,"BLOCKED_CATALOGUE":2}. Human reviews pending: 10.
+Evidence: /Users/salvi/MQ/abc-fashion-ai-assistant/docs/test-evidence/stylist-journeys/2026-10-21-remediation-everyday-verified

@@ -1,0 +1,1548 @@
+{
+  "id": "J03",
+  "name": "Discovery from uncertainty",
+  "mode": "live",
+  "variant": 1,
+  "status": "AUTO_PASS",
+  "human_review": "PENDING",
+  "review": [
+    "Check that the answers are useful and address every part of the request."
+  ],
+  "expected": "Help the customer choose a direction without inventing size or budget.",
+  "turns": [
+    {
+      "number": 1,
+      "checks": [
+        {
+          "path": "state.scopes.item.category",
+          "op": "eq",
+          "value": null
+        },
+        {
+          "path": "state.scopes.item.size",
+          "op": "eq",
+          "value": null
+        },
+        {
+          "path": "state.scopes.item.max_price",
+          "op": "eq",
+          "value": null
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "I don't know what I want. Help me choose.",
+      "request": {
+        "request_id": "addac08b-a536-43d6-983c-3a54775caadb",
+        "retry": false,
+        "turn": {
+          "message": "I don't know what I want. Help me choose.",
+          "collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": []
+          },
+          "history": [],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "complementary_shown": false,
+            "complementary_dismissed": false,
+            "prepared_key": "",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "12q98sc",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "no_action",
+        "action": "discover",
+        "discovery": {
+          "stage": "collection",
+          "asked": [
+            "collection"
+          ],
+          "skipped": [],
+          "seen_product_ids": []
+        },
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": {
+            "action": "discover",
+            "discovery_intent": "start"
+          }
+        },
+        "suggested_replies": [
+          {
+            "label": "Men's",
+            "message": "Men's, please."
+          },
+          {
+            "label": "Women's",
+            "message": "Women's, please."
+          },
+          {
+            "label": "Both / no preference",
+            "message": "Both collections, please."
+          }
+        ],
+        "message": "Sure. Would you like men's clothing, women's clothing, or both?",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": {
+          "stage": "collection",
+          "asked": [
+            "collection"
+          ],
+          "skipped": [],
+          "seen_product_ids": []
+        },
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": {
+            "action": "discover",
+            "discovery_intent": "start"
+          }
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "12q98sc",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I don't know what I want. Help me choose."
+          },
+          {
+            "role": "assistant",
+            "content": "Sure. Would you like men's clothing, women's clothing, or both?"
+          }
+        ]
+      },
+      "elapsed_ms": 2673
+    },
+    {
+      "number": 2,
+      "checks": [
+        {
+          "path": "state.collection.choice",
+          "op": "eq",
+          "value": "All"
+        },
+        {
+          "path": "state.scopes.item.size",
+          "op": "eq",
+          "value": null
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "Both collections, please. Show me a mix of everyday ideas.",
+      "request": {
+        "request_id": "791ea3d7-dad9-4bc4-a15c-83d8aebc44b3",
+        "retry": false,
+        "turn": {
+          "message": "Both collections, please. Show me a mix of everyday ideas.",
+          "collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": {
+              "action": "discover",
+              "discovery_intent": "start"
+            }
+          },
+          "discovery": {
+            "stage": "collection",
+            "asked": [
+              "collection"
+            ],
+            "skipped": [],
+            "seen_product_ids": []
+          },
+          "scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": []
+          },
+          "history": [
+            {
+              "role": "user",
+              "content": "I don't know what I want. Help me choose."
+            },
+            {
+              "role": "assistant",
+              "content": "Sure. Would you like men's clothing, women's clothing, or both?"
+            }
+          ],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "complementary_shown": false,
+            "complementary_dismissed": false,
+            "prepared_key": "12q98sc",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "1yos0o1",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "matches",
+        "action": "discover",
+        "discovery": {
+          "stage": "browsing",
+          "asked": [
+            "collection"
+          ],
+          "skipped": [],
+          "seen_product_ids": [
+            "P1196",
+            "P1220",
+            "P1241",
+            "P1244",
+            "P1147"
+          ],
+          "answered": [
+            "routine"
+          ]
+        },
+        "collection": {
+          "choice": "All",
+          "current": {
+            "choice": "All",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [
+          {
+            "label": "None of these / different ideas",
+            "message": "None of these. Show me different ideas."
+          }
+        ],
+        "message": "Here are a few different ideas to react to. Nothing needs to be decided yet.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Casual",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Casual",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1196",
+            "product_name": "Black Shoulder Bag",
+            "price_aud": 140,
+            "category": "Bags",
+            "subcategory": "Handbags",
+            "product_type": "Shoulder Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Black",
+            "occasion": "Casual",
+            "style": "Relaxed",
+            "sizes_available": [
+              "One Size"
+            ],
+            "explanation": "Shoulder Bag · Colour: Black · Style: Relaxed · Occasion: Casual",
+            "unverified_requirements": [],
+            "extra_target": "Clothing",
+            "image_src": "/api/products/P1196/image"
+          },
+          {
+            "product_id": "P1220",
+            "product_name": "Olive Flat Sandals",
+            "price_aud": 120,
+            "category": "Shoes",
+            "subcategory": "Sandals",
+            "product_type": "Flat Sandals",
+            "brand_line": "ABC Footwear",
+            "colour": "Olive",
+            "occasion": "Casual",
+            "style": "Classic",
+            "sizes_available": [
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12"
+            ],
+            "explanation": "Flat Sandals · Colour: Olive · Style: Classic · Occasion: Casual",
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1220/image"
+          },
+          {
+            "product_id": "P1241",
+            "product_name": "Beige Cropped Jacket",
+            "price_aud": 210,
+            "category": "Clothing",
+            "subcategory": "Outerwear",
+            "product_type": "Cropped Jacket",
+            "brand_line": "ABC Casual",
+            "colour": "Beige",
+            "occasion": "Casual",
+            "style": "Bohemian",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "explanation": "Cropped Jacket · Colour: Beige · Style: Bohemian · Occasion: Casual",
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1241/image"
+          },
+          {
+            "product_id": "P1244",
+            "product_name": "Yellow Leather Belt",
+            "price_aud": 45,
+            "category": "Accessories",
+            "subcategory": "Belts",
+            "product_type": "Leather Belt",
+            "brand_line": "ABC Accessories",
+            "colour": "Yellow",
+            "occasion": "Smart Casual",
+            "style": "Minimalist",
+            "sizes_available": [
+              "One Size"
+            ],
+            "explanation": "Leather Belt · Colour: Yellow · Style: Minimalist · Occasion: Smart Casual",
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1244/image"
+          },
+          {
+            "product_id": "P1147",
+            "product_name": "Brown Denim Jacket",
+            "price_aud": 200,
+            "category": "Clothing",
+            "subcategory": "Outerwear",
+            "product_type": "Denim Jacket",
+            "brand_line": "ABC Essentials",
+            "colour": "Brown",
+            "occasion": "Smart Casual",
+            "style": "Streetwear",
+            "sizes_available": [
+              "XS",
+              "S",
+              "M",
+              "L",
+              "XL"
+            ],
+            "explanation": "Denim Jacket · Colour: Brown · Style: Streetwear · Occasion: Smart Casual",
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1147/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": "Which of these feels closest to something you'd wear? You can choose More like this, or describe what you'd change.",
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Casual",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": {
+          "stage": "browsing",
+          "asked": [
+            "collection"
+          ],
+          "skipped": [],
+          "seen_product_ids": [
+            "P1196",
+            "P1220",
+            "P1241",
+            "P1244",
+            "P1147"
+          ],
+          "answered": [
+            "routine"
+          ]
+        },
+        "collection": {
+          "choice": "All",
+          "current": {
+            "choice": "All",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "1yos0o1",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1196",
+              "product_name": "Black Shoulder Bag",
+              "category": "Bags",
+              "subcategory": "Handbags",
+              "product_type": "Shoulder Bag",
+              "price_aud": 140
+            },
+            {
+              "product_id": "P1220",
+              "product_name": "Olive Flat Sandals",
+              "category": "Shoes",
+              "subcategory": "Sandals",
+              "product_type": "Flat Sandals",
+              "price_aud": 120
+            },
+            {
+              "product_id": "P1241",
+              "product_name": "Beige Cropped Jacket",
+              "category": "Clothing",
+              "subcategory": "Outerwear",
+              "product_type": "Cropped Jacket",
+              "price_aud": 210
+            },
+            {
+              "product_id": "P1244",
+              "product_name": "Yellow Leather Belt",
+              "category": "Accessories",
+              "subcategory": "Belts",
+              "product_type": "Leather Belt",
+              "price_aud": 45
+            },
+            {
+              "product_id": "P1147",
+              "product_name": "Brown Denim Jacket",
+              "category": "Clothing",
+              "subcategory": "Outerwear",
+              "product_type": "Denim Jacket",
+              "price_aud": 200
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I don't know what I want. Help me choose."
+          },
+          {
+            "role": "assistant",
+            "content": "Sure. Would you like men's clothing, women's clothing, or both?"
+          },
+          {
+            "role": "user",
+            "content": "Both collections, please. Show me a mix of everyday ideas."
+          },
+          {
+            "role": "assistant",
+            "content": "Here are a few different ideas to react to. Nothing needs to be decided yet.\nWhich of these feels closest to something you'd wear? You can choose More like this, or describe what you'd change."
+          }
+        ]
+      },
+      "elapsed_ms": 6505
+    },
+    {
+      "number": 3,
+      "checks": [
+        {
+          "path": "state.scopes.item.subcategory",
+          "op": "eq",
+          "value": "Dresses"
+        },
+        {
+          "path": "state.scopes.item.max_price",
+          "op": "eq",
+          "value": 150
+        },
+        {
+          "path": "state.scopes.item.size",
+          "op": "eq",
+          "value": null
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "Show me dresses under A$150.",
+      "request": {
+        "request_id": "406107d7-3899-498e-bf42-58625aeaf161",
+        "retry": false,
+        "turn": {
+          "message": "Show me dresses under A$150.",
+          "collection": {
+            "choice": "All",
+            "current": {
+              "choice": "All",
+              "source": "explicit"
+            },
+            "checkpoint": null
+          },
+          "discovery": {
+            "stage": "browsing",
+            "asked": [
+              "collection"
+            ],
+            "skipped": [],
+            "seen_product_ids": [
+              "P1196",
+              "P1220",
+              "P1241",
+              "P1244",
+              "P1147"
+            ],
+            "answered": [
+              "routine"
+            ]
+          },
+          "scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": "Casual",
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": [
+              {
+                "product_id": "P1196",
+                "product_name": "Black Shoulder Bag",
+                "category": "Bags",
+                "subcategory": "Handbags",
+                "product_type": "Shoulder Bag",
+                "price_aud": 140
+              },
+              {
+                "product_id": "P1220",
+                "product_name": "Olive Flat Sandals",
+                "category": "Shoes",
+                "subcategory": "Sandals",
+                "product_type": "Flat Sandals",
+                "price_aud": 120
+              },
+              {
+                "product_id": "P1241",
+                "product_name": "Beige Cropped Jacket",
+                "category": "Clothing",
+                "subcategory": "Outerwear",
+                "product_type": "Cropped Jacket",
+                "price_aud": 210
+              },
+              {
+                "product_id": "P1244",
+                "product_name": "Yellow Leather Belt",
+                "category": "Accessories",
+                "subcategory": "Belts",
+                "product_type": "Leather Belt",
+                "price_aud": 45
+              },
+              {
+                "product_id": "P1147",
+                "product_name": "Brown Denim Jacket",
+                "category": "Clothing",
+                "subcategory": "Outerwear",
+                "product_type": "Denim Jacket",
+                "price_aud": 200
+              }
+            ]
+          },
+          "history": [
+            {
+              "role": "user",
+              "content": "I don't know what I want. Help me choose."
+            },
+            {
+              "role": "assistant",
+              "content": "Sure. Would you like men's clothing, women's clothing, or both?"
+            },
+            {
+              "role": "user",
+              "content": "Both collections, please. Show me a mix of everyday ideas."
+            },
+            {
+              "role": "assistant",
+              "content": "Here are a few different ideas to react to. Nothing needs to be decided yet.\nWhich of these feels closest to something you'd wear? You can choose More like this, or describe what you'd change."
+            }
+          ],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "complementary_shown": false,
+            "complementary_dismissed": false,
+            "prepared_key": "1yos0o1",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "kurb4k",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "alternatives",
+        "action": "refine",
+        "discovery": {
+          "stage": "complete",
+          "asked": [
+            "collection"
+          ],
+          "skipped": [],
+          "seen_product_ids": [
+            "P1196",
+            "P1220",
+            "P1241",
+            "P1244",
+            "P1147"
+          ],
+          "answered": [
+            "routine"
+          ]
+        },
+        "collection": {
+          "choice": "All",
+          "current": {
+            "choice": "Women",
+            "source": "category_default"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I haven't found an exact match for all the details you mentioned, but there are some alternatives you can consider.\n\nI've kept the differences visible on each card so you can decide whether any of these would work for you.\n\nThese options range from A$60.00 to A$120.00. The selection includes maxi dress, wrap dress and mini dress options. I've kept this selection within your A$150.00 per-item limit.\n\nYour original request is still saved. Exploring these options doesn't change it or add anything to your cart.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Casual",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": "Casual",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [
+          {
+            "product_id": "P1254",
+            "product_name": "Burgundy Maxi Dress",
+            "price_aud": 120,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Casual",
+            "colour": "Burgundy",
+            "occasion": "Brunch",
+            "style": "Relaxed",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1254/image",
+            "differences": [
+              "Occasion: Brunch; you requested Casual."
+            ]
+          },
+          {
+            "product_id": "P1178",
+            "product_name": "Navy Maxi Dress",
+            "price_aud": 95,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Navy",
+            "occasion": "Beach Wedding",
+            "style": "Minimalist",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1178/image",
+            "differences": [
+              "Occasion: Beach Wedding; you requested Casual."
+            ]
+          },
+          {
+            "product_id": "P1040",
+            "product_name": "Grey Wrap Dress",
+            "price_aud": 60,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Wrap Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Grey",
+            "occasion": "Party",
+            "style": "Minimalist",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1040/image",
+            "differences": [
+              "Occasion: Party; you requested Casual."
+            ]
+          },
+          {
+            "product_id": "P1132",
+            "product_name": "Sage Mini Dress",
+            "price_aud": 120,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Mini Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Sage",
+            "occasion": "Date Night",
+            "style": "Relaxed",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1132/image",
+            "differences": [
+              "Occasion: Date Night; you requested Casual."
+            ]
+          },
+          {
+            "product_id": "P1311",
+            "product_name": "Cream Maxi Dress",
+            "price_aud": 70,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Cream",
+            "occasion": "Party",
+            "style": "Elegant",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1311/image",
+            "differences": [
+              "Occasion: Party; you requested Casual."
+            ]
+          }
+        ],
+        "alternatives_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": "Casual",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "alternative_kind": "context_difference",
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Casual",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": {
+          "stage": "complete",
+          "asked": [
+            "collection"
+          ],
+          "skipped": [],
+          "seen_product_ids": [
+            "P1196",
+            "P1220",
+            "P1241",
+            "P1244",
+            "P1147"
+          ],
+          "answered": [
+            "routine"
+          ]
+        },
+        "collection": {
+          "choice": "All",
+          "current": {
+            "choice": "Women",
+            "source": "category_default"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "kurb4k",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1254",
+              "product_name": "Burgundy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 120
+            },
+            {
+              "product_id": "P1178",
+              "product_name": "Navy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 95
+            },
+            {
+              "product_id": "P1040",
+              "product_name": "Grey Wrap Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Wrap Dress",
+              "price_aud": 60
+            },
+            {
+              "product_id": "P1132",
+              "product_name": "Sage Mini Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Mini Dress",
+              "price_aud": 120
+            },
+            {
+              "product_id": "P1311",
+              "product_name": "Cream Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 70
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "P1196",
+                "product_name": "Black Shoulder Bag",
+                "category": "Bags",
+                "subcategory": "Handbags",
+                "product_type": "Shoulder Bag",
+                "price_aud": 140
+              },
+              {
+                "product_id": "P1220",
+                "product_name": "Olive Flat Sandals",
+                "category": "Shoes",
+                "subcategory": "Sandals",
+                "product_type": "Flat Sandals",
+                "price_aud": 120
+              },
+              {
+                "product_id": "P1241",
+                "product_name": "Beige Cropped Jacket",
+                "category": "Clothing",
+                "subcategory": "Outerwear",
+                "product_type": "Cropped Jacket",
+                "price_aud": 210
+              },
+              {
+                "product_id": "P1244",
+                "product_name": "Yellow Leather Belt",
+                "category": "Accessories",
+                "subcategory": "Belts",
+                "product_type": "Leather Belt",
+                "price_aud": 45
+              },
+              {
+                "product_id": "P1147",
+                "product_name": "Brown Denim Jacket",
+                "category": "Clothing",
+                "subcategory": "Outerwear",
+                "product_type": "Denim Jacket",
+                "price_aud": 200
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I don't know what I want. Help me choose."
+          },
+          {
+            "role": "assistant",
+            "content": "Sure. Would you like men's clothing, women's clothing, or both?"
+          },
+          {
+            "role": "user",
+            "content": "Both collections, please. Show me a mix of everyday ideas."
+          },
+          {
+            "role": "assistant",
+            "content": "Here are a few different ideas to react to. Nothing needs to be decided yet.\nWhich of these feels closest to something you'd wear? You can choose More like this, or describe what you'd change."
+          },
+          {
+            "role": "user",
+            "content": "Show me dresses under A$150."
+          },
+          {
+            "role": "assistant",
+            "content": "I haven't found an exact match for all the details you mentioned, but there are some alternatives you can consider.\n\nI've kept the differences visible on each card so you can decide whether any of these would work for you.\n\nThese options range from A$60.00 to A$120.00. The selection includes maxi dress, wrap dress and mini dress options. I've kept this selection within your A$150.00 per-item limit.\n\nYour original request is still saved. Exploring these options doesn't change it or add anything to your cart."
+          }
+        ]
+      },
+      "elapsed_ms": 7548
+    }
+  ],
+  "trial": "v1-run1",
+  "elapsed_ms": 16726,
+  "file": "J03-v1-run1.json"
+}

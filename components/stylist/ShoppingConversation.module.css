@@ -47,6 +47,21 @@
 .budgetSummary strong { color: var(--foreground); font-weight: 500; }
 .speaker { display: block; margin-bottom: 8px; color: var(--muted); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
 .message { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 14px; line-height: 1.7; }
+.savedRequest { flex-shrink: 0; max-height: 26vh; overflow-y: auto; border-bottom: 1px solid var(--border); background: var(--panel); padding: 10px 28px; font-size: 12px; line-height: 1.6; }
+.savedRequest summary { display: flex; align-items: baseline; gap: 12px; min-height: 32px; cursor: pointer; }
+.savedRequest summary > span:nth-child(2) { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sharedRuleCount { margin-left: auto; flex-shrink: 0; border: 1px solid var(--border); padding: 1px 6px; font-size: 10px; }
+.savedRequestLabel { flex-shrink: 0; color: var(--muted); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+.savedRequestDetails { padding: 4px 0 6px; color: var(--muted); }
+.savedRequestDetails p { margin: 6px 0; }
+.savedRequestDetails strong { color: var(--foreground); font-weight: 500; }
+.recoveryPanel { margin-top: 14px; border: 1px solid var(--border); padding: 16px 20px; background: var(--background); }
+.recoveryHeading { margin: 0 0 4px; font-size: 14px; font-weight: 600; }
+.recoveryChoices { min-width: 0; margin: 14px 0 0; padding: 0; border: 0; }
+.recoveryChoices legend { font-size: 12px; font-weight: 500; }
+.recoveryChoices .starters { margin: 8px 0; }
+.recoveryChoices .chip { min-width: 58px; }
+@media (max-width: 639px) { .savedRequest { padding-inline: 18px; } .savedRequest summary { gap: 8px; } .recoveryPanel { padding: 14px; } }
 .outfitReview .message + .message { margin-top: 18px; }
 .messageDetails { margin-top: 8px; color: var(--muted); font-size: 12px; line-height: 1.7; }
 .messageDetails summary,.privacyDetails summary { width: fit-content; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
@@ -59,6 +74,16 @@
 .notice { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
 .alternativeHeading { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin: 20px 0 0; font-family: var(--font-cormorant), Georgia, serif; font-size: 25px; font-weight: 500; }
 .alternativeHeading span { border: 1px solid var(--hairline); padding: 4px 7px; background: var(--panel); color: var(--foreground); font-family: var(--font-inter), Helvetica, Arial, sans-serif; font-size: 10px; font-weight: 400; letter-spacing: .04em; }
+
+.finishingTouches { max-width: 600px; margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--hairline); min-width: 0; }
+.finishingHeading { display: grid; gap: 8px; }
+.finishingHeading h3 { margin: 0; font-family: var(--font-cormorant), Georgia, serif; font-size: 26px; font-weight: 500; }
+.finishingPrice { margin: 2px 0 0; font-size: 12px; line-height: 1.6; }
+.finishingTouches .productRow { grid-auto-columns: minmax(190px, 220px); }
+.finishingTouches .imageFrame { aspect-ratio: 1; }
+.finishingControls { display: grid; gap: 12px; margin-top: 12px; }
+.matchAnchor { display: grid; gap: 6px; font-size: 12px; }
+.matchAnchor select { width: 100%; min-width: 0; min-height: 44px; padding: 10px; border: 1px solid var(--hairline); border-radius: 2px; background: var(--background); color: var(--foreground); font: inherit; }
 
 .results { min-width: 0; margin-top: 16px; }
 .rowToolbar { display: flex; gap: 10px; align-items: center; justify-content: space-between; margin-bottom: 12px; font-size: 11px; color: var(--muted); }

@@ -1,0 +1,49 @@
+
+> abc-fashion-ai-assistant@0.1.0 build
+> next build --webpack
+
+▲ Next.js 16.3.8 (webpack)
+- Environments: .env.local
+✓ Running next.config took 3ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 1792ms
+  Running TypeScript ...
+  Finished TypeScript in 1463ms ...
+  Collecting page data using 9 workers ...
+  Generating static pages using 9 workers (0/20) ...
+  Generating static pages using 9 workers (5/20) 
+  Generating static pages using 9 workers (10/20) 
+  Generating static pages using 9 workers (15/20) 
+✓ Generating static pages using 9 workers (20/20) in 133ms
+Landing page collection unavailable.
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ƒ /
+├ ƒ /_not-found
+├ ƒ /api/catalogue-check
+├ ƒ /api/conversation-plan
+├ ƒ /api/conversation-search
+├ ƒ /api/cross-sell
+├ ƒ /api/extraction
+├ ƒ /api/filter-check
+├ ƒ /api/products/[productId]/image
+├ ƒ /api/ranking-check
+├ ƒ /api/recommendations
+├ ƒ /api/search
+├ ƒ /api/stylist-events
+├ ƒ /api/stylist-search
+├ ƒ /api/upsell
+├ ƒ /cart
+├ ƒ /help
+├ ƒ /products/[productId]
+├ ƒ /search
+└ ƒ /terms-of-service
+
+
+ƒ Proxy (Middleware)
+
+ƒ  (Dynamic)  server-rendered on demand
+

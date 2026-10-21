@@ -1,0 +1,1672 @@
+{
+  "id": "J29",
+  "name": "Selected purchase consumes remaining budget",
+  "mode": "live",
+  "variant": 1,
+  "status": "AUTO_PASS",
+  "human_review": "PENDING",
+  "review": [
+    "Check that the answers are useful and address every part of the request."
+  ],
+  "expected": "Subtract the selected dress price before finding new shoes.",
+  "turns": [
+    {
+      "number": 1,
+      "checks": [
+        {
+          "path": "state.scopes.item.category",
+          "op": "eq",
+          "value": "Clothing"
+        },
+        {
+          "path": "state.scopes.item.subcategory",
+          "op": "eq",
+          "value": "Dresses"
+        },
+        {
+          "path": "state.scopes.item.max_price",
+          "op": "eq",
+          "value": 200
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "Show me women's dresses under A$200.",
+      "request": {
+        "request_id": "4ea933af-2342-4071-859f-6915da2231d8",
+        "retry": false,
+        "turn": {
+          "message": "Show me women's dresses under A$200.",
+          "collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": []
+          },
+          "history": [],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "prepared_key": "",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "ubbpm8",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "matches",
+        "action": "new_search",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I've found 5 clothing options for you to explore.\n\nThese options range from A$60.00 to A$170.00. The selection includes maxi dress and wrap dress options. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 200,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 200,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1254",
+            "product_name": "Burgundy Maxi Dress",
+            "price_aud": 120,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Casual",
+            "colour": "Burgundy",
+            "occasion": "Brunch",
+            "style": "Relaxed",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1254/image"
+          },
+          {
+            "product_id": "P1178",
+            "product_name": "Navy Maxi Dress",
+            "price_aud": 95,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Navy",
+            "occasion": "Beach Wedding",
+            "style": "Minimalist",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1178/image"
+          },
+          {
+            "product_id": "P1293",
+            "product_name": "Beige Maxi Dress",
+            "price_aud": 170,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Casual",
+            "colour": "Beige",
+            "occasion": "Brunch",
+            "style": "Streetwear",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1293/image"
+          },
+          {
+            "product_id": "P1040",
+            "product_name": "Grey Wrap Dress",
+            "price_aud": 60,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Wrap Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Grey",
+            "occasion": "Party",
+            "style": "Minimalist",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1040/image"
+          },
+          {
+            "product_id": "P1287",
+            "product_name": "Beige Maxi Dress",
+            "price_aud": 155,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Beige",
+            "occasion": "Date Night",
+            "style": "Minimalist",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1287/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": "What occasion are you shopping for? You can also keep browsing these options.",
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 200,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "ubbpm8",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1254",
+              "product_name": "Burgundy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 120
+            },
+            {
+              "product_id": "P1178",
+              "product_name": "Navy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 95
+            },
+            {
+              "product_id": "P1293",
+              "product_name": "Beige Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 170
+            },
+            {
+              "product_id": "P1040",
+              "product_name": "Grey Wrap Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Wrap Dress",
+              "price_aud": 60
+            },
+            {
+              "product_id": "P1287",
+              "product_name": "Beige Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 155
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me women's dresses under A$200."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 5 clothing options for you to explore.\n\nThese options range from A$60.00 to A$170.00. The selection includes maxi dress and wrap dress options. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.\nWhat occasion are you shopping for? You can also keep browsing these options."
+          }
+        ]
+      },
+      "elapsed_ms": 6019
+    },
+    {
+      "number": 2,
+      "checks": [
+        {
+          "path": "state.styling.outfit",
+          "op": "piece",
+          "value": {
+            "product_id": {
+              "ref": "bindings.dress.product_id"
+            },
+            "ownership": "selected"
+          }
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "Keep Burgundy Maxi Dress as a piece I plan to buy.",
+      "request": {
+        "request_id": "0f48c833-4737-47d7-9e00-6012a82ff9d8",
+        "retry": false,
+        "turn": {
+          "message": "Keep Burgundy Maxi Dress as a piece I plan to buy.",
+          "collection": {
+            "choice": "Women",
+            "current": {
+              "choice": "Women",
+              "source": "explicit"
+            },
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": "Women",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 200,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": [
+              {
+                "product_id": "P1254",
+                "product_name": "Burgundy Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 120
+              },
+              {
+                "product_id": "P1178",
+                "product_name": "Navy Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 95
+              },
+              {
+                "product_id": "P1293",
+                "product_name": "Beige Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 170
+              },
+              {
+                "product_id": "P1040",
+                "product_name": "Grey Wrap Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Wrap Dress",
+                "price_aud": 60
+              },
+              {
+                "product_id": "P1287",
+                "product_name": "Beige Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 155
+              }
+            ]
+          },
+          "history": [
+            {
+              "role": "user",
+              "content": "Show me women's dresses under A$200."
+            },
+            {
+              "role": "assistant",
+              "content": "I've found 5 clothing options for you to explore.\n\nThese options range from A$60.00 to A$170.00. The selection includes maxi dress and wrap dress options. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.\nWhat occasion are you shopping for? You can also keep browsing these options."
+            }
+          ],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "prepared_key": "ubbpm8",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "6tmf8w",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "no_action",
+        "action": "none",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "Updated your outfit choices and styling preferences. Your cart is unchanged.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 200,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 200,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [
+            {
+              "product_id": "P1254",
+              "product_name": "Burgundy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 120,
+              "ownership": "selected"
+            }
+          ],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 200,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [
+            {
+              "product_id": "P1254",
+              "product_name": "Burgundy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 120,
+              "ownership": "selected"
+            }
+          ],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "6tmf8w",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1254",
+              "product_name": "Burgundy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 120
+            },
+            {
+              "product_id": "P1178",
+              "product_name": "Navy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 95
+            },
+            {
+              "product_id": "P1293",
+              "product_name": "Beige Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 170
+            },
+            {
+              "product_id": "P1040",
+              "product_name": "Grey Wrap Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Wrap Dress",
+              "price_aud": 60
+            },
+            {
+              "product_id": "P1287",
+              "product_name": "Beige Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 155
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me women's dresses under A$200."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 5 clothing options for you to explore.\n\nThese options range from A$60.00 to A$170.00. The selection includes maxi dress and wrap dress options. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.\nWhat occasion are you shopping for? You can also keep browsing these options."
+          },
+          {
+            "role": "user",
+            "content": "Keep Burgundy Maxi Dress as a piece I plan to buy."
+          },
+          {
+            "role": "assistant",
+            "content": "Updated your outfit choices and styling preferences. Your cart is unchanged."
+          }
+        ]
+      },
+      "elapsed_ms": 2849
+    },
+    {
+      "number": 3,
+      "checks": [
+        {
+          "path": "reply.purchase_budget",
+          "op": "truthy",
+          "value": true
+        },
+        {
+          "path": "reply.purchase_budget.limit_aud",
+          "op": "eq",
+          "value": 400
+        },
+        {
+          "path": "state.styling.outfit",
+          "op": "piece",
+          "value": {
+            "product_id": {
+              "ref": "bindings.dress.product_id"
+            },
+            "ownership": "selected"
+          }
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "Find women's shoes to match my kept dress. A$400 is the total for the dress and new shoes together.",
+      "request": {
+        "request_id": "c5d0d106-88db-4d4e-83e2-76e1988eff5b",
+        "retry": false,
+        "turn": {
+          "message": "Find women's shoes to match my kept dress. A$400 is the total for the dress and new shoes together.",
+          "collection": {
+            "choice": "Women",
+            "current": {
+              "choice": "Women",
+              "source": "explicit"
+            },
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": "Women",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 200,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": [
+              {
+                "product_id": "P1254",
+                "product_name": "Burgundy Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 120
+              },
+              {
+                "product_id": "P1178",
+                "product_name": "Navy Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 95
+              },
+              {
+                "product_id": "P1293",
+                "product_name": "Beige Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 170
+              },
+              {
+                "product_id": "P1040",
+                "product_name": "Grey Wrap Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Wrap Dress",
+                "price_aud": 60
+              },
+              {
+                "product_id": "P1287",
+                "product_name": "Beige Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 155
+              }
+            ],
+            "selected": [
+              {
+                "product_id": "P1254",
+                "product_name": "Burgundy Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 120
+              }
+            ]
+          },
+          "history": [
+            {
+              "role": "user",
+              "content": "Show me women's dresses under A$200."
+            },
+            {
+              "role": "assistant",
+              "content": "I've found 5 clothing options for you to explore.\n\nThese options range from A$60.00 to A$170.00. The selection includes maxi dress and wrap dress options. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.\nWhat occasion are you shopping for? You can also keep browsing these options."
+            },
+            {
+              "role": "user",
+              "content": "Keep Burgundy Maxi Dress as a piece I plan to buy."
+            },
+            {
+              "role": "assistant",
+              "content": "Updated your outfit choices and styling preferences. Your cart is unchanged."
+            }
+          ],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [
+              {
+                "product_id": "P1254",
+                "product_name": "Burgundy Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 120,
+                "ownership": "selected"
+              }
+            ],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "prepared_key": "6tmf8w",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "feis2t",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 400,
+            "budget_evidence": "Find women's shoes to match my kept dress. A$400 is the total for the dress and new shoes together.",
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": {
+          "version": "purchase-v1",
+          "limit_aud": 400,
+          "fixed_total_aud": 120,
+          "remaining_aud": 280,
+          "fixed_product_ids": [
+            "P1254"
+          ],
+          "minimum_total_aud": 170,
+          "maximum_total_aud": 285
+        },
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "matches",
+        "action": "cross_sell",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "To go with Burgundy Maxi Dress, I've found 5 shoe options for you to consider.\n\nThese options range from A$50.00 to A$165.00. The selection includes flat sandals, block heels and strappy heels options. I've kept this selection within your A$280.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.\n\nYour selected purchases count as A$120.00 of the A$400.00 combined budget, leaving A$280.00 for this addition. The displayed choices bring the purchase total to A$170.00–A$285.00. Delivery and discounts are not included.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 400,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": "Shoes",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 280,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1112",
+            "product_name": "Navy Flat Sandals",
+            "price_aud": 165,
+            "category": "Shoes",
+            "subcategory": "Sandals",
+            "product_type": "Flat Sandals",
+            "brand_line": "ABC Footwear",
+            "colour": "Navy",
+            "occasion": "Brunch",
+            "style": "Romantic",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12"
+            ],
+            "explanation": "It shares the recorded Brunch occasion with Burgundy Maxi Dress. The season labels are compatible with Burgundy Maxi Dress; this does not verify weather performance. Its Romantic style differs from Burgundy Maxi Dress's Relaxed label. This is a catalogue-based styling suggestion, not a guarantee of outfit compatibility.",
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1112/image",
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [
+                "P1254"
+              ],
+              "reasons": [
+                "It shares the recorded Brunch occasion with Burgundy Maxi Dress.",
+                "The season labels are compatible with Burgundy Maxi Dress; this does not verify weather performance.",
+                "Styling suggestion: its Navy colour can act as a neutral alongside Burgundy Maxi Dress."
+              ],
+              "limitations": [
+                "Its Romantic style differs from Burgundy Maxi Dress's Relaxed label."
+              ],
+              "level": "catalogue_supported"
+            }
+          },
+          {
+            "product_id": "P1096",
+            "product_name": "Brown Block Heels",
+            "price_aud": 70,
+            "category": "Shoes",
+            "subcategory": "Heels",
+            "product_type": "Block Heels",
+            "brand_line": "ABC Footwear",
+            "colour": "Brown",
+            "occasion": "Brunch",
+            "style": "Romantic",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "explanation": "It shares the recorded Brunch occasion with Burgundy Maxi Dress. The season labels are compatible with Burgundy Maxi Dress; this does not verify weather performance. Its Romantic style differs from Burgundy Maxi Dress's Relaxed label. This is a catalogue-based styling suggestion, not a guarantee of outfit compatibility.",
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1096/image",
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [
+                "P1254"
+              ],
+              "reasons": [
+                "It shares the recorded Brunch occasion with Burgundy Maxi Dress.",
+                "The season labels are compatible with Burgundy Maxi Dress; this does not verify weather performance."
+              ],
+              "limitations": [
+                "Its Romantic style differs from Burgundy Maxi Dress's Relaxed label."
+              ],
+              "level": "catalogue_supported"
+            }
+          },
+          {
+            "product_id": "P1137",
+            "product_name": "Gold Strappy Heels",
+            "price_aud": 65,
+            "category": "Shoes",
+            "subcategory": "Heels",
+            "product_type": "Strappy Heels",
+            "brand_line": "ABC Footwear",
+            "colour": "Gold",
+            "occasion": "Brunch",
+            "style": "Elegant",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "explanation": "It shares the recorded Brunch occasion with Burgundy Maxi Dress. The season labels are compatible with Burgundy Maxi Dress; this does not verify weather performance. Its Elegant style differs from Burgundy Maxi Dress's Relaxed label. This is a catalogue-based styling suggestion, not a guarantee of outfit compatibility.",
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1137/image",
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [
+                "P1254"
+              ],
+              "reasons": [
+                "It shares the recorded Brunch occasion with Burgundy Maxi Dress.",
+                "The season labels are compatible with Burgundy Maxi Dress; this does not verify weather performance."
+              ],
+              "limitations": [
+                "Its Elegant style differs from Burgundy Maxi Dress's Relaxed label."
+              ],
+              "level": "catalogue_supported"
+            }
+          },
+          {
+            "product_id": "P1269",
+            "product_name": "Yellow Ballet Flats",
+            "price_aud": 160,
+            "category": "Shoes",
+            "subcategory": "Flats",
+            "product_type": "Ballet Flats",
+            "brand_line": "ABC Footwear",
+            "colour": "Yellow",
+            "occasion": "Brunch",
+            "style": "Bohemian",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "explanation": "It shares the recorded Brunch occasion with Burgundy Maxi Dress. The season labels are compatible with Burgundy Maxi Dress; this does not verify weather performance. Its Bohemian style differs from Burgundy Maxi Dress's Relaxed label. This is a catalogue-based styling suggestion, not a guarantee of outfit compatibility.",
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1269/image",
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [
+                "P1254"
+              ],
+              "reasons": [
+                "It shares the recorded Brunch occasion with Burgundy Maxi Dress.",
+                "The season labels are compatible with Burgundy Maxi Dress; this does not verify weather performance."
+              ],
+              "limitations": [
+                "Its Bohemian style differs from Burgundy Maxi Dress's Relaxed label."
+              ],
+              "level": "catalogue_supported"
+            }
+          },
+          {
+            "product_id": "P1106",
+            "product_name": "Cream Mules",
+            "price_aud": 50,
+            "category": "Shoes",
+            "subcategory": "Flats",
+            "product_type": "Mules",
+            "brand_line": "ABC Footwear",
+            "colour": "Cream",
+            "occasion": "Brunch",
+            "style": "Contemporary",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "explanation": "It shares the recorded Brunch occasion with Burgundy Maxi Dress. Styling suggestion: its Cream colour can act as a neutral alongside Burgundy Maxi Dress. Its Contemporary style differs from Burgundy Maxi Dress's Relaxed label. This is a catalogue-based styling suggestion, not a guarantee of outfit compatibility.",
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1106/image",
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [
+                "P1254"
+              ],
+              "reasons": [
+                "It shares the recorded Brunch occasion with Burgundy Maxi Dress.",
+                "Styling suggestion: its Cream colour can act as a neutral alongside Burgundy Maxi Dress."
+              ],
+              "limitations": [
+                "Its Contemporary style differs from Burgundy Maxi Dress's Relaxed label.",
+                "Its Spring season label differs from Burgundy Maxi Dress's Summer."
+              ],
+              "level": "catalogue_supported"
+            }
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": {
+            "limit_aud": 400,
+            "product_ids": [
+              "P1254"
+            ]
+          },
+          "outfit": [
+            {
+              "product_id": "P1254",
+              "product_name": "Burgundy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 120,
+              "ownership": "selected"
+            }
+          ],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 400,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": {
+            "limit_aud": 400,
+            "product_ids": [
+              "P1254"
+            ]
+          },
+          "outfit": [
+            {
+              "product_id": "P1254",
+              "product_name": "Burgundy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 120,
+              "ownership": "selected"
+            }
+          ],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "feis2t",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 400,
+            "budget_evidence": "Find women's shoes to match my kept dress. A$400 is the total for the dress and new shoes together.",
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1112",
+              "product_name": "Navy Flat Sandals",
+              "category": "Shoes",
+              "subcategory": "Sandals",
+              "product_type": "Flat Sandals",
+              "price_aud": 165,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "P1254"
+                ],
+                "primary_product_id": null
+              }
+            },
+            {
+              "product_id": "P1096",
+              "product_name": "Brown Block Heels",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Block Heels",
+              "price_aud": 70,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "P1254"
+                ],
+                "primary_product_id": null
+              }
+            },
+            {
+              "product_id": "P1137",
+              "product_name": "Gold Strappy Heels",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Strappy Heels",
+              "price_aud": 65,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "P1254"
+                ],
+                "primary_product_id": null
+              }
+            },
+            {
+              "product_id": "P1269",
+              "product_name": "Yellow Ballet Flats",
+              "category": "Shoes",
+              "subcategory": "Flats",
+              "product_type": "Ballet Flats",
+              "price_aud": 160,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "P1254"
+                ],
+                "primary_product_id": null
+              }
+            },
+            {
+              "product_id": "P1106",
+              "product_name": "Cream Mules",
+              "category": "Shoes",
+              "subcategory": "Flats",
+              "product_type": "Mules",
+              "price_aud": 50,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "P1254"
+                ],
+                "primary_product_id": null
+              }
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "P1254",
+                "product_name": "Burgundy Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 120
+              },
+              {
+                "product_id": "P1178",
+                "product_name": "Navy Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 95
+              },
+              {
+                "product_id": "P1293",
+                "product_name": "Beige Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 170
+              },
+              {
+                "product_id": "P1040",
+                "product_name": "Grey Wrap Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Wrap Dress",
+                "price_aud": 60
+              },
+              {
+                "product_id": "P1287",
+                "product_name": "Beige Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 155
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me women's dresses under A$200."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 5 clothing options for you to explore.\n\nThese options range from A$60.00 to A$170.00. The selection includes maxi dress and wrap dress options. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.\nWhat occasion are you shopping for? You can also keep browsing these options."
+          },
+          {
+            "role": "user",
+            "content": "Keep Burgundy Maxi Dress as a piece I plan to buy."
+          },
+          {
+            "role": "assistant",
+            "content": "Updated your outfit choices and styling preferences. Your cart is unchanged."
+          },
+          {
+            "role": "user",
+            "content": "Find women's shoes to match my kept dress. A$400 is the total for the dress and new shoes together."
+          },
+          {
+            "role": "assistant",
+            "content": "To go with Burgundy Maxi Dress, I've found 5 shoe options for you to consider.\n\nThese options range from A$50.00 to A$165.00. The selection includes flat sandals, block heels and strappy heels options. I've kept this selection within your A$280.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.\n\nYour selected purchases count as A$120.00 of the A$400.00 combined budget, leaving A$280.00 for this addition. The displayed choices bring the purchase total to A$170.00–A$285.00. Delivery and discounts are not included."
+          }
+        ]
+      },
+      "elapsed_ms": 10858
+    }
+  ],
+  "trial": "v1-run1",
+  "elapsed_ms": 19727,
+  "file": "J29-v1-run1.json"
+}

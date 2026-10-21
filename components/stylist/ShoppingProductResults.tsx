@@ -232,7 +232,7 @@ export function ShoppingProductResults({ products, preferences, preferencesByPro
   return <section className={styles.results} aria-label={label}>
     {heading || !featured ? <div className={styles.rowToolbar}>
       {heading ? <div className={styles.groupHeading}><h3>{heading}</h3><span>{products.length} {products.length === 1 ? "option" : "options"}</span></div>
-        : <span>{products.length} pieces</span>}
+        : <span>{products.length} {products.length === 1 ? "piece" : "pieces"}</span>}
       {!featured && !(edges.start && edges.end) ? <div className={styles.rowArrows}>
         <span className={styles.rowPosition}>{edges.first}–{edges.last} of {products.length}</span>
         <button type="button" aria-label="Previous products" aria-controls={id} disabled={edges.start} onClick={() => scroll(-1)}><ChevronIcon /></button>

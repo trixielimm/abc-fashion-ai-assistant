@@ -1,0 +1,1010 @@
+{
+  "id": "J52",
+  "name": "No extras followed by an explicit matching request",
+  "mode": "live",
+  "variant": 2,
+  "status": "AUTO_PASS",
+  "human_review": "PENDING",
+  "review": [
+    "Prerequisite: the bound dress has a recorded complementary category and eligible matching stock.",
+    "Check that no unsolicited products appear."
+  ],
+  "expected": "Pause unsolicited offers while fulfilling a later explicit request for the dress's recorded complementary category.",
+  "turns": [
+    {
+      "number": 1,
+      "checks": [
+        {
+          "path": "reply.complementary_offer",
+          "op": "eq",
+          "value": null
+        },
+        {
+          "path": "state.styling.offers_paused",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "I only need a women's beach wedding dress, maximum 200 AUD.",
+      "request": {
+        "request_id": "d3d28e60-5b3d-4dcd-a6e9-e8a07892a0ab",
+        "retry": false,
+        "turn": {
+          "message": "I only need a women's beach wedding dress, maximum 200 AUD.",
+          "collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": []
+          },
+          "history": [],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "complementary_shown": false,
+            "complementary_dismissed": false,
+            "prepared_key": "",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "1e9mm8l",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "matches",
+        "action": "new_search",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I've found 2 clothing options for you to explore.\n\nThese options range from A$95.00 to A$105.00. The selection includes maxi dress and mini dress options. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 200,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": "Beach Wedding",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 200,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1178",
+            "product_name": "Navy Maxi Dress",
+            "price_aud": 95,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Navy",
+            "occasion": "Beach Wedding",
+            "style": "Minimalist",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1178/image"
+          },
+          {
+            "product_id": "P1162",
+            "product_name": "Cream Mini Dress",
+            "price_aud": 105,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Mini Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Cream",
+            "occasion": "Beach Wedding",
+            "style": "Romantic",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1162/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": "wedding_guest",
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": true,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 200,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": "wedding_guest",
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": true,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "1e9mm8l",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1178",
+              "product_name": "Navy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 95
+            },
+            {
+              "product_id": "P1162",
+              "product_name": "Cream Mini Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Mini Dress",
+              "price_aud": 105
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I only need a women's beach wedding dress, maximum 200 AUD."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 clothing options for you to explore.\n\nThese options range from A$95.00 to A$105.00. The selection includes maxi dress and mini dress options. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "elapsed_ms": 7913
+    },
+    {
+      "number": 2,
+      "checks": [
+        {
+          "path": "reply.action",
+          "op": "eq",
+          "value": "cross_sell"
+        },
+        {
+          "path": "reply.complementary_offer",
+          "op": "eq",
+          "value": null
+        },
+        {
+          "path": "state.styling.offers_paused",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "Now find matching Bags to go with Navy Maxi Dress.",
+      "request": {
+        "request_id": "51be6775-12bd-4a75-80a6-ffd2adfc12ca",
+        "retry": false,
+        "turn": {
+          "message": "Now find matching Bags to go with Navy Maxi Dress.",
+          "collection": {
+            "choice": "Women",
+            "current": {
+              "choice": "Women",
+              "source": "explicit"
+            },
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": "Women",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": null,
+              "occasion": "Beach Wedding",
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 200,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": [
+              {
+                "product_id": "P1178",
+                "product_name": "Navy Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 95
+              },
+              {
+                "product_id": "P1162",
+                "product_name": "Cream Mini Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Mini Dress",
+                "price_aud": 105
+              }
+            ]
+          },
+          "history": [
+            {
+              "role": "user",
+              "content": "I only need a women's beach wedding dress, maximum 200 AUD."
+            },
+            {
+              "role": "assistant",
+              "content": "I've found 2 clothing options for you to explore.\n\nThese options range from A$95.00 to A$105.00. The selection includes maxi dress and mini dress options. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+            }
+          ],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": "wedding_guest",
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": true,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "complementary_shown": false,
+            "complementary_dismissed": false,
+            "prepared_key": "1e9mm8l",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "i4d5dp",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "matches",
+        "action": "cross_sell",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "To go with Navy Maxi Dress, I've found 5 bag options for you to consider.\n\nThese options range from A$60.00 to A$130.00. The selection includes sling bag and crossbody bag options.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Bags",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1250",
+            "product_name": "Blue Sling Bag",
+            "price_aud": 100,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Sling Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Blue",
+            "occasion": "Beach Wedding",
+            "style": "Bohemian",
+            "sizes_available": [
+              "One Size"
+            ],
+            "explanation": "It shares the recorded Beach Wedding occasion with Navy Maxi Dress. The season labels are compatible with Navy Maxi Dress; this does not verify weather performance. Its Bohemian style differs from Navy Maxi Dress's Minimalist label. This is a catalogue-based styling suggestion, not a guarantee of outfit compatibility.",
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1250/image",
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [
+                "P1178"
+              ],
+              "reasons": [
+                "It shares the recorded Beach Wedding occasion with Navy Maxi Dress.",
+                "The season labels are compatible with Navy Maxi Dress; this does not verify weather performance.",
+                "Styling suggestion: its Blue colour gives a coordinated palette with Navy Maxi Dress."
+              ],
+              "limitations": [
+                "Its Bohemian style differs from Navy Maxi Dress's Minimalist label."
+              ],
+              "level": "catalogue_supported"
+            }
+          },
+          {
+            "product_id": "P1081",
+            "product_name": "Grey Sling Bag",
+            "price_aud": 130,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Sling Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Grey",
+            "occasion": "Beach Wedding",
+            "style": "Streetwear",
+            "sizes_available": [
+              "One Size"
+            ],
+            "explanation": "It shares the recorded Beach Wedding occasion with Navy Maxi Dress. The season labels are compatible with Navy Maxi Dress; this does not verify weather performance. Its Streetwear style differs from Navy Maxi Dress's Minimalist label. This is a catalogue-based styling suggestion, not a guarantee of outfit compatibility.",
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1081/image",
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [
+                "P1178"
+              ],
+              "reasons": [
+                "It shares the recorded Beach Wedding occasion with Navy Maxi Dress.",
+                "The season labels are compatible with Navy Maxi Dress; this does not verify weather performance.",
+                "Styling suggestion: its Grey colour can act as a neutral alongside Navy Maxi Dress."
+              ],
+              "limitations": [
+                "Its Streetwear style differs from Navy Maxi Dress's Minimalist label."
+              ],
+              "level": "catalogue_supported"
+            }
+          },
+          {
+            "product_id": "P1179",
+            "product_name": "Pink Crossbody Bag",
+            "price_aud": 120,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Crossbody Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Pink",
+            "occasion": "Beach Wedding",
+            "style": "Elegant",
+            "sizes_available": [
+              "One Size"
+            ],
+            "explanation": "It shares the recorded Beach Wedding occasion with Navy Maxi Dress. The season labels are compatible with Navy Maxi Dress; this does not verify weather performance. Its Elegant style differs from Navy Maxi Dress's Minimalist label. This is a catalogue-based styling suggestion, not a guarantee of outfit compatibility.",
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1179/image",
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [
+                "P1178"
+              ],
+              "reasons": [
+                "It shares the recorded Beach Wedding occasion with Navy Maxi Dress.",
+                "The season labels are compatible with Navy Maxi Dress; this does not verify weather performance."
+              ],
+              "limitations": [
+                "Its Elegant style differs from Navy Maxi Dress's Minimalist label."
+              ],
+              "level": "catalogue_supported"
+            }
+          },
+          {
+            "product_id": "P1182",
+            "product_name": "Gold Crossbody Bag",
+            "price_aud": 60,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Crossbody Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Gold",
+            "occasion": "Beach Wedding",
+            "style": "Streetwear",
+            "sizes_available": [
+              "One Size"
+            ],
+            "explanation": "It shares the recorded Beach Wedding occasion with Navy Maxi Dress. The season labels are compatible with Navy Maxi Dress; this does not verify weather performance. Its Streetwear style differs from Navy Maxi Dress's Minimalist label. This is a catalogue-based styling suggestion, not a guarantee of outfit compatibility.",
+            "unverified_requirements": [],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1182/image",
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [
+                "P1178"
+              ],
+              "reasons": [
+                "It shares the recorded Beach Wedding occasion with Navy Maxi Dress.",
+                "The season labels are compatible with Navy Maxi Dress; this does not verify weather performance."
+              ],
+              "limitations": [
+                "Its Streetwear style differs from Navy Maxi Dress's Minimalist label."
+              ],
+              "level": "catalogue_supported"
+            }
+          },
+          {
+            "product_id": "P1190",
+            "product_name": "Black Crossbody Bag",
+            "price_aud": 75,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Crossbody Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Black",
+            "occasion": "Wedding Guest",
+            "style": "Minimalist",
+            "sizes_available": [
+              "One Size"
+            ],
+            "explanation": "Its Minimalist style coordinates with the recorded style of Navy Maxi Dress. The season labels are compatible with Navy Maxi Dress; this does not verify weather performance. The recorded occasion differs from Navy Maxi Dress. This is a catalogue-based styling suggestion, not a guarantee of outfit compatibility.",
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1190/image",
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [
+                "P1178"
+              ],
+              "reasons": [
+                "Its Minimalist style coordinates with the recorded style of Navy Maxi Dress.",
+                "The season labels are compatible with Navy Maxi Dress; this does not verify weather performance.",
+                "Styling suggestion: its Black colour can act as a neutral alongside Navy Maxi Dress."
+              ],
+              "limitations": [
+                "The recorded occasion differs from Navy Maxi Dress."
+              ],
+              "level": "catalogue_supported"
+            }
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": "wedding_guest",
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": true,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": "wedding_guest",
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": true,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "i4d5dp",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1250",
+              "product_name": "Blue Sling Bag",
+              "category": "Bags",
+              "subcategory": "Crossbody",
+              "product_type": "Sling Bag",
+              "price_aud": 100,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "P1178"
+                ],
+                "primary_product_id": null
+              }
+            },
+            {
+              "product_id": "P1081",
+              "product_name": "Grey Sling Bag",
+              "category": "Bags",
+              "subcategory": "Crossbody",
+              "product_type": "Sling Bag",
+              "price_aud": 130,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "P1178"
+                ],
+                "primary_product_id": null
+              }
+            },
+            {
+              "product_id": "P1179",
+              "product_name": "Pink Crossbody Bag",
+              "category": "Bags",
+              "subcategory": "Crossbody",
+              "product_type": "Crossbody Bag",
+              "price_aud": 120,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "P1178"
+                ],
+                "primary_product_id": null
+              }
+            },
+            {
+              "product_id": "P1182",
+              "product_name": "Gold Crossbody Bag",
+              "category": "Bags",
+              "subcategory": "Crossbody",
+              "product_type": "Crossbody Bag",
+              "price_aud": 60,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "P1178"
+                ],
+                "primary_product_id": null
+              }
+            },
+            {
+              "product_id": "P1190",
+              "product_name": "Black Crossbody Bag",
+              "category": "Bags",
+              "subcategory": "Crossbody",
+              "product_type": "Crossbody Bag",
+              "price_aud": 75,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "P1178"
+                ],
+                "primary_product_id": null
+              }
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "P1178",
+                "product_name": "Navy Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 95
+              },
+              {
+                "product_id": "P1162",
+                "product_name": "Cream Mini Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Mini Dress",
+                "price_aud": 105
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I only need a women's beach wedding dress, maximum 200 AUD."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 clothing options for you to explore.\n\nThese options range from A$95.00 to A$105.00. The selection includes maxi dress and mini dress options. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "Now find matching Bags to go with Navy Maxi Dress."
+          },
+          {
+            "role": "assistant",
+            "content": "To go with Navy Maxi Dress, I've found 5 bag options for you to consider.\n\nThese options range from A$60.00 to A$130.00. The selection includes sling bag and crossbody bag options.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "elapsed_ms": 6284
+    }
+  ],
+  "trial": "v2-run1",
+  "elapsed_ms": 14197,
+  "file": "J52-v2-run1.json"
+}

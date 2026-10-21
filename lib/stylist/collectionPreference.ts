@@ -18,14 +18,17 @@ export const CollectionStateSchema = z.strictObject({
 export type CollectionState = z.infer<typeof CollectionStateSchema>;
 export const emptyCollectionState = (): CollectionState => ({ choice: null, current: null, checkpoint: null });
 
-export function shoppingTarget(message: string) {
+export function shoppingBrief(message: string) {
   const starts = [...message.matchAll(/\b(?:show(?: me)?|find(?: me)?|i want|i need|looking for|browse|let['’]s (?:try|start with))\b/gi)]
     .filter(match => !/\bwhat(?: i(?:['’]m| am| was)?)?\s*$/i.test(message.slice(0, match.index)));
   // A trailing "show me options" is a call to act on the earlier brief, not
   // a new target that erases its collection, garment or recipient.
-  const meaningful = starts.filter(match => !/^(?:show(?: me)?|find(?: me)?|browse)\s+(?:(?:some|any|the|a few|a few different) )?(?:options|ideas|matches|results)(?: (?:now|please|first))?[.!?\s]*$/i.test(message.slice(match.index)));
-  return message.slice(meaningful.at(-1)?.index ?? 0)
-    .split(/\b(?:to match|to go with|with my|for my|for (?:this|that)|accompany)\b/i)[0];
+  const meaningful = starts.filter(match => !/^(?:show(?: me)?|find(?: me)?|browse)\s+(?:(?:some|any|the|a few|a few different) )?(?:options|ideas|matches|results)(?: (?:now|please|first))?[.!?\s]*$/i.test(message.slice(match.index)) &&
+    !/^browse (?:before|without) (?:choosing|picking|selecting) (?:a |my )?(?:size|colou?r)(?: or (?:size|colou?r))?[.!?\s]*$/i.test(message.slice(match.index)));
+  return message.slice(meaningful.at(-1)?.index ?? 0);
+}
+export function shoppingTarget(message: string) {
+  return shoppingBrief(message).split(/\b(?:to match|to go with|with my|for my|for (?:this|that)|accompany)\b/i)[0];
 }
 
 // An allowlist of product categories, not an inference about the customer.
@@ -51,7 +54,7 @@ export function requestedClothing(message: string) {
     // Bare item phrases and tentative choices are searches. Questions about
     // an item and a dress used as a styling anchor are not target requests.
     const request = /\b(?:show|find|want|need|browse|looking for|try|start with|maybe|perhaps|buying|shopping)\b/i.test(before) ||
-      /^(?:(?:a|an|some|the|new|work|formal|casual|midi|maxi|mini|pleated|black|blue|red|men['’]?s|women['’]?s|unisex)\s+)*$/i.test(before.trimStart());
+      /^(?:(?:a|an|some|the|new|work|formal|casual|beach[ -]wedding|wedding(?: guest)?|cocktail|midi|maxi|mini|pleated|black|blue|red|men['’]?s|women['’]?s|unisex)\s+)*$/i.test(before.trimStart());
     if (!request) continue;
     const word = match[0];
     const after = target.slice(match.index! + word.length);

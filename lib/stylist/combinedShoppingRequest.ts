@@ -1,5 +1,6 @@
 import type { ShoppingPreferences } from "../ai/preferenceSchema";
 import { emptyShoppingPreferences } from "./preferenceScope";
+import type { OutfitRequest } from "./outfitBudgetSchema";
 
 // Remove the styling anchor, not the requested components after its clause.
 export function requestedComponents(message: string) {
@@ -32,9 +33,32 @@ export function requestedComponents(message: string) {
 }
 
 export function statedCombinedBudget(message: string) {
-  const amount = message.match(/(?:A?\$\s*)?(\d+(?:\.\d{1,2})?)\s*(?:aud|dollars?)?\s+(?:total|combined)\b/i)
-    ?? message.match(/\b(?:total|combined)(?:\s+(?:purchase|shopping))?(?:\s+budget)?\s*(?:is|of|[:=])?\s*(?:A?\$\s*)?(\d+(?:\.\d{1,2})?)\b/i);
+  const patterns = [
+    /(?:A?\$\s*)?(\d+(?:\.\d{1,2})?)\s*(?:aud|dollars?)?\s+(?:(?:is|as)\s+(?:the\s+)?)?(?:total|combined)\b/gi,
+    /\b(?:total|combined)(?:\s+(?:purchase|shopping))?(?:\s+budget)?\s*(?:is|of|[:=])?\s*(?:A?\$\s*)?(\d+(?:\.\d{1,2})?)\b/gi,
+    /(?:A?\$\s*)?(\d+(?:\.\d{1,2})?)\s*(?:aud|dollars?)?\s+for\s+(?:(?![.!?;]|\b(?:each|per item)\b).){1,100}?\btogether\b/gi,
+  ];
+  const amounts = patterns.flatMap(pattern => [...message.matchAll(pattern)]).filter(match => {
+    const before = message.slice(0, match.index);
+    const after = message.slice(match.index! + match[0].length);
+    return !/\b(?:not|no|without)\s*$/i.test(before) &&
+      !/^\s*(?:each|per (?:item|piece))\b/i.test(after);
+  }).sort((a, b) => a.index! - b.index!);
+  const amount = amounts.at(-1);
   return amount ? Number(amount[1]) : null;
+}
+
+export function confirmsCombinedBudget(message: string) {
+  return /^(?:yes(?:,? (?:please|for both|for everything|that is the total))?|combined|together|(?:the )?total(?: for both)?)[.!]*$/i.test(message.trim());
+}
+
+export function confirmedBudgetRequest(message: string, pending: OutfitRequest): OutfitRequest | null {
+  if (confirmsCombinedBudget(message)) return { ...pending, evidence: message };
+  const perItem = message.trim().match(/^(?:no[, ]+)?(?:A?\$\s*)?(\d+(?:\.\d{1,2})?)(?:\s*aud)?\s+(?:each|per item|per piece)[.!]*$/i);
+  if (!perItem) return null;
+  const cap = Number(perItem[1]);
+  return { ...pending, total_budget_aud: Math.round(cap * 100) * pending.items.length / 100, evidence: message,
+    items: pending.items.map(item => ({ ...item, max_price: Math.min(item.max_price ?? Infinity, cap) })) };
 }
 
 export function additiveCombinedRequest(message: string) {

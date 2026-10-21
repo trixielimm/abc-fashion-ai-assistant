@@ -1,0 +1,1280 @@
+{
+  "id": "J32",
+  "name": "One-word answer to a combined-budget question",
+  "mode": "live",
+  "variant": 1,
+  "status": "AUTO_PASS",
+  "human_review": "PENDING",
+  "review": [
+    "Check that the answers are useful and address every part of the request.",
+    "Verify that the first question actually asks whether A$200 is shared; unexpected clarification is a failure to review."
+  ],
+  "expected": "Accept a direct answer to its own budget question without a clarification loop.",
+  "turns": [
+    {
+      "number": 1,
+      "checks": [
+        {
+          "path": "reply.status",
+          "op": "eq",
+          "value": "needs_clarification"
+        },
+        {
+          "path": "reply.pending.budget_confirmation.total_budget_aud",
+          "op": "eq",
+          "value": 200
+        },
+        {
+          "path": "reply.message",
+          "op": "matches",
+          "value": "(?:combined|together|total|both|each|per item)"
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "I own a navy midi dress from another shop. Find women's shoes and a bag for a wedding, under A$200.",
+      "request": {
+        "request_id": "2a15f91b-1223-4750-af3d-b4416cbf8b30",
+        "retry": false,
+        "turn": {
+          "message": "I own a navy midi dress from another shop. Find women's shoes and a bag for a wedding, under A$200.",
+          "collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": []
+          },
+          "history": [],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "prepared_key": "",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "nxsvem",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "needs_clarification",
+        "action": "refine",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [
+          {
+            "label": "Yes, combined total",
+            "message": "Yes."
+          },
+          {
+            "label": "Budget is per item",
+            "message": "No, A$200.00 per item."
+          }
+        ],
+        "message": "Is A$200.00 the combined total for all 2 new pieces?",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": {
+          "action": "refine",
+          "reference": null,
+          "goal": "I own a navy midi dress from another shop. Find women's shoes and a bag for a wedding, under A$200.",
+          "question": "Is A$200.00 the combined total for all 2 new pieces?",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "before_styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "before_collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          },
+          "budget_confirmation": {
+            "total_budget_aud": 200,
+            "items": [
+              {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Wedding Guest",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": "Women",
+                "category": "Bags",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Wedding Guest",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "women's shoes and a bag for a wedding, under A$200"
+          }
+        },
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": "wedding_guest",
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [
+            {
+              "description": "navy midi dress",
+              "category": "Clothing",
+              "product_type": "midi dress",
+              "colour": "navy",
+              "occasion": null,
+              "external_id": "external-1",
+              "source": "customer_description"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": {
+          "action": "refine",
+          "reference": null,
+          "goal": "I own a navy midi dress from another shop. Find women's shoes and a bag for a wedding, under A$200.",
+          "question": "Is A$200.00 the combined total for all 2 new pieces?",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "before_styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "before_collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          },
+          "budget_confirmation": {
+            "total_budget_aud": 200,
+            "items": [
+              {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Wedding Guest",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": "Women",
+                "category": "Bags",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Wedding Guest",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "women's shoes and a bag for a wedding, under A$200"
+          }
+        },
+        "pending_answer": null,
+        "styling": {
+          "dress_code": "wedding_guest",
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [
+            {
+              "description": "navy midi dress",
+              "category": "Clothing",
+              "product_type": "midi dress",
+              "colour": "navy",
+              "occasion": null,
+              "external_id": "external-1",
+              "source": "customer_description"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "nxsvem",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I own a navy midi dress from another shop. Find women's shoes and a bag for a wedding, under A$200."
+          },
+          {
+            "role": "assistant",
+            "content": "Is A$200.00 the combined total for all 2 new pieces?"
+          }
+        ]
+      },
+      "elapsed_ms": 7920
+    },
+    {
+      "number": 2,
+      "checks": [
+        {
+          "path": "state.styling.outfit_request.total_budget_aud",
+          "op": "eq",
+          "value": 200
+        },
+        {
+          "path": "state.styling.outfit_request.items.length",
+          "op": "eq",
+          "value": 2
+        },
+        {
+          "path": "reply.status",
+          "op": "oneOf",
+          "value": [
+            "matches",
+            "partial",
+            "alternatives",
+            "no_match"
+          ]
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "Yes.",
+      "request": {
+        "request_id": "5b72b018-a5a4-464d-88d9-97a1dde6c692",
+        "retry": false,
+        "turn": {
+          "message": "Yes.",
+          "collection": {
+            "choice": "Women",
+            "current": {
+              "choice": "Women",
+              "source": "explicit"
+            },
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": "Women",
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": []
+          },
+          "history": [
+            {
+              "role": "user",
+              "content": "I own a navy midi dress from another shop. Find women's shoes and a bag for a wedding, under A$200."
+            },
+            {
+              "role": "assistant",
+              "content": "Is A$200.00 the combined total for all 2 new pieces?"
+            }
+          ],
+          "pending": {
+            "action": "refine",
+            "reference": null,
+            "goal": "I own a navy midi dress from another shop. Find women's shoes and a bag for a wedding, under A$200.",
+            "question": "Is A$200.00 the combined total for all 2 new pieces?",
+            "before_scopes": {
+              "item": {
+                "gender": null,
+                "category": null,
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "shared": {
+                "gender": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "unresolved_item": [],
+              "unresolved_shared": []
+            },
+            "before_styling": {
+              "dress_code": null,
+              "outfit_request": null,
+              "purchase_budget": null,
+              "outfit": [],
+              "external_items": [],
+              "rejected_ids": [],
+              "priorities": [],
+              "required_features": [],
+              "offers_paused": false,
+              "owned_categories": []
+            },
+            "before_collection": {
+              "choice": null,
+              "current": null,
+              "checkpoint": null
+            },
+            "budget_confirmation": {
+              "total_budget_aud": 200,
+              "items": [
+                {
+                  "gender": "Women",
+                  "category": "Shoes",
+                  "subcategory": null,
+                  "product_type": null,
+                  "occasion": "Wedding Guest",
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "size": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                },
+                {
+                  "gender": "Women",
+                  "category": "Bags",
+                  "subcategory": null,
+                  "product_type": null,
+                  "occasion": "Wedding Guest",
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "size": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                }
+              ],
+              "evidence": "women's shoes and a bag for a wedding, under A$200"
+            }
+          },
+          "pending_answer": null,
+          "styling": {
+            "dress_code": "wedding_guest",
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [
+              {
+                "description": "navy midi dress",
+                "category": "Clothing",
+                "product_type": "midi dress",
+                "colour": "navy",
+                "occasion": null,
+                "external_id": "external-1",
+                "source": "customer_description"
+              }
+            ],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "prepared_key": "nxsvem",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "1ssev5m",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": {
+          "limit_aud": 200,
+          "total_aud": 155,
+          "remaining_aud": 45,
+          "items": [
+            {
+              "product_id": "P1075",
+              "preferences": {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Wedding Guest",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "product_id": "P1070",
+              "preferences": {
+                "gender": "Women",
+                "category": "Bags",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Wedding Guest",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ]
+        },
+        "outfit_choices": {
+          "groups": [
+            {
+              "label": "Shoes",
+              "product_ids": [
+                "P1075"
+              ],
+              "preferences": {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Wedding Guest",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "label": "Bags",
+              "product_ids": [
+                "P1070",
+                "P1003",
+                "P1190"
+              ],
+              "preferences": {
+                "gender": "Women",
+                "category": "Bags",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Wedding Guest",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ],
+          "maximum_total_aud": 185
+        },
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "matches",
+        "action": "refine",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "Wedding guest: Focus on midi or maxi dresses and dress shoes, excluding white, ivory and cream dresses. Follow the couple’s dress code.\n\nHere are choices for shoes and bags. Choose one item from each group; every displayed combination stays within your A$200.00 combined budget. Combinations range from A$155.00 to A$185.00.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1075",
+            "product_name": "Navy Strappy Heels",
+            "price_aud": 110,
+            "category": "Shoes",
+            "subcategory": "Heels",
+            "product_type": "Strappy Heels",
+            "brand_line": "ABC Footwear",
+            "colour": "Navy",
+            "occasion": "Wedding Guest",
+            "style": "Contemporary",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Clothing",
+            "image_src": "/api/products/P1075/image"
+          },
+          {
+            "product_id": "P1070",
+            "product_name": "Lavender Envelope Clutch",
+            "price_aud": 45,
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Envelope Clutch",
+            "brand_line": "ABC Accessories",
+            "colour": "Lavender",
+            "occasion": "Wedding Guest",
+            "style": "Contemporary",
+            "sizes_available": [
+              "One Size"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Clothing",
+            "image_src": "/api/products/P1070/image"
+          },
+          {
+            "product_id": "P1003",
+            "product_name": "Pink Crossbody Bag",
+            "price_aud": 50,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Crossbody Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Pink",
+            "occasion": "Wedding Guest",
+            "style": "Bohemian",
+            "sizes_available": [
+              "One Size"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Clothing",
+            "image_src": "/api/products/P1003/image"
+          },
+          {
+            "product_id": "P1190",
+            "product_name": "Black Crossbody Bag",
+            "price_aud": 75,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Crossbody Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Black",
+            "occasion": "Wedding Guest",
+            "style": "Minimalist",
+            "sizes_available": [
+              "One Size"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1190/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": "wedding_guest",
+          "outfit_request": {
+            "total_budget_aud": 200,
+            "items": [
+              {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Wedding Guest",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": "Women",
+                "category": "Bags",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Wedding Guest",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "Yes."
+          },
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [
+            {
+              "description": "navy midi dress",
+              "category": "Clothing",
+              "product_type": "midi dress",
+              "colour": "navy",
+              "occasion": null,
+              "external_id": "external-1",
+              "source": "customer_description"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": "wedding_guest",
+          "outfit_request": {
+            "total_budget_aud": 200,
+            "items": [
+              {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Wedding Guest",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": "Women",
+                "category": "Bags",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Wedding Guest",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "Yes."
+          },
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [
+            {
+              "description": "navy midi dress",
+              "category": "Clothing",
+              "product_type": "midi dress",
+              "colour": "navy",
+              "occasion": null,
+              "external_id": "external-1",
+              "source": "customer_description"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "1ssev5m",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1075",
+              "product_name": "Navy Strappy Heels",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Strappy Heels",
+              "price_aud": 110
+            },
+            {
+              "product_id": "P1070",
+              "product_name": "Lavender Envelope Clutch",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Envelope Clutch",
+              "price_aud": 45
+            },
+            {
+              "product_id": "P1003",
+              "product_name": "Pink Crossbody Bag",
+              "category": "Bags",
+              "subcategory": "Crossbody",
+              "product_type": "Crossbody Bag",
+              "price_aud": 50
+            },
+            {
+              "product_id": "P1190",
+              "product_name": "Black Crossbody Bag",
+              "category": "Bags",
+              "subcategory": "Crossbody",
+              "product_type": "Crossbody Bag",
+              "price_aud": 75
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I own a navy midi dress from another shop. Find women's shoes and a bag for a wedding, under A$200."
+          },
+          {
+            "role": "assistant",
+            "content": "Is A$200.00 the combined total for all 2 new pieces?"
+          },
+          {
+            "role": "user",
+            "content": "Yes."
+          },
+          {
+            "role": "assistant",
+            "content": "Wedding guest: Focus on midi or maxi dresses and dress shoes, excluding white, ivory and cream dresses. Follow the couple’s dress code.\n\nHere are choices for shoes and bags. Choose one item from each group; every displayed combination stays within your A$200.00 combined budget. Combinations range from A$155.00 to A$185.00."
+          }
+        ]
+      },
+      "elapsed_ms": 2352
+    }
+  ],
+  "trial": "v1-run1",
+  "elapsed_ms": 10272,
+  "file": "J32-v1-run1.json"
+}

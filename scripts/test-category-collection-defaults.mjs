@@ -109,6 +109,17 @@ await check("Defaults remain item-specific when switching to ambiguous clothing"
   const trousers = send(skirt, trousersText, plan(trousersText, { changes: [change("subcategory", "Bottoms", "trousers"), change("product_type", "Tailored Trousers", "trousers")] }));
   assert.equal(trousers.reply.discovery.stage, "collection"); assert.equal(trousers.session.scopes.item.gender, null);
 });
+await check("A dress-shirt brief retains its shirt family through the collection checkpoint even when the model omits it", () => {
+  const message = "I want a dress shirt for work under A$200.";
+  const first = send(newSession(), message, plan(message, { changes: [change("category", "Clothing", "dress shirt")] }));
+  assert.equal(first.session.scopes.item.subcategory, "Tops");
+  assert.equal(first.session.scopes.item.product_type, "Shirt");
+  assert.equal(first.reply.discovery.stage, "collection");
+  const turn = makeTurn(first.session, "Men's, please.");
+  const reply = finishConversationTurn(rows, turn, shortcutPlan(turn), vocabulary);
+  assert.equal(reply.applied_preferences.subcategory, "Tops");
+  assert.ok(visible(reply).every(product => /shirt/i.test(product.product_type)));
+});
 await check("Ambiguous categories and dress compounds never default to Women", () => {
   for (const message of ["Show shirts", "Show suits", "Show trousers", "Show jackets", "Show dress shirts", "Show dress shoes", "Dress me for work", "Show dress code ideas", "I don't want a dress", "I don't want a red dress", "Not a skirt", "Show shoes to match my dress", "I need shoes for a dress", "I own a dress. Show shoes", "Is this dress washable?"]) {
     const target = requestedClothing(message);

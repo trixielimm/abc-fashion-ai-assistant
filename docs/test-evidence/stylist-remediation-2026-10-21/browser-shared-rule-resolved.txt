@@ -1,0 +1,34 @@
+Browser tab: 1, Title: "ABC Fashion", URL: "http://localhost:3000/".
+0 AXWebArea ABC Fashion, URL: localhost:3000/
+	1 container AI Stylist
+		2 container
+			3 heading AI Stylist, Value: 2
+				4 text AI Stylist
+			5 button New chat
+			6 button Close AI Stylist
+		24 container Your look
+			25 text Your look
+			26 text 0 items
+			27 text Save pieces here to build a look.
+			28 container
+				29 text A$0.00 total
+			30 pop up button View look
+		32 button (collapsed) YOUR SAVED SEARCH Dresses · Women's collection · Blue only · Up to A$200.00 per item, Secondary Actions: Expand
+			33 text YOUR SAVED SEARCH
+			34 text Dresses · Women's collection · Blue only · Up to A$200.00 per item
+		7 container
+			31 text YOU Only recommend black items for all searches. Show me women's dresses under A$200. AI STYLIST I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged.
+
+You can tell me which detail you're happy to change, and I'll use that in the next search. I haven't changed the request for you. YOU Show me a blue dress instead, but keep the shared black-only rule. AI STYLIST Your preferred colours request (Blue) conflicts with your saved rule for all items (Black). Tell me which rule to change; I haven't removed either restriction. YOU Remove the shared colour preference. Show Blue dresses, keeping my other requirements. AI STYLIST I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged.
+
+One way to broaden the search is to use "Explore other colours" below. That preview keeps your other restrictions and leaves your original colour request saved.
+			35 button Explore other colours
+			36 text Preview only. Your original colour and other restrictions stay saved.
+		18 container
+			19 text entry area (settable) Message your stylist
+			20 button (disabled) Send message
+		21 text Messages may be sent to OpenAI.
+		22 button (collapsed) Privacy & details, Secondary Actions: Expand
+			23 text Privacy & details
+
+The focused UI element is 0 AXWebArea ABC Fashion, URL: localhost:3000/

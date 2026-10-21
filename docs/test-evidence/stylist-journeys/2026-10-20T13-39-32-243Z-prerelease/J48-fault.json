@@ -1,0 +1,18 @@
+{
+  "id": "J48",
+  "name": "Duplicate submission and request-ID conflict",
+  "mode": "fault",
+  "status": "AUTO_PASS",
+  "human_review": "PENDING",
+  "scope": "Controlled in-process fault, not a real provider/database/browser outage.",
+  "review": [
+    "Double-click Send in the browser and confirm a single accepted turn. Multi-instance behaviour needs a shared-store test."
+  ],
+  "expected": "Identical concurrent submissions execute once; different content produces a conflict.",
+  "checks": [
+    "Concurrent duplicates execute once; changed content with the same ID is rejected"
+  ],
+  "trial": "fault",
+  "elapsed_ms": 0,
+  "file": "J48-fault.json"
+}

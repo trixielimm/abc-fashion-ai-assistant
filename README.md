@@ -49,6 +49,20 @@ for evidence and remaining limitations.
 
 ## Stylist tests
 
+The [everyday and pre-release journey pack](docs/ai-stylist-journey-pack.md)
+defines 50 reusable journeys, with a 10-journey everyday subset, three opening
+wordings per live journey, expected outcomes, and human review criteria.
+With the local app running, use `npm run test:journeys:everyday` or
+`npm run test:journeys:prerelease`. These make real model calls and save
+transcripts, state checks and a review checklist under
+`docs/test-evidence/stylist-journeys/`. Five pre-release recovery cases use
+controlled offline faults. `-- --list` lists cases without making requests;
+`-- --filter J18,J32 --repeat 5` narrows and repeats a pre-release run.
+An automated pass still requires the listed human checks; missing catalogue
+prerequisites are reported separately from failures. Pack validation and guide
+generation need no credentials: `npm run test:journeys:check` and
+`npm run test:journeys:guide`.
+
 Run `npm test` for the offline regression suites, `npm run lint` for lint, and
 `npm run typecheck` for TypeScript checks, including unused local code and parameters.
 `npm run test:scenarios` runs all 25 customer scenarios three times using the

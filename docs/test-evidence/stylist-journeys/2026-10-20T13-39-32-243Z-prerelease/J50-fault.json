@@ -1,0 +1,19 @@
+{
+  "id": "J50",
+  "name": "New chat and server restart boundaries",
+  "mode": "fault",
+  "status": "AUTO_PASS",
+  "human_review": "PENDING",
+  "scope": "Controlled in-process fault, not a real provider/database/browser outage.",
+  "review": [
+    "Verify the real New chat button clears UI state. Current retries are process-local; restart survival is not certified."
+  ],
+  "expected": "New chat is clean; an expired retry is rejected explicitly; a new request works.",
+  "checks": [
+    "New chat removes saved preferences, product references, rejections and history",
+    "A restarted process rejects the expired retry; a new request succeeds"
+  ],
+  "trial": "fault",
+  "elapsed_ms": 1,
+  "file": "J50-fault.json"
+}

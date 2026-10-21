@@ -13,6 +13,8 @@ export const AnswerIntentSchema = z.strictObject({
   // An exact quotation of the occasion/use mentioned by the customer, or null.
   purpose: z.string().trim().min(1).max(150).nullable(),
   continuation: z.boolean(),
+  // Search first, then compare its returned IDs with the explicit saved anchor.
+  compare_new_results: z.boolean().default(false),
 });
 export type AnswerIntent = z.infer<typeof AnswerIntentSchema>;
 

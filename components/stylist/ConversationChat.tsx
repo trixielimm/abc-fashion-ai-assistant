@@ -18,8 +18,11 @@ import { DressCodeChoices, OutfitGuidance } from "./OutfitGuidance";
 import { hasEventContext } from "@/lib/stylist/dressCode";
 import { suggestedOutfit } from "@/lib/stylist/outfitPresentation";
 import { outfitReviewSections } from "@/lib/stylist/outfitReview";
+import { ShoppingRequestSummary } from "./ShoppingRequestSummary";
+import { FinishingTouches } from "./FinishingTouches";
+import { restoreOfferMemory, saveOfferMemory, clearOfferMemory, dismissComplementaryOffer, browserOfferStorage } from "@/lib/stylist/offerMemory";
 
-type Entry = { id: string; role: "user" | "assistant"; text: string; result?: TurnReply; groupRecommendationIds?: string[] };
+type Entry = { id: string; role: "user" | "assistant"; text: string; result?: TurnReply; groupRecommendationIds?: string[]; offerRecommendationId?: string };
 
 function OutfitReviewMessage({ review }: { review: NonNullable<TurnReply["outfit_review"]> }) {
   return <div className={styles.outfitReview} aria-label="Current outfit review">
@@ -57,9 +60,9 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
   const [busy, setBusy] = useState(false);
   const [quietBusy, setQuietBusy] = useState(false);
   const [selectionFeedback, setSelectionFeedback] = useState("");
-  const [retry, setRetry] = useState<{ envelope: TurnEnvelope; quietMessage?: string } | null>(null);
+  const [retry, setRetry] = useState<{ envelope: TurnEnvelope; quietMessage?: string; offerEntryId?: string } | null>(null);
   const [activeReply, setActiveReply] = useState<string | null>(null);
-  const [sessionState, setSessionState] = useState(newSession);
+  const [sessionState, setSessionState] = useState(() => restoreOfferMemory(newSession(), browserOfferStorage()));
   const session = useRef(sessionState);
   const requestRef = useRef<AbortController | null>(null);
   const usedPageKey = useRef<number | null>(null);
@@ -68,6 +71,7 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
   const loading = useRef<HTMLDivElement>(null);
   const input = useRef<HTMLTextAreaElement>(null);
   const conversationBusy = busy && !quietBusy;
+  useEffect(() => { saveOfferMemory(sessionState, browserOfferStorage()); }, [sessionState]);
 
   useEffect(() => () => {
     requestRef.current?.abort();
@@ -110,13 +114,13 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
     }]);
   }
 
-  async function run(envelope: TurnEnvelope, quietMessage?: string) {
+  async function run(envelope: TurnEnvelope, quietMessage?: string, offerEntryId?: string) {
     if (requestRef.current) return;
     const controller = new AbortController();
     requestRef.current = controller;
     setBusy(true);
     setQuietBusy(Boolean(quietMessage));
-    if (quietMessage) setSelectionFeedback("Updating your look…");
+    if (quietMessage) setSelectionFeedback(offerEntryId ? "Updating finishing touches…" : "Updating your look…");
     setRetry(null);
     try {
       const raw = await postChatJson("/api/conversation-search", envelope, {
@@ -127,6 +131,10 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
       session.current = result.session;
       setSessionState(result.session);
       const id = crypto.randomUUID();
+      const offerRecommendationId = result.reply.complementary_offer ? crypto.randomUUID() : undefined;
+      if (offerRecommendationId && result.reply.complementary_offer) trackRecommendationEvents(offerRecommendationId,
+        result.reply.complementary_offer.items.map((item, index) => ({ product_id: item.product.product_id,
+          position: index + 1, event_type: "impression" })), "complementary");
       const groupRecommendationIds = result.reply.outfit_choices?.groups.map(() => crypto.randomUUID());
       if (result.reply.outfit_choices && groupRecommendationIds) {
         result.reply.outfit_choices.groups.forEach((group, index) => trackRecommendationEvents(groupRecommendationIds[index],
@@ -134,12 +142,16 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
       } else trackRecommendationEvents(id, [...result.reply.products, ...result.reply.alternatives].map((product, index) => ({
           product_id: product.product_id, position: index + 1, event_type: "impression",
         })));
-      if (quietMessage && result.reply.intent_understood && result.reply.status === "no_action" && !result.reply.pending) {
+      if (offerEntryId && result.reply.offer_refresh) {
+        setEntries(previous => previous.map(entry => entry.id === offerEntryId && entry.result
+          ? { ...entry, offerRecommendationId, result: { ...entry.result, complementary_offer: result.reply.complementary_offer } } : entry));
+        setSelectionFeedback(result.reply.message);
+      } else if (quietMessage && result.reply.intent_understood && result.reply.status === "no_action" && !result.reply.pending) {
         setSelectionFeedback(quietMessage);
       } else {
         setSelectionFeedback("");
         setEntries(previous => [...previous, {
-          id, role: "assistant", text: result.reply.message, result: result.reply, groupRecommendationIds,
+          id, role: "assistant", text: result.reply.message, result: result.reply, groupRecommendationIds, offerRecommendationId,
         }]);
       }
       if (result.reply.intent_understood && !["answered", "no_action", "no_upsell"].includes(result.reply.status)) setActiveReply(id);
@@ -147,7 +159,7 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
       if (requestRef.current !== controller || controller.signal.aborted) return;
       const expired = error instanceof ChatRequestError && error.status === 409;
       const invalid = error instanceof ChatRequestError && [400, 403, 413, 415].includes(error.status ?? 0);
-      if (!expired && !invalid) setRetry({ envelope: { ...envelope, retry: true }, quietMessage });
+      if (!expired && !invalid) setRetry({ envelope: { ...envelope, retry: true }, quietMessage, offerEntryId });
       if (quietMessage) setSelectionFeedback("Couldn't update your look. Your selections are unchanged. Please try again.");
       else setEntries(previous => [...previous, {
         id: crypto.randomUUID(), role: "assistant",
@@ -204,6 +216,25 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
       : kind === "reject" ? `${product.product_name} skipped for future recommendations.` : undefined;
     send(text, kind, product, false, undefined, quietMessage);
   }
+  function dismissExtras(entryId: string, pause: boolean) {
+    if (busy) return;
+    const entry = entries.find(entry => entry.id === entryId);
+    if (entry?.result?.complementary_offer) trackRecommendationEvents(entry.offerRecommendationId ?? entryId,
+      [{ event_type: pause ? "offers_pause" : "offer_dismiss", product_id: entry.result.complementary_offer.anchor.product_id, position: 1 }], "complementary");
+    const next = dismissComplementaryOffer(session.current, pause);
+    session.current = next; setSessionState(next);
+    setEntries(previous => previous.map(entry => entry.result && (pause || entry.id === entryId)
+      ? { ...entry, result: { ...entry.result, complementary_offer: null } } : entry));
+    setSelectionFeedback(pause ? "Extra suggestions are paused until you ask to resume them." : "These finishing touches are hidden for this shopping task.");
+  }
+  function matchExtras(entryId: string, productId: string) {
+    if (busy || requestRef.current) return;
+    const product = session.current.context.latest.find(product => product.product_id === productId);
+    if (!product) return;
+    const turn = makeTurn(session.current, `Match optional finishing touches to ${product.product_name}.`);
+    turn.offer_anchor_id = productId;
+    void run({ request_id: crypto.randomUUID(), retry: false, turn }, "Finishing touches updated.", entryId);
+  }
   function close() { requestRef.current?.abort(); onClose(); }
   const pending = sessionState.pending || sessionState.pending_answer;
   const welcome = entries.length === 1;
@@ -222,7 +253,7 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
         </div>
         <div className={styles.headerActions}>
           <button type="button" className={styles.newChat} onClick={() => {
-            requestRef.current?.abort(); requestRef.current = null; onReset();
+            requestRef.current?.abort(); requestRef.current = null; clearOfferMemory(browserOfferStorage()); onReset();
           }}>New chat</button>
           <button type="button" className={styles.iconButton} onClick={close} aria-label="Close AI Stylist" title="Close AI Stylist">
             <CloseIcon />
@@ -232,6 +263,7 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
       {!welcome && sessionState.styling ? <OutfitSummary styling={sessionState.styling} open={open} feedback={selectionFeedback} disabled={busy || Boolean(pending)}
         onRemoveExternal={description => send(`Remove the owned item I described as "${description}".`, undefined, undefined, false, undefined, "Owned item removed from your look.")}
         onRemove={(productId, productName) => send(`Remove ${productName} from my outfit.`, "remove", undefined, false, productId, `${productName} removed from your look.`)} /> : null}
+      {!welcome ? <ShoppingRequestSummary session={sessionState} /> : null}
       <div ref={transcript} role="log" aria-live="polite" aria-relevant="additions" aria-busy={busy}
         className={`${styles.transcript} ${welcome ? styles.transcriptWelcome : ""}`}>
         {welcome ? (
@@ -286,7 +318,28 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
                   </span>)}
                 </p> : null}
               </div>
-              {index === entries.length - 1 && result?.task_transition_applied && result.issues.length ? <div className={styles.starters} role="group" aria-label="Resolve shopping request">
+              {index === entries.length - 1 && result?.task_transition_applied && result.issues.length ? <div className={styles.recoveryPanel} role="group" aria-label="Resolve shopping request">
+                <p className={styles.recoveryHeading}>Let’s update that detail</p>
+                <p className={styles.notice}>Your other preferences are still saved.</p>
+                {result.issues.filter(issue => issue.code === "invalid_preference" && issue.field === "size" && issue.options.length).map(issue =>
+                  <fieldset key={issue.id} className={styles.recoveryChoices} disabled={busy}>
+                    <legend>Choose a listed size</legend>
+                    <div className={styles.starters}>{issue.options.map(size => <button key={size} type="button" className={styles.chip}
+                      onClick={() => send(`Change the size to ${size}. Keep my other requirements.`)}>Size {size}</button>)}</div>
+                    <p className={styles.notice}>Listed sizes don’t guarantee fit or size-specific stock.</p>
+                  </fieldset>)}
+                {result.issues.some(issue => issue.code === "interpretation_failed") ? <button type="button" className={styles.chip} disabled={busy}
+                  onClick={() => { setDraft([...entries].reverse().find(entry => entry.role === "user")?.text ?? ""); input.current?.focus(); }}>Edit my last message</button> : null}
+                {result.issues.filter(issue => issue.code === "shared_conflict" && issue.field === "preferred_colours").map(issue => {
+                  const saved = Array.isArray(issue.saved_value) ? issue.saved_value.join(" or ") : String(issue.saved_value);
+                  const requested = Array.isArray(issue.value) ? issue.value.join(" or ") : String(issue.value);
+                  const item = sessionState.scopes.item.subcategory?.toLowerCase() ?? sessionState.scopes.item.category?.toLowerCase() ?? "items";
+                  return <div key={issue.id} className={styles.starters}>
+                    <button type="button" className={styles.chip} disabled={busy} onClick={() => send(`Show ${saved} ${item} instead, keeping my shared rules.`)}>Keep {saved} rule</button>
+                    <button type="button" className={styles.chip} disabled={busy} onClick={() => send(`Remove the shared colour preference. Show ${requested} ${item}, keeping my other requirements.`)}>Remove shared colour rule</button>
+                  </div>;
+                })}
+                <div className={styles.starters}>
                 {result.issues.filter(issue => issue.code === "unverified_requirement").map(issue => <button key={issue.id} type="button" className={styles.chip} disabled={busy}
                   onClick={() => send(`Remove my ${issue.scope} requirement: ${issue.value}.`, undefined, undefined, false, undefined, undefined,
                     { issue_id: issue.id, generation: sessionState.task?.generation ?? 0, operation: "drop_requirement" })}>Remove {String(issue.value)}</button>)}
@@ -296,6 +349,7 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
                 <button type="button" className={styles.chip} disabled={busy}
                   onClick={() => send("Cancel the current shopping task. Help me start a new search.", undefined, undefined, false, undefined, undefined,
                     { issue_id: result.issues[0].id, generation: sessionState.task?.generation ?? 0, operation: "restart_task" })}>Start a new shopping task</button>
+                </div>
               </div> : null}
               {result?.outfit_choices ? result.outfit_choices.groups.map((group, groupIndex) => (
                 <ShoppingProductResults key={`${entry.id}-group-${groupIndex}`}
@@ -320,12 +374,18 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
                     onSimilar={actionsAvailable && result.action === "discover" ? product => send(`Show me more like ${product.product_name}.`, "similar", product) : undefined} />
                 </div>
               ) : null}
+              {result?.complementary_offer && entry.id === activeReply && !sessionState.styling?.offers_paused &&
+                !sessionState.task?.complementary_dismissed ? <FinishingTouches offer={result.complementary_offer}
+                  anchors={result.products} disabled={!actionsAvailable || busy} selectedIds={selectedIds} onAction={lookAction}
+                  open={open} onOpen={close} onMatch={id => matchExtras(entry.id, id)} onDismiss={pause => dismissExtras(entry.id, pause)}
+                  onEvent={(event_type, product_id, position) => trackRecommendationEvents(entry.offerRecommendationId ?? entry.id,
+                    [{ event_type, product_id, position }], "complementary")} /> : null}
               {result?.optional_question && !result.outfit_choices && !result.outfit_budget ?
                 <p className={styles.optionalQuestion}>{result.optional_question}</p> : null}
               {Boolean(result?.suggested_replies.length) && index === entries.length - 1 && !retry ? (
                 <div className={styles.starters} role="group" aria-label="Suggested replies">
                   {result!.suggested_replies.map(choice => <button key={choice.message} type="button"
-                    className={styles.chip} disabled={busy || Boolean(pending)} onClick={() => send(choice.message)}>
+                    className={styles.chip} disabled={busy || Boolean(pending) && !result?.pending?.budget_confirmation} onClick={() => send(choice.message)}>
                     {choice.label}
                   </button>)}
                 </div>
@@ -350,7 +410,7 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
         </div> : null}
       </div>
       {retry && !busy ? <div className={styles.controls}>
-        <button type="button" className={styles.textButton} onClick={() => void run(retry.envelope, retry.quietMessage)}>Retry this request</button>
+        <button type="button" className={styles.textButton} onClick={() => void run(retry.envelope, retry.quietMessage, retry.offerEntryId)}>Retry this request</button>
       </div> : null}
       <div className={styles.composerArea}>
         <form className={styles.composer} onSubmit={event => { event.preventDefault(); send(draft); }}>

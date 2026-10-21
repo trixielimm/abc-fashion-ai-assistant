@@ -1,0 +1,373 @@
+{
+  "pack_version": "stylist-journeys-v1",
+  "started_at": "2026-10-20T13:39:34.472Z",
+  "suite": "everyday",
+  "base": "http://127.0.0.1:3000",
+  "commit": "24944e06e508d34365bea207357d3a1fb91eac4f",
+  "pack_sha256": "75fc8e836025ee06033c98adc98d1c9041a8adc43f66bd7e5bbbaeef9f78d3f2",
+  "interpreter_sha256": "53bb9827ca5c0d4ac758d46a85cd96153b24a31e3fd96a2632d60731298362b9",
+  "working_tree_dirty": true,
+  "source_files_sha256": {
+    "app/api/conversation-search/route.ts": "05369d5bc1f2e23c9e6b52c564f2331a18c8637f6e273fddaa73cab1f802c5e7",
+    "components/stylist/ConversationChat.tsx": "316b1f10f6f4ffcf6f4b354755d60916a5824006a6c6b9205950ec2afb3079fd",
+    "components/stylist/OutfitGuidance.tsx": "05ef8074d6465c666ebee321c3b424e180699d36a1856d90b1572ec7e96856a2",
+    "components/stylist/OutfitSummary.tsx": "08ba5e291d6c776354dc8765cf1f46fb75e56157958a447768c97428fb54a7b2",
+    "components/stylist/ProductPageContext.tsx": "e073b1d5c39b2146a4d6eafe04dce0d8184cbce2db3327c8ccf08d367e12dae7",
+    "components/stylist/ShoppingConversation.module.css": "c51a5ce7907a49b47e45b9e8d5acff9c8fdd3b6b7f26844e831914af66f1478b",
+    "components/stylist/ShoppingProductResults.tsx": "60026ecb509aaa0ce5904964db72bb96fc42063c467b4545bbd3e39a1ef5068e",
+    "components/stylist/ShoppingRequestSummary.tsx": "8ce0c398e507ceae799a93b1d3c26462ffa1aeb847c23e666665c87602d75074",
+    "components/stylist/StylistLauncher.tsx": "a84e45540db5a57331857e1d6a4fdf083e6edaa10714caedc16be4a2bd1985fa",
+    "components/stylist/StylistModal.tsx": "385134084f37eda07fe720a16460a3c68b57b7ab2cdaae21f1e95b1022b604de",
+    "components/stylist/StylistProvider.tsx": "85cf48b35a900b2d3b695bdfd53c73d711037e9757aa4424e44a0a91a1e1af79",
+    "lib/ai/chatRequest.ts": "c58416d5cd219489d43e9e68b014b3fd9bb4556f9da62f8ecf0da7fd70961df2",
+    "lib/ai/conversationModelPlan.ts": "86eb79c9bd03072f39d4a82f6fcc323cc978632a69295a858d79e93641905a32",
+    "lib/ai/extractPreferences.ts": "96b3f62dce96fac55fc94be264ea44372cf5bd8c6ab12edcd9f0fc641126becf",
+    "lib/ai/generateRecommendation.ts": "7345d5798f037eb9b5cd7f097ceed4a0c2b399396386fffe456cd9da59669643",
+    "lib/ai/interpretConversation.ts": "53bb9827ca5c0d4ac758d46a85cd96153b24a31e3fd96a2632d60731298362b9",
+    "lib/ai/preferenceSchema.ts": "389d843c7264f2b092571391d322ae831593e771fdc55a5b6b5e27eec8b791fd",
+    "lib/ai/resolveFollowUp.ts": "531a24a9068100fbabf3214dca97c1a9b860bc9709f5c97c10b31b09d4e183b9",
+    "lib/ai/validatePreferences.ts": "1916486b28793525814d1150afe96d3462d62b600d136e1921e080af612b04cd",
+    "lib/search/catalogueSearch.ts": "31eb2100127c8b6021bd5ac24bc83de9d2bf81b640849c1b63196d6361003010",
+    "lib/search/cheaperSearch.ts": "3d8540eedadfe5cef3efbca5281a449aada25d9330911f3d6715ac0a283d678b",
+    "lib/search/crossSell.ts": "fd3289a5b7d84b5610b98971f84e9978f51f9d56869f5b9526865e55e72c1c1c",
+    "lib/search/crossSellClient.ts": "6beaf2568ff383febba0703376d1d4badc6b295ecb04bb321293c3c8947fbb9a",
+    "lib/search/facetedSearch.ts": "2663a621ca6981d4f0f3759d3283571616949e7a62f71f852f089485f7217d67",
+    "lib/search/filterState.ts": "cfc1f65543a1a0b000ef9879d28ddde06a418d862d0051439ac8cf33b0e9010f",
+    "lib/search/outfitBudgetSearch.ts": "4102861e217d81632474fe938af7c0c58dcdfd8adbc318e981865e4d0f67a787",
+    "lib/search/preferenceSearch.ts": "342c032c5beb7563e6b6c6a65c8ab7297c5ee5d36fbf8721f72488b3cc6522e6",
+    "lib/search/productBenefits.ts": "5c9e9709cd8dd91a42cd354aca842aa72bb99532178fb547bfc0874d40817248",
+    "lib/search/searchService.ts": "de8f6dea6e7ba4d93f463de7a00161595623bbbe3cb3ec77bbbb5ae7f0aea331",
+    "lib/search/stylingCompatibility.ts": "ad4358d44faa8985a0c175b0a37ada23887070740381cda5b11fa592fff69d08",
+    "lib/search/upsell.ts": "420e718976b883b563814edd757d00bfcc891e229c2f0aa7627ac19de905fa65",
+    "lib/search/upsellClient.ts": "41042bd03d04baaa7fc8c189b07e3643dbd2f492e0ea255623835b23aa7a2566",
+    "lib/search/validatedPreferenceSearch.ts": "798bba7be5c1cea1362647ee161ac25680c0f21ecdc5edcd49511f869483a39b",
+    "lib/stylist/answerPlan.ts": "62991b9d3342e4354ca98fcf20585156acd7ebf7831871d850a26af0afecda5a",
+    "lib/stylist/catalogueImages.ts": "08de1050068e17c62f8600a7ab0a9720d54e996fc77f2d505649b235437e7838",
+    "lib/stylist/collectionPreference.ts": "4d8398547c3ed15dc7a9de3209c347bdfe7ce30cd75c7281c86bb7a1abe8a9a3",
+    "lib/stylist/combinedShoppingRequest.ts": "a6de5d61b221e83f915a228214f1889c8524ab4c79adc1b0c1363474dfea2b99",
+    "lib/stylist/commerceCatalogue.ts": "0a1ab1e1d61285579c40df9547663d9307b8250e1e7f847bdc84515ad7ac717c",
+    "lib/stylist/commerceSchema.ts": "789977b83b367d577dce8288e6af79e7c9904a3d942b7ab515c49753a2168a40",
+    "lib/stylist/conversationAnswers.ts": "afd70cd0b6e57a6ef47b6d4666f63ccf7d7ad61dff961b521ed91bdb598f618a",
+    "lib/stylist/conversationChanges.ts": "8de376bd6c504a96e8ea4409d3778743d2860a6b71603c32ddc48204f522a422",
+    "lib/stylist/conversationDiagnostics.ts": "a44c5a0baeaa2238119ae2f25cee33406edc863ceb14d9a579b669ea2191027a",
+    "lib/stylist/conversationGrounding.ts": "d0b815931008336f0d04eedae42dad1f73e05b0d394aa261d72a7d7e45263c32",
+    "lib/stylist/conversationIssues.ts": "8ff6ea43a4f809ed0696cf290f4a153e18b17801dddcac2536e73e8162a57028",
+    "lib/stylist/conversationLimits.ts": "a69c2f8d6f19c332e78eb08f3b2758c171ca08a210291c2b9c00a39db90903b9",
+    "lib/stylist/conversationPlan.ts": "48aa6d3d82bc664c04e72b3265b9bc63f2b8474dddd63ca46ba980aba03fcadb",
+    "lib/stylist/conversationProtocol.ts": "55609b6d3c00914e01d9808c357611f9d97c15fe7b2863acc6dc565c7e6a440b",
+    "lib/stylist/conversationSearch.ts": "4b69eac884630053e979cd5be4e9d23962b6b6ffde54ff0a0fa9821399e11b68",
+    "lib/stylist/conversationStore.ts": "750536ee4108434f1bc4aa148374d2007fb0f5864c0dec38e0bed0ce4ef1d26f",
+    "lib/stylist/conversationTurn.ts": "824b5f91514b0b77b367045b7ed80b89e02f50cf42adbe5c4d0ee15205464dc5",
+    "lib/stylist/discovery.ts": "b3113fc5ac633f70933fa331268b517b0ba8f704f761c961955f3415da320a85",
+    "lib/stylist/dressCode.ts": "83aa33146fef1ac0a0a0c8c58494a5ec728968d44249819e06dc94ec7fca34a0",
+    "lib/stylist/friendlyShoppingMessage.ts": "531bf5e67a5cfad7b1d35ae082b675cd003c3686d14f11ce5cd4238d827b7d6b",
+    "lib/stylist/outfitBudgetSchema.ts": "bf221910eaf70c9b8e0b36f694611ce9ab4f0e1f1dbdbe9bed3f4281bfd61aef",
+    "lib/stylist/outfitPresentation.ts": "6e7aaadc8a7be98c4e1dba909f78ae348b0bf91cbd39bcddda64fb208ef69ea0",
+    "lib/stylist/outfitReview.ts": "bf3593b55da37bc92e07044133e9f022c799287c450b63bdd4ae1793d6226b6e",
+    "lib/stylist/preferenceScope.ts": "d85fee4d052e2177acef926756257947b80eb010bd8f2ce7d757cf4e71cd9d1e",
+    "lib/stylist/priceContext.ts": "c7b40f4d9a2c0a9f9f1a84d333bbca096283251b57ced1fd09708e9806beb1e0",
+    "lib/stylist/productActions.ts": "bc322ddc2b7e8d0cdf3dbd4244fcd912b78a48da7fa1fc04e26aba6876220f0f",
+    "lib/stylist/productCardPresentation.ts": "4130193ee803899b35dbaef788ccfdcc7cd1f7437b38800a5e545ea570e04807",
+    "lib/stylist/productReference.ts": "a96bbfec463ee380ad849194f8ec0d12e69f379a786a1aba0314cdcbf528c8dd",
+    "lib/stylist/productSpecifications.ts": "95c32d405f0c4cb21b85c359bc058214dd34a518777bb4511403b083a7286970",
+    "lib/stylist/purchaseBudget.ts": "b4f9b1155a8a200bb7ecc61b8ade7e87031a8a7a07d6642c3e013e7793a27c83",
+    "lib/stylist/recommendationTelemetry.ts": "84609331f87336d1b31d6c22385f3fbe831bcdbcf5750ae25a372c62e5476d59",
+    "lib/stylist/requestPresentation.ts": "fb75bb3eadff9c10313180994bc05cdd1eca7bf6e38c2ce6ff7adb538d5a0aa2",
+    "lib/stylist/sharedScope.ts": "26b4cba17ca4d29fe68d03b9406a23cb9c8a8e58aabd48e6e6b82c823efc2e1f",
+    "lib/stylist/shoppingBrief.ts": "b674cf2a13ed3f60eec14400788319e451aa1bc6bce98ba9660b0f003ac6830d",
+    "lib/stylist/shoppingPresentation.ts": "bc68aab16412e1bdf1e4cd4a6cab5e9de5545680dfe987a362efb925bb6a7c71",
+    "lib/stylist/sizeEdit.ts": "bcb538461a78f44f998f470413b2c6f70a7c974480fcf0f4c3d9b7619f89dfc5",
+    "lib/stylist/taskState.ts": "59692562df44100c70f6aad9dd2cfaa3b5c0c2b841c65c21e2c637c37b0baab1",
+    "lib/stylist/viewedProduct.ts": "fd1152617ade7898f54ba180f8a2bd45530a6291c0a37736ede219f632add84c"
+  },
+  "model_label": "Not reported; verify running server configuration",
+  "catalogue_reference": "docs/test-evidence/stylist-remediation-2026-10-21/catalogue-audit.json",
+  "configuration": {
+    "variant": "1",
+    "repeat": 1,
+    "timeout_ms": 120000
+  },
+  "scope": "Live HTTP for 45 conversation definitions; five isolated in-process recovery faults. Human reviews pending.",
+  "selected_journeys": 10,
+  "planned_trials": 10,
+  "counts": {
+    "AUTO_PASS": 8,
+    "FAIL": 0,
+    "ERROR": 0,
+    "BLOCKED_CATALOGUE": 2
+  },
+  "results": [
+    {
+      "id": "J01",
+      "name": "Direct dress search and material question",
+      "mode": "live",
+      "variant": 1,
+      "status": "AUTO_PASS",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request.",
+        "Compare material claims with the current product record; missing data must be acknowledged."
+      ],
+      "expected": "Show eligible dresses, then answer about the exact named dress without changing the search.",
+      "trial": "v1-run1",
+      "elapsed_ms": 8831,
+      "file": "J01-v1-run1.json",
+      "executed_turns": 2,
+      "controlled_checks": 0
+    },
+    {
+      "id": "J02",
+      "name": "Guided beach wedding shopping",
+      "mode": "live",
+      "variant": 1,
+      "status": "BLOCKED_CATALOGUE",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request.",
+        "If alternatives differ in occasion, disclose this; do not certify sand suitability."
+      ],
+      "expected": "Allow browsing without a size; retain occasion and budget through colour refinement.",
+      "unexecuted_turns": 0,
+      "trial": "v1-run1",
+      "elapsed_ms": 12566,
+      "failure": "Need 1 eligible products, but received 0 (no_match). Inspect the catalogue to distinguish stock limits from a search bug.",
+      "file": "J02-v1-run1.json",
+      "executed_turns": 2,
+      "controlled_checks": 0
+    },
+    {
+      "id": "J03",
+      "name": "Discovery from uncertainty",
+      "mode": "live",
+      "variant": 1,
+      "status": "AUTO_PASS",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request."
+      ],
+      "expected": "Help the customer choose a direction without inventing size or budget.",
+      "trial": "v1-run1",
+      "elapsed_ms": 18633,
+      "file": "J03-v1-run1.json",
+      "executed_turns": 3,
+      "controlled_checks": 0
+    },
+    {
+      "id": "J16",
+      "name": "Colour edit preserves size and budget",
+      "mode": "live",
+      "variant": 1,
+      "status": "BLOCKED_CATALOGUE",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request."
+      ],
+      "expected": "Change only colour.",
+      "unexecuted_turns": 1,
+      "trial": "v1-run1",
+      "elapsed_ms": 6411,
+      "failure": "Need 1 eligible products, but received 0 (no_match). Inspect the catalogue to distinguish stock limits from a search bug.",
+      "file": "J16-v1-run1.json",
+      "executed_turns": 1,
+      "controlled_checks": 0
+    },
+    {
+      "id": "J17",
+      "name": "Budget edit preserves item and occasion",
+      "mode": "live",
+      "variant": 1,
+      "status": "AUTO_PASS",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request."
+      ],
+      "expected": "Reduce the cap without losing the work dress request.",
+      "trial": "v1-run1",
+      "elapsed_ms": 11618,
+      "file": "J17-v1-run1.json",
+      "executed_turns": 2,
+      "controlled_checks": 0
+    },
+    {
+      "id": "J18",
+      "name": "Shoe size correction after invalid input",
+      "mode": "live",
+      "variant": 1,
+      "status": "AUTO_PASS",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request.",
+        "Prerequisite: the test catalogue supports shoe size 7. Do not infer a conversion."
+      ],
+      "expected": "Accept a clear correction instead of repeating the invalid-size blocker.",
+      "trial": "v1-run1",
+      "elapsed_ms": 10782,
+      "file": "J18-v1-run1.json",
+      "executed_turns": 2,
+      "controlled_checks": 0
+    },
+    {
+      "id": "J19",
+      "name": "Reject an item permanently within the chat",
+      "mode": "live",
+      "variant": 1,
+      "status": "AUTO_PASS",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request."
+      ],
+      "expected": "Retain the rejection without narrowing all dresses to the rejected product type.",
+      "trial": "v1-run1",
+      "elapsed_ms": 14001,
+      "file": "J19-v1-run1.json",
+      "executed_turns": 3,
+      "controlled_checks": 0
+    },
+    {
+      "id": "J26",
+      "name": "Dress and shoes share one total",
+      "mode": "live",
+      "variant": 1,
+      "status": "AUTO_PASS",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request."
+      ],
+      "expected": "Every selectable dress-and-shoes combination fits the combined limit.",
+      "trial": "v1-run1",
+      "elapsed_ms": 24288,
+      "file": "J26-v1-run1.json",
+      "executed_turns": 2,
+      "controlled_checks": 0
+    },
+    {
+      "id": "J31",
+      "name": "Style an external owned garment",
+      "mode": "live",
+      "variant": 1,
+      "status": "AUTO_PASS",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request."
+      ],
+      "expected": "Keep the external description separate from catalogue SKUs and disclose limited pairing evidence.",
+      "trial": "v1-run1",
+      "elapsed_ms": 12822,
+      "file": "J31-v1-run1.json",
+      "executed_turns": 2,
+      "controlled_checks": 0
+    },
+    {
+      "id": "J38",
+      "name": "Strict no-match keeps every limit",
+      "mode": "live",
+      "variant": 1,
+      "status": "AUTO_PASS",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request.",
+        "Prerequisite: no eligible blue size-10 dress costs A$1 or less. Verify against the catalogue snapshot."
+      ],
+      "expected": "Return no matches without silently relaxing constraints.",
+      "trial": "v1-run1",
+      "elapsed_ms": 12342,
+      "file": "J38-v1-run1.json",
+      "executed_turns": 2,
+      "controlled_checks": 0
+    }
+  ],
+  "human_reviews_pending": 10,
+  "by_journey": [
+    {
+      "id": "J01",
+      "mode": "live",
+      "attempted": 1,
+      "auto_passed": 1,
+      "failed": 0,
+      "errors": 0,
+      "catalogue_blocked": 0
+    },
+    {
+      "id": "J02",
+      "mode": "live",
+      "attempted": 1,
+      "auto_passed": 0,
+      "failed": 0,
+      "errors": 0,
+      "catalogue_blocked": 1
+    },
+    {
+      "id": "J03",
+      "mode": "live",
+      "attempted": 1,
+      "auto_passed": 1,
+      "failed": 0,
+      "errors": 0,
+      "catalogue_blocked": 0
+    },
+    {
+      "id": "J16",
+      "mode": "live",
+      "attempted": 1,
+      "auto_passed": 0,
+      "failed": 0,
+      "errors": 0,
+      "catalogue_blocked": 1
+    },
+    {
+      "id": "J17",
+      "mode": "live",
+      "attempted": 1,
+      "auto_passed": 1,
+      "failed": 0,
+      "errors": 0,
+      "catalogue_blocked": 0
+    },
+    {
+      "id": "J18",
+      "mode": "live",
+      "attempted": 1,
+      "auto_passed": 1,
+      "failed": 0,
+      "errors": 0,
+      "catalogue_blocked": 0
+    },
+    {
+      "id": "J19",
+      "mode": "live",
+      "attempted": 1,
+      "auto_passed": 1,
+      "failed": 0,
+      "errors": 0,
+      "catalogue_blocked": 0
+    },
+    {
+      "id": "J26",
+      "mode": "live",
+      "attempted": 1,
+      "auto_passed": 1,
+      "failed": 0,
+      "errors": 0,
+      "catalogue_blocked": 0
+    },
+    {
+      "id": "J31",
+      "mode": "live",
+      "attempted": 1,
+      "auto_passed": 1,
+      "failed": 0,
+      "errors": 0,
+      "catalogue_blocked": 0
+    },
+    {
+      "id": "J38",
+      "mode": "live",
+      "attempted": 1,
+      "auto_passed": 1,
+      "failed": 0,
+      "errors": 0,
+      "catalogue_blocked": 0
+    }
+  ],
+  "finished_at": "2026-10-20T13:41:46.807Z"
+}

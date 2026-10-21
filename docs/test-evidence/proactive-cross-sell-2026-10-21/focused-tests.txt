@@ -1,0 +1,30 @@
+PASS: The first beach-wedding result proactively shows actual bag and shoe products
+PASS: Showing extras preserves primary ordering, focus, saved preferences and cart IDs
+PASS: Additional-item size, colour, material and cap are independent of the dress
+PASS: An initial new-search brief also includes extras without a second prompt
+PASS: A trailing request to browse without choosing a size preserves the original dress and collection
+PASS: No-extras variants suppress products and persist the preference
+PASS: An existing pause and a local dismissal both suppress subsequent offers
+PASS: Owned and selected accessory roles are not recommended again
+PASS: Primary no-match, unknown occasion and unresolved requirements do not trigger offers
+PASS: Explicit provisional consent resumes unchanged filters, discloses the unknown and suppresses offers
+PASS: Missing rules, unavailable extras and corrupt optional rules preserve dress results
+PASS: Unavailable first category falls through to the next approved category
+PASS: Shared exclusions, material and per-item price restrictions apply to extras
+PASS: Rejected/cart products and mismatched occasions cannot pad the offer
+PASS: A combined cap covers the anchor and all proposed additions together
+PASS: Selected anchors are counted once and owned anchors cost zero
+PASS: Exact totals at the cap work; zero remaining allowance omits the offer
+PASS: Refinements and truncated history do not repeat the same pitch
+PASS: Reference groups keep ordinals primary and named/role references address extras
+PASS: Changing the anchor refreshes extras without changing primary context or outfit
+PASS: An unknown anchor cannot refresh, and another anchor cannot be substituted
+PASS: Questions about an addition retain its pairing anchor and avoid the dress-only budget
+PASS: Saving an addition retains recommendation context and leaves the dress unselected
+PASS: Offer preferences survive reload without persisting shopping messages or identities
+PASS: Explicit resumption clears dismissal but an explicit cross-sell keeps the pause
+PASS: A new task can offer again while persistent pauses stay paused
+PASS: Protocol rejects ungrounded, duplicate, mispriced and over-budget offers
+PASS: The rollout switch suppresses only optional previews
+
+28 proactive cross-sell checks passed. No network calls.

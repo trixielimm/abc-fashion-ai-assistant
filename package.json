@@ -10,7 +10,11 @@
     "typecheck": "tsc --noEmit",
     "test": "node scripts/run-regression.mjs",
     "test:scenarios": "node --env-file=.env.local --conditions=react-server --import tsx scripts/test-customer-scenarios.mjs",
-    "test:answers:live": "node --env-file=.env.local --import tsx scripts/test-conversation-answers-live.mjs"
+    "test:answers:live": "node --env-file=.env.local --import tsx scripts/test-conversation-answers-live.mjs",
+    "test:journeys:everyday": "node --import tsx scripts/run-stylist-journeys.mjs --suite everyday",
+    "test:journeys:prerelease": "node --import tsx scripts/run-stylist-journeys.mjs --suite prerelease",
+    "test:journeys:check": "node --import tsx scripts/run-stylist-journeys.mjs --check",
+    "test:journeys:guide": "node --import tsx scripts/run-stylist-journeys.mjs --write-guide"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1150.0",

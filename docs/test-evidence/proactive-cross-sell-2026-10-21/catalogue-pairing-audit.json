@@ -1,0 +1,126 @@
+{
+  "scope": "Read-only catalogue; deterministic plans; no model calls",
+  "rows": 318,
+  "checks": [
+    {
+      "occasion": "Brunch",
+      "status": "matches",
+      "primary_ids": [
+        "P1254",
+        "P1293",
+        "P1044",
+        "P1004"
+      ],
+      "offer": {
+        "anchor": "P1044",
+        "products": [
+          {
+            "id": "P1054",
+            "category": "Accessories",
+            "price": 50
+          }
+        ]
+      }
+    },
+    {
+      "occasion": "Wedding Guest",
+      "status": "matches",
+      "primary_ids": [
+        "P1014",
+        "P1189"
+      ],
+      "offer": {
+        "anchor": "P1014",
+        "products": [
+          {
+            "id": "P1075",
+            "category": "Shoes",
+            "price": 110
+          }
+        ]
+      }
+    },
+    {
+      "occasion": "Formal",
+      "status": "matches",
+      "primary_ids": [
+        "P1284",
+        "P1021",
+        "P1214",
+        "P1235"
+      ],
+      "offer": {
+        "anchor": "P1284",
+        "products": [
+          {
+            "id": "P1034",
+            "category": "Accessories",
+            "price": 35
+          }
+        ]
+      }
+    },
+    {
+      "occasion": "Date Night",
+      "status": "matches",
+      "primary_ids": [
+        "P1219",
+        "P1287",
+        "P1132",
+        "P1105",
+        "P1160"
+      ],
+      "offer": {
+        "anchor": "P1219",
+        "products": [
+          {
+            "id": "P1242",
+            "category": "Shoes",
+            "price": 125
+          }
+        ]
+      }
+    },
+    {
+      "occasion": "Party",
+      "status": "matches",
+      "primary_ids": [
+        "P1040",
+        "P1255",
+        "P1311",
+        "P1248"
+      ],
+      "offer": {
+        "anchor": "P1040",
+        "products": [
+          {
+            "id": "P1200",
+            "category": "Accessories",
+            "price": 65
+          }
+        ]
+      }
+    },
+    {
+      "occasion": "Beach Wedding",
+      "status": "matches",
+      "primary_ids": [
+        "P1199",
+        "P1178",
+        "P1092",
+        "P1162",
+        "P1215"
+      ],
+      "offer": {
+        "anchor": "P1199",
+        "products": [
+          {
+            "id": "P1097",
+            "category": "Accessories",
+            "price": 35
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,1635 @@
+{
+  "id": "J26",
+  "name": "Dress and shoes share one total",
+  "mode": "live",
+  "variant": 1,
+  "status": "AUTO_PASS",
+  "human_review": "PENDING",
+  "review": [
+    "Check that the answers are useful and address every part of the request."
+  ],
+  "expected": "Every selectable dress-and-shoes combination fits the combined limit.",
+  "turns": [
+    {
+      "number": 1,
+      "checks": [
+        {
+          "path": "state.styling.outfit_request.total_budget_aud",
+          "op": "eq",
+          "value": 400
+        },
+        {
+          "path": "state.styling.outfit_request.items.length",
+          "op": "eq",
+          "value": 2
+        },
+        {
+          "path": "reply.status",
+          "op": "oneOf",
+          "value": [
+            "matches",
+            "partial",
+            "alternatives",
+            "no_match"
+          ]
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "Find a women's dress and women's shoes for formal events, A$400 for both together.",
+      "request": {
+        "request_id": "b205a505-0157-4b5a-9f69-952fda75998c",
+        "retry": false,
+        "turn": {
+          "message": "Find a women's dress and women's shoes for formal events, A$400 for both together.",
+          "collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": []
+          },
+          "history": [],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "complementary_shown": false,
+            "complementary_dismissed": false,
+            "prepared_key": "",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "dw705f",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 400,
+            "budget_evidence": "Find a women's dress and women's shoes for formal events, A$400 for both together.",
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": {
+          "limit_aud": 400,
+          "total_aud": 135,
+          "remaining_aud": 265,
+          "items": [
+            {
+              "product_id": "P1021",
+              "preferences": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "product_id": "P1085",
+              "preferences": {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ]
+        },
+        "outfit_choices": {
+          "groups": [
+            {
+              "label": "Dresses",
+              "product_ids": [
+                "P1021",
+                "P1235",
+                "P1214",
+                "P1284"
+              ],
+              "preferences": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "label": "Shoes",
+              "product_ids": [
+                "P1085",
+                "P1212",
+                "P1138"
+              ],
+              "preferences": {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ],
+          "maximum_total_aud": 385
+        },
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "matches",
+        "action": "new_search",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "Here are choices for dresses and shoes. Choose one item from each group; every displayed combination stays within your A$400.00 combined budget. Combinations range from A$135.00 to A$385.00.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Formal",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1021",
+            "product_name": "Cream Slip Dress",
+            "price_aud": 75,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Slip Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Cream",
+            "occasion": "Formal",
+            "style": "Contemporary",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1021/image"
+          },
+          {
+            "product_id": "P1235",
+            "product_name": "Sage Midi Dress",
+            "price_aud": 135,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Sage",
+            "occasion": "Formal",
+            "style": "Relaxed",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1235/image"
+          },
+          {
+            "product_id": "P1214",
+            "product_name": "Pink Mini Dress",
+            "price_aud": 160,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Mini Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Pink",
+            "occasion": "Formal",
+            "style": "Romantic",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1214/image"
+          },
+          {
+            "product_id": "P1284",
+            "product_name": "Lavender Maxi Dress",
+            "price_aud": 240,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Lavender",
+            "occasion": "Formal",
+            "style": "Minimalist",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1284/image"
+          },
+          {
+            "product_id": "P1085",
+            "product_name": "Red Block Heels",
+            "price_aud": 60,
+            "category": "Shoes",
+            "subcategory": "Heels",
+            "product_type": "Block Heels",
+            "brand_line": "ABC Footwear",
+            "colour": "Red",
+            "occasion": "Formal",
+            "style": "Contemporary",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1085/image"
+          },
+          {
+            "product_id": "P1212",
+            "product_name": "Grey Loafers",
+            "price_aud": 90,
+            "category": "Shoes",
+            "subcategory": "Flats",
+            "product_type": "Loafers",
+            "brand_line": "ABC Footwear",
+            "colour": "Grey",
+            "occasion": "Formal",
+            "style": "Minimalist",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1212/image"
+          },
+          {
+            "product_id": "P1138",
+            "product_name": "Blue Strappy Heels",
+            "price_aud": 145,
+            "category": "Shoes",
+            "subcategory": "Heels",
+            "product_type": "Strappy Heels",
+            "brand_line": "ABC Footwear",
+            "colour": "Blue",
+            "occasion": "Formal",
+            "style": "Elegant",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Clothing",
+            "image_src": "/api/products/P1138/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 400,
+            "items": [
+              {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "Find a women's dress and women's shoes for formal events, A$400 for both together."
+          },
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 400,
+            "items": [
+              {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "Find a women's dress and women's shoes for formal events, A$400 for both together."
+          },
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "dw705f",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 400,
+            "budget_evidence": "Find a women's dress and women's shoes for formal events, A$400 for both together.",
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1021",
+              "product_name": "Cream Slip Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Slip Dress",
+              "price_aud": 75
+            },
+            {
+              "product_id": "P1235",
+              "product_name": "Sage Midi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 135
+            },
+            {
+              "product_id": "P1214",
+              "product_name": "Pink Mini Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Mini Dress",
+              "price_aud": 160
+            },
+            {
+              "product_id": "P1284",
+              "product_name": "Lavender Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 240
+            },
+            {
+              "product_id": "P1085",
+              "product_name": "Red Block Heels",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Block Heels",
+              "price_aud": 60
+            },
+            {
+              "product_id": "P1212",
+              "product_name": "Grey Loafers",
+              "category": "Shoes",
+              "subcategory": "Flats",
+              "product_type": "Loafers",
+              "price_aud": 90
+            },
+            {
+              "product_id": "P1138",
+              "product_name": "Blue Strappy Heels",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Strappy Heels",
+              "price_aud": 145
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Find a women's dress and women's shoes for formal events, A$400 for both together."
+          },
+          {
+            "role": "assistant",
+            "content": "Here are choices for dresses and shoes. Choose one item from each group; every displayed combination stays within your A$400.00 combined budget. Combinations range from A$135.00 to A$385.00."
+          }
+        ]
+      },
+      "elapsed_ms": 7269
+    },
+    {
+      "number": 2,
+      "checks": [
+        {
+          "path": "state.styling.outfit_request.total_budget_aud",
+          "op": "eq",
+          "value": 350
+        },
+        {
+          "path": "state.styling.outfit_request.items.length",
+          "op": "eq",
+          "value": 2
+        },
+        {
+          "path": "reply.status",
+          "op": "oneOf",
+          "value": [
+            "matches",
+            "partial",
+            "alternatives",
+            "no_match"
+          ]
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "Make the combined budget A$350. Keep the same two pieces and occasion.",
+      "request": {
+        "request_id": "9c273365-0170-4975-b69a-402f23a1d70b",
+        "retry": false,
+        "turn": {
+          "message": "Make the combined budget A$350. Keep the same two pieces and occasion.",
+          "collection": {
+            "choice": "Women",
+            "current": {
+              "choice": "Women",
+              "source": "explicit"
+            },
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": "Women",
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": "Formal",
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": [
+              {
+                "product_id": "P1021",
+                "product_name": "Cream Slip Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Slip Dress",
+                "price_aud": 75
+              },
+              {
+                "product_id": "P1235",
+                "product_name": "Sage Midi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 135
+              },
+              {
+                "product_id": "P1214",
+                "product_name": "Pink Mini Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Mini Dress",
+                "price_aud": 160
+              },
+              {
+                "product_id": "P1284",
+                "product_name": "Lavender Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 240
+              },
+              {
+                "product_id": "P1085",
+                "product_name": "Red Block Heels",
+                "category": "Shoes",
+                "subcategory": "Heels",
+                "product_type": "Block Heels",
+                "price_aud": 60
+              },
+              {
+                "product_id": "P1212",
+                "product_name": "Grey Loafers",
+                "category": "Shoes",
+                "subcategory": "Flats",
+                "product_type": "Loafers",
+                "price_aud": 90
+              },
+              {
+                "product_id": "P1138",
+                "product_name": "Blue Strappy Heels",
+                "category": "Shoes",
+                "subcategory": "Heels",
+                "product_type": "Strappy Heels",
+                "price_aud": 145
+              }
+            ]
+          },
+          "history": [
+            {
+              "role": "user",
+              "content": "Find a women's dress and women's shoes for formal events, A$400 for both together."
+            },
+            {
+              "role": "assistant",
+              "content": "Here are choices for dresses and shoes. Choose one item from each group; every displayed combination stays within your A$400.00 combined budget. Combinations range from A$135.00 to A$385.00."
+            }
+          ],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": {
+              "total_budget_aud": 400,
+              "items": [
+                {
+                  "gender": "Women",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "size": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                },
+                {
+                  "gender": "Women",
+                  "category": "Shoes",
+                  "subcategory": null,
+                  "product_type": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "size": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                }
+              ],
+              "evidence": "Find a women's dress and women's shoes for formal events, A$400 for both together."
+            },
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "complementary_shown": false,
+            "complementary_dismissed": false,
+            "prepared_key": "dw705f",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": 400,
+              "budget_evidence": "Find a women's dress and women's shoes for formal events, A$400 for both together.",
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "8a44wq",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 350,
+            "budget_evidence": "Make the combined budget A$350. Keep the same two pieces and occasion.",
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": {
+          "limit_aud": 350,
+          "total_aud": 135,
+          "remaining_aud": 215,
+          "items": [
+            {
+              "product_id": "P1021",
+              "preferences": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "product_id": "P1085",
+              "preferences": {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ]
+        },
+        "outfit_choices": {
+          "groups": [
+            {
+              "label": "Dresses",
+              "product_ids": [
+                "P1021",
+                "P1235",
+                "P1214"
+              ],
+              "preferences": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "label": "Shoes",
+              "product_ids": [
+                "P1085",
+                "P1212",
+                "P1138",
+                "P1045"
+              ],
+              "preferences": {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ],
+          "maximum_total_aud": 335
+        },
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "matches",
+        "action": "refine",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "Here are choices for dresses and shoes. Choose one item from each group; every displayed combination stays within your A$350.00 combined budget. Combinations range from A$135.00 to A$335.00.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Formal",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1021",
+            "product_name": "Cream Slip Dress",
+            "price_aud": 75,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Slip Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Cream",
+            "occasion": "Formal",
+            "style": "Contemporary",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1021/image"
+          },
+          {
+            "product_id": "P1235",
+            "product_name": "Sage Midi Dress",
+            "price_aud": 135,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Sage",
+            "occasion": "Formal",
+            "style": "Relaxed",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1235/image"
+          },
+          {
+            "product_id": "P1214",
+            "product_name": "Pink Mini Dress",
+            "price_aud": 160,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Mini Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Pink",
+            "occasion": "Formal",
+            "style": "Romantic",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1214/image"
+          },
+          {
+            "product_id": "P1085",
+            "product_name": "Red Block Heels",
+            "price_aud": 60,
+            "category": "Shoes",
+            "subcategory": "Heels",
+            "product_type": "Block Heels",
+            "brand_line": "ABC Footwear",
+            "colour": "Red",
+            "occasion": "Formal",
+            "style": "Contemporary",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1085/image"
+          },
+          {
+            "product_id": "P1212",
+            "product_name": "Grey Loafers",
+            "price_aud": 90,
+            "category": "Shoes",
+            "subcategory": "Flats",
+            "product_type": "Loafers",
+            "brand_line": "ABC Footwear",
+            "colour": "Grey",
+            "occasion": "Formal",
+            "style": "Minimalist",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1212/image"
+          },
+          {
+            "product_id": "P1138",
+            "product_name": "Blue Strappy Heels",
+            "price_aud": 145,
+            "category": "Shoes",
+            "subcategory": "Heels",
+            "product_type": "Strappy Heels",
+            "brand_line": "ABC Footwear",
+            "colour": "Blue",
+            "occasion": "Formal",
+            "style": "Elegant",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Clothing",
+            "image_src": "/api/products/P1138/image"
+          },
+          {
+            "product_id": "P1045",
+            "product_name": "Sage Loafers",
+            "price_aud": 175,
+            "category": "Shoes",
+            "subcategory": "Flats",
+            "product_type": "Loafers",
+            "brand_line": "ABC Footwear",
+            "colour": "Sage",
+            "occasion": "Formal",
+            "style": "Smart",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1045/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 350,
+            "items": [
+              {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "Make the combined budget A$350. Keep the same two pieces and occasion."
+          },
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 350,
+            "items": [
+              {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "Make the combined budget A$350. Keep the same two pieces and occasion."
+          },
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "8a44wq",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 350,
+            "budget_evidence": "Make the combined budget A$350. Keep the same two pieces and occasion.",
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1021",
+              "product_name": "Cream Slip Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Slip Dress",
+              "price_aud": 75
+            },
+            {
+              "product_id": "P1235",
+              "product_name": "Sage Midi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 135
+            },
+            {
+              "product_id": "P1214",
+              "product_name": "Pink Mini Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Mini Dress",
+              "price_aud": 160
+            },
+            {
+              "product_id": "P1085",
+              "product_name": "Red Block Heels",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Block Heels",
+              "price_aud": 60
+            },
+            {
+              "product_id": "P1212",
+              "product_name": "Grey Loafers",
+              "category": "Shoes",
+              "subcategory": "Flats",
+              "product_type": "Loafers",
+              "price_aud": 90
+            },
+            {
+              "product_id": "P1138",
+              "product_name": "Blue Strappy Heels",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Strappy Heels",
+              "price_aud": 145
+            },
+            {
+              "product_id": "P1045",
+              "product_name": "Sage Loafers",
+              "category": "Shoes",
+              "subcategory": "Flats",
+              "product_type": "Loafers",
+              "price_aud": 175
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "P1021",
+                "product_name": "Cream Slip Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Slip Dress",
+                "price_aud": 75
+              },
+              {
+                "product_id": "P1235",
+                "product_name": "Sage Midi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 135
+              },
+              {
+                "product_id": "P1214",
+                "product_name": "Pink Mini Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Mini Dress",
+                "price_aud": 160
+              },
+              {
+                "product_id": "P1284",
+                "product_name": "Lavender Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 240
+              },
+              {
+                "product_id": "P1085",
+                "product_name": "Red Block Heels",
+                "category": "Shoes",
+                "subcategory": "Heels",
+                "product_type": "Block Heels",
+                "price_aud": 60
+              },
+              {
+                "product_id": "P1212",
+                "product_name": "Grey Loafers",
+                "category": "Shoes",
+                "subcategory": "Flats",
+                "product_type": "Loafers",
+                "price_aud": 90
+              },
+              {
+                "product_id": "P1138",
+                "product_name": "Blue Strappy Heels",
+                "category": "Shoes",
+                "subcategory": "Heels",
+                "product_type": "Strappy Heels",
+                "price_aud": 145
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Find a women's dress and women's shoes for formal events, A$400 for both together."
+          },
+          {
+            "role": "assistant",
+            "content": "Here are choices for dresses and shoes. Choose one item from each group; every displayed combination stays within your A$400.00 combined budget. Combinations range from A$135.00 to A$385.00."
+          },
+          {
+            "role": "user",
+            "content": "Make the combined budget A$350. Keep the same two pieces and occasion."
+          },
+          {
+            "role": "assistant",
+            "content": "Here are choices for dresses and shoes. Choose one item from each group; every displayed combination stays within your A$350.00 combined budget. Combinations range from A$135.00 to A$335.00."
+          }
+        ]
+      },
+      "elapsed_ms": 7235
+    }
+  ],
+  "trial": "v1-run1",
+  "elapsed_ms": 14504,
+  "file": "J26-v1-run1.json"
+}

@@ -14,10 +14,11 @@ import { HISTORY_MESSAGES, MAX_DISPLAYED_PRODUCTS } from "./conversationLimits";
 import { dressCodeFromMessage, explicitDressCode } from "./dressCode";
 import { advanceDiscovery, DiscoveryIntentSchema, DiscoveryStateSchema } from "./discovery";
 import { CollectionStateSchema, emptyCollectionState, explicitCollection, collectionPresentation, resolveCollection } from "./collectionPreference";
-import { additiveCombinedRequest, requestedComponents, jacketPairingRequest, isJacket } from "./combinedShoppingRequest";
+import { additiveCombinedRequest, requestedComponents, jacketPairingRequest, isJacket, confirmedBudgetRequest } from "./combinedShoppingRequest";
 import { TaskStateSchema, prepareConversationTask } from "./taskState";
 import { issue } from "./conversationIssues";
 import { matchesProductType } from "../catalogue/productFamilies";
+import { hasSharedScope, permitsBudgetRemoval } from "./sharedScope";
 export { ConversationChangeSchema } from "./conversationChanges";
 
 const text = z.string().trim().min(1).max(250);
@@ -40,6 +41,7 @@ export const PendingConversationSchema = z.strictObject({
   before_styling: StylingStateSchema.optional(),
   before_collection: CollectionStateSchema.optional(),
   styling_question: z.boolean().optional(),
+  budget_confirmation: OutfitRequestSchema.optional(),
 });
 
 export const ConversationPlanRequestSchema = z.strictObject({
@@ -50,6 +52,7 @@ export const ConversationPlanRequestSchema = z.strictObject({
   context: z.strictObject({
     focused: ContextProductSchema.nullable(),
     latest: z.array(ContextProductSchema).max(MAX_DISPLAYED_PRODUCTS),
+    complementary: z.array(ContextProductSchema).max(2).optional(),
     previous: z.array(z.array(ContextProductSchema).max(MAX_DISPLAYED_PRODUCTS)).max(2).optional(),
     selected: z.array(ContextProductSchema).max(8).optional(),
     comparison: ContextProductSchema.optional(),
@@ -186,7 +189,9 @@ export function checkConversationPlan(input: unknown, output: unknown) {
       .map(match => Number(match[1] ?? match[2]));
     const unlabelledBudget = outfit.evidence.match(/\b(?:budget|total|under|maximum|up to)\b[^\d]{0,70}(\d+(?:\.\d{1,2})?)\b/i);
     if (unlabelledBudget) amounts.push(Number(unlabelledBudget[1]));
+    const confirmed = request.pending?.budget_confirmation ? confirmedBudgetRequest(request.message, request.pending.budget_confirmation) : null;
     if (outfit.total_budget_aud !== previous?.total_budget_aud && !amounts.includes(outfit.total_budget_aud) &&
+        !(confirmed && outfit.total_budget_aud === confirmed.total_budget_aud && JSON.stringify(outfit.items) === JSON.stringify(confirmed.items)) &&
         !(request.task?.brief.goal === "travel_layers" && request.task.brief.total_budget_aud === outfit.total_budget_aud &&
           requestedComponents(request.message).size >= 2)) {
       throw new PlanValidationError("The combined budget must be stated in the latest outfit evidence.");
@@ -248,7 +253,7 @@ export function checkConversationPlan(input: unknown, output: unknown) {
         : styling.owned_categories.filter(category => category !== owned.category);
     }
     const context = { ...request.context, selected: originalStyling.outfit };
-    const pool = [...request.context.latest, ...(request.context.previous?.flat() ?? []), ...(request.context.focused ? [request.context.focused] : []), ...(request.context.comparison ? [request.context.comparison] : []), ...originalStyling.outfit];
+    const pool = [...request.context.latest, ...(request.context.complementary ?? []), ...(request.context.previous?.flat() ?? []), ...(request.context.focused ? [request.context.focused] : []), ...(request.context.comparison ? [request.context.comparison] : []), ...originalStyling.outfit];
     for (const change of intent.outfit_changes) {
       requireEvidence(change.evidence, "styling.outfit.evidence");
       // Interest is not consent to select an outfit piece. A short answer can
@@ -287,6 +292,10 @@ export function checkConversationPlan(input: unknown, output: unknown) {
   }
   if (plan.answer) {
     const answer = plan.answer;
+    const continuesResultComparison = answer.continuation && request.pending_answer?.intent.compare_new_results && plan.action === "none";
+    if (answer.compare_new_results && !continuesResultComparison && (answer.kind !== "compare" || !["new_search", "refine"].includes(plan.action) || answer.references.length !== 1 || answer.continuation)) {
+      throw new PlanValidationError("A new-results comparison needs one explicit existing reference and a new_search or refine action.");
+    }
     if (answer.kind === "outfit_review" && (plan.action !== "none" || answer.references.length || answer.continuation || plan.styling_intent)) {
       throw new PlanValidationError("An outfit review answers from the current styling.outfit and external_items without selecting, removing or searching for products. Use action=none, references=[], continuation=false and styling_intent=null.");
     }
@@ -342,7 +351,7 @@ export function checkConversationPlan(input: unknown, output: unknown) {
     }
     if (field === "gender") {
       const explicit = explicitCollection(request.message, Boolean(request.collection?.checkpoint));
-      if (change.scope === "shared" && (!explicit || !/\b(?:all (?:items|recommendations|future searches)|every item|throughout|globally)\b/i.test(request.message))) {
+      if (change.scope === "shared" && (!explicit || !hasSharedScope(request.message))) {
         throw new PlanValidationError("A shared collection rule needs an explicit request for all recommendations. Keep collection-question answers in item scope; the server remembers the browsing choice separately.");
       }
     }
@@ -354,6 +363,10 @@ export function checkConversationPlan(input: unknown, output: unknown) {
       throw new PlanValidationError("Product identity and size cannot be shared globally.");
     }
     const listField = field === "preferred_colours" || field === "excluded_colours" || field === "unresolved";
+    if ((field === "min_price" || field === "max_price") && change.value === null &&
+        scopes[change.scope][field] !== null && !permitsBudgetRemoval(request.message)) {
+      throw new PlanValidationError("Clearing a saved price limit requires explicit permission. Cheaper preserves the saved budget and uses the reference price separately.");
+    }
     if (!listField) {
       if (change.operation !== "set" || Array.isArray(change.value)) {
         throw new PlanValidationError("A scalar preference requires a set operation.");

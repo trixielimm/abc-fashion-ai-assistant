@@ -35,7 +35,7 @@ export function resolveAnswerProducts(turn: ConversationPlanRequest, intent: Ans
       isValueComparisonQuestion(turn.pending_answer?.question ?? "") && !ids.includes(turn.context.comparison.product_id)) {
     ids.unshift(turn.context.comparison.product_id);
   }
-  return intent.kind === "compare" && ids.length < 2
+  return intent.kind === "compare" && !intent.compare_new_results && ids.length < 2
     ? { ids: [], question: "Which two products would you like me to compare? Use their names or positions in the results." }
     : { ids, question: null };
 }
@@ -60,7 +60,7 @@ function productAnswer(product: CatalogueProduct, turn: ConversationPlanRequest,
   const question = intent.continuation ? turn.pending_answer!.question : turn.message;
   const specification = getProductSpecification(product);
   if (topics.has("recommendation")) {
-    const snapshot = [turn.context.focused, turn.context.comparison, ...turn.context.latest, ...(turn.context.previous?.flat() ?? []), ...(turn.context.selected ?? [])].find(row => row?.product_id === product.product_id);
+    const snapshot = [turn.context.focused, turn.context.comparison, ...turn.context.latest, ...(turn.context.complementary ?? []), ...(turn.context.previous?.flat() ?? []), ...(turn.context.selected ?? [])].find(row => row?.product_id === product.product_id);
     const recommendation = snapshot?.recommendation_context;
     const anchorIds = recommendation?.anchor_ids ?? turn.styling?.outfit.map(piece => piece.product_id) ?? [];
     const anchors = catalogue.filter(row => row.product_id !== product.product_id && anchorIds.includes(row.product_id ?? ""));
@@ -85,7 +85,8 @@ function productAnswer(product: CatalogueProduct, turn: ConversationPlanRequest,
     } else if (product.occasion) lines.push(`The catalogue lists this item for ${label(product.occasion)}.`);
     const details = [product.colour && `colour: ${label(product.colour)}`, product.style && `style: ${label(product.style)}`, product.season && `season: ${label(product.season)}`].filter(Boolean);
     if (details.length) lines.push(`Its recorded styling details are ${details.join(", ")}.`);
-    const scopes = [turn.scopes.item, turn.scopes.shared];
+    const scopes = turn.context.complementary?.some(item => item.product_id === product.product_id)
+      ? [turn.scopes.shared] : [turn.scopes.item, turn.scopes.shared];
     const budgets = scopes.map(scope => scope.max_price).filter((value): value is number => value !== null);
     if (product.price_aud !== null && Number.isFinite(product.price_aud) && budgets.length) {
       const budget = Math.min(...budgets);
@@ -158,7 +159,7 @@ export function answerConversationQuestion(catalogue: readonly CatalogueProduct[
   const products: CatalogueProduct[] = [];
   for (const id of resolution.ids) {
     const product = catalogue.find(row => row.product_id === id);
-    const previous = [turn.context.focused, turn.context.comparison, ...turn.context.latest, ...(turn.context.previous?.flat() ?? []), ...(turn.context.selected ?? [])].find(row => row?.product_id === id);
+    const previous = [turn.context.focused, turn.context.comparison, ...turn.context.latest, ...(turn.context.complementary ?? []), ...(turn.context.previous?.flat() ?? []), ...(turn.context.selected ?? [])].find(row => row?.product_id === id);
     if (!product || !previous || normalise(product.product_name) !== normalise(previous.product_name) ||
         normalise(product.category) !== normalise(previous.category) || normalise(product.subcategory) !== normalise(previous.subcategory) ||
         normalise(product.product_type) !== normalise(previous.product_type)) {

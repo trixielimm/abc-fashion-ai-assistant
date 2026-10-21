@@ -1,0 +1,20 @@
+PASS: The exact dress prompt searches Women immediately with Work and A$200
+PASS: Skirts have the same category default, including tentative choices
+PASS: A repeated complete request overrides ordinary Men's browsing without overwriting that preference
+PASS: The exact legacy checkpoint, Men's no-match, repeated dress request recovers
+PASS: Explicit Men, Unisex and All beat category defaults
+PASS: Budget, more, more dresses and cheaper retain the current default after history eviction
+PASS: More dresses and price edits also preserve an explicit men's dress request
+PASS: Defaults remain item-specific when switching to ambiguous clothing
+PASS: A dress-shirt brief retains its shirt family through the collection checkpoint even when the model omits it
+PASS: Ambiguous categories and dress compounds never default to Women
+PASS: Broad formal clothing retains collection-first onboarding
+PASS: Global Men's restrictions require clarification and cannot silently change
+PASS: Model category-default evidence is allowed only for the supported requested item
+PASS: No matching stock stays no_match without widening the collection or budget
+PASS: Explicit men's no-match suggestions require a choice and preserve constraints
+PASS: Product questions and external garment mentions do not change collection metadata
+PASS: Earlier sessions migrate, reset clears provenance, and page focus cannot inherit the previous default
+PASS: Retry replay preserves the resolved default
+
+18 category-collection default checks passed.

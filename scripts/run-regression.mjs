@@ -36,6 +36,9 @@ function record(text) {
 }
 
 const suites = [
+  ["proactive-cross-sell", "test-proactive-cross-sell.mjs"],
+  ["journey-remediation", "test-journey-remediation.mjs"],
+  ["journey-harness", "test-stylist-journey-harness.mjs"],
   ["reactive-demo-fixes", "test-reactive-demo-fixes.mjs"],
   ["stylist-remediation", "test-stylist-remediation.mjs"],
   ["conversation-recovery", "test-conversation-recovery.mjs"],

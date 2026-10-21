@@ -11,10 +11,9 @@ import { friendlyShoppingMessage } from "./friendlyShoppingMessage";
 import { discoveryPresentation } from "./discovery";
 import { issueMessage } from "./conversationIssues";
 import { auditedImagePresent } from "../catalogue/imageHealth";
+import { pairingCategoryNames, resolvePairingTarget } from "../search/pairingTargets";
 
 type SearchResult = ReturnType<typeof executeConversationSearch>;
-const same = (a: string | null, b: string | null) =>
-  (a ?? "").trim().toLowerCase() === (b ?? "").trim().toLowerCase();
 
 function contextDifferences(record: CatalogueProduct, preferences: ShoppingPreferences): string[] {
   return (["occasion", "style", "fit", "season"] as const).flatMap(field => {
@@ -76,9 +75,7 @@ export function presentShoppingResult(
   function decorate(product: SearchResult["products"][number]): ChatProduct {
     const record = catalogue.find(row => row.product_id === product.product_id);
     if (!record) throw new Error("A displayed product is not in the catalogue.");
-    const target = record.cross_sell_category?.trim() || null;
-    const targets = vocabulary.categories.filter(row => same(row.subcategory ?? row.category, target));
-    const unique = new Set(targets.map(row => JSON.stringify(row)));
+    const target = pairingCategoryNames(record)[0] ?? null;
     let explanation = product.explanation;
     if (result.action === "discover") {
       const details = [record.product_type, record.colour && `Colour: ${record.colour}`,
@@ -103,7 +100,7 @@ export function presentShoppingResult(
       unverified_requirements: result.unverified_requirements,
       occasion: record.occasion, style: record.style,
       image_src: catalogueImageSource(record),
-      extra_target: target && unique.size === 1 ? target : null,
+      extra_target: target && resolvePairingTarget(target, vocabulary) ? target : null,
     });
   }
 

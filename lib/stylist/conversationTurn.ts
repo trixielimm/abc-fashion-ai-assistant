@@ -13,26 +13,50 @@ import { dressCodeFromMessage } from "./dressCode";
 import { isOutfitReviewQuestion } from "./outfitReview";
 import { discoveryPresentation, type DiscoveryIntent } from "./discovery";
 import { collectionPresentation, explicitCollection, emptyCollectionState, defaultCollectionCategory } from "./collectionPreference";
-import { simpleMatchingSet } from "./combinedShoppingRequest";
+import { simpleMatchingSet, statedCombinedBudget, confirmedBudgetRequest, requestedComponents } from "./combinedShoppingRequest";
 import { prepareConversationTask, TaskStateSchema } from "./taskState";
 import { issueMessage, confirmedColourChoice } from "./conversationIssues";
+import { buildComplementaryOffer, refreshOfferSource } from "./proactiveCrossSell";
 
 export function interpreterInput(input: unknown) {
   const turn = prepareConversationTask(TurnSchema.parse(input));
-  const { shortcut, preview_other_colours, recovery, ...request } = turn;
+  const { shortcut, preview_other_colours, recovery, offer_anchor_id, ...request } = turn;
   void shortcut;
   void preview_other_colours;
   void recovery;
+  void offer_anchor_id;
   return ConversationPlanRequestSchema.parse(request);
 }
 export function shortcutPlan(input: ConversationTurn): z.infer<typeof ConversationPlanSchema> | null {
   const turn = prepareConversationTask(input);
+  if (turn.offer_anchor_id) return ConversationPlanSchema.parse({ action: "refine", intent_evidence: turn.message.slice(0, 250),
+    reference: null, changes: [], question: null, continuation: false });
+  // Explicit provisional consent with unchanged filters needs no reinterpretation.
+  // A different colour/cap or any additional instruction still goes to the model.
+  const provisional = turn.message.trim().match(/^Browse provisional options with ([^.!?]{1,120}) unverified\.(?:\s*Keep ([a-z]+(?: [a-z]+)?) and (?:A\$|\$)\s*(\d+(?:\.\d{1,2})?)\.?)?$/i);
+  const unknowns = [...turn.scopes.unresolved_item, ...turn.scopes.unresolved_shared];
+  const requirementName = (value: string) => value.toLowerCase().replace(/^(?:verified|confirmed)\s+/, "").replace(/\bwaterproofing\b/g, "waterproof").trim();
+  const caps = [turn.scopes.item.max_price, turn.scopes.shared.max_price].filter((value): value is number => value !== null);
+  const colours = turn.scopes.shared.preferred_colours.length ? turn.scopes.shared.preferred_colours : turn.scopes.item.preferred_colours;
+  if (!turn.shortcut && !turn.pending_answer && provisional && turn.task?.preview_unverified && unknowns.length === 1 &&
+      requirementName(unknowns[0]) === requirementName(provisional[1]) &&
+      (!provisional[2] || colours.length === 1 && colours[0].toLowerCase() === provisional[2].toLowerCase() &&
+        caps.length > 0 && Math.min(...caps) === Number(provisional[3]))) {
+    return ConversationPlanSchema.parse({ action: "refine", intent_evidence: turn.message.slice(0, 250),
+      reference: null, changes: [], question: null, continuation: false });
+  }
+  const confirmedBudget = turn.pending?.budget_confirmation ? confirmedBudgetRequest(turn.message, turn.pending.budget_confirmation) : null;
+  if (!turn.shortcut && confirmedBudget) {
+    return ConversationPlanSchema.parse({ action: "refine", intent_evidence: turn.message, reference: null,
+      changes: [], question: null, continuation: false,
+      outfit_request: confirmedBudget });
+  }
   const colourChoice = confirmedColourChoice(turn.message, turn.task?.issues ?? []);
   if (colourChoice && new RegExp(`^(?:let['’]s try |try )?${colourChoice.value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?: instead| is fine|,? please)?[.!?]*$`, "i").test(turn.message.trim())) {
     return ConversationPlanSchema.parse({ action: "refine", intent_evidence: turn.message.slice(0, 250),
       changes: [], reference: null, question: null, continuation: false });
   }
-  const named = [...new Map([...turn.context.latest, ...(turn.context.previous?.flat() ?? []), ...(turn.context.selected ?? [])]
+  const named = [...new Map([...turn.context.latest, ...(turn.context.complementary ?? []), ...(turn.context.previous?.flat() ?? []), ...(turn.context.selected ?? [])]
     .filter(product => turn.message.toLowerCase().includes(product.product_name.toLowerCase())).map(product => [product.product_id, product])).values()];
   const totalQuestion = /\b(?:total|sum|altogether|combined (?:cost|price)|cost (?:together|in total)|what (?:would|will|do) I pay)\b/i.test(turn.message);
   const combinationQuestion = /\b(?:work|go)\b.{0,50}\b(?:together|with|outfit)|\b(?:one outfit|combination)\b/i.test(turn.message);
@@ -144,7 +168,7 @@ export function shortcutPlan(input: ConversationTurn): z.infer<typeof Conversati
   if (turn.pending_answer && !turn.shortcut) {
     const text = turn.message.trim();
     const ordinal = text.match(/^(?:the\s+)?(first|second|third|fourth|fifth|[1-5])(?:\s+(dress|dresses|item|product|one))?[.!]?$/i);
-    const known = [...turn.context.latest, ...(turn.context.previous?.flat() ?? []), ...(turn.context.focused ? [turn.context.focused] : [])];
+    const known = [...turn.context.latest, ...(turn.context.complementary ?? []), ...(turn.context.previous?.flat() ?? []), ...(turn.context.focused ? [turn.context.focused] : [])];
     const named = known.find(product => product.product_name.toLowerCase() === text.toLowerCase() || product.product_id === text);
     const positions: Record<string, number> = { first: 1, second: 2, third: 3, fourth: 4, fifth: 5 };
     const reference = ordinal ? {
@@ -206,7 +230,7 @@ export function shortcutPlan(input: ConversationTurn): z.infer<typeof Conversati
     }
   }
   if (!turn.shortcut) return null;
-  const known = [...turn.context.latest, ...(turn.context.previous?.flat() ?? []), ...(turn.context.focused ? [turn.context.focused] : []), ...(turn.context.comparison ? [turn.context.comparison] : []), ...(turn.context.selected ?? [])];
+  const known = [...turn.context.latest, ...(turn.context.complementary ?? []), ...(turn.context.previous?.flat() ?? []), ...(turn.context.focused ? [turn.context.focused] : []), ...(turn.context.comparison ? [turn.context.comparison] : []), ...(turn.context.selected ?? [])];
   if (!known.some(product => product.product_id === turn.shortcut!.product_id)) {
     throw new Error("The selected product is not in the current context.");
   }
@@ -259,8 +283,35 @@ export function finishConversationTurn(
   vocabulary: CataloguePreferenceValues
 ): z.infer<typeof TurnReplySchema> {
   const turn = prepareConversationTask(TurnSchema.parse(input));
+  if (turn.offer_anchor_id) {
+    let offer = null;
+    try {
+      const source = refreshOfferSource(catalogue, turn, vocabulary);
+      if (source) offer = buildComplementaryOffer(catalogue, turn, source, vocabulary, turn.offer_anchor_id);
+    } catch { /* An optional preview failure cannot invalidate the primary search. */ }
+    return TurnReplySchema.parse({ action: "none", status: "no_action", products: [], applied_preferences: null,
+      proposed_scopes: turn.scopes, styling: turn.styling, pending: turn.pending ?? null,
+      pending_answer: turn.pending_answer ?? null, collection: turn.collection, discovery: turn.discovery,
+      task: turn.task, offer_refresh: true, complementary_offer: offer,
+      message: offer ? `Finishing touches now pair with ${offer.anchor.product_name}.` : "No eligible finishing touches are available for that item within your saved requirements.",
+      task_transition_applied: process.env.STYLIST_TASK_RECOVERY_ENABLED !== "false" });
+  }
   const reply = finishPreparedConversationTurn(catalogue, turn, output, vocabulary);
-  return { ...reply, task: reply.task ?? turn.task, task_transition_applied: process.env.STYLIST_TASK_RECOVERY_ENABLED !== "false" };
+  const task = TaskStateSchema.parse(reply.task ?? turn.task ?? {});
+  const interpreted = ConversationPlanSchema.parse(output);
+  if (interpreted.styling_intent?.offers?.paused === false && !reply.styling.offers_paused) {
+    task.complementary_shown = false;
+    task.complementary_dismissed = false;
+  }
+  let offer = null;
+  try {
+    if (!interpreted.answer) offer = buildComplementaryOffer(catalogue, { ...turn, task }, reply, vocabulary);
+  } catch { /* Optional catalogue enrichment must not block requested products. */ }
+  if (offer) task.complementary_shown = true;
+  const paragraphs = reply.message.split("\n\n");
+  if (offer) paragraphs[0] += ` I've also included optional finishing touches for ${offer.anchor.product_name} below.`;
+  return TurnReplySchema.parse({ ...reply, message: paragraphs.join("\n\n"), task, complementary_offer: offer,
+    task_transition_applied: process.env.STYLIST_TASK_RECOVERY_ENABLED !== "false" });
 }
 
 function finishPreparedConversationTurn(
@@ -271,6 +322,21 @@ function finishPreparedConversationTurn(
   checkConversationPlan(interpreterInput(turn), output);
   const plan = groundConversationPlan(turn, ConversationPlanSchema.parse(output));
   const checked = checkConversationPlan(interpreterInput(turn), plan);
+  if (plan.outfit_request && !turn.styling?.outfit_request && !turn.pending?.budget_confirmation &&
+      requestedComponents(turn.message).size >= 2 && statedCombinedBudget(turn.message) === null &&
+      !/\b(?:combined|total|together|both|each|per item|all of them|everything)\b/i.test(turn.message)) {
+    const question = `Is A$${plan.outfit_request.total_budget_aud.toFixed(2)} the combined total for all ${plan.outfit_request.items.length} new pieces?`;
+    return TurnReplySchema.parse({ status: "needs_clarification", action: "refine", message: question,
+      products: [], applied_preferences: null, proposed_scopes: checked.proposed_scopes,
+      styling: { ...checked.styling, outfit_request: null }, collection: checked.collection,
+      pending: { action: "refine", reference: null, goal: turn.message, question,
+        before_scopes: turn.scopes, before_styling: turn.styling, before_collection: turn.collection,
+        budget_confirmation: plan.outfit_request },
+      suggested_replies: [
+        { label: "Yes, combined total", message: "Yes." },
+        { label: "Budget is per item", message: `No, A$${plan.outfit_request.total_budget_aud.toFixed(2)} per item.` },
+      ] });
+  }
   if (turn.task?.brief.goal === "travel_layers" && turn.task.brief.total_budget_aud !== null && !checked.styling.outfit_request &&
       checked.collection.current && !checked.collection.checkpoint && plan.action === "discover" && !checked.issues.length) {
     return TurnReplySchema.parse({ action: "discover", status: "no_action", products: [], pending: null,
@@ -314,13 +380,14 @@ function finishPreparedConversationTurn(
       ...turn, message: pending.question, pending_answer: null,
     }, {
       ...pending.follow_up!, answer,
-      reference: pending.follow_up!.reference && pending.follow_up!.reference.kind !== "context"
+      reference: answer.compare_new_results ? null : pending.follow_up!.reference && pending.follow_up!.reference.kind !== "context"
         ? pending.follow_up!.reference
         : answer.references.length === 1 ? answer.references[0] : pending.follow_up!.reference,
       intent_evidence: pending.question.slice(0, 250), question: null, continuation: false,
     }, vocabulary);
   }
-  const answer = plan.answer ? answerConversationQuestion(catalogue, turn, plan.answer) : null;
+  const comparisonNeedsReference = plan.answer?.compare_new_results && resolveAnswerProducts(turn, plan.answer).question;
+  let answer = plan.answer && (!plan.answer.compare_new_results || comparisonNeedsReference) ? answerConversationQuestion(catalogue, turn, plan.answer) : null;
   if (answer && plan.action !== "none" && plan.answer?.kind === "policy") answer.pending_answer = null;
   // An ambiguous reference blocks a compound action too; never search on a guess.
   if (answer && (plan.action === "none" || answer.pending_answer)) {
@@ -342,6 +409,18 @@ function finishPreparedConversationTurn(
   }
   const result = executeConversationSearch(catalogue, interpreterInput(turn), plan, vocabulary);
   const presentation = presentShoppingResult(catalogue, turn, result, vocabulary);
+  if (plan.answer?.compare_new_results && presentation.status !== "needs_clarification") {
+    const anchor = resolveAnswerProducts(turn, plan.answer);
+    const compared = [...presentation.products, ...presentation.alternatives].filter(product => !anchor.ids.includes(product.product_id)).slice(0, 3);
+    if (compared.length && !anchor.question) {
+      answer = answerConversationQuestion(catalogue, { ...turn, context: { ...turn.context,
+        latest: compared.map(product => ({ product_id: product.product_id, product_name: product.product_name,
+          category: product.category, subcategory: product.subcategory, product_type: product.product_type, price_aud: product.price_aud })),
+        previous: [turn.context.latest, ...(turn.context.previous ?? [])].slice(0, 2),
+      } }, { ...plan.answer, compare_new_results: false,
+        references: [...anchor.ids, ...compared.map(product => product.product_id)].map(value => ({ kind: "id", value })) });
+    }
+  }
   const continuing = plan.continuation === true;
   const pending = plan.action === "clarify" && turn.pending ? turn.pending : presentation.status === "needs_clarification" ? {
     action: plan.action === "none" ? "clarify" : plan.action === "clarify" ? turn.pending?.action ?? "clarify" : plan.action,
@@ -355,7 +434,7 @@ function finishPreparedConversationTurn(
   } : result.status === "no_action" && !(turn.pending?.styling_question && plan.styling_intent?.outfit_changes.length) ? turn.pending ?? null : null;
 
   let message = result.status === "no_action"
-    ? /\bkeep\b.{0,50}\b(?:limit|budget|requirements|restrictions)\b/i.test(turn.message)
+    ? /\bkeep\b.{0,50}\b(?:limits?|budgets?|requirements?|restrictions?)\b/i.test(turn.message)
       ? "I've kept your stated limit and other saved requirements. No restrictions have been relaxed and no alternative colours or sizes have been selected."
       : plan.styling_intent ? result.message
       : /\b(add|cart|buy|purchase)\b/i.test(turn.message)
@@ -369,7 +448,7 @@ function finishPreparedConversationTurn(
   const stylingChange = stylingIntent && (stylingIntent.preferences.length || stylingIntent.outfit_changes.length ||
     stylingIntent.external_items?.length || stylingIntent.owned_categories.length || stylingIntent.offers);
   const acknowledged = /^(?:hi|hello|hey|thanks|thank you|cheers)[!. ]*$/i.test(turn.message.trim()) ||
-    /\b(?:cart|buy|purchase|keep\b.{0,50}\b(?:limit|budget|requirements|restrictions))\b/i.test(turn.message);
+    /\b(?:cart|buy|purchase|keep\b.{0,50}\b(?:limits?|budgets?|requirements?|restrictions?))\b/i.test(turn.message);
   const understood = plan.action !== "clarify" && !(plan.action === "none" && !plan.answer && !stylingChange && !acknowledged && turn.recovery?.operation !== "restart_task");
   if (!understood && plan.action === "none") message = "I couldn't understand the change you'd like. Your saved preferences and previous product choices are still here. Could you rephrase it?";
   if (!understood && plan.action === "none" && /\b(?:system prompt|hidden (?:prompt|instructions)|api key|credentials)\b/i.test(turn.message)) {
@@ -430,7 +509,7 @@ function finishPreparedConversationTurn(
     } : turn.discovery ? { ...turn.discovery, stage: understood && ["new_search", "refine", "cross_sell", "cheaper", "upsell"].includes(plan.action) ? "complete" : turn.discovery.stage } : null,
     intent_understood: understood,
     ...(!understood ? { proposed_scopes: turn.scopes, styling: turn.styling } : {}),
-    ...(answer ? { answer_sources: answer.answer_sources } : {}),
+    ...(answer ? { answer_sources: answer.answer_sources, answer_product_ids: answer.answer_product_ids } : {}),
     message: answer ? `${answer.message}\n\n${message}` : message, pending,
     pending_answer: result.status === "no_action" ? turn.pending_answer ?? null : null,
   });

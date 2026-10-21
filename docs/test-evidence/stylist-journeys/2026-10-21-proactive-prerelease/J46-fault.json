@@ -1,0 +1,19 @@
+{
+  "id": "J46",
+  "name": "Timeout followed by a successful retry",
+  "mode": "fault",
+  "status": "AUTO_PASS",
+  "human_review": "PENDING",
+  "scope": "Controlled in-process fault, not a real provider/database/browser outage.",
+  "review": [
+    "In a browser, confirm loading clears and Retry is usable after a real stalled response."
+  ],
+  "expected": "A typed timeout leaves the original state intact; a subsequent request can succeed.",
+  "checks": [
+    "timeout produces the correct typed error without changing input state",
+    "A subsequent request succeeds"
+  ],
+  "trial": "fault",
+  "elapsed_ms": 14,
+  "file": "J46-fault.json"
+}
