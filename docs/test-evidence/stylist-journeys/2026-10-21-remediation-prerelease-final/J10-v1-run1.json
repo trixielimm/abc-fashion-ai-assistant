@@ -1,0 +1,853 @@
+{
+  "id": "J10",
+  "name": "Both collections and a compound answer",
+  "mode": "live",
+  "variant": 1,
+  "status": "AUTO_PASS",
+  "human_review": "PENDING",
+  "review": [
+    "Check that the answers are useful and address every part of the request."
+  ],
+  "expected": "Ask collection once; accept both plus budget and exclusion edits together.",
+  "turns": [
+    {
+      "number": 1,
+      "checks": [
+        {
+          "path": "state.scopes.item.category",
+          "op": "eq",
+          "value": "Clothing"
+        },
+        {
+          "path": "state.scopes.item.occasion",
+          "op": "eq",
+          "value": "Formal"
+        },
+        {
+          "path": "state.scopes.item.max_price",
+          "op": "eq",
+          "value": 200
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "Show me formal clothing under A$200.",
+      "request": {
+        "request_id": "77242261-2959-4d77-8952-03d14b700151",
+        "retry": false,
+        "turn": {
+          "message": "Show me formal clothing under A$200.",
+          "collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": []
+          },
+          "history": [],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "prepared_key": "",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "ypdyvm",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "no_action",
+        "action": "new_search",
+        "discovery": {
+          "stage": "collection",
+          "asked": [
+            "collection"
+          ],
+          "skipped": [],
+          "seen_product_ids": []
+        },
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": {
+            "action": "new_search",
+            "discovery_intent": null
+          }
+        },
+        "suggested_replies": [
+          {
+            "label": "Men's",
+            "message": "Men's, please."
+          },
+          {
+            "label": "Women's",
+            "message": "Women's, please."
+          },
+          {
+            "label": "Both / no preference",
+            "message": "Both collections, please."
+          }
+        ],
+        "message": "Sure. Would you like men's clothing, women's clothing, or both?",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 200,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 200,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": {
+          "stage": "collection",
+          "asked": [
+            "collection"
+          ],
+          "skipped": [],
+          "seen_product_ids": []
+        },
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": {
+            "action": "new_search",
+            "discovery_intent": null
+          }
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "ypdyvm",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me formal clothing under A$200."
+          },
+          {
+            "role": "assistant",
+            "content": "Sure. Would you like men's clothing, women's clothing, or both?"
+          }
+        ]
+      },
+      "elapsed_ms": 3124
+    },
+    {
+      "number": 2,
+      "checks": [
+        {
+          "path": "state.collection.choice",
+          "op": "eq",
+          "value": "All"
+        },
+        {
+          "path": "state.scopes.item.occasion",
+          "op": "eq",
+          "value": "Formal"
+        },
+        {
+          "path": "state.scopes.item.max_price",
+          "op": "eq",
+          "value": 150
+        },
+        {
+          "path": "state.scopes.item.excluded_colours",
+          "op": "includes",
+          "value": "Red"
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "Both collections, under A$150, and no red.",
+      "request": {
+        "request_id": "2dd818a3-1e30-4c89-ab8f-77a78ebbc0d8",
+        "retry": false,
+        "turn": {
+          "message": "Both collections, under A$150, and no red.",
+          "collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": {
+              "action": "new_search",
+              "discovery_intent": null
+            }
+          },
+          "discovery": {
+            "stage": "collection",
+            "asked": [
+              "collection"
+            ],
+            "skipped": [],
+            "seen_product_ids": []
+          },
+          "scopes": {
+            "item": {
+              "gender": null,
+              "category": "Clothing",
+              "subcategory": null,
+              "product_type": null,
+              "occasion": "Formal",
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 200,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": []
+          },
+          "history": [
+            {
+              "role": "user",
+              "content": "Show me formal clothing under A$200."
+            },
+            {
+              "role": "assistant",
+              "content": "Sure. Would you like men's clothing, women's clothing, or both?"
+            }
+          ],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "prepared_key": "ypdyvm",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "1eso7r9",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "matches",
+        "action": "refine",
+        "discovery": {
+          "stage": "complete",
+          "asked": [
+            "collection"
+          ],
+          "skipped": [],
+          "seen_product_ids": []
+        },
+        "collection": {
+          "choice": "All",
+          "current": {
+            "choice": "All",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I've found 5 clothing options for you to explore.\n\nThese options range from A$35.00 to A$95.00. The selection includes suit set, chinos and oversized shirt options. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [
+              "Red"
+            ],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Formal",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [
+            "Red"
+          ],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1299",
+            "product_name": "Silver Suit Set",
+            "price_aud": 80,
+            "category": "Clothing",
+            "subcategory": "Sets",
+            "product_type": "Suit Set",
+            "brand_line": "ABC Occasion",
+            "colour": "Silver",
+            "occasion": "Formal",
+            "style": "Bohemian",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1299/image"
+          },
+          {
+            "product_id": "P1041",
+            "product_name": "Pink Chinos",
+            "price_aud": 70,
+            "category": "Clothing",
+            "subcategory": "Bottoms",
+            "product_type": "Chinos",
+            "brand_line": "ABC Occasion",
+            "colour": "Pink",
+            "occasion": "Formal",
+            "style": "Elegant",
+            "sizes_available": [
+              "XS",
+              "S",
+              "M",
+              "L",
+              "XL"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1041/image"
+          },
+          {
+            "product_id": "P1013",
+            "product_name": "Yellow Oversized Shirt",
+            "price_aud": 95,
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Oversized Shirt",
+            "brand_line": "ABC Occasion",
+            "colour": "Yellow",
+            "occasion": "Formal",
+            "style": "Relaxed",
+            "sizes_available": [
+              "XS",
+              "S",
+              "M",
+              "L",
+              "XL"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1013/image"
+          },
+          {
+            "product_id": "P1099",
+            "product_name": "Yellow Pleated Trousers",
+            "price_aud": 35,
+            "category": "Clothing",
+            "subcategory": "Bottoms",
+            "product_type": "Pleated Trousers",
+            "brand_line": "ABC Occasion",
+            "colour": "Yellow",
+            "occasion": "Formal",
+            "style": "Smart",
+            "sizes_available": [
+              "XS",
+              "S",
+              "M",
+              "L",
+              "XL"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1099/image"
+          },
+          {
+            "product_id": "P1021",
+            "product_name": "Cream Slip Dress",
+            "price_aud": 75,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Slip Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Cream",
+            "occasion": "Formal",
+            "style": "Contemporary",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1021/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [
+              "Red"
+            ],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": {
+          "stage": "complete",
+          "asked": [
+            "collection"
+          ],
+          "skipped": [],
+          "seen_product_ids": []
+        },
+        "collection": {
+          "choice": "All",
+          "current": {
+            "choice": "All",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "1eso7r9",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1299",
+              "product_name": "Silver Suit Set",
+              "category": "Clothing",
+              "subcategory": "Sets",
+              "product_type": "Suit Set",
+              "price_aud": 80
+            },
+            {
+              "product_id": "P1041",
+              "product_name": "Pink Chinos",
+              "category": "Clothing",
+              "subcategory": "Bottoms",
+              "product_type": "Chinos",
+              "price_aud": 70
+            },
+            {
+              "product_id": "P1013",
+              "product_name": "Yellow Oversized Shirt",
+              "category": "Clothing",
+              "subcategory": "Tops",
+              "product_type": "Oversized Shirt",
+              "price_aud": 95
+            },
+            {
+              "product_id": "P1099",
+              "product_name": "Yellow Pleated Trousers",
+              "category": "Clothing",
+              "subcategory": "Bottoms",
+              "product_type": "Pleated Trousers",
+              "price_aud": 35
+            },
+            {
+              "product_id": "P1021",
+              "product_name": "Cream Slip Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Slip Dress",
+              "price_aud": 75
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me formal clothing under A$200."
+          },
+          {
+            "role": "assistant",
+            "content": "Sure. Would you like men's clothing, women's clothing, or both?"
+          },
+          {
+            "role": "user",
+            "content": "Both collections, under A$150, and no red."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 5 clothing options for you to explore.\n\nThese options range from A$35.00 to A$95.00. The selection includes suit set, chinos and oversized shirt options. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "elapsed_ms": 6709
+    }
+  ],
+  "trial": "v1-run1",
+  "elapsed_ms": 9834,
+  "file": "J10-v1-run1.json"
+}

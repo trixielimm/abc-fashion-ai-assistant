@@ -1,0 +1,1981 @@
+{
+  "scope": "Fresh synthetic fixtures; live model/catalogue in-process, not HTTP or browser",
+  "catalogue_source": "isolated synthetic acceptance fixture; shared catalogue unchanged",
+  "started_at": "2026-10-20T13:40:43.097Z",
+  "model": "gpt-5.6-luna",
+  "catalogue_sha256": "6b5509990c7b11a6faed187082ddf7c4165d4f31ed693a7477a4c0507067b32c",
+  "catalogue_count": 25,
+  "cases": [
+    {
+      "id": "J12",
+      "name": "Skirt family mapping",
+      "mode": "live",
+      "variant": 1,
+      "status": "FAIL",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request.",
+        "Every shown bottom must actually be a skirt."
+      ],
+      "expected": "Use Clothing / Bottoms and a skirt family, not a nonexistent Skirts subcategory.",
+      "turns": [
+        {
+          "number": 1,
+          "checks": [
+            {
+              "path": "state.scopes.item.gender",
+              "op": "eq",
+              "value": "Women"
+            },
+            {
+              "path": "state.scopes.item.category",
+              "op": "eq",
+              "value": "Clothing"
+            },
+            {
+              "path": "state.scopes.item.subcategory",
+              "op": "eq",
+              "value": "Bottoms"
+            },
+            {
+              "path": "state.scopes.item.max_price",
+              "op": "eq",
+              "value": 200
+            }
+          ],
+          "status": "AUTO_PASS",
+          "message": "Show me skirts for work under A$200.",
+          "request": {
+            "request_id": "fc644f4e-fc5b-45e3-8706-b3134086e28e",
+            "retry": false,
+            "turn": {
+              "message": "Show me skirts for work under A$200.",
+              "collection": {
+                "choice": null,
+                "current": null,
+                "checkpoint": null
+              },
+              "discovery": null,
+              "scopes": {
+                "item": {
+                  "gender": null,
+                  "category": null,
+                  "subcategory": null,
+                  "product_type": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "size": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                },
+                "shared": {
+                  "gender": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                },
+                "unresolved_item": [],
+                "unresolved_shared": []
+              },
+              "context": {
+                "focused": null,
+                "latest": []
+              },
+              "history": [],
+              "pending": null,
+              "pending_answer": null,
+              "styling": {
+                "dress_code": null,
+                "outfit_request": null,
+                "purchase_budget": null,
+                "outfit": [],
+                "external_items": [],
+                "rejected_ids": [],
+                "priorities": [],
+                "required_features": [],
+                "offers_paused": false,
+                "owned_categories": []
+              },
+              "cart_product_ids": [],
+              "task": {
+                "generation": 0,
+                "prepared_key": "",
+                "preview_unverified": false,
+                "blocker_signature": "",
+                "blocker_repeats": 0,
+                "issues": [],
+                "brief": {
+                  "goal": null,
+                  "total_budget_aud": null,
+                  "budget_evidence": null,
+                  "guidance": [],
+                  "deadline": null
+                }
+              }
+            }
+          },
+          "http_status": 200,
+          "reply": {
+            "task_transition_applied": true,
+            "task": {
+              "generation": 0,
+              "prepared_key": "aqgjq5",
+              "preview_unverified": false,
+              "blocker_signature": "",
+              "blocker_repeats": 0,
+              "issues": [],
+              "brief": {
+                "goal": null,
+                "total_budget_aud": null,
+                "budget_evidence": null,
+                "guidance": [],
+                "deadline": null
+              }
+            },
+            "issues": [],
+            "unverified_requirements": [],
+            "purchase_budget": null,
+            "intent_understood": true,
+            "outfit_budget": null,
+            "outfit_choices": null,
+            "outfit_review": null,
+            "combination_summary": null,
+            "status": "matches",
+            "action": "new_search",
+            "discovery": null,
+            "collection": {
+              "choice": null,
+              "current": {
+                "choice": "Women",
+                "source": "category_default"
+              },
+              "checkpoint": null
+            },
+            "suggested_replies": [],
+            "message": "I've found 5 black clothing options for you to explore.\n\nThese options range from A$120.00 to A$140.00. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+            "proposed_scopes": {
+              "item": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Skirt",
+                "occasion": "Work",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": 200,
+                "brand_line": null
+              },
+              "shared": {
+                "gender": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "unresolved_item": [],
+              "unresolved_shared": []
+            },
+            "applied_preferences": {
+              "gender": "Women",
+              "category": "Clothing",
+              "subcategory": "Bottoms",
+              "product_type": "Skirt",
+              "occasion": "Work",
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 200,
+              "brand_line": null
+            },
+            "products": [
+              {
+                "product_id": "SKIRT-WORK-120",
+                "product_name": "SKIRT-WORK-120 Dress",
+                "price_aud": 120,
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Midi Skirt",
+                "brand_line": null,
+                "colour": "Black",
+                "occasion": "Work",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12"
+                ],
+                "unverified_requirements": [],
+                "extra_target": null,
+                "image_src": null
+              },
+              {
+                "product_id": "SKIRT-WORK-125",
+                "product_name": "SKIRT-WORK-125 Dress",
+                "price_aud": 125,
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Midi Skirt",
+                "brand_line": null,
+                "colour": "Black",
+                "occasion": "Work",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12"
+                ],
+                "unverified_requirements": [],
+                "extra_target": null,
+                "image_src": null
+              },
+              {
+                "product_id": "SKIRT-WORK-130",
+                "product_name": "SKIRT-WORK-130 Dress",
+                "price_aud": 130,
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Midi Skirt",
+                "brand_line": null,
+                "colour": "Black",
+                "occasion": "Work",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12"
+                ],
+                "unverified_requirements": [],
+                "extra_target": null,
+                "image_src": null
+              },
+              {
+                "product_id": "SKIRT-WORK-135",
+                "product_name": "SKIRT-WORK-135 Dress",
+                "price_aud": 135,
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Midi Skirt",
+                "brand_line": null,
+                "colour": "Black",
+                "occasion": "Work",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12"
+                ],
+                "unverified_requirements": [],
+                "extra_target": null,
+                "image_src": null
+              },
+              {
+                "product_id": "SKIRT-WORK-140",
+                "product_name": "SKIRT-WORK-140 Dress",
+                "price_aud": 140,
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Midi Skirt",
+                "brand_line": null,
+                "colour": "Black",
+                "occasion": "Work",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12"
+                ],
+                "unverified_requirements": [],
+                "extra_target": null,
+                "image_src": null
+              }
+            ],
+            "alternatives": [],
+            "alternatives_preferences": null,
+            "alternative_kind": null,
+            "optional_question": null,
+            "can_preview_other_colours": false,
+            "pending": null,
+            "pending_answer": null,
+            "answer_sources": [],
+            "answer_product_ids": [],
+            "styling": {
+              "dress_code": null,
+              "outfit_request": null,
+              "purchase_budget": null,
+              "outfit": [],
+              "external_items": [],
+              "rejected_ids": [],
+              "priorities": [],
+              "required_features": [],
+              "offers_paused": false,
+              "owned_categories": []
+            },
+            "commerce_policy": "stylist-commerce-v1",
+            "feature_data_status": "available",
+            "comparison_reference_id": null
+          },
+          "state": {
+            "scopes": {
+              "item": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Skirt",
+                "occasion": "Work",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": 200,
+                "brand_line": null
+              },
+              "shared": {
+                "gender": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "unresolved_item": [],
+              "unresolved_shared": []
+            },
+            "pending": null,
+            "pending_answer": null,
+            "styling": {
+              "dress_code": null,
+              "outfit_request": null,
+              "purchase_budget": null,
+              "outfit": [],
+              "external_items": [],
+              "rejected_ids": [],
+              "priorities": [],
+              "required_features": [],
+              "offers_paused": false,
+              "owned_categories": []
+            },
+            "discovery": null,
+            "collection": {
+              "choice": null,
+              "current": {
+                "choice": "Women",
+                "source": "category_default"
+              },
+              "checkpoint": null
+            },
+            "cart_product_ids": [],
+            "task": {
+              "generation": 0,
+              "prepared_key": "aqgjq5",
+              "preview_unverified": false,
+              "blocker_signature": "",
+              "blocker_repeats": 0,
+              "issues": [],
+              "brief": {
+                "goal": null,
+                "total_budget_aud": null,
+                "budget_evidence": null,
+                "guidance": [],
+                "deadline": null
+              }
+            },
+            "context": {
+              "focused": null,
+              "latest": [
+                {
+                  "product_id": "SKIRT-WORK-120",
+                  "product_name": "SKIRT-WORK-120 Dress",
+                  "category": "Clothing",
+                  "subcategory": "Bottoms",
+                  "product_type": "Midi Skirt",
+                  "price_aud": 120
+                },
+                {
+                  "product_id": "SKIRT-WORK-125",
+                  "product_name": "SKIRT-WORK-125 Dress",
+                  "category": "Clothing",
+                  "subcategory": "Bottoms",
+                  "product_type": "Midi Skirt",
+                  "price_aud": 125
+                },
+                {
+                  "product_id": "SKIRT-WORK-130",
+                  "product_name": "SKIRT-WORK-130 Dress",
+                  "category": "Clothing",
+                  "subcategory": "Bottoms",
+                  "product_type": "Midi Skirt",
+                  "price_aud": 130
+                },
+                {
+                  "product_id": "SKIRT-WORK-135",
+                  "product_name": "SKIRT-WORK-135 Dress",
+                  "category": "Clothing",
+                  "subcategory": "Bottoms",
+                  "product_type": "Midi Skirt",
+                  "price_aud": 135
+                },
+                {
+                  "product_id": "SKIRT-WORK-140",
+                  "product_name": "SKIRT-WORK-140 Dress",
+                  "category": "Clothing",
+                  "subcategory": "Bottoms",
+                  "product_type": "Midi Skirt",
+                  "price_aud": 140
+                }
+              ]
+            },
+            "history": [
+              {
+                "role": "user",
+                "content": "Show me skirts for work under A$200."
+              },
+              {
+                "role": "assistant",
+                "content": "I've found 5 black clothing options for you to explore.\n\nThese options range from A$120.00 to A$140.00. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+              }
+            ]
+          },
+          "elapsed_ms": 4000
+        },
+        {
+          "number": 2,
+          "checks": [
+            {
+              "path": "state.scopes.item.subcategory",
+              "op": "eq",
+              "value": "Bottoms"
+            },
+            {
+              "path": "state.scopes.item.occasion",
+              "op": "eq",
+              "value": "Work"
+            },
+            {
+              "path": "state.scopes.item.max_price",
+              "op": "eq",
+              "value": 200
+            }
+          ],
+          "status": "FAIL",
+          "message": "Show cheaper skirts, keeping work.",
+          "request": {
+            "request_id": "5038ecd2-6861-46d7-9368-ccf4aacf777e",
+            "retry": false,
+            "turn": {
+              "message": "Show cheaper skirts, keeping work.",
+              "collection": {
+                "choice": null,
+                "current": {
+                  "choice": "Women",
+                  "source": "category_default"
+                },
+                "checkpoint": null
+              },
+              "discovery": null,
+              "scopes": {
+                "item": {
+                  "gender": "Women",
+                  "category": "Clothing",
+                  "subcategory": "Bottoms",
+                  "product_type": "Skirt",
+                  "occasion": "Work",
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "size": null,
+                  "min_price": null,
+                  "max_price": 200,
+                  "brand_line": null
+                },
+                "shared": {
+                  "gender": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                },
+                "unresolved_item": [],
+                "unresolved_shared": []
+              },
+              "context": {
+                "focused": null,
+                "latest": [
+                  {
+                    "product_id": "SKIRT-WORK-120",
+                    "product_name": "SKIRT-WORK-120 Dress",
+                    "category": "Clothing",
+                    "subcategory": "Bottoms",
+                    "product_type": "Midi Skirt",
+                    "price_aud": 120
+                  },
+                  {
+                    "product_id": "SKIRT-WORK-125",
+                    "product_name": "SKIRT-WORK-125 Dress",
+                    "category": "Clothing",
+                    "subcategory": "Bottoms",
+                    "product_type": "Midi Skirt",
+                    "price_aud": 125
+                  },
+                  {
+                    "product_id": "SKIRT-WORK-130",
+                    "product_name": "SKIRT-WORK-130 Dress",
+                    "category": "Clothing",
+                    "subcategory": "Bottoms",
+                    "product_type": "Midi Skirt",
+                    "price_aud": 130
+                  },
+                  {
+                    "product_id": "SKIRT-WORK-135",
+                    "product_name": "SKIRT-WORK-135 Dress",
+                    "category": "Clothing",
+                    "subcategory": "Bottoms",
+                    "product_type": "Midi Skirt",
+                    "price_aud": 135
+                  },
+                  {
+                    "product_id": "SKIRT-WORK-140",
+                    "product_name": "SKIRT-WORK-140 Dress",
+                    "category": "Clothing",
+                    "subcategory": "Bottoms",
+                    "product_type": "Midi Skirt",
+                    "price_aud": 140
+                  }
+                ]
+              },
+              "history": [
+                {
+                  "role": "user",
+                  "content": "Show me skirts for work under A$200."
+                },
+                {
+                  "role": "assistant",
+                  "content": "I've found 5 black clothing options for you to explore.\n\nThese options range from A$120.00 to A$140.00. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+                }
+              ],
+              "pending": null,
+              "pending_answer": null,
+              "styling": {
+                "dress_code": null,
+                "outfit_request": null,
+                "purchase_budget": null,
+                "outfit": [],
+                "external_items": [],
+                "rejected_ids": [],
+                "priorities": [],
+                "required_features": [],
+                "offers_paused": false,
+                "owned_categories": []
+              },
+              "cart_product_ids": [],
+              "task": {
+                "generation": 0,
+                "prepared_key": "aqgjq5",
+                "preview_unverified": false,
+                "blocker_signature": "",
+                "blocker_repeats": 0,
+                "issues": [],
+                "brief": {
+                  "goal": null,
+                  "total_budget_aud": null,
+                  "budget_evidence": null,
+                  "guidance": [],
+                  "deadline": null
+                }
+              }
+            }
+          },
+          "failure": "[\n  {\n    \"origin\": \"array\",\n    \"code\": \"too_big\",\n    \"maximum\": 4,\n    \"inclusive\": true,\n    \"path\": [],\n    \"message\": \"Too big: expected array to have <=4 items\"\n  }\n]",
+          "elapsed_ms": 4965
+        }
+      ],
+      "unexecuted_turns": 0
+    },
+    {
+      "id": "J12",
+      "name": "Skirt family mapping",
+      "mode": "live",
+      "variant": 2,
+      "status": "FAIL",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request.",
+        "Every shown bottom must actually be a skirt."
+      ],
+      "expected": "Use Clothing / Bottoms and a skirt family, not a nonexistent Skirts subcategory.",
+      "turns": [
+        {
+          "number": 1,
+          "checks": [
+            {
+              "path": "state.scopes.item.gender",
+              "op": "eq",
+              "value": "Women"
+            },
+            {
+              "path": "state.scopes.item.category",
+              "op": "eq",
+              "value": "Clothing"
+            },
+            {
+              "path": "state.scopes.item.subcategory",
+              "op": "eq",
+              "value": "Bottoms"
+            },
+            {
+              "path": "state.scopes.item.max_price",
+              "op": "eq",
+              "value": 200
+            }
+          ],
+          "status": "AUTO_PASS",
+          "message": "I want a work skirt, up to 200 AUD.",
+          "request": {
+            "request_id": "32377816-5340-42d9-abf0-e1b12e68cb4e",
+            "retry": false,
+            "turn": {
+              "message": "I want a work skirt, up to 200 AUD.",
+              "collection": {
+                "choice": null,
+                "current": null,
+                "checkpoint": null
+              },
+              "discovery": null,
+              "scopes": {
+                "item": {
+                  "gender": null,
+                  "category": null,
+                  "subcategory": null,
+                  "product_type": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "size": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                },
+                "shared": {
+                  "gender": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                },
+                "unresolved_item": [],
+                "unresolved_shared": []
+              },
+              "context": {
+                "focused": null,
+                "latest": []
+              },
+              "history": [],
+              "pending": null,
+              "pending_answer": null,
+              "styling": {
+                "dress_code": null,
+                "outfit_request": null,
+                "purchase_budget": null,
+                "outfit": [],
+                "external_items": [],
+                "rejected_ids": [],
+                "priorities": [],
+                "required_features": [],
+                "offers_paused": false,
+                "owned_categories": []
+              },
+              "cart_product_ids": [],
+              "task": {
+                "generation": 0,
+                "prepared_key": "",
+                "preview_unverified": false,
+                "blocker_signature": "",
+                "blocker_repeats": 0,
+                "issues": [],
+                "brief": {
+                  "goal": null,
+                  "total_budget_aud": null,
+                  "budget_evidence": null,
+                  "guidance": [],
+                  "deadline": null
+                }
+              }
+            }
+          },
+          "http_status": 200,
+          "reply": {
+            "task_transition_applied": true,
+            "task": {
+              "generation": 0,
+              "prepared_key": "161o0wd",
+              "preview_unverified": false,
+              "blocker_signature": "",
+              "blocker_repeats": 0,
+              "issues": [],
+              "brief": {
+                "goal": null,
+                "total_budget_aud": null,
+                "budget_evidence": null,
+                "guidance": [],
+                "deadline": null
+              }
+            },
+            "issues": [],
+            "unverified_requirements": [],
+            "purchase_budget": null,
+            "intent_understood": true,
+            "outfit_budget": null,
+            "outfit_choices": null,
+            "outfit_review": null,
+            "combination_summary": null,
+            "status": "matches",
+            "action": "new_search",
+            "discovery": null,
+            "collection": {
+              "choice": null,
+              "current": {
+                "choice": "Women",
+                "source": "category_default"
+              },
+              "checkpoint": null
+            },
+            "suggested_replies": [],
+            "message": "I've found 5 black clothing options for you to explore.\n\nThese options range from A$120.00 to A$140.00. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+            "proposed_scopes": {
+              "item": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Skirt",
+                "occasion": "Work",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": 200,
+                "brand_line": null
+              },
+              "shared": {
+                "gender": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "unresolved_item": [],
+              "unresolved_shared": []
+            },
+            "applied_preferences": {
+              "gender": "Women",
+              "category": "Clothing",
+              "subcategory": "Bottoms",
+              "product_type": "Skirt",
+              "occasion": "Work",
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 200,
+              "brand_line": null
+            },
+            "products": [
+              {
+                "product_id": "SKIRT-WORK-120",
+                "product_name": "SKIRT-WORK-120 Dress",
+                "price_aud": 120,
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Midi Skirt",
+                "brand_line": null,
+                "colour": "Black",
+                "occasion": "Work",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12"
+                ],
+                "unverified_requirements": [],
+                "extra_target": null,
+                "image_src": null
+              },
+              {
+                "product_id": "SKIRT-WORK-125",
+                "product_name": "SKIRT-WORK-125 Dress",
+                "price_aud": 125,
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Midi Skirt",
+                "brand_line": null,
+                "colour": "Black",
+                "occasion": "Work",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12"
+                ],
+                "unverified_requirements": [],
+                "extra_target": null,
+                "image_src": null
+              },
+              {
+                "product_id": "SKIRT-WORK-130",
+                "product_name": "SKIRT-WORK-130 Dress",
+                "price_aud": 130,
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Midi Skirt",
+                "brand_line": null,
+                "colour": "Black",
+                "occasion": "Work",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12"
+                ],
+                "unverified_requirements": [],
+                "extra_target": null,
+                "image_src": null
+              },
+              {
+                "product_id": "SKIRT-WORK-135",
+                "product_name": "SKIRT-WORK-135 Dress",
+                "price_aud": 135,
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Midi Skirt",
+                "brand_line": null,
+                "colour": "Black",
+                "occasion": "Work",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12"
+                ],
+                "unverified_requirements": [],
+                "extra_target": null,
+                "image_src": null
+              },
+              {
+                "product_id": "SKIRT-WORK-140",
+                "product_name": "SKIRT-WORK-140 Dress",
+                "price_aud": 140,
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Midi Skirt",
+                "brand_line": null,
+                "colour": "Black",
+                "occasion": "Work",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12"
+                ],
+                "unverified_requirements": [],
+                "extra_target": null,
+                "image_src": null
+              }
+            ],
+            "alternatives": [],
+            "alternatives_preferences": null,
+            "alternative_kind": null,
+            "optional_question": null,
+            "can_preview_other_colours": false,
+            "pending": null,
+            "pending_answer": null,
+            "answer_sources": [],
+            "answer_product_ids": [],
+            "styling": {
+              "dress_code": null,
+              "outfit_request": null,
+              "purchase_budget": null,
+              "outfit": [],
+              "external_items": [],
+              "rejected_ids": [],
+              "priorities": [],
+              "required_features": [],
+              "offers_paused": false,
+              "owned_categories": []
+            },
+            "commerce_policy": "stylist-commerce-v1",
+            "feature_data_status": "available",
+            "comparison_reference_id": null
+          },
+          "state": {
+            "scopes": {
+              "item": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Skirt",
+                "occasion": "Work",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": 200,
+                "brand_line": null
+              },
+              "shared": {
+                "gender": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "unresolved_item": [],
+              "unresolved_shared": []
+            },
+            "pending": null,
+            "pending_answer": null,
+            "styling": {
+              "dress_code": null,
+              "outfit_request": null,
+              "purchase_budget": null,
+              "outfit": [],
+              "external_items": [],
+              "rejected_ids": [],
+              "priorities": [],
+              "required_features": [],
+              "offers_paused": false,
+              "owned_categories": []
+            },
+            "discovery": null,
+            "collection": {
+              "choice": null,
+              "current": {
+                "choice": "Women",
+                "source": "category_default"
+              },
+              "checkpoint": null
+            },
+            "cart_product_ids": [],
+            "task": {
+              "generation": 0,
+              "prepared_key": "161o0wd",
+              "preview_unverified": false,
+              "blocker_signature": "",
+              "blocker_repeats": 0,
+              "issues": [],
+              "brief": {
+                "goal": null,
+                "total_budget_aud": null,
+                "budget_evidence": null,
+                "guidance": [],
+                "deadline": null
+              }
+            },
+            "context": {
+              "focused": null,
+              "latest": [
+                {
+                  "product_id": "SKIRT-WORK-120",
+                  "product_name": "SKIRT-WORK-120 Dress",
+                  "category": "Clothing",
+                  "subcategory": "Bottoms",
+                  "product_type": "Midi Skirt",
+                  "price_aud": 120
+                },
+                {
+                  "product_id": "SKIRT-WORK-125",
+                  "product_name": "SKIRT-WORK-125 Dress",
+                  "category": "Clothing",
+                  "subcategory": "Bottoms",
+                  "product_type": "Midi Skirt",
+                  "price_aud": 125
+                },
+                {
+                  "product_id": "SKIRT-WORK-130",
+                  "product_name": "SKIRT-WORK-130 Dress",
+                  "category": "Clothing",
+                  "subcategory": "Bottoms",
+                  "product_type": "Midi Skirt",
+                  "price_aud": 130
+                },
+                {
+                  "product_id": "SKIRT-WORK-135",
+                  "product_name": "SKIRT-WORK-135 Dress",
+                  "category": "Clothing",
+                  "subcategory": "Bottoms",
+                  "product_type": "Midi Skirt",
+                  "price_aud": 135
+                },
+                {
+                  "product_id": "SKIRT-WORK-140",
+                  "product_name": "SKIRT-WORK-140 Dress",
+                  "category": "Clothing",
+                  "subcategory": "Bottoms",
+                  "product_type": "Midi Skirt",
+                  "price_aud": 140
+                }
+              ]
+            },
+            "history": [
+              {
+                "role": "user",
+                "content": "I want a work skirt, up to 200 AUD."
+              },
+              {
+                "role": "assistant",
+                "content": "I've found 5 black clothing options for you to explore.\n\nThese options range from A$120.00 to A$140.00. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+              }
+            ]
+          },
+          "elapsed_ms": 3040
+        },
+        {
+          "number": 2,
+          "checks": [
+            {
+              "path": "state.scopes.item.subcategory",
+              "op": "eq",
+              "value": "Bottoms"
+            },
+            {
+              "path": "state.scopes.item.occasion",
+              "op": "eq",
+              "value": "Work"
+            },
+            {
+              "path": "state.scopes.item.max_price",
+              "op": "eq",
+              "value": 200
+            }
+          ],
+          "status": "FAIL",
+          "message": "Show cheaper skirts, keeping work.",
+          "request": {
+            "request_id": "c572b11e-a76d-4fd4-a809-01138dbf1e95",
+            "retry": false,
+            "turn": {
+              "message": "Show cheaper skirts, keeping work.",
+              "collection": {
+                "choice": null,
+                "current": {
+                  "choice": "Women",
+                  "source": "category_default"
+                },
+                "checkpoint": null
+              },
+              "discovery": null,
+              "scopes": {
+                "item": {
+                  "gender": "Women",
+                  "category": "Clothing",
+                  "subcategory": "Bottoms",
+                  "product_type": "Skirt",
+                  "occasion": "Work",
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "size": null,
+                  "min_price": null,
+                  "max_price": 200,
+                  "brand_line": null
+                },
+                "shared": {
+                  "gender": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                },
+                "unresolved_item": [],
+                "unresolved_shared": []
+              },
+              "context": {
+                "focused": null,
+                "latest": [
+                  {
+                    "product_id": "SKIRT-WORK-120",
+                    "product_name": "SKIRT-WORK-120 Dress",
+                    "category": "Clothing",
+                    "subcategory": "Bottoms",
+                    "product_type": "Midi Skirt",
+                    "price_aud": 120
+                  },
+                  {
+                    "product_id": "SKIRT-WORK-125",
+                    "product_name": "SKIRT-WORK-125 Dress",
+                    "category": "Clothing",
+                    "subcategory": "Bottoms",
+                    "product_type": "Midi Skirt",
+                    "price_aud": 125
+                  },
+                  {
+                    "product_id": "SKIRT-WORK-130",
+                    "product_name": "SKIRT-WORK-130 Dress",
+                    "category": "Clothing",
+                    "subcategory": "Bottoms",
+                    "product_type": "Midi Skirt",
+                    "price_aud": 130
+                  },
+                  {
+                    "product_id": "SKIRT-WORK-135",
+                    "product_name": "SKIRT-WORK-135 Dress",
+                    "category": "Clothing",
+                    "subcategory": "Bottoms",
+                    "product_type": "Midi Skirt",
+                    "price_aud": 135
+                  },
+                  {
+                    "product_id": "SKIRT-WORK-140",
+                    "product_name": "SKIRT-WORK-140 Dress",
+                    "category": "Clothing",
+                    "subcategory": "Bottoms",
+                    "product_type": "Midi Skirt",
+                    "price_aud": 140
+                  }
+                ]
+              },
+              "history": [
+                {
+                  "role": "user",
+                  "content": "I want a work skirt, up to 200 AUD."
+                },
+                {
+                  "role": "assistant",
+                  "content": "I've found 5 black clothing options for you to explore.\n\nThese options range from A$120.00 to A$140.00. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+                }
+              ],
+              "pending": null,
+              "pending_answer": null,
+              "styling": {
+                "dress_code": null,
+                "outfit_request": null,
+                "purchase_budget": null,
+                "outfit": [],
+                "external_items": [],
+                "rejected_ids": [],
+                "priorities": [],
+                "required_features": [],
+                "offers_paused": false,
+                "owned_categories": []
+              },
+              "cart_product_ids": [],
+              "task": {
+                "generation": 0,
+                "prepared_key": "161o0wd",
+                "preview_unverified": false,
+                "blocker_signature": "",
+                "blocker_repeats": 0,
+                "issues": [],
+                "brief": {
+                  "goal": null,
+                  "total_budget_aud": null,
+                  "budget_evidence": null,
+                  "guidance": [],
+                  "deadline": null
+                }
+              }
+            }
+          },
+          "failure": "[\n  {\n    \"origin\": \"array\",\n    \"code\": \"too_big\",\n    \"maximum\": 4,\n    \"inclusive\": true,\n    \"path\": [],\n    \"message\": \"Too big: expected array to have <=4 items\"\n  }\n]",
+          "elapsed_ms": 2321
+        }
+      ],
+      "unexecuted_turns": 0
+    },
+    {
+      "id": "J12",
+      "name": "Skirt family mapping",
+      "mode": "live",
+      "variant": 3,
+      "status": "FAIL",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request.",
+        "Every shown bottom must actually be a skirt."
+      ],
+      "expected": "Use Clothing / Bottoms and a skirt family, not a nonexistent Skirts subcategory.",
+      "turns": [
+        {
+          "number": 1,
+          "checks": [
+            {
+              "path": "state.scopes.item.gender",
+              "op": "eq",
+              "value": "Women"
+            },
+            {
+              "path": "state.scopes.item.category",
+              "op": "eq",
+              "value": "Clothing"
+            },
+            {
+              "path": "state.scopes.item.subcategory",
+              "op": "eq",
+              "value": "Bottoms"
+            },
+            {
+              "path": "state.scopes.item.max_price",
+              "op": "eq",
+              "value": 200
+            }
+          ],
+          "status": "AUTO_PASS",
+          "message": "Work skirts, A$200 maximum.",
+          "request": {
+            "request_id": "ef6ed552-c8a6-4321-9e4e-77445990a518",
+            "retry": false,
+            "turn": {
+              "message": "Work skirts, A$200 maximum.",
+              "collection": {
+                "choice": null,
+                "current": null,
+                "checkpoint": null
+              },
+              "discovery": null,
+              "scopes": {
+                "item": {
+                  "gender": null,
+                  "category": null,
+                  "subcategory": null,
+                  "product_type": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "size": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                },
+                "shared": {
+                  "gender": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                },
+                "unresolved_item": [],
+                "unresolved_shared": []
+              },
+              "context": {
+                "focused": null,
+                "latest": []
+              },
+              "history": [],
+              "pending": null,
+              "pending_answer": null,
+              "styling": {
+                "dress_code": null,
+                "outfit_request": null,
+                "purchase_budget": null,
+                "outfit": [],
+                "external_items": [],
+                "rejected_ids": [],
+                "priorities": [],
+                "required_features": [],
+                "offers_paused": false,
+                "owned_categories": []
+              },
+              "cart_product_ids": [],
+              "task": {
+                "generation": 0,
+                "prepared_key": "",
+                "preview_unverified": false,
+                "blocker_signature": "",
+                "blocker_repeats": 0,
+                "issues": [],
+                "brief": {
+                  "goal": null,
+                  "total_budget_aud": null,
+                  "budget_evidence": null,
+                  "guidance": [],
+                  "deadline": null
+                }
+              }
+            }
+          },
+          "http_status": 200,
+          "reply": {
+            "task_transition_applied": true,
+            "task": {
+              "generation": 0,
+              "prepared_key": "xpuy6f",
+              "preview_unverified": false,
+              "blocker_signature": "",
+              "blocker_repeats": 0,
+              "issues": [],
+              "brief": {
+                "goal": null,
+                "total_budget_aud": null,
+                "budget_evidence": null,
+                "guidance": [],
+                "deadline": null
+              }
+            },
+            "issues": [],
+            "unverified_requirements": [],
+            "purchase_budget": null,
+            "intent_understood": true,
+            "outfit_budget": null,
+            "outfit_choices": null,
+            "outfit_review": null,
+            "combination_summary": null,
+            "status": "matches",
+            "action": "new_search",
+            "discovery": null,
+            "collection": {
+              "choice": null,
+              "current": {
+                "choice": "Women",
+                "source": "category_default"
+              },
+              "checkpoint": null
+            },
+            "suggested_replies": [],
+            "message": "I've found 5 black clothing options for you to explore.\n\nThese options range from A$120.00 to A$140.00. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+            "proposed_scopes": {
+              "item": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Skirt",
+                "occasion": "Work",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": 200,
+                "brand_line": null
+              },
+              "shared": {
+                "gender": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "unresolved_item": [],
+              "unresolved_shared": []
+            },
+            "applied_preferences": {
+              "gender": "Women",
+              "category": "Clothing",
+              "subcategory": "Bottoms",
+              "product_type": "Skirt",
+              "occasion": "Work",
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 200,
+              "brand_line": null
+            },
+            "products": [
+              {
+                "product_id": "SKIRT-WORK-120",
+                "product_name": "SKIRT-WORK-120 Dress",
+                "price_aud": 120,
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Midi Skirt",
+                "brand_line": null,
+                "colour": "Black",
+                "occasion": "Work",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12"
+                ],
+                "unverified_requirements": [],
+                "extra_target": null,
+                "image_src": null
+              },
+              {
+                "product_id": "SKIRT-WORK-125",
+                "product_name": "SKIRT-WORK-125 Dress",
+                "price_aud": 125,
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Midi Skirt",
+                "brand_line": null,
+                "colour": "Black",
+                "occasion": "Work",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12"
+                ],
+                "unverified_requirements": [],
+                "extra_target": null,
+                "image_src": null
+              },
+              {
+                "product_id": "SKIRT-WORK-130",
+                "product_name": "SKIRT-WORK-130 Dress",
+                "price_aud": 130,
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Midi Skirt",
+                "brand_line": null,
+                "colour": "Black",
+                "occasion": "Work",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12"
+                ],
+                "unverified_requirements": [],
+                "extra_target": null,
+                "image_src": null
+              },
+              {
+                "product_id": "SKIRT-WORK-135",
+                "product_name": "SKIRT-WORK-135 Dress",
+                "price_aud": 135,
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Midi Skirt",
+                "brand_line": null,
+                "colour": "Black",
+                "occasion": "Work",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12"
+                ],
+                "unverified_requirements": [],
+                "extra_target": null,
+                "image_src": null
+              },
+              {
+                "product_id": "SKIRT-WORK-140",
+                "product_name": "SKIRT-WORK-140 Dress",
+                "price_aud": 140,
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Midi Skirt",
+                "brand_line": null,
+                "colour": "Black",
+                "occasion": "Work",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12"
+                ],
+                "unverified_requirements": [],
+                "extra_target": null,
+                "image_src": null
+              }
+            ],
+            "alternatives": [],
+            "alternatives_preferences": null,
+            "alternative_kind": null,
+            "optional_question": null,
+            "can_preview_other_colours": false,
+            "pending": null,
+            "pending_answer": null,
+            "answer_sources": [],
+            "answer_product_ids": [],
+            "styling": {
+              "dress_code": null,
+              "outfit_request": null,
+              "purchase_budget": null,
+              "outfit": [],
+              "external_items": [],
+              "rejected_ids": [],
+              "priorities": [],
+              "required_features": [],
+              "offers_paused": false,
+              "owned_categories": []
+            },
+            "commerce_policy": "stylist-commerce-v1",
+            "feature_data_status": "available",
+            "comparison_reference_id": null
+          },
+          "state": {
+            "scopes": {
+              "item": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Skirt",
+                "occasion": "Work",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": 200,
+                "brand_line": null
+              },
+              "shared": {
+                "gender": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "unresolved_item": [],
+              "unresolved_shared": []
+            },
+            "pending": null,
+            "pending_answer": null,
+            "styling": {
+              "dress_code": null,
+              "outfit_request": null,
+              "purchase_budget": null,
+              "outfit": [],
+              "external_items": [],
+              "rejected_ids": [],
+              "priorities": [],
+              "required_features": [],
+              "offers_paused": false,
+              "owned_categories": []
+            },
+            "discovery": null,
+            "collection": {
+              "choice": null,
+              "current": {
+                "choice": "Women",
+                "source": "category_default"
+              },
+              "checkpoint": null
+            },
+            "cart_product_ids": [],
+            "task": {
+              "generation": 0,
+              "prepared_key": "xpuy6f",
+              "preview_unverified": false,
+              "blocker_signature": "",
+              "blocker_repeats": 0,
+              "issues": [],
+              "brief": {
+                "goal": null,
+                "total_budget_aud": null,
+                "budget_evidence": null,
+                "guidance": [],
+                "deadline": null
+              }
+            },
+            "context": {
+              "focused": null,
+              "latest": [
+                {
+                  "product_id": "SKIRT-WORK-120",
+                  "product_name": "SKIRT-WORK-120 Dress",
+                  "category": "Clothing",
+                  "subcategory": "Bottoms",
+                  "product_type": "Midi Skirt",
+                  "price_aud": 120
+                },
+                {
+                  "product_id": "SKIRT-WORK-125",
+                  "product_name": "SKIRT-WORK-125 Dress",
+                  "category": "Clothing",
+                  "subcategory": "Bottoms",
+                  "product_type": "Midi Skirt",
+                  "price_aud": 125
+                },
+                {
+                  "product_id": "SKIRT-WORK-130",
+                  "product_name": "SKIRT-WORK-130 Dress",
+                  "category": "Clothing",
+                  "subcategory": "Bottoms",
+                  "product_type": "Midi Skirt",
+                  "price_aud": 130
+                },
+                {
+                  "product_id": "SKIRT-WORK-135",
+                  "product_name": "SKIRT-WORK-135 Dress",
+                  "category": "Clothing",
+                  "subcategory": "Bottoms",
+                  "product_type": "Midi Skirt",
+                  "price_aud": 135
+                },
+                {
+                  "product_id": "SKIRT-WORK-140",
+                  "product_name": "SKIRT-WORK-140 Dress",
+                  "category": "Clothing",
+                  "subcategory": "Bottoms",
+                  "product_type": "Midi Skirt",
+                  "price_aud": 140
+                }
+              ]
+            },
+            "history": [
+              {
+                "role": "user",
+                "content": "Work skirts, A$200 maximum."
+              },
+              {
+                "role": "assistant",
+                "content": "I've found 5 black clothing options for you to explore.\n\nThese options range from A$120.00 to A$140.00. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+              }
+            ]
+          },
+          "elapsed_ms": 4209
+        },
+        {
+          "number": 2,
+          "checks": [
+            {
+              "path": "state.scopes.item.subcategory",
+              "op": "eq",
+              "value": "Bottoms"
+            },
+            {
+              "path": "state.scopes.item.occasion",
+              "op": "eq",
+              "value": "Work"
+            },
+            {
+              "path": "state.scopes.item.max_price",
+              "op": "eq",
+              "value": 200
+            }
+          ],
+          "status": "FAIL",
+          "message": "Show cheaper skirts, keeping work.",
+          "request": {
+            "request_id": "e5c38013-55f3-459f-9a8f-213b27e0b782",
+            "retry": false,
+            "turn": {
+              "message": "Show cheaper skirts, keeping work.",
+              "collection": {
+                "choice": null,
+                "current": {
+                  "choice": "Women",
+                  "source": "category_default"
+                },
+                "checkpoint": null
+              },
+              "discovery": null,
+              "scopes": {
+                "item": {
+                  "gender": "Women",
+                  "category": "Clothing",
+                  "subcategory": "Bottoms",
+                  "product_type": "Skirt",
+                  "occasion": "Work",
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "size": null,
+                  "min_price": null,
+                  "max_price": 200,
+                  "brand_line": null
+                },
+                "shared": {
+                  "gender": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                },
+                "unresolved_item": [],
+                "unresolved_shared": []
+              },
+              "context": {
+                "focused": null,
+                "latest": [
+                  {
+                    "product_id": "SKIRT-WORK-120",
+                    "product_name": "SKIRT-WORK-120 Dress",
+                    "category": "Clothing",
+                    "subcategory": "Bottoms",
+                    "product_type": "Midi Skirt",
+                    "price_aud": 120
+                  },
+                  {
+                    "product_id": "SKIRT-WORK-125",
+                    "product_name": "SKIRT-WORK-125 Dress",
+                    "category": "Clothing",
+                    "subcategory": "Bottoms",
+                    "product_type": "Midi Skirt",
+                    "price_aud": 125
+                  },
+                  {
+                    "product_id": "SKIRT-WORK-130",
+                    "product_name": "SKIRT-WORK-130 Dress",
+                    "category": "Clothing",
+                    "subcategory": "Bottoms",
+                    "product_type": "Midi Skirt",
+                    "price_aud": 130
+                  },
+                  {
+                    "product_id": "SKIRT-WORK-135",
+                    "product_name": "SKIRT-WORK-135 Dress",
+                    "category": "Clothing",
+                    "subcategory": "Bottoms",
+                    "product_type": "Midi Skirt",
+                    "price_aud": 135
+                  },
+                  {
+                    "product_id": "SKIRT-WORK-140",
+                    "product_name": "SKIRT-WORK-140 Dress",
+                    "category": "Clothing",
+                    "subcategory": "Bottoms",
+                    "product_type": "Midi Skirt",
+                    "price_aud": 140
+                  }
+                ]
+              },
+              "history": [
+                {
+                  "role": "user",
+                  "content": "Work skirts, A$200 maximum."
+                },
+                {
+                  "role": "assistant",
+                  "content": "I've found 5 black clothing options for you to explore.\n\nThese options range from A$120.00 to A$140.00. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+                }
+              ],
+              "pending": null,
+              "pending_answer": null,
+              "styling": {
+                "dress_code": null,
+                "outfit_request": null,
+                "purchase_budget": null,
+                "outfit": [],
+                "external_items": [],
+                "rejected_ids": [],
+                "priorities": [],
+                "required_features": [],
+                "offers_paused": false,
+                "owned_categories": []
+              },
+              "cart_product_ids": [],
+              "task": {
+                "generation": 0,
+                "prepared_key": "xpuy6f",
+                "preview_unverified": false,
+                "blocker_signature": "",
+                "blocker_repeats": 0,
+                "issues": [],
+                "brief": {
+                  "goal": null,
+                  "total_budget_aud": null,
+                  "budget_evidence": null,
+                  "guidance": [],
+                  "deadline": null
+                }
+              }
+            }
+          },
+          "failure": "[\n  {\n    \"origin\": \"array\",\n    \"code\": \"too_big\",\n    \"maximum\": 4,\n    \"inclusive\": true,\n    \"path\": [],\n    \"message\": \"Too big: expected array to have <=4 items\"\n  }\n]",
+          "elapsed_ms": 2208
+        }
+      ],
+      "unexecuted_turns": 0
+    }
+  ],
+  "diagnostics": [
+    {
+      "request_id": "local-diagnosis",
+      "stage": "interpretation",
+      "elapsed_ms": null,
+      "action": "new_search",
+      "changed_fields": [
+        "item.gender",
+        "item.category",
+        "item.subcategory",
+        "item.product_type",
+        "item.occasion",
+        "item.max_price"
+      ],
+      "has_outfit_request": false
+    },
+    {
+      "request_id": "local-diagnosis",
+      "stage": "interpretation",
+      "elapsed_ms": null,
+      "action": "cheaper",
+      "changed_fields": [
+        "item.max_price",
+        "item.occasion"
+      ],
+      "has_outfit_request": false
+    },
+    {
+      "request_id": "local-diagnosis",
+      "stage": "plan_rejected",
+      "elapsed_ms": null,
+      "attempt": 1,
+      "type": "PlanValidationError",
+      "field": null,
+      "rule": "Clearing a saved price limit requires explicit permission"
+    },
+    {
+      "request_id": "local-diagnosis",
+      "stage": "interpretation",
+      "elapsed_ms": null,
+      "action": "cheaper",
+      "changed_fields": [],
+      "has_outfit_request": false
+    },
+    {
+      "request_id": "local-diagnosis",
+      "stage": "interpretation",
+      "elapsed_ms": null,
+      "action": "new_search",
+      "changed_fields": [
+        "item.category",
+        "item.subcategory",
+        "item.product_type",
+        "item.occasion",
+        "item.max_price"
+      ],
+      "has_outfit_request": false
+    },
+    {
+      "request_id": "local-diagnosis",
+      "stage": "interpretation",
+      "elapsed_ms": null,
+      "action": "cheaper",
+      "changed_fields": [],
+      "has_outfit_request": false
+    },
+    {
+      "request_id": "local-diagnosis",
+      "stage": "interpretation",
+      "elapsed_ms": null,
+      "action": "new_search",
+      "changed_fields": [
+        "item.gender",
+        "item.category",
+        "item.subcategory",
+        "item.product_type",
+        "item.occasion",
+        "item.max_price"
+      ],
+      "has_outfit_request": false
+    },
+    {
+      "request_id": "local-diagnosis",
+      "stage": "interpretation",
+      "elapsed_ms": null,
+      "action": "cheaper",
+      "changed_fields": [],
+      "has_outfit_request": false
+    }
+  ]
+}

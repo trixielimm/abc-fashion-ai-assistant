@@ -1,0 +1,19 @@
+{
+  "id": "J49",
+  "name": "Cancel a request and continue shopping",
+  "mode": "fault",
+  "status": "AUTO_PASS",
+  "human_review": "PENDING",
+  "scope": "Controlled in-process fault, not a real provider/database/browser outage.",
+  "review": [
+    "Cancel in the browser and confirm a late response cannot overwrite the next conversation."
+  ],
+  "expected": "Cancellation preserves state, and the next request succeeds.",
+  "checks": [
+    "cancel produces the correct typed error without changing input state",
+    "A subsequent request succeeds"
+  ],
+  "trial": "fault",
+  "elapsed_ms": 1,
+  "file": "J49-fault.json"
+}

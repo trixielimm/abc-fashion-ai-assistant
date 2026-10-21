@@ -1,0 +1,48 @@
+Browser tab: 2, Title: "ABC Fashion", URL: "http://127.0.0.1:3004/".
+1 AXWebArea ABC Fashion, URL: 127.0.0.1:3004/
+	2 container AI Stylist
+		3 container
+			4 text PERSONAL SHOPPING
+			5 heading AI Stylist, Value: 2
+				6 text AI Stylist
+			7 button New chat
+			8 button Close AI Stylist
+		26 container Your look
+			27 text Your look
+			28 text 0 items
+			29 text Extra suggestions are paused until you ask to resume them.
+			30 container
+				31 text A$0.00 total
+			32 button (collapsed) View look, Secondary Actions: Expand
+		34 button (collapsed) YOUR SAVED SEARCH Dresses · Women's collection · Beach Wedding · Up to A$200.00 per item, Secondary Actions: Expand
+			35 text YOUR SAVED SEARCH
+			36 text Dresses · Women's collection · Beach Wedding · Up to A$200.00 per item
+		9 container
+			33 text YOU Show women's dresses for a beach wedding under A$200. AI STYLIST I've found 2 clothing options for you to explore. I've also included optional finishing touches for Navy Maxi Dress below.
+			37 button (collapsed) Details about these picks, Secondary Actions: Expand
+				38 text Details about these picks
+			39 container Recommended products
+				40 text 2 pieces
+				41 content list Recommended products
+					42 container
+						43 link Description: View Navy Maxi Dress, Value: 127.0.0.1:3004/products/P1178
+						44 link Description: Navy Maxi Dress, Value: 127.0.0.1:3004/products/P1178
+						45 text A$95.00 ABC Occasion · Navy Listed for beach wedding occasions.
+						46 button (collapsed) Description: More options for Navy Maxi Dress, Help: More options, Secondary Actions: Expand
+						47 checkbox Description: Save to look: Navy Maxi Dress, Value: 0
+						48 button Add to cart
+					49 container
+						50 link Description: View Cream Mini Dress, Value: 127.0.0.1:3004/products/P1162
+						51 link Description: Cream Mini Dress, Value: 127.0.0.1:3004/products/P1162
+						52 text A$105.00 ABC Occasion · Cream Listed for beach wedding occasions.
+						53 button (collapsed) Description: More options for Cream Mini Dress, Help: More options, Secondary Actions: Expand
+						54 checkbox Description: Save to look: Cream Mini Dress, Value: 0
+						55 button Add to cart
+		20 container
+			21 text entry area (settable) Message your stylist
+			22 button (disabled) Send message
+		23 text Messages may be sent to OpenAI.
+		24 button (collapsed) Privacy & details, Secondary Actions: Expand
+			25 text Privacy & details
+
+The focused UI element is 1 AXWebArea ABC Fashion, URL: 127.0.0.1:3004/

@@ -1,0 +1,18 @@
+{
+  "id": "J47",
+  "name": "Catalogue failure reuses the validated plan",
+  "mode": "fault",
+  "status": "AUTO_PASS",
+  "human_review": "PENDING",
+  "scope": "Controlled in-process fault, not a real provider/database/browser outage.",
+  "review": [
+    "On an isolated staging environment, confirm an actual database outage produces a recoverable error, not no_match."
+  ],
+  "expected": "Execution succeeds on retry without interpreting the same request again.",
+  "checks": [
+    "Catalogue execution fails once; retry reuses the one validated interpretation and executes again"
+  ],
+  "trial": "fault",
+  "elapsed_ms": 0,
+  "file": "J47-fault.json"
+}

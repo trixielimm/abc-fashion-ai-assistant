@@ -1,0 +1,1038 @@
+{
+  "id": "J43",
+  "name": "Unknown requirements survive provisional browsing",
+  "mode": "live",
+  "variant": 1,
+  "status": "FAIL",
+  "human_review": "PENDING",
+  "review": [
+    "Check that the answers are useful and address every part of the request.",
+    "Prerequisite: no supplier-verified waterproofing field is available in this prototype."
+  ],
+  "expected": "Require explicit provisional consent, retain waterproofing as unverified, and label every card.",
+  "turns": [
+    {
+      "number": 1,
+      "checks": [
+        {
+          "path": "reply.issues",
+          "op": "issue",
+          "value": {
+            "code": "unverified_requirement"
+          }
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "Find women's black shoes under A$150 that are verified waterproof.",
+      "request": {
+        "request_id": "64797431-3fb2-4396-9f71-52728b0be1b4",
+        "retry": false,
+        "turn": {
+          "message": "Find women's black shoes under A$150 that are verified waterproof.",
+          "collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": []
+          },
+          "history": [],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "complementary_shown": false,
+            "complementary_dismissed": false,
+            "prepared_key": "",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "13vjqwc",
+          "preview_unverified": false,
+          "blocker_signature": "unverified_requirement:item:requirement:\"verified waterproof\"",
+          "blocker_repeats": 1,
+          "issues": [
+            {
+              "id": "unverified_requirement:item:requirement:\"verified waterproof\"",
+              "code": "unverified_requirement",
+              "field": "requirement",
+              "scope": "item",
+              "value": "verified waterproof",
+              "saved_value": null,
+              "options": []
+            }
+          ],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [
+          {
+            "id": "unverified_requirement:item:requirement:\"verified waterproof\"",
+            "code": "unverified_requirement",
+            "field": "requirement",
+            "scope": "item",
+            "value": "verified waterproof",
+            "saved_value": null,
+            "options": []
+          }
+        ],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "needs_clarification",
+        "action": "new_search",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I can't verify verified waterproof from the product information. Keep it as a hard requirement, remove it, or explicitly ask to browse with that detail unverified. Known violations will still be excluded.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [
+            "verified waterproof"
+          ],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": {
+          "action": "new_search",
+          "reference": null,
+          "goal": "Find women's black shoes under A$150 that are verified waterproof.",
+          "question": "I can't verify verified waterproof from the product information. Keep it as a hard requirement, remove it, or explicitly ask to browse with that detail unverified. Known violations will still be excluded.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "before_styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "before_collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          }
+        },
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [
+            "verified waterproof"
+          ],
+          "unresolved_shared": []
+        },
+        "pending": {
+          "action": "new_search",
+          "reference": null,
+          "goal": "Find women's black shoes under A$150 that are verified waterproof.",
+          "question": "I can't verify verified waterproof from the product information. Keep it as a hard requirement, remove it, or explicitly ask to browse with that detail unverified. Known violations will still be excluded.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "before_styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "before_collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          }
+        },
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "13vjqwc",
+          "preview_unverified": false,
+          "blocker_signature": "unverified_requirement:item:requirement:\"verified waterproof\"",
+          "blocker_repeats": 1,
+          "issues": [
+            {
+              "id": "unverified_requirement:item:requirement:\"verified waterproof\"",
+              "code": "unverified_requirement",
+              "field": "requirement",
+              "scope": "item",
+              "value": "verified waterproof",
+              "saved_value": null,
+              "options": []
+            }
+          ],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Find women's black shoes under A$150 that are verified waterproof."
+          },
+          {
+            "role": "assistant",
+            "content": "I can't verify verified waterproof from the product information. Keep it as a hard requirement, remove it, or explicitly ask to browse with that detail unverified. Known violations will still be excluded."
+          }
+        ]
+      },
+      "elapsed_ms": 4327
+    },
+    {
+      "number": 2,
+      "checks": [
+        {
+          "path": "state.scopes.item.category",
+          "op": "eq",
+          "value": "Shoes"
+        },
+        {
+          "path": "state.scopes.item.max_price",
+          "op": "eq",
+          "value": 150
+        },
+        {
+          "path": "state.scopes.item.preferred_colours",
+          "op": "eq",
+          "value": [
+            "Black"
+          ]
+        },
+        {
+          "path": "reply.unverified_requirements",
+          "op": "nonempty",
+          "value": true
+        }
+      ],
+      "status": "FAIL",
+      "message": "Browse provisional options with waterproofing unverified. Keep black and A$150.",
+      "request": {
+        "request_id": "54949efa-35dd-4361-b581-a853d6307a37",
+        "retry": false,
+        "turn": {
+          "message": "Browse provisional options with waterproofing unverified. Keep black and A$150.",
+          "collection": {
+            "choice": "Women",
+            "current": {
+              "choice": "Women",
+              "source": "explicit"
+            },
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": "Women",
+              "category": "Shoes",
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [
+                "Black"
+              ],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 150,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [
+              "verified waterproof"
+            ],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": []
+          },
+          "history": [
+            {
+              "role": "user",
+              "content": "Find women's black shoes under A$150 that are verified waterproof."
+            },
+            {
+              "role": "assistant",
+              "content": "I can't verify verified waterproof from the product information. Keep it as a hard requirement, remove it, or explicitly ask to browse with that detail unverified. Known violations will still be excluded."
+            }
+          ],
+          "pending": {
+            "action": "new_search",
+            "reference": null,
+            "goal": "Find women's black shoes under A$150 that are verified waterproof.",
+            "question": "I can't verify verified waterproof from the product information. Keep it as a hard requirement, remove it, or explicitly ask to browse with that detail unverified. Known violations will still be excluded.",
+            "before_scopes": {
+              "item": {
+                "gender": null,
+                "category": null,
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "shared": {
+                "gender": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "unresolved_item": [],
+              "unresolved_shared": []
+            },
+            "before_styling": {
+              "dress_code": null,
+              "outfit_request": null,
+              "purchase_budget": null,
+              "outfit": [],
+              "external_items": [],
+              "rejected_ids": [],
+              "priorities": [],
+              "required_features": [],
+              "offers_paused": false,
+              "owned_categories": []
+            },
+            "before_collection": {
+              "choice": null,
+              "current": null,
+              "checkpoint": null
+            }
+          },
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "complementary_shown": false,
+            "complementary_dismissed": false,
+            "prepared_key": "13vjqwc",
+            "preview_unverified": false,
+            "blocker_signature": "unverified_requirement:item:requirement:\"verified waterproof\"",
+            "blocker_repeats": 1,
+            "issues": [
+              {
+                "id": "unverified_requirement:item:requirement:\"verified waterproof\"",
+                "code": "unverified_requirement",
+                "field": "requirement",
+                "scope": "item",
+                "value": "verified waterproof",
+                "saved_value": null,
+                "options": []
+              }
+            ],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "j2b64r",
+          "preview_unverified": true,
+          "blocker_signature": "interpretation_failed:task:request:null",
+          "blocker_repeats": 1,
+          "issues": [
+            {
+              "id": "interpretation_failed:task:request:null",
+              "code": "interpretation_failed",
+              "field": "request",
+              "scope": "task",
+              "value": null,
+              "saved_value": null,
+              "options": []
+            }
+          ],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [
+          {
+            "id": "interpretation_failed:task:request:null",
+            "code": "interpretation_failed",
+            "field": "request",
+            "scope": "task",
+            "value": null,
+            "saved_value": null,
+            "options": []
+          }
+        ],
+        "unverified_requirements": [
+          "verified waterproof"
+        ],
+        "purchase_budget": null,
+        "intent_understood": false,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "needs_clarification",
+        "action": "clarify",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I couldn't reliably interpret the requested change. No unverified changes were applied. You can clarify the item and change, or start a new shopping task below.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [
+            "verified waterproof"
+          ],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": "Shoes",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [
+            "Black"
+          ],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": {
+          "action": "clarify",
+          "reference": null,
+          "goal": "Browse provisional options with waterproofing unverified. Keep black and A$150.",
+          "question": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.",
+          "before_scopes": {
+            "item": {
+              "gender": "Women",
+              "category": "Shoes",
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [
+                "Black"
+              ],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 150,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [
+              "verified waterproof"
+            ],
+            "unresolved_shared": []
+          },
+          "before_styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "before_collection": {
+            "choice": "Women",
+            "current": {
+              "choice": "Women",
+              "source": "explicit"
+            },
+            "checkpoint": null
+          }
+        },
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [
+            "verified waterproof"
+          ],
+          "unresolved_shared": []
+        },
+        "pending": {
+          "action": "clarify",
+          "reference": null,
+          "goal": "Browse provisional options with waterproofing unverified. Keep black and A$150.",
+          "question": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.",
+          "before_scopes": {
+            "item": {
+              "gender": "Women",
+              "category": "Shoes",
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [
+                "Black"
+              ],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 150,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [
+              "verified waterproof"
+            ],
+            "unresolved_shared": []
+          },
+          "before_styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "before_collection": {
+            "choice": "Women",
+            "current": {
+              "choice": "Women",
+              "source": "explicit"
+            },
+            "checkpoint": null
+          }
+        },
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "j2b64r",
+          "preview_unverified": true,
+          "blocker_signature": "interpretation_failed:task:request:null",
+          "blocker_repeats": 1,
+          "issues": [
+            {
+              "id": "interpretation_failed:task:request:null",
+              "code": "interpretation_failed",
+              "field": "request",
+              "scope": "task",
+              "value": null,
+              "saved_value": null,
+              "options": []
+            }
+          ],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Find women's black shoes under A$150 that are verified waterproof."
+          },
+          {
+            "role": "assistant",
+            "content": "I can't verify verified waterproof from the product information. Keep it as a hard requirement, remove it, or explicitly ask to browse with that detail unverified. Known violations will still be excluded."
+          }
+        ]
+      },
+      "failure": "Expected at least 1 products; received 0 (needs_clarification).",
+      "elapsed_ms": 5712
+    }
+  ],
+  "unexecuted_turns": 0,
+  "trial": "v1-run1",
+  "elapsed_ms": 10042,
+  "failure": "Expected at least 1 products; received 0 (needs_clarification).",
+  "file": "J43-v1-run1.json"
+}

@@ -22,6 +22,7 @@ export const ShortcutSchema = z.strictObject({
 });
 export const TurnSchema = ConversationPlanRequestSchema.extend({
   shortcut: ShortcutSchema.optional(),
+  offer_anchor_id: z.string().trim().min(1).max(250).optional(),
   // An explicit, one-turn request to PREVIEW other colours, not change saved preferences.
   preview_other_colours: z.boolean().optional(),
   recovery: RecoverySchema.optional(),
@@ -54,6 +55,16 @@ export const ChatProductSchema = z.object({
   value_comparison: ValueComparisonSchema.optional(),
 });
 export type ChatProduct = z.infer<typeof ChatProductSchema>;
+export const ComplementaryOfferSchema = z.strictObject({
+  anchor: ChatProductSchema,
+  anchor_ownership: z.enum(["example", "selected", "owned"]),
+  items: z.array(z.strictObject({ product: ChatProductSchema, preferences: ShoppingPreferencesSchema })).min(1).max(2),
+  combined_limit_aud: z.number().nonnegative().nullable(),
+  base_total_aud: z.number().nonnegative(),
+  extras_total_aud: z.number().nonnegative(),
+  total_aud: z.number().nonnegative(),
+});
+export type ComplementaryOffer = z.infer<typeof ComplementaryOfferSchema>;
 export const AlternativeProductSchema = ChatProductSchema.extend({
   differences: z.array(z.string().trim().min(1)).min(1),
 });
@@ -64,6 +75,8 @@ const normalise = (value: string) => value.trim().replace(/\s+/g, " ").toLowerCa
 // containing catalogue text. Keep raw evidence and product identity untouched.
 const responseText = (value: string) => value.replace(/\s*\u2014\s*/g, ", ");
 export const TurnReplySchema = z.object({
+  complementary_offer: ComplementaryOfferSchema.nullable().default(null),
+  offer_refresh: z.boolean().default(false),
   task_transition_applied: z.boolean().default(false),
   task: TaskStateSchema.optional(),
   issues: z.array(ConversationIssueSchema).max(12).default([]),
@@ -202,6 +215,24 @@ export const TurnReplySchema = z.object({
   }
   checkProducts(reply.products, reply.applied_preferences);
   checkProducts(reply.alternatives, reply.alternatives_preferences);
+  const offer = reply.complementary_offer;
+  if (reply.offer_refresh && (reply.action !== "none" || reply.status !== "no_action" || all.length)) reject("Refreshing finishing touches cannot replace the primary search.");
+  if (offer) {
+    if ((!reply.offer_refresh && (!["new_search", "refine"].includes(reply.action) || !matches ||
+        !reply.products.some(product => product.product_id === offer.anchor.product_id))) ||
+        reply.pending || reply.pending_answer || reply.unverified_requirements.length || reply.styling.offers_paused ||
+        reply.outfit_budget || reply.styling.outfit_request) reject("Finishing touches require an eligible primary search.");
+    const ids = [...all.map(product => product.product_id), ...offer.items.map(item => item.product.product_id)];
+    if (new Set(ids).size !== ids.length || offer.items.some(item => item.product.product_id === offer.anchor.product_id ||
+        item.product.unverified_requirements.length || !item.product.pairing_evidence?.anchor_ids.includes(offer.anchor.product_id))) reject("Finishing touches must be distinct, grounded additions for the named anchor.");
+    for (const item of offer.items) {
+      checkProducts([item.product], item.preferences);
+      if (item.product.image_src?.startsWith("/api/products/") && item.product.image_src !== getProductImageEndpoint(item.product.product_id)) reject("An addition's image must belong to that product.");
+    }
+    const extras = offer.items.reduce((sum, item) => sum + priceCents(item.product.price_aud), 0);
+    if (extras !== priceCents(offer.extras_total_aud) || priceCents(offer.base_total_aud) + extras !== priceCents(offer.total_aud) ||
+        offer.combined_limit_aud !== null && priceCents(offer.total_aud) > priceCents(offer.combined_limit_aud)) reject("Finishing touches must respect the complete proposed combination budget.");
+  }
   if (reply.alternatives.length) {
     const requested = reply.applied_preferences;
     const compared = reply.alternatives_preferences;
@@ -274,7 +305,7 @@ export function makeTurn(
   const scopes = PreferenceScopesSchema.parse(session.scopes);
   const collection = CollectionStateSchema.parse(session.collection ?? emptyCollectionState());
   const styling = StylingStateSchema.parse(session.styling ?? emptyStylingState());
-  const known = [...session.context.latest, ...(session.context.previous?.flat() ?? []), ...(session.context.focused ? [session.context.focused] : []), ...(session.context.comparison ? [session.context.comparison] : []), ...styling.outfit];
+  const known = [...session.context.latest, ...(session.context.complementary ?? []), ...(session.context.previous?.flat() ?? []), ...(session.context.focused ? [session.context.focused] : []), ...(session.context.comparison ? [session.context.comparison] : []), ...styling.outfit];
   if (focus && !known.some(p => p.product_id === focus.product_id) && !session.pending) {
     const savedSize = scopes.item.category === focus.category ? scopes.item.size : null;
     scopes.item = { ...emptyShoppingPreferences(), size: savedSize };
@@ -286,6 +317,7 @@ export function makeTurn(
     pending: shortcut && ["cross_sell", "cheaper", "upsell", "similar"].includes(shortcut.kind) ? null : session.pending,
     pending_answer: (shortcut && ["cross_sell", "cheaper", "upsell", "similar"].includes(shortcut.kind)) || previewOtherColours ? null : session.pending_answer ?? null,
     context: { focused: focus ?? session.context.focused, latest: session.context.latest,
+      ...(session.context.complementary?.length ? { complementary: session.context.complementary } : {}),
       ...(session.context.previous?.length ? { previous: session.context.previous } : {}),
       ...(session.context.comparison ? { comparison: session.context.comparison } : {}),
       ...(styling.outfit.length ? { selected: styling.outfit.map(snapshot) } : {}) },
@@ -299,6 +331,10 @@ export function makeTurn(
 export function acceptReply(turn: ConversationTurn, input: unknown): { reply: TurnReply; session: Session } {
   const reply = TurnReplySchema.parse(input);
   if (reply.task_transition_applied) turn = prepareConversationTask(turn);
+  if (reply.offer_refresh && (!turn.offer_anchor_id || reply.complementary_offer &&
+      reply.complementary_offer.anchor.product_id !== turn.offer_anchor_id)) throw new Error("Finishing touches can only refresh for the requested anchor.");
+  if (reply.offer_refresh && (JSON.stringify(reply.proposed_scopes) !== JSON.stringify(turn.scopes) ||
+      JSON.stringify(reply.styling) !== JSON.stringify(turn.styling ?? emptyStylingState()))) throw new Error("Refreshing additions cannot change the saved brief or outfit.");
   if (!reply.intent_understood && (JSON.stringify(reply.proposed_scopes) !== JSON.stringify(turn.scopes) ||
       JSON.stringify(reply.styling) !== JSON.stringify(turn.styling ?? emptyStylingState()))) {
     throw new Error("An unclear intention cannot change remembered shopping preferences or outfit choices.");
@@ -314,6 +350,11 @@ export function acceptReply(turn: ConversationTurn, input: unknown): { reply: Tu
   const context: Session["context"] = !reply.intent_understood || reply.pending || !visible.length || reply.status === "answered"
     ? { ...turn.context, latest: [...turn.context.latest] } : { focused: null, latest: visible.map(snapshot),
       ...(previous.length ? { previous } : {}) };
+  // Additions have their own reference group; unqualified positions stay primary.
+  if (reply.complementary_offer || reply.offer_refresh || turn.context.complementary) {
+    context.complementary = reply.complementary_offer?.items.map(item => snapshot(item.product)) ??
+      (reply.offer_refresh ? [] : turn.context.complementary ?? []);
+  }
   if (reply.status === "answered") {
     if (reply.combination_summary && JSON.stringify(reply.styling) !== JSON.stringify(turn.styling)) {
       throw new Error("A named combination answer cannot change saved outfit choices.");
@@ -331,7 +372,7 @@ export function acceptReply(turn: ConversationTurn, input: unknown): { reply: Tu
       }
     }
     if (reply.answer_product_ids.length) {
-      const pool = [turn.context.focused, turn.context.comparison, ...turn.context.latest, ...(turn.context.previous?.flat() ?? []), ...(turn.context.selected ?? [])];
+      const pool = [turn.context.focused, turn.context.comparison, ...turn.context.latest, ...(turn.context.complementary ?? []), ...(turn.context.previous?.flat() ?? []), ...(turn.context.selected ?? [])];
       if (reply.answer_product_ids.some(id => !pool.some(row => row?.product_id === id))) {
         throw new Error("The answered products must belong to the current context.");
       }

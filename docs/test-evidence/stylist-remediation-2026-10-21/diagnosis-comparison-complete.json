@@ -1,0 +1,3187 @@
+{
+  "scope": "Fresh synthetic fixtures; live model/catalogue in-process, not HTTP or browser",
+  "catalogue_source": "isolated synthetic acceptance fixture; shared catalogue unchanged",
+  "started_at": "2026-10-20T13:58:26.308Z",
+  "model": "gpt-5.6-luna",
+  "variants": [
+    1,
+    2,
+    3
+  ],
+  "pack_sha256": "75fc8e836025ee06033c98adc98d1c9041a8adc43f66bd7e5bbbaeef9f78d3f2",
+  "source_sha256": {
+    "lib/ai/interpretConversation.ts": "53bb9827ca5c0d4ac758d46a85cd96153b24a31e3fd96a2632d60731298362b9",
+    "lib/stylist/conversationPlan.ts": "b35df0a0648bb5cd300405316f94d3589564b4034cb1b925fb542cf0c22a6ef3",
+    "lib/stylist/conversationGrounding.ts": "7986dd354c64c3c96fbbf62923c2d7cfba6a469e4185d37ca1ad1c535ad8b529",
+    "lib/stylist/conversationTurn.ts": "58a3f11b60bef7cb29c437615c359841e4f65de7a9b3d74c8dd2052eef2558de",
+    "lib/stylist/combinedShoppingRequest.ts": "a6de5d61b221e83f915a228214f1889c8524ab4c79adc1b0c1363474dfea2b99",
+    "lib/stylist/answerPlan.ts": "62991b9d3342e4354ca98fcf20585156acd7ebf7831871d850a26af0afecda5a",
+    "lib/stylist/conversationAnswers.ts": "afd70cd0b6e57a6ef47b6d4666f63ccf7d7ad61dff961b521ed91bdb598f618a",
+    "lib/stylist/priceContext.ts": "b8a5f82c4cf7cb20b23e0ec48158de01b58c405417fdc3cf8129175f0ec0e5e6",
+    "lib/stylist/collectionPreference.ts": "23b8688543d58c7cdfb3f60d18537aa3755fcbbe8b4ac29c843d46cdb33319a2",
+    "scripts/fixtures/stylist-journey-catalogue.mjs": "d95709dffb9b61032bb73e4dc809d370222b97e732235b6f036db263a5c707e1"
+  },
+  "catalogue_sha256": "6b5509990c7b11a6faed187082ddf7c4165d4f31ed693a7477a4c0507067b32c",
+  "catalogue_count": 25,
+  "cases": [
+    {
+      "id": "J23",
+      "name": "Compound colour, budget and comparison request",
+      "mode": "live",
+      "variant": 1,
+      "status": "AUTO_PASS",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request.",
+        "The automated filter checks alone cannot establish that the comparison was answered."
+      ],
+      "expected": "Apply both edits and answer the comparison part.",
+      "turns": [
+        {
+          "number": 1,
+          "checks": [
+            {
+              "path": "state.scopes.item.category",
+              "op": "eq",
+              "value": "Clothing"
+            },
+            {
+              "path": "state.scopes.item.subcategory",
+              "op": "eq",
+              "value": "Dresses"
+            },
+            {
+              "path": "state.scopes.item.max_price",
+              "op": "eq",
+              "value": 200
+            }
+          ],
+          "status": "AUTO_PASS",
+          "message": "Show me women's dresses under A$200.",
+          "request": {
+            "request_id": "db43ad86-3156-4c00-8b6e-ebfbddc19eb2",
+            "retry": false,
+            "turn": {
+              "message": "Show me women's dresses under A$200.",
+              "collection": {
+                "choice": null,
+                "current": null,
+                "checkpoint": null
+              },
+              "discovery": null,
+              "scopes": {
+                "item": {
+                  "gender": null,
+                  "category": null,
+                  "subcategory": null,
+                  "product_type": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "size": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                },
+                "shared": {
+                  "gender": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                },
+                "unresolved_item": [],
+                "unresolved_shared": []
+              },
+              "context": {
+                "focused": null,
+                "latest": []
+              },
+              "history": [],
+              "pending": null,
+              "pending_answer": null,
+              "styling": {
+                "dress_code": null,
+                "outfit_request": null,
+                "purchase_budget": null,
+                "outfit": [],
+                "external_items": [],
+                "rejected_ids": [],
+                "priorities": [],
+                "required_features": [],
+                "offers_paused": false,
+                "owned_categories": []
+              },
+              "cart_product_ids": [],
+              "task": {
+                "generation": 0,
+                "prepared_key": "",
+                "preview_unverified": false,
+                "blocker_signature": "",
+                "blocker_repeats": 0,
+                "issues": [],
+                "brief": {
+                  "goal": null,
+                  "total_budget_aud": null,
+                  "budget_evidence": null,
+                  "guidance": [],
+                  "deadline": null
+                }
+              }
+            }
+          },
+          "http_status": 200,
+          "reply": {
+            "task_transition_applied": true,
+            "task": {
+              "generation": 0,
+              "prepared_key": "ubbpm8",
+              "preview_unverified": false,
+              "blocker_signature": "",
+              "blocker_repeats": 0,
+              "issues": [],
+              "brief": {
+                "goal": null,
+                "total_budget_aud": null,
+                "budget_evidence": null,
+                "guidance": [],
+                "deadline": null
+              }
+            },
+            "issues": [],
+            "unverified_requirements": [],
+            "purchase_budget": null,
+            "intent_understood": true,
+            "outfit_budget": null,
+            "outfit_choices": null,
+            "outfit_review": null,
+            "combination_summary": null,
+            "status": "matches",
+            "action": "new_search",
+            "discovery": null,
+            "collection": {
+              "choice": "Women",
+              "current": {
+                "choice": "Women",
+                "source": "explicit"
+              },
+              "checkpoint": null
+            },
+            "suggested_replies": [],
+            "message": "I've found 5 clothing options for you to explore.\n\nThese options range from A$80.00 to A$100.00. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.",
+            "proposed_scopes": {
+              "item": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": 200,
+                "brand_line": null
+              },
+              "shared": {
+                "gender": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "unresolved_item": [],
+              "unresolved_shared": []
+            },
+            "applied_preferences": {
+              "gender": "Women",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 200,
+              "brand_line": null
+            },
+            "products": [
+              {
+                "product_id": "D-WORK-BLUE",
+                "product_name": "Fixture D-WORK-BLUE Blue Midi Dress",
+                "price_aud": 80,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Blue",
+                "occasion": "Work",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              },
+              {
+                "product_id": "D-FORMAL-BLACK-LOW",
+                "product_name": "Fixture D-FORMAL-BLACK-LOW Black Midi Dress",
+                "price_aud": 85,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Black",
+                "occasion": "Formal",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              },
+              {
+                "product_id": "D-BEACH-BLUE",
+                "product_name": "Fixture D-BEACH-BLUE Blue Midi Dress",
+                "price_aud": 90,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Blue",
+                "occasion": "Beach Wedding",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              },
+              {
+                "product_id": "D-WEDDING-BLUE",
+                "product_name": "Fixture D-WEDDING-BLUE Blue Midi Dress",
+                "price_aud": 95,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Blue",
+                "occasion": "Wedding Guest",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              },
+              {
+                "product_id": "D-FORMAL-BLUE",
+                "product_name": "Fixture D-FORMAL-BLUE Blue Midi Dress",
+                "price_aud": 100,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Blue",
+                "occasion": "Formal",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              }
+            ],
+            "alternatives": [],
+            "alternatives_preferences": null,
+            "alternative_kind": null,
+            "optional_question": "What occasion are you shopping for? You can also keep browsing these options.",
+            "can_preview_other_colours": false,
+            "pending": null,
+            "pending_answer": null,
+            "answer_sources": [],
+            "answer_product_ids": [],
+            "styling": {
+              "dress_code": null,
+              "outfit_request": null,
+              "purchase_budget": null,
+              "outfit": [],
+              "external_items": [],
+              "rejected_ids": [],
+              "priorities": [],
+              "required_features": [],
+              "offers_paused": false,
+              "owned_categories": []
+            },
+            "commerce_policy": "stylist-commerce-v1",
+            "feature_data_status": "available",
+            "comparison_reference_id": null
+          },
+          "state": {
+            "scopes": {
+              "item": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": 200,
+                "brand_line": null
+              },
+              "shared": {
+                "gender": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "unresolved_item": [],
+              "unresolved_shared": []
+            },
+            "pending": null,
+            "pending_answer": null,
+            "styling": {
+              "dress_code": null,
+              "outfit_request": null,
+              "purchase_budget": null,
+              "outfit": [],
+              "external_items": [],
+              "rejected_ids": [],
+              "priorities": [],
+              "required_features": [],
+              "offers_paused": false,
+              "owned_categories": []
+            },
+            "discovery": null,
+            "collection": {
+              "choice": "Women",
+              "current": {
+                "choice": "Women",
+                "source": "explicit"
+              },
+              "checkpoint": null
+            },
+            "cart_product_ids": [],
+            "task": {
+              "generation": 0,
+              "prepared_key": "ubbpm8",
+              "preview_unverified": false,
+              "blocker_signature": "",
+              "blocker_repeats": 0,
+              "issues": [],
+              "brief": {
+                "goal": null,
+                "total_budget_aud": null,
+                "budget_evidence": null,
+                "guidance": [],
+                "deadline": null
+              }
+            },
+            "context": {
+              "focused": null,
+              "latest": [
+                {
+                  "product_id": "D-WORK-BLUE",
+                  "product_name": "Fixture D-WORK-BLUE Blue Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 80
+                },
+                {
+                  "product_id": "D-FORMAL-BLACK-LOW",
+                  "product_name": "Fixture D-FORMAL-BLACK-LOW Black Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 85
+                },
+                {
+                  "product_id": "D-BEACH-BLUE",
+                  "product_name": "Fixture D-BEACH-BLUE Blue Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 90
+                },
+                {
+                  "product_id": "D-WEDDING-BLUE",
+                  "product_name": "Fixture D-WEDDING-BLUE Blue Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 95
+                },
+                {
+                  "product_id": "D-FORMAL-BLUE",
+                  "product_name": "Fixture D-FORMAL-BLUE Blue Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 100
+                }
+              ]
+            },
+            "history": [
+              {
+                "role": "user",
+                "content": "Show me women's dresses under A$200."
+              },
+              {
+                "role": "assistant",
+                "content": "I've found 5 clothing options for you to explore.\n\nThese options range from A$80.00 to A$100.00. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.\nWhat occasion are you shopping for? You can also keep browsing these options."
+              }
+            ]
+          },
+          "elapsed_ms": 4038
+        },
+        {
+          "number": 2,
+          "checks": [
+            {
+              "path": "state.scopes.item.preferred_colours",
+              "op": "eq",
+              "value": [
+                "Blue"
+              ]
+            },
+            {
+              "path": "state.scopes.item.max_price",
+              "op": "eq",
+              "value": 150
+            },
+            {
+              "path": "state.scopes.item.subcategory",
+              "op": "eq",
+              "value": "Dresses"
+            }
+          ],
+          "status": "AUTO_PASS",
+          "message": "Show me blue dresses under A$150 and explain how they differ from Fixture D-WORK-BLUE Blue Midi Dress.",
+          "request": {
+            "request_id": "18e00430-570c-4256-a7f9-d74e3ae54ee7",
+            "retry": false,
+            "turn": {
+              "message": "Show me blue dresses under A$150 and explain how they differ from Fixture D-WORK-BLUE Blue Midi Dress.",
+              "collection": {
+                "choice": "Women",
+                "current": {
+                  "choice": "Women",
+                  "source": "explicit"
+                },
+                "checkpoint": null
+              },
+              "discovery": null,
+              "scopes": {
+                "item": {
+                  "gender": "Women",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "size": null,
+                  "min_price": null,
+                  "max_price": 200,
+                  "brand_line": null
+                },
+                "shared": {
+                  "gender": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                },
+                "unresolved_item": [],
+                "unresolved_shared": []
+              },
+              "context": {
+                "focused": null,
+                "latest": [
+                  {
+                    "product_id": "D-WORK-BLUE",
+                    "product_name": "Fixture D-WORK-BLUE Blue Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 80
+                  },
+                  {
+                    "product_id": "D-FORMAL-BLACK-LOW",
+                    "product_name": "Fixture D-FORMAL-BLACK-LOW Black Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 85
+                  },
+                  {
+                    "product_id": "D-BEACH-BLUE",
+                    "product_name": "Fixture D-BEACH-BLUE Blue Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 90
+                  },
+                  {
+                    "product_id": "D-WEDDING-BLUE",
+                    "product_name": "Fixture D-WEDDING-BLUE Blue Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 95
+                  },
+                  {
+                    "product_id": "D-FORMAL-BLUE",
+                    "product_name": "Fixture D-FORMAL-BLUE Blue Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 100
+                  }
+                ]
+              },
+              "history": [
+                {
+                  "role": "user",
+                  "content": "Show me women's dresses under A$200."
+                },
+                {
+                  "role": "assistant",
+                  "content": "I've found 5 clothing options for you to explore.\n\nThese options range from A$80.00 to A$100.00. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.\nWhat occasion are you shopping for? You can also keep browsing these options."
+                }
+              ],
+              "pending": null,
+              "pending_answer": null,
+              "styling": {
+                "dress_code": null,
+                "outfit_request": null,
+                "purchase_budget": null,
+                "outfit": [],
+                "external_items": [],
+                "rejected_ids": [],
+                "priorities": [],
+                "required_features": [],
+                "offers_paused": false,
+                "owned_categories": []
+              },
+              "cart_product_ids": [],
+              "task": {
+                "generation": 0,
+                "prepared_key": "ubbpm8",
+                "preview_unverified": false,
+                "blocker_signature": "",
+                "blocker_repeats": 0,
+                "issues": [],
+                "brief": {
+                  "goal": null,
+                  "total_budget_aud": null,
+                  "budget_evidence": null,
+                  "guidance": [],
+                  "deadline": null
+                }
+              }
+            }
+          },
+          "http_status": 200,
+          "reply": {
+            "task_transition_applied": true,
+            "task": {
+              "generation": 0,
+              "prepared_key": "1n5tzuc",
+              "preview_unverified": false,
+              "blocker_signature": "",
+              "blocker_repeats": 0,
+              "issues": [],
+              "brief": {
+                "goal": null,
+                "total_budget_aud": null,
+                "budget_evidence": null,
+                "guidance": [],
+                "deadline": null
+              }
+            },
+            "issues": [],
+            "unverified_requirements": [],
+            "purchase_budget": null,
+            "intent_understood": true,
+            "outfit_budget": null,
+            "outfit_choices": null,
+            "outfit_review": null,
+            "combination_summary": null,
+            "status": "matches",
+            "action": "refine",
+            "discovery": null,
+            "collection": {
+              "choice": "Women",
+              "current": {
+                "choice": "Women",
+                "source": "explicit"
+              },
+              "checkpoint": null
+            },
+            "suggested_replies": [],
+            "message": "Fixture D-WORK-BLUE Blue Midi Dress\nFor how they differ, the occasion match is uncertain: the catalogue lists Work. I wouldn't call it a confirmed match for that event. Its recorded styling details are colour: Blue, style: Relaxed, season: Summer. At A$80.00, it is within your A$200.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$80.00. Delivery charges and discounts aren't included in that figure.\n\nFixture D-BEACH-BLUE Blue Midi Dress\nFor how they differ, the occasion match is uncertain: the catalogue lists Beach Wedding. I wouldn't call it a confirmed match for that event. Its recorded styling details are colour: Blue, style: Relaxed, season: Summer. At A$90.00, it is within your A$200.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$90.00. Delivery charges and discounts aren't included in that figure.\n\nFixture D-WEDDING-BLUE Blue Midi Dress\nFor how they differ, the occasion match is uncertain: the catalogue lists Wedding Guest. I wouldn't call it a confirmed match for that event. Its recorded styling details are colour: Blue, style: Relaxed, season: Summer. At A$95.00, it is within your A$200.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$95.00. Delivery charges and discounts aren't included in that figure.\n\nFixture D-FORMAL-BLUE Blue Midi Dress\nFor how they differ, the occasion match is uncertain: the catalogue lists Formal. I wouldn't call it a confirmed match for that event. Its recorded styling details are colour: Blue, style: Relaxed, season: Summer. At A$100.00, it is within your A$200.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$100.00. Delivery charges and discounts aren't included in that figure.\n\nFixture D-WORK-BLUE Blue Midi Dress costs A$10.00 less. A higher price alone doesn't establish better quality.\n\nI've found 4 blue clothing options for you to explore.\n\nThese options range from A$80.00 to A$100.00. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+            "proposed_scopes": {
+              "item": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [
+                  "Blue"
+                ],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": 150,
+                "brand_line": null
+              },
+              "shared": {
+                "gender": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "unresolved_item": [],
+              "unresolved_shared": []
+            },
+            "applied_preferences": {
+              "gender": "Women",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [
+                "Blue"
+              ],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 150,
+              "brand_line": null
+            },
+            "products": [
+              {
+                "product_id": "D-WORK-BLUE",
+                "product_name": "Fixture D-WORK-BLUE Blue Midi Dress",
+                "price_aud": 80,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Blue",
+                "occasion": "Work",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              },
+              {
+                "product_id": "D-BEACH-BLUE",
+                "product_name": "Fixture D-BEACH-BLUE Blue Midi Dress",
+                "price_aud": 90,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Blue",
+                "occasion": "Beach Wedding",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              },
+              {
+                "product_id": "D-WEDDING-BLUE",
+                "product_name": "Fixture D-WEDDING-BLUE Blue Midi Dress",
+                "price_aud": 95,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Blue",
+                "occasion": "Wedding Guest",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              },
+              {
+                "product_id": "D-FORMAL-BLUE",
+                "product_name": "Fixture D-FORMAL-BLUE Blue Midi Dress",
+                "price_aud": 100,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Blue",
+                "occasion": "Formal",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              }
+            ],
+            "alternatives": [],
+            "alternatives_preferences": null,
+            "alternative_kind": null,
+            "optional_question": null,
+            "can_preview_other_colours": false,
+            "pending": null,
+            "pending_answer": null,
+            "answer_sources": [
+              {
+                "label": "Fixture D-WORK-BLUE Blue Midi Dress: catalogue details",
+                "url": "/products/D-WORK-BLUE"
+              },
+              {
+                "label": "Fixture D-BEACH-BLUE Blue Midi Dress: catalogue details",
+                "url": "/products/D-BEACH-BLUE"
+              },
+              {
+                "label": "Fixture D-WEDDING-BLUE Blue Midi Dress: catalogue details",
+                "url": "/products/D-WEDDING-BLUE"
+              },
+              {
+                "label": "Fixture D-FORMAL-BLUE Blue Midi Dress: catalogue details",
+                "url": "/products/D-FORMAL-BLUE"
+              }
+            ],
+            "answer_product_ids": [
+              "D-WORK-BLUE",
+              "D-BEACH-BLUE",
+              "D-WEDDING-BLUE",
+              "D-FORMAL-BLUE"
+            ],
+            "styling": {
+              "dress_code": null,
+              "outfit_request": null,
+              "purchase_budget": null,
+              "outfit": [],
+              "external_items": [],
+              "rejected_ids": [],
+              "priorities": [],
+              "required_features": [],
+              "offers_paused": false,
+              "owned_categories": []
+            },
+            "commerce_policy": "stylist-commerce-v1",
+            "feature_data_status": "available",
+            "comparison_reference_id": null
+          },
+          "state": {
+            "scopes": {
+              "item": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [
+                  "Blue"
+                ],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": 150,
+                "brand_line": null
+              },
+              "shared": {
+                "gender": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "unresolved_item": [],
+              "unresolved_shared": []
+            },
+            "pending": null,
+            "pending_answer": null,
+            "styling": {
+              "dress_code": null,
+              "outfit_request": null,
+              "purchase_budget": null,
+              "outfit": [],
+              "external_items": [],
+              "rejected_ids": [],
+              "priorities": [],
+              "required_features": [],
+              "offers_paused": false,
+              "owned_categories": []
+            },
+            "discovery": null,
+            "collection": {
+              "choice": "Women",
+              "current": {
+                "choice": "Women",
+                "source": "explicit"
+              },
+              "checkpoint": null
+            },
+            "cart_product_ids": [],
+            "task": {
+              "generation": 0,
+              "prepared_key": "1n5tzuc",
+              "preview_unverified": false,
+              "blocker_signature": "",
+              "blocker_repeats": 0,
+              "issues": [],
+              "brief": {
+                "goal": null,
+                "total_budget_aud": null,
+                "budget_evidence": null,
+                "guidance": [],
+                "deadline": null
+              }
+            },
+            "context": {
+              "focused": null,
+              "latest": [
+                {
+                  "product_id": "D-WORK-BLUE",
+                  "product_name": "Fixture D-WORK-BLUE Blue Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 80
+                },
+                {
+                  "product_id": "D-BEACH-BLUE",
+                  "product_name": "Fixture D-BEACH-BLUE Blue Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 90
+                },
+                {
+                  "product_id": "D-WEDDING-BLUE",
+                  "product_name": "Fixture D-WEDDING-BLUE Blue Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 95
+                },
+                {
+                  "product_id": "D-FORMAL-BLUE",
+                  "product_name": "Fixture D-FORMAL-BLUE Blue Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 100
+                }
+              ],
+              "previous": [
+                [
+                  {
+                    "product_id": "D-WORK-BLUE",
+                    "product_name": "Fixture D-WORK-BLUE Blue Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 80
+                  },
+                  {
+                    "product_id": "D-FORMAL-BLACK-LOW",
+                    "product_name": "Fixture D-FORMAL-BLACK-LOW Black Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 85
+                  },
+                  {
+                    "product_id": "D-BEACH-BLUE",
+                    "product_name": "Fixture D-BEACH-BLUE Blue Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 90
+                  },
+                  {
+                    "product_id": "D-WEDDING-BLUE",
+                    "product_name": "Fixture D-WEDDING-BLUE Blue Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 95
+                  },
+                  {
+                    "product_id": "D-FORMAL-BLUE",
+                    "product_name": "Fixture D-FORMAL-BLUE Blue Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 100
+                  }
+                ]
+              ]
+            },
+            "history": [
+              {
+                "role": "user",
+                "content": "Show me women's dresses under A$200."
+              },
+              {
+                "role": "assistant",
+                "content": "I've found 5 clothing options for you to explore.\n\nThese options range from A$80.00 to A$100.00. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.\nWhat occasion are you shopping for? You can also keep browsing these options."
+              },
+              {
+                "role": "user",
+                "content": "Show me blue dresses under A$150 and explain how they differ from Fixture D-WORK-BLUE Blue Midi Dress."
+              },
+              {
+                "role": "assistant",
+                "content": "Fixture D-WORK-BLUE Blue Midi Dress\nFor how they differ, the occasion match is uncertain: the catalogue lists Work. I wouldn't call it a confirmed match for that event. Its recorded styling details are colour: Blue, style: Relaxed, season: Summer. At A$80.00, it is within your A$200.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$80.00. Delivery charges and discounts aren't included in that figure.\n\nFixture D-BEACH-BLUE Blue Midi Dress\nFor how they differ, the occasion match is uncertain: the catalogue lists Beach Wedding. I wouldn't call it a confirmed match for that event. Its recorded styling details are colour: Blue, style: Relaxed, season: Summer. At A$90.00, it is within your A$200.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$90.00. Delivery charges and discounts aren't included in that figure.\n\nFixture D-WEDDING-BLUE Blue Midi Dress\nFor how they differ, the occasion match is uncertain: the catalogue lists Wedding Guest. I wouldn't call it a confirmed match for that event. Its recorded styling details are colour: Blue, style: Relaxed, season: Summer. At A$95.00, it is within your A$200.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$95.00. Delivery charges and discounts aren't included in that figure.\n\nFixture D-FORMAL-BLUE Blue Midi Dress\nFor how they differ, the occasion match is uncertain: the catalogue lists Formal. I wouldn't call it a confirmed match for that event. Its recorded styling details are colour: Blue, style: Relaxed, season: Summer. At A$100.00, it is within your A$200.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$100.00. Delivery charges and discounts aren't in"
+              }
+            ]
+          },
+          "elapsed_ms": 4154
+        }
+      ]
+    },
+    {
+      "id": "J23",
+      "name": "Compound colour, budget and comparison request",
+      "mode": "live",
+      "variant": 2,
+      "status": "AUTO_PASS",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request.",
+        "The automated filter checks alone cannot establish that the comparison was answered."
+      ],
+      "expected": "Apply both edits and answer the comparison part.",
+      "turns": [
+        {
+          "number": 1,
+          "checks": [
+            {
+              "path": "state.scopes.item.category",
+              "op": "eq",
+              "value": "Clothing"
+            },
+            {
+              "path": "state.scopes.item.subcategory",
+              "op": "eq",
+              "value": "Dresses"
+            },
+            {
+              "path": "state.scopes.item.max_price",
+              "op": "eq",
+              "value": 200
+            }
+          ],
+          "status": "AUTO_PASS",
+          "message": "Women's dresses, under 200 AUD.",
+          "request": {
+            "request_id": "ce82034a-9c86-4f82-bdbf-cad770915f2a",
+            "retry": false,
+            "turn": {
+              "message": "Women's dresses, under 200 AUD.",
+              "collection": {
+                "choice": null,
+                "current": null,
+                "checkpoint": null
+              },
+              "discovery": null,
+              "scopes": {
+                "item": {
+                  "gender": null,
+                  "category": null,
+                  "subcategory": null,
+                  "product_type": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "size": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                },
+                "shared": {
+                  "gender": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                },
+                "unresolved_item": [],
+                "unresolved_shared": []
+              },
+              "context": {
+                "focused": null,
+                "latest": []
+              },
+              "history": [],
+              "pending": null,
+              "pending_answer": null,
+              "styling": {
+                "dress_code": null,
+                "outfit_request": null,
+                "purchase_budget": null,
+                "outfit": [],
+                "external_items": [],
+                "rejected_ids": [],
+                "priorities": [],
+                "required_features": [],
+                "offers_paused": false,
+                "owned_categories": []
+              },
+              "cart_product_ids": [],
+              "task": {
+                "generation": 0,
+                "prepared_key": "",
+                "preview_unverified": false,
+                "blocker_signature": "",
+                "blocker_repeats": 0,
+                "issues": [],
+                "brief": {
+                  "goal": null,
+                  "total_budget_aud": null,
+                  "budget_evidence": null,
+                  "guidance": [],
+                  "deadline": null
+                }
+              }
+            }
+          },
+          "http_status": 200,
+          "reply": {
+            "task_transition_applied": true,
+            "task": {
+              "generation": 0,
+              "prepared_key": "17ntifk",
+              "preview_unverified": false,
+              "blocker_signature": "",
+              "blocker_repeats": 0,
+              "issues": [],
+              "brief": {
+                "goal": null,
+                "total_budget_aud": null,
+                "budget_evidence": null,
+                "guidance": [],
+                "deadline": null
+              }
+            },
+            "issues": [],
+            "unverified_requirements": [],
+            "purchase_budget": null,
+            "intent_understood": true,
+            "outfit_budget": null,
+            "outfit_choices": null,
+            "outfit_review": null,
+            "combination_summary": null,
+            "status": "matches",
+            "action": "new_search",
+            "discovery": null,
+            "collection": {
+              "choice": "Women",
+              "current": {
+                "choice": "Women",
+                "source": "explicit"
+              },
+              "checkpoint": null
+            },
+            "suggested_replies": [],
+            "message": "I've found 5 clothing options for you to explore.\n\nThese options range from A$80.00 to A$100.00. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.",
+            "proposed_scopes": {
+              "item": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": 200,
+                "brand_line": null
+              },
+              "shared": {
+                "gender": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "unresolved_item": [],
+              "unresolved_shared": []
+            },
+            "applied_preferences": {
+              "gender": "Women",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 200,
+              "brand_line": null
+            },
+            "products": [
+              {
+                "product_id": "D-WORK-BLUE",
+                "product_name": "Fixture D-WORK-BLUE Blue Midi Dress",
+                "price_aud": 80,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Blue",
+                "occasion": "Work",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              },
+              {
+                "product_id": "D-FORMAL-BLACK-LOW",
+                "product_name": "Fixture D-FORMAL-BLACK-LOW Black Midi Dress",
+                "price_aud": 85,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Black",
+                "occasion": "Formal",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              },
+              {
+                "product_id": "D-BEACH-BLUE",
+                "product_name": "Fixture D-BEACH-BLUE Blue Midi Dress",
+                "price_aud": 90,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Blue",
+                "occasion": "Beach Wedding",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              },
+              {
+                "product_id": "D-WEDDING-BLUE",
+                "product_name": "Fixture D-WEDDING-BLUE Blue Midi Dress",
+                "price_aud": 95,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Blue",
+                "occasion": "Wedding Guest",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              },
+              {
+                "product_id": "D-FORMAL-BLUE",
+                "product_name": "Fixture D-FORMAL-BLUE Blue Midi Dress",
+                "price_aud": 100,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Blue",
+                "occasion": "Formal",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              }
+            ],
+            "alternatives": [],
+            "alternatives_preferences": null,
+            "alternative_kind": null,
+            "optional_question": "What occasion are you shopping for? You can also keep browsing these options.",
+            "can_preview_other_colours": false,
+            "pending": null,
+            "pending_answer": null,
+            "answer_sources": [],
+            "answer_product_ids": [],
+            "styling": {
+              "dress_code": null,
+              "outfit_request": null,
+              "purchase_budget": null,
+              "outfit": [],
+              "external_items": [],
+              "rejected_ids": [],
+              "priorities": [],
+              "required_features": [],
+              "offers_paused": false,
+              "owned_categories": []
+            },
+            "commerce_policy": "stylist-commerce-v1",
+            "feature_data_status": "available",
+            "comparison_reference_id": null
+          },
+          "state": {
+            "scopes": {
+              "item": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": 200,
+                "brand_line": null
+              },
+              "shared": {
+                "gender": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "unresolved_item": [],
+              "unresolved_shared": []
+            },
+            "pending": null,
+            "pending_answer": null,
+            "styling": {
+              "dress_code": null,
+              "outfit_request": null,
+              "purchase_budget": null,
+              "outfit": [],
+              "external_items": [],
+              "rejected_ids": [],
+              "priorities": [],
+              "required_features": [],
+              "offers_paused": false,
+              "owned_categories": []
+            },
+            "discovery": null,
+            "collection": {
+              "choice": "Women",
+              "current": {
+                "choice": "Women",
+                "source": "explicit"
+              },
+              "checkpoint": null
+            },
+            "cart_product_ids": [],
+            "task": {
+              "generation": 0,
+              "prepared_key": "17ntifk",
+              "preview_unverified": false,
+              "blocker_signature": "",
+              "blocker_repeats": 0,
+              "issues": [],
+              "brief": {
+                "goal": null,
+                "total_budget_aud": null,
+                "budget_evidence": null,
+                "guidance": [],
+                "deadline": null
+              }
+            },
+            "context": {
+              "focused": null,
+              "latest": [
+                {
+                  "product_id": "D-WORK-BLUE",
+                  "product_name": "Fixture D-WORK-BLUE Blue Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 80
+                },
+                {
+                  "product_id": "D-FORMAL-BLACK-LOW",
+                  "product_name": "Fixture D-FORMAL-BLACK-LOW Black Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 85
+                },
+                {
+                  "product_id": "D-BEACH-BLUE",
+                  "product_name": "Fixture D-BEACH-BLUE Blue Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 90
+                },
+                {
+                  "product_id": "D-WEDDING-BLUE",
+                  "product_name": "Fixture D-WEDDING-BLUE Blue Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 95
+                },
+                {
+                  "product_id": "D-FORMAL-BLUE",
+                  "product_name": "Fixture D-FORMAL-BLUE Blue Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 100
+                }
+              ]
+            },
+            "history": [
+              {
+                "role": "user",
+                "content": "Women's dresses, under 200 AUD."
+              },
+              {
+                "role": "assistant",
+                "content": "I've found 5 clothing options for you to explore.\n\nThese options range from A$80.00 to A$100.00. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.\nWhat occasion are you shopping for? You can also keep browsing these options."
+              }
+            ]
+          },
+          "elapsed_ms": 3716
+        },
+        {
+          "number": 2,
+          "checks": [
+            {
+              "path": "state.scopes.item.preferred_colours",
+              "op": "eq",
+              "value": [
+                "Blue"
+              ]
+            },
+            {
+              "path": "state.scopes.item.max_price",
+              "op": "eq",
+              "value": 150
+            },
+            {
+              "path": "state.scopes.item.subcategory",
+              "op": "eq",
+              "value": "Dresses"
+            }
+          ],
+          "status": "AUTO_PASS",
+          "message": "Show me blue dresses under A$150 and explain how they differ from Fixture D-WORK-BLUE Blue Midi Dress.",
+          "request": {
+            "request_id": "f258d596-b30f-42ec-808d-b2971efbe2a6",
+            "retry": false,
+            "turn": {
+              "message": "Show me blue dresses under A$150 and explain how they differ from Fixture D-WORK-BLUE Blue Midi Dress.",
+              "collection": {
+                "choice": "Women",
+                "current": {
+                  "choice": "Women",
+                  "source": "explicit"
+                },
+                "checkpoint": null
+              },
+              "discovery": null,
+              "scopes": {
+                "item": {
+                  "gender": "Women",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "size": null,
+                  "min_price": null,
+                  "max_price": 200,
+                  "brand_line": null
+                },
+                "shared": {
+                  "gender": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                },
+                "unresolved_item": [],
+                "unresolved_shared": []
+              },
+              "context": {
+                "focused": null,
+                "latest": [
+                  {
+                    "product_id": "D-WORK-BLUE",
+                    "product_name": "Fixture D-WORK-BLUE Blue Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 80
+                  },
+                  {
+                    "product_id": "D-FORMAL-BLACK-LOW",
+                    "product_name": "Fixture D-FORMAL-BLACK-LOW Black Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 85
+                  },
+                  {
+                    "product_id": "D-BEACH-BLUE",
+                    "product_name": "Fixture D-BEACH-BLUE Blue Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 90
+                  },
+                  {
+                    "product_id": "D-WEDDING-BLUE",
+                    "product_name": "Fixture D-WEDDING-BLUE Blue Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 95
+                  },
+                  {
+                    "product_id": "D-FORMAL-BLUE",
+                    "product_name": "Fixture D-FORMAL-BLUE Blue Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 100
+                  }
+                ]
+              },
+              "history": [
+                {
+                  "role": "user",
+                  "content": "Women's dresses, under 200 AUD."
+                },
+                {
+                  "role": "assistant",
+                  "content": "I've found 5 clothing options for you to explore.\n\nThese options range from A$80.00 to A$100.00. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.\nWhat occasion are you shopping for? You can also keep browsing these options."
+                }
+              ],
+              "pending": null,
+              "pending_answer": null,
+              "styling": {
+                "dress_code": null,
+                "outfit_request": null,
+                "purchase_budget": null,
+                "outfit": [],
+                "external_items": [],
+                "rejected_ids": [],
+                "priorities": [],
+                "required_features": [],
+                "offers_paused": false,
+                "owned_categories": []
+              },
+              "cart_product_ids": [],
+              "task": {
+                "generation": 0,
+                "prepared_key": "17ntifk",
+                "preview_unverified": false,
+                "blocker_signature": "",
+                "blocker_repeats": 0,
+                "issues": [],
+                "brief": {
+                  "goal": null,
+                  "total_budget_aud": null,
+                  "budget_evidence": null,
+                  "guidance": [],
+                  "deadline": null
+                }
+              }
+            }
+          },
+          "http_status": 200,
+          "reply": {
+            "task_transition_applied": true,
+            "task": {
+              "generation": 0,
+              "prepared_key": "1n5tzuc",
+              "preview_unverified": false,
+              "blocker_signature": "",
+              "blocker_repeats": 0,
+              "issues": [],
+              "brief": {
+                "goal": null,
+                "total_budget_aud": null,
+                "budget_evidence": null,
+                "guidance": [],
+                "deadline": null
+              }
+            },
+            "issues": [],
+            "unverified_requirements": [],
+            "purchase_budget": null,
+            "intent_understood": true,
+            "outfit_budget": null,
+            "outfit_choices": null,
+            "outfit_review": null,
+            "combination_summary": null,
+            "status": "matches",
+            "action": "refine",
+            "discovery": null,
+            "collection": {
+              "choice": "Women",
+              "current": {
+                "choice": "Women",
+                "source": "explicit"
+              },
+              "checkpoint": null
+            },
+            "suggested_replies": [],
+            "message": "Fixture D-WORK-BLUE Blue Midi Dress\nThe catalogue lists this item for Work. Its recorded styling details are colour: Blue, style: Relaxed, season: Summer. At A$80.00, it is within your A$200.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$80.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for Fixture D-WORK-BLUE Blue Midi Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on The sample garment length is 110 cm (varies by size). These construction, measurement or care details are synthetic prototype specifications, not manufacturer-verified facts. Check the real garment's label and measurements before relying on them.\n\nFixture D-BEACH-BLUE Blue Midi Dress\nThe catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Blue, style: Relaxed, season: Summer. At A$90.00, it is within your A$200.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$90.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for Fixture D-BEACH-BLUE Blue Midi Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on The sample garment length is 110 cm (varies by size). These construction, measurement or care details are synthetic prototype specifications, not manufacturer-verified facts. Check the real garment's label and measurements before relying on them.\n\nFixture D-WEDDING-BLUE Blue Midi Dress\nThe catalogue lists this item for Wedding Guest. Its recorded styling details are colour: Blue, style: Relaxed, season: Summer. At A$95.00, it is within your A$200.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$95.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for Fixture D-WEDDING-BLUE Blue Midi Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on The sample garment length is 110 cm (varies by size). These construction, measurement or care details are synthetic prototype specifications, not manufacturer-verified facts. Check the real garment's label and measurements before relying on them.\n\nFixture D-FORMAL-BLUE Blue Midi Dress\nThe catalogue lists this item for Formal. Its recorded styling details are colour: Blue, style: Relaxed, season: Summer. At A$100.00, it is within your A$200.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$100.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for Fixture D-FORMAL-BLUE Blue Midi Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on The sample garment length is 110 cm (varies by size). These construction, measurement or care details are synthetic prototype specifications, not manufacturer-verified facts. Check the real garment's label and measurements before relying on them.\n\nFixture D-WORK-BLUE Blue Midi Dress costs A$10.00 less. A higher price alone doesn't establish better quality.\n\nChoose using the recorded differences above and your occasion, budget and size needs. I can't establish a comfort or quality winner from these records.\n\nI've found 4 blue clothing options for you to explore.\n\nThese options range from A$80.00 to A$100.00. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+            "proposed_scopes": {
+              "item": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [
+                  "Blue"
+                ],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": 150,
+                "brand_line": null
+              },
+              "shared": {
+                "gender": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "unresolved_item": [],
+              "unresolved_shared": []
+            },
+            "applied_preferences": {
+              "gender": "Women",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [
+                "Blue"
+              ],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 150,
+              "brand_line": null
+            },
+            "products": [
+              {
+                "product_id": "D-WORK-BLUE",
+                "product_name": "Fixture D-WORK-BLUE Blue Midi Dress",
+                "price_aud": 80,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Blue",
+                "occasion": "Work",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              },
+              {
+                "product_id": "D-BEACH-BLUE",
+                "product_name": "Fixture D-BEACH-BLUE Blue Midi Dress",
+                "price_aud": 90,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Blue",
+                "occasion": "Beach Wedding",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              },
+              {
+                "product_id": "D-WEDDING-BLUE",
+                "product_name": "Fixture D-WEDDING-BLUE Blue Midi Dress",
+                "price_aud": 95,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Blue",
+                "occasion": "Wedding Guest",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              },
+              {
+                "product_id": "D-FORMAL-BLUE",
+                "product_name": "Fixture D-FORMAL-BLUE Blue Midi Dress",
+                "price_aud": 100,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Blue",
+                "occasion": "Formal",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              }
+            ],
+            "alternatives": [],
+            "alternatives_preferences": null,
+            "alternative_kind": null,
+            "optional_question": null,
+            "can_preview_other_colours": false,
+            "pending": null,
+            "pending_answer": null,
+            "answer_sources": [
+              {
+                "label": "Fixture D-WORK-BLUE Blue Midi Dress: catalogue details",
+                "url": "/products/D-WORK-BLUE"
+              },
+              {
+                "label": "Fixture D-BEACH-BLUE Blue Midi Dress: catalogue details",
+                "url": "/products/D-BEACH-BLUE"
+              },
+              {
+                "label": "Fixture D-WEDDING-BLUE Blue Midi Dress: catalogue details",
+                "url": "/products/D-WEDDING-BLUE"
+              },
+              {
+                "label": "Fixture D-FORMAL-BLUE Blue Midi Dress: catalogue details",
+                "url": "/products/D-FORMAL-BLUE"
+              }
+            ],
+            "answer_product_ids": [
+              "D-WORK-BLUE",
+              "D-BEACH-BLUE",
+              "D-WEDDING-BLUE",
+              "D-FORMAL-BLUE"
+            ],
+            "styling": {
+              "dress_code": null,
+              "outfit_request": null,
+              "purchase_budget": null,
+              "outfit": [],
+              "external_items": [],
+              "rejected_ids": [],
+              "priorities": [],
+              "required_features": [],
+              "offers_paused": false,
+              "owned_categories": []
+            },
+            "commerce_policy": "stylist-commerce-v1",
+            "feature_data_status": "available",
+            "comparison_reference_id": null
+          },
+          "state": {
+            "scopes": {
+              "item": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [
+                  "Blue"
+                ],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": 150,
+                "brand_line": null
+              },
+              "shared": {
+                "gender": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "unresolved_item": [],
+              "unresolved_shared": []
+            },
+            "pending": null,
+            "pending_answer": null,
+            "styling": {
+              "dress_code": null,
+              "outfit_request": null,
+              "purchase_budget": null,
+              "outfit": [],
+              "external_items": [],
+              "rejected_ids": [],
+              "priorities": [],
+              "required_features": [],
+              "offers_paused": false,
+              "owned_categories": []
+            },
+            "discovery": null,
+            "collection": {
+              "choice": "Women",
+              "current": {
+                "choice": "Women",
+                "source": "explicit"
+              },
+              "checkpoint": null
+            },
+            "cart_product_ids": [],
+            "task": {
+              "generation": 0,
+              "prepared_key": "1n5tzuc",
+              "preview_unverified": false,
+              "blocker_signature": "",
+              "blocker_repeats": 0,
+              "issues": [],
+              "brief": {
+                "goal": null,
+                "total_budget_aud": null,
+                "budget_evidence": null,
+                "guidance": [],
+                "deadline": null
+              }
+            },
+            "context": {
+              "focused": null,
+              "latest": [
+                {
+                  "product_id": "D-WORK-BLUE",
+                  "product_name": "Fixture D-WORK-BLUE Blue Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 80
+                },
+                {
+                  "product_id": "D-BEACH-BLUE",
+                  "product_name": "Fixture D-BEACH-BLUE Blue Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 90
+                },
+                {
+                  "product_id": "D-WEDDING-BLUE",
+                  "product_name": "Fixture D-WEDDING-BLUE Blue Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 95
+                },
+                {
+                  "product_id": "D-FORMAL-BLUE",
+                  "product_name": "Fixture D-FORMAL-BLUE Blue Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 100
+                }
+              ],
+              "previous": [
+                [
+                  {
+                    "product_id": "D-WORK-BLUE",
+                    "product_name": "Fixture D-WORK-BLUE Blue Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 80
+                  },
+                  {
+                    "product_id": "D-FORMAL-BLACK-LOW",
+                    "product_name": "Fixture D-FORMAL-BLACK-LOW Black Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 85
+                  },
+                  {
+                    "product_id": "D-BEACH-BLUE",
+                    "product_name": "Fixture D-BEACH-BLUE Blue Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 90
+                  },
+                  {
+                    "product_id": "D-WEDDING-BLUE",
+                    "product_name": "Fixture D-WEDDING-BLUE Blue Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 95
+                  },
+                  {
+                    "product_id": "D-FORMAL-BLUE",
+                    "product_name": "Fixture D-FORMAL-BLUE Blue Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 100
+                  }
+                ]
+              ]
+            },
+            "history": [
+              {
+                "role": "user",
+                "content": "Women's dresses, under 200 AUD."
+              },
+              {
+                "role": "assistant",
+                "content": "I've found 5 clothing options for you to explore.\n\nThese options range from A$80.00 to A$100.00. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.\nWhat occasion are you shopping for? You can also keep browsing these options."
+              },
+              {
+                "role": "user",
+                "content": "Show me blue dresses under A$150 and explain how they differ from Fixture D-WORK-BLUE Blue Midi Dress."
+              },
+              {
+                "role": "assistant",
+                "content": "Fixture D-WORK-BLUE Blue Midi Dress\nThe catalogue lists this item for Work. Its recorded styling details are colour: Blue, style: Relaxed, season: Summer. At A$80.00, it is within your A$200.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$80.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for Fixture D-WORK-BLUE Blue Midi Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on The sample garment length is 110 cm (varies by size). These construction, measurement or care details are synthetic prototype specifications, not manufacturer-verified facts. Check the real garment's label and measurements before relying on them.\n\nFixture D-BEACH-BLUE Blue Midi Dress\nThe catalogue lists this item for Beach Wedding. Its recorded styling details are colour: Blue, style: Relaxed, season: Summer. At A$90.00, it is within your A$200.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. The recorded price is A$90.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for Fixture D-BEACH-BLUE Blue Midi Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on The sample garment length is 110 cm (varies by size). These construction, measurement or care details are synthetic prototype specifications, not manufacturer-verified facts. Check the real garment's label and measurements before relying on them.\n\nFixture D-WEDDING-BLUE Blue Midi Dress\nThe catalogue lists this item for Wedding Guest. Its recorded styling details are colour: Blue, style: Relaxed, season: Summer. At A$95.00, it is within your A$200.00 maximum. "
+              }
+            ]
+          },
+          "elapsed_ms": 5233
+        }
+      ]
+    },
+    {
+      "id": "J23",
+      "name": "Compound colour, budget and comparison request",
+      "mode": "live",
+      "variant": 3,
+      "status": "AUTO_PASS",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request.",
+        "The automated filter checks alone cannot establish that the comparison was answered."
+      ],
+      "expected": "Apply both edits and answer the comparison part.",
+      "turns": [
+        {
+          "number": 1,
+          "checks": [
+            {
+              "path": "state.scopes.item.category",
+              "op": "eq",
+              "value": "Clothing"
+            },
+            {
+              "path": "state.scopes.item.subcategory",
+              "op": "eq",
+              "value": "Dresses"
+            },
+            {
+              "path": "state.scopes.item.max_price",
+              "op": "eq",
+              "value": 200
+            }
+          ],
+          "status": "AUTO_PASS",
+          "message": "Find dresses for women, A$200 max.",
+          "request": {
+            "request_id": "36e4270a-bedc-477e-8e07-4cbeac502f90",
+            "retry": false,
+            "turn": {
+              "message": "Find dresses for women, A$200 max.",
+              "collection": {
+                "choice": null,
+                "current": null,
+                "checkpoint": null
+              },
+              "discovery": null,
+              "scopes": {
+                "item": {
+                  "gender": null,
+                  "category": null,
+                  "subcategory": null,
+                  "product_type": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "size": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                },
+                "shared": {
+                  "gender": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                },
+                "unresolved_item": [],
+                "unresolved_shared": []
+              },
+              "context": {
+                "focused": null,
+                "latest": []
+              },
+              "history": [],
+              "pending": null,
+              "pending_answer": null,
+              "styling": {
+                "dress_code": null,
+                "outfit_request": null,
+                "purchase_budget": null,
+                "outfit": [],
+                "external_items": [],
+                "rejected_ids": [],
+                "priorities": [],
+                "required_features": [],
+                "offers_paused": false,
+                "owned_categories": []
+              },
+              "cart_product_ids": [],
+              "task": {
+                "generation": 0,
+                "prepared_key": "",
+                "preview_unverified": false,
+                "blocker_signature": "",
+                "blocker_repeats": 0,
+                "issues": [],
+                "brief": {
+                  "goal": null,
+                  "total_budget_aud": null,
+                  "budget_evidence": null,
+                  "guidance": [],
+                  "deadline": null
+                }
+              }
+            }
+          },
+          "http_status": 200,
+          "reply": {
+            "task_transition_applied": true,
+            "task": {
+              "generation": 0,
+              "prepared_key": "dkfs0b",
+              "preview_unverified": false,
+              "blocker_signature": "",
+              "blocker_repeats": 0,
+              "issues": [],
+              "brief": {
+                "goal": null,
+                "total_budget_aud": null,
+                "budget_evidence": null,
+                "guidance": [],
+                "deadline": null
+              }
+            },
+            "issues": [],
+            "unverified_requirements": [],
+            "purchase_budget": null,
+            "intent_understood": true,
+            "outfit_budget": null,
+            "outfit_choices": null,
+            "outfit_review": null,
+            "combination_summary": null,
+            "status": "matches",
+            "action": "new_search",
+            "discovery": null,
+            "collection": {
+              "choice": "Women",
+              "current": {
+                "choice": "Women",
+                "source": "explicit"
+              },
+              "checkpoint": null
+            },
+            "suggested_replies": [],
+            "message": "I've found 5 clothing options for you to explore.\n\nThese options range from A$80.00 to A$100.00. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.",
+            "proposed_scopes": {
+              "item": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": 200,
+                "brand_line": null
+              },
+              "shared": {
+                "gender": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "unresolved_item": [],
+              "unresolved_shared": []
+            },
+            "applied_preferences": {
+              "gender": "Women",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 200,
+              "brand_line": null
+            },
+            "products": [
+              {
+                "product_id": "D-WORK-BLUE",
+                "product_name": "Fixture D-WORK-BLUE Blue Midi Dress",
+                "price_aud": 80,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Blue",
+                "occasion": "Work",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              },
+              {
+                "product_id": "D-FORMAL-BLACK-LOW",
+                "product_name": "Fixture D-FORMAL-BLACK-LOW Black Midi Dress",
+                "price_aud": 85,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Black",
+                "occasion": "Formal",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              },
+              {
+                "product_id": "D-BEACH-BLUE",
+                "product_name": "Fixture D-BEACH-BLUE Blue Midi Dress",
+                "price_aud": 90,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Blue",
+                "occasion": "Beach Wedding",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              },
+              {
+                "product_id": "D-WEDDING-BLUE",
+                "product_name": "Fixture D-WEDDING-BLUE Blue Midi Dress",
+                "price_aud": 95,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Blue",
+                "occasion": "Wedding Guest",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              },
+              {
+                "product_id": "D-FORMAL-BLUE",
+                "product_name": "Fixture D-FORMAL-BLUE Blue Midi Dress",
+                "price_aud": 100,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Blue",
+                "occasion": "Formal",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              }
+            ],
+            "alternatives": [],
+            "alternatives_preferences": null,
+            "alternative_kind": null,
+            "optional_question": "What occasion are you shopping for? You can also keep browsing these options.",
+            "can_preview_other_colours": false,
+            "pending": null,
+            "pending_answer": null,
+            "answer_sources": [],
+            "answer_product_ids": [],
+            "styling": {
+              "dress_code": null,
+              "outfit_request": null,
+              "purchase_budget": null,
+              "outfit": [],
+              "external_items": [],
+              "rejected_ids": [],
+              "priorities": [],
+              "required_features": [],
+              "offers_paused": false,
+              "owned_categories": []
+            },
+            "commerce_policy": "stylist-commerce-v1",
+            "feature_data_status": "available",
+            "comparison_reference_id": null
+          },
+          "state": {
+            "scopes": {
+              "item": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": 200,
+                "brand_line": null
+              },
+              "shared": {
+                "gender": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "unresolved_item": [],
+              "unresolved_shared": []
+            },
+            "pending": null,
+            "pending_answer": null,
+            "styling": {
+              "dress_code": null,
+              "outfit_request": null,
+              "purchase_budget": null,
+              "outfit": [],
+              "external_items": [],
+              "rejected_ids": [],
+              "priorities": [],
+              "required_features": [],
+              "offers_paused": false,
+              "owned_categories": []
+            },
+            "discovery": null,
+            "collection": {
+              "choice": "Women",
+              "current": {
+                "choice": "Women",
+                "source": "explicit"
+              },
+              "checkpoint": null
+            },
+            "cart_product_ids": [],
+            "task": {
+              "generation": 0,
+              "prepared_key": "dkfs0b",
+              "preview_unverified": false,
+              "blocker_signature": "",
+              "blocker_repeats": 0,
+              "issues": [],
+              "brief": {
+                "goal": null,
+                "total_budget_aud": null,
+                "budget_evidence": null,
+                "guidance": [],
+                "deadline": null
+              }
+            },
+            "context": {
+              "focused": null,
+              "latest": [
+                {
+                  "product_id": "D-WORK-BLUE",
+                  "product_name": "Fixture D-WORK-BLUE Blue Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 80
+                },
+                {
+                  "product_id": "D-FORMAL-BLACK-LOW",
+                  "product_name": "Fixture D-FORMAL-BLACK-LOW Black Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 85
+                },
+                {
+                  "product_id": "D-BEACH-BLUE",
+                  "product_name": "Fixture D-BEACH-BLUE Blue Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 90
+                },
+                {
+                  "product_id": "D-WEDDING-BLUE",
+                  "product_name": "Fixture D-WEDDING-BLUE Blue Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 95
+                },
+                {
+                  "product_id": "D-FORMAL-BLUE",
+                  "product_name": "Fixture D-FORMAL-BLUE Blue Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 100
+                }
+              ]
+            },
+            "history": [
+              {
+                "role": "user",
+                "content": "Find dresses for women, A$200 max."
+              },
+              {
+                "role": "assistant",
+                "content": "I've found 5 clothing options for you to explore.\n\nThese options range from A$80.00 to A$100.00. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.\nWhat occasion are you shopping for? You can also keep browsing these options."
+              }
+            ]
+          },
+          "elapsed_ms": 5725
+        },
+        {
+          "number": 2,
+          "checks": [
+            {
+              "path": "state.scopes.item.preferred_colours",
+              "op": "eq",
+              "value": [
+                "Blue"
+              ]
+            },
+            {
+              "path": "state.scopes.item.max_price",
+              "op": "eq",
+              "value": 150
+            },
+            {
+              "path": "state.scopes.item.subcategory",
+              "op": "eq",
+              "value": "Dresses"
+            }
+          ],
+          "status": "AUTO_PASS",
+          "message": "Show me blue dresses under A$150 and explain how they differ from Fixture D-WORK-BLUE Blue Midi Dress.",
+          "request": {
+            "request_id": "00b566bc-edba-43a8-9c95-7e0312596779",
+            "retry": false,
+            "turn": {
+              "message": "Show me blue dresses under A$150 and explain how they differ from Fixture D-WORK-BLUE Blue Midi Dress.",
+              "collection": {
+                "choice": "Women",
+                "current": {
+                  "choice": "Women",
+                  "source": "explicit"
+                },
+                "checkpoint": null
+              },
+              "discovery": null,
+              "scopes": {
+                "item": {
+                  "gender": "Women",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "size": null,
+                  "min_price": null,
+                  "max_price": 200,
+                  "brand_line": null
+                },
+                "shared": {
+                  "gender": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                },
+                "unresolved_item": [],
+                "unresolved_shared": []
+              },
+              "context": {
+                "focused": null,
+                "latest": [
+                  {
+                    "product_id": "D-WORK-BLUE",
+                    "product_name": "Fixture D-WORK-BLUE Blue Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 80
+                  },
+                  {
+                    "product_id": "D-FORMAL-BLACK-LOW",
+                    "product_name": "Fixture D-FORMAL-BLACK-LOW Black Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 85
+                  },
+                  {
+                    "product_id": "D-BEACH-BLUE",
+                    "product_name": "Fixture D-BEACH-BLUE Blue Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 90
+                  },
+                  {
+                    "product_id": "D-WEDDING-BLUE",
+                    "product_name": "Fixture D-WEDDING-BLUE Blue Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 95
+                  },
+                  {
+                    "product_id": "D-FORMAL-BLUE",
+                    "product_name": "Fixture D-FORMAL-BLUE Blue Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 100
+                  }
+                ]
+              },
+              "history": [
+                {
+                  "role": "user",
+                  "content": "Find dresses for women, A$200 max."
+                },
+                {
+                  "role": "assistant",
+                  "content": "I've found 5 clothing options for you to explore.\n\nThese options range from A$80.00 to A$100.00. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.\nWhat occasion are you shopping for? You can also keep browsing these options."
+                }
+              ],
+              "pending": null,
+              "pending_answer": null,
+              "styling": {
+                "dress_code": null,
+                "outfit_request": null,
+                "purchase_budget": null,
+                "outfit": [],
+                "external_items": [],
+                "rejected_ids": [],
+                "priorities": [],
+                "required_features": [],
+                "offers_paused": false,
+                "owned_categories": []
+              },
+              "cart_product_ids": [],
+              "task": {
+                "generation": 0,
+                "prepared_key": "dkfs0b",
+                "preview_unverified": false,
+                "blocker_signature": "",
+                "blocker_repeats": 0,
+                "issues": [],
+                "brief": {
+                  "goal": null,
+                  "total_budget_aud": null,
+                  "budget_evidence": null,
+                  "guidance": [],
+                  "deadline": null
+                }
+              }
+            }
+          },
+          "http_status": 200,
+          "reply": {
+            "task_transition_applied": true,
+            "task": {
+              "generation": 0,
+              "prepared_key": "1n5tzuc",
+              "preview_unverified": false,
+              "blocker_signature": "",
+              "blocker_repeats": 0,
+              "issues": [],
+              "brief": {
+                "goal": null,
+                "total_budget_aud": null,
+                "budget_evidence": null,
+                "guidance": [],
+                "deadline": null
+              }
+            },
+            "issues": [],
+            "unverified_requirements": [],
+            "purchase_budget": null,
+            "intent_understood": true,
+            "outfit_budget": null,
+            "outfit_choices": null,
+            "outfit_review": null,
+            "combination_summary": null,
+            "status": "matches",
+            "action": "refine",
+            "discovery": null,
+            "collection": {
+              "choice": "Women",
+              "current": {
+                "choice": "Women",
+                "source": "explicit"
+              },
+              "checkpoint": null
+            },
+            "suggested_replies": [],
+            "message": "Fixture D-WORK-BLUE Blue Midi Dress\nThe recorded price is A$80.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for Fixture D-WORK-BLUE Blue Midi Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on The sample garment length is 110 cm (varies by size). These construction, measurement or care details are synthetic prototype specifications, not manufacturer-verified facts. Check the real garment's label and measurements before relying on them.\n\nFixture D-BEACH-BLUE Blue Midi Dress\nThe recorded price is A$90.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for Fixture D-BEACH-BLUE Blue Midi Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on The sample garment length is 110 cm (varies by size). These construction, measurement or care details are synthetic prototype specifications, not manufacturer-verified facts. Check the real garment's label and measurements before relying on them.\n\nFixture D-WEDDING-BLUE Blue Midi Dress\nThe recorded price is A$95.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for Fixture D-WEDDING-BLUE Blue Midi Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on The sample garment length is 110 cm (varies by size). These construction, measurement or care details are synthetic prototype specifications, not manufacturer-verified facts. Check the real garment's label and measurements before relying on them.\n\nFixture D-FORMAL-BLUE Blue Midi Dress\nThe recorded price is A$100.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for Fixture D-FORMAL-BLUE Blue Midi Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on The sample garment length is 110 cm (varies by size). These construction, measurement or care details are synthetic prototype specifications, not manufacturer-verified facts. Check the real garment's label and measurements before relying on them.\n\nFixture D-WORK-BLUE Blue Midi Dress costs A$10.00 less. A higher price alone doesn't establish better quality.\n\nChoose using the recorded differences above and your occasion, budget and size needs. I can't establish a comfort or quality winner from these records.\n\nI've found 4 blue clothing options for you to explore.\n\nThese options range from A$80.00 to A$100.00. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+            "proposed_scopes": {
+              "item": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [
+                  "Blue"
+                ],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": 150,
+                "brand_line": null
+              },
+              "shared": {
+                "gender": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "unresolved_item": [],
+              "unresolved_shared": []
+            },
+            "applied_preferences": {
+              "gender": "Women",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [
+                "Blue"
+              ],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 150,
+              "brand_line": null
+            },
+            "products": [
+              {
+                "product_id": "D-WORK-BLUE",
+                "product_name": "Fixture D-WORK-BLUE Blue Midi Dress",
+                "price_aud": 80,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Blue",
+                "occasion": "Work",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              },
+              {
+                "product_id": "D-BEACH-BLUE",
+                "product_name": "Fixture D-BEACH-BLUE Blue Midi Dress",
+                "price_aud": 90,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Blue",
+                "occasion": "Beach Wedding",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              },
+              {
+                "product_id": "D-WEDDING-BLUE",
+                "product_name": "Fixture D-WEDDING-BLUE Blue Midi Dress",
+                "price_aud": 95,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Blue",
+                "occasion": "Wedding Guest",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              },
+              {
+                "product_id": "D-FORMAL-BLUE",
+                "product_name": "Fixture D-FORMAL-BLUE Blue Midi Dress",
+                "price_aud": 100,
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "brand_line": null,
+                "colour": "Blue",
+                "occasion": "Formal",
+                "style": "Relaxed",
+                "sizes_available": [
+                  "10",
+                  "12",
+                  "M"
+                ],
+                "unverified_requirements": [],
+                "extra_target": "Shoes",
+                "image_src": null
+              }
+            ],
+            "alternatives": [],
+            "alternatives_preferences": null,
+            "alternative_kind": null,
+            "optional_question": null,
+            "can_preview_other_colours": false,
+            "pending": null,
+            "pending_answer": null,
+            "answer_sources": [
+              {
+                "label": "Fixture D-WORK-BLUE Blue Midi Dress: catalogue details",
+                "url": "/products/D-WORK-BLUE"
+              },
+              {
+                "label": "Fixture D-BEACH-BLUE Blue Midi Dress: catalogue details",
+                "url": "/products/D-BEACH-BLUE"
+              },
+              {
+                "label": "Fixture D-WEDDING-BLUE Blue Midi Dress: catalogue details",
+                "url": "/products/D-WEDDING-BLUE"
+              },
+              {
+                "label": "Fixture D-FORMAL-BLUE Blue Midi Dress: catalogue details",
+                "url": "/products/D-FORMAL-BLUE"
+              }
+            ],
+            "answer_product_ids": [
+              "D-WORK-BLUE",
+              "D-BEACH-BLUE",
+              "D-WEDDING-BLUE",
+              "D-FORMAL-BLUE"
+            ],
+            "styling": {
+              "dress_code": null,
+              "outfit_request": null,
+              "purchase_budget": null,
+              "outfit": [],
+              "external_items": [],
+              "rejected_ids": [],
+              "priorities": [],
+              "required_features": [],
+              "offers_paused": false,
+              "owned_categories": []
+            },
+            "commerce_policy": "stylist-commerce-v1",
+            "feature_data_status": "available",
+            "comparison_reference_id": null
+          },
+          "state": {
+            "scopes": {
+              "item": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [
+                  "Blue"
+                ],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": 150,
+                "brand_line": null
+              },
+              "shared": {
+                "gender": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "unresolved_item": [],
+              "unresolved_shared": []
+            },
+            "pending": null,
+            "pending_answer": null,
+            "styling": {
+              "dress_code": null,
+              "outfit_request": null,
+              "purchase_budget": null,
+              "outfit": [],
+              "external_items": [],
+              "rejected_ids": [],
+              "priorities": [],
+              "required_features": [],
+              "offers_paused": false,
+              "owned_categories": []
+            },
+            "discovery": null,
+            "collection": {
+              "choice": "Women",
+              "current": {
+                "choice": "Women",
+                "source": "explicit"
+              },
+              "checkpoint": null
+            },
+            "cart_product_ids": [],
+            "task": {
+              "generation": 0,
+              "prepared_key": "1n5tzuc",
+              "preview_unverified": false,
+              "blocker_signature": "",
+              "blocker_repeats": 0,
+              "issues": [],
+              "brief": {
+                "goal": null,
+                "total_budget_aud": null,
+                "budget_evidence": null,
+                "guidance": [],
+                "deadline": null
+              }
+            },
+            "context": {
+              "focused": null,
+              "latest": [
+                {
+                  "product_id": "D-WORK-BLUE",
+                  "product_name": "Fixture D-WORK-BLUE Blue Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 80
+                },
+                {
+                  "product_id": "D-BEACH-BLUE",
+                  "product_name": "Fixture D-BEACH-BLUE Blue Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 90
+                },
+                {
+                  "product_id": "D-WEDDING-BLUE",
+                  "product_name": "Fixture D-WEDDING-BLUE Blue Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 95
+                },
+                {
+                  "product_id": "D-FORMAL-BLUE",
+                  "product_name": "Fixture D-FORMAL-BLUE Blue Midi Dress",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": "Midi Dress",
+                  "price_aud": 100
+                }
+              ],
+              "previous": [
+                [
+                  {
+                    "product_id": "D-WORK-BLUE",
+                    "product_name": "Fixture D-WORK-BLUE Blue Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 80
+                  },
+                  {
+                    "product_id": "D-FORMAL-BLACK-LOW",
+                    "product_name": "Fixture D-FORMAL-BLACK-LOW Black Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 85
+                  },
+                  {
+                    "product_id": "D-BEACH-BLUE",
+                    "product_name": "Fixture D-BEACH-BLUE Blue Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 90
+                  },
+                  {
+                    "product_id": "D-WEDDING-BLUE",
+                    "product_name": "Fixture D-WEDDING-BLUE Blue Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 95
+                  },
+                  {
+                    "product_id": "D-FORMAL-BLUE",
+                    "product_name": "Fixture D-FORMAL-BLUE Blue Midi Dress",
+                    "category": "Clothing",
+                    "subcategory": "Dresses",
+                    "product_type": "Midi Dress",
+                    "price_aud": 100
+                  }
+                ]
+              ]
+            },
+            "history": [
+              {
+                "role": "user",
+                "content": "Find dresses for women, A$200 max."
+              },
+              {
+                "role": "assistant",
+                "content": "I've found 5 clothing options for you to explore.\n\nThese options range from A$80.00 to A$100.00. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look at the options below and see what catches your eye.\nWhat occasion are you shopping for? You can also keep browsing these options."
+              },
+              {
+                "role": "user",
+                "content": "Show me blue dresses under A$150 and explain how they differ from Fixture D-WORK-BLUE Blue Midi Dress."
+              },
+              {
+                "role": "assistant",
+                "content": "Fixture D-WORK-BLUE Blue Midi Dress\nThe recorded price is A$80.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for Fixture D-WORK-BLUE Blue Midi Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on The sample garment length is 110 cm (varies by size). These construction, measurement or care details are synthetic prototype specifications, not manufacturer-verified facts. Check the real garment's label and measurements before relying on them.\n\nFixture D-BEACH-BLUE Blue Midi Dress\nThe recorded price is A$90.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for Fixture D-BEACH-BLUE Blue Midi Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on The sample garment length is 110 cm (varies by size). These construction, measurement or care details are synthetic prototype specifications, not manufacturer-verified facts. Check the real garment's label and measurements before relying on them.\n\nFixture D-WEDDING-BLUE Blue Midi Dress\nThe recorded price is A$95.00. Delivery charges and discounts aren't included in that figure. Synthetic test specification for Fixture D-WEDDING-BLUE Blue Midi Dress; recorded for controlled prototype testing only. Seamed construction Finished edges Lining: Yes Pockets: No Adjustable straps: No Zip closure: No Fastening: slip on The sample garment length is 110 cm (varies by size). These construction, measurement or care details are synthetic prototype specifications, not manufacturer-verified facts. Check the real garment's label and measurements before relying on them.\n\nFixture D-FORMAL-BLUE Blue Midi Dress\nThe recorded price is A$100.00. Delivery charges and discounts aren't included in that figure. Synthetic test specific"
+              }
+            ]
+          },
+          "elapsed_ms": 4228
+        }
+      ]
+    }
+  ],
+  "diagnostics": [
+    {
+      "request_id": "local-diagnosis",
+      "stage": "interpretation",
+      "elapsed_ms": null,
+      "action": "new_search",
+      "changed_fields": [
+        "item.gender",
+        "item.category",
+        "item.subcategory",
+        "item.max_price"
+      ],
+      "has_outfit_request": false
+    },
+    {
+      "request_id": "local-diagnosis",
+      "stage": "interpretation",
+      "elapsed_ms": null,
+      "action": "refine",
+      "changed_fields": [
+        "item.preferred_colours",
+        "item.max_price"
+      ],
+      "has_outfit_request": false
+    },
+    {
+      "request_id": "local-diagnosis",
+      "stage": "interpretation",
+      "elapsed_ms": null,
+      "action": "new_search",
+      "changed_fields": [
+        "item.gender",
+        "item.category",
+        "item.subcategory",
+        "item.max_price"
+      ],
+      "has_outfit_request": false
+    },
+    {
+      "request_id": "local-diagnosis",
+      "stage": "interpretation",
+      "elapsed_ms": null,
+      "action": "refine",
+      "changed_fields": [
+        "item.preferred_colours",
+        "item.max_price"
+      ],
+      "has_outfit_request": false
+    },
+    {
+      "request_id": "local-diagnosis",
+      "stage": "interpretation",
+      "elapsed_ms": null,
+      "action": "new_search",
+      "changed_fields": [
+        "item.gender",
+        "item.category",
+        "item.subcategory",
+        "item.max_price"
+      ],
+      "has_outfit_request": false
+    },
+    {
+      "request_id": "local-diagnosis",
+      "stage": "interpretation",
+      "elapsed_ms": null,
+      "action": "refine",
+      "changed_fields": [
+        "item.preferred_colours",
+        "item.max_price"
+      ],
+      "has_outfit_request": false
+    }
+  ],
+  "finished_at": "2026-10-20T13:58:53.406Z",
+  "counts": {
+    "AUTO_PASS": 3,
+    "FAIL": 0,
+    "ERROR": 0,
+    "BLOCKED_CATALOGUE": 0
+  }
+}

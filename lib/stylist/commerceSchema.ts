@@ -116,7 +116,8 @@ export const ValueComparisonSchema = z.object({
 
 export const RecommendationEventSchema = z.strictObject({
   event_id: z.string().uuid(), session_id: z.string().uuid(), recommendation_id: z.string().uuid(),
-  event_type: z.enum(["impression", "select", "own", "reject", "add_to_cart"]),
+  event_type: z.enum(["impression", "select", "own", "reject", "add_to_cart", "offer_dismiss", "offers_pause"]),
+  placement: z.enum(["primary", "complementary"]).optional(),
   product_id: z.string().trim().min(1).max(250),
   position: z.number().int().min(1).max(Math.max(4, OPTIONS_PER_COMPONENT)),
   policy_version: z.literal(COMMERCE_POLICY),

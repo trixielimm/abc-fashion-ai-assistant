@@ -358,6 +358,7 @@ export type Database = {
         Row: {
           event_id: string
           event_type: string
+          placement: string
           policy_version: string
           position: number
           product_id: string
@@ -369,6 +370,7 @@ export type Database = {
         Insert: {
           event_id: string
           event_type: string
+          placement?: string
           policy_version: string
           position: number
           product_id: string
@@ -380,6 +382,7 @@ export type Database = {
         Update: {
           event_id?: string
           event_type?: string
+          placement?: string
           policy_version?: string
           position?: number
           product_id?: string

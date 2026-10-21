@@ -1,0 +1,346 @@
+{
+  "id": "J16",
+  "name": "Colour edit preserves size and budget",
+  "mode": "live",
+  "variant": 1,
+  "status": "BLOCKED_CATALOGUE",
+  "human_review": "PENDING",
+  "review": [
+    "Check that the answers are useful and address every part of the request."
+  ],
+  "expected": "Change only colour.",
+  "turns": [
+    {
+      "number": 1,
+      "checks": [
+        {
+          "path": "state.scopes.item.preferred_colours",
+          "op": "eq",
+          "value": [
+            "Black"
+          ]
+        },
+        {
+          "path": "state.scopes.item.size",
+          "op": "eq",
+          "value": "10"
+        },
+        {
+          "path": "state.scopes.item.max_price",
+          "op": "eq",
+          "value": 200
+        }
+      ],
+      "status": "BLOCKED_CATALOGUE",
+      "message": "Show me women's black dresses in size 10 under A$200.",
+      "request": {
+        "request_id": "c8699b73-6c07-40c8-98f5-c05f6805265a",
+        "retry": false,
+        "turn": {
+          "message": "Show me women's black dresses in size 10 under A$200.",
+          "collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": []
+          },
+          "history": [],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "complementary_shown": false,
+            "complementary_dismissed": false,
+            "prepared_key": "",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "1x3vw6i",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "no_match",
+        "action": "new_search",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged.\n\nOne way to broaden the search is to use \"Explore other colours\" below. That preview keeps your other restrictions and leaves your original colour request saved.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "10",
+            "min_price": null,
+            "max_price": 200,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [
+            "Black"
+          ],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": "10",
+          "min_price": null,
+          "max_price": 200,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": true,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "10",
+            "min_price": null,
+            "max_price": 200,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "1x3vw6i",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me women's black dresses in size 10 under A$200."
+          },
+          {
+            "role": "assistant",
+            "content": "I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged.\n\nOne way to broaden the search is to use \"Explore other colours\" below. That preview keeps your other restrictions and leaves your original colour request saved."
+          }
+        ]
+      },
+      "failure": "Need 1 eligible products, but received 0 (no_match). Inspect the catalogue to distinguish stock limits from a search bug.",
+      "elapsed_ms": 6289
+    }
+  ],
+  "unexecuted_turns": 1,
+  "trial": "v1-run1",
+  "elapsed_ms": 6289,
+  "failure": "Need 1 eligible products, but received 0 (no_match). Inspect the catalogue to distinguish stock limits from a search bug.",
+  "file": "J16-v1-run1.json"
+}

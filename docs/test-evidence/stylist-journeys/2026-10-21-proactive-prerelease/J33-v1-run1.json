@@ -1,0 +1,1360 @@
+{
+  "id": "J33",
+  "name": "Matching shirt and bottoms with an owned jacket",
+  "mode": "live",
+  "variant": 1,
+  "status": "AUTO_PASS",
+  "human_review": "PENDING",
+  "review": [
+    "Check that the answers are useful and address every part of the request.",
+    "Both new garments must match the stated shirt/trouser families."
+  ],
+  "expected": "Treat the owned blazer as an anchor, not a third purchase.",
+  "turns": [
+    {
+      "number": 1,
+      "checks": [
+        {
+          "path": "state.styling.outfit_request.total_budget_aud",
+          "op": "eq",
+          "value": 500
+        },
+        {
+          "path": "state.styling.outfit_request.items.length",
+          "op": "eq",
+          "value": 2
+        },
+        {
+          "path": "reply.status",
+          "op": "oneOf",
+          "value": [
+            "matches",
+            "partial",
+            "alternatives",
+            "no_match"
+          ]
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "I own a navy blazer. Find men's trousers and a shirt to wear with it for work, A$500 for the new pieces together.",
+      "request": {
+        "request_id": "3116965e-54c3-4de4-b999-1fd2ac84a7a6",
+        "retry": false,
+        "turn": {
+          "message": "I own a navy blazer. Find men's trousers and a shirt to wear with it for work, A$500 for the new pieces together.",
+          "collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": []
+          },
+          "history": [],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "complementary_shown": false,
+            "complementary_dismissed": false,
+            "prepared_key": "",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "5guqrx",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 500,
+            "budget_evidence": "I own a navy blazer. Find men's trousers and a shirt to wear with it for work, A$500 for the new pieces together.",
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": {
+          "limit_aud": 500,
+          "total_aud": 175,
+          "remaining_aud": 325,
+          "items": [
+            {
+              "product_id": "P1177",
+              "preferences": {
+                "gender": "Men",
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Trousers",
+                "occasion": "Work",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "product_id": "P1166",
+              "preferences": {
+                "gender": "Men",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Shirt",
+                "occasion": "Work",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ]
+        },
+        "outfit_choices": {
+          "groups": [
+            {
+              "label": "Bottoms",
+              "product_ids": [
+                "P1177"
+              ],
+              "preferences": {
+                "gender": "Men",
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Trousers",
+                "occasion": "Work",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "label": "Shirts",
+              "product_ids": [
+                "P1166",
+                "P1078"
+              ],
+              "preferences": {
+                "gender": "Men",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Shirt",
+                "occasion": "Work",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ],
+          "maximum_total_aud": 260
+        },
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "matches",
+        "action": "new_search",
+        "discovery": null,
+        "collection": {
+          "choice": "Men",
+          "current": {
+            "choice": "Men",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "Here are choices for bottoms and shirts. Choose one item from each group; every displayed combination stays within your A$500.00 combined budget. Combinations range from A$175.00 to A$260.00.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Men",
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Men",
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Work",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1177",
+            "product_name": "Beige Pleated Trousers",
+            "price_aud": 60,
+            "category": "Clothing",
+            "subcategory": "Bottoms",
+            "product_type": "Pleated Trousers",
+            "brand_line": "ABC Essentials",
+            "colour": "Beige",
+            "occasion": "Work",
+            "style": "Smart",
+            "sizes_available": [
+              "XS",
+              "S",
+              "M",
+              "L",
+              "XL"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1177/image"
+          },
+          {
+            "product_id": "P1166",
+            "product_name": "Red Oxford Shirt",
+            "price_aud": 115,
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Oxford Shirt",
+            "brand_line": "ABC Essentials",
+            "colour": "Red",
+            "occasion": "Work",
+            "style": "Classic",
+            "sizes_available": [
+              "XS",
+              "S",
+              "M",
+              "L",
+              "XL"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1166/image"
+          },
+          {
+            "product_id": "P1078",
+            "product_name": "Pink Oxford Shirt",
+            "price_aud": 200,
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Oxford Shirt",
+            "brand_line": "ABC Essentials",
+            "colour": "Pink",
+            "occasion": "Work",
+            "style": "Minimalist",
+            "sizes_available": [
+              "XS",
+              "S",
+              "M",
+              "L",
+              "XL"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1078/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 500,
+            "items": [
+              {
+                "gender": "Men",
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Trousers",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": "Men",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Shirt",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "Find men's trousers and a shirt to wear with it for work, A$500 for the new pieces together."
+          },
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [
+            {
+              "description": "navy blazer",
+              "category": "Clothing",
+              "product_type": "Blazer",
+              "colour": "navy",
+              "occasion": null,
+              "external_id": "external-1",
+              "source": "customer_description"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Men",
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 500,
+            "items": [
+              {
+                "gender": "Men",
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Trousers",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": "Men",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Shirt",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "Find men's trousers and a shirt to wear with it for work, A$500 for the new pieces together."
+          },
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [
+            {
+              "description": "navy blazer",
+              "category": "Clothing",
+              "product_type": "Blazer",
+              "colour": "navy",
+              "occasion": null,
+              "external_id": "external-1",
+              "source": "customer_description"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Men",
+          "current": {
+            "choice": "Men",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "5guqrx",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 500,
+            "budget_evidence": "I own a navy blazer. Find men's trousers and a shirt to wear with it for work, A$500 for the new pieces together.",
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1177",
+              "product_name": "Beige Pleated Trousers",
+              "category": "Clothing",
+              "subcategory": "Bottoms",
+              "product_type": "Pleated Trousers",
+              "price_aud": 60
+            },
+            {
+              "product_id": "P1166",
+              "product_name": "Red Oxford Shirt",
+              "category": "Clothing",
+              "subcategory": "Tops",
+              "product_type": "Oxford Shirt",
+              "price_aud": 115
+            },
+            {
+              "product_id": "P1078",
+              "product_name": "Pink Oxford Shirt",
+              "category": "Clothing",
+              "subcategory": "Tops",
+              "product_type": "Oxford Shirt",
+              "price_aud": 200
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I own a navy blazer. Find men's trousers and a shirt to wear with it for work, A$500 for the new pieces together."
+          },
+          {
+            "role": "assistant",
+            "content": "Here are choices for bottoms and shirts. Choose one item from each group; every displayed combination stays within your A$500.00 combined budget. Combinations range from A$175.00 to A$260.00."
+          }
+        ]
+      },
+      "elapsed_ms": 8367
+    },
+    {
+      "number": 2,
+      "checks": [
+        {
+          "path": "state.styling.outfit_request.total_budget_aud",
+          "op": "eq",
+          "value": 450
+        },
+        {
+          "path": "state.styling.outfit_request.items.length",
+          "op": "eq",
+          "value": 2
+        },
+        {
+          "path": "reply.status",
+          "op": "oneOf",
+          "value": [
+            "matches",
+            "partial",
+            "alternatives",
+            "no_match"
+          ]
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "Make the combined budget A$450, keeping the same pieces and owned blazer.",
+      "request": {
+        "request_id": "3f58ecc4-74f3-4a5c-82d7-bc4ca0ca0855",
+        "retry": false,
+        "turn": {
+          "message": "Make the combined budget A$450, keeping the same pieces and owned blazer.",
+          "collection": {
+            "choice": "Men",
+            "current": {
+              "choice": "Men",
+              "source": "explicit"
+            },
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": "Men",
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": "Work",
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": [
+              {
+                "product_id": "P1177",
+                "product_name": "Beige Pleated Trousers",
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Pleated Trousers",
+                "price_aud": 60
+              },
+              {
+                "product_id": "P1166",
+                "product_name": "Red Oxford Shirt",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Oxford Shirt",
+                "price_aud": 115
+              },
+              {
+                "product_id": "P1078",
+                "product_name": "Pink Oxford Shirt",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Oxford Shirt",
+                "price_aud": 200
+              }
+            ]
+          },
+          "history": [
+            {
+              "role": "user",
+              "content": "I own a navy blazer. Find men's trousers and a shirt to wear with it for work, A$500 for the new pieces together."
+            },
+            {
+              "role": "assistant",
+              "content": "Here are choices for bottoms and shirts. Choose one item from each group; every displayed combination stays within your A$500.00 combined budget. Combinations range from A$175.00 to A$260.00."
+            }
+          ],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": {
+              "total_budget_aud": 500,
+              "items": [
+                {
+                  "gender": "Men",
+                  "category": "Clothing",
+                  "subcategory": "Bottoms",
+                  "product_type": "Trousers",
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "size": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                },
+                {
+                  "gender": "Men",
+                  "category": "Clothing",
+                  "subcategory": "Tops",
+                  "product_type": "Shirt",
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "size": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                }
+              ],
+              "evidence": "Find men's trousers and a shirt to wear with it for work, A$500 for the new pieces together."
+            },
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [
+              {
+                "description": "navy blazer",
+                "category": "Clothing",
+                "product_type": "Blazer",
+                "colour": "navy",
+                "occasion": null,
+                "external_id": "external-1",
+                "source": "customer_description"
+              }
+            ],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "complementary_shown": false,
+            "complementary_dismissed": false,
+            "prepared_key": "5guqrx",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": 500,
+              "budget_evidence": "I own a navy blazer. Find men's trousers and a shirt to wear with it for work, A$500 for the new pieces together.",
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "r44mdb",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 450,
+            "budget_evidence": "Make the combined budget A$450, keeping the same pieces and owned blazer.",
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": {
+          "limit_aud": 450,
+          "total_aud": 175,
+          "remaining_aud": 275,
+          "items": [
+            {
+              "product_id": "P1177",
+              "preferences": {
+                "gender": "Men",
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Trousers",
+                "occasion": "Work",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "product_id": "P1166",
+              "preferences": {
+                "gender": "Men",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Shirt",
+                "occasion": "Work",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ]
+        },
+        "outfit_choices": {
+          "groups": [
+            {
+              "label": "Bottoms",
+              "product_ids": [
+                "P1177"
+              ],
+              "preferences": {
+                "gender": "Men",
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Trousers",
+                "occasion": "Work",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "label": "Shirts",
+              "product_ids": [
+                "P1166",
+                "P1078"
+              ],
+              "preferences": {
+                "gender": "Men",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Shirt",
+                "occasion": "Work",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ],
+          "maximum_total_aud": 260
+        },
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "matches",
+        "action": "refine",
+        "discovery": null,
+        "collection": {
+          "choice": "Men",
+          "current": {
+            "choice": "Men",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "Here are choices for bottoms and shirts. Choose one item from each group; every displayed combination stays within your A$450.00 combined budget. Combinations range from A$175.00 to A$260.00.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Men",
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Men",
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Work",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1177",
+            "product_name": "Beige Pleated Trousers",
+            "price_aud": 60,
+            "category": "Clothing",
+            "subcategory": "Bottoms",
+            "product_type": "Pleated Trousers",
+            "brand_line": "ABC Essentials",
+            "colour": "Beige",
+            "occasion": "Work",
+            "style": "Smart",
+            "sizes_available": [
+              "XS",
+              "S",
+              "M",
+              "L",
+              "XL"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1177/image"
+          },
+          {
+            "product_id": "P1166",
+            "product_name": "Red Oxford Shirt",
+            "price_aud": 115,
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Oxford Shirt",
+            "brand_line": "ABC Essentials",
+            "colour": "Red",
+            "occasion": "Work",
+            "style": "Classic",
+            "sizes_available": [
+              "XS",
+              "S",
+              "M",
+              "L",
+              "XL"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1166/image"
+          },
+          {
+            "product_id": "P1078",
+            "product_name": "Pink Oxford Shirt",
+            "price_aud": 200,
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Oxford Shirt",
+            "brand_line": "ABC Essentials",
+            "colour": "Pink",
+            "occasion": "Work",
+            "style": "Minimalist",
+            "sizes_available": [
+              "XS",
+              "S",
+              "M",
+              "L",
+              "XL"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1078/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 450,
+            "items": [
+              {
+                "gender": "Men",
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Trousers",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": "Men",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Shirt",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "Make the combined budget A$450, keeping the same pieces and owned blazer."
+          },
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [
+            {
+              "description": "navy blazer",
+              "category": "Clothing",
+              "product_type": "Blazer",
+              "colour": "navy",
+              "occasion": null,
+              "external_id": "external-1",
+              "source": "customer_description"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Men",
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 450,
+            "items": [
+              {
+                "gender": "Men",
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Trousers",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": "Men",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Shirt",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "Make the combined budget A$450, keeping the same pieces and owned blazer."
+          },
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [
+            {
+              "description": "navy blazer",
+              "category": "Clothing",
+              "product_type": "Blazer",
+              "colour": "navy",
+              "occasion": null,
+              "external_id": "external-1",
+              "source": "customer_description"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Men",
+          "current": {
+            "choice": "Men",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "r44mdb",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 450,
+            "budget_evidence": "Make the combined budget A$450, keeping the same pieces and owned blazer.",
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1177",
+              "product_name": "Beige Pleated Trousers",
+              "category": "Clothing",
+              "subcategory": "Bottoms",
+              "product_type": "Pleated Trousers",
+              "price_aud": 60
+            },
+            {
+              "product_id": "P1166",
+              "product_name": "Red Oxford Shirt",
+              "category": "Clothing",
+              "subcategory": "Tops",
+              "product_type": "Oxford Shirt",
+              "price_aud": 115
+            },
+            {
+              "product_id": "P1078",
+              "product_name": "Pink Oxford Shirt",
+              "category": "Clothing",
+              "subcategory": "Tops",
+              "product_type": "Oxford Shirt",
+              "price_aud": 200
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "P1177",
+                "product_name": "Beige Pleated Trousers",
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Pleated Trousers",
+                "price_aud": 60
+              },
+              {
+                "product_id": "P1166",
+                "product_name": "Red Oxford Shirt",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Oxford Shirt",
+                "price_aud": 115
+              },
+              {
+                "product_id": "P1078",
+                "product_name": "Pink Oxford Shirt",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Oxford Shirt",
+                "price_aud": 200
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I own a navy blazer. Find men's trousers and a shirt to wear with it for work, A$500 for the new pieces together."
+          },
+          {
+            "role": "assistant",
+            "content": "Here are choices for bottoms and shirts. Choose one item from each group; every displayed combination stays within your A$500.00 combined budget. Combinations range from A$175.00 to A$260.00."
+          },
+          {
+            "role": "user",
+            "content": "Make the combined budget A$450, keeping the same pieces and owned blazer."
+          },
+          {
+            "role": "assistant",
+            "content": "Here are choices for bottoms and shirts. Choose one item from each group; every displayed combination stays within your A$450.00 combined budget. Combinations range from A$175.00 to A$260.00."
+          }
+        ]
+      },
+      "elapsed_ms": 13254
+    }
+  ],
+  "trial": "v1-run1",
+  "elapsed_ms": 21621,
+  "file": "J33-v1-run1.json"
+}

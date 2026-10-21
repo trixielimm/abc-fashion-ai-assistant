@@ -13,6 +13,7 @@ import { searchWithValidatedPreferences } from "./validatedPreferenceSearch";
 import { scoreCompatibility } from "./stylingCompatibility";
 import { meetsFeatureRequirements } from "./productBenefits";
 import type { StylingState } from "../stylist/commerceSchema";
+import { pairingCategoryNames, pairingRoleOccupied, resolvePairingTarget } from "./pairingTargets";
 
 const label = z.string().trim().min(1).max(100);
 
@@ -106,14 +107,10 @@ export function retrieveCrossSell(
   // An explicit target describes the requested addition, never the main item.
   // Stored rules guide discovery when no target has been stated.
   targetCategory = requested?.subcategory ?? requested?.category ??
-    [...(record.pairing_categories ?? []), ...(record.cross_sell_category ? [record.cross_sell_category] : [])]
-      .find(category => !(options.occupied_categories ?? []).some(owned => normalise(owned) === normalise(category))) ?? null;
+    pairingCategoryNames(record).find(category => !pairingRoleOccupied(category, options.occupied_categories ?? [], vocabulary)) ?? null;
   if (!targetCategory) return reply("no_rule", "No additional-item category is recorded. What would you like to add?");
-  const targets = [...new Map(vocabulary.categories.filter(row =>
-    normalise(row.subcategory ?? row.category) === normalise(targetCategory)
-  ).map(row => [JSON.stringify(row), row])).values()];
-  if (targets.length !== 1) return reply("rule_unavailable", "The additional-item category needs catalogue review.");
-  const target = targets[0];
+  const target = resolvePairingTarget(targetCategory, vocabulary);
+  if (!target) return reply("rule_unavailable", "The additional-item category needs catalogue review.");
   if (normalise(target.category) === normalise(record.category) &&
       (!target.subcategory || normalise(target.subcategory) === normalise(record.subcategory))) {
     return reply("no_match", "That would repeat the selected item role. Please request a different additional item or ask for a replacement.");

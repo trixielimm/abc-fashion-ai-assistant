@@ -1,0 +1,1113 @@
+{
+  "id": "J17",
+  "name": "Budget edit preserves item and occasion",
+  "mode": "live",
+  "variant": 1,
+  "status": "AUTO_PASS",
+  "human_review": "PENDING",
+  "review": [
+    "Check that the answers are useful and address every part of the request."
+  ],
+  "expected": "Reduce the cap without losing the work dress request.",
+  "turns": [
+    {
+      "number": 1,
+      "checks": [
+        {
+          "path": "state.scopes.item.occasion",
+          "op": "eq",
+          "value": "Work"
+        },
+        {
+          "path": "state.scopes.item.max_price",
+          "op": "eq",
+          "value": 200
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "Show me women's dresses for work under A$200.",
+      "request": {
+        "request_id": "c071db6e-d230-452b-b340-b70f8c29427c",
+        "retry": false,
+        "turn": {
+          "message": "Show me women's dresses for work under A$200.",
+          "collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": []
+          },
+          "history": [],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "prepared_key": "",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "1sxr6oq",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "alternatives",
+        "action": "new_search",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I haven't found an exact match for all the details you mentioned, but there are some alternatives you can consider.\n\nI've kept the differences visible on each card so you can decide whether any of these would work for you.\n\nThese options range from A$60.00 to A$170.00. The selection includes maxi dress and wrap dress options. I've kept this selection within your A$200.00 per-item limit.\n\nYour original request is still saved. Exploring these options doesn't change it or add anything to your cart.\n\nWhy these are alternatives: Burgundy Maxi Dress: Occasion: Brunch; you requested Work. Navy Maxi Dress: Occasion: Beach Wedding; you requested Work.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 200,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": "Work",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 200,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [
+          {
+            "product_id": "P1254",
+            "product_name": "Burgundy Maxi Dress",
+            "price_aud": 120,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Casual",
+            "colour": "Burgundy",
+            "occasion": "Brunch",
+            "style": "Relaxed",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1254/image",
+            "differences": [
+              "Occasion: Brunch; you requested Work."
+            ]
+          },
+          {
+            "product_id": "P1178",
+            "product_name": "Navy Maxi Dress",
+            "price_aud": 95,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Navy",
+            "occasion": "Beach Wedding",
+            "style": "Minimalist",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1178/image",
+            "differences": [
+              "Occasion: Beach Wedding; you requested Work."
+            ]
+          },
+          {
+            "product_id": "P1293",
+            "product_name": "Beige Maxi Dress",
+            "price_aud": 170,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Casual",
+            "colour": "Beige",
+            "occasion": "Brunch",
+            "style": "Streetwear",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1293/image",
+            "differences": [
+              "Occasion: Brunch; you requested Work."
+            ]
+          },
+          {
+            "product_id": "P1040",
+            "product_name": "Grey Wrap Dress",
+            "price_aud": 60,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Wrap Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Grey",
+            "occasion": "Party",
+            "style": "Minimalist",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1040/image",
+            "differences": [
+              "Occasion: Party; you requested Work."
+            ]
+          },
+          {
+            "product_id": "P1287",
+            "product_name": "Beige Maxi Dress",
+            "price_aud": 155,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Beige",
+            "occasion": "Date Night",
+            "style": "Minimalist",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1287/image",
+            "differences": [
+              "Occasion: Date Night; you requested Work."
+            ]
+          }
+        ],
+        "alternatives_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": "Work",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 200,
+          "brand_line": null
+        },
+        "alternative_kind": "context_difference",
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 200,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "1sxr6oq",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1254",
+              "product_name": "Burgundy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 120
+            },
+            {
+              "product_id": "P1178",
+              "product_name": "Navy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 95
+            },
+            {
+              "product_id": "P1293",
+              "product_name": "Beige Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 170
+            },
+            {
+              "product_id": "P1040",
+              "product_name": "Grey Wrap Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Wrap Dress",
+              "price_aud": 60
+            },
+            {
+              "product_id": "P1287",
+              "product_name": "Beige Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 155
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me women's dresses for work under A$200."
+          },
+          {
+            "role": "assistant",
+            "content": "I haven't found an exact match for all the details you mentioned, but there are some alternatives you can consider.\n\nI've kept the differences visible on each card so you can decide whether any of these would work for you.\n\nThese options range from A$60.00 to A$170.00. The selection includes maxi dress and wrap dress options. I've kept this selection within your A$200.00 per-item limit.\n\nYour original request is still saved. Exploring these options doesn't change it or add anything to your cart.\n\nWhy these are alternatives: Burgundy Maxi Dress: Occasion: Brunch; you requested Work. Navy Maxi Dress: Occasion: Beach Wedding; you requested Work."
+          }
+        ]
+      },
+      "elapsed_ms": 7114
+    },
+    {
+      "number": 2,
+      "checks": [
+        {
+          "path": "state.scopes.item.subcategory",
+          "op": "eq",
+          "value": "Dresses"
+        },
+        {
+          "path": "state.scopes.item.occasion",
+          "op": "eq",
+          "value": "Work"
+        },
+        {
+          "path": "state.scopes.item.max_price",
+          "op": "eq",
+          "value": 120
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "My maximum is A$120 now.",
+      "request": {
+        "request_id": "8d5c24b5-08f1-45c3-bc93-4107dc63cd95",
+        "retry": false,
+        "turn": {
+          "message": "My maximum is A$120 now.",
+          "collection": {
+            "choice": "Women",
+            "current": {
+              "choice": "Women",
+              "source": "explicit"
+            },
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": "Women",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": null,
+              "occasion": "Work",
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 200,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": [
+              {
+                "product_id": "P1254",
+                "product_name": "Burgundy Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 120
+              },
+              {
+                "product_id": "P1178",
+                "product_name": "Navy Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 95
+              },
+              {
+                "product_id": "P1293",
+                "product_name": "Beige Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 170
+              },
+              {
+                "product_id": "P1040",
+                "product_name": "Grey Wrap Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Wrap Dress",
+                "price_aud": 60
+              },
+              {
+                "product_id": "P1287",
+                "product_name": "Beige Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 155
+              }
+            ]
+          },
+          "history": [
+            {
+              "role": "user",
+              "content": "Show me women's dresses for work under A$200."
+            },
+            {
+              "role": "assistant",
+              "content": "I haven't found an exact match for all the details you mentioned, but there are some alternatives you can consider.\n\nI've kept the differences visible on each card so you can decide whether any of these would work for you.\n\nThese options range from A$60.00 to A$170.00. The selection includes maxi dress and wrap dress options. I've kept this selection within your A$200.00 per-item limit.\n\nYour original request is still saved. Exploring these options doesn't change it or add anything to your cart.\n\nWhy these are alternatives: Burgundy Maxi Dress: Occasion: Brunch; you requested Work. Navy Maxi Dress: Occasion: Beach Wedding; you requested Work."
+            }
+          ],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "prepared_key": "1sxr6oq",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "1d03slp",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "alternatives",
+        "action": "refine",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I haven't found an exact match for all the details you mentioned, but there are some alternatives you can consider.\n\nI've kept the differences visible on each card so you can decide whether any of these would work for you.\n\nThese options range from A$60.00 to A$120.00. The selection includes maxi dress, wrap dress and mini dress options. I've kept this selection within your A$120.00 per-item limit.\n\nYour original request is still saved. Exploring these options doesn't change it or add anything to your cart.\n\nWhy these are alternatives: Burgundy Maxi Dress: Occasion: Brunch; you requested Work. Navy Maxi Dress: Occasion: Beach Wedding; you requested Work.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 120,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": "Work",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 120,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [
+          {
+            "product_id": "P1254",
+            "product_name": "Burgundy Maxi Dress",
+            "price_aud": 120,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Casual",
+            "colour": "Burgundy",
+            "occasion": "Brunch",
+            "style": "Relaxed",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1254/image",
+            "differences": [
+              "Occasion: Brunch; you requested Work."
+            ]
+          },
+          {
+            "product_id": "P1178",
+            "product_name": "Navy Maxi Dress",
+            "price_aud": 95,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Navy",
+            "occasion": "Beach Wedding",
+            "style": "Minimalist",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1178/image",
+            "differences": [
+              "Occasion: Beach Wedding; you requested Work."
+            ]
+          },
+          {
+            "product_id": "P1040",
+            "product_name": "Grey Wrap Dress",
+            "price_aud": 60,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Wrap Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Grey",
+            "occasion": "Party",
+            "style": "Minimalist",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1040/image",
+            "differences": [
+              "Occasion: Party; you requested Work."
+            ]
+          },
+          {
+            "product_id": "P1132",
+            "product_name": "Sage Mini Dress",
+            "price_aud": 120,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Mini Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Sage",
+            "occasion": "Date Night",
+            "style": "Relaxed",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1132/image",
+            "differences": [
+              "Occasion: Date Night; you requested Work."
+            ]
+          },
+          {
+            "product_id": "P1311",
+            "product_name": "Cream Maxi Dress",
+            "price_aud": 70,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Cream",
+            "occasion": "Party",
+            "style": "Elegant",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1311/image",
+            "differences": [
+              "Occasion: Party; you requested Work."
+            ]
+          }
+        ],
+        "alternatives_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": "Work",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 120,
+          "brand_line": null
+        },
+        "alternative_kind": "context_difference",
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 120,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "1d03slp",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1254",
+              "product_name": "Burgundy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 120
+            },
+            {
+              "product_id": "P1178",
+              "product_name": "Navy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 95
+            },
+            {
+              "product_id": "P1040",
+              "product_name": "Grey Wrap Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Wrap Dress",
+              "price_aud": 60
+            },
+            {
+              "product_id": "P1132",
+              "product_name": "Sage Mini Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Mini Dress",
+              "price_aud": 120
+            },
+            {
+              "product_id": "P1311",
+              "product_name": "Cream Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 70
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "P1254",
+                "product_name": "Burgundy Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 120
+              },
+              {
+                "product_id": "P1178",
+                "product_name": "Navy Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 95
+              },
+              {
+                "product_id": "P1293",
+                "product_name": "Beige Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 170
+              },
+              {
+                "product_id": "P1040",
+                "product_name": "Grey Wrap Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Wrap Dress",
+                "price_aud": 60
+              },
+              {
+                "product_id": "P1287",
+                "product_name": "Beige Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 155
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me women's dresses for work under A$200."
+          },
+          {
+            "role": "assistant",
+            "content": "I haven't found an exact match for all the details you mentioned, but there are some alternatives you can consider.\n\nI've kept the differences visible on each card so you can decide whether any of these would work for you.\n\nThese options range from A$60.00 to A$170.00. The selection includes maxi dress and wrap dress options. I've kept this selection within your A$200.00 per-item limit.\n\nYour original request is still saved. Exploring these options doesn't change it or add anything to your cart.\n\nWhy these are alternatives: Burgundy Maxi Dress: Occasion: Brunch; you requested Work. Navy Maxi Dress: Occasion: Beach Wedding; you requested Work."
+          },
+          {
+            "role": "user",
+            "content": "My maximum is A$120 now."
+          },
+          {
+            "role": "assistant",
+            "content": "I haven't found an exact match for all the details you mentioned, but there are some alternatives you can consider.\n\nI've kept the differences visible on each card so you can decide whether any of these would work for you.\n\nThese options range from A$60.00 to A$120.00. The selection includes maxi dress, wrap dress and mini dress options. I've kept this selection within your A$120.00 per-item limit.\n\nYour original request is still saved. Exploring these options doesn't change it or add anything to your cart.\n\nWhy these are alternatives: Burgundy Maxi Dress: Occasion: Brunch; you requested Work. Navy Maxi Dress: Occasion: Beach Wedding; you requested Work."
+          }
+        ]
+      },
+      "elapsed_ms": 5558
+    }
+  ],
+  "trial": "v1-run1",
+  "elapsed_ms": 12673,
+  "file": "J17-v1-run1.json"
+}

@@ -9,6 +9,13 @@ export type PurchaseBudgetSummary = {
   version: "purchase-v1"; limit_aud: number; fixed_total_aud: number; remaining_aud: number;
   fixed_product_ids: string[]; minimum_total_aud: number | null; maximum_total_aud: number | null;
 };
+// Current catalogue prices only. Owned items are excluded by the caller.
+export function currentPurchaseTotal(catalogue: readonly CatalogueProduct[], ids: readonly string[]) {
+  const products = [...new Set(ids)].map(id => catalogue.find(product => product.product_id === id));
+  if (products.some(product => !product || product.price_aud === null || !Number.isFinite(product.price_aud) ||
+      product.is_available !== true || !Number.isInteger(product.stock_qty) || (product.stock_qty ?? 0) <= 0)) return null;
+  return products.reduce((sum, product) => sum + priceCents(product!.price_aud!), 0) / 100;
+}
 export function preparePurchaseBudget(catalogue: readonly CatalogueProduct[], request: ConversationPlanRequest,
   styling: StylingState, referenceIds: readonly string[], preferences: ShoppingPreferences) {
   const stated = statedCombinedBudget(request.message);
@@ -26,10 +33,11 @@ export function preparePurchaseBudget(catalogue: readonly CatalogueProduct[], re
   if (!budget) return null;
   budget.product_ids = budget.product_ids.filter(id => selected.some(piece => piece.product_id === id));
   const fixed = budget.product_ids.map(id => catalogue.find(product => product.product_id === id));
-  if (fixed.some(product => !product || product.price_aud === null || !Number.isFinite(product.price_aud) || product.is_available !== true || (product.stock_qty ?? 0) <= 0)) {
+  const fixedTotal = currentPurchaseTotal(catalogue, budget.product_ids);
+  if (fixedTotal === null) {
     return { error: "I can't verify the current price and availability of a selected purchase. Refresh that piece before I claim a combined total." };
   }
-  const fixedCents = fixed.reduce((sum, product) => sum + priceCents(product!.price_aud!), 0);
+  const fixedCents = priceCents(fixedTotal);
   const remaining = priceCents(budget.limit_aud) - fixedCents;
   if (remaining < 0) return { error: `Your selected purchases already total A$${(fixedCents / 100).toFixed(2)}, A$${(-remaining / 100).toFixed(2)} over the A$${budget.limit_aud.toFixed(2)} combined budget. Remove or replace a selected purchase, or explicitly change the total.` };
   styling.outfit = styling.outfit.map(piece => {

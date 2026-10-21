@@ -1,0 +1,1057 @@
+{
+  "id": "J18",
+  "name": "Shoe size correction after invalid input",
+  "mode": "live",
+  "variant": 1,
+  "status": "FAIL",
+  "human_review": "PENDING",
+  "review": [
+    "Check that the answers are useful and address every part of the request.",
+    "Prerequisite: the test catalogue supports shoe size 7. Do not infer a conversion."
+  ],
+  "expected": "Accept a clear correction instead of repeating the invalid-size blocker.",
+  "turns": [
+    {
+      "number": 1,
+      "checks": [
+        {
+          "path": "state.scopes.item.size",
+          "op": "eq",
+          "value": "999"
+        },
+        {
+          "path": "reply.issues",
+          "op": "issue",
+          "value": {
+            "code": "invalid_preference",
+            "field": "size"
+          }
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "Show me women's black shoes in size 999 under A$150.",
+      "request": {
+        "request_id": "fb2d92a2-9f06-4b1b-ac64-312b0ef3eb2e",
+        "retry": false,
+        "turn": {
+          "message": "Show me women's black shoes in size 999 under A$150.",
+          "collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": []
+          },
+          "history": [],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "prepared_key": "",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "eqvzhv",
+          "preview_unverified": false,
+          "blocker_signature": "invalid_preference:item:size:\"999\"",
+          "blocker_repeats": 1,
+          "issues": [
+            {
+              "id": "invalid_preference:item:size:\"999\"",
+              "code": "invalid_preference",
+              "field": "size",
+              "scope": "item",
+              "value": "999",
+              "saved_value": null,
+              "options": [
+                "XS",
+                "S",
+                "M",
+                "L",
+                "XL",
+                "5",
+                "6",
+                "7"
+              ]
+            }
+          ],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [
+          {
+            "id": "invalid_preference:item:size:\"999\"",
+            "code": "invalid_preference",
+            "field": "size",
+            "scope": "item",
+            "value": "999",
+            "saved_value": null,
+            "options": [
+              "XS",
+              "S",
+              "M",
+              "L",
+              "XL",
+              "5",
+              "6",
+              "7"
+            ]
+          }
+        ],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "needs_clarification",
+        "action": "new_search",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I couldn't apply size: 999. That value isn't supported by the current catalogue; recorded options include XS, S, M, L, XL, 5, 6, 7. Please change that detail; your other requirements are still saved.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "999",
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": "Shoes",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [
+            "Black"
+          ],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": "999",
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": {
+          "action": "new_search",
+          "reference": null,
+          "goal": "Show me women's black shoes in size 999 under A$150.",
+          "question": "I couldn't apply size: 999. That value isn't supported by the current catalogue; recorded options include XS, S, M, L, XL, 5, 6, 7. Please change that detail; your other requirements are still saved.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "before_styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "before_collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          }
+        },
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "999",
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": {
+          "action": "new_search",
+          "reference": null,
+          "goal": "Show me women's black shoes in size 999 under A$150.",
+          "question": "I couldn't apply size: 999. That value isn't supported by the current catalogue; recorded options include XS, S, M, L, XL, 5, 6, 7. Please change that detail; your other requirements are still saved.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "before_styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "before_collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          }
+        },
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "eqvzhv",
+          "preview_unverified": false,
+          "blocker_signature": "invalid_preference:item:size:\"999\"",
+          "blocker_repeats": 1,
+          "issues": [
+            {
+              "id": "invalid_preference:item:size:\"999\"",
+              "code": "invalid_preference",
+              "field": "size",
+              "scope": "item",
+              "value": "999",
+              "saved_value": null,
+              "options": [
+                "XS",
+                "S",
+                "M",
+                "L",
+                "XL",
+                "5",
+                "6",
+                "7"
+              ]
+            }
+          ],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me women's black shoes in size 999 under A$150."
+          },
+          {
+            "role": "assistant",
+            "content": "I couldn't apply size: 999. That value isn't supported by the current catalogue; recorded options include XS, S, M, L, XL, 5, 6, 7. Please change that detail; your other requirements are still saved."
+          }
+        ]
+      },
+      "elapsed_ms": 6095
+    },
+    {
+      "number": 2,
+      "checks": [
+        {
+          "path": "state.scopes.item.category",
+          "op": "eq",
+          "value": "Shoes"
+        },
+        {
+          "path": "state.scopes.item.size",
+          "op": "eq",
+          "value": "7"
+        },
+        {
+          "path": "state.scopes.item.preferred_colours",
+          "op": "eq",
+          "value": [
+            "Black"
+          ]
+        },
+        {
+          "path": "state.scopes.item.max_price",
+          "op": "eq",
+          "value": 150
+        }
+      ],
+      "status": "FAIL",
+      "message": "Change the shoe size to 7. Keep black and A$150.",
+      "request": {
+        "request_id": "35e2c1e8-9215-4feb-bde6-327bb47e60f6",
+        "retry": false,
+        "turn": {
+          "message": "Change the shoe size to 7. Keep black and A$150.",
+          "collection": {
+            "choice": "Women",
+            "current": {
+              "choice": "Women",
+              "source": "explicit"
+            },
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": "Women",
+              "category": "Shoes",
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [
+                "Black"
+              ],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": "999",
+              "min_price": null,
+              "max_price": 150,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": []
+          },
+          "history": [
+            {
+              "role": "user",
+              "content": "Show me women's black shoes in size 999 under A$150."
+            },
+            {
+              "role": "assistant",
+              "content": "I couldn't apply size: 999. That value isn't supported by the current catalogue; recorded options include XS, S, M, L, XL, 5, 6, 7. Please change that detail; your other requirements are still saved."
+            }
+          ],
+          "pending": {
+            "action": "new_search",
+            "reference": null,
+            "goal": "Show me women's black shoes in size 999 under A$150.",
+            "question": "I couldn't apply size: 999. That value isn't supported by the current catalogue; recorded options include XS, S, M, L, XL, 5, 6, 7. Please change that detail; your other requirements are still saved.",
+            "before_scopes": {
+              "item": {
+                "gender": null,
+                "category": null,
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "shared": {
+                "gender": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              "unresolved_item": [],
+              "unresolved_shared": []
+            },
+            "before_styling": {
+              "dress_code": null,
+              "outfit_request": null,
+              "purchase_budget": null,
+              "outfit": [],
+              "external_items": [],
+              "rejected_ids": [],
+              "priorities": [],
+              "required_features": [],
+              "offers_paused": false,
+              "owned_categories": []
+            },
+            "before_collection": {
+              "choice": null,
+              "current": null,
+              "checkpoint": null
+            }
+          },
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "prepared_key": "eqvzhv",
+            "preview_unverified": false,
+            "blocker_signature": "invalid_preference:item:size:\"999\"",
+            "blocker_repeats": 1,
+            "issues": [
+              {
+                "id": "invalid_preference:item:size:\"999\"",
+                "code": "invalid_preference",
+                "field": "size",
+                "scope": "item",
+                "value": "999",
+                "saved_value": null,
+                "options": [
+                  "XS",
+                  "S",
+                  "M",
+                  "L",
+                  "XL",
+                  "5",
+                  "6",
+                  "7"
+                ]
+              }
+            ],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "1q74yp0",
+          "preview_unverified": false,
+          "blocker_signature": "interpretation_failed:task:request:null",
+          "blocker_repeats": 1,
+          "issues": [
+            {
+              "id": "interpretation_failed:task:request:null",
+              "code": "interpretation_failed",
+              "field": "request",
+              "scope": "task",
+              "value": null,
+              "saved_value": null,
+              "options": []
+            }
+          ],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [
+          {
+            "id": "interpretation_failed:task:request:null",
+            "code": "interpretation_failed",
+            "field": "request",
+            "scope": "task",
+            "value": null,
+            "saved_value": null,
+            "options": []
+          }
+        ],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": false,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "needs_clarification",
+        "action": "clarify",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I couldn't reliably interpret the requested change. No unverified changes were applied. You can clarify the item and change, or start a new shopping task below.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "999",
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": "Shoes",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [
+            "Black"
+          ],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": "999",
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": {
+          "action": "new_search",
+          "reference": null,
+          "goal": "Show me women's black shoes in size 999 under A$150.",
+          "question": "I couldn't apply size: 999. That value isn't supported by the current catalogue; recorded options include XS, S, M, L, XL, 5, 6, 7. Please change that detail; your other requirements are still saved.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "before_styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "before_collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          }
+        },
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Shoes",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "999",
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": {
+          "action": "new_search",
+          "reference": null,
+          "goal": "Show me women's black shoes in size 999 under A$150.",
+          "question": "I couldn't apply size: 999. That value isn't supported by the current catalogue; recorded options include XS, S, M, L, XL, 5, 6, 7. Please change that detail; your other requirements are still saved.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "before_styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "before_collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          }
+        },
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "1q74yp0",
+          "preview_unverified": false,
+          "blocker_signature": "interpretation_failed:task:request:null",
+          "blocker_repeats": 1,
+          "issues": [
+            {
+              "id": "interpretation_failed:task:request:null",
+              "code": "interpretation_failed",
+              "field": "request",
+              "scope": "task",
+              "value": null,
+              "saved_value": null,
+              "options": []
+            }
+          ],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me women's black shoes in size 999 under A$150."
+          },
+          {
+            "role": "assistant",
+            "content": "I couldn't apply size: 999. That value isn't supported by the current catalogue; recorded options include XS, S, M, L, XL, 5, 6, 7. Please change that detail; your other requirements are still saved."
+          }
+        ]
+      },
+      "failure": "state.scopes.item.size eq \"7\"\n\n'999' !== '7'\n",
+      "elapsed_ms": 5003
+    }
+  ],
+  "unexecuted_turns": 0,
+  "trial": "v1-run1",
+  "elapsed_ms": 11098,
+  "failure": "state.scopes.item.size eq \"7\"\n\n'999' !== '7'\n",
+  "file": "J18-v1-run1.json"
+}

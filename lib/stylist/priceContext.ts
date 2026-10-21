@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { MAX_DISPLAYED_PRODUCTS } from "./conversationLimits";
 
 import {
   ShoppingPreferencesSchema,
@@ -13,7 +14,7 @@ export const PriceReferencesSchema = z
     })
   )
   .min(1)
-  .max(4)
+  .max(MAX_DISPLAYED_PRODUCTS)
   .refine(
     (rows) =>
       new Set(rows.map((row) => row.product_id)).size === rows.length,

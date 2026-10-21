@@ -129,6 +129,11 @@ styling_intent has preferences=[], outfit_changes=[], owned_categories=[], offer
 [{operation:keep,reference:{kind:position,position:2,subcategory:Dresses},evidence:"Keep the second dress"}].
 Use own for an explicitly owned known item, reject for a disliked item, remove to unselect an outfit piece.
 Selected items remain addressable by their exact names/IDs in context.selected after newer search results.
+Optional finishing touches are in context.complementary, separate from context.latest.
+Unqualified ordinals such as "the second one" refer to context.latest. A named or role-specific
+reference such as "the bag" can refer to context.complementary. Previewing an addition never selects it.
+The server supplies proactive additions after the requested search. Keep the user's requested
+primary search action and category; do not replace it with cross_sell to create a proactive offer.
 "I like" or "I love" expresses interest only: never emit keep/own for it.
 For "I already own ... Keep it as an owned piece", emit ONE own operation, not own followed by keep.
 For a description of an owned item from elsewhere, add styling_intent.external_items with operation=add,
@@ -139,9 +144,14 @@ description="plain navy midi dress", category=Clothing, product_type="midi dress
 occasion=null, and search the requested Shoes with cross_sell and reference=null.
 A follow-up asking to work from the description resumes this matching request with its saved budget.
 Use external_items=[] when unused. For an explicit removal, use operation=remove and the saved description.
+"I already own a bag and shoes" records TWO owned_categories additions: Bags and Shoes,
+both with evidence="I already own a bag and shoes". Generic ownership is not a named SKU or
+a descriptive external garment. Do not create outfit_changes or external_items for that generic statement.
 Do not automatically keep displayed items. "I already own a bag" without a known SKU adds owned_categories
 {category:Bags,operation:add,evidence:"already own a bag"}, not an invented product ID.
 "No extras" pauses proactive offers via offers={paused:true,evidence:"No extras"}; action=none.
+"I only need a women's beach wedding dress" also pauses offers, even with qualifiers before dress.
+When that statement includes a search, keep new_search/refine and fulfil the dress request.
 Only an explicit resumption sets paused=false. An explicit cross-sell request can still be fulfilled.
 Every styling change requires exact latest-turn evidence. Never copy evidence from history.
 preferences entries add/remove a priority or a required boolean feature. Priorities:
@@ -226,6 +236,8 @@ Item scope belongs to a particular item: "black dress under $300" is item colour
 Shared scope needs clear wording like "all items", "every item", "throughout" or "for all recommendations".
 Never transfer item-only dress colour/budget to a new bag. Never share category, type, subcategory or size globally.
 Unknown size and budget are acceptable. Do not ask for them merely to search.
+"Let me browse without choosing a size" is permission to browse with size=null,
+not a product requirement or unresolved filter. An initial unknown size needs no change.
 Use category Clothing and subcategory Dresses for a generic dress; do not invent a particular dress type.
 Generic shoes use category Shoes, generic bags use category Bags and generic accessories use
 category Accessories. Leave subcategory and product_type null unless a specific catalogue type is stated.
@@ -369,6 +381,16 @@ Conversation repair and everyday catalogue language:
 
 Question must be null except when action=clarify. Ask only what blocks a safe action.
 Never ask for optional size/budget before discovery. Preserve all unmentioned restrictions.
+For several new pieces with one cap but no explicit combined/each wording, include a complete
+outfit_request preserving every component. The server asks whether that cap is combined before searching.
+Several new pieces for an external owned garment use new_search/refine plus outfit_request;
+the owned garment stays in styling_intent.external_items and never becomes a new purchase.
+One new item for a selected catalogue piece uses cross_sell with outfit_request=null;
+the server accounts for the selected piece against an explicitly stated total.
+Named-product delivery/returns questions use answer.kind=product with delivery/returns topics
+and exact answer.references. Only general store-policy questions without a product use kind=policy.
+For a search plus comparison to its new results, use compare_new_results=true, one existing
+answer reference, and the explicit search action/changes; the server compares after searching.
 Return every required schema field, with [] for no changes and null for absent reference/question.
 `;
 

@@ -1,0 +1,92 @@
+DIAGNOSE J12 1
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.product_type',
+    'item.occasion',
+    'item.max_price'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'cheaper',
+  changed_fields: [ 'item.max_price', 'item.occasion' ],
+  has_outfit_request: false
+}
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'plan_rejected',
+  elapsed_ms: null,
+  attempt: 1,
+  type: 'PlanValidationError',
+  field: null,
+  rule: 'Clearing a saved price limit requires explicit permission'
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'cheaper',
+  changed_fields: [],
+  has_outfit_request: false
+}
+{"id":"J12","status":"FAIL","failure":"[\n  {\n    \"origin\": \"array\",\n    \"code\": \"too_big\",\n    \"maximum\": 4,\n    \"inclusive\": true,\n    \"path\": [],\n    \"message\": \"Too big: expected array to have <=4 items\"\n  }\n]"}
+DIAGNOSE J12 2
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [
+    'item.category',
+    'item.subcategory',
+    'item.product_type',
+    'item.occasion',
+    'item.max_price'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'cheaper',
+  changed_fields: [],
+  has_outfit_request: false
+}
+{"id":"J12","status":"FAIL","failure":"[\n  {\n    \"origin\": \"array\",\n    \"code\": \"too_big\",\n    \"maximum\": 4,\n    \"inclusive\": true,\n    \"path\": [],\n    \"message\": \"Too big: expected array to have <=4 items\"\n  }\n]"}
+DIAGNOSE J12 3
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.product_type',
+    'item.occasion',
+    'item.max_price'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'cheaper',
+  changed_fields: [],
+  has_outfit_request: false
+}
+{"id":"J12","status":"FAIL","failure":"[\n  {\n    \"origin\": \"array\",\n    \"code\": \"too_big\",\n    \"maximum\": 4,\n    \"inclusive\": true,\n    \"path\": [],\n    \"message\": \"Too big: expected array to have <=4 items\"\n  }\n]"}

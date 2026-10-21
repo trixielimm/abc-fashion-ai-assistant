@@ -1,0 +1,70 @@
+DIAGNOSE J23 1
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.max_price'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'refine',
+  changed_fields: [ 'item.preferred_colours', 'item.max_price' ],
+  has_outfit_request: false
+}
+{"id":"J23","status":"AUTO_PASS"}
+DIAGNOSE J23 2
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.max_price'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'refine',
+  changed_fields: [ 'item.preferred_colours', 'item.max_price' ],
+  has_outfit_request: false
+}
+{"id":"J23","status":"AUTO_PASS"}
+DIAGNOSE J23 3
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.max_price'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'refine',
+  changed_fields: [ 'item.preferred_colours', 'item.max_price' ],
+  has_outfit_request: false
+}
+{"id":"J23","status":"AUTO_PASS"}
+RESULTS {"AUTO_PASS":3,"FAIL":0,"ERROR":0,"BLOCKED_CATALOGUE":0}

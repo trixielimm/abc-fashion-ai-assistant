@@ -1,0 +1,5 @@
+
+> abc-fashion-ai-assistant@0.1.0 test:journeys:check
+> node --import tsx scripts/run-stylist-journeys.mjs --check
+
+{"pack":"stylist-journeys-v1","journeys":50,"everyday":10,"live":45,"controlled_faults":5,"primary_live_turns":101}

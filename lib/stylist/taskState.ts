@@ -8,6 +8,8 @@ import { ShoppingBriefSchema, updateShoppingBrief } from "./shoppingBrief";
 
 export const TaskStateSchema = z.strictObject({
   generation: z.number().int().nonnegative().default(0),
+  complementary_shown: z.boolean().default(false),
+  complementary_dismissed: z.boolean().default(false),
   prepared_key: z.string().max(30).default(""),
   preview_unverified: z.boolean().default(false),
   blocker_signature: z.string().max(1000).default(""),
@@ -76,6 +78,8 @@ export function prepareConversationTask<T extends ConversationPlanRequest>(input
   if (replacing) {
     task.brief = ShoppingBriefSchema.parse({});
     task.generation++;
+    task.complementary_shown = false;
+    task.complementary_dismissed = false;
     task.preview_unverified = false;
     task.issues = []; task.blocker_repeats = 0; task.blocker_signature = "";
     request.pending = null; request.pending_answer = null;
@@ -84,6 +88,7 @@ export function prepareConversationTask<T extends ConversationPlanRequest>(input
     if (request.collection) { request.collection.checkpoint = null; request.collection.current = null; }
     if (request.discovery) request.discovery.stage = "complete";
     request.context.focused = null;
+    delete request.context.complementary;
   } else if (isShoppingRequest(request.message) && requestedClothing(request.message)) {
     // A clear different garment family supersedes a reference/pending question,
     // while retaining preferences on same-family refinements.
@@ -91,6 +96,8 @@ export function prepareConversationTask<T extends ConversationPlanRequest>(input
     if (request.scopes.item.subcategory && target.subcategory && target.subcategory !== request.scopes.item.subcategory &&
         !/\b(?:to go with|to match|with my)\b/i.test(request.message) && !/\b(?:and|both|together|combined)\b/i.test(shoppingTarget(request.message))) {
       request.pending = null; request.pending_answer = null;
+      task.complementary_shown = false;
+      task.complementary_dismissed = false;
     }
   }
   // Retain an unambiguous answer even if another clause needs interpretation

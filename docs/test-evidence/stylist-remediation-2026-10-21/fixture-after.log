@@ -1,0 +1,697 @@
+DIAGNOSE J12 1
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.product_type',
+    'item.occasion',
+    'item.max_price'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'cheaper',
+  changed_fields: [],
+  has_outfit_request: false
+}
+{"id":"J12","status":"BLOCKED_CATALOGUE","failure":"Need 1 eligible products, but received 0 (no_match). Inspect the catalogue to distinguish stock limits from a search bug."}
+DIAGNOSE J12 2
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [
+    'item.category',
+    'item.subcategory',
+    'item.product_type',
+    'item.occasion',
+    'item.max_price'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'cheaper',
+  changed_fields: [],
+  has_outfit_request: false
+}
+{"id":"J12","status":"BLOCKED_CATALOGUE","failure":"Need 1 eligible products, but received 0 (no_match). Inspect the catalogue to distinguish stock limits from a search bug."}
+DIAGNOSE J12 3
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.product_type',
+    'item.occasion',
+    'item.max_price'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'cheaper',
+  changed_fields: [],
+  has_outfit_request: false
+}
+{"id":"J12","status":"BLOCKED_CATALOGUE","failure":"Need 1 eligible products, but received 0 (no_match). Inspect the catalogue to distinguish stock limits from a search bug."}
+DIAGNOSE J15 1
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'discover',
+  changed_fields: [ 'shared.gender' ],
+  has_outfit_request: false
+}
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'plan_rejected',
+  elapsed_ms: null,
+  attempt: 1,
+  type: 'PlanValidationError',
+  field: null,
+  rule: 'A shared collection rule needs an explicit request for all recommendations'
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'discover',
+  changed_fields: [ 'item.gender', 'item.unresolved' ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [],
+  has_outfit_request: true
+}
+{"id":"J15","status":"AUTO_PASS"}
+DIAGNOSE J15 2
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'discover',
+  changed_fields: [ 'shared.gender' ],
+  has_outfit_request: false
+}
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'plan_rejected',
+  elapsed_ms: null,
+  attempt: 1,
+  type: 'PlanValidationError',
+  field: null,
+  rule: 'A shared collection rule needs an explicit request for all recommendations'
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'discover',
+  changed_fields: [ 'item.gender' ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [],
+  has_outfit_request: true
+}
+{"id":"J15","status":"AUTO_PASS"}
+DIAGNOSE J15 3
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'discover',
+  changed_fields: [ 'shared.gender' ],
+  has_outfit_request: false
+}
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'plan_rejected',
+  elapsed_ms: null,
+  attempt: 1,
+  type: 'PlanValidationError',
+  field: null,
+  rule: 'A shared collection rule needs an explicit request for all recommendations'
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'discover',
+  changed_fields: [ 'item.gender' ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [],
+  has_outfit_request: true
+}
+{"id":"J15","status":"AUTO_PASS"}
+DIAGNOSE J18 1
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.preferred_colours',
+    'item.size',
+    'item.max_price'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'refine',
+  changed_fields: [ 'item.size' ],
+  has_outfit_request: false
+}
+{"id":"J18","status":"AUTO_PASS"}
+DIAGNOSE J18 2
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.preferred_colours',
+    'item.size',
+    'item.max_price'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [ 'item.size' ],
+  has_outfit_request: false
+}
+{"id":"J18","status":"AUTO_PASS"}
+DIAGNOSE J18 3
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.preferred_colours',
+    'item.max_price',
+    'item.size'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'refine',
+  changed_fields: [ 'item.size', 'item.preferred_colours', 'item.max_price' ],
+  has_outfit_request: false
+}
+{"id":"J18","status":"AUTO_PASS"}
+DIAGNOSE J23 1
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.max_price'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'refine',
+  changed_fields: [ 'item.preferred_colours', 'item.max_price' ],
+  has_outfit_request: false
+}
+{"id":"J23","status":"AUTO_PASS"}
+DIAGNOSE J23 2
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'refine',
+  changed_fields: [ 'item.preferred_colours', 'item.max_price' ],
+  has_outfit_request: false
+}
+{"id":"J23","status":"AUTO_PASS"}
+DIAGNOSE J23 3
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.max_price'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'refine',
+  changed_fields: [ 'item.preferred_colours', 'item.max_price' ],
+  has_outfit_request: false
+}
+{"id":"J23","status":"AUTO_PASS"}
+DIAGNOSE J29 1
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.max_price'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'cross_sell',
+  changed_fields: [],
+  has_outfit_request: false
+}
+{"id":"J29","status":"FAIL","failure":"Expected at least 1 products; received 0 (rule_unavailable)."}
+DIAGNOSE J29 2
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.max_price'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'cross_sell',
+  changed_fields: [ 'item.gender', 'item.category' ],
+  has_outfit_request: false
+}
+{"id":"J29","status":"FAIL","failure":"Expected at least 1 products; received 0 (rule_unavailable)."}
+DIAGNOSE J29 3
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.max_price'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'cross_sell',
+  changed_fields: [ 'item.gender', 'item.category' ],
+  has_outfit_request: false
+}
+{"id":"J29","status":"FAIL","failure":"Expected at least 1 products; received 0 (rule_unavailable)."}
+DIAGNOSE J32 1
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [ 'item.occasion' ],
+  has_outfit_request: true
+}
+{"id":"J32","status":"AUTO_PASS"}
+DIAGNOSE J32 2
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [ 'item.occasion' ],
+  has_outfit_request: true
+}
+{"id":"J32","status":"AUTO_PASS"}
+DIAGNOSE J32 3
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [ 'item.occasion' ],
+  has_outfit_request: true
+}
+{"id":"J32","status":"AUTO_PASS"}
+DIAGNOSE J39 1
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.max_price'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+{"id":"J39","status":"AUTO_PASS"}
+DIAGNOSE J39 2
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.max_price'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'plan_rejected',
+  elapsed_ms: null,
+  attempt: 1,
+  type: 'PlanValidationError',
+  field: null,
+  rule: 'A pure answer MUST have changes=[] and top-level reference=null'
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+{"id":"J39","status":"AUTO_PASS"}
+DIAGNOSE J39 3
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [],
+  has_outfit_request: false
+}
+{"id":"J39","status":"FAIL","failure":"state.scopes.item.max_price eq 200\n\nnull !== 200\n"}
+DIAGNOSE J42 1
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [ 'item.category', 'item.preferred_colours', 'item.max_price' ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+{"id":"J42","status":"AUTO_PASS"}
+DIAGNOSE J42 2
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [ 'item.category', 'item.preferred_colours', 'item.max_price' ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+{"id":"J42","status":"AUTO_PASS"}
+DIAGNOSE J42 3
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [ 'item.category', 'item.preferred_colours', 'item.max_price' ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'none',
+  changed_fields: [],
+  has_outfit_request: false
+}
+{"id":"J42","status":"AUTO_PASS"}
+DIAGNOSE J44 1
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [
+    'shared.preferred_colours',
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.max_price'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'clarify',
+  changed_fields: [],
+  has_outfit_request: false
+}
+{"id":"J44","status":"FAIL","failure":"reply.issues issue {\"code\":\"shared_conflict\"}"}
+DIAGNOSE J44 2
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.max_price',
+    'shared.preferred_colours'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'refine',
+  changed_fields: [ 'item.preferred_colours' ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'refine',
+  changed_fields: [ 'shared.preferred_colours', 'item.preferred_colours' ],
+  has_outfit_request: false
+}
+{"id":"J44","status":"AUTO_PASS"}
+DIAGNOSE J44 3
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'new_search',
+  changed_fields: [
+    'shared.preferred_colours',
+    'item.gender',
+    'item.category',
+    'item.subcategory',
+    'item.max_price'
+  ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'refine',
+  changed_fields: [ 'item.preferred_colours' ],
+  has_outfit_request: false
+}
+Stylist diagnostic {
+  request_id: 'local-diagnosis',
+  stage: 'interpretation',
+  elapsed_ms: null,
+  action: 'refine',
+  changed_fields: [ 'shared.preferred_colours', 'item.preferred_colours' ],
+  has_outfit_request: false
+}
+{"id":"J44","status":"AUTO_PASS"}

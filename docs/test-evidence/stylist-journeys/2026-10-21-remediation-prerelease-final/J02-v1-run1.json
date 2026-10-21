@@ -1,0 +1,777 @@
+{
+  "id": "J02",
+  "name": "Guided beach wedding shopping",
+  "mode": "live",
+  "variant": 1,
+  "status": "BLOCKED_CATALOGUE",
+  "human_review": "PENDING",
+  "review": [
+    "Check that the answers are useful and address every part of the request.",
+    "If alternatives differ in occasion, disclose this; do not certify sand suitability."
+  ],
+  "expected": "Allow browsing without a size; retain occasion and budget through colour refinement.",
+  "turns": [
+    {
+      "number": 1,
+      "checks": [
+        {
+          "path": "state.scopes.item.subcategory",
+          "op": "eq",
+          "value": "Dresses"
+        },
+        {
+          "path": "state.scopes.item.occasion",
+          "op": "eq",
+          "value": "Beach Wedding"
+        },
+        {
+          "path": "state.scopes.item.max_price",
+          "op": "eq",
+          "value": 200
+        },
+        {
+          "path": "state.scopes.item.size",
+          "op": "eq",
+          "value": null
+        },
+        {
+          "path": "state.scopes.item.preferred_colours",
+          "op": "eq",
+          "value": []
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "I need a women's dress for a beach wedding under A$200. I don't know my size or preferred colour yet.",
+      "request": {
+        "request_id": "0cec7680-5a3f-4089-a8cb-b5d80efcd915",
+        "retry": false,
+        "turn": {
+          "message": "I need a women's dress for a beach wedding under A$200. I don't know my size or preferred colour yet.",
+          "collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": []
+          },
+          "history": [],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "prepared_key": "",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "yu9omv",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "matches",
+        "action": "new_search",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I've found 2 clothing options for you to explore.\n\nThese options range from A$95.00 to A$105.00. The selection includes maxi dress and mini dress options. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 200,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": "Beach Wedding",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 200,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1178",
+            "product_name": "Navy Maxi Dress",
+            "price_aud": 95,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Maxi Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Navy",
+            "occasion": "Beach Wedding",
+            "style": "Minimalist",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1178/image"
+          },
+          {
+            "product_id": "P1162",
+            "product_name": "Cream Mini Dress",
+            "price_aud": 105,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Mini Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Cream",
+            "occasion": "Beach Wedding",
+            "style": "Romantic",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1162/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": "wedding_guest",
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 200,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": "wedding_guest",
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "yu9omv",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1178",
+              "product_name": "Navy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 95
+            },
+            {
+              "product_id": "P1162",
+              "product_name": "Cream Mini Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Mini Dress",
+              "price_aud": 105
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I need a women's dress for a beach wedding under A$200. I don't know my size or preferred colour yet."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 clothing options for you to explore.\n\nThese options range from A$95.00 to A$105.00. The selection includes maxi dress and mini dress options. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "elapsed_ms": 6740
+    },
+    {
+      "number": 2,
+      "checks": [
+        {
+          "path": "state.scopes.item.preferred_colours",
+          "op": "eq",
+          "value": [
+            "Blue"
+          ]
+        },
+        {
+          "path": "state.scopes.item.occasion",
+          "op": "eq",
+          "value": "Beach Wedding"
+        },
+        {
+          "path": "state.scopes.item.max_price",
+          "op": "eq",
+          "value": 200
+        }
+      ],
+      "status": "BLOCKED_CATALOGUE",
+      "message": "Try blue, keeping the beach wedding and the same budget.",
+      "request": {
+        "request_id": "37ca1f2a-54a1-4f45-a298-8c55bf79da4e",
+        "retry": false,
+        "turn": {
+          "message": "Try blue, keeping the beach wedding and the same budget.",
+          "collection": {
+            "choice": "Women",
+            "current": {
+              "choice": "Women",
+              "source": "explicit"
+            },
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": "Women",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": null,
+              "occasion": "Beach Wedding",
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 200,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": [
+              {
+                "product_id": "P1178",
+                "product_name": "Navy Maxi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Maxi Dress",
+                "price_aud": 95
+              },
+              {
+                "product_id": "P1162",
+                "product_name": "Cream Mini Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Mini Dress",
+                "price_aud": 105
+              }
+            ]
+          },
+          "history": [
+            {
+              "role": "user",
+              "content": "I need a women's dress for a beach wedding under A$200. I don't know my size or preferred colour yet."
+            },
+            {
+              "role": "assistant",
+              "content": "I've found 2 clothing options for you to explore.\n\nThese options range from A$95.00 to A$105.00. The selection includes maxi dress and mini dress options. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+            }
+          ],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": "wedding_guest",
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "prepared_key": "yu9omv",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "far3qe",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "no_match",
+        "action": "refine",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged.\n\nOne way to broaden the search is to use \"Explore other colours\" below. That preview keeps your other restrictions and leaves your original colour request saved.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [
+              "Blue"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 200,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": "Beach Wedding",
+          "style": null,
+          "preferred_colours": [
+            "Blue"
+          ],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 200,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": true,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": "wedding_guest",
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [
+              "Blue"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 200,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": "wedding_guest",
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "far3qe",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1178",
+              "product_name": "Navy Maxi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "price_aud": 95
+            },
+            {
+              "product_id": "P1162",
+              "product_name": "Cream Mini Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Mini Dress",
+              "price_aud": 105
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I need a women's dress for a beach wedding under A$200. I don't know my size or preferred colour yet."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 clothing options for you to explore.\n\nThese options range from A$95.00 to A$105.00. The selection includes maxi dress and mini dress options. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "Try blue, keeping the beach wedding and the same budget."
+          },
+          {
+            "role": "assistant",
+            "content": "I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged.\n\nOne way to broaden the search is to use \"Explore other colours\" below. That preview keeps your other restrictions and leaves your original colour request saved."
+          }
+        ]
+      },
+      "failure": "Need 1 eligible products, but received 0 (no_match). Inspect the catalogue to distinguish stock limits from a search bug.",
+      "elapsed_ms": 5974
+    }
+  ],
+  "unexecuted_turns": 0,
+  "trial": "v1-run1",
+  "elapsed_ms": 12714,
+  "failure": "Need 1 eligible products, but received 0 (no_match). Inspect the catalogue to distinguish stock limits from a search bug.",
+  "file": "J02-v1-run1.json"
+}

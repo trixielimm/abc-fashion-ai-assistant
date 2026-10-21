@@ -21,6 +21,12 @@ try {
     assert.equal((await POST(request({ events: [{ ...event(), position: 5 }] }))).status, 503);
     assert.equal((await POST(request({ events: [{ ...event(), position: 6 }] }))).status, 400);
   });
+  await check("Complementary placement and dismissal have bounded typed metadata", async () => {
+    for (const event_type of ["impression", "offer_dismiss", "offers_pause"]) {
+      assert.equal((await POST(request({ events: [{ ...event(), event_type, placement: "complementary" }] }))).status, 503);
+    }
+    assert.equal((await POST(request({ events: [{ ...event(), placement: "private message" }] }))).status, 400);
+  });
   await check("Cross-origin telemetry is rejected", async () => assert.equal((await POST(request(undefined, { origin: "https://other.example" }))).status, 403));
   await check("Requests without a usable origin are rejected", async () => assert.equal((await POST(request(undefined, { origin: "null" }))).status, 403));
   await check("Unsupported content types are rejected", async () => assert.equal((await POST(request(undefined, { "content-type": "text/plain" }))).status, 415));

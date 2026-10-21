@@ -1,0 +1,1258 @@
+{
+  "id": "J42",
+  "name": "Returns and payment policy boundaries",
+  "mode": "live",
+  "variant": 1,
+  "status": "AUTO_PASS",
+  "human_review": "PENDING",
+  "review": [
+    "Check that the answers are useful and address every part of the request.",
+    "Check the current policy source; unsupported postage and payment answers must remain unknown."
+  ],
+  "expected": "Use the stated 30-day returns policy without inventing fees or payment methods.",
+  "turns": [
+    {
+      "number": 1,
+      "checks": [
+        {
+          "path": "state.scopes.item.category",
+          "op": "eq",
+          "value": "Bags"
+        },
+        {
+          "path": "state.scopes.item.preferred_colours",
+          "op": "eq",
+          "value": [
+            "Black"
+          ]
+        },
+        {
+          "path": "state.scopes.item.max_price",
+          "op": "eq",
+          "value": 150
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "Show me black bags under A$150.",
+      "request": {
+        "request_id": "46608bff-051e-4368-9ddd-f7a26041e625",
+        "retry": false,
+        "turn": {
+          "message": "Show me black bags under A$150.",
+          "collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": []
+          },
+          "history": [],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "prepared_key": "",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "qisd63",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "matches",
+        "action": "new_search",
+        "discovery": null,
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I've found 4 black bag options for you to explore.\n\nThese options range from A$75.00 to A$150.00. The selection includes shoulder bag, envelope clutch and sling bag options. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Bags",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [
+            "Black"
+          ],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1260",
+            "product_name": "Black Shoulder Bag",
+            "price_aud": 90,
+            "category": "Bags",
+            "subcategory": "Handbags",
+            "product_type": "Shoulder Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Black",
+            "occasion": "Travel",
+            "style": "Romantic",
+            "sizes_available": [
+              "One Size"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1260/image"
+          },
+          {
+            "product_id": "P1163",
+            "product_name": "Black Envelope Clutch",
+            "price_aud": 140,
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Envelope Clutch",
+            "brand_line": "ABC Accessories",
+            "colour": "Black",
+            "occasion": "Wedding Guest",
+            "style": "Romantic",
+            "sizes_available": [
+              "One Size"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Clothing",
+            "image_src": "/api/products/P1163/image"
+          },
+          {
+            "product_id": "P1050",
+            "product_name": "Black Sling Bag",
+            "price_aud": 150,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Sling Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Black",
+            "occasion": "Work",
+            "style": "Streetwear",
+            "sizes_available": [
+              "One Size"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1050/image"
+          },
+          {
+            "product_id": "P1190",
+            "product_name": "Black Crossbody Bag",
+            "price_aud": 75,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Crossbody Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Black",
+            "occasion": "Wedding Guest",
+            "style": "Minimalist",
+            "sizes_available": [
+              "One Size"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1190/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "qisd63",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1260",
+              "product_name": "Black Shoulder Bag",
+              "category": "Bags",
+              "subcategory": "Handbags",
+              "product_type": "Shoulder Bag",
+              "price_aud": 90
+            },
+            {
+              "product_id": "P1163",
+              "product_name": "Black Envelope Clutch",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Envelope Clutch",
+              "price_aud": 140
+            },
+            {
+              "product_id": "P1050",
+              "product_name": "Black Sling Bag",
+              "category": "Bags",
+              "subcategory": "Crossbody",
+              "product_type": "Sling Bag",
+              "price_aud": 150
+            },
+            {
+              "product_id": "P1190",
+              "product_name": "Black Crossbody Bag",
+              "category": "Bags",
+              "subcategory": "Crossbody",
+              "product_type": "Crossbody Bag",
+              "price_aud": 75
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me black bags under A$150."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 4 black bag options for you to explore.\n\nThese options range from A$75.00 to A$150.00. The selection includes shoulder bag, envelope clutch and sling bag options. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "elapsed_ms": 5701
+    },
+    {
+      "number": 2,
+      "checks": [
+        {
+          "path": "reply.status",
+          "op": "eq",
+          "value": "answered"
+        },
+        {
+          "path": "state.scopes",
+          "op": "eq",
+          "value": {
+            "ref": "before.scopes"
+          }
+        },
+        {
+          "path": "state.context.latest",
+          "op": "eq",
+          "value": {
+            "ref": "before.context.latest"
+          }
+        },
+        {
+          "path": "reply.answer_product_ids",
+          "op": "setEq",
+          "value": [
+            {
+              "ref": "bindings.bag.product_id"
+            }
+          ]
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "Can I return Black Shoulder Bag? Is return postage free?",
+      "request": {
+        "request_id": "fb45257d-5f17-46c6-bc2f-2b8278940bcd",
+        "retry": false,
+        "turn": {
+          "message": "Can I return Black Shoulder Bag? Is return postage free?",
+          "collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": null,
+              "category": "Bags",
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [
+                "Black"
+              ],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 150,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": [
+              {
+                "product_id": "P1260",
+                "product_name": "Black Shoulder Bag",
+                "category": "Bags",
+                "subcategory": "Handbags",
+                "product_type": "Shoulder Bag",
+                "price_aud": 90
+              },
+              {
+                "product_id": "P1163",
+                "product_name": "Black Envelope Clutch",
+                "category": "Bags",
+                "subcategory": "Clutches",
+                "product_type": "Envelope Clutch",
+                "price_aud": 140
+              },
+              {
+                "product_id": "P1050",
+                "product_name": "Black Sling Bag",
+                "category": "Bags",
+                "subcategory": "Crossbody",
+                "product_type": "Sling Bag",
+                "price_aud": 150
+              },
+              {
+                "product_id": "P1190",
+                "product_name": "Black Crossbody Bag",
+                "category": "Bags",
+                "subcategory": "Crossbody",
+                "product_type": "Crossbody Bag",
+                "price_aud": 75
+              }
+            ]
+          },
+          "history": [
+            {
+              "role": "user",
+              "content": "Show me black bags under A$150."
+            },
+            {
+              "role": "assistant",
+              "content": "I've found 4 black bag options for you to explore.\n\nThese options range from A$75.00 to A$150.00. The selection includes shoulder bag, envelope clutch and sling bag options. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+            }
+          ],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "prepared_key": "qisd63",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "hsgba8",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "answered",
+        "action": "none",
+        "discovery": null,
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "Returns are accepted within 30 days of delivery. The published copy doesn't specify item eligibility, return postage, exchanges or refund processing times, so I can't confirm those details.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "Black Shoulder Bag: catalogue details",
+            "url": "/products/P1260"
+          },
+          {
+            "label": "Published delivery and returns copy",
+            "url": "/products/P1260#delivery-returns"
+          }
+        ],
+        "answer_product_ids": [
+          "P1260"
+        ],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "hsgba8",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": {
+            "product_id": "P1260",
+            "product_name": "Black Shoulder Bag",
+            "category": "Bags",
+            "subcategory": "Handbags",
+            "product_type": "Shoulder Bag",
+            "price_aud": 90
+          },
+          "latest": [
+            {
+              "product_id": "P1260",
+              "product_name": "Black Shoulder Bag",
+              "category": "Bags",
+              "subcategory": "Handbags",
+              "product_type": "Shoulder Bag",
+              "price_aud": 90
+            },
+            {
+              "product_id": "P1163",
+              "product_name": "Black Envelope Clutch",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Envelope Clutch",
+              "price_aud": 140
+            },
+            {
+              "product_id": "P1050",
+              "product_name": "Black Sling Bag",
+              "category": "Bags",
+              "subcategory": "Crossbody",
+              "product_type": "Sling Bag",
+              "price_aud": 150
+            },
+            {
+              "product_id": "P1190",
+              "product_name": "Black Crossbody Bag",
+              "category": "Bags",
+              "subcategory": "Crossbody",
+              "product_type": "Crossbody Bag",
+              "price_aud": 75
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me black bags under A$150."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 4 black bag options for you to explore.\n\nThese options range from A$75.00 to A$150.00. The selection includes shoulder bag, envelope clutch and sling bag options. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "Can I return Black Shoulder Bag? Is return postage free?"
+          },
+          {
+            "role": "assistant",
+            "content": "Returns are accepted within 30 days of delivery. The published copy doesn't specify item eligibility, return postage, exchanges or refund processing times, so I can't confirm those details."
+          }
+        ]
+      },
+      "elapsed_ms": 4077
+    },
+    {
+      "number": 3,
+      "checks": [
+        {
+          "path": "reply.status",
+          "op": "eq",
+          "value": "answered"
+        },
+        {
+          "path": "state.scopes",
+          "op": "eq",
+          "value": {
+            "ref": "before.scopes"
+          }
+        },
+        {
+          "path": "state.context.latest",
+          "op": "eq",
+          "value": {
+            "ref": "before.context.latest"
+          }
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "Do you accept PayPal?",
+      "request": {
+        "request_id": "ad1829d8-1653-47bf-b24d-a59d1052ce62",
+        "retry": false,
+        "turn": {
+          "message": "Do you accept PayPal?",
+          "collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": null,
+              "category": "Bags",
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [
+                "Black"
+              ],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 150,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": {
+              "product_id": "P1260",
+              "product_name": "Black Shoulder Bag",
+              "category": "Bags",
+              "subcategory": "Handbags",
+              "product_type": "Shoulder Bag",
+              "price_aud": 90
+            },
+            "latest": [
+              {
+                "product_id": "P1260",
+                "product_name": "Black Shoulder Bag",
+                "category": "Bags",
+                "subcategory": "Handbags",
+                "product_type": "Shoulder Bag",
+                "price_aud": 90
+              },
+              {
+                "product_id": "P1163",
+                "product_name": "Black Envelope Clutch",
+                "category": "Bags",
+                "subcategory": "Clutches",
+                "product_type": "Envelope Clutch",
+                "price_aud": 140
+              },
+              {
+                "product_id": "P1050",
+                "product_name": "Black Sling Bag",
+                "category": "Bags",
+                "subcategory": "Crossbody",
+                "product_type": "Sling Bag",
+                "price_aud": 150
+              },
+              {
+                "product_id": "P1190",
+                "product_name": "Black Crossbody Bag",
+                "category": "Bags",
+                "subcategory": "Crossbody",
+                "product_type": "Crossbody Bag",
+                "price_aud": 75
+              }
+            ]
+          },
+          "history": [
+            {
+              "role": "user",
+              "content": "Show me black bags under A$150."
+            },
+            {
+              "role": "assistant",
+              "content": "I've found 4 black bag options for you to explore.\n\nThese options range from A$75.00 to A$150.00. The selection includes shoulder bag, envelope clutch and sling bag options. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+            },
+            {
+              "role": "user",
+              "content": "Can I return Black Shoulder Bag? Is return postage free?"
+            },
+            {
+              "role": "assistant",
+              "content": "Returns are accepted within 30 days of delivery. The published copy doesn't specify item eligibility, return postage, exchanges or refund processing times, so I can't confirm those details."
+            }
+          ],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "prepared_key": "hsgba8",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "11z279l",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "answered",
+        "action": "none",
+        "discovery": null,
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I don't have verified payment-method, discount or promotion information, so I can't confirm those details.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "Published delivery and returns copy",
+            "url": "/products/P1260#delivery-returns"
+          }
+        ],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Black"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 150,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "11z279l",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": {
+            "product_id": "P1260",
+            "product_name": "Black Shoulder Bag",
+            "category": "Bags",
+            "subcategory": "Handbags",
+            "product_type": "Shoulder Bag",
+            "price_aud": 90
+          },
+          "latest": [
+            {
+              "product_id": "P1260",
+              "product_name": "Black Shoulder Bag",
+              "category": "Bags",
+              "subcategory": "Handbags",
+              "product_type": "Shoulder Bag",
+              "price_aud": 90
+            },
+            {
+              "product_id": "P1163",
+              "product_name": "Black Envelope Clutch",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Envelope Clutch",
+              "price_aud": 140
+            },
+            {
+              "product_id": "P1050",
+              "product_name": "Black Sling Bag",
+              "category": "Bags",
+              "subcategory": "Crossbody",
+              "product_type": "Sling Bag",
+              "price_aud": 150
+            },
+            {
+              "product_id": "P1190",
+              "product_name": "Black Crossbody Bag",
+              "category": "Bags",
+              "subcategory": "Crossbody",
+              "product_type": "Crossbody Bag",
+              "price_aud": 75
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me black bags under A$150."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 4 black bag options for you to explore.\n\nThese options range from A$75.00 to A$150.00. The selection includes shoulder bag, envelope clutch and sling bag options. I've kept this selection within your A$150.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "Can I return Black Shoulder Bag? Is return postage free?"
+          },
+          {
+            "role": "assistant",
+            "content": "Returns are accepted within 30 days of delivery. The published copy doesn't specify item eligibility, return postage, exchanges or refund processing times, so I can't confirm those details."
+          },
+          {
+            "role": "user",
+            "content": "Do you accept PayPal?"
+          },
+          {
+            "role": "assistant",
+            "content": "I don't have verified payment-method, discount or promotion information, so I can't confirm those details."
+          }
+        ]
+      },
+      "elapsed_ms": 2164
+    }
+  ],
+  "trial": "v1-run1",
+  "elapsed_ms": 11942,
+  "file": "J42-v1-run1.json"
+}

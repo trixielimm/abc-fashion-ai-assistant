@@ -1,0 +1,196 @@
+prerelease: 50 journeys, 50 trials. Live cases call the configured model and catalogue.
+RUN J01 v1-run1: Direct dress search and material question
+  Turn 1: AUTO_PASS (7009ms)
+  Turn 2: AUTO_PASS (2905ms)
+AUTO_PASS: J01 v1-run1
+RUN J02 v1-run1: Guided beach wedding shopping
+  Turn 1: AUTO_PASS (7390ms)
+  Turn 2: BLOCKED_CATALOGUE (5365ms) Need 1 eligible products, but received 0 (no_match). Inspect the catalogue to distinguish stock limits from a search bug.
+BLOCKED_CATALOGUE: J02 v1-run1
+RUN J03 v1-run1: Discovery from uncertainty
+  Turn 1: AUTO_PASS (2334ms)
+  Turn 2: AUTO_PASS (6952ms)
+  Turn 3: AUTO_PASS (6894ms)
+AUTO_PASS: J03 v1-run1
+RUN J04 v1-run1: Browse with unknown size and budget
+  Turn 1: AUTO_PASS (6231ms)
+  Turn 2: AUTO_PASS (5382ms)
+AUTO_PASS: J04 v1-run1
+RUN J05 v1-run1: Work dress search
+  Turn 1: AUTO_PASS (6555ms)
+  Turn 2: AUTO_PASS (3258ms)
+AUTO_PASS: J05 v1-run1
+RUN J06 v1-run1: Gift bag without clothing size
+  Turn 1: AUTO_PASS (6880ms)
+  Turn 2: AUTO_PASS (3304ms)
+AUTO_PASS: J06 v1-run1
+RUN J07 v1-run1: Single accessory scope
+  Turn 1: BLOCKED_CATALOGUE (6477ms) Need 1 eligible products, but received 0 (no_match). Inspect the catalogue to distinguish stock limits from a search bug.
+BLOCKED_CATALOGUE: J07 v1-run1
+RUN J08 v1-run1: Shoe search before size selection
+  Turn 1: AUTO_PASS (8638ms)
+  Turn 2: AUTO_PASS (2688ms)
+AUTO_PASS: J08 v1-run1
+RUN J09 v1-run1: Mens shirts
+  Turn 1: AUTO_PASS (6756ms)
+  Turn 2: AUTO_PASS (5288ms)
+AUTO_PASS: J09 v1-run1
+RUN J10 v1-run1: Both collections and a compound answer
+  Turn 1: AUTO_PASS (3640ms)
+  Turn 2: AUTO_PASS (6744ms)
+AUTO_PASS: J10 v1-run1
+RUN J11 v1-run1: Dress default collection
+  Turn 1: AUTO_PASS (6601ms)
+  Turn 2: AUTO_PASS (5239ms)
+AUTO_PASS: J11 v1-run1
+RUN J12 v1-run1: Skirt family mapping
+  Turn 1: AUTO_PASS (6826ms)
+  Turn 2: AUTO_PASS (5465ms)
+AUTO_PASS: J12 v1-run1
+RUN J13 v1-run1: Dress shirt is a shirt
+  Turn 1: AUTO_PASS (3996ms)
+  Turn 2: AUTO_PASS (3913ms)
+AUTO_PASS: J13 v1-run1
+RUN J14 v1-run1: Category switch clears clothing size
+  Turn 1: BLOCKED_CATALOGUE (7124ms) Need 1 eligible products, but received 0 (no_match). Inspect the catalogue to distinguish stock limits from a search bug.
+BLOCKED_CATALOGUE: J14 v1-run1
+RUN J15 v1-run1: Travel layers and total budget
+  Turn 1: AUTO_PASS (6604ms)
+  Turn 2: AUTO_PASS (6701ms)
+AUTO_PASS: J15 v1-run1
+RUN J16 v1-run1: Colour edit preserves size and budget
+  Turn 1: BLOCKED_CATALOGUE (6812ms) Need 1 eligible products, but received 0 (no_match). Inspect the catalogue to distinguish stock limits from a search bug.
+BLOCKED_CATALOGUE: J16 v1-run1
+RUN J17 v1-run1: Budget edit preserves item and occasion
+  Turn 1: AUTO_PASS (6024ms)
+  Turn 2: AUTO_PASS (4636ms)
+AUTO_PASS: J17 v1-run1
+RUN J18 v1-run1: Shoe size correction after invalid input
+  Turn 1: AUTO_PASS (6234ms)
+  Turn 2: AUTO_PASS (6302ms)
+AUTO_PASS: J18 v1-run1
+RUN J19 v1-run1: Reject an item permanently within the chat
+  Turn 1: AUTO_PASS (5479ms)
+  Turn 2: AUTO_PASS (3236ms)
+  Turn 3: AUTO_PASS (4854ms)
+AUTO_PASS: J19 v1-run1
+RUN J20 v1-run1: Cheaper alternatives use reference price
+  Turn 1: AUTO_PASS (5777ms)
+  Turn 2: AUTO_PASS (5268ms)
+AUTO_PASS: J20 v1-run1
+RUN J21 v1-run1: Broaden colour only with permission
+  Turn 1: BLOCKED_CATALOGUE (5120ms) Need 1 eligible products, but received 0 (no_match). Inspect the catalogue to distinguish stock limits from a search bug.
+BLOCKED_CATALOGUE: J21 v1-run1
+RUN J22 v1-run1: Shared colour exclusion survives category change
+  Turn 1: AUTO_PASS (6429ms)
+  Turn 2: AUTO_PASS (9892ms)
+AUTO_PASS: J22 v1-run1
+RUN J23 v1-run1: Compound colour, budget and comparison request
+  Turn 1: AUTO_PASS (5993ms)
+  Turn 2: BLOCKED_CATALOGUE (7573ms) Need 1 eligible products, but received 0 (no_match). Inspect the catalogue to distinguish stock limits from a search bug.
+BLOCKED_CATALOGUE: J23 v1-run1
+RUN J24 v1-run1: Unclear input does not erase useful memory
+  Turn 1: AUTO_PASS (5754ms)
+  Turn 2: AUTO_PASS (2415ms)
+  Turn 3: AUTO_PASS (3083ms)
+AUTO_PASS: J24 v1-run1
+RUN J25 v1-run1: Short reference after a policy interruption
+  Turn 1: AUTO_PASS (6603ms)
+  Turn 2: AUTO_PASS (3626ms)
+  Turn 3: AUTO_PASS (2110ms)
+  Turn 4: AUTO_PASS (2516ms)
+AUTO_PASS: J25 v1-run1
+RUN J26 v1-run1: Dress and shoes share one total
+  Turn 1: AUTO_PASS (6420ms)
+  Turn 2: AUTO_PASS (7813ms)
+AUTO_PASS: J26 v1-run1
+RUN J27 v1-run1: Three-piece outfit total
+  Turn 1: AUTO_PASS (6674ms)
+  Turn 2: AUTO_PASS (558ms)
+AUTO_PASS: J27 v1-run1
+RUN J28 v1-run1: Separate dress and shoe sizes
+  Turn 1: BLOCKED_CATALOGUE (6932ms) Need 2 eligible products, but received 0 (no_match). Inspect the catalogue to distinguish stock limits from a search bug.
+BLOCKED_CATALOGUE: J28 v1-run1
+RUN J29 v1-run1: Selected purchase consumes remaining budget
+  Turn 1: AUTO_PASS (6465ms)
+  Turn 2: AUTO_PASS (3080ms)
+  Turn 3: AUTO_PASS (7799ms)
+AUTO_PASS: J29 v1-run1
+RUN J30 v1-run1: Owned catalogue dress costs zero
+  Turn 1: AUTO_PASS (6786ms)
+  Turn 2: AUTO_PASS (2788ms)
+  Turn 3: AUTO_PASS (6641ms)
+AUTO_PASS: J30 v1-run1
+RUN J31 v1-run1: Style an external owned garment
+  Turn 1: AUTO_PASS (7257ms)
+  Turn 2: AUTO_PASS (7166ms)
+AUTO_PASS: J31 v1-run1
+RUN J32 v1-run1: One-word answer to a combined-budget question
+  Turn 1: AUTO_PASS (7920ms)
+  Turn 2: AUTO_PASS (2352ms)
+AUTO_PASS: J32 v1-run1
+RUN J33 v1-run1: Matching shirt and bottoms with an owned jacket
+  Turn 1: AUTO_PASS (14149ms)
+  Turn 2: AUTO_PASS (18836ms)
+AUTO_PASS: J33 v1-run1
+RUN J34 v1-run1: Review a kept outfit without changing it
+  Turn 1: AUTO_PASS (7606ms)
+  Turn 2: AUTO_PASS (3640ms)
+  Turn 3: AUTO_PASS (2946ms)
+AUTO_PASS: J34 v1-run1
+RUN J35 v1-run1: Replace a grouped task with a single item
+  Turn 1: AUTO_PASS (7883ms)
+  Turn 2: AUTO_PASS (5622ms)
+AUTO_PASS: J35 v1-run1
+RUN J36 v1-run1: Compare two displayed products
+  Turn 1: AUTO_PASS (5735ms)
+  Turn 2: AUTO_PASS (3391ms)
+AUTO_PASS: J36 v1-run1
+RUN J37 v1-run1: Missing product reference asks for clarification
+  Turn 1: AUTO_PASS (2545ms)
+  Turn 2: AUTO_PASS (6413ms)
+AUTO_PASS: J37 v1-run1
+RUN J38 v1-run1: Strict no-match keeps every limit
+  Turn 1: AUTO_PASS (5575ms)
+  Turn 2: AUTO_PASS (5112ms)
+AUTO_PASS: J38 v1-run1
+RUN J39 v1-run1: Unknown delivery date stays unknown
+  Turn 1: AUTO_PASS (6164ms)
+  Turn 2: AUTO_PASS (3199ms)
+  Turn 3: AUTO_PASS (6014ms)
+AUTO_PASS: J39 v1-run1
+RUN J40 v1-run1: Listed sizes are not guaranteed fit or stock
+  Turn 1: AUTO_PASS (6778ms)
+  Turn 2: AUTO_PASS (2910ms)
+AUTO_PASS: J40 v1-run1
+RUN J41 v1-run1: Comfort and care require evidence
+  Turn 1: AUTO_PASS (6517ms)
+  Turn 2: AUTO_PASS (3658ms)
+AUTO_PASS: J41 v1-run1
+RUN J42 v1-run1: Returns and payment policy boundaries
+  Turn 1: AUTO_PASS (5701ms)
+  Turn 2: AUTO_PASS (4077ms)
+  Turn 3: AUTO_PASS (2164ms)
+AUTO_PASS: J42 v1-run1
+RUN J43 v1-run1: Unknown requirements survive provisional browsing
+  Turn 1: AUTO_PASS (3401ms)
+  Turn 2: AUTO_PASS (8789ms)
+AUTO_PASS: J43 v1-run1
+RUN J44 v1-run1: Shared rule conflict needs explicit resolution
+  Turn 1: BLOCKED_CATALOGUE (7940ms) Need 1 eligible products, but received 0 (no_match). Inspect the catalogue to distinguish stock limits from a search bug.
+BLOCKED_CATALOGUE: J44 v1-run1
+RUN J45 v1-run1: Instruction injection cannot override shopping rules
+  Turn 1: BLOCKED_CATALOGUE (5505ms) Need 1 eligible products, but received 0 (no_match). Inspect the catalogue to distinguish stock limits from a search bug.
+BLOCKED_CATALOGUE: J45 v1-run1
+RUN J46 fault: Timeout followed by a successful retry
+AUTO_PASS: J46 fault
+RUN J47 fault: Catalogue failure reuses the validated plan
+AUTO_PASS: J47 fault
+RUN J48 fault: Duplicate submission and request-ID conflict
+AUTO_PASS: J48 fault
+RUN J49 fault: Cancel a request and continue shopping
+AUTO_PASS: J49 fault
+RUN J50 fault: New chat and server restart boundaries
+AUTO_PASS: J50 fault
+Results: {"AUTO_PASS":41,"FAIL":0,"ERROR":0,"BLOCKED_CATALOGUE":9}. Human reviews pending: 50.
+Evidence: /Users/salvi/MQ/abc-fashion-ai-assistant/docs/test-evidence/stylist-journeys/2026-10-21-remediation-prerelease-verified

@@ -1,0 +1,1638 @@
+{
+  "id": "J27",
+  "name": "Three-piece outfit total",
+  "mode": "live",
+  "variant": 1,
+  "status": "AUTO_PASS",
+  "human_review": "PENDING",
+  "review": [
+    "Check that the answers are useful and address every part of the request."
+  ],
+  "expected": "Show all three groups, then calculate the named combination without selecting it.",
+  "turns": [
+    {
+      "number": 1,
+      "checks": [
+        {
+          "path": "state.styling.outfit_request.total_budget_aud",
+          "op": "eq",
+          "value": 500
+        },
+        {
+          "path": "state.styling.outfit_request.items.length",
+          "op": "eq",
+          "value": 3
+        },
+        {
+          "path": "reply.status",
+          "op": "oneOf",
+          "value": [
+            "matches",
+            "partial",
+            "alternatives",
+            "no_match"
+          ]
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "Find a women's dress, shoes and bag for formal events under A$500 total.",
+      "request": {
+        "request_id": "74b59c8e-daf9-40e3-8faa-70444e0dd85a",
+        "retry": false,
+        "turn": {
+          "message": "Find a women's dress, shoes and bag for formal events under A$500 total.",
+          "collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": []
+          },
+          "history": [],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "prepared_key": "",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "uhcq1w",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 500,
+            "budget_evidence": "Find a women's dress, shoes and bag for formal events under A$500 total.",
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": {
+          "limit_aud": 500,
+          "total_aud": 185,
+          "remaining_aud": 315,
+          "items": [
+            {
+              "product_id": "P1021",
+              "preferences": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "product_id": "P1085",
+              "preferences": {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "product_id": "P1167",
+              "preferences": {
+                "gender": "Women",
+                "category": "Bags",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ]
+        },
+        "outfit_choices": {
+          "groups": [
+            {
+              "label": "Dresses",
+              "product_ids": [
+                "P1021",
+                "P1235",
+                "P1214"
+              ],
+              "preferences": {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "label": "Shoes",
+              "product_ids": [
+                "P1085",
+                "P1212",
+                "P1138",
+                "P1045"
+              ],
+              "preferences": {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "label": "Bags",
+              "product_ids": [
+                "P1167",
+                "P1240",
+                "P1061",
+                "P1142"
+              ],
+              "preferences": {
+                "gender": "Women",
+                "category": "Bags",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Formal",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ],
+          "maximum_total_aud": 475
+        },
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "matches",
+        "action": "new_search",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "Here are choices for dresses and shoes and bags. Choose one item from each group; every displayed combination stays within your A$500.00 combined budget. Combinations range from A$185.00 to A$475.00.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Formal",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1021",
+            "product_name": "Cream Slip Dress",
+            "price_aud": 75,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Slip Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Cream",
+            "occasion": "Formal",
+            "style": "Contemporary",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1021/image"
+          },
+          {
+            "product_id": "P1235",
+            "product_name": "Sage Midi Dress",
+            "price_aud": 135,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Midi Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Sage",
+            "occasion": "Formal",
+            "style": "Relaxed",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1235/image"
+          },
+          {
+            "product_id": "P1214",
+            "product_name": "Pink Mini Dress",
+            "price_aud": 160,
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": "Mini Dress",
+            "brand_line": "ABC Occasion",
+            "colour": "Pink",
+            "occasion": "Formal",
+            "style": "Romantic",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1214/image"
+          },
+          {
+            "product_id": "P1085",
+            "product_name": "Red Block Heels",
+            "price_aud": 60,
+            "category": "Shoes",
+            "subcategory": "Heels",
+            "product_type": "Block Heels",
+            "brand_line": "ABC Footwear",
+            "colour": "Red",
+            "occasion": "Formal",
+            "style": "Contemporary",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1085/image"
+          },
+          {
+            "product_id": "P1212",
+            "product_name": "Grey Loafers",
+            "price_aud": 90,
+            "category": "Shoes",
+            "subcategory": "Flats",
+            "product_type": "Loafers",
+            "brand_line": "ABC Footwear",
+            "colour": "Grey",
+            "occasion": "Formal",
+            "style": "Minimalist",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1212/image"
+          },
+          {
+            "product_id": "P1138",
+            "product_name": "Blue Strappy Heels",
+            "price_aud": 145,
+            "category": "Shoes",
+            "subcategory": "Heels",
+            "product_type": "Strappy Heels",
+            "brand_line": "ABC Footwear",
+            "colour": "Blue",
+            "occasion": "Formal",
+            "style": "Elegant",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Clothing",
+            "image_src": "/api/products/P1138/image"
+          },
+          {
+            "product_id": "P1045",
+            "product_name": "Sage Loafers",
+            "price_aud": 175,
+            "category": "Shoes",
+            "subcategory": "Flats",
+            "product_type": "Loafers",
+            "brand_line": "ABC Footwear",
+            "colour": "Sage",
+            "occasion": "Formal",
+            "style": "Smart",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1045/image"
+          },
+          {
+            "product_id": "P1167",
+            "product_name": "Silver Envelope Clutch",
+            "price_aud": 50,
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Envelope Clutch",
+            "brand_line": "ABC Accessories",
+            "colour": "Silver",
+            "occasion": "Formal",
+            "style": "Romantic",
+            "sizes_available": [
+              "One Size"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Clothing",
+            "image_src": "/api/products/P1167/image"
+          },
+          {
+            "product_id": "P1240",
+            "product_name": "Gold Sling Bag",
+            "price_aud": 55,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Sling Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Gold",
+            "occasion": "Formal",
+            "style": "Contemporary",
+            "sizes_available": [
+              "One Size"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1240/image"
+          },
+          {
+            "product_id": "P1061",
+            "product_name": "Silver Crossbody Bag",
+            "price_aud": 140,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Crossbody Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Silver",
+            "occasion": "Formal",
+            "style": "Romantic",
+            "sizes_available": [
+              "One Size"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Clothing",
+            "image_src": "/api/products/P1061/image"
+          },
+          {
+            "product_id": "P1142",
+            "product_name": "Gold Envelope Clutch",
+            "price_aud": 135,
+            "category": "Bags",
+            "subcategory": "Clutches",
+            "product_type": "Envelope Clutch",
+            "brand_line": "ABC Accessories",
+            "colour": "Gold",
+            "occasion": "Formal",
+            "style": "Elegant",
+            "sizes_available": [
+              "One Size"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1142/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 500,
+            "items": [
+              {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": "Women",
+                "category": "Bags",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "Find a women's dress, shoes and bag for formal events under A$500 total."
+          },
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 500,
+            "items": [
+              {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": "Women",
+                "category": "Bags",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "Find a women's dress, shoes and bag for formal events under A$500 total."
+          },
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "uhcq1w",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 500,
+            "budget_evidence": "Find a women's dress, shoes and bag for formal events under A$500 total.",
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1021",
+              "product_name": "Cream Slip Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Slip Dress",
+              "price_aud": 75
+            },
+            {
+              "product_id": "P1235",
+              "product_name": "Sage Midi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 135
+            },
+            {
+              "product_id": "P1214",
+              "product_name": "Pink Mini Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Mini Dress",
+              "price_aud": 160
+            },
+            {
+              "product_id": "P1085",
+              "product_name": "Red Block Heels",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Block Heels",
+              "price_aud": 60
+            },
+            {
+              "product_id": "P1212",
+              "product_name": "Grey Loafers",
+              "category": "Shoes",
+              "subcategory": "Flats",
+              "product_type": "Loafers",
+              "price_aud": 90
+            },
+            {
+              "product_id": "P1138",
+              "product_name": "Blue Strappy Heels",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Strappy Heels",
+              "price_aud": 145
+            },
+            {
+              "product_id": "P1045",
+              "product_name": "Sage Loafers",
+              "category": "Shoes",
+              "subcategory": "Flats",
+              "product_type": "Loafers",
+              "price_aud": 175
+            },
+            {
+              "product_id": "P1167",
+              "product_name": "Silver Envelope Clutch",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Envelope Clutch",
+              "price_aud": 50
+            },
+            {
+              "product_id": "P1240",
+              "product_name": "Gold Sling Bag",
+              "category": "Bags",
+              "subcategory": "Crossbody",
+              "product_type": "Sling Bag",
+              "price_aud": 55
+            },
+            {
+              "product_id": "P1061",
+              "product_name": "Silver Crossbody Bag",
+              "category": "Bags",
+              "subcategory": "Crossbody",
+              "product_type": "Crossbody Bag",
+              "price_aud": 140
+            },
+            {
+              "product_id": "P1142",
+              "product_name": "Gold Envelope Clutch",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Envelope Clutch",
+              "price_aud": 135
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Find a women's dress, shoes and bag for formal events under A$500 total."
+          },
+          {
+            "role": "assistant",
+            "content": "Here are choices for dresses and shoes and bags. Choose one item from each group; every displayed combination stays within your A$500.00 combined budget. Combinations range from A$185.00 to A$475.00."
+          }
+        ]
+      },
+      "elapsed_ms": 7817
+    },
+    {
+      "number": 2,
+      "checks": [
+        {
+          "path": "reply.status",
+          "op": "eq",
+          "value": "answered"
+        },
+        {
+          "path": "state.scopes",
+          "op": "eq",
+          "value": {
+            "ref": "before.scopes"
+          }
+        },
+        {
+          "path": "state.context.latest",
+          "op": "eq",
+          "value": {
+            "ref": "before.context.latest"
+          }
+        },
+        {
+          "path": "reply.answer_product_ids",
+          "op": "setEq",
+          "value": [
+            {
+              "ref": "bindings.dress.product_id"
+            },
+            {
+              "ref": "bindings.shoe.product_id"
+            },
+            {
+              "ref": "bindings.bag.product_id"
+            }
+          ]
+        },
+        {
+          "path": "reply.combination_summary",
+          "op": "truthy",
+          "value": true
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "What is the total for Cream Slip Dress, Red Block Heels and Silver Envelope Clutch?",
+      "request": {
+        "request_id": "a24beb5f-f266-4026-8f54-15a3ad6835f7",
+        "retry": false,
+        "turn": {
+          "message": "What is the total for Cream Slip Dress, Red Block Heels and Silver Envelope Clutch?",
+          "collection": {
+            "choice": "Women",
+            "current": {
+              "choice": "Women",
+              "source": "explicit"
+            },
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": "Women",
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": "Formal",
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": [
+              {
+                "product_id": "P1021",
+                "product_name": "Cream Slip Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Slip Dress",
+                "price_aud": 75
+              },
+              {
+                "product_id": "P1235",
+                "product_name": "Sage Midi Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Midi Dress",
+                "price_aud": 135
+              },
+              {
+                "product_id": "P1214",
+                "product_name": "Pink Mini Dress",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": "Mini Dress",
+                "price_aud": 160
+              },
+              {
+                "product_id": "P1085",
+                "product_name": "Red Block Heels",
+                "category": "Shoes",
+                "subcategory": "Heels",
+                "product_type": "Block Heels",
+                "price_aud": 60
+              },
+              {
+                "product_id": "P1212",
+                "product_name": "Grey Loafers",
+                "category": "Shoes",
+                "subcategory": "Flats",
+                "product_type": "Loafers",
+                "price_aud": 90
+              },
+              {
+                "product_id": "P1138",
+                "product_name": "Blue Strappy Heels",
+                "category": "Shoes",
+                "subcategory": "Heels",
+                "product_type": "Strappy Heels",
+                "price_aud": 145
+              },
+              {
+                "product_id": "P1045",
+                "product_name": "Sage Loafers",
+                "category": "Shoes",
+                "subcategory": "Flats",
+                "product_type": "Loafers",
+                "price_aud": 175
+              },
+              {
+                "product_id": "P1167",
+                "product_name": "Silver Envelope Clutch",
+                "category": "Bags",
+                "subcategory": "Clutches",
+                "product_type": "Envelope Clutch",
+                "price_aud": 50
+              },
+              {
+                "product_id": "P1240",
+                "product_name": "Gold Sling Bag",
+                "category": "Bags",
+                "subcategory": "Crossbody",
+                "product_type": "Sling Bag",
+                "price_aud": 55
+              },
+              {
+                "product_id": "P1061",
+                "product_name": "Silver Crossbody Bag",
+                "category": "Bags",
+                "subcategory": "Crossbody",
+                "product_type": "Crossbody Bag",
+                "price_aud": 140
+              },
+              {
+                "product_id": "P1142",
+                "product_name": "Gold Envelope Clutch",
+                "category": "Bags",
+                "subcategory": "Clutches",
+                "product_type": "Envelope Clutch",
+                "price_aud": 135
+              }
+            ]
+          },
+          "history": [
+            {
+              "role": "user",
+              "content": "Find a women's dress, shoes and bag for formal events under A$500 total."
+            },
+            {
+              "role": "assistant",
+              "content": "Here are choices for dresses and shoes and bags. Choose one item from each group; every displayed combination stays within your A$500.00 combined budget. Combinations range from A$185.00 to A$475.00."
+            }
+          ],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": {
+              "total_budget_aud": 500,
+              "items": [
+                {
+                  "gender": "Women",
+                  "category": "Clothing",
+                  "subcategory": "Dresses",
+                  "product_type": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "size": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                },
+                {
+                  "gender": "Women",
+                  "category": "Shoes",
+                  "subcategory": null,
+                  "product_type": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "size": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                },
+                {
+                  "gender": "Women",
+                  "category": "Bags",
+                  "subcategory": null,
+                  "product_type": null,
+                  "occasion": null,
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "size": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                }
+              ],
+              "evidence": "Find a women's dress, shoes and bag for formal events under A$500 total."
+            },
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "prepared_key": "uhcq1w",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": 500,
+              "budget_evidence": "Find a women's dress, shoes and bag for formal events under A$500 total.",
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "14m2eqr",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 500,
+            "budget_evidence": "Find a women's dress, shoes and bag for formal events under A$500 total.",
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": {
+          "items": [
+            {
+              "product_id": "P1021",
+              "quantity": 1,
+              "unit_price_aud": 75,
+              "owned": false
+            },
+            {
+              "product_id": "P1085",
+              "quantity": 1,
+              "unit_price_aud": 60,
+              "owned": false
+            },
+            {
+              "product_id": "P1167",
+              "quantity": 1,
+              "unit_price_aud": 50,
+              "owned": false
+            }
+          ],
+          "purchase_total_aud": 185,
+          "limit_aud": 500,
+          "remaining_aud": 315
+        },
+        "status": "answered",
+        "action": "none",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "Cream Slip Dress: A$75.00\n\nRed Block Heels: A$60.00\n\nSilver Envelope Clutch: A$50.00\n\nThe new purchase total is A$185.00. That leaves A$315.00 of your A$500.00 combined budget. Delivery and discounts are not included.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "Cream Slip Dress: catalogue details",
+            "url": "/products/P1021"
+          },
+          {
+            "label": "Red Block Heels: catalogue details",
+            "url": "/products/P1085"
+          },
+          {
+            "label": "Silver Envelope Clutch: catalogue details",
+            "url": "/products/P1167"
+          }
+        ],
+        "answer_product_ids": [
+          "P1021",
+          "P1085",
+          "P1167"
+        ],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 500,
+            "items": [
+              {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": "Women",
+                "category": "Bags",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "Find a women's dress, shoes and bag for formal events under A$500 total."
+          },
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Formal",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 500,
+            "items": [
+              {
+                "gender": "Women",
+                "category": "Clothing",
+                "subcategory": "Dresses",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": "Women",
+                "category": "Bags",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "Find a women's dress, shoes and bag for formal events under A$500 total."
+          },
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "14m2eqr",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 500,
+            "budget_evidence": "Find a women's dress, shoes and bag for formal events under A$500 total.",
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1021",
+              "product_name": "Cream Slip Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Slip Dress",
+              "price_aud": 75
+            },
+            {
+              "product_id": "P1235",
+              "product_name": "Sage Midi Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Midi Dress",
+              "price_aud": 135
+            },
+            {
+              "product_id": "P1214",
+              "product_name": "Pink Mini Dress",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Mini Dress",
+              "price_aud": 160
+            },
+            {
+              "product_id": "P1085",
+              "product_name": "Red Block Heels",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Block Heels",
+              "price_aud": 60
+            },
+            {
+              "product_id": "P1212",
+              "product_name": "Grey Loafers",
+              "category": "Shoes",
+              "subcategory": "Flats",
+              "product_type": "Loafers",
+              "price_aud": 90
+            },
+            {
+              "product_id": "P1138",
+              "product_name": "Blue Strappy Heels",
+              "category": "Shoes",
+              "subcategory": "Heels",
+              "product_type": "Strappy Heels",
+              "price_aud": 145
+            },
+            {
+              "product_id": "P1045",
+              "product_name": "Sage Loafers",
+              "category": "Shoes",
+              "subcategory": "Flats",
+              "product_type": "Loafers",
+              "price_aud": 175
+            },
+            {
+              "product_id": "P1167",
+              "product_name": "Silver Envelope Clutch",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Envelope Clutch",
+              "price_aud": 50
+            },
+            {
+              "product_id": "P1240",
+              "product_name": "Gold Sling Bag",
+              "category": "Bags",
+              "subcategory": "Crossbody",
+              "product_type": "Sling Bag",
+              "price_aud": 55
+            },
+            {
+              "product_id": "P1061",
+              "product_name": "Silver Crossbody Bag",
+              "category": "Bags",
+              "subcategory": "Crossbody",
+              "product_type": "Crossbody Bag",
+              "price_aud": 140
+            },
+            {
+              "product_id": "P1142",
+              "product_name": "Gold Envelope Clutch",
+              "category": "Bags",
+              "subcategory": "Clutches",
+              "product_type": "Envelope Clutch",
+              "price_aud": 135
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Find a women's dress, shoes and bag for formal events under A$500 total."
+          },
+          {
+            "role": "assistant",
+            "content": "Here are choices for dresses and shoes and bags. Choose one item from each group; every displayed combination stays within your A$500.00 combined budget. Combinations range from A$185.00 to A$475.00."
+          },
+          {
+            "role": "user",
+            "content": "What is the total for Cream Slip Dress, Red Block Heels and Silver Envelope Clutch?"
+          },
+          {
+            "role": "assistant",
+            "content": "Cream Slip Dress: A$75.00\n\nRed Block Heels: A$60.00\n\nSilver Envelope Clutch: A$50.00\n\nThe new purchase total is A$185.00. That leaves A$315.00 of your A$500.00 combined budget. Delivery and discounts are not included."
+          }
+        ]
+      },
+      "elapsed_ms": 632
+    }
+  ],
+  "trial": "v1-run1",
+  "elapsed_ms": 8450,
+  "file": "J27-v1-run1.json"
+}

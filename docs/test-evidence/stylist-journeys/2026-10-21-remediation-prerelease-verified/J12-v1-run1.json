@@ -1,0 +1,871 @@
+{
+  "id": "J12",
+  "name": "Skirt family mapping",
+  "mode": "live",
+  "variant": 1,
+  "status": "AUTO_PASS",
+  "human_review": "PENDING",
+  "review": [
+    "Check that the answers are useful and address every part of the request.",
+    "Every shown bottom must actually be a skirt."
+  ],
+  "expected": "Use Clothing / Bottoms and a skirt family, not a nonexistent Skirts subcategory.",
+  "turns": [
+    {
+      "number": 1,
+      "checks": [
+        {
+          "path": "state.scopes.item.gender",
+          "op": "eq",
+          "value": "Women"
+        },
+        {
+          "path": "state.scopes.item.category",
+          "op": "eq",
+          "value": "Clothing"
+        },
+        {
+          "path": "state.scopes.item.subcategory",
+          "op": "eq",
+          "value": "Bottoms"
+        },
+        {
+          "path": "state.scopes.item.max_price",
+          "op": "eq",
+          "value": 200
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "Show me skirts for work under A$200.",
+      "request": {
+        "request_id": "c1f6ce97-8962-4a5b-aac3-56fd6edbd57d",
+        "retry": false,
+        "turn": {
+          "message": "Show me skirts for work under A$200.",
+          "collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": []
+          },
+          "history": [],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "prepared_key": "",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "aqgjq5",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "matches",
+        "action": "new_search",
+        "discovery": null,
+        "collection": {
+          "choice": null,
+          "current": {
+            "choice": "Women",
+            "source": "category_default"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I found Brown Midi Skirt for A$145.00.\n\nI've kept this selection within your A$200.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Bottoms",
+            "product_type": "Skirt",
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 200,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Bottoms",
+          "product_type": "Skirt",
+          "occasion": "Work",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 200,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1039",
+            "product_name": "Brown Midi Skirt",
+            "price_aud": 145,
+            "category": "Clothing",
+            "subcategory": "Bottoms",
+            "product_type": "Midi Skirt",
+            "brand_line": "ABC Essentials",
+            "colour": "Brown",
+            "occasion": "Work",
+            "style": "Classic",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1039/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Bottoms",
+            "product_type": "Skirt",
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 200,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": null,
+          "current": {
+            "choice": "Women",
+            "source": "category_default"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "aqgjq5",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1039",
+              "product_name": "Brown Midi Skirt",
+              "category": "Clothing",
+              "subcategory": "Bottoms",
+              "product_type": "Midi Skirt",
+              "price_aud": 145
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me skirts for work under A$200."
+          },
+          {
+            "role": "assistant",
+            "content": "I found Brown Midi Skirt for A$145.00.\n\nI've kept this selection within your A$200.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ]
+      },
+      "elapsed_ms": 6826
+    },
+    {
+      "number": 2,
+      "checks": [
+        {
+          "path": "state.scopes.item.subcategory",
+          "op": "eq",
+          "value": "Bottoms"
+        },
+        {
+          "path": "state.scopes.item.occasion",
+          "op": "eq",
+          "value": "Work"
+        },
+        {
+          "path": "state.scopes.item.max_price",
+          "op": "eq",
+          "value": 200
+        }
+      ],
+      "status": "AUTO_PASS",
+      "message": "Show cheaper skirts, keeping work.",
+      "request": {
+        "request_id": "1b454efc-bfd0-4ab9-9a2f-cca35d8048bf",
+        "retry": false,
+        "turn": {
+          "message": "Show cheaper skirts, keeping work.",
+          "collection": {
+            "choice": null,
+            "current": {
+              "choice": "Women",
+              "source": "category_default"
+            },
+            "checkpoint": null
+          },
+          "discovery": null,
+          "scopes": {
+            "item": {
+              "gender": "Women",
+              "category": "Clothing",
+              "subcategory": "Bottoms",
+              "product_type": "Skirt",
+              "occasion": "Work",
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 200,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "context": {
+            "focused": null,
+            "latest": [
+              {
+                "product_id": "P1039",
+                "product_name": "Brown Midi Skirt",
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Midi Skirt",
+                "price_aud": 145
+              }
+            ]
+          },
+          "history": [
+            {
+              "role": "user",
+              "content": "Show me skirts for work under A$200."
+            },
+            {
+              "role": "assistant",
+              "content": "I found Brown Midi Skirt for A$145.00.\n\nI've kept this selection within your A$200.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+            }
+          ],
+          "pending": null,
+          "pending_answer": null,
+          "styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "cart_product_ids": [],
+          "task": {
+            "generation": 0,
+            "prepared_key": "aqgjq5",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null
+            }
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "prepared_key": "1rpqkqa",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "alternatives",
+        "action": "cheaper",
+        "discovery": null,
+        "collection": {
+          "choice": null,
+          "current": {
+            "choice": "Women",
+            "source": "category_default"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I haven't found an exact match for all the details you mentioned, but there are some alternatives you can consider.\n\nI've kept the differences visible on each card so you can decide whether any of these would work for you.\n\nThese options range from A$75.00 to A$135.00. I've kept this selection within your A$200.00 per-item limit.\n\nYour original request is still saved. Exploring these options doesn't change it or add anything to your cart.\n\nWhy these are alternatives: Red Midi Skirt: Occasion: Travel; you requested Work. Red Midi Skirt: Occasion: Party; you requested Work.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Bottoms",
+            "product_type": "Skirt",
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 200,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Bottoms",
+          "product_type": "Skirt",
+          "occasion": "Work",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 200,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [
+          {
+            "product_id": "P1123",
+            "product_name": "Red Midi Skirt",
+            "price_aud": 120,
+            "category": "Clothing",
+            "subcategory": "Bottoms",
+            "product_type": "Midi Skirt",
+            "brand_line": "ABC Casual",
+            "colour": "Red",
+            "occasion": "Travel",
+            "style": "Bohemian",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1123/image",
+            "differences": [
+              "Occasion: Travel; you requested Work."
+            ]
+          },
+          {
+            "product_id": "P1278",
+            "product_name": "Red Midi Skirt",
+            "price_aud": 115,
+            "category": "Clothing",
+            "subcategory": "Bottoms",
+            "product_type": "Midi Skirt",
+            "brand_line": "ABC Occasion",
+            "colour": "Red",
+            "occasion": "Party",
+            "style": "Streetwear",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1278/image",
+            "differences": [
+              "Occasion: Party; you requested Work."
+            ]
+          },
+          {
+            "product_id": "P1216",
+            "product_name": "Pink Midi Skirt",
+            "price_aud": 75,
+            "category": "Clothing",
+            "subcategory": "Bottoms",
+            "product_type": "Midi Skirt",
+            "brand_line": "ABC Occasion",
+            "colour": "Pink",
+            "occasion": "Wedding Guest",
+            "style": "Minimalist",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1216/image",
+            "differences": [
+              "Occasion: Wedding Guest; you requested Work."
+            ]
+          },
+          {
+            "product_id": "P1276",
+            "product_name": "Sage Midi Skirt",
+            "price_aud": 135,
+            "category": "Clothing",
+            "subcategory": "Bottoms",
+            "product_type": "Midi Skirt",
+            "brand_line": "ABC Occasion",
+            "colour": "Sage",
+            "occasion": "Party",
+            "style": "Contemporary",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1276/image",
+            "differences": [
+              "Occasion: Party; you requested Work."
+            ]
+          }
+        ],
+        "alternatives_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Bottoms",
+          "product_type": "Skirt",
+          "occasion": "Work",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 200,
+          "brand_line": null
+        },
+        "alternative_kind": "context_difference",
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Bottoms",
+            "product_type": "Skirt",
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 200,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": null,
+          "current": {
+            "choice": "Women",
+            "source": "category_default"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "prepared_key": "1rpqkqa",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1123",
+              "product_name": "Red Midi Skirt",
+              "category": "Clothing",
+              "subcategory": "Bottoms",
+              "product_type": "Midi Skirt",
+              "price_aud": 120
+            },
+            {
+              "product_id": "P1278",
+              "product_name": "Red Midi Skirt",
+              "category": "Clothing",
+              "subcategory": "Bottoms",
+              "product_type": "Midi Skirt",
+              "price_aud": 115
+            },
+            {
+              "product_id": "P1216",
+              "product_name": "Pink Midi Skirt",
+              "category": "Clothing",
+              "subcategory": "Bottoms",
+              "product_type": "Midi Skirt",
+              "price_aud": 75
+            },
+            {
+              "product_id": "P1276",
+              "product_name": "Sage Midi Skirt",
+              "category": "Clothing",
+              "subcategory": "Bottoms",
+              "product_type": "Midi Skirt",
+              "price_aud": 135
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "P1039",
+                "product_name": "Brown Midi Skirt",
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Midi Skirt",
+                "price_aud": 145
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Show me skirts for work under A$200."
+          },
+          {
+            "role": "assistant",
+            "content": "I found Brown Midi Skirt for A$145.00.\n\nI've kept this selection within your A$200.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "Show cheaper skirts, keeping work."
+          },
+          {
+            "role": "assistant",
+            "content": "I haven't found an exact match for all the details you mentioned, but there are some alternatives you can consider.\n\nI've kept the differences visible on each card so you can decide whether any of these would work for you.\n\nThese options range from A$75.00 to A$135.00. I've kept this selection within your A$200.00 per-item limit.\n\nYour original request is still saved. Exploring these options doesn't change it or add anything to your cart.\n\nWhy these are alternatives: Red Midi Skirt: Occasion: Travel; you requested Work. Red Midi Skirt: Occasion: Party; you requested Work."
+          }
+        ]
+      },
+      "elapsed_ms": 5465
+    }
+  ],
+  "trial": "v1-run1",
+  "elapsed_ms": 12292,
+  "file": "J12-v1-run1.json"
+}

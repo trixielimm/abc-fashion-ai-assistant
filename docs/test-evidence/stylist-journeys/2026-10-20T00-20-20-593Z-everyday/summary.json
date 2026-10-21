@@ -1,0 +1,301 @@
+{
+  "pack_version": "stylist-journeys-v1",
+  "started_at": "2026-10-20T00:20:20.593Z",
+  "suite": "everyday",
+  "base": "http://127.0.0.1:3000",
+  "commit": "24944e06e508d34365bea207357d3a1fb91eac4f",
+  "pack_sha256": "a3d9e2735af38a816f91c7d20e7a64db3be06a3331114eb11423d840ea4db79e",
+  "interpreter_sha256": "7ea6017e9257f6c0c09f2f081bc5cdacf30b8f502980a279d2ab0c817328bd28",
+  "model_label": "Not reported; verify running server configuration",
+  "catalogue_reference": "Not supplied; record snapshot/audit during review",
+  "configuration": {
+    "variant": "1",
+    "repeat": 1,
+    "timeout_ms": 120000
+  },
+  "scope": "Live HTTP for 45 conversation definitions; five isolated in-process recovery faults. Human reviews pending.",
+  "selected_journeys": 10,
+  "planned_trials": 10,
+  "counts": {
+    "AUTO_PASS": 7,
+    "FAIL": 1,
+    "ERROR": 0,
+    "BLOCKED_CATALOGUE": 2
+  },
+  "results": [
+    {
+      "id": "J01",
+      "name": "Direct dress search and material question",
+      "mode": "live",
+      "variant": 1,
+      "status": "AUTO_PASS",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request.",
+        "Compare material claims with the current product record; missing data must be acknowledged."
+      ],
+      "expected": "Show eligible dresses, then answer about the exact named dress without changing the search.",
+      "trial": "v1-run1",
+      "elapsed_ms": 14295,
+      "file": "J01-v1-run1.json",
+      "executed_turns": 2,
+      "controlled_checks": 0
+    },
+    {
+      "id": "J02",
+      "name": "Guided beach wedding shopping",
+      "mode": "live",
+      "variant": 1,
+      "status": "BLOCKED_CATALOGUE",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request.",
+        "If alternatives differ in occasion, disclose this; do not certify sand suitability."
+      ],
+      "expected": "Allow browsing without a size; retain occasion and budget through colour refinement.",
+      "unexecuted_turns": 0,
+      "trial": "v1-run1",
+      "elapsed_ms": 13189,
+      "failure": "Need 1 eligible products, but received 0 (no_match). Inspect the catalogue to distinguish stock limits from a search bug.",
+      "file": "J02-v1-run1.json",
+      "executed_turns": 2,
+      "controlled_checks": 0
+    },
+    {
+      "id": "J03",
+      "name": "Discovery from uncertainty",
+      "mode": "live",
+      "variant": 1,
+      "status": "AUTO_PASS",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request."
+      ],
+      "expected": "Help the customer choose a direction without inventing size or budget.",
+      "trial": "v1-run1",
+      "elapsed_ms": 15008,
+      "file": "J03-v1-run1.json",
+      "executed_turns": 3,
+      "controlled_checks": 0
+    },
+    {
+      "id": "J16",
+      "name": "Colour edit preserves size and budget",
+      "mode": "live",
+      "variant": 1,
+      "status": "BLOCKED_CATALOGUE",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request."
+      ],
+      "expected": "Change only colour.",
+      "unexecuted_turns": 1,
+      "trial": "v1-run1",
+      "elapsed_ms": 7196,
+      "failure": "Need 1 eligible products, but received 0 (no_match). Inspect the catalogue to distinguish stock limits from a search bug.",
+      "file": "J16-v1-run1.json",
+      "executed_turns": 1,
+      "controlled_checks": 0
+    },
+    {
+      "id": "J17",
+      "name": "Budget edit preserves item and occasion",
+      "mode": "live",
+      "variant": 1,
+      "status": "AUTO_PASS",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request."
+      ],
+      "expected": "Reduce the cap without losing the work dress request.",
+      "trial": "v1-run1",
+      "elapsed_ms": 12446,
+      "file": "J17-v1-run1.json",
+      "executed_turns": 2,
+      "controlled_checks": 0
+    },
+    {
+      "id": "J18",
+      "name": "Shoe size correction after invalid input",
+      "mode": "live",
+      "variant": 1,
+      "status": "FAIL",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request.",
+        "Prerequisite: the test catalogue supports shoe size 7. Do not infer a conversion."
+      ],
+      "expected": "Accept a clear correction instead of repeating the invalid-size blocker.",
+      "unexecuted_turns": 0,
+      "trial": "v1-run1",
+      "elapsed_ms": 11098,
+      "failure": "state.scopes.item.size eq \"7\"\n\n'999' !== '7'\n",
+      "file": "J18-v1-run1.json",
+      "executed_turns": 2,
+      "controlled_checks": 0
+    },
+    {
+      "id": "J19",
+      "name": "Reject an item permanently within the chat",
+      "mode": "live",
+      "variant": 1,
+      "status": "AUTO_PASS",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request."
+      ],
+      "expected": "Retain the rejection without narrowing all dresses to the rejected product type.",
+      "trial": "v1-run1",
+      "elapsed_ms": 11368,
+      "file": "J19-v1-run1.json",
+      "executed_turns": 3,
+      "controlled_checks": 0
+    },
+    {
+      "id": "J26",
+      "name": "Dress and shoes share one total",
+      "mode": "live",
+      "variant": 1,
+      "status": "AUTO_PASS",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request."
+      ],
+      "expected": "Every selectable dress-and-shoes combination fits the combined limit.",
+      "trial": "v1-run1",
+      "elapsed_ms": 13730,
+      "file": "J26-v1-run1.json",
+      "executed_turns": 2,
+      "controlled_checks": 0
+    },
+    {
+      "id": "J31",
+      "name": "Style an external owned garment",
+      "mode": "live",
+      "variant": 1,
+      "status": "AUTO_PASS",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request."
+      ],
+      "expected": "Keep the external description separate from catalogue SKUs and disclose limited pairing evidence.",
+      "trial": "v1-run1",
+      "elapsed_ms": 12128,
+      "file": "J31-v1-run1.json",
+      "executed_turns": 2,
+      "controlled_checks": 0
+    },
+    {
+      "id": "J38",
+      "name": "Strict no-match keeps every limit",
+      "mode": "live",
+      "variant": 1,
+      "status": "AUTO_PASS",
+      "human_review": "PENDING",
+      "review": [
+        "Check that the answers are useful and address every part of the request.",
+        "Prerequisite: no eligible blue size-10 dress costs A$1 or less. Verify against the catalogue snapshot."
+      ],
+      "expected": "Return no matches without silently relaxing constraints.",
+      "trial": "v1-run1",
+      "elapsed_ms": 11676,
+      "file": "J38-v1-run1.json",
+      "executed_turns": 2,
+      "controlled_checks": 0
+    }
+  ],
+  "human_reviews_pending": 10,
+  "by_journey": [
+    {
+      "id": "J01",
+      "mode": "live",
+      "attempted": 1,
+      "auto_passed": 1,
+      "failed": 0,
+      "errors": 0,
+      "catalogue_blocked": 0
+    },
+    {
+      "id": "J02",
+      "mode": "live",
+      "attempted": 1,
+      "auto_passed": 0,
+      "failed": 0,
+      "errors": 0,
+      "catalogue_blocked": 1
+    },
+    {
+      "id": "J03",
+      "mode": "live",
+      "attempted": 1,
+      "auto_passed": 1,
+      "failed": 0,
+      "errors": 0,
+      "catalogue_blocked": 0
+    },
+    {
+      "id": "J16",
+      "mode": "live",
+      "attempted": 1,
+      "auto_passed": 0,
+      "failed": 0,
+      "errors": 0,
+      "catalogue_blocked": 1
+    },
+    {
+      "id": "J17",
+      "mode": "live",
+      "attempted": 1,
+      "auto_passed": 1,
+      "failed": 0,
+      "errors": 0,
+      "catalogue_blocked": 0
+    },
+    {
+      "id": "J18",
+      "mode": "live",
+      "attempted": 1,
+      "auto_passed": 0,
+      "failed": 1,
+      "errors": 0,
+      "catalogue_blocked": 0
+    },
+    {
+      "id": "J19",
+      "mode": "live",
+      "attempted": 1,
+      "auto_passed": 1,
+      "failed": 0,
+      "errors": 0,
+      "catalogue_blocked": 0
+    },
+    {
+      "id": "J26",
+      "mode": "live",
+      "attempted": 1,
+      "auto_passed": 1,
+      "failed": 0,
+      "errors": 0,
+      "catalogue_blocked": 0
+    },
+    {
+      "id": "J31",
+      "mode": "live",
+      "attempted": 1,
+      "auto_passed": 1,
+      "failed": 0,
+      "errors": 0,
+      "catalogue_blocked": 0
+    },
+    {
+      "id": "J38",
+      "mode": "live",
+      "attempted": 1,
+      "auto_passed": 1,
+      "failed": 0,
+      "errors": 0,
+      "catalogue_blocked": 0
+    }
+  ],
+  "finished_at": "2026-10-20T00:22:22.747Z"
+}
