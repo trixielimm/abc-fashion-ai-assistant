@@ -1,0 +1,36 @@
+Browser tab: 3, Title: "ABC Fashion", URL: "http://127.0.0.1:3003/products/P1259".
+0 AXWebArea ABC Fashion, URL: 127.0.0.1:3003/products/P1259
+	1 container AI Stylist
+		2 container
+			3 text PERSONAL SHOPPING
+			4 heading AI Stylist, Value: 2
+				5 text AI Stylist
+			6 container Description: Current product context, Help: Silver Blouse · A$170.00
+				7 text Viewing:
+				8 text Silver Blouse
+			9 button New chat
+			10 button Close AI Stylist
+		28 container Your look
+			29 text Your look
+			30 text 0 items
+			31 text Save pieces here to build a look.
+			32 container
+				33 text A$0.00 total
+			34 button (collapsed) View look, Secondary Actions: Expand
+		11 container
+			35 text YOU How do I select size 12 and save the Silver Blouse to my bag? Is checkout available? No extras please. AI STYLIST ABC Fashion is a browsing prototype. Checkout, payment and order placement are unavailable, so adding a piece to your bag does not place an order.
+
+Open Silver Blouse using the product link below. Choose a listed size and quantity on its page, then use Add to bag. This answer hasn't added or reserved anything. Listed sizes do not confirm stock for an individual size. Sources: 
+			36 link Description: Open Silver Blouse, Value: 127.0.0.1:3003/products/P1259
+			37 text  · 
+			38 link Description: Open your bag, Value: 127.0.0.1:3003/cart
+			39 text  · 
+			40 link Description: Shopping and checkout help, Value: 127.0.0.1:3003/help#orders
+		22 container
+			23 text entry area (settable) Message your stylist
+			24 button (disabled) Send message
+		25 text Messages may be sent to OpenAI.
+		26 button (collapsed) Privacy & details, Secondary Actions: Expand
+			27 text Privacy & details
+
+The focused UI element is 0 AXWebArea ABC Fashion, URL: 127.0.0.1:3003/products/P1259

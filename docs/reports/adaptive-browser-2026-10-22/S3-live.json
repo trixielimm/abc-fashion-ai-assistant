@@ -1,0 +1,2299 @@
+{
+  "id": "S3",
+  "started_at": "2026-10-21T14:15:59.717Z",
+  "endpoint": "http://127.0.0.1:3003/api/conversation-search",
+  "max_total_messages": 12,
+  "turns": [
+    {
+      "at": "2026-10-21T14:15:59.721Z",
+      "customer": "I'm just having a browse. There's a birthday dinner coming up, but I have no idea what I feel like wearing.",
+      "adaptive_reason": "Start without a product, style or spending limit; discover preferences through actual results.",
+      "request": {
+        "message": "I'm just having a browse. There's a birthday dinner coming up, but I have no idea what I feel like wearing.",
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "rri2gr",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "no_action",
+        "action": "discover",
+        "discovery": {
+          "stage": "collection",
+          "asked": [
+            "collection"
+          ],
+          "skipped": [],
+          "seen_product_ids": []
+        },
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": {
+            "action": "discover",
+            "discovery_intent": "occasion"
+          }
+        },
+        "suggested_replies": [
+          {
+            "label": "Men's",
+            "message": "Men's, please."
+          },
+          {
+            "label": "Women's",
+            "message": "Women's, please."
+          },
+          {
+            "label": "Both / no preference",
+            "message": "Both collections, please."
+          }
+        ],
+        "message": "Sure. Would you like men's clothing, women's clothing, or both?",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "accepted": true,
+      "elapsed_ms": 3786
+    },
+    {
+      "at": "2026-10-21T14:16:33.362Z",
+      "customer": "Women's, please. Maybe show me a few different directions for that dinner?",
+      "adaptive_reason": "Answer collection and ask for manageable inspiration instead of inventing a settled style or budget.",
+      "request": {
+        "message": "Women's, please. Maybe show me a few different directions for that dinner?",
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": {
+            "action": "discover",
+            "discovery_intent": "occasion"
+          }
+        },
+        "discovery": {
+          "stage": "collection",
+          "asked": [
+            "collection"
+          ],
+          "skipped": [],
+          "seen_product_ids": []
+        },
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I'm just having a browse. There's a birthday dinner coming up, but I have no idea what I feel like wearing."
+          },
+          {
+            "role": "assistant",
+            "content": "Sure. Would you like men's clothing, women's clothing, or both?"
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "rri2gr",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "3aa25r",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "no_action",
+        "action": "discover",
+        "discovery": {
+          "stage": "occasion",
+          "asked": [
+            "collection",
+            "occasion"
+          ],
+          "skipped": [],
+          "seen_product_ids": []
+        },
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [
+          {
+            "label": "Wedding guest",
+            "message": "Show me ideas for a wedding guest."
+          },
+          {
+            "label": "Dinner out",
+            "message": "Show me ideas for dinner."
+          },
+          {
+            "label": "Show me ideas first",
+            "message": "Show me a few different ideas."
+          }
+        ],
+        "message": "What's the occasion? You can describe it in your own words, or we can start with a few ideas.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "accepted": true,
+      "elapsed_ms": 7724
+    },
+    {
+      "at": "2026-10-21T14:17:22.554Z",
+      "customer": "The birthday dinner I mentioned: a casual restaurant with friends. Show me a few ideas to react to; I haven't chosen a style or budget.",
+      "adaptive_reason": "The agent repeated the occasion question; supply concrete setting without inventing a product preference.",
+      "request": {
+        "message": "The birthday dinner I mentioned: a casual restaurant with friends. Show me a few ideas to react to; I haven't chosen a style or budget.",
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "discovery": {
+          "stage": "occasion",
+          "asked": [
+            "collection",
+            "occasion"
+          ],
+          "skipped": [],
+          "seen_product_ids": []
+        },
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I'm just having a browse. There's a birthday dinner coming up, but I have no idea what I feel like wearing."
+          },
+          {
+            "role": "assistant",
+            "content": "Sure. Would you like men's clothing, women's clothing, or both?"
+          },
+          {
+            "role": "user",
+            "content": "Women's, please. Maybe show me a few different directions for that dinner?"
+          },
+          {
+            "role": "assistant",
+            "content": "What's the occasion? You can describe it in your own words, or we can start with a few ideas."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "3aa25r",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "1eudmev",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "matches",
+        "action": "discover",
+        "discovery": {
+          "stage": "browsing",
+          "asked": [
+            "collection",
+            "occasion"
+          ],
+          "skipped": [
+            "occasion"
+          ],
+          "seen_product_ids": [
+            "P1241",
+            "P1211",
+            "P1244",
+            "P1298",
+            "P1094"
+          ]
+        },
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [
+          {
+            "label": "None of these / different ideas",
+            "message": "None of these. Show me different ideas."
+          }
+        ],
+        "message": "Here are a few different ideas to react to. Nothing needs to be decided yet.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Casual",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Casual",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1241",
+            "product_name": "Beige Cropped Jacket",
+            "price_aud": 210,
+            "category": "Clothing",
+            "subcategory": "Outerwear",
+            "product_type": "Cropped Jacket",
+            "brand_line": "ABC Casual",
+            "colour": "Beige",
+            "occasion": "Casual",
+            "style": "Bohemian",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "explanation": "Cropped Jacket · Colour: Beige · Style: Bohemian · Occasion: Casual",
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1241/image"
+          },
+          {
+            "product_id": "P1211",
+            "product_name": "Sage Platform Sandals",
+            "price_aud": 100,
+            "category": "Shoes",
+            "subcategory": "Sandals",
+            "product_type": "Platform Sandals",
+            "brand_line": "ABC Footwear",
+            "colour": "Sage",
+            "occasion": "Casual",
+            "style": "Relaxed",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "explanation": "Platform Sandals · Colour: Sage · Style: Relaxed · Occasion: Casual",
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1211/image"
+          },
+          {
+            "product_id": "P1244",
+            "product_name": "Yellow Leather Belt",
+            "price_aud": 45,
+            "category": "Accessories",
+            "subcategory": "Belts",
+            "product_type": "Leather Belt",
+            "brand_line": "ABC Accessories",
+            "colour": "Yellow",
+            "occasion": "Smart Casual",
+            "style": "Minimalist",
+            "sizes_available": [
+              "One Size"
+            ],
+            "explanation": "Leather Belt · Colour: Yellow · Style: Minimalist · Occasion: Smart Casual",
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1244/image"
+          },
+          {
+            "product_id": "P1298",
+            "product_name": "Gold Mini Tote",
+            "price_aud": 35,
+            "category": "Bags",
+            "subcategory": "Handbags",
+            "product_type": "Mini Tote",
+            "brand_line": "ABC Accessories",
+            "colour": "Gold",
+            "occasion": "Casual",
+            "style": "Classic",
+            "sizes_available": [
+              "One Size"
+            ],
+            "explanation": "Mini Tote · Colour: Gold · Style: Classic · Occasion: Casual",
+            "unverified_requirements": [],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1298/image"
+          },
+          {
+            "product_id": "P1094",
+            "product_name": "White Denim Jacket",
+            "price_aud": 120,
+            "category": "Clothing",
+            "subcategory": "Outerwear",
+            "product_type": "Denim Jacket",
+            "brand_line": "ABC Essentials",
+            "colour": "White",
+            "occasion": "Smart Casual",
+            "style": "Streetwear",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "explanation": "Denim Jacket · Colour: White · Style: Streetwear · Occasion: Smart Casual",
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1094/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": "Which of these feels closest to something you'd wear? You can choose More like this, or describe what you'd change.",
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "accepted": true,
+      "elapsed_ms": 11028
+    },
+    {
+      "at": "2026-10-21T14:18:21.617Z",
+      "customer": "The sage sandals are more my sort of thing than either jacket. I like the relaxed feel, but I'd prefer flat shoes rather than platforms. Maybe under A$110 now that I've seen prices.",
+      "adaptive_reason": "Use the actual shortlist to discover a footwear preference and a first budget; reject jackets implicitly without selecting anything.",
+      "request": {
+        "message": "The sage sandals are more my sort of thing than either jacket. I like the relaxed feel, but I'd prefer flat shoes rather than platforms. Maybe under A$110 now that I've seen prices.",
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "discovery": {
+          "stage": "browsing",
+          "asked": [
+            "collection",
+            "occasion"
+          ],
+          "skipped": [
+            "occasion"
+          ],
+          "seen_product_ids": [
+            "P1241",
+            "P1211",
+            "P1244",
+            "P1298",
+            "P1094"
+          ]
+        },
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Casual",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1241",
+              "product_name": "Beige Cropped Jacket",
+              "category": "Clothing",
+              "subcategory": "Outerwear",
+              "product_type": "Cropped Jacket",
+              "price_aud": 210
+            },
+            {
+              "product_id": "P1211",
+              "product_name": "Sage Platform Sandals",
+              "category": "Shoes",
+              "subcategory": "Sandals",
+              "product_type": "Platform Sandals",
+              "price_aud": 100
+            },
+            {
+              "product_id": "P1244",
+              "product_name": "Yellow Leather Belt",
+              "category": "Accessories",
+              "subcategory": "Belts",
+              "product_type": "Leather Belt",
+              "price_aud": 45
+            },
+            {
+              "product_id": "P1298",
+              "product_name": "Gold Mini Tote",
+              "category": "Bags",
+              "subcategory": "Handbags",
+              "product_type": "Mini Tote",
+              "price_aud": 35
+            },
+            {
+              "product_id": "P1094",
+              "product_name": "White Denim Jacket",
+              "category": "Clothing",
+              "subcategory": "Outerwear",
+              "product_type": "Denim Jacket",
+              "price_aud": 120
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I'm just having a browse. There's a birthday dinner coming up, but I have no idea what I feel like wearing."
+          },
+          {
+            "role": "assistant",
+            "content": "Sure. Would you like men's clothing, women's clothing, or both?"
+          },
+          {
+            "role": "user",
+            "content": "Women's, please. Maybe show me a few different directions for that dinner?"
+          },
+          {
+            "role": "assistant",
+            "content": "What's the occasion? You can describe it in your own words, or we can start with a few ideas."
+          },
+          {
+            "role": "user",
+            "content": "The birthday dinner I mentioned: a casual restaurant with friends. Show me a few ideas to react to; I haven't chosen a style or budget."
+          },
+          {
+            "role": "assistant",
+            "content": "Here are a few different ideas to react to. Nothing needs to be decided yet.\nWhich of these feels closest to something you'd wear? You can choose More like this, or describe what you'd change."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "1eudmev",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "bhh0a1",
+          "preview_unverified": false,
+          "blocker_signature": "ambiguous_reference:task:product:null",
+          "blocker_repeats": 1,
+          "issues": [
+            {
+              "id": "ambiguous_reference:task:product:null",
+              "code": "ambiguous_reference",
+              "field": "product",
+              "scope": "task",
+              "value": null,
+              "saved_value": null,
+              "options": []
+            }
+          ],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [
+          {
+            "id": "ambiguous_reference:task:product:null",
+            "code": "ambiguous_reference",
+            "field": "product",
+            "scope": "task",
+            "value": null,
+            "saved_value": null,
+            "options": []
+          }
+        ],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "needs_clarification",
+        "action": "refine",
+        "discovery": {
+          "stage": "complete",
+          "asked": [
+            "collection",
+            "occasion"
+          ],
+          "skipped": [
+            "occasion"
+          ],
+          "seen_product_ids": [
+            "P1241",
+            "P1211",
+            "P1244",
+            "P1298",
+            "P1094"
+          ]
+        },
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "Which item do you mean? 1. Beige Cropped Jacket; 2. Sage Platform Sandals; 3. Yellow Leather Belt; 4. Gold Mini Tote; 5. White Denim Jacket",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": null,
+            "product_type": "Flats",
+            "occasion": "Casual",
+            "style": "Relaxed",
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 110,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": null,
+          "product_type": "Flats",
+          "occasion": "Casual",
+          "style": "Relaxed",
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 110,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": {
+          "action": "refine",
+          "reference": {
+            "kind": "position",
+            "position": 2,
+            "subcategory": "Sandals"
+          },
+          "goal": "The sage sandals are more my sort of thing than either jacket. I like the relaxed feel, but I'd prefer flat shoes rather than platforms. Maybe under A$110 now that I've seen prices.",
+          "question": "Which item do you mean? 1. Beige Cropped Jacket; 2. Sage Platform Sandals; 3. Yellow Leather Belt; 4. Gold Mini Tote; 5. White Denim Jacket",
+          "before_scopes": {
+            "item": {
+              "gender": "Women",
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": "Casual",
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "before_styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "before_collection": {
+            "choice": "Women",
+            "current": {
+              "choice": "Women",
+              "source": "explicit"
+            },
+            "checkpoint": null
+          }
+        },
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "accepted": true,
+      "elapsed_ms": 11598
+    },
+    {
+      "at": "2026-10-21T14:19:24.996Z",
+      "customer": "I mean the second item, Sage Platform Sandals. I like that relaxed direction, but I want flat shoes instead of platforms, under A$110.",
+      "adaptive_reason": "Answer the unnecessary reference question with position and exact name, preserving the newly discovered need.",
+      "request": {
+        "message": "I mean the second item, Sage Platform Sandals. I like that relaxed direction, but I want flat shoes instead of platforms, under A$110.",
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "discovery": {
+          "stage": "complete",
+          "asked": [
+            "collection",
+            "occasion"
+          ],
+          "skipped": [
+            "occasion"
+          ],
+          "seen_product_ids": [
+            "P1241",
+            "P1211",
+            "P1244",
+            "P1298",
+            "P1094"
+          ]
+        },
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": null,
+            "product_type": "Flats",
+            "occasion": "Casual",
+            "style": "Relaxed",
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 110,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1241",
+              "product_name": "Beige Cropped Jacket",
+              "category": "Clothing",
+              "subcategory": "Outerwear",
+              "product_type": "Cropped Jacket",
+              "price_aud": 210
+            },
+            {
+              "product_id": "P1211",
+              "product_name": "Sage Platform Sandals",
+              "category": "Shoes",
+              "subcategory": "Sandals",
+              "product_type": "Platform Sandals",
+              "price_aud": 100
+            },
+            {
+              "product_id": "P1244",
+              "product_name": "Yellow Leather Belt",
+              "category": "Accessories",
+              "subcategory": "Belts",
+              "product_type": "Leather Belt",
+              "price_aud": 45
+            },
+            {
+              "product_id": "P1298",
+              "product_name": "Gold Mini Tote",
+              "category": "Bags",
+              "subcategory": "Handbags",
+              "product_type": "Mini Tote",
+              "price_aud": 35
+            },
+            {
+              "product_id": "P1094",
+              "product_name": "White Denim Jacket",
+              "category": "Clothing",
+              "subcategory": "Outerwear",
+              "product_type": "Denim Jacket",
+              "price_aud": 120
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Women's, please. Maybe show me a few different directions for that dinner?"
+          },
+          {
+            "role": "assistant",
+            "content": "What's the occasion? You can describe it in your own words, or we can start with a few ideas."
+          },
+          {
+            "role": "user",
+            "content": "The birthday dinner I mentioned: a casual restaurant with friends. Show me a few ideas to react to; I haven't chosen a style or budget."
+          },
+          {
+            "role": "assistant",
+            "content": "Here are a few different ideas to react to. Nothing needs to be decided yet.\nWhich of these feels closest to something you'd wear? You can choose More like this, or describe what you'd change."
+          },
+          {
+            "role": "user",
+            "content": "The sage sandals are more my sort of thing than either jacket. I like the relaxed feel, but I'd prefer flat shoes rather than platforms. Maybe under A$110 now that I've seen prices."
+          },
+          {
+            "role": "assistant",
+            "content": "Which item do you mean? 1. Beige Cropped Jacket; 2. Sage Platform Sandals; 3. Yellow Leather Belt; 4. Gold Mini Tote; 5. White Denim Jacket"
+          }
+        ],
+        "pending": {
+          "action": "refine",
+          "reference": {
+            "kind": "position",
+            "position": 2,
+            "subcategory": "Sandals"
+          },
+          "goal": "The sage sandals are more my sort of thing than either jacket. I like the relaxed feel, but I'd prefer flat shoes rather than platforms. Maybe under A$110 now that I've seen prices.",
+          "question": "Which item do you mean? 1. Beige Cropped Jacket; 2. Sage Platform Sandals; 3. Yellow Leather Belt; 4. Gold Mini Tote; 5. White Denim Jacket",
+          "before_scopes": {
+            "item": {
+              "gender": "Women",
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": "Casual",
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "before_styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "before_collection": {
+            "choice": "Women",
+            "current": {
+              "choice": "Women",
+              "source": "explicit"
+            },
+            "checkpoint": null
+          }
+        },
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "bhh0a1",
+          "preview_unverified": false,
+          "blocker_signature": "ambiguous_reference:task:product:null",
+          "blocker_repeats": 1,
+          "issues": [
+            {
+              "id": "ambiguous_reference:task:product:null",
+              "code": "ambiguous_reference",
+              "field": "product",
+              "scope": "task",
+              "value": null,
+              "saved_value": null,
+              "options": []
+            }
+          ],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "1amptw",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "alternatives",
+        "action": "refine",
+        "discovery": {
+          "stage": "complete",
+          "asked": [
+            "collection",
+            "occasion"
+          ],
+          "skipped": [
+            "occasion"
+          ],
+          "seen_product_ids": [
+            "P1241",
+            "P1211",
+            "P1244",
+            "P1298",
+            "P1094"
+          ]
+        },
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I haven't found an exact match for all the details you mentioned, but there are some alternatives you can consider.\n\nI've kept the differences visible on each card so you can decide whether any of these would work for you.\n\nThese options range from A$55.00 to A$90.00. I've kept this selection within your A$110.00 per-item limit.\n\nYour original request is still saved. Exploring these options doesn't change it or add anything to your cart.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Shoes",
+            "subcategory": "Sandals",
+            "product_type": "Flats",
+            "occasion": "Casual",
+            "style": "Relaxed",
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 110,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": "Shoes",
+          "subcategory": "Sandals",
+          "product_type": "Flats",
+          "occasion": "Casual",
+          "style": "Relaxed",
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 110,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [
+          {
+            "product_id": "P1046",
+            "product_name": "Brown Flat Sandals",
+            "price_aud": 70,
+            "category": "Shoes",
+            "subcategory": "Sandals",
+            "product_type": "Flat Sandals",
+            "brand_line": "ABC Footwear",
+            "colour": "Brown",
+            "occasion": "Beach Wedding",
+            "style": "Romantic",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1046/image",
+            "differences": [
+              "Occasion: Beach Wedding; you requested Casual.",
+              "Style: Romantic; you requested Relaxed."
+            ]
+          },
+          {
+            "product_id": "P1173",
+            "product_name": "Blue Flat Sandals",
+            "price_aud": 75,
+            "category": "Shoes",
+            "subcategory": "Sandals",
+            "product_type": "Flat Sandals",
+            "brand_line": "ABC Footwear",
+            "colour": "Blue",
+            "occasion": "Travel",
+            "style": "Smart",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Clothing",
+            "image_src": "/api/products/P1173/image",
+            "differences": [
+              "Occasion: Travel; you requested Casual.",
+              "Style: Smart; you requested Relaxed."
+            ]
+          },
+          {
+            "product_id": "P1223",
+            "product_name": "Olive Flat Sandals",
+            "price_aud": 65,
+            "category": "Shoes",
+            "subcategory": "Sandals",
+            "product_type": "Flat Sandals",
+            "brand_line": "ABC Footwear",
+            "colour": "Olive",
+            "occasion": "Beach Wedding",
+            "style": "Elegant",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1223/image",
+            "differences": [
+              "Occasion: Beach Wedding; you requested Casual.",
+              "Style: Elegant; you requested Relaxed."
+            ]
+          },
+          {
+            "product_id": "P1110",
+            "product_name": "Lavender Flat Sandals",
+            "price_aud": 90,
+            "category": "Shoes",
+            "subcategory": "Sandals",
+            "product_type": "Flat Sandals",
+            "brand_line": "ABC Footwear",
+            "colour": "Lavender",
+            "occasion": "Beach Wedding",
+            "style": "Elegant",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1110/image",
+            "differences": [
+              "Occasion: Beach Wedding; you requested Casual.",
+              "Style: Elegant; you requested Relaxed."
+            ]
+          },
+          {
+            "product_id": "P1043",
+            "product_name": "Burgundy Flat Sandals",
+            "price_aud": 55,
+            "category": "Shoes",
+            "subcategory": "Sandals",
+            "product_type": "Flat Sandals",
+            "brand_line": "ABC Footwear",
+            "colour": "Burgundy",
+            "occasion": "Travel",
+            "style": "Smart",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Clothing",
+            "image_src": "/api/products/P1043/image",
+            "differences": [
+              "Occasion: Travel; you requested Casual.",
+              "Style: Smart; you requested Relaxed."
+            ]
+          }
+        ],
+        "alternatives_preferences": {
+          "gender": "Women",
+          "category": "Shoes",
+          "subcategory": "Sandals",
+          "product_type": "Flats",
+          "occasion": "Casual",
+          "style": "Relaxed",
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 110,
+          "brand_line": null
+        },
+        "alternative_kind": "context_difference",
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "accepted": true,
+      "elapsed_ms": 5721
+    },
+    {
+      "at": "2026-10-21T14:20:22.576Z",
+      "customer": "I'm leaning towards Blue Flat Sandals in size 7. Do they have a heel, and is size 7 actually listed? I'm only exploring, not buying yet.",
+      "adaptive_reason": "React to the adapted flat-sandal shortlist and test a confident next step with sizing and specification evidence boundaries.",
+      "request": {
+        "message": "I'm leaning towards Blue Flat Sandals in size 7. Do they have a heel, and is size 7 actually listed? I'm only exploring, not buying yet.",
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "discovery": {
+          "stage": "complete",
+          "asked": [
+            "collection",
+            "occasion"
+          ],
+          "skipped": [
+            "occasion"
+          ],
+          "seen_product_ids": [
+            "P1241",
+            "P1211",
+            "P1244",
+            "P1298",
+            "P1094"
+          ]
+        },
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Shoes",
+            "subcategory": "Sandals",
+            "product_type": "Flats",
+            "occasion": "Casual",
+            "style": "Relaxed",
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 110,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1046",
+              "product_name": "Brown Flat Sandals",
+              "category": "Shoes",
+              "subcategory": "Sandals",
+              "product_type": "Flat Sandals",
+              "price_aud": 70
+            },
+            {
+              "product_id": "P1173",
+              "product_name": "Blue Flat Sandals",
+              "category": "Shoes",
+              "subcategory": "Sandals",
+              "product_type": "Flat Sandals",
+              "price_aud": 75
+            },
+            {
+              "product_id": "P1223",
+              "product_name": "Olive Flat Sandals",
+              "category": "Shoes",
+              "subcategory": "Sandals",
+              "product_type": "Flat Sandals",
+              "price_aud": 65
+            },
+            {
+              "product_id": "P1110",
+              "product_name": "Lavender Flat Sandals",
+              "category": "Shoes",
+              "subcategory": "Sandals",
+              "product_type": "Flat Sandals",
+              "price_aud": 90
+            },
+            {
+              "product_id": "P1043",
+              "product_name": "Burgundy Flat Sandals",
+              "category": "Shoes",
+              "subcategory": "Sandals",
+              "product_type": "Flat Sandals",
+              "price_aud": 55
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "P1241",
+                "product_name": "Beige Cropped Jacket",
+                "category": "Clothing",
+                "subcategory": "Outerwear",
+                "product_type": "Cropped Jacket",
+                "price_aud": 210
+              },
+              {
+                "product_id": "P1211",
+                "product_name": "Sage Platform Sandals",
+                "category": "Shoes",
+                "subcategory": "Sandals",
+                "product_type": "Platform Sandals",
+                "price_aud": 100
+              },
+              {
+                "product_id": "P1244",
+                "product_name": "Yellow Leather Belt",
+                "category": "Accessories",
+                "subcategory": "Belts",
+                "product_type": "Leather Belt",
+                "price_aud": 45
+              },
+              {
+                "product_id": "P1298",
+                "product_name": "Gold Mini Tote",
+                "category": "Bags",
+                "subcategory": "Handbags",
+                "product_type": "Mini Tote",
+                "price_aud": 35
+              },
+              {
+                "product_id": "P1094",
+                "product_name": "White Denim Jacket",
+                "category": "Clothing",
+                "subcategory": "Outerwear",
+                "product_type": "Denim Jacket",
+                "price_aud": 120
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "The birthday dinner I mentioned: a casual restaurant with friends. Show me a few ideas to react to; I haven't chosen a style or budget."
+          },
+          {
+            "role": "assistant",
+            "content": "Here are a few different ideas to react to. Nothing needs to be decided yet.\nWhich of these feels closest to something you'd wear? You can choose More like this, or describe what you'd change."
+          },
+          {
+            "role": "user",
+            "content": "The sage sandals are more my sort of thing than either jacket. I like the relaxed feel, but I'd prefer flat shoes rather than platforms. Maybe under A$110 now that I've seen prices."
+          },
+          {
+            "role": "assistant",
+            "content": "Which item do you mean? 1. Beige Cropped Jacket; 2. Sage Platform Sandals; 3. Yellow Leather Belt; 4. Gold Mini Tote; 5. White Denim Jacket"
+          },
+          {
+            "role": "user",
+            "content": "I mean the second item, Sage Platform Sandals. I like that relaxed direction, but I want flat shoes instead of platforms, under A$110."
+          },
+          {
+            "role": "assistant",
+            "content": "I haven't found an exact match for all the details you mentioned, but there are some alternatives you can consider.\n\nI've kept the differences visible on each card so you can decide whether any of these would work for you.\n\nThese options range from A$55.00 to A$90.00. I've kept this selection within your A$110.00 per-item limit.\n\nYour original request is still saved. Exploring these options doesn't change it or add anything to your cart."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "1amptw",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "uyhb6c",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "answered",
+        "action": "none",
+        "discovery": {
+          "stage": "complete",
+          "asked": [
+            "collection",
+            "occasion"
+          ],
+          "skipped": [
+            "occasion"
+          ],
+          "seen_product_ids": [
+            "P1241",
+            "P1211",
+            "P1244",
+            "P1298",
+            "P1094"
+          ]
+        },
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "Blue Flat Sandals\nRecorded sizes: 5, 6, 7, 8, 9, 10. These are catalogue size labels; I can't convert them to body measurements or guarantee fit. Heel height: 0 cm These construction, measurement or care details are synthetic prototype specifications, not manufacturer-verified facts. Check the real garment's label and measurements before relying on them.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Shoes",
+            "subcategory": "Sandals",
+            "product_type": "Flats",
+            "occasion": "Casual",
+            "style": "Relaxed",
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 110,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "Blue Flat Sandals: catalogue details",
+            "url": "/products/P1173"
+          }
+        ],
+        "answer_product_ids": [
+          "P1173"
+        ],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "accepted": true,
+      "elapsed_ms": 4135
+    }
+  ],
+  "state": {
+    "scopes": {
+      "item": {
+        "gender": "Women",
+        "category": "Shoes",
+        "subcategory": "Sandals",
+        "product_type": "Flats",
+        "occasion": "Casual",
+        "style": "Relaxed",
+        "preferred_colours": [],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "size": null,
+        "min_price": null,
+        "max_price": 110,
+        "brand_line": null
+      },
+      "shared": {
+        "gender": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      },
+      "unresolved_item": [],
+      "unresolved_shared": []
+    },
+    "pending": null,
+    "pending_answer": null,
+    "styling": {
+      "dress_code": null,
+      "outfit_request": null,
+      "purchase_budget": null,
+      "outfit": [],
+      "external_items": [],
+      "rejected_ids": [],
+      "priorities": [],
+      "required_features": [],
+      "offers_paused": false,
+      "owned_categories": []
+    },
+    "discovery": {
+      "stage": "complete",
+      "asked": [
+        "collection",
+        "occasion"
+      ],
+      "skipped": [
+        "occasion"
+      ],
+      "seen_product_ids": [
+        "P1241",
+        "P1211",
+        "P1244",
+        "P1298",
+        "P1094"
+      ]
+    },
+    "collection": {
+      "choice": "Women",
+      "current": {
+        "choice": "Women",
+        "source": "saved"
+      },
+      "checkpoint": null
+    },
+    "cart_product_ids": [],
+    "task": {
+      "generation": 0,
+      "complementary_shown": false,
+      "complementary_dismissed": false,
+      "prepared_key": "uyhb6c",
+      "preview_unverified": false,
+      "blocker_signature": "",
+      "blocker_repeats": 0,
+      "issues": [],
+      "brief": {
+        "goal": null,
+        "total_budget_aud": null,
+        "budget_evidence": null,
+        "guidance": [],
+        "deadline": null
+      }
+    },
+    "context": {
+      "focused": {
+        "product_id": "P1173",
+        "product_name": "Blue Flat Sandals",
+        "category": "Shoes",
+        "subcategory": "Sandals",
+        "product_type": "Flat Sandals",
+        "price_aud": 75
+      },
+      "latest": [
+        {
+          "product_id": "P1046",
+          "product_name": "Brown Flat Sandals",
+          "category": "Shoes",
+          "subcategory": "Sandals",
+          "product_type": "Flat Sandals",
+          "price_aud": 70
+        },
+        {
+          "product_id": "P1173",
+          "product_name": "Blue Flat Sandals",
+          "category": "Shoes",
+          "subcategory": "Sandals",
+          "product_type": "Flat Sandals",
+          "price_aud": 75
+        },
+        {
+          "product_id": "P1223",
+          "product_name": "Olive Flat Sandals",
+          "category": "Shoes",
+          "subcategory": "Sandals",
+          "product_type": "Flat Sandals",
+          "price_aud": 65
+        },
+        {
+          "product_id": "P1110",
+          "product_name": "Lavender Flat Sandals",
+          "category": "Shoes",
+          "subcategory": "Sandals",
+          "product_type": "Flat Sandals",
+          "price_aud": 90
+        },
+        {
+          "product_id": "P1043",
+          "product_name": "Burgundy Flat Sandals",
+          "category": "Shoes",
+          "subcategory": "Sandals",
+          "product_type": "Flat Sandals",
+          "price_aud": 55
+        }
+      ],
+      "previous": [
+        [
+          {
+            "product_id": "P1241",
+            "product_name": "Beige Cropped Jacket",
+            "category": "Clothing",
+            "subcategory": "Outerwear",
+            "product_type": "Cropped Jacket",
+            "price_aud": 210
+          },
+          {
+            "product_id": "P1211",
+            "product_name": "Sage Platform Sandals",
+            "category": "Shoes",
+            "subcategory": "Sandals",
+            "product_type": "Platform Sandals",
+            "price_aud": 100
+          },
+          {
+            "product_id": "P1244",
+            "product_name": "Yellow Leather Belt",
+            "category": "Accessories",
+            "subcategory": "Belts",
+            "product_type": "Leather Belt",
+            "price_aud": 45
+          },
+          {
+            "product_id": "P1298",
+            "product_name": "Gold Mini Tote",
+            "category": "Bags",
+            "subcategory": "Handbags",
+            "product_type": "Mini Tote",
+            "price_aud": 35
+          },
+          {
+            "product_id": "P1094",
+            "product_name": "White Denim Jacket",
+            "category": "Clothing",
+            "subcategory": "Outerwear",
+            "product_type": "Denim Jacket",
+            "price_aud": 120
+          }
+        ]
+      ]
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "The sage sandals are more my sort of thing than either jacket. I like the relaxed feel, but I'd prefer flat shoes rather than platforms. Maybe under A$110 now that I've seen prices."
+      },
+      {
+        "role": "assistant",
+        "content": "Which item do you mean? 1. Beige Cropped Jacket; 2. Sage Platform Sandals; 3. Yellow Leather Belt; 4. Gold Mini Tote; 5. White Denim Jacket"
+      },
+      {
+        "role": "user",
+        "content": "I mean the second item, Sage Platform Sandals. I like that relaxed direction, but I want flat shoes instead of platforms, under A$110."
+      },
+      {
+        "role": "assistant",
+        "content": "I haven't found an exact match for all the details you mentioned, but there are some alternatives you can consider.\n\nI've kept the differences visible on each card so you can decide whether any of these would work for you.\n\nThese options range from A$55.00 to A$90.00. I've kept this selection within your A$110.00 per-item limit.\n\nYour original request is still saved. Exploring these options doesn't change it or add anything to your cart."
+      },
+      {
+        "role": "user",
+        "content": "I'm leaning towards Blue Flat Sandals in size 7. Do they have a heel, and is size 7 actually listed? I'm only exploring, not buying yet."
+      },
+      {
+        "role": "assistant",
+        "content": "Blue Flat Sandals\nRecorded sizes: 5, 6, 7, 8, 9, 10. These are catalogue size labels; I can't convert them to body measurements or guarantee fit. Heel height: 0 cm These construction, measurement or care details are synthetic prototype specifications, not manufacturer-verified facts. Check the real garment's label and measurements before relying on them."
+      }
+    ]
+  }
+}

@@ -12,6 +12,7 @@ import { reviewSelectedOutfit } from "./outfitReview";
 import { CombinationSummarySchema } from "./answerPlan";
 import { priceCents } from "./outfitBudgetSchema";
 import { OutfitPieceSchema } from "./commerceSchema";
+import { occasionMeaning } from "./shoppingContext";
 
 const normalise = (value: string | null | undefined) => (value ?? "").toLowerCase().replace(/[^a-z0-9]/g, "");
 const label = (value: string) => value.replace(/([a-z])([A-Z])/g, "$1 $2");
@@ -19,7 +20,7 @@ const policyTopics = new Set(["delivery", "returns", "payment"]);
 
 export function resolveAnswerProducts(turn: ConversationPlanRequest, intent: AnswerIntent) {
   if (intent.kind === "outfit_review") return { ids: (turn.styling?.outfit ?? []).map(piece => piece.product_id), question: null };
-  if (intent.kind === "policy" || intent.kind === "guidance") return { ids: [] as string[], question: null };
+  if (intent.kind === "policy" || intent.kind === "guidance" || intent.kind === "navigation" && !intent.references.length) return { ids: [] as string[], question: null };
   if (!intent.continuation && intent.kind !== "combination") {
     const value = valueQuestionProducts(turn.context, turn.message);
     if (value) return value;
@@ -49,7 +50,8 @@ function policyAnswer(intent: AnswerIntent, question: string) {
   if (intent.topics.includes("returns")) {
     paragraphs.push(`${STORE_POLICY_COPY.returns} The published copy doesn't specify item eligibility, return postage, exchanges or refund processing times, so I can't confirm those details.`);
   }
-  if (intent.topics.includes("payment")) paragraphs.push("I don't have verified payment-method, discount or promotion information, so I can't confirm those details.");
+  if (intent.topics.includes("payment")) paragraphs.push(`${STORE_POLICY_COPY.checkout} I don't have verified payment-method, discount or promotion information, so I can't confirm those details.`);
+  else if (intent.topics.some(topic => topic === "delivery" || topic === "returns")) paragraphs.unshift(STORE_POLICY_COPY.checkout);
   if (intent.kind === "policy" && !paragraphs.length) paragraphs.push("I don't have published policy information that answers that question. The available store copy only covers standard delivery across Australia and a 30-day returns window after delivery.");
   return paragraphs;
 }
@@ -65,7 +67,7 @@ function productAnswer(product: CatalogueProduct, turn: ConversationPlanRequest,
     const anchorIds = recommendation?.anchor_ids ?? turn.styling?.outfit.map(piece => piece.product_id) ?? [];
     const anchors = catalogue.filter(row => row.product_id !== product.product_id && anchorIds.includes(row.product_id ?? ""));
     if (anchors.length || turn.styling?.external_items.length) {
-      const evidence = scoreCompatibility(product, anchors, intent.purpose, turn.styling?.external_items).evidence;
+      const evidence = scoreCompatibility(product, anchors, intent.purpose ? occasionMeaning(intent.purpose) : null, turn.styling?.external_items).evidence;
       lines.push(...evidence.reasons.slice(0, 3), ...evidence.limitations.slice(0, 2));
       lines.push("These pairing reasons are styling suggestions from recorded attributes; visual compatibility has not been verified.");
     }
@@ -78,7 +80,8 @@ function productAnswer(product: CatalogueProduct, turn: ConversationPlanRequest,
     }
     const purpose = intent.purpose ?? turn.scopes.item.occasion ?? turn.scopes.shared.occasion;
     if (purpose) {
-      const matches = product.occasion && (normalise(product.occasion) === normalise(purpose) || relatedLabel(label(product.occasion), purpose));
+      const occasion = occasionMeaning(purpose);
+      const matches = product.occasion && (normalise(product.occasion) === normalise(occasion) || relatedLabel(label(product.occasion), occasion));
       lines.push(matches
         ? `For ${purpose}, the strongest recorded reason is that the catalogue explicitly lists ${label(product.occasion!)} as this item's occasion.`
         : `For ${purpose}, the occasion match is uncertain: ${product.occasion ? `the catalogue lists ${label(product.occasion)}` : "the catalogue doesn't record an occasion"}. I wouldn't call it a confirmed match for that event.`);
@@ -170,6 +173,20 @@ export function answerConversationQuestion(catalogue: readonly CatalogueProduct[
     }
     products.push(product);
     sources.push({ label: `${product.product_name}: catalogue details`, url: `/products/${encodeURIComponent(id)}` });
+  }
+  if (intent.kind === "navigation") {
+    if (!pending) {
+      paragraphs.unshift(STORE_POLICY_COPY.checkout);
+      const product = products[0];
+      if (product) {
+        paragraphs.push(`Open ${product.product_name} using the product link below. Choose a listed size and quantity on its page, then use Add to bag. This answer hasn't added or reserved anything. Listed sizes do not confirm stock for an individual size.`);
+        sources[0].label = `Open ${product.product_name}`;
+      } else paragraphs.push("Open a product page, choose a listed size and quantity, then use Add to bag. Open your bag to review saved items. Nothing has been added or reserved by this answer.");
+      sources.push({ label: "Open your bag", url: "/cart" }, { label: "Shopping and checkout help", url: "/help#orders" });
+    }
+    return { message: paragraphs.join("\n\n"), answer_sources: sources,
+      answer_product_ids: products.map(product => product.product_id!),
+      pending_answer: pending ?? turn.pending_answer ?? null };
   }
   if (intent.kind === "combination" && !pending) {
     const question = intent.continuation ? turn.pending_answer!.question : turn.message;

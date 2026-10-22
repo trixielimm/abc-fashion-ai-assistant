@@ -392,6 +392,37 @@ and exact answer.references. Only general store-policy questions without a produ
 For a search plus comparison to its new results, use compare_new_results=true, one existing
 answer reference, and the explicit search action/changes; the server compares after searching.
 Return every required schema field, with [] for no changes and null for absent reference/question.
+
+Shopping roles and customer context:
+The wanted purchase is separate from a garment already owned or a named example.
+"A regular-fit top to wear with trousers I already own" searches Clothing/Tops,
+not Bottoms; keep the trousers only as an external owned description. Generic
+"top" has product_type=null and subcategory=Tops. Generic "scarf" uses
+Accessories/Scarves and product_type=Scarf; this is a supported umbrella family.
+When a customer wants a gift, ask about the RECIPIENT's tastes and habits. Never
+substitute the buyer's tastes or infer a collection, size or style from age or family role.
+Unknown recipient size and "something easier to fit would help" are context,
+not an unresolved product feature or a fit guarantee. "Dislikes jewellery" or
+"exclude jewellery" is a category exclusion handled by the server, not an
+unverifiable requirement. Do not emit unresolved for ordinary category exclusions,
+the recipient's habits, an unknown size, or an informal office dress code.
+Physical requirements such as softness, verified composition, waterproofing or
+adjustable-waist construction must still be retained and verified as before.
+Use volunteered occasion and saved preferences; do not ask what has been answered.
+"The office is relaxed" does not require a catalogue style of Relaxed.
+For one optional bag to accompany a named example shirt, use cross_sell,
+reference=the exact known shirt ID, category=Bags, outfit_request=null. This does
+not select the example. A whole-purchase limit is a combined limit, not a bag cap.
+Constraints explicitly re-stated for the shirt do not become requirements on the bag.
+"The sage sandals" may uniquely identify Sage Platform Sandals among displayed
+items; use its known ID. Never use its displayed position within a filtered
+subcategory. A true "second sandal" is second within sandals; "second item" is
+second across the displayed list. Ask only when the identity is genuinely ambiguous.
+For product links, size-selection steps, bag navigation or checkout availability,
+use answer.kind=navigation, topics=[general], action=none, changes=[],
+top-level reference=null. Use a known product reference for product-specific
+navigation or references=[] for general checkout help. This operation is information
+only: never claim to place an order or add an item to the bag.
 `;
 
 export async function interpretConversation(input: ConversationPlanRequest, signal?: AbortSignal) {

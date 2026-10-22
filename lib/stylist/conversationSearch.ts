@@ -22,6 +22,7 @@ import type { OutfitBudget, OutfitChoices } from "./outfitBudgetSchema";
 import { dressCodes, meetsDressCode } from "./dressCode";
 import { issue, type ConversationIssue } from "./conversationIssues";
 import { preparePurchaseBudget, completePurchaseBudget, type PurchaseBudgetSummary } from "./purchaseBudget";
+import { excludedByShoppingContext } from "./shoppingContext";
 
 type Status =
   | "matches"
@@ -62,6 +63,7 @@ export function executeConversationSearch(
     checked.reference_product_ids.forEach(id => excluded.add(id));
   }
   const eligible = (product: CatalogueProduct) => !excluded.has(product.product_id ?? "") &&
+    !excludedByShoppingContext(product, request.task?.brief.excluded_roles) &&
     (!request.task?.preview_unverified || [...checked.proposed_scopes.unresolved_item, ...checked.proposed_scopes.unresolved_shared].every(requirement => {
       const negative = requirement.match(/\b(?:no|without|avoid|excluding|exclude)\s+(polyester|leather|wool|silk|cotton|linen|nylon|suede|fur)\b/i);
       return !negative || !new RegExp(`\\b${negative[1]}\\b`, "i").test(product.material ?? "");
@@ -109,7 +111,7 @@ export function executeConversationSearch(
       issues: status === "needs_clarification" ? issues.slice(0, 12) : [],
       unverified_requirements: request.task?.preview_unverified ? [...scopes.unresolved_shared, ...scopes.unresolved_item] : [],
       action: checked.action,
-      message: purchaseBudget ? `${message}\n\nThe selected purchases count as A$${purchaseBudget.fixed_total_aud.toFixed(2)} of your A$${purchaseBudget.limit_aud.toFixed(2)} total, leaving A$${purchaseBudget.remaining_aud.toFixed(2)} for this addition. Delivery and discounts are not included.` : message,
+      message: purchaseBudget ? `${message}\n\nThe ${purchaseBudget.example_items.length ? "selected and example" : "selected"} purchases count as A$${purchaseBudget.fixed_total_aud.toFixed(2)} of your A$${purchaseBudget.limit_aud.toFixed(2)} total, leaving A$${purchaseBudget.remaining_aud.toFixed(2)} for this addition. Delivery and discounts are not included.` : message,
       purchase_budget: completePurchaseBudget(purchaseBudget, products),
       reference_product_ids: checked.reference_product_ids,
       proposed_scopes: scopes,
@@ -147,6 +149,12 @@ export function executeConversationSearch(
   // Validate before any shortlist, including direct API requests.
   const validation = validatePreferences(applied, vocabulary);
   applied = validation.preferences;
+  // A total also caps a single gift/inspiration item even when the interpreter
+  // correctly avoids turning it into an item-only filter.
+  const total = request.task?.brief.total_budget_aud;
+  if (total !== null && total !== undefined && !styling.outfit_request && ["new_search", "refine", "discover"].includes(checked.action)) {
+    applied.max_price = Math.min(applied.max_price ?? Infinity, total);
+  }
 
   if (validation.needs_clarification) {
     issues = validation.issues.filter(value => value.blocking).map(value => issue("invalid_preference", value.field,
@@ -155,7 +163,8 @@ export function executeConversationSearch(
         .filter(product => !applied?.category || product.category === applied.category)
         .flatMap(product => product.sizes_available ?? []))] : value.field === "preferred_colours" || value.field === "excluded_colours"
         ? [...new Set(vocabulary.rows.flatMap(row => row.colour ? [row.colour] : []))].filter(label =>
-          !/^green$/i.test(String(value.value)) || /sage|olive|emerald|mint|khaki|green/i.test(label))
+          /^green$/i.test(String(value.value)) ? /sage|olive|emerald|mint|khaki|green/i.test(label)
+            : /^neutral(?: colou?rs?)?$/i.test(String(value.value)) ? /^(?:black|white|cream|ivory|beige|brown|grey|gray|navy|taupe|silver)$/i.test(label) : true)
         : [...new Set(vocabulary.rows.flatMap(row => {
         const label = row[value.field as keyof typeof row]; return typeof label === "string" ? [label] : [];
       }))]));
@@ -169,6 +178,16 @@ export function executeConversationSearch(
         )
         .join(" ")
     );
+  }
+
+  if (checked.action === "refine" && styling.purchase_budget && !styling.outfit_request) {
+    const fixedIds = [...styling.purchase_budget.product_ids, ...styling.purchase_budget.example_product_ids];
+    const fixed = catalogue.filter(product => fixedIds.includes(product.product_id ?? ""));
+    if (fixed.length && fixed.every(product => product.category !== applied!.category)) {
+      const budget = preparePurchaseBudget(catalogue, request, styling, fixedIds, applied);
+      if (budget && "error" in budget) return reply("needs_clarification", budget.error!);
+      purchaseBudget = budget?.summary ?? null;
+    }
   }
 
   if (styling.outfit_request && ["new_search", "refine"].includes(checked.action)) {

@@ -2,6 +2,7 @@
 // This is not an ETA service or a complete returns policy. Do not infer fees,
 // dispatch times, eligibility conditions or refund guarantees from this copy.
 export const STORE_POLICY_COPY = {
+  checkout: "ABC Fashion is a browsing prototype. Checkout, payment and order placement are unavailable, so adding a piece to your bag does not place an order.",
   delivery: "Standard delivery is available across Australia.",
   returns: "Returns are accepted within 30 days of delivery.",
 } as const;

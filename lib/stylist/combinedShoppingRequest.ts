@@ -34,8 +34,10 @@ export function requestedComponents(message: string) {
 
 export function statedCombinedBudget(message: string) {
   const patterns = [
+    /\b(?:whole|entire|complete)\s+(?:purchase|order|gift|outfit)\s+(?:under|within|below|up to|at most)\s*(?:A?\$\s*)?(\d+(?:\.\d{1,2})?)\b/gi,
+    /(?:A?\$\s*)?(\d+(?:\.\d{1,2})?)\s*(?:aud|dollars?)?\s+(?:altogether|for both|for everything)\b/gi,
     /(?:A?\$\s*)?(\d+(?:\.\d{1,2})?)\s*(?:aud|dollars?)?\s+(?:(?:is|as)\s+(?:the\s+)?)?(?:total|combined)\b/gi,
-    /\b(?:total|combined)(?:\s+(?:purchase|shopping))?(?:\s+budget)?\s*(?:is|of|[:=])?\s*(?:A?\$\s*)?(\d+(?:\.\d{1,2})?)\b/gi,
+    /\b(?:total|combined)(?:\s+total)?(?:\s+(?:purchase|shopping|gift))?(?:\s+budget)?\s*(?:is|of|to|now|[:=])?\s*(?:A?\$\s*)?(\d+(?:\.\d{1,2})?)\b/gi,
     /(?:A?\$\s*)?(\d+(?:\.\d{1,2})?)\s*(?:aud|dollars?)?\s+for\s+(?:(?![.!?;]|\b(?:each|per item)\b).){1,100}?\btogether\b/gi,
   ];
   const amounts = patterns.flatMap(pattern => [...message.matchAll(pattern)]).filter(match => {

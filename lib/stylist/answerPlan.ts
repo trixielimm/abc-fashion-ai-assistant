@@ -4,7 +4,7 @@ import { ConversationChangeSchema } from "./conversationChanges";
 
 // The model selects questions and references; it never supplies product facts.
 export const AnswerIntentSchema = z.strictObject({
-  kind: z.enum(["product", "compare", "policy", "outfit_review", "guidance", "combination"]),
+  kind: z.enum(["product", "compare", "policy", "outfit_review", "guidance", "combination", "navigation"]),
   topics: z.array(z.enum([
     "recommendation", "material", "fit", "sizes", "availability", "price",
     "care", "quality", "delivery", "returns", "payment", "general", "total_price",
@@ -49,5 +49,5 @@ export const PendingAnswerSchema = z.strictObject({
 
 export const AnswerSourceSchema = z.strictObject({
   label: z.string().min(1).max(250),
-  url: z.string().regex(/^\/products\/[^/?#]+(?:#delivery-returns)?$/),
+  url: z.string().regex(/^\/(?:products\/[^/?#]+(?:#delivery-returns)?|help(?:#(?:your-bag|orders))?|cart)$/),
 });

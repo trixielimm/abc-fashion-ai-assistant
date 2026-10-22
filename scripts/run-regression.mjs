@@ -36,6 +36,7 @@ function record(text) {
 }
 
 const suites = [
+  ["adaptive-reliability", "test-adaptive-reliability-fixes.mjs"],
   ["proactive-cross-sell", "test-proactive-cross-sell.mjs"],
   ["journey-remediation", "test-journey-remediation.mjs"],
   ["journey-harness", "test-stylist-journey-harness.mjs"],

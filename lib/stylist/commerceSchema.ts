@@ -58,6 +58,7 @@ export const StylingStateSchema = z.strictObject({
   purchase_budget: z.strictObject({
     limit_aud: z.number().finite().nonnegative(),
     product_ids: z.array(z.string().min(1).max(250)).max(8),
+    example_product_ids: z.array(z.string().min(1).max(250)).max(8).default([]),
   }).nullable().default(null),
   outfit: z.array(OutfitPieceSchema).max(8).default([]),
   external_items: z.array(ExternalOutfitItemSchema).max(8).default([]),

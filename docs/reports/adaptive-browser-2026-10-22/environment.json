@@ -1,0 +1,14 @@
+{
+  "captured_at": "2026-10-21T14:17:48.265Z",
+  "endpoint": "http://127.0.0.1:3003/api/conversation-search",
+  "model": "gpt-5.6-luna",
+  "method": "One live browser conversation and five isolated live HTTP sessions using the customer UI protocol, real configured model and live catalogue. No prewritten follow-up dialogue. Six exchanges / twelve total messages maximum per scenario.",
+  "files": {
+    "app/api/conversation-search/route.ts": "d29131645de73758ad47fba231b97a035901ea81b4e7a2bed8620cc89a5cfb6e",
+    "lib/ai/interpretConversation.ts": "2fff56cdecc620b1ba912952609f0d019468ad038ba6339b41b3bf718402e6f5",
+    "lib/stylist/conversationProtocol.ts": "382e4a1381fffbcd325fbe962b0d0e7590faed5e6565cb7beaf607df24b9eff5",
+    "components/stylist/ConversationChat.tsx": "e4e9c99267755afdbec481a09947dcb2e8dab7f9b8eb9443e9c294de9af21b38",
+    "lib/storePolicies.ts": "7eefe9e17eb6995c22339a0bee6e868922cb893a4c8d2a0d3dd71f3aebd53c7d",
+    "app/help/page.tsx": "4fa70e824741e3ba2ca6376d4122c82beb9645ef0d5ef8fdc2ec0be7752a6ddc"
+  }
+}

@@ -118,7 +118,16 @@ export function checkConversationPlan(input: unknown, output: unknown) {
   }
   const plan = groundConversationPlan(request, originalPlan);
   const combined = additiveCombinedRequest(request.message);
-  if (combined && (combined.components.has("Bottoms") || combined.components.has("Shirts")) &&
+  const newComponents = new Map(combined?.components);
+  if (plan.action === "cross_sell" && plan.reference && /\b(?:example|consider(?:ing)?)\b/i.test(request.message)) {
+    const resolved = resolveProductReference(request.context, plan.reference);
+    const anchor = resolved.status === "resolved" ? [request.context.focused, ...request.context.latest, ...(request.context.previous?.flat() ?? [])]
+      .find(product => product?.product_id === resolved.product_id) : null;
+    if (anchor) for (const [role, component] of newComponents) {
+      if (component.category === anchor.category && (!component.subcategory || component.subcategory === anchor.subcategory)) newComponents.delete(role);
+    }
+  }
+  if (combined && newComponents.size >= 2 && (newComponents.has("Bottoms") || newComponents.has("Shirts")) &&
       ["new_search", "refine", "cross_sell"].includes(plan.action) && !plan.outfit_request) {
     throw new PlanValidationError("Use outfit_request with every requested component and one combined total. Bottoms and a shirt as well requests both pieces, even when phrased 'or ... as well'. Do not ask bottoms only or both or put the total on each item. Keep the referenced jacket for styling via reference.");
   }
@@ -543,8 +552,11 @@ export function checkConversationPlan(input: unknown, output: unknown) {
     ...(request.discovery ?? { skipped: [], seen_product_ids: [] }), stage: "collection",
     asked: [...new Set([...(request.discovery?.asked ?? []), "collection"])].slice(-2),
   }) : plan.action === "discover" ? advanceDiscovery(request.discovery, plan.discovery_intent!,
-    Boolean(scopes.item.category || scopes.item.subcategory || scopes.item.product_type),
-    /\b(?:weekends?|office|work|everyday)\b/i.test(request.message) && /\b(?:ideas|surprise|weekend|ordinary|relaxed)\b/i.test(request.message)) : null;
+    Boolean(scopes.item.category || scopes.item.subcategory || scopes.item.product_type ||
+      request.task?.brief.gift_recipient && scopes.item.preferred_colours.length),
+    /\b(?:weekends?|office|work|everyday)\b/i.test(request.message) && /\b(?:ideas|surprise|weekend|ordinary|relaxed)\b/i.test(request.message),
+    { occasionKnown: Boolean(scopes.item.occasion || scopes.shared.occasion || request.task?.brief.occasion_context),
+      giftNeedsDirection: Boolean(request.task?.brief.gift_recipient && !scopes.item.occasion && !scopes.item.preferred_colours.length) }) : null;
 
   return {
     status: stylingQuestion ? "needs_clarification" : plan.action === "none" ? "no_action" : clarification ? "needs_clarification"

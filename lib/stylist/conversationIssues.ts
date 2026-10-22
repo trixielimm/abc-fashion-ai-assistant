@@ -29,6 +29,9 @@ export function issueMessage(item: ConversationIssue): string {
   if (item.code === "invalid_preference" && item.field === "preferred_colours" && /^green$/i.test(value) && item.options.length) {
     return `Your green colour request is still saved. The catalogue records these related shades: ${item.options.join(", ")}. Which shade would you like to try? Your other requirements are unchanged.`;
   }
+  if (item.code === "invalid_preference" && item.field === "preferred_colours" && /^neutral(?: colou?rs?)?$/i.test(value) && item.options.length) {
+    return `Which neutral shade would you like to try: ${item.options.join(", ")}? Your neutral-colour direction and other requirements are still saved.`;
+  }
   if (item.code === "shared_conflict") return `Your ${label} request (${value}) conflicts with your saved rule for all items (${saved}). Tell me which rule to change; I haven't removed either restriction.`;
   if (item.code === "invalid_preference") return `I couldn't apply ${label}: ${value}. That value isn't supported by the current catalogue${item.options.length ? `; recorded options include ${item.options.join(", ")}` : ""}. Please change that detail; your other requirements are still saved.`;
   if (item.code === "unverified_requirement") return `I can't verify ${value} from the product information. Keep it as a hard requirement, remove it, or explicitly ask to browse with that detail unverified. Known violations will still be excluded.`;

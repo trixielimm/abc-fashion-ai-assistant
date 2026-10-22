@@ -17,6 +17,8 @@ import { simpleMatchingSet, statedCombinedBudget, confirmedBudgetRequest, reques
 import { prepareConversationTask, TaskStateSchema } from "./taskState";
 import { issueMessage, confirmedColourChoice } from "./conversationIssues";
 import { buildComplementaryOffer, refreshOfferSource } from "./proactiveCrossSell";
+import { shoppingNavigationIntent } from "./shoppingNavigation";
+import { productRecordWarnings } from "../catalogue/productWarnings";
 
 export function interpreterInput(input: unknown) {
   const turn = prepareConversationTask(TurnSchema.parse(input));
@@ -31,6 +33,10 @@ export function shortcutPlan(input: ConversationTurn): z.infer<typeof Conversati
   const turn = prepareConversationTask(input);
   if (turn.offer_anchor_id) return ConversationPlanSchema.parse({ action: "refine", intent_evidence: turn.message.slice(0, 250),
     reference: null, changes: [], question: null, continuation: false });
+  const navigation = !turn.shortcut && !turn.preview_other_colours && !turn.recovery ? shoppingNavigationIntent(turn) : null;
+  if (navigation) return groundConversationPlan(turn, ConversationPlanSchema.parse({ action: "none",
+    intent_evidence: turn.message.slice(0, 250), reference: null, changes: [], question: null,
+    continuation: false, answer: navigation }));
   // Explicit provisional consent with unchanged filters needs no reinterpretation.
   // A different colour/cap or any additional instruction still goes to the model.
   const provisional = turn.message.trim().match(/^Browse provisional options with ([^.!?]{1,120}) unverified\.(?:\s*Keep ([a-z]+(?: [a-z]+)?) and (?:A\$|\$)\s*(\d+(?:\.\d{1,2})?)\.?)?$/i);
@@ -364,7 +370,7 @@ function finishPreparedConversationTurn(
       styling: restored.styling, pending: null, pending_answer: null }, plan, vocabulary);
   }
   if (checked.status === "no_action" && checked.discovery && (plan.action === "discover" || checked.discovery.stage === "collection")) {
-    const presentation = checked.discovery.stage === "collection" ? collectionPresentation : discoveryPresentation(checked.discovery);
+    const presentation = checked.discovery.stage === "collection" ? collectionPresentation : discoveryPresentation(checked.discovery, turn.task?.brief.gift_recipient);
     return TurnReplySchema.parse({ action: plan.action, status: "no_action", products: [],
       message: presentation.message, suggested_replies: presentation.suggestions,
       discovery: checked.discovery, proposed_scopes: checked.proposed_scopes,
@@ -477,9 +483,21 @@ function finishPreparedConversationTurn(
   if (task.blocker_repeats >= 2) message += "\n\nWe're still blocked on the same detail. You can change that requirement or start a new shopping task below.";
   if (result.purchase_budget) {
     const budget = result.purchase_budget;
-    message += `\n\nYour selected purchases count as A$${budget.fixed_total_aud.toFixed(2)} of the A$${budget.limit_aud.toFixed(2)} combined budget, leaving A$${budget.remaining_aud.toFixed(2)} for this addition.${budget.maximum_total_aud !== null ? ` The displayed choices bring the purchase total to A$${budget.minimum_total_aud!.toFixed(2)}${budget.maximum_total_aud !== budget.minimum_total_aud ? `–A$${budget.maximum_total_aud.toFixed(2)}` : ""}.` : ""} Delivery and discounts are not included.`;
+    message += `\n\nYour ${budget.example_items.length ? "selected and example" : "selected"} purchases count as A$${budget.fixed_total_aud.toFixed(2)} of the A$${budget.limit_aud.toFixed(2)} combined budget, leaving A$${budget.remaining_aud.toFixed(2)} for this addition.${budget.example_items.length ? " Examples have not been selected or added to your bag." : ""}${budget.maximum_total_aud !== null ? ` The displayed choices bring the purchase total to A$${budget.minimum_total_aud!.toFixed(2)}${budget.maximum_total_aud !== budget.minimum_total_aud ? `–A$${budget.maximum_total_aud.toFixed(2)}` : ""}.` : ""} Delivery and discounts are not included.`;
   }
   const visible = [...presentation.products, ...presentation.alternatives];
+  if (presentation.status === "matches" && presentation.products.length === 1 && ["new_search", "refine"].includes(plan.action)) {
+    const record = catalogue.find(product => product.product_id === presentation.products[0].product_id);
+    if (record) {
+      const details = [record.material && `material ${record.material}`, record.fit && `fit ${record.fit}`, record.occasion && `occasion ${record.occasion}`].filter(Boolean);
+      if (details.length) message += `\n\nThe catalogue records ${details.join(", ")}. Those labels do not guarantee personal fit or fabric performance.`;
+    }
+  }
+  const recordWarnings = visible.flatMap(product => {
+    const record = catalogue.find(row => row.product_id === product.product_id);
+    return record ? productRecordWarnings(record) : [];
+  }).slice(0, 2);
+  if (recordWarnings.length) message += `\n\n${recordWarnings.join("\n")}`;
   if (visible.length && turn.task?.brief.goal === "bolder_style" && plan.action === "discover") {
     const directions = visible.slice(0, 3).map(product => `${product.product_name}: try ${product.colour ?? "its recorded silhouette"}${product.category === "Accessories" ? " as a small accent" : product.category === "Shoes" ? " through footwear" : " as a focal piece"}.`);
     message += `\n\nWays to try a bolder direction:\n${directions.join("\n")} These are styling suggestions; check the exact colours and event dress code.`;
@@ -496,6 +514,11 @@ function finishPreparedConversationTurn(
   }
   return TurnReplySchema.parse({
     ...result, ...presentation,
+    ...(plan.action === "discover" && visible.length && !pending ? {
+      optional_question: turn.task?.brief.gift_recipient
+        ? `Which idea feels most like your ${turn.task.brief.gift_recipient}? We can narrow to accessories with listed one-size options if you'd prefer.`
+        : "Which direction feels closest, and is there a fit or spending limit I should keep in mind? You can keep browsing without deciding.",
+    } : {}),
     task,
     ...(collectionAlternatives ? { suggested_replies: [
       { label: `Browse women's ${target}`, message: `Show women's ${target}, keeping my other requirements.` },

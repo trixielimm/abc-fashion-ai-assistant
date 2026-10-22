@@ -1,0 +1,49 @@
+Browser tab: 2, Title: "ABC Fashion", URL: "http://127.0.0.1:3003/".
+0 AXWebArea ABC Fashion, URL: 127.0.0.1:3003/
+	1 container AI Stylist
+		2 container
+			3 text PERSONAL SHOPPING
+			4 heading AI Stylist, Value: 2
+				5 text AI Stylist
+			6 button New chat
+			7 button Close AI Stylist
+		25 container Your look
+			26 text Your look
+			27 text 0 items
+			28 text Save pieces here to build a look.
+			29 container
+				30 text A$0.00 total
+			31 button (collapsed) View look, Secondary Actions: Expand
+		8 container
+			32 text YOU I'd like a women's silver cotton blouse for work, size 12, regular fit, under A$180. AI STYLIST I found Silver Blouse for A$170.00. I've also included optional finishing touches for Silver Blouse below.
+			33 button (collapsed) Details about these picks, Secondary Actions: Expand
+				34 text Details about these picks
+			35 container Recommended products
+				36 content list Recommended products
+					37 container
+						38 link Description: View Silver Blouse, Value: 127.0.0.1:3003/products/P1259
+						39 link Description: Silver Blouse, Value: 127.0.0.1:3003/products/P1259
+						40 text A$170.00 ABC Essentials · Silver Size 12 is listed.
+						71 button (collapsed) Description: More options for Silver Blouse, Help: More options, Secondary Actions: Expand
+						72 checkbox Description: Save to look: Silver Blouse, Value: 0
+						43 button Add to cart
+						44 button Size 12 · Change
+							45 text Size 
+							73 text 12
+							74 text  · Change
+			70 text YOU How do I complete the purchase of the Silver Blouse in size 12? Please give me its product link; no other products, thanks. AI STYLIST ABC Fashion is a browsing prototype. Checkout, payment and order placement are unavailable, so adding a piece to your bag does not place an order.
+
+Open Silver Blouse using the product link below. Choose a listed size and quantity on its page, then use Add to cart to save it to your bag. This answer hasn't added or reserved anything. Listed sizes do not confirm stock for an individual size. Sources: 
+			75 link Description: Open Silver Blouse, Value: 127.0.0.1:3003/products/P1259
+			76 text  · 
+			77 link Description: Open your bag, Value: 127.0.0.1:3003/cart
+			78 text  · 
+			79 link Description: Shopping and checkout help, Value: 127.0.0.1:3003/help#orders
+		19 container
+			20 text entry area (settable) Message your stylist
+			21 button (disabled) Send message
+		22 text Messages may be sent to OpenAI.
+		23 button (collapsed) Privacy & details, Secondary Actions: Expand
+			24 text Privacy & details
+
+The focused UI element is 0 AXWebArea ABC Fashion, URL: 127.0.0.1:3003/

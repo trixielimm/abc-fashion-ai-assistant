@@ -1,0 +1,128 @@
+Browser tab: 2, Title: "ABC Fashion", URL: "http://127.0.0.1:3003/".
+0 AXWebArea ABC Fashion, URL: 127.0.0.1:3003/
+	1 container AI Stylist
+		2 container
+			3 text PERSONAL SHOPPING
+			4 heading AI Stylist, Value: 2
+				5 text AI Stylist
+			6 button New chat
+			7 button Close AI Stylist
+		25 container Your look
+			26 text Your look
+			27 text 0 items
+			28 text Save pieces here to build a look.
+			29 container
+				30 text A$0.00 total
+			31 button (collapsed) View look, Secondary Actions: Expand
+		8 container
+			32 text YOU I'd like a women's silver cotton blouse for work, size 12, regular fit, under A$180. AI STYLIST I've found 2 clothing options for you to explore. I've also included optional finishing touches for Silver Blouse below.
+			33 button (collapsed) Details about these picks, Secondary Actions: Expand
+				34 text Details about these picks
+			35 container Recommended products
+				36 text 2 pieces
+				37 content list Recommended products
+					38 container
+						39 link Description: View Silver Blouse, Value: 127.0.0.1:3003/products/P1259
+						40 link Description: Silver Blouse, Value: 127.0.0.1:3003/products/P1259
+						41 text A$170.00 ABC Essentials · Silver Size 12 is listed.
+						42 button (collapsed) Description: More options for Silver Blouse, Help: More options, Secondary Actions: Expand
+						43 checkbox Description: Save to look: Silver Blouse, Value: 0
+						44 button Add to cart
+						45 button Size 12 · Change
+							46 text Size 
+							47 text 12
+							48 text  · Change
+					49 container
+						50 link Description: View Pink Satin Camisole, Value: 127.0.0.1:3003/products/P1194
+						51 link Description: Pink Satin Camisole, Value: 127.0.0.1:3003/products/P1194
+						52 text A$55.00 ABC Essentials · Pink Size 12 is listed.
+						53 button (collapsed) Description: More options for Pink Satin Camisole, Help: More options, Secondary Actions: Expand
+						54 checkbox Description: Save to look: Pink Satin Camisole, Value: 0
+						55 button Add to cart
+						56 button Size 12 · Change
+							57 text Size 
+							58 text 12
+							59 text  · Change
+			60 heading Alternatives Details differ, Value: 3
+				61 text Alternatives Details differ
+			62 container Alternative products with disclosed differences
+				63 text 3 pieces
+				64 content list Alternative products with disclosed differences
+					65 container
+						66 link Description: View Silver Knit Top, Value: 127.0.0.1:3003/products/P1265
+						67 link Description: Silver Knit Top, Value: 127.0.0.1:3003/products/P1265
+						68 text A$180.00 ABC Essentials · Silver Size 12 is listed.
+						69 button (collapsed) Description: More options for Silver Knit Top, Help: More options, Secondary Actions: Expand
+						70 text Alternative: details differ
+						71 content list
+							72 text Occasion: Smart Casual; you requested Work.
+						73 checkbox Description: Save to look: Silver Knit Top, Value: 0
+						74 button Add to cart
+						75 button Size 12 · Change
+							76 text Size 
+							77 text 12
+							78 text  · Change
+					79 container
+						80 link Description: View Black Linen Shirt, Value: 127.0.0.1:3003/products/P1186
+						81 link Description: Black Linen Shirt, Value: 127.0.0.1:3003/products/P1186
+						82 text A$95.00 ABC Occasion · Black Size 12 is listed.
+						83 button (collapsed) Description: More options for Black Linen Shirt, Help: More options, Secondary Actions: Expand
+						84 text Alternative: details differ
+						85 content list
+							86 text Occasion: Beach Wedding; you requested Work.
+						87 checkbox Description: Save to look: Black Linen Shirt, Value: 0
+						88 button Add to cart
+						89 button Size 12 · Change
+							90 text Size 
+							91 text 12
+							92 text  · Change
+					93 container
+						94 link Description: View Beige Linen Shirt, Value: 127.0.0.1:3003/products/P1210
+						95 link Description: Beige Linen Shirt, Value: 127.0.0.1:3003/products/P1210
+						96 text A$100.00 ABC Casual · Beige Size 12 is listed.
+						97 button (collapsed) Description: More options for Beige Linen Shirt, Help: More options, Secondary Actions: Expand
+						98 text Alternative: details differ
+						99 content list
+							100 text Occasion: Brunch; you requested Work.
+						101 checkbox Description: Save to look: Beige Linen Shirt, Value: 0
+						102 button Add to cart
+						103 button Size 12 · Change
+							104 text Size 
+							105 text 12
+							106 text  · Change
+			107 container Optional finishing touches
+				108 text COMPLETE THE LOOK
+				109 heading Optional finishing touches, Value: 3
+					110 text Optional finishing touches
+				111 container
+					112 text To help complete your look, here  is an optional addition  for  Silver Blouse .
+				113 text This is a styling example; you haven't selected this item.
+				114 text Priced separately · Your item budget stays unchanged.
+				115 container Optional complementary products
+					116 content list Optional complementary products
+						117 container
+							118 link Description: View White Loafers, Value: 127.0.0.1:3003/products/P1088
+							119 link Description: White Loafers, Value: 127.0.0.1:3003/products/P1088
+							120 text A$165.00 ABC Footwear · White Its recorded occasion matches Work.
+							121 button (collapsed) Description: More options for White Loafers, Help: More options, Secondary Actions: Expand
+							122 text Pairing uses recorded attributes; visual compatibility is unverified.
+							123 checkbox Description: Save to look: White Loafers, Value: 0
+							124 button Add to cart
+							125 button (collapsed) Why this item?, Secondary Actions: Expand
+								126 text Why this item?
+				127 container
+					128 text Match a different  item
+					129 pop up button (collapsed, settable) Match a different item, Value: Silver Blouse, Secondary Actions: Expand
+						130 menu
+							131 (selected) Silver Blouse
+							132 Pink Satin Camisole
+				133 button Hide these suggestions
+				134 button No more extras
+		19 container
+			20 text entry area (settable) Message your stylist
+			21 button (disabled) Send message
+		22 text Messages may be sent to OpenAI.
+		23 button (collapsed) Privacy & details, Secondary Actions: Expand
+			24 text Privacy & details
+
+The focused UI element is 0 AXWebArea ABC Fashion, URL: 127.0.0.1:3003/

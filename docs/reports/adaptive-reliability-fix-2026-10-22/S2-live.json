@@ -1,0 +1,1758 @@
+{
+  "id": "S2",
+  "started_at": "2026-10-21T22:36:51.630Z",
+  "endpoint": "http://127.0.0.1:3003/api/conversation-search",
+  "max_total_messages": 12,
+  "turns": [
+    {
+      "at": "2026-10-21T22:36:51.634Z",
+      "customer": "I need something nice for work that doesn't look too formal. I'm struggling to describe it.",
+      "adaptive_reason": "Fresh vague work brief; follow-ups will depend on the new responses.",
+      "request": {
+        "message": "I need something nice for work that doesn't look too formal. I'm struggling to describe it.",
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null,
+            "gift_recipient": null,
+            "uncertain_recipient_size": false,
+            "excluded_roles": [],
+            "occasion_context": null
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "18u8tuq",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null,
+            "gift_recipient": null,
+            "uncertain_recipient_size": false,
+            "excluded_roles": [],
+            "occasion_context": "work"
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "no_action",
+        "action": "discover",
+        "discovery": {
+          "stage": "collection",
+          "asked": [
+            "collection"
+          ],
+          "skipped": [],
+          "seen_product_ids": []
+        },
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": {
+            "action": "discover",
+            "discovery_intent": "start"
+          }
+        },
+        "suggested_replies": [
+          {
+            "label": "Men's",
+            "message": "Men's, please."
+          },
+          {
+            "label": "Women's",
+            "message": "Women's, please."
+          },
+          {
+            "label": "Both / no preference",
+            "message": "Both collections, please."
+          }
+        ],
+        "message": "Sure. Would you like men's clothing, women's clothing, or both?",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "accepted": true,
+      "elapsed_ms": 5179
+    },
+    {
+      "at": "2026-10-21T22:37:52.852Z",
+      "customer": "Women's, please.",
+      "adaptive_reason": "Answer the collection question; verify it does not repeat the known work occasion.",
+      "request": {
+        "message": "Women's, please.",
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": {
+            "action": "discover",
+            "discovery_intent": "start"
+          }
+        },
+        "discovery": {
+          "stage": "collection",
+          "asked": [
+            "collection"
+          ],
+          "skipped": [],
+          "seen_product_ids": []
+        },
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I need something nice for work that doesn't look too formal. I'm struggling to describe it."
+          },
+          {
+            "role": "assistant",
+            "content": "Sure. Would you like men's clothing, women's clothing, or both?"
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "18u8tuq",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null,
+            "gift_recipient": null,
+            "uncertain_recipient_size": false,
+            "excluded_roles": [],
+            "occasion_context": "work"
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "r5pmxx",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null,
+            "gift_recipient": null,
+            "uncertain_recipient_size": false,
+            "excluded_roles": [],
+            "occasion_context": "work"
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "matches",
+        "action": "discover",
+        "discovery": {
+          "stage": "browsing",
+          "asked": [
+            "collection"
+          ],
+          "skipped": [],
+          "seen_product_ids": [
+            "P1131",
+            "P1312",
+            "P1201",
+            "P1067",
+            "P1292"
+          ]
+        },
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [
+          {
+            "label": "None of these / different ideas",
+            "message": "None of these. Show me different ideas."
+          }
+        ],
+        "message": "Here are a few different ideas to react to. Nothing needs to be decided yet.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Work",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1131",
+            "product_name": "Navy Blazer",
+            "price_aud": 245,
+            "category": "Clothing",
+            "subcategory": "Outerwear",
+            "product_type": "Blazer",
+            "brand_line": "ABC Essentials",
+            "colour": "Navy",
+            "occasion": "Work",
+            "style": "Smart",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "explanation": "Blazer · Colour: Navy · Style: Smart · Occasion: Work",
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1131/image"
+          },
+          {
+            "product_id": "P1312",
+            "product_name": "Beige Ballet Flats",
+            "price_aud": 165,
+            "category": "Shoes",
+            "subcategory": "Flats",
+            "product_type": "Ballet Flats",
+            "brand_line": "ABC Footwear",
+            "colour": "Beige",
+            "occasion": "Work",
+            "style": "Bohemian",
+            "sizes_available": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "explanation": "Ballet Flats · Colour: Beige · Style: Bohemian · Occasion: Work",
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1312/image"
+          },
+          {
+            "product_id": "P1201",
+            "product_name": "Lavender Sling Bag",
+            "price_aud": 150,
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Sling Bag",
+            "brand_line": "ABC Accessories",
+            "colour": "Lavender",
+            "occasion": "Work",
+            "style": "Relaxed",
+            "sizes_available": [
+              "One Size"
+            ],
+            "explanation": "Sling Bag · Colour: Lavender · Style: Relaxed · Occasion: Work",
+            "unverified_requirements": [],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1201/image"
+          },
+          {
+            "product_id": "P1067",
+            "product_name": "Pink Leather Belt",
+            "price_aud": 85,
+            "category": "Accessories",
+            "subcategory": "Belts",
+            "product_type": "Leather Belt",
+            "brand_line": "ABC Accessories",
+            "colour": "Pink",
+            "occasion": "Work",
+            "style": "Minimalist",
+            "sizes_available": [
+              "One Size"
+            ],
+            "explanation": "Leather Belt · Colour: Pink · Style: Minimalist · Occasion: Work",
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1067/image"
+          },
+          {
+            "product_id": "P1292",
+            "product_name": "Olive Suit Set",
+            "price_aud": 160,
+            "category": "Clothing",
+            "subcategory": "Sets",
+            "product_type": "Suit Set",
+            "brand_line": "ABC Essentials",
+            "colour": "Olive",
+            "occasion": "Work",
+            "style": "Romantic",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "explanation": "Suit Set · Colour: Olive · Style: Romantic · Occasion: Work",
+            "unverified_requirements": [],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1292/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": "Which direction feels closest, and is there a fit or spending limit I should keep in mind? You can keep browsing without deciding.",
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "accepted": true,
+      "elapsed_ms": 2789
+    },
+    {
+      "at": "2026-10-21T22:39:23.007Z",
+      "customer": "The blazer looks more formal than I need. I'd prefer a regular-fit top in size 12, under A$180, to wear with trousers I already own. It's a relaxed office, not a required clothing style.",
+      "adaptive_reason": "React to the actual blazer-led shortlist, answer fit/budget clarification and verify owned trousers stay separate.",
+      "request": {
+        "message": "The blazer looks more formal than I need. I'd prefer a regular-fit top in size 12, under A$180, to wear with trousers I already own. It's a relaxed office, not a required clothing style.",
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "discovery": {
+          "stage": "browsing",
+          "asked": [
+            "collection"
+          ],
+          "skipped": [],
+          "seen_product_ids": [
+            "P1131",
+            "P1312",
+            "P1201",
+            "P1067",
+            "P1292"
+          ]
+        },
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1131",
+              "product_name": "Navy Blazer",
+              "category": "Clothing",
+              "subcategory": "Outerwear",
+              "product_type": "Blazer",
+              "price_aud": 245
+            },
+            {
+              "product_id": "P1312",
+              "product_name": "Beige Ballet Flats",
+              "category": "Shoes",
+              "subcategory": "Flats",
+              "product_type": "Ballet Flats",
+              "price_aud": 165
+            },
+            {
+              "product_id": "P1201",
+              "product_name": "Lavender Sling Bag",
+              "category": "Bags",
+              "subcategory": "Crossbody",
+              "product_type": "Sling Bag",
+              "price_aud": 150
+            },
+            {
+              "product_id": "P1067",
+              "product_name": "Pink Leather Belt",
+              "category": "Accessories",
+              "subcategory": "Belts",
+              "product_type": "Leather Belt",
+              "price_aud": 85
+            },
+            {
+              "product_id": "P1292",
+              "product_name": "Olive Suit Set",
+              "category": "Clothing",
+              "subcategory": "Sets",
+              "product_type": "Suit Set",
+              "price_aud": 160
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I need something nice for work that doesn't look too formal. I'm struggling to describe it."
+          },
+          {
+            "role": "assistant",
+            "content": "Sure. Would you like men's clothing, women's clothing, or both?"
+          },
+          {
+            "role": "user",
+            "content": "Women's, please."
+          },
+          {
+            "role": "assistant",
+            "content": "Here are a few different ideas to react to. Nothing needs to be decided yet.\nWhich direction feels closest, and is there a fit or spending limit I should keep in mind? You can keep browsing without deciding."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "r5pmxx",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null,
+            "gift_recipient": null,
+            "uncertain_recipient_size": false,
+            "excluded_roles": [],
+            "occasion_context": "work"
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": {
+          "anchor": {
+            "product_id": "P1259",
+            "product_name": "Silver Blouse",
+            "price_aud": 170,
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Blouse",
+            "brand_line": "ABC Essentials",
+            "colour": "Silver",
+            "occasion": "Work",
+            "style": "Minimalist",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1259/image"
+          },
+          "anchor_ownership": "example",
+          "items": [
+            {
+              "product": {
+                "product_id": "P1088",
+                "product_name": "White Loafers",
+                "price_aud": 165,
+                "category": "Shoes",
+                "subcategory": "Flats",
+                "product_type": "Loafers",
+                "brand_line": "ABC Footwear",
+                "colour": "White",
+                "occasion": "Work",
+                "style": "Minimalist",
+                "sizes_available": [
+                  "5",
+                  "6",
+                  "7",
+                  "8",
+                  "9",
+                  "10"
+                ],
+                "explanation": "Its recorded occasion matches Work.",
+                "unverified_requirements": [],
+                "extra_target": null,
+                "image_src": "/api/products/P1088/image",
+                "pairing_evidence": {
+                  "policy_version": "stylist-commerce-v1",
+                  "anchor_ids": [
+                    "P1259"
+                  ],
+                  "external_anchor_ids": [
+                    "external-1"
+                  ],
+                  "reasons": [
+                    "Its recorded occasion matches Work.",
+                    "Its Minimalist style coordinates with the recorded style of Silver Blouse.",
+                    "The season labels are compatible with Silver Blouse; this does not verify weather performance.",
+                    "Styling suggestion: its White colour can act as a neutral alongside Silver Blouse."
+                  ],
+                  "limitations": [
+                    "The owned garment details are customer-provided; its exact shade, material and visual match have not been verified."
+                  ],
+                  "level": "catalogue_supported"
+                }
+              },
+              "preferences": {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Work",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ],
+          "combined_limit_aud": null,
+          "base_total_aud": 170,
+          "extras_total_aud": 165,
+          "total_aud": 335
+        },
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": true,
+          "complementary_dismissed": false,
+          "prepared_key": "1tmjy08",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null,
+            "gift_recipient": null,
+            "uncertain_recipient_size": false,
+            "excluded_roles": [],
+            "occasion_context": "office"
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "matches",
+        "action": "refine",
+        "discovery": {
+          "stage": "complete",
+          "asked": [
+            "collection"
+          ],
+          "skipped": [],
+          "seen_product_ids": [
+            "P1131",
+            "P1312",
+            "P1201",
+            "P1067",
+            "P1292"
+          ]
+        },
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I've found 2 clothing options for you to explore. I've also included optional finishing touches for Silver Blouse below.\n\nThese options range from A$55.00 to A$170.00. The selection includes blouse and satin camisole options. I've kept this selection within your A$180.00 per-item limit. Your requested size, 12, is listed for each item.\n\nI've also included alternatives separately below. Some requested details differ or can't be verified; the cards explain those differences.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.\n\nBeige Linen Shirt: the name says Linen, but the recorded material is Cotton. Full composition is unverified; check the supplier's label, especially for a fabric sensitivity.\n\nWhy these are alternatives: Silver Knit Top: Occasion: Smart Casual; you requested Work. Black Linen Shirt: Occasion: Beach Wedding; you requested Work.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": "Regular",
+            "size": "12",
+            "min_price": null,
+            "max_price": 180,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Tops",
+          "product_type": null,
+          "occasion": "Work",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": "Regular",
+          "size": "12",
+          "min_price": null,
+          "max_price": 180,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1259",
+            "product_name": "Silver Blouse",
+            "price_aud": 170,
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Blouse",
+            "brand_line": "ABC Essentials",
+            "colour": "Silver",
+            "occasion": "Work",
+            "style": "Minimalist",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1259/image"
+          },
+          {
+            "product_id": "P1194",
+            "product_name": "Pink Satin Camisole",
+            "price_aud": 55,
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Satin Camisole",
+            "brand_line": "ABC Essentials",
+            "colour": "Pink",
+            "occasion": "Work",
+            "style": "Contemporary",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1194/image"
+          }
+        ],
+        "alternatives": [
+          {
+            "product_id": "P1265",
+            "product_name": "Silver Knit Top",
+            "price_aud": 180,
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Knit Top",
+            "brand_line": "ABC Essentials",
+            "colour": "Silver",
+            "occasion": "Smart Casual",
+            "style": "Bohemian",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1265/image",
+            "differences": [
+              "Occasion: Smart Casual; you requested Work."
+            ]
+          },
+          {
+            "product_id": "P1186",
+            "product_name": "Black Linen Shirt",
+            "price_aud": 95,
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Linen Shirt",
+            "brand_line": "ABC Occasion",
+            "colour": "Black",
+            "occasion": "Beach Wedding",
+            "style": "Minimalist",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1186/image",
+            "differences": [
+              "Occasion: Beach Wedding; you requested Work."
+            ]
+          },
+          {
+            "product_id": "P1210",
+            "product_name": "Beige Linen Shirt",
+            "price_aud": 100,
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Linen Shirt",
+            "brand_line": "ABC Casual",
+            "colour": "Beige",
+            "occasion": "Brunch",
+            "style": "Relaxed",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1210/image",
+            "differences": [
+              "Occasion: Brunch; you requested Work."
+            ]
+          }
+        ],
+        "alternatives_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Tops",
+          "product_type": null,
+          "occasion": "Work",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": "Regular",
+          "size": "12",
+          "min_price": null,
+          "max_price": 180,
+          "brand_line": null
+        },
+        "alternative_kind": "context_difference",
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [
+            {
+              "description": "trousers I already own",
+              "category": "Clothing",
+              "product_type": "Trousers",
+              "colour": null,
+              "occasion": null,
+              "external_id": "external-1",
+              "source": "customer_description"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "accepted": true,
+      "elapsed_ms": 6800
+    },
+    {
+      "at": "2026-10-21T23:00:44.534Z",
+      "customer": "The Silver Blouse seems useful. Why would you choose it for my office? I already have shoes, so no more extras.",
+      "adaptive_reason": "The requested tops were returned without confusing owned trousers; test Work/office explanation and decision readiness.",
+      "request": {
+        "message": "The Silver Blouse seems useful. Why would you choose it for my office? I already have shoes, so no more extras.",
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "discovery": {
+          "stage": "complete",
+          "asked": [
+            "collection"
+          ],
+          "skipped": [],
+          "seen_product_ids": [
+            "P1131",
+            "P1312",
+            "P1201",
+            "P1067",
+            "P1292"
+          ]
+        },
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": "Regular",
+            "size": "12",
+            "min_price": null,
+            "max_price": 180,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1259",
+              "product_name": "Silver Blouse",
+              "category": "Clothing",
+              "subcategory": "Tops",
+              "product_type": "Blouse",
+              "price_aud": 170
+            },
+            {
+              "product_id": "P1194",
+              "product_name": "Pink Satin Camisole",
+              "category": "Clothing",
+              "subcategory": "Tops",
+              "product_type": "Satin Camisole",
+              "price_aud": 55
+            },
+            {
+              "product_id": "P1265",
+              "product_name": "Silver Knit Top",
+              "category": "Clothing",
+              "subcategory": "Tops",
+              "product_type": "Knit Top",
+              "price_aud": 180
+            },
+            {
+              "product_id": "P1186",
+              "product_name": "Black Linen Shirt",
+              "category": "Clothing",
+              "subcategory": "Tops",
+              "product_type": "Linen Shirt",
+              "price_aud": 95
+            },
+            {
+              "product_id": "P1210",
+              "product_name": "Beige Linen Shirt",
+              "category": "Clothing",
+              "subcategory": "Tops",
+              "product_type": "Linen Shirt",
+              "price_aud": 100
+            }
+          ],
+          "complementary": [
+            {
+              "product_id": "P1088",
+              "product_name": "White Loafers",
+              "category": "Shoes",
+              "subcategory": "Flats",
+              "product_type": "Loafers",
+              "price_aud": 165,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "P1259"
+                ],
+                "primary_product_id": null
+              }
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "P1131",
+                "product_name": "Navy Blazer",
+                "category": "Clothing",
+                "subcategory": "Outerwear",
+                "product_type": "Blazer",
+                "price_aud": 245
+              },
+              {
+                "product_id": "P1312",
+                "product_name": "Beige Ballet Flats",
+                "category": "Shoes",
+                "subcategory": "Flats",
+                "product_type": "Ballet Flats",
+                "price_aud": 165
+              },
+              {
+                "product_id": "P1201",
+                "product_name": "Lavender Sling Bag",
+                "category": "Bags",
+                "subcategory": "Crossbody",
+                "product_type": "Sling Bag",
+                "price_aud": 150
+              },
+              {
+                "product_id": "P1067",
+                "product_name": "Pink Leather Belt",
+                "category": "Accessories",
+                "subcategory": "Belts",
+                "product_type": "Leather Belt",
+                "price_aud": 85
+              },
+              {
+                "product_id": "P1292",
+                "product_name": "Olive Suit Set",
+                "category": "Clothing",
+                "subcategory": "Sets",
+                "product_type": "Suit Set",
+                "price_aud": 160
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I need something nice for work that doesn't look too formal. I'm struggling to describe it."
+          },
+          {
+            "role": "assistant",
+            "content": "Sure. Would you like men's clothing, women's clothing, or both?"
+          },
+          {
+            "role": "user",
+            "content": "Women's, please."
+          },
+          {
+            "role": "assistant",
+            "content": "Here are a few different ideas to react to. Nothing needs to be decided yet.\nWhich direction feels closest, and is there a fit or spending limit I should keep in mind? You can keep browsing without deciding."
+          },
+          {
+            "role": "user",
+            "content": "The blazer looks more formal than I need. I'd prefer a regular-fit top in size 12, under A$180, to wear with trousers I already own. It's a relaxed office, not a required clothing style."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 clothing options for you to explore. I've also included optional finishing touches for Silver Blouse below.\n\nThese options range from A$55.00 to A$170.00. The selection includes blouse and satin camisole options. I've kept this selection within your A$180.00 per-item limit. Your requested size, 12, is listed for each item.\n\nI've also included alternatives separately below. Some requested details differ or can't be verified; the cards explain those differences.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.\n\nBeige Linen Shirt: the name says Linen, but the recorded material is Cotton. Full composition is unverified; check the supplier's label, especially for a fabric sensitivity.\n\nWhy these are alternatives: Silver Knit Top: Occasion: Smart Casual; you requested Work. Black Linen Shirt: Occasion: Beach Wedding; you requested Work."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [
+            {
+              "description": "trousers I already own",
+              "category": "Clothing",
+              "product_type": "Trousers",
+              "colour": null,
+              "occasion": null,
+              "external_id": "external-1",
+              "source": "customer_description"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": true,
+          "complementary_dismissed": false,
+          "prepared_key": "1tmjy08",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null,
+            "gift_recipient": null,
+            "uncertain_recipient_size": false,
+            "excluded_roles": [],
+            "occasion_context": "office"
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": true,
+          "complementary_dismissed": false,
+          "prepared_key": "1iopzik",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null,
+            "gift_recipient": null,
+            "uncertain_recipient_size": false,
+            "excluded_roles": [],
+            "occasion_context": "office"
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "answered",
+        "action": "none",
+        "discovery": {
+          "stage": "complete",
+          "asked": [
+            "collection"
+          ],
+          "skipped": [],
+          "seen_product_ids": [
+            "P1131",
+            "P1312",
+            "P1201",
+            "P1067",
+            "P1292"
+          ]
+        },
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "Silver Blouse\nIts recorded occasion matches Work. The owned garment details are customer-provided; its exact shade, material and visual match have not been verified. These pairing reasons are styling suggestions from recorded attributes; visual compatibility has not been verified. For my office, the strongest recorded reason is that the catalogue explicitly lists Work as this item's occasion. Its recorded styling details are colour: Silver, style: Minimalist, season: All Season. At A$170.00, it is within your A$180.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": null,
+            "occasion": "Work",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": "Regular",
+            "size": "12",
+            "min_price": null,
+            "max_price": 180,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "Silver Blouse: catalogue details",
+            "url": "/products/P1259"
+          }
+        ],
+        "answer_product_ids": [
+          "P1259"
+        ],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [
+            {
+              "description": "trousers I already own",
+              "category": "Clothing",
+              "product_type": "Trousers",
+              "colour": null,
+              "occasion": null,
+              "external_id": "external-1",
+              "source": "customer_description"
+            }
+          ],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": true,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "accepted": true,
+      "elapsed_ms": 4262
+    }
+  ],
+  "state": {
+    "scopes": {
+      "item": {
+        "gender": "Women",
+        "category": "Clothing",
+        "subcategory": "Tops",
+        "product_type": null,
+        "occasion": "Work",
+        "style": null,
+        "preferred_colours": [],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": "Regular",
+        "size": "12",
+        "min_price": null,
+        "max_price": 180,
+        "brand_line": null
+      },
+      "shared": {
+        "gender": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      },
+      "unresolved_item": [],
+      "unresolved_shared": []
+    },
+    "pending": null,
+    "pending_answer": null,
+    "styling": {
+      "dress_code": null,
+      "outfit_request": null,
+      "purchase_budget": null,
+      "outfit": [],
+      "external_items": [
+        {
+          "description": "trousers I already own",
+          "category": "Clothing",
+          "product_type": "Trousers",
+          "colour": null,
+          "occasion": null,
+          "external_id": "external-1",
+          "source": "customer_description"
+        }
+      ],
+      "rejected_ids": [],
+      "priorities": [],
+      "required_features": [],
+      "offers_paused": true,
+      "owned_categories": []
+    },
+    "discovery": {
+      "stage": "complete",
+      "asked": [
+        "collection"
+      ],
+      "skipped": [],
+      "seen_product_ids": [
+        "P1131",
+        "P1312",
+        "P1201",
+        "P1067",
+        "P1292"
+      ]
+    },
+    "collection": {
+      "choice": "Women",
+      "current": {
+        "choice": "Women",
+        "source": "saved"
+      },
+      "checkpoint": null
+    },
+    "cart_product_ids": [],
+    "task": {
+      "generation": 0,
+      "complementary_shown": true,
+      "complementary_dismissed": false,
+      "prepared_key": "1iopzik",
+      "preview_unverified": false,
+      "blocker_signature": "",
+      "blocker_repeats": 0,
+      "issues": [],
+      "brief": {
+        "goal": null,
+        "total_budget_aud": null,
+        "budget_evidence": null,
+        "guidance": [],
+        "deadline": null,
+        "gift_recipient": null,
+        "uncertain_recipient_size": false,
+        "excluded_roles": [],
+        "occasion_context": "office"
+      }
+    },
+    "context": {
+      "focused": {
+        "product_id": "P1259",
+        "product_name": "Silver Blouse",
+        "category": "Clothing",
+        "subcategory": "Tops",
+        "product_type": "Blouse",
+        "price_aud": 170
+      },
+      "latest": [
+        {
+          "product_id": "P1259",
+          "product_name": "Silver Blouse",
+          "category": "Clothing",
+          "subcategory": "Tops",
+          "product_type": "Blouse",
+          "price_aud": 170
+        },
+        {
+          "product_id": "P1194",
+          "product_name": "Pink Satin Camisole",
+          "category": "Clothing",
+          "subcategory": "Tops",
+          "product_type": "Satin Camisole",
+          "price_aud": 55
+        },
+        {
+          "product_id": "P1265",
+          "product_name": "Silver Knit Top",
+          "category": "Clothing",
+          "subcategory": "Tops",
+          "product_type": "Knit Top",
+          "price_aud": 180
+        },
+        {
+          "product_id": "P1186",
+          "product_name": "Black Linen Shirt",
+          "category": "Clothing",
+          "subcategory": "Tops",
+          "product_type": "Linen Shirt",
+          "price_aud": 95
+        },
+        {
+          "product_id": "P1210",
+          "product_name": "Beige Linen Shirt",
+          "category": "Clothing",
+          "subcategory": "Tops",
+          "product_type": "Linen Shirt",
+          "price_aud": 100
+        }
+      ],
+      "complementary": [
+        {
+          "product_id": "P1088",
+          "product_name": "White Loafers",
+          "category": "Shoes",
+          "subcategory": "Flats",
+          "product_type": "Loafers",
+          "price_aud": 165,
+          "recommendation_context": {
+            "anchor_ids": [
+              "P1259"
+            ],
+            "primary_product_id": null
+          }
+        }
+      ],
+      "previous": [
+        [
+          {
+            "product_id": "P1131",
+            "product_name": "Navy Blazer",
+            "category": "Clothing",
+            "subcategory": "Outerwear",
+            "product_type": "Blazer",
+            "price_aud": 245
+          },
+          {
+            "product_id": "P1312",
+            "product_name": "Beige Ballet Flats",
+            "category": "Shoes",
+            "subcategory": "Flats",
+            "product_type": "Ballet Flats",
+            "price_aud": 165
+          },
+          {
+            "product_id": "P1201",
+            "product_name": "Lavender Sling Bag",
+            "category": "Bags",
+            "subcategory": "Crossbody",
+            "product_type": "Sling Bag",
+            "price_aud": 150
+          },
+          {
+            "product_id": "P1067",
+            "product_name": "Pink Leather Belt",
+            "category": "Accessories",
+            "subcategory": "Belts",
+            "product_type": "Leather Belt",
+            "price_aud": 85
+          },
+          {
+            "product_id": "P1292",
+            "product_name": "Olive Suit Set",
+            "category": "Clothing",
+            "subcategory": "Sets",
+            "product_type": "Suit Set",
+            "price_aud": 160
+          }
+        ]
+      ]
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "Women's, please."
+      },
+      {
+        "role": "assistant",
+        "content": "Here are a few different ideas to react to. Nothing needs to be decided yet.\nWhich direction feels closest, and is there a fit or spending limit I should keep in mind? You can keep browsing without deciding."
+      },
+      {
+        "role": "user",
+        "content": "The blazer looks more formal than I need. I'd prefer a regular-fit top in size 12, under A$180, to wear with trousers I already own. It's a relaxed office, not a required clothing style."
+      },
+      {
+        "role": "assistant",
+        "content": "I've found 2 clothing options for you to explore. I've also included optional finishing touches for Silver Blouse below.\n\nThese options range from A$55.00 to A$170.00. The selection includes blouse and satin camisole options. I've kept this selection within your A$180.00 per-item limit. Your requested size, 12, is listed for each item.\n\nI've also included alternatives separately below. Some requested details differ or can't be verified; the cards explain those differences.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.\n\nBeige Linen Shirt: the name says Linen, but the recorded material is Cotton. Full composition is unverified; check the supplier's label, especially for a fabric sensitivity.\n\nWhy these are alternatives: Silver Knit Top: Occasion: Smart Casual; you requested Work. Black Linen Shirt: Occasion: Beach Wedding; you requested Work."
+      },
+      {
+        "role": "user",
+        "content": "The Silver Blouse seems useful. Why would you choose it for my office? I already have shoes, so no more extras."
+      },
+      {
+        "role": "assistant",
+        "content": "Silver Blouse\nIts recorded occasion matches Work. The owned garment details are customer-provided; its exact shade, material and visual match have not been verified. These pairing reasons are styling suggestions from recorded attributes; visual compatibility has not been verified. For my office, the strongest recorded reason is that the catalogue explicitly lists Work as this item's occasion. Its recorded styling details are colour: Silver, style: Minimalist, season: All Season. At A$170.00, it is within your A$180.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you."
+      }
+    ]
+  }
+}

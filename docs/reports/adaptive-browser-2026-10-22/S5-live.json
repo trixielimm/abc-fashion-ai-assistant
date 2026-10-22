@@ -1,0 +1,2053 @@
+{
+  "id": "S5",
+  "started_at": "2026-10-21T14:16:00.517Z",
+  "endpoint": "http://127.0.0.1:3003/api/conversation-search",
+  "max_total_messages": 12,
+  "turns": [
+    {
+      "at": "2026-10-21T14:16:00.521Z",
+      "customer": "I'd like a women's shirt for a beach wedding, size 10, regular fit, under A$110. I'm open to colours.",
+      "adaptive_reason": "Start with a feasible request; introduce a realistic change only after seeing what is offered.",
+      "request": {
+        "message": "I'd like a women's shirt for a beach wedding, size 10, regular fit, under A$110. I'm open to colours.",
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": {
+          "anchor": {
+            "product_id": "P1186",
+            "product_name": "Black Linen Shirt",
+            "price_aud": 95,
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Linen Shirt",
+            "brand_line": "ABC Occasion",
+            "colour": "Black",
+            "occasion": "Beach Wedding",
+            "style": "Minimalist",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1186/image"
+          },
+          "anchor_ownership": "example",
+          "items": [
+            {
+              "product": {
+                "product_id": "P1095",
+                "product_name": "Pink Ballet Flats",
+                "price_aud": 80,
+                "category": "Shoes",
+                "subcategory": "Flats",
+                "product_type": "Ballet Flats",
+                "brand_line": "ABC Footwear",
+                "colour": "Pink",
+                "occasion": "Beach Wedding",
+                "style": "Minimalist",
+                "sizes_available": [
+                  "5",
+                  "6",
+                  "7",
+                  "8",
+                  "9",
+                  "10"
+                ],
+                "explanation": "Its recorded occasion matches Beach Wedding.",
+                "unverified_requirements": [],
+                "extra_target": null,
+                "image_src": "/api/products/P1095/image",
+                "pairing_evidence": {
+                  "policy_version": "stylist-commerce-v1",
+                  "anchor_ids": [
+                    "P1186"
+                  ],
+                  "reasons": [
+                    "Its recorded occasion matches Beach Wedding.",
+                    "Its Minimalist style coordinates with the recorded style of Black Linen Shirt.",
+                    "The season labels are compatible with Black Linen Shirt; this does not verify weather performance."
+                  ],
+                  "limitations": [],
+                  "level": "catalogue_supported"
+                }
+              },
+              "preferences": {
+                "gender": "Women",
+                "category": "Shoes",
+                "subcategory": null,
+                "product_type": null,
+                "occasion": "Beach Wedding",
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ],
+          "combined_limit_aud": null,
+          "base_total_aud": 95,
+          "extras_total_aud": 80,
+          "total_aud": 175
+        },
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": true,
+          "complementary_dismissed": false,
+          "prepared_key": "15ggohb",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "matches",
+        "action": "new_search",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I've found 2 clothing options for you to explore. I've also included optional finishing touches for Black Linen Shirt below.\n\nThese options range from A$40.00 to A$95.00. I've kept this selection within your A$110.00 per-item limit. Your requested size, 10, is listed for each item.\n\nI've also included alternatives separately below. Some requested details differ or can't be verified; the cards explain those differences.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Shirt",
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": "Regular",
+            "size": "10",
+            "min_price": null,
+            "max_price": 110,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Tops",
+          "product_type": "Shirt",
+          "occasion": "Beach Wedding",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": "Regular",
+          "size": "10",
+          "min_price": null,
+          "max_price": 110,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1186",
+            "product_name": "Black Linen Shirt",
+            "price_aud": 95,
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Linen Shirt",
+            "brand_line": "ABC Occasion",
+            "colour": "Black",
+            "occasion": "Beach Wedding",
+            "style": "Minimalist",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1186/image"
+          },
+          {
+            "product_id": "P1209",
+            "product_name": "Brown Linen Shirt",
+            "price_aud": 40,
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Linen Shirt",
+            "brand_line": "ABC Occasion",
+            "colour": "Brown",
+            "occasion": "Beach Wedding",
+            "style": "Bohemian",
+            "sizes_available": [
+              "6",
+              "8",
+              "10"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1209/image"
+          }
+        ],
+        "alternatives": [
+          {
+            "product_id": "P1210",
+            "product_name": "Beige Linen Shirt",
+            "price_aud": 100,
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Linen Shirt",
+            "brand_line": "ABC Casual",
+            "colour": "Beige",
+            "occasion": "Brunch",
+            "style": "Relaxed",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1210/image",
+            "differences": [
+              "Occasion: Brunch; you requested Beach Wedding."
+            ]
+          }
+        ],
+        "alternatives_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Tops",
+          "product_type": "Shirt",
+          "occasion": "Beach Wedding",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": "Regular",
+          "size": "10",
+          "min_price": null,
+          "max_price": 110,
+          "brand_line": null
+        },
+        "alternative_kind": "context_difference",
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": "wedding_guest",
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "accepted": true,
+      "elapsed_ms": 10813
+    },
+    {
+      "at": "2026-10-21T14:16:34.345Z",
+      "customer": "The black shirt looks good, but I remembered I can't wear linen blends. Only cotton please, and my shirt budget is now A$80. Keep size 10 and the regular fit.",
+      "adaptive_reason": "React to the actual Black Linen Shirt: add material restriction and lower budget while retaining fit, size and occasion.",
+      "request": {
+        "message": "The black shirt looks good, but I remembered I can't wear linen blends. Only cotton please, and my shirt budget is now A$80. Keep size 10 and the regular fit.",
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Shirt",
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": "Regular",
+            "size": "10",
+            "min_price": null,
+            "max_price": 110,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1186",
+              "product_name": "Black Linen Shirt",
+              "category": "Clothing",
+              "subcategory": "Tops",
+              "product_type": "Linen Shirt",
+              "price_aud": 95
+            },
+            {
+              "product_id": "P1209",
+              "product_name": "Brown Linen Shirt",
+              "category": "Clothing",
+              "subcategory": "Tops",
+              "product_type": "Linen Shirt",
+              "price_aud": 40
+            },
+            {
+              "product_id": "P1210",
+              "product_name": "Beige Linen Shirt",
+              "category": "Clothing",
+              "subcategory": "Tops",
+              "product_type": "Linen Shirt",
+              "price_aud": 100
+            }
+          ],
+          "complementary": [
+            {
+              "product_id": "P1095",
+              "product_name": "Pink Ballet Flats",
+              "category": "Shoes",
+              "subcategory": "Flats",
+              "product_type": "Ballet Flats",
+              "price_aud": 80,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "P1186"
+                ],
+                "primary_product_id": null
+              }
+            }
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I'd like a women's shirt for a beach wedding, size 10, regular fit, under A$110. I'm open to colours."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 clothing options for you to explore. I've also included optional finishing touches for Black Linen Shirt below.\n\nThese options range from A$40.00 to A$95.00. I've kept this selection within your A$110.00 per-item limit. Your requested size, 10, is listed for each item.\n\nI've also included alternatives separately below. Some requested details differ or can't be verified; the cards explain those differences.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": "wedding_guest",
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": true,
+          "complementary_dismissed": false,
+          "prepared_key": "15ggohb",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": true,
+          "complementary_dismissed": false,
+          "prepared_key": "4p6hbh",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "matches",
+        "action": "refine",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I found Brown Linen Shirt for A$40.00.\n\nI've kept this selection within your A$80.00 per-item limit. Your requested size, 10, is listed for this item.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Shirt",
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": "Cotton",
+            "fit": "Regular",
+            "size": "10",
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Tops",
+          "product_type": "Shirt",
+          "occasion": "Beach Wedding",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": "Cotton",
+          "fit": "Regular",
+          "size": "10",
+          "min_price": null,
+          "max_price": 80,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1209",
+            "product_name": "Brown Linen Shirt",
+            "price_aud": 40,
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Linen Shirt",
+            "brand_line": "ABC Occasion",
+            "colour": "Brown",
+            "occasion": "Beach Wedding",
+            "style": "Bohemian",
+            "sizes_available": [
+              "6",
+              "8",
+              "10"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1209/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": "wedding_guest",
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "accepted": true,
+      "elapsed_ms": 9902
+    },
+    {
+      "at": "2026-10-21T14:17:22.858Z",
+      "customer": "The Brown Linen Shirt name worries me after I said cotton only. What material does the actual record say, and is that a verified composition?",
+      "adaptive_reason": "The recommendation name contradicts its cotton material field; test evidence boundaries before accepting it.",
+      "request": {
+        "message": "The Brown Linen Shirt name worries me after I said cotton only. What material does the actual record say, and is that a verified composition?",
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Shirt",
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": "Cotton",
+            "fit": "Regular",
+            "size": "10",
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1209",
+              "product_name": "Brown Linen Shirt",
+              "category": "Clothing",
+              "subcategory": "Tops",
+              "product_type": "Linen Shirt",
+              "price_aud": 40
+            }
+          ],
+          "complementary": [
+            {
+              "product_id": "P1095",
+              "product_name": "Pink Ballet Flats",
+              "category": "Shoes",
+              "subcategory": "Flats",
+              "product_type": "Ballet Flats",
+              "price_aud": 80,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "P1186"
+                ],
+                "primary_product_id": null
+              }
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "P1186",
+                "product_name": "Black Linen Shirt",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Linen Shirt",
+                "price_aud": 95
+              },
+              {
+                "product_id": "P1209",
+                "product_name": "Brown Linen Shirt",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Linen Shirt",
+                "price_aud": 40
+              },
+              {
+                "product_id": "P1210",
+                "product_name": "Beige Linen Shirt",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Linen Shirt",
+                "price_aud": 100
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I'd like a women's shirt for a beach wedding, size 10, regular fit, under A$110. I'm open to colours."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 clothing options for you to explore. I've also included optional finishing touches for Black Linen Shirt below.\n\nThese options range from A$40.00 to A$95.00. I've kept this selection within your A$110.00 per-item limit. Your requested size, 10, is listed for each item.\n\nI've also included alternatives separately below. Some requested details differ or can't be verified; the cards explain those differences.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "The black shirt looks good, but I remembered I can't wear linen blends. Only cotton please, and my shirt budget is now A$80. Keep size 10 and the regular fit."
+          },
+          {
+            "role": "assistant",
+            "content": "I found Brown Linen Shirt for A$40.00.\n\nI've kept this selection within your A$80.00 per-item limit. Your requested size, 10, is listed for this item.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": "wedding_guest",
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": true,
+          "complementary_dismissed": false,
+          "prepared_key": "4p6hbh",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": true,
+          "complementary_dismissed": false,
+          "prepared_key": "z53okk",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "answered",
+        "action": "none",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "Brown Linen Shirt\nThe recorded material is Cotton. A material label doesn't verify the full composition or certifications.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Shirt",
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": "Cotton",
+            "fit": "Regular",
+            "size": "10",
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": null,
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [
+          {
+            "label": "Brown Linen Shirt: catalogue details",
+            "url": "/products/P1209"
+          }
+        ],
+        "answer_product_ids": [
+          "P1209"
+        ],
+        "styling": {
+          "dress_code": "wedding_guest",
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "comparison_reference_id": null
+      },
+      "accepted": true,
+      "elapsed_ms": 10348
+    },
+    {
+      "at": "2026-10-21T14:18:22.592Z",
+      "customer": "Thanks. I don't like the brown shirt, so please reject that one. Are there any other cotton shirts for the beach wedding, size 10, regular fit, within A$80?",
+      "adaptive_reason": "Explicitly reject the only remaining product and test whether the update retains every active constraint.",
+      "request": {
+        "message": "Thanks. I don't like the brown shirt, so please reject that one. Are there any other cotton shirts for the beach wedding, size 10, regular fit, within A$80?",
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Shirt",
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": "Cotton",
+            "fit": "Regular",
+            "size": "10",
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": {
+            "product_id": "P1209",
+            "product_name": "Brown Linen Shirt",
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Linen Shirt",
+            "price_aud": 40
+          },
+          "latest": [
+            {
+              "product_id": "P1209",
+              "product_name": "Brown Linen Shirt",
+              "category": "Clothing",
+              "subcategory": "Tops",
+              "product_type": "Linen Shirt",
+              "price_aud": 40
+            }
+          ],
+          "complementary": [
+            {
+              "product_id": "P1095",
+              "product_name": "Pink Ballet Flats",
+              "category": "Shoes",
+              "subcategory": "Flats",
+              "product_type": "Ballet Flats",
+              "price_aud": 80,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "P1186"
+                ],
+                "primary_product_id": null
+              }
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "P1186",
+                "product_name": "Black Linen Shirt",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Linen Shirt",
+                "price_aud": 95
+              },
+              {
+                "product_id": "P1209",
+                "product_name": "Brown Linen Shirt",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Linen Shirt",
+                "price_aud": 40
+              },
+              {
+                "product_id": "P1210",
+                "product_name": "Beige Linen Shirt",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Linen Shirt",
+                "price_aud": 100
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "I'd like a women's shirt for a beach wedding, size 10, regular fit, under A$110. I'm open to colours."
+          },
+          {
+            "role": "assistant",
+            "content": "I've found 2 clothing options for you to explore. I've also included optional finishing touches for Black Linen Shirt below.\n\nThese options range from A$40.00 to A$95.00. I've kept this selection within your A$110.00 per-item limit. Your requested size, 10, is listed for each item.\n\nI've also included alternatives separately below. Some requested details differ or can't be verified; the cards explain those differences.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "The black shirt looks good, but I remembered I can't wear linen blends. Only cotton please, and my shirt budget is now A$80. Keep size 10 and the regular fit."
+          },
+          {
+            "role": "assistant",
+            "content": "I found Brown Linen Shirt for A$40.00.\n\nI've kept this selection within your A$80.00 per-item limit. Your requested size, 10, is listed for this item.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "The Brown Linen Shirt name worries me after I said cotton only. What material does the actual record say, and is that a verified composition?"
+          },
+          {
+            "role": "assistant",
+            "content": "Brown Linen Shirt\nThe recorded material is Cotton. A material label doesn't verify the full composition or certifications."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": "wedding_guest",
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": true,
+          "complementary_dismissed": false,
+          "prepared_key": "z53okk",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": true,
+          "complementary_dismissed": false,
+          "prepared_key": "1e1w81w",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "no_match",
+        "action": "refine",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged.\n\nYou can tell me which detail you're happy to change, and I'll use that in the next search. I haven't changed the request for you.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Shirt",
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": "Cotton",
+            "fit": "Regular",
+            "size": "10",
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Tops",
+          "product_type": "Shirt",
+          "occasion": "Beach Wedding",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": "Cotton",
+          "fit": "Regular",
+          "size": "10",
+          "min_price": null,
+          "max_price": 80,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": "wedding_guest",
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [
+            "P1209"
+          ],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "accepted": true,
+      "elapsed_ms": 9822
+    },
+    {
+      "at": "2026-10-21T14:19:23.001Z",
+      "customer": "I can raise the shirt-only budget to A$110. Keep cotton, size 10, regular fit and beach wedding, and don't bring back the brown shirt. Is there another option with any compromise clearly stated?",
+      "adaptive_reason": "After an honest no-match, relax price only and test rejected-product memory plus explicit alternative tradeoffs.",
+      "request": {
+        "message": "I can raise the shirt-only budget to A$110. Keep cotton, size 10, regular fit and beach wedding, and don't bring back the brown shirt. Is there another option with any compromise clearly stated?",
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Shirt",
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": "Cotton",
+            "fit": "Regular",
+            "size": "10",
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": {
+            "product_id": "P1209",
+            "product_name": "Brown Linen Shirt",
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Linen Shirt",
+            "price_aud": 40
+          },
+          "latest": [
+            {
+              "product_id": "P1209",
+              "product_name": "Brown Linen Shirt",
+              "category": "Clothing",
+              "subcategory": "Tops",
+              "product_type": "Linen Shirt",
+              "price_aud": 40
+            }
+          ],
+          "complementary": [
+            {
+              "product_id": "P1095",
+              "product_name": "Pink Ballet Flats",
+              "category": "Shoes",
+              "subcategory": "Flats",
+              "product_type": "Ballet Flats",
+              "price_aud": 80,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "P1186"
+                ],
+                "primary_product_id": null
+              }
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "P1186",
+                "product_name": "Black Linen Shirt",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Linen Shirt",
+                "price_aud": 95
+              },
+              {
+                "product_id": "P1209",
+                "product_name": "Brown Linen Shirt",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Linen Shirt",
+                "price_aud": 40
+              },
+              {
+                "product_id": "P1210",
+                "product_name": "Beige Linen Shirt",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Linen Shirt",
+                "price_aud": 100
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "The black shirt looks good, but I remembered I can't wear linen blends. Only cotton please, and my shirt budget is now A$80. Keep size 10 and the regular fit."
+          },
+          {
+            "role": "assistant",
+            "content": "I found Brown Linen Shirt for A$40.00.\n\nI've kept this selection within your A$80.00 per-item limit. Your requested size, 10, is listed for this item.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection."
+          },
+          {
+            "role": "user",
+            "content": "The Brown Linen Shirt name worries me after I said cotton only. What material does the actual record say, and is that a verified composition?"
+          },
+          {
+            "role": "assistant",
+            "content": "Brown Linen Shirt\nThe recorded material is Cotton. A material label doesn't verify the full composition or certifications."
+          },
+          {
+            "role": "user",
+            "content": "Thanks. I don't like the brown shirt, so please reject that one. Are there any other cotton shirts for the beach wedding, size 10, regular fit, within A$80?"
+          },
+          {
+            "role": "assistant",
+            "content": "I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged.\n\nYou can tell me which detail you're happy to change, and I'll use that in the next search. I haven't changed the request for you."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": "wedding_guest",
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [
+            "P1209"
+          ],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": true,
+          "complementary_dismissed": false,
+          "prepared_key": "1e1w81w",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": true,
+          "complementary_dismissed": false,
+          "prepared_key": "1wuhrtn",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "alternatives",
+        "action": "refine",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I haven't found an exact match for all the details you mentioned, but there are some alternatives you can consider.\n\nI've kept the differences visible on each card so you can decide whether any of these would work for you.\n\nI've kept this selection within your A$110.00 per-item limit. Your requested size, 10, is listed for this item.\n\nYour original request is still saved. Exploring these options doesn't change it or add anything to your cart.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Shirt",
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": "Cotton",
+            "fit": "Regular",
+            "size": "10",
+            "min_price": null,
+            "max_price": 110,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Tops",
+          "product_type": "Shirt",
+          "occasion": "Beach Wedding",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": "Cotton",
+          "fit": "Regular",
+          "size": "10",
+          "min_price": null,
+          "max_price": 110,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [
+          {
+            "product_id": "P1210",
+            "product_name": "Beige Linen Shirt",
+            "price_aud": 100,
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Linen Shirt",
+            "brand_line": "ABC Casual",
+            "colour": "Beige",
+            "occasion": "Brunch",
+            "style": "Relaxed",
+            "sizes_available": [
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16"
+            ],
+            "unverified_requirements": [],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1210/image",
+            "differences": [
+              "Occasion: Brunch; you requested Beach Wedding."
+            ]
+          }
+        ],
+        "alternatives_preferences": {
+          "gender": "Women",
+          "category": "Clothing",
+          "subcategory": "Tops",
+          "product_type": "Shirt",
+          "occasion": "Beach Wedding",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": "Cotton",
+          "fit": "Regular",
+          "size": "10",
+          "min_price": null,
+          "max_price": 110,
+          "brand_line": null
+        },
+        "alternative_kind": "context_difference",
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": "wedding_guest",
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [
+            "P1209"
+          ],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "accepted": true,
+      "elapsed_ms": 6867
+    },
+    {
+      "at": "2026-10-21T14:20:22.884Z",
+      "customer": "I can consider the Beige Linen Shirt at A$100 with that occasion compromise. Is there an optional matching bag that keeps the whole purchase under A$110? Keep the shirt cotton-only and don't reintroduce the brown shirt.",
+      "adaptive_reason": "Test an explicit complementary request with only A$10 remaining; do not select the alternative or relax existing shirt constraints.",
+      "request": {
+        "message": "I can consider the Beige Linen Shirt at A$100 with that occasion compromise. Is there an optional matching bag that keeps the whole purchase under A$110? Keep the shirt cotton-only and don't reintroduce the brown shirt.",
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Shirt",
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": "Cotton",
+            "fit": "Regular",
+            "size": "10",
+            "min_price": null,
+            "max_price": 110,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "P1210",
+              "product_name": "Beige Linen Shirt",
+              "category": "Clothing",
+              "subcategory": "Tops",
+              "product_type": "Linen Shirt",
+              "price_aud": 100
+            }
+          ],
+          "complementary": [
+            {
+              "product_id": "P1095",
+              "product_name": "Pink Ballet Flats",
+              "category": "Shoes",
+              "subcategory": "Flats",
+              "product_type": "Ballet Flats",
+              "price_aud": 80,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "P1186"
+                ],
+                "primary_product_id": null
+              }
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "P1209",
+                "product_name": "Brown Linen Shirt",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Linen Shirt",
+                "price_aud": 40
+              }
+            ],
+            [
+              {
+                "product_id": "P1186",
+                "product_name": "Black Linen Shirt",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Linen Shirt",
+                "price_aud": 95
+              },
+              {
+                "product_id": "P1209",
+                "product_name": "Brown Linen Shirt",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Linen Shirt",
+                "price_aud": 40
+              },
+              {
+                "product_id": "P1210",
+                "product_name": "Beige Linen Shirt",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Linen Shirt",
+                "price_aud": 100
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "The Brown Linen Shirt name worries me after I said cotton only. What material does the actual record say, and is that a verified composition?"
+          },
+          {
+            "role": "assistant",
+            "content": "Brown Linen Shirt\nThe recorded material is Cotton. A material label doesn't verify the full composition or certifications."
+          },
+          {
+            "role": "user",
+            "content": "Thanks. I don't like the brown shirt, so please reject that one. Are there any other cotton shirts for the beach wedding, size 10, regular fit, within A$80?"
+          },
+          {
+            "role": "assistant",
+            "content": "I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged.\n\nYou can tell me which detail you're happy to change, and I'll use that in the next search. I haven't changed the request for you."
+          },
+          {
+            "role": "user",
+            "content": "I can raise the shirt-only budget to A$110. Keep cotton, size 10, regular fit and beach wedding, and don't bring back the brown shirt. Is there another option with any compromise clearly stated?"
+          },
+          {
+            "role": "assistant",
+            "content": "I haven't found an exact match for all the details you mentioned, but there are some alternatives you can consider.\n\nI've kept the differences visible on each card so you can decide whether any of these would work for you.\n\nI've kept this selection within your A$110.00 per-item limit. Your requested size, 10, is listed for this item.\n\nYour original request is still saved. Exploring these options doesn't change it or add anything to your cart."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": "wedding_guest",
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [
+            "P1209"
+          ],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": true,
+          "complementary_dismissed": false,
+          "prepared_key": "1wuhrtn",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": true,
+          "complementary_dismissed": false,
+          "prepared_key": "ja2npf",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "no_match",
+        "action": "cross_sell",
+        "discovery": null,
+        "collection": {
+          "choice": "Women",
+          "current": {
+            "choice": "Women",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged.\n\nYou can tell me which detail you're happy to change, and I'll use that in the next search. I haven't changed the request for you.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 110,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 110,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": "wedding_guest",
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [
+            "P1209"
+          ],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "accepted": true,
+      "elapsed_ms": 8662
+    }
+  ],
+  "state": {
+    "scopes": {
+      "item": {
+        "gender": null,
+        "category": "Clothing",
+        "subcategory": null,
+        "product_type": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "size": null,
+        "min_price": null,
+        "max_price": 110,
+        "brand_line": null
+      },
+      "shared": {
+        "gender": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      },
+      "unresolved_item": [],
+      "unresolved_shared": []
+    },
+    "pending": null,
+    "pending_answer": null,
+    "styling": {
+      "dress_code": "wedding_guest",
+      "outfit_request": null,
+      "purchase_budget": null,
+      "outfit": [],
+      "external_items": [],
+      "rejected_ids": [
+        "P1209"
+      ],
+      "priorities": [],
+      "required_features": [],
+      "offers_paused": false,
+      "owned_categories": []
+    },
+    "discovery": null,
+    "collection": {
+      "choice": "Women",
+      "current": {
+        "choice": "Women",
+        "source": "saved"
+      },
+      "checkpoint": null
+    },
+    "cart_product_ids": [],
+    "task": {
+      "generation": 0,
+      "complementary_shown": true,
+      "complementary_dismissed": false,
+      "prepared_key": "ja2npf",
+      "preview_unverified": false,
+      "blocker_signature": "",
+      "blocker_repeats": 0,
+      "issues": [],
+      "brief": {
+        "goal": null,
+        "total_budget_aud": null,
+        "budget_evidence": null,
+        "guidance": [],
+        "deadline": null
+      }
+    },
+    "context": {
+      "focused": null,
+      "latest": [
+        {
+          "product_id": "P1210",
+          "product_name": "Beige Linen Shirt",
+          "category": "Clothing",
+          "subcategory": "Tops",
+          "product_type": "Linen Shirt",
+          "price_aud": 100
+        }
+      ],
+      "complementary": [
+        {
+          "product_id": "P1095",
+          "product_name": "Pink Ballet Flats",
+          "category": "Shoes",
+          "subcategory": "Flats",
+          "product_type": "Ballet Flats",
+          "price_aud": 80,
+          "recommendation_context": {
+            "anchor_ids": [
+              "P1186"
+            ],
+            "primary_product_id": null
+          }
+        }
+      ],
+      "previous": [
+        [
+          {
+            "product_id": "P1209",
+            "product_name": "Brown Linen Shirt",
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Linen Shirt",
+            "price_aud": 40
+          }
+        ],
+        [
+          {
+            "product_id": "P1186",
+            "product_name": "Black Linen Shirt",
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Linen Shirt",
+            "price_aud": 95
+          },
+          {
+            "product_id": "P1209",
+            "product_name": "Brown Linen Shirt",
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Linen Shirt",
+            "price_aud": 40
+          },
+          {
+            "product_id": "P1210",
+            "product_name": "Beige Linen Shirt",
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Linen Shirt",
+            "price_aud": 100
+          }
+        ]
+      ]
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "Thanks. I don't like the brown shirt, so please reject that one. Are there any other cotton shirts for the beach wedding, size 10, regular fit, within A$80?"
+      },
+      {
+        "role": "assistant",
+        "content": "I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged.\n\nYou can tell me which detail you're happy to change, and I'll use that in the next search. I haven't changed the request for you."
+      },
+      {
+        "role": "user",
+        "content": "I can raise the shirt-only budget to A$110. Keep cotton, size 10, regular fit and beach wedding, and don't bring back the brown shirt. Is there another option with any compromise clearly stated?"
+      },
+      {
+        "role": "assistant",
+        "content": "I haven't found an exact match for all the details you mentioned, but there are some alternatives you can consider.\n\nI've kept the differences visible on each card so you can decide whether any of these would work for you.\n\nI've kept this selection within your A$110.00 per-item limit. Your requested size, 10, is listed for this item.\n\nYour original request is still saved. Exploring these options doesn't change it or add anything to your cart."
+      },
+      {
+        "role": "user",
+        "content": "I can consider the Beige Linen Shirt at A$100 with that occasion compromise. Is there an optional matching bag that keeps the whole purchase under A$110? Keep the shirt cotton-only and don't reintroduce the brown shirt."
+      },
+      {
+        "role": "assistant",
+        "content": "I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged.\n\nYou can tell me which detail you're happy to change, and I'll use that in the next search. I haven't changed the request for you."
+      }
+    ]
+  }
+}

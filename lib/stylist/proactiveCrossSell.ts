@@ -11,6 +11,7 @@ import { currentPurchaseTotal } from "./purchaseBudget";
 import { priceCents } from "./outfitBudgetSchema";
 import { explicitNoExtras } from "./offerPreferences";
 import { ShoppingPreferencesSchema } from "../ai/preferenceSchema";
+import { excludedByShoppingContext } from "./shoppingContext";
 
 export function proactiveOffersEnabled() {
   return process.env.STYLIST_PROACTIVE_CROSS_SELL_ENABLED !== "false" && process.env.STYLIST_COMMERCE_ENABLED !== "false";
@@ -57,7 +58,7 @@ export function buildComplementaryOffer(catalogue: readonly CatalogueProduct[], 
       ...(ownership === "owned" ? [] : [anchor.product_id])];
     const base = currentPurchaseTotal(catalogue, baseIds);
     if (base === null) continue;
-    const limit = styling.purchase_budget?.limit_aud ?? null;
+    const limit = styling.purchase_budget?.limit_aud ?? turn.task?.brief.total_budget_aud ?? null;
     if (limit !== null && priceCents(base) >= priceCents(limit)) continue;
     const items: ComplementaryOffer["items"] = [];
     let extraCents = 0;
@@ -72,6 +73,7 @@ export function buildComplementaryOffer(catalogue: readonly CatalogueProduct[], 
       const preferences = ShoppingPreferencesSchema.parse({ ...emptyShoppingPreferences(), ...scopes.shared, ...target,
         gender: scopes.shared.gender ?? applied.gender,
         occasion: scopes.shared.occasion ?? applied.occasion });
+      if (turn.task?.brief.gift_recipient && !preferences.preferred_colours.length) preferences.preferred_colours = [...applied.preferred_colours];
       if (limit !== null) preferences.max_price = Math.min(preferences.max_price ?? Infinity,
         (priceCents(limit) - priceCents(base) - extraCents) / 100);
       if (preferences.max_price !== null && preferences.max_price < (preferences.min_price ?? 0)) continue;
@@ -83,7 +85,8 @@ export function buildComplementaryOffer(catalogue: readonly CatalogueProduct[], 
         external_anchors: styling.external_items,
         anchors: catalogue.filter(product => styling.outfit.some(piece => piece.product_id === product.product_id)),
         // Shared context is a restriction, and the occasion must be supported.
-        eligible: product => !excluded.includes(product.product_id ?? "") && (["occasion", "style", "fit", "season"] as const).every(field =>
+        eligible: product => !excluded.includes(product.product_id ?? "") && !excludedByShoppingContext(product, turn.task?.brief.excluded_roles) &&
+          (!turn.task?.brief.uncertain_recipient_size || Boolean(product.sizes_available?.some(size => /^one size$/i.test(size)))) && (["occasion", "style", "fit", "season"] as const).every(field =>
           !preferences[field] || relatedLabel(product[field], preferences[field])),
       });
       const match = found.products.find(product => product.pairing_evidence?.level === "catalogue_supported");

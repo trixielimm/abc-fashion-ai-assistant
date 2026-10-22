@@ -1,0 +1,13 @@
+{
+  "captured_at": "2026-10-21T13:54:52.267Z",
+  "endpoint": "http://127.0.0.1:3003/api/conversation-search",
+  "model": "gpt-5.6-luna",
+  "flags": {},
+  "files": {
+    "app/api/conversation-search/route.ts": "d29131645de73758ad47fba231b97a035901ea81b4e7a2bed8620cc89a5cfb6e",
+    "lib/ai/interpretConversation.ts": "2fff56cdecc620b1ba912952609f0d019468ad038ba6339b41b3bf718402e6f5",
+    "lib/stylist/conversationProtocol.ts": "382e4a1381fffbcd325fbe962b0d0e7590faed5e6565cb7beaf607df24b9eff5",
+    "components/stylist/ConversationChat.tsx": "e4e9c99267755afdbec481a09947dcb2e8dab7f9b8eb9443e9c294de9af21b38"
+  },
+  "execution": "current local Next.js dev server; real model and live catalogue; six isolated protocol sessions; messages manually chosen after inspecting each previous reply; no catalogue or application-code changes"
+}

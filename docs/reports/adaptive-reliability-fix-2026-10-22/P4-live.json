@@ -1,0 +1,590 @@
+{
+  "id": "P4",
+  "started_at": "2026-10-21T23:06:43.755Z",
+  "endpoint": "http://127.0.0.1:3003/api/conversation-search",
+  "max_total_messages": 12,
+  "turns": [
+    {
+      "at": "2026-10-21T23:06:43.759Z",
+      "customer": "I need a birthday gift for Dad from the men's or unisex collection, A$90 total. He likes understated blues and greys and dislikes jewellery. I don't know his clothing size. Show me ideas.",
+      "adaptive_reason": "Final fresh verification after enforcing the whole-gift cap independently of model output; earlier P3 over-budget probe retained.",
+      "request": {
+        "message": "I need a birthday gift for Dad from the men's or unisex collection, A$90 total. He likes understated blues and greys and dislikes jewellery. I don't know his clothing size. Show me ideas.",
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null,
+            "gift_recipient": null,
+            "uncertain_recipient_size": false,
+            "excluded_roles": [],
+            "occasion_context": null
+          }
+        }
+      },
+      "error": "TypeError: fetch failed",
+      "elapsed_ms": 9
+    },
+    {
+      "at": "2026-10-21T23:09:34.647Z",
+      "customer": "I need a birthday gift for Dad from the men's or unisex collection, A$90 total. He likes understated blues and greys and dislikes jewellery. I don't know his clothing size. Show me ideas.",
+      "adaptive_reason": "Retry the same fresh brief against the verified production build; the preceding attempt was not sent because the earlier local server had stopped.",
+      "request": {
+        "message": "I need a birthday gift for Dad from the men's or unisex collection, A$90 total. He likes understated blues and greys and dislikes jewellery. I don't know his clothing size. Show me ideas.",
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null,
+            "gift_recipient": null,
+            "uncertain_recipient_size": false,
+            "excluded_roles": [],
+            "occasion_context": null
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "12p2t6g",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 90,
+            "budget_evidence": "I need a birthday gift for Dad from the men's or unisex collection, A$90 total. He likes understated blues and greys and dislikes jewellery. I don't know his clothing size. Show me ideas.",
+            "guidance": [],
+            "deadline": null,
+            "gift_recipient": "dad",
+            "uncertain_recipient_size": true,
+            "excluded_roles": [
+              "Jewellery"
+            ],
+            "occasion_context": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "matches",
+        "action": "discover",
+        "discovery": {
+          "stage": "browsing",
+          "asked": [],
+          "skipped": [],
+          "seen_product_ids": [
+            "P1319",
+            "P1098",
+            "P1205",
+            "P1245",
+            "P1264"
+          ]
+        },
+        "collection": {
+          "choice": "Men",
+          "current": {
+            "choice": "Men",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [
+          {
+            "label": "None of these / different ideas",
+            "message": "None of these. Show me different ideas."
+          }
+        ],
+        "message": "Here are a few different ideas to react to. Nothing needs to be decided yet.\n\nBlue Slim Belt: its name suggests Slim, but the recorded fit is Standard. Check measurements before deciding.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Men",
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Blue",
+              "Grey"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Men",
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [
+            "Blue",
+            "Grey"
+          ],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 90,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1319",
+            "product_name": "Blue Cap",
+            "price_aud": 45,
+            "category": "Accessories",
+            "subcategory": "Hats",
+            "product_type": "Cap",
+            "brand_line": "ABC Accessories",
+            "colour": "Blue",
+            "occasion": "Travel",
+            "style": "Smart",
+            "sizes_available": [
+              "One Size"
+            ],
+            "explanation": "Cap · Colour: Blue · Style: Smart · Occasion: Travel",
+            "unverified_requirements": [],
+            "extra_target": "Clothing",
+            "image_src": "/api/products/P1319/image"
+          },
+          {
+            "product_id": "P1098",
+            "product_name": "Blue Oxford Shirt",
+            "price_aud": 50,
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Oxford Shirt",
+            "brand_line": "ABC Occasion",
+            "colour": "Blue",
+            "occasion": "Formal",
+            "style": "Bohemian",
+            "sizes_available": [
+              "XS",
+              "S",
+              "M",
+              "L",
+              "XL"
+            ],
+            "explanation": "Oxford Shirt · Colour: Blue · Style: Bohemian · Occasion: Formal",
+            "unverified_requirements": [],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1098/image"
+          },
+          {
+            "product_id": "P1205",
+            "product_name": "Grey Lightweight Scarf",
+            "price_aud": 80,
+            "category": "Accessories",
+            "subcategory": "Scarves",
+            "product_type": "Lightweight Scarf",
+            "brand_line": "ABC Accessories",
+            "colour": "Grey",
+            "occasion": "Travel",
+            "style": "Relaxed",
+            "sizes_available": [
+              "One Size"
+            ],
+            "explanation": "Lightweight Scarf · Colour: Grey · Style: Relaxed · Occasion: Travel",
+            "unverified_requirements": [],
+            "extra_target": "Bags",
+            "image_src": "/api/products/P1205/image"
+          },
+          {
+            "product_id": "P1245",
+            "product_name": "Blue Slim Belt",
+            "price_aud": 70,
+            "category": "Accessories",
+            "subcategory": "Belts",
+            "product_type": "Slim Belt",
+            "brand_line": "ABC Accessories",
+            "colour": "Blue",
+            "occasion": "Wedding Guest",
+            "style": "Classic",
+            "sizes_available": [
+              "One Size"
+            ],
+            "explanation": "Slim Belt · Colour: Blue · Style: Classic · Occasion: Wedding Guest",
+            "unverified_requirements": [],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1245/image"
+          },
+          {
+            "product_id": "P1264",
+            "product_name": "Blue Lightweight Scarf",
+            "price_aud": 25,
+            "category": "Accessories",
+            "subcategory": "Scarves",
+            "product_type": "Lightweight Scarf",
+            "brand_line": "ABC Accessories",
+            "colour": "Blue",
+            "occasion": "Casual",
+            "style": "Relaxed",
+            "sizes_available": [
+              "One Size"
+            ],
+            "explanation": "Lightweight Scarf · Colour: Blue · Style: Relaxed · Occasion: Casual",
+            "unverified_requirements": [],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1264/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": "Which idea feels most like your dad? We can narrow to accessories with listed one-size options if you'd prefer.",
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "accepted": true,
+      "elapsed_ms": 6877
+    }
+  ],
+  "state": {
+    "scopes": {
+      "item": {
+        "gender": "Men",
+        "category": null,
+        "subcategory": null,
+        "product_type": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [
+          "Blue",
+          "Grey"
+        ],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "size": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      },
+      "shared": {
+        "gender": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      },
+      "unresolved_item": [],
+      "unresolved_shared": []
+    },
+    "pending": null,
+    "pending_answer": null,
+    "styling": {
+      "dress_code": null,
+      "outfit_request": null,
+      "purchase_budget": null,
+      "outfit": [],
+      "external_items": [],
+      "rejected_ids": [],
+      "priorities": [],
+      "required_features": [],
+      "offers_paused": false,
+      "owned_categories": []
+    },
+    "discovery": {
+      "stage": "browsing",
+      "asked": [],
+      "skipped": [],
+      "seen_product_ids": [
+        "P1319",
+        "P1098",
+        "P1205",
+        "P1245",
+        "P1264"
+      ]
+    },
+    "collection": {
+      "choice": "Men",
+      "current": {
+        "choice": "Men",
+        "source": "explicit"
+      },
+      "checkpoint": null
+    },
+    "cart_product_ids": [],
+    "task": {
+      "generation": 0,
+      "complementary_shown": false,
+      "complementary_dismissed": false,
+      "prepared_key": "12p2t6g",
+      "preview_unverified": false,
+      "blocker_signature": "",
+      "blocker_repeats": 0,
+      "issues": [],
+      "brief": {
+        "goal": null,
+        "total_budget_aud": 90,
+        "budget_evidence": "I need a birthday gift for Dad from the men's or unisex collection, A$90 total. He likes understated blues and greys and dislikes jewellery. I don't know his clothing size. Show me ideas.",
+        "guidance": [],
+        "deadline": null,
+        "gift_recipient": "dad",
+        "uncertain_recipient_size": true,
+        "excluded_roles": [
+          "Jewellery"
+        ],
+        "occasion_context": null
+      }
+    },
+    "context": {
+      "focused": null,
+      "latest": [
+        {
+          "product_id": "P1319",
+          "product_name": "Blue Cap",
+          "category": "Accessories",
+          "subcategory": "Hats",
+          "product_type": "Cap",
+          "price_aud": 45
+        },
+        {
+          "product_id": "P1098",
+          "product_name": "Blue Oxford Shirt",
+          "category": "Clothing",
+          "subcategory": "Tops",
+          "product_type": "Oxford Shirt",
+          "price_aud": 50
+        },
+        {
+          "product_id": "P1205",
+          "product_name": "Grey Lightweight Scarf",
+          "category": "Accessories",
+          "subcategory": "Scarves",
+          "product_type": "Lightweight Scarf",
+          "price_aud": 80
+        },
+        {
+          "product_id": "P1245",
+          "product_name": "Blue Slim Belt",
+          "category": "Accessories",
+          "subcategory": "Belts",
+          "product_type": "Slim Belt",
+          "price_aud": 70
+        },
+        {
+          "product_id": "P1264",
+          "product_name": "Blue Lightweight Scarf",
+          "category": "Accessories",
+          "subcategory": "Scarves",
+          "product_type": "Lightweight Scarf",
+          "price_aud": 25
+        }
+      ]
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "I need a birthday gift for Dad from the men's or unisex collection, A$90 total. He likes understated blues and greys and dislikes jewellery. I don't know his clothing size. Show me ideas."
+      },
+      {
+        "role": "assistant",
+        "content": "Here are a few different ideas to react to. Nothing needs to be decided yet.\n\nBlue Slim Belt: its name suggests Slim, but the recorded fit is Standard. Check measurements before deciding.\nWhich idea feels most like your dad? We can narrow to accessories with listed one-size options if you'd prefer."
+      }
+    ]
+  }
+}

@@ -1,9 +1,9 @@
 import { z } from "zod";
 
-const QuestionSchema = z.enum(["collection", "direction", "routine", "occasion"]);
+const QuestionSchema = z.enum(["collection", "direction", "routine", "occasion", "recipient"]);
 export const DiscoveryIntentSchema = z.enum(["start", "everyday", "occasion", "browse", "different"]);
 export const DiscoveryStateSchema = z.strictObject({
-  stage: z.enum(["collection", "direction", "routine", "occasion", "browsing", "complete", "components"]),
+  stage: z.enum(["collection", "direction", "routine", "occasion", "recipient", "browsing", "complete", "components"]),
   asked: z.array(QuestionSchema).max(2),
   skipped: z.array(QuestionSchema).max(4),
   seen_product_ids: z.array(z.string().trim().min(1).max(250)).max(64),
@@ -18,16 +18,17 @@ export type DiscoveryIntent = z.infer<typeof DiscoveryIntentSchema>;
 
 // Discovery choices are navigation, not implicit product preferences. Only
 // quoted customer requirements enter the ordinary validated preference scope.
-export function advanceDiscovery(previous: DiscoveryState | null | undefined, intent: DiscoveryIntent, hasItem: boolean, volunteeredRoutine = false): DiscoveryState {
+export function advanceDiscovery(previous: DiscoveryState | null | undefined, intent: DiscoveryIntent, hasItem: boolean, volunteeredRoutine = false,
+  context: { occasionKnown?: boolean; giftNeedsDirection?: boolean } = {}): DiscoveryState {
   const state: DiscoveryState = previous ? structuredClone(previous)
     : { stage: "direction", asked: [], skipped: [], seen_product_ids: [] };
-  const question = intent === "everyday" ? "routine" : intent === "occasion" ? "occasion" : "direction";
+  const question = context.giftNeedsDirection ? "recipient" : intent === "everyday" ? "routine" : intent === "occasion" ? "occasion" : "direction";
   const answered = intent === "everyday" || intent === "occasion";
   if (volunteeredRoutine) state.answered = [...new Set([...(state.answered ?? []), "routine" as const])];
-  if (previous && ["direction", "routine", "occasion"].includes(previous.stage) && !answered) {
+  if (previous && ["direction", "routine", "occasion", "recipient"].includes(previous.stage) && !answered) {
     state.skipped = [...new Set([...state.skipped, previous.stage as z.infer<typeof QuestionSchema>])];
   }
-  const browse = hasItem || volunteeredRoutine || intent === "browse" || intent === "different" || state.asked.length >= 2 ||
+  const browse = hasItem || volunteeredRoutine || ["occasion", "direction"].includes(question) && context.occasionKnown && !context.giftNeedsDirection || intent === "browse" || intent === "different" || state.asked.length >= 2 ||
     state.asked.includes(question) || state.skipped.includes(question) ||
     (intent === "start" && Boolean(previous) && previous?.stage !== "collection");
   state.stage = browse ? "browsing" : question;
@@ -35,8 +36,16 @@ export function advanceDiscovery(previous: DiscoveryState | null | undefined, in
   return DiscoveryStateSchema.parse(state);
 }
 
-export function discoveryPresentation(state: DiscoveryState) {
+export function discoveryPresentation(state: DiscoveryState, recipient?: string | null) {
   switch (state.stage) {
+    case "recipient": return {
+      message: `What does ${recipient ? `your ${recipient}` : "the recipient"} enjoy wearing or doing? Any favourite colours or things to avoid? If their clothing size is uncertain, we can explore accessories with listed one-size options.`,
+      suggestions: [
+        { label: "Everyday use", message: "Something for everyday use. I'll describe their tastes." },
+        { label: "Explore accessories", message: "Show me accessory ideas; I don't know their clothing size." },
+        { label: "Show different ideas", message: "Show me a few different ideas for the gift." },
+      ],
+    };
     case "direction": return {
       message: "Perfect! Would you like something for everyday wear, something for an occasion, or a few different ideas to react to?",
       suggestions: [

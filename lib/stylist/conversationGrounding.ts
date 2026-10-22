@@ -3,18 +3,19 @@ import type { ConversationPlanRequest, ConversationPlanSchema } from "./conversa
 import type { ConversationChangeSchema } from "./conversationChanges";
 import { matchesRole, resolveProductReference, messageProductReference } from "./productReference";
 import { explicitCollection, requestedClothing, shoppingTarget, shoppingBrief as requestedShoppingBrief, defaultCollectionCategory } from "./collectionPreference";
-import { simpleMatchingSet, requestedComponents, jacketPairingRequest, isJacket } from "./combinedShoppingRequest";
+import { simpleMatchingSet, requestedComponents, jacketPairingRequest, isJacket, statedCombinedBudget } from "./combinedShoppingRequest";
 import { removedRequirements, taskReplacement, replacesOutfitRequest, isShoppingRequest } from "./taskState";
 import { explicitDressCode } from "./dressCode";
 import { explicitSizeEdit } from "./sizeEdit";
 import { confirmedColourChoice, isRequirementInstruction } from "./conversationIssues";
 import { hasSharedScope } from "./sharedScope";
 import { explicitNoExtras, ownedAccessoryStatement } from "./offerPreferences";
+import { contextualRequirement } from "./shoppingContext";
 
 type Plan = z.infer<typeof ConversationPlanSchema>;
 type Change = z.infer<typeof ConversationChangeSchema>;
 const colours = "black|white|ivory|cream|blue|navy|red|pink|green|beige|brown|silver|gold|grey|gray|lavender|purple|yellow|orange|taupe";
-const rolePattern = /\b(dress(?:es)?(?![ -]+(?:shirts?|shoes?|code|me|us|up|down)\b)|skirts?|jackets?|blazers?|shirts?|trousers?|pants|bags?|shoes?|flats?|necklaces?|accessories|accessory|clothing|clothes)\b/i;
+const rolePattern = /\b(dress(?:es)?(?![ -]+(?:shirts?|shoes?|code|me|us|up|down)\b)|skirts?|jackets?|blazers?|shirts?|tops?|blouses?|camisoles?|cardigans?|trousers?|pants|bags?|shoes?|flats?|scarves|scarf|necklaces?|accessories|accessory|clothing|clothes)\b/i;
 
 function groundOwnedAccessories(message: string, plan: Plan) {
   const owned = ownedAccessoryStatement(message);
@@ -80,17 +81,21 @@ export function groundConversationPlan(request: ConversationPlanRequest, candida
   // Descriptions guide the conversation; they are not literal catalogue labels.
   plan.changes = plan.changes.flatMap(change => {
     if (change.field === "preferred_colours" && Array.isArray(change.value)) {
-      const values = change.value.filter(value => !/^(?:bright|bold|bolder|neutral colours?)$/i.test(value));
+      const values = change.value.filter(value => !/^(?:bright|bold|bolder)$/i.test(value));
       return values.length || !change.value.length ? [{ ...change, value: values }] : [];
     }
     if (change.field === "fit" && /^(?:flexible|adjustable)$/i.test(String(change.value))) return [];
     if (change.field === "unresolved" && Array.isArray(change.value)) {
       const values = change.value.filter(value => !isRequirementInstruction(value) &&
+        !contextualRequirement(value, request.task?.brief.uncertain_recipient_size ?? false) &&
         !(request.task?.brief.goal === "travel_layers" && /^travel(?: layers?| clothes| wardrobe)?$/i.test(value.trim())));
       return values.length ? [{ ...change, value: values }] : [];
     }
     return [change];
   });
+  if (/\b(?:office|dress code)\b[^.!?]{0,40}\brelaxed\b/i.test(message) && !/\brelaxed (?:style|clothes|clothing|fit)\b/i.test(message)) {
+    plan.changes = plan.changes.filter(change => !(change.field === "style" && /^relaxed$/i.test(String(change.value))));
+  }
   if (plan.outfit_request) plan.outfit_request.items = plan.outfit_request.items.map(item =>
     item.category === "Clothing" && /^(?:jackets?|blazers?)$/i.test(item.subcategory ?? "")
       ? { ...item, subcategory: "Outerwear", product_type: item.product_type ?? "Jacket" } : item);
@@ -222,9 +227,15 @@ export function groundConversationPlan(request: ConversationPlanRequest, candida
     plan.outfit_request = { items: [...components.values()], total_budget_aud: savedTotal, evidence: message.slice(0, 250) };
     plan.changes = plan.changes.filter(change => !["category", "subcategory", "product_type", "min_price", "max_price"].includes(change.field));
   }
-  const addition = message.match(/\b(?:show|find|need|want)(?: me)?\s+(?:(?:some|other|new|flat|black|formal|women['’]s|men['’]s|a|one|pair of)\s+)*(shoes?|flats?|bags?|necklaces?)\b/i)
+  const addition = message.match(/\b(?:show|find|need|want)(?: me)?\s+(?:(?:some|other|new|optional|matching|affordable|complementary|flat|black|formal|women['’]s|men['’]s|a|an|one|pair of)\s+)*(shoes?|flats?|bags?|necklaces?)\b/i)
+    ?? message.match(/\b(?:is|are) there\s+(?:(?:a|an|any|some|optional|matching|complementary)\s+)*(shoes?|flats?|bags?|necklaces?)\b/i)
     ?? (/\b(?:show|find|need|want)\b/i.test(message) ? message.match(/\b(?:one|a) pair of (shoes?|flats?)\b/i) : null);
   let savedAddition: { category: "Shoes" | "Bags" | "Accessories"; evidence: string } | null = null;
+  if (addition && identity.status === "resolved" && /\b(?:example|consider(?:ing)?)\b/i.test(message) &&
+      ["new_search", "refine", "cross_sell"].includes(plan.action)) {
+    plan.action = "cross_sell"; plan.reference = identity.reference; plan.outfit_request = null;
+    plan.discovery_intent = null; plan.question = null; plan.continuation = false;
+  }
   if (addition && !taskReplacement(message) && /\b(?:keep|kept|saved|selected|owned|already own|to go with|to match)\b/i.test(message)) {
     const saved = request.styling?.outfit ?? [];
     const named = saved.filter(piece => message.toLowerCase().includes(piece.product_name.toLowerCase()));
@@ -238,6 +249,21 @@ export function groundConversationPlan(request: ConversationPlanRequest, candida
       plan.changes.push({ scope: "item", field: "category", operation: "set", value: category, evidence: addition[0] });
       const flat = message.match(/\bflats?\b/i);
       if (category === "Shoes" && flat) plan.changes.push({ scope: "item", field: "product_type", operation: "set", value: "Flats", evidence: flat[0] });
+    }
+  }
+  if (addition && plan.action === "cross_sell") {
+    savedAddition ??= { category: /shoe|flat/i.test(addition[1]) ? "Shoes" : /bag/i.test(addition[1]) ? "Bags" : "Accessories", evidence: addition[0] };
+    // An explicitly re-stated constraint on the main garment is not a filter
+    // on its new accessory. The anchor remains a separate catalogue reference.
+    const anchor = identity.status === "resolved" ? [...request.context.latest, ...(request.context.previous?.flat() ?? [])]
+      .find(product => product.product_id === identity.reference.value) : null;
+    if (anchor && anchor.category !== savedAddition.category) {
+      plan.changes = plan.changes.filter(change => {
+        if (change.scope !== "item" || !["subcategory", "product_type", "material", "fit", "size", "style", "preferred_colours"].includes(change.field)) return true;
+        const at = message.toLowerCase().indexOf(change.evidence.toLowerCase());
+        const clause = message.slice(0, at + change.evidence.length).split(/[.!?;]/).at(-1) ?? "";
+        return !/\b(?:shirt|blouse|dress|skirt|trousers|jacket)\b/i.test(clause) || /\b(?:bag|shoe|necklace)\b/i.test(clause);
+      });
     }
   }
   if (plan.outfit_request && jacketPairingRequest(message)) {
@@ -312,6 +338,11 @@ export function groundConversationPlan(request: ConversationPlanRequest, candida
   }
   const searching = ["new_search", "refine", "cheaper", "cross_sell", "upsell", "discover"].includes(plan.action);
   if (!searching) return plan;
+  if (plan.action === "discover" && request.task?.brief.gift_recipient && !shoppingTarget(message).match(rolePattern)) {
+    // Collection and unknown clothing-size context do not request a clothing
+    // purchase. Keep a recipient-led discovery across product categories.
+    plan.changes = plan.changes.filter(change => !["category", "subcategory", "product_type"].includes(change.field));
+  }
   // Unknown physical requirements still need a label when the customer gives
   // browsing permission in the same sentence. Permission is not removal.
   for (const requirement of [
@@ -423,12 +454,23 @@ export function groundConversationPlan(request: ConversationPlanRequest, candida
   const brief = requestedShoppingBrief(message);
   const clothing = savedAddition ? null : requestedClothing(message);
   const role = (savedAddition?.evidence ?? shoppingTarget(message)).match(rolePattern);
-  const category = savedAddition?.category ?? clothing?.category ?? (role ? /dress|skirt|cloth|jacket|blazer|shirt|trouser|pant/i.test(role[1]) ? "Clothing"
+  const category = savedAddition?.category ?? clothing?.category ?? (role ? /dress|skirt|cloth|jacket|blazer|shirt|top|blouse|camisole|cardigan|trouser|pant/i.test(role[1]) ? "Clothing"
     : /bag/i.test(role[1]) ? "Bags" : /shoe|flat/i.test(role[1]) ? "Shoes" : "Accessories" : null);
   const put = (change: Change) => {
     plan.changes = plan.changes.filter(old => old.scope !== change.scope || old.field !== change.field);
     plan.changes.push(change);
   };
+  if (request.task?.brief.gift_recipient) {
+    for (const taste of message.matchAll(/\b(?:likes|prefers)\s+([^.!?;]{1,100})/gi)) {
+      const subject = message.slice(0, taste.index).split(/[.!?;]/).at(-1) ?? "";
+      if (!/\b(?:dad|father|mum|mom|mother|partner|friend|recipient|he|she|they)\b/i.test(subject) ||
+          /\b(?:not|never|doesn['’]?t|does not)\s*$/i.test(subject)) continue;
+      const positive = taste[1].split(/\b(?:but|dislikes?|avoids?|hates?)\b/i)[0];
+      const values = [...positive.matchAll(new RegExp(`\\b(${colours})s?\\b`, "gi"))]
+        .map(match => match[1][0].toUpperCase() + match[1].slice(1).toLowerCase());
+      if (values.length) put({ scope: "item", field: "preferred_colours", operation: "set", value: [...new Set(values)], evidence: taste[0] });
+    }
+  }
   // A global instruction may precede the actual item brief in another sentence.
   // Only its colour becomes shared; the later item's budget stays local.
   for (const clause of message.split(/[.!?;]/)) {
@@ -441,6 +483,7 @@ export function groundConversationPlan(request: ConversationPlanRequest, candida
   }
   const material = brief.match(/\b(linen blend|cotton|polyester|viscose|linen|leather|wool|silk|nylon)\b/i);
   if (material && !rejectedReferences.length && (/\b(?:show|find|want|need|browse|looking for)\b/i.test(brief.slice(0, material.index)) ||
+      /\bi(?:['’]d| would) like\b/i.test(brief.slice(0, material.index)) ||
       material.index! < 15 && /\b(?:dress|shirt|trousers|is essential|is required|itself is essential)\b/i.test(brief.slice(material.index))) &&
       !/\b(?:no|not|without|avoid|exclude|excluding|don't want|do not want)(?:\s+any)?\s*$/i.test(brief.slice(0, material.index))) {
     put({ scope: "item", field: "material", operation: "set", value: material[1].replace(/\b\w/g, char => char.toUpperCase()), evidence: material[1] });
@@ -462,9 +505,31 @@ export function groundConversationPlan(request: ConversationPlanRequest, candida
     put({ scope: "item", field: "category", operation: "set", value: category, evidence });
     if (clothing?.subcategory && !/^(?:dress(?:es)?|skirts?)$/i.test(clothing.evidence)) {
       put({ scope: "item", field: "subcategory", operation: "set", value: clothing.subcategory, evidence });
+      // The requested garment wins over an owned anchor mentioned later.
+      if (/^tops?$/i.test(clothing.evidence) && plan.changes.some(change => change.scope === "item" && change.field === "product_type" &&
+          typeof change.value === "string" && /trouser|pant|skirt/i.test(change.value))) {
+        put({ scope: "item", field: "product_type", operation: "set", value: null, evidence });
+      }
+    }
+    if (role && /^(?:scarf|scarves)$/i.test(role[0])) {
+      put({ scope: "item", field: "subcategory", operation: "set", value: "Scarves", evidence });
+      if (!plan.changes.some(change => change.scope === "item" && change.field === "product_type")) {
+        put({ scope: "item", field: "product_type", operation: "set", value: "Scarf", evidence });
+      }
     }
     if (clothing && /^dress[ -]+shirts?$/i.test(clothing.evidence) && !plan.changes.some(change => change.field === "product_type")) {
       put({ scope: "item", field: "product_type", operation: "set", value: "Shirt", evidence });
+    }
+    if (clothing && /^shirts?$/i.test(clothing.evidence) && !plan.changes.some(change => change.field === "product_type" &&
+        typeof change.value === "string" && /\bshirt\b/i.test(change.value))) {
+      put({ scope: "item", field: "product_type", operation: "set", value: "Shirt", evidence });
+    }
+    if (clothing && /^(?:blouses?|camisoles?|cardigans?)$/i.test(clothing.evidence)) {
+      const family = clothing.evidence.replace(/s$/i, "");
+      if (!plan.changes.some(change => change.field === "product_type" && typeof change.value === "string" &&
+          new RegExp(`\\b${family}\\b`, "i").test(change.value))) {
+        put({ scope: "item", field: "product_type", operation: "set", value: family[0].toUpperCase() + family.slice(1).toLowerCase(), evidence });
+      }
     }
     if (clothing?.subcategory === "Outerwear" && !plan.changes.some(change => change.field === "product_type")) {
       put({ scope: "item", field: "product_type", operation: "set", value: "Jacket", evidence });
@@ -497,6 +562,9 @@ export function groundConversationPlan(request: ConversationPlanRequest, candida
       put({ scope: "item", field: "subcategory", operation: "set", value: "Jewellery", evidence: role[0] });
       put({ scope: "item", field: "product_type", operation: "set", value: "Necklace", evidence: role[0] });
     }
+    if (category === "Shoes" && /\bflat shoes\b/i.test(shoppingTarget(message))) {
+      put({ scope: "item", field: "product_type", operation: "set", value: "Flats", evidence: shoppingTarget(message).match(/\bflat shoes\b/i)![0] });
+    }
   }
 
   // Only positive colour constructions in the requested brief are repaired.
@@ -504,13 +572,19 @@ export function groundConversationPlan(request: ConversationPlanRequest, candida
   // must not become a new preference.
   const prefix = new RegExp(`\\b(${colours})\\s+(?:dress(?:es)?|bags?|shoes?|necklaces?|clothing)\\b`, "i");
   const edit = new RegExp(`\\b(?:try|keep|still|prefer)\\s+(${colours})\\b|\\b(${colours})\\s+instead of\\b`, "i");
-  const match = brief.match(edit) ?? (plan.action === "upsell" ? null : brief.match(prefix));
+  const garmentPrefix = /\b(?:show|find|want|need|i(?:['’]d| would) like)\b/i.test(shoppingTarget(message))
+    ? shoppingTarget(message).match(new RegExp(`\\b(${colours})\\s+(?:(?:cotton|linen(?: blend)?|silk|wool|polyester|viscose)\\s+)?(?:shirts?|blouses?|tops?|camisoles?|cardigans?)\\b`, "i")) : null;
+  const match = brief.match(edit) ?? (plan.action === "upsell" ? null : garmentPrefix ?? brief.match(prefix));
   if (match && !/\b(?:no|not|without|exclude|avoid)\s*$/i.test(brief.slice(0, match.index))) {
     const value = match[1] ?? match[2];
     const canonical = value[0].toUpperCase() + value.slice(1).toLowerCase();
     put({ scope, field: "preferred_colours", operation: "set", value: [canonical], evidence: value });
     plan.changes = plan.changes.filter(c => !(["style", "material", "fit", "season"].includes(c.field) &&
       typeof c.value === "string" && new RegExp(`^(?:${colours})$`, "i").test(c.value)));
+  }
+  const colourOptions = shoppingTarget(message).match(new RegExp(`\\b(${colours})\\s+(?:or|and)\\s+(${colours})\\s+(?:(?:cotton|linen(?: blend)?|silk|wool)\\s+)?(?:scarves|scarf|shirts?|blouses?|tops?|dresses|bags?|shoes?|flats?)\\b`, "i"));
+  if (colourOptions && !/\b(?:no|not|without|exclude|avoid)\s*$/i.test(shoppingTarget(message).slice(0, colourOptions.index))) {
+    put({ scope, field: "preferred_colours", operation: "set", value: colourOptions.slice(1, 3).map(value => value[0].toUpperCase() + value.slice(1).toLowerCase()), evidence: colourOptions[0] });
   }
   const size = explicitSizeEdit(message);
   if (size) {
@@ -520,13 +594,17 @@ export function groundConversationPlan(request: ConversationPlanRequest, candida
       plan.action = "refine"; plan.continuation = false;
     }
   }
+  const fit = shoppingTarget(message).match(/\b(regular|slim|relaxed|oversized|tailored)[ -]+fit\b/i);
+  if (fit && !rejectedReferences.length && !/\b(?:no|not|without|avoid|exclude|rather than)\s*$/i.test(shoppingTarget(message).slice(0, fit.index))) {
+    put({ scope: "item", field: "fit", operation: "set", value: fit[1][0].toUpperCase() + fit[1].slice(1).toLowerCase(), evidence: fit[0] });
+  }
   const maximum = brief.match(/\b(?:under|below|up to|at or below|maximum(?: is(?: now)?)?|max(?:imum)?(?: of)?|budget(?: is)?)\s*(?:A?\$)\s*(\d+(?:\.\d{1,2})?)/i)
     ?? brief.match(/(?:A?\$)\s*(\d+(?:\.\d{1,2})?)\s+(?:limit|max(?:imum)?)\b/i)
     ?? brief.match(/\b(\d+(?:\.\d{1,2})?)\s+(?:aud|australian dollars?)\s+(?:limit|max(?:imum)?)\b/i)
     ?? brief.match(/(?:A?\$)\s*(\d+(?:\.\d{1,2})?)\s+as\s+(?:firm|hard)\s+limits?\b/i)
     ?? brief.match(/\b(?:under|below|up to|maximum(?: of)?|budget(?: is)?)\s+(\d+(?:\.\d{1,2})?)\s+(?:aud|australian dollars?)\b/i);
   const discardedCombinedSearch = taskReplacement(message) && requestedComponents(message).size === 1;
-  if (maximum && (discardedCombinedSearch || !/\b(?:total|combined|whole outfit|complete outfit)\b/i.test(message))) {
+  if (maximum && (discardedCombinedSearch || statedCombinedBudget(message) === null && !/\b(?:total|combined|whole outfit|complete outfit)\b/i.test(message))) {
     put({ scope, field: "max_price", operation: "set", value: Number(maximum[1]), evidence: maximum[0] });
   }
   return plan;

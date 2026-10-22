@@ -12,6 +12,7 @@ import { discoveryPresentation } from "./discovery";
 import { issueMessage } from "./conversationIssues";
 import { auditedImagePresent } from "../catalogue/imageHealth";
 import { pairingCategoryNames, resolvePairingTarget } from "../search/pairingTargets";
+import { excludedByShoppingContext } from "./shoppingContext";
 
 type SearchResult = ReturnType<typeof executeConversationSearch>;
 
@@ -119,6 +120,7 @@ export function presentShoppingResult(
   }
 
   const meetsSharedContext = (record: CatalogueProduct) =>
+    !excludedByShoppingContext(record, turn.task?.brief.excluded_roles) &&
     (["occasion", "style", "fit", "season"] as const).every(field =>
       scopes.shared[field] === null || relatedLabel(record[field], scopes.shared[field]!));
 

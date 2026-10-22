@@ -1,0 +1,447 @@
+{
+  "checked_at": "2026-10-21T23:13:42.690Z",
+  "passed": 102,
+  "failed": 0,
+  "catalogue_snapshot_sha256": "2aef33260e03129496757e7e6b9d08b8f1b509637cb37c011aff281dd1e33b73",
+  "factual_card_occurrences": 54,
+  "scope": "All recorded successful HTTP replies: protocol acceptance and catalogue facts. Behavioral assertions apply only to the named final/recovered turns, not every intermediate iteration.",
+  "checks": [
+    {
+      "name": "S1: at most six exchanges",
+      "passed": true
+    },
+    {
+      "name": "S1.1: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "S1.1: P1259 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S1.1: P1088 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S1.2: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "S2: at most six exchanges",
+      "passed": true
+    },
+    {
+      "name": "S2.1: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "S2.2: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "S2.2: P1131 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S2.2: P1312 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S2.2: P1201 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S2.2: P1067 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S2.2: P1292 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S2.3: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "S2.3: P1259 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S2.3: P1194 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S2.3: P1265 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S2.3: P1186 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S2.3: P1210 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S2.3: P1088 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S2.4: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "S3: at most six exchanges",
+      "passed": true
+    },
+    {
+      "name": "S3.1: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "S3.2: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "S3.2: P1254 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S3.2: P1230 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S3.2: P1260 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S3.2: P1296 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S3.2: P1161 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S3.3: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "S3.4: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "S3.5: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "S3.5: P1036 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S3.5: P1212 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S3.6: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "S4: at most six exchanges",
+      "passed": true
+    },
+    {
+      "name": "S4.1: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "S4.2: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "S4.3: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "S4.3: P1066 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S4.3: P1033 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S4.3: P1151 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S4.3: P1243 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S4.3: P1202 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S4.4: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "S4.4: P1066 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S4.4: P1314 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S4.4: P1264 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S4.4: P1243 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S4.5: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "S4.5: P1264 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S4.6: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "S5: at most six exchanges",
+      "passed": true
+    },
+    {
+      "name": "S5.1: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "S5.1: P1178 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S5.1: P1002 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S5.1: P1256 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S5.1: P1228 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S5.1: P1274 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S5.1: P1250 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "S6: at most six exchanges",
+      "passed": true
+    },
+    {
+      "name": "S6.1: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "P1: at most six exchanges",
+      "passed": true
+    },
+    {
+      "name": "P1.1: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "P1.1: P1186 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "P1.1: P1209 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "P1.1: P1210 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "P1.1: P1095 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "P1.2: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "P1.2: P1209 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "P1.3: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "P1.3: P1210 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "P1.4: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "P1.5: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "P1.6: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "P1.6: P1298 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "P2: at most six exchanges",
+      "passed": true
+    },
+    {
+      "name": "P2.1: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "P2.2: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "P2.2: P1308 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "P2.2: P1098 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "P2.2: P1013 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "P3: at most six exchanges",
+      "passed": true
+    },
+    {
+      "name": "P3.1: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "P3.1: P1155 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "P3.1: P1098 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "P3.1: P1226 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "P4: at most six exchanges",
+      "passed": true
+    },
+    {
+      "name": "P4.2: successful protocol acceptance",
+      "passed": true
+    },
+    {
+      "name": "P4.2: P1319 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "P4.2: P1098 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "P4.2: P1205 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "P4.2: P1245 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "P4.2: P1264 catalogue facts",
+      "passed": true
+    },
+    {
+      "name": "Clear brief returns the exact blouse and navigation respects no extras",
+      "passed": true
+    },
+    {
+      "name": "Wanted tops remain distinct from owned trousers and office explanation is useful",
+      "passed": true
+    },
+    {
+      "name": "Recovered browsing shortlist obeys price and colour; answer avoids a fit guarantee",
+      "passed": true
+    },
+    {
+      "name": "Recovered gift ends with an affordable one-size scarf and qualified policy answer",
+      "passed": true
+    },
+    {
+      "name": "Production combined-budget reply counts the example without selecting it",
+      "passed": true
+    },
+    {
+      "name": "No-match brief retains navy, fit, size and price; alternatives expose compromises",
+      "passed": true
+    },
+    {
+      "name": "Production gift discovery enforces total, recipient colours, exclusions and unknown size",
+      "passed": true
+    },
+    {
+      "name": "Production browser gives actual bag instructions and verified links",
+      "passed": true
+    }
+  ],
+  "source_sha256": {
+    "components/stylist/ConversationChat.tsx": "18145a3149fb6b1b733d3bfcbdde6cee9353aa8d1742db5fa60cb1f230803b36",
+    "lib/ai/interpretConversation.ts": "e889eab5366b6d3668489a9887f9d5c1f05d381c8195128be64ac2a0355b007c",
+    "lib/catalogue/productFamilies.ts": "c18e239e61ebebfb1387f7319fa733b2e6449c393c81943e14a2067e47b99c17",
+    "lib/storePolicies.ts": "1f7491536808430080052995c3a18eeddb6ea618fb37a55f58a79418ea8c0244",
+    "lib/stylist/answerPlan.ts": "c6bd6cc91b85649ef3a002b087c85c24a0299a87210a48f4202756d9438ea87a",
+    "lib/stylist/collectionPreference.ts": "83c041379bd388efcf85931b9e4b5af246ee1fefca36ef420c9b3d54f0e382e8",
+    "lib/stylist/combinedShoppingRequest.ts": "a8e52dbbe50376d6c9dca1de909ddc38a9ce8f2f06578613c9e1b7596e71549f",
+    "lib/stylist/commerceSchema.ts": "57ce3c2906815fc8a11cd9f1036826ec58dd647d1531941c09fbe83443e3bbc1",
+    "lib/stylist/conversationAnswers.ts": "4cac6b7f0da313a953ffe3cd26feebde1136c3e6a2ac151f0e65e3cc487d0de1",
+    "lib/stylist/conversationGrounding.ts": "982cb6428e178ce3759721d5a8895352d454a4fda975c82e0de350f150383ea6",
+    "lib/stylist/conversationIssues.ts": "7cb9bbd342c93516a3f98739c191c7f8b713c3f2bd6e8ae7df65e8eb0b0d0ef0",
+    "lib/stylist/conversationPlan.ts": "b3c281e94c29141fd01dba43198da0d3b53f9a4690d62daa80e1bbc44dbec544",
+    "lib/stylist/conversationProtocol.ts": "fec36a5a3318a29522baa3000f6f96eb5d75ccc20dab1496314489df7bf2e68e",
+    "lib/stylist/conversationSearch.ts": "283e56a9dab80e052d901bc8bc201397df9fef68a30160bf86fae188c3dd8d5d",
+    "lib/stylist/conversationTurn.ts": "6f87c8caea5a17ca885a2e246012733c124b61d7b59a1ae51902bb00d9dc4551",
+    "lib/stylist/discovery.ts": "9554a1c6f96ffafd87c397515bf90cebb085047328fe98e0f96f41ca384321f5",
+    "lib/stylist/proactiveCrossSell.ts": "09bfda1691577e4073d6b1b4fac46430b575224f690a3f4aa6ac47c0c4268ce7",
+    "lib/stylist/productReference.ts": "ec783176ffb273e76f102747bcfc1fea8e67352b4d8a3db2962d299021f838d7",
+    "lib/stylist/purchaseBudget.ts": "1019fb073cfe3b96eb3716725cbeea5f05e1b0e567c689a364ac93719b9a5ec7",
+    "lib/stylist/shoppingBrief.ts": "05c96e4eb5877ec45a9071cd93af02a6e4f253166c6d9d82a79dcbfcde0ab3cf",
+    "lib/stylist/shoppingPresentation.ts": "0ddf9ef823ea49afd9f6d8846d4f37eb38b8833e2d4ff6a0f09db29570293519",
+    "lib/stylist/taskState.ts": "065ce68badef08a38a38e7fb096052b27e815b1cdcc3f3ff1f1ed234fa98ffed",
+    "scripts/run-regression.mjs": "b6661075642b2375dbd21c78382494b47d52ce90d67501324a5f5db4f079f9e4",
+    "lib/catalogue/productWarnings.ts": "7e0f7fd8e09d7a6e359f4d0139e09879c5683c3dcbd9ce774fda5161af8c35c6",
+    "lib/stylist/shoppingContext.ts": "d430f9d335886a52c355fddd6e85788f20bd419af95c88b50481f43c7a297dc7",
+    "lib/stylist/shoppingNavigation.ts": "e4a306f14ecc6864a1d75005f924dee36fadf8766f353d9c6ce5ab412d98585d",
+    "scripts/test-adaptive-reliability-fixes.mjs": "88318efdc40bfc570bcb4195d27f067ef06843aa5bf30e56692ff204219627fe"
+  }
+}

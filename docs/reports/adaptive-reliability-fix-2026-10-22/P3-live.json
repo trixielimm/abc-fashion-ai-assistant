@@ -1,0 +1,449 @@
+{
+  "id": "P3",
+  "started_at": "2026-10-21T23:04:24.024Z",
+  "endpoint": "http://127.0.0.1:3003/api/conversation-search",
+  "max_total_messages": 12,
+  "turns": [
+    {
+      "at": "2026-10-21T23:04:24.027Z",
+      "customer": "I need a birthday gift for Dad from the men's or unisex collection, A$90 total. He likes understated blues and greys and dislikes jewellery. I don't know his clothing size. Show me ideas.",
+      "adaptive_reason": "Final fresh model probe with complete recipient context to verify colours and exclusions no longer depend on the model retaining plural colour words.",
+      "request": {
+        "message": "I need a birthday gift for Dad from the men's or unisex collection, A$90 total. He likes understated blues and greys and dislikes jewellery. I don't know his clothing size. Show me ideas.",
+        "collection": {
+          "choice": null,
+          "current": null,
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": []
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null,
+            "gift_recipient": null,
+            "uncertain_recipient_size": false,
+            "excluded_roles": [],
+            "occasion_context": null
+          }
+        }
+      },
+      "http_status": 200,
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "12p2t6g",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 90,
+            "budget_evidence": "I need a birthday gift for Dad from the men's or unisex collection, A$90 total. He likes understated blues and greys and dislikes jewellery. I don't know his clothing size. Show me ideas.",
+            "guidance": [],
+            "deadline": null,
+            "gift_recipient": "dad",
+            "uncertain_recipient_size": true,
+            "excluded_roles": [
+              "Jewellery"
+            ],
+            "occasion_context": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "matches",
+        "action": "discover",
+        "discovery": {
+          "stage": "browsing",
+          "asked": [],
+          "skipped": [],
+          "seen_product_ids": [
+            "P1155",
+            "P1098",
+            "P1226"
+          ]
+        },
+        "collection": {
+          "choice": "Men",
+          "current": {
+            "choice": "Men",
+            "source": "explicit"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [
+          {
+            "label": "None of these / different ideas",
+            "message": "None of these. Show me different ideas."
+          }
+        ],
+        "message": "Here are a few different ideas to react to. Nothing needs to be decided yet.\n\nGrey Relaxed Co-ord Set: its name suggests Relaxed, but the recorded fit is Regular. Check measurements before deciding.",
+        "proposed_scopes": {
+          "item": {
+            "gender": "Men",
+            "category": "Clothing",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [
+              "Blue",
+              "Grey"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": "Men",
+          "category": "Clothing",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [
+            "Blue",
+            "Grey"
+          ],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "P1155",
+            "product_name": "Grey Relaxed Co-ord Set",
+            "price_aud": 195,
+            "category": "Clothing",
+            "subcategory": "Sets",
+            "product_type": "Relaxed Co-ord Set",
+            "brand_line": "ABC Occasion",
+            "colour": "Grey",
+            "occasion": "Date Night",
+            "style": "Streetwear",
+            "sizes_available": [
+              "XS",
+              "S",
+              "M",
+              "L",
+              "XL"
+            ],
+            "explanation": "Relaxed Co-ord Set · Colour: Grey · Style: Streetwear · Occasion: Date Night",
+            "unverified_requirements": [],
+            "extra_target": "Accessories",
+            "image_src": "/api/products/P1155/image"
+          },
+          {
+            "product_id": "P1098",
+            "product_name": "Blue Oxford Shirt",
+            "price_aud": 50,
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Oxford Shirt",
+            "brand_line": "ABC Occasion",
+            "colour": "Blue",
+            "occasion": "Formal",
+            "style": "Bohemian",
+            "sizes_available": [
+              "XS",
+              "S",
+              "M",
+              "L",
+              "XL"
+            ],
+            "explanation": "Oxford Shirt · Colour: Blue · Style: Bohemian · Occasion: Formal",
+            "unverified_requirements": [],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1098/image"
+          },
+          {
+            "product_id": "P1226",
+            "product_name": "Blue Straight Jeans",
+            "price_aud": 140,
+            "category": "Clothing",
+            "subcategory": "Bottoms",
+            "product_type": "Straight Jeans",
+            "brand_line": "ABC Casual",
+            "colour": "Blue",
+            "occasion": "Casual",
+            "style": "Minimalist",
+            "sizes_available": [
+              "XS",
+              "S",
+              "M",
+              "L",
+              "XL"
+            ],
+            "explanation": "Straight Jeans · Colour: Blue · Style: Minimalist · Occasion: Casual",
+            "unverified_requirements": [],
+            "extra_target": "Shoes",
+            "image_src": "/api/products/P1226/image"
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": "Which idea feels most like your dad? We can narrow to accessories with listed one-size options if you'd prefer.",
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "accepted": true,
+      "elapsed_ms": 6763
+    }
+  ],
+  "state": {
+    "scopes": {
+      "item": {
+        "gender": "Men",
+        "category": "Clothing",
+        "subcategory": null,
+        "product_type": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [
+          "Blue",
+          "Grey"
+        ],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "size": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      },
+      "shared": {
+        "gender": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      },
+      "unresolved_item": [],
+      "unresolved_shared": []
+    },
+    "pending": null,
+    "pending_answer": null,
+    "styling": {
+      "dress_code": null,
+      "outfit_request": null,
+      "purchase_budget": null,
+      "outfit": [],
+      "external_items": [],
+      "rejected_ids": [],
+      "priorities": [],
+      "required_features": [],
+      "offers_paused": false,
+      "owned_categories": []
+    },
+    "discovery": {
+      "stage": "browsing",
+      "asked": [],
+      "skipped": [],
+      "seen_product_ids": [
+        "P1155",
+        "P1098",
+        "P1226"
+      ]
+    },
+    "collection": {
+      "choice": "Men",
+      "current": {
+        "choice": "Men",
+        "source": "explicit"
+      },
+      "checkpoint": null
+    },
+    "cart_product_ids": [],
+    "task": {
+      "generation": 0,
+      "complementary_shown": false,
+      "complementary_dismissed": false,
+      "prepared_key": "12p2t6g",
+      "preview_unverified": false,
+      "blocker_signature": "",
+      "blocker_repeats": 0,
+      "issues": [],
+      "brief": {
+        "goal": null,
+        "total_budget_aud": 90,
+        "budget_evidence": "I need a birthday gift for Dad from the men's or unisex collection, A$90 total. He likes understated blues and greys and dislikes jewellery. I don't know his clothing size. Show me ideas.",
+        "guidance": [],
+        "deadline": null,
+        "gift_recipient": "dad",
+        "uncertain_recipient_size": true,
+        "excluded_roles": [
+          "Jewellery"
+        ],
+        "occasion_context": null
+      }
+    },
+    "context": {
+      "focused": null,
+      "latest": [
+        {
+          "product_id": "P1155",
+          "product_name": "Grey Relaxed Co-ord Set",
+          "category": "Clothing",
+          "subcategory": "Sets",
+          "product_type": "Relaxed Co-ord Set",
+          "price_aud": 195
+        },
+        {
+          "product_id": "P1098",
+          "product_name": "Blue Oxford Shirt",
+          "category": "Clothing",
+          "subcategory": "Tops",
+          "product_type": "Oxford Shirt",
+          "price_aud": 50
+        },
+        {
+          "product_id": "P1226",
+          "product_name": "Blue Straight Jeans",
+          "category": "Clothing",
+          "subcategory": "Bottoms",
+          "product_type": "Straight Jeans",
+          "price_aud": 140
+        }
+      ]
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "I need a birthday gift for Dad from the men's or unisex collection, A$90 total. He likes understated blues and greys and dislikes jewellery. I don't know his clothing size. Show me ideas."
+      },
+      {
+        "role": "assistant",
+        "content": "Here are a few different ideas to react to. Nothing needs to be decided yet.\n\nGrey Relaxed Co-ord Set: its name suggests Relaxed, but the recorded fit is Regular. Check measurements before deciding.\nWhich idea feels most like your dad? We can narrow to accessories with listed one-size options if you'd prefer."
+      }
+    ]
+  }
+}

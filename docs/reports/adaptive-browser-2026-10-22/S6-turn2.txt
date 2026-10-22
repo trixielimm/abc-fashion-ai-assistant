@@ -1,0 +1,29 @@
+Browser tab: 1, Title: "ABC Fashion", URL: "http://127.0.0.1:3003/".
+0 AXWebArea ABC Fashion, URL: 127.0.0.1:3003/
+	1 container AI Stylist
+		2 container
+			3 heading AI Stylist, Value: 2
+				4 text AI Stylist
+			5 button New chat
+			6 button Close AI Stylist
+		24 container Your look
+			25 text Your look
+			26 text 0 items
+			27 text Save pieces here to build a look.
+			28 container
+				29 text A$0.00 total
+			30 pop up button View look
+		7 container
+			31 text YOU I need a navy shirt for work, men's medium, regular fit, no more than A$100. Please find the best match. AI STYLIST I couldn't reliably interpret the requested change. No unverified changes were applied. You can clarify the item and change, or start a new shopping task below. YOU Men's shirts, navy, size M, regular fit, under A$100, for work. AI STYLIST I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged.
+
+One way to broaden the search is to use "Explore other colours" below. That preview keeps your other restrictions and leaves your original colour request saved.
+			32 button Explore other colours
+			33 text Preview only. Your original colour and other restrictions stay saved.
+		18 container
+			19 text entry area (settable) Message your stylist
+			20 button (disabled) Send message
+		21 text Messages may be sent to OpenAI.
+		22 button (collapsed) Privacy & details, Secondary Actions: Expand
+			23 text Privacy & details
+
+The focused UI element is 0 AXWebArea ABC Fashion, URL: 127.0.0.1:3003/

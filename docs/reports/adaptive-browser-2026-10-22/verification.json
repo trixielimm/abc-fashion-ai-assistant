@@ -1,0 +1,282 @@
+{
+  "verified_at": "2026-10-21T14:22:00.554Z",
+  "http_requests": 30,
+  "http_200_and_accepted": 30,
+  "browser_exchanges": 4,
+  "total_exchanges": 34,
+  "total_messages": 68,
+  "catalogue_rows": 318,
+  "catalogue_available": 316,
+  "returned_card_occurrences_checked": 34,
+  "unique_returned_product_ids": [
+    "P1036",
+    "P1037",
+    "P1039",
+    "P1043",
+    "P1046",
+    "P1050",
+    "P1067",
+    "P1088",
+    "P1094",
+    "P1095",
+    "P1110",
+    "P1159",
+    "P1168",
+    "P1173",
+    "P1186",
+    "P1194",
+    "P1209",
+    "P1210",
+    "P1211",
+    "P1216",
+    "P1223",
+    "P1241",
+    "P1244",
+    "P1259",
+    "P1265",
+    "P1288",
+    "P1292",
+    "P1298"
+  ],
+  "successful_automated_checks": 80,
+  "failures": [],
+  "http_latency_ms": {
+    "min": 21,
+    "median": 8942.5,
+    "p95": 17497,
+    "max": 27570
+  },
+  "gift_catalogue_candidates": [
+    {
+      "product_id": "P1205",
+      "product_name": "Grey Lightweight Scarf",
+      "price_aud": 80,
+      "occasion": "Travel",
+      "sizes_available": [
+        "One Size"
+      ]
+    },
+    {
+      "product_id": "P1264",
+      "product_name": "Blue Lightweight Scarf",
+      "price_aud": 25,
+      "occasion": "Casual",
+      "sizes_available": [
+        "One Size"
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "scenario": "S1",
+      "exchange": 1,
+      "status": "matches",
+      "action": "new_search",
+      "elapsed_ms": 9766
+    },
+    {
+      "scenario": "S1",
+      "exchange": 2,
+      "status": "answered",
+      "action": "none",
+      "elapsed_ms": 13624
+    },
+    {
+      "scenario": "S1",
+      "exchange": 3,
+      "status": "answered",
+      "action": "none",
+      "elapsed_ms": 12518
+    },
+    {
+      "scenario": "S1",
+      "exchange": 4,
+      "status": "answered",
+      "action": "none",
+      "elapsed_ms": 13836
+    },
+    {
+      "scenario": "S1",
+      "exchange": 5,
+      "status": "answered",
+      "action": "none",
+      "elapsed_ms": 6400
+    },
+    {
+      "scenario": "S1",
+      "exchange": 6,
+      "status": "answered",
+      "action": "none",
+      "elapsed_ms": 4674
+    },
+    {
+      "scenario": "S2",
+      "exchange": 1,
+      "status": "no_action",
+      "action": "discover",
+      "elapsed_ms": 5937
+    },
+    {
+      "scenario": "S2",
+      "exchange": 2,
+      "status": "no_action",
+      "action": "discover",
+      "elapsed_ms": 21
+    },
+    {
+      "scenario": "S2",
+      "exchange": 3,
+      "status": "matches",
+      "action": "discover",
+      "elapsed_ms": 11821
+    },
+    {
+      "scenario": "S2",
+      "exchange": 4,
+      "status": "alternatives",
+      "action": "refine",
+      "elapsed_ms": 17497
+    },
+    {
+      "scenario": "S2",
+      "exchange": 5,
+      "status": "matches",
+      "action": "new_search",
+      "elapsed_ms": 8913
+    },
+    {
+      "scenario": "S2",
+      "exchange": 6,
+      "status": "answered",
+      "action": "none",
+      "elapsed_ms": 4637
+    },
+    {
+      "scenario": "S3",
+      "exchange": 1,
+      "status": "no_action",
+      "action": "discover",
+      "elapsed_ms": 3786
+    },
+    {
+      "scenario": "S3",
+      "exchange": 2,
+      "status": "no_action",
+      "action": "discover",
+      "elapsed_ms": 7724
+    },
+    {
+      "scenario": "S3",
+      "exchange": 3,
+      "status": "matches",
+      "action": "discover",
+      "elapsed_ms": 11028
+    },
+    {
+      "scenario": "S3",
+      "exchange": 4,
+      "status": "needs_clarification",
+      "action": "refine",
+      "elapsed_ms": 11598
+    },
+    {
+      "scenario": "S3",
+      "exchange": 5,
+      "status": "alternatives",
+      "action": "refine",
+      "elapsed_ms": 5721
+    },
+    {
+      "scenario": "S3",
+      "exchange": 6,
+      "status": "answered",
+      "action": "none",
+      "elapsed_ms": 4135
+    },
+    {
+      "scenario": "S4",
+      "exchange": 1,
+      "status": "no_action",
+      "action": "discover",
+      "elapsed_ms": 5984
+    },
+    {
+      "scenario": "S4",
+      "exchange": 2,
+      "status": "no_action",
+      "action": "discover",
+      "elapsed_ms": 7180
+    },
+    {
+      "scenario": "S4",
+      "exchange": 3,
+      "status": "needs_clarification",
+      "action": "discover",
+      "elapsed_ms": 8972
+    },
+    {
+      "scenario": "S4",
+      "exchange": 4,
+      "status": "needs_clarification",
+      "action": "discover",
+      "elapsed_ms": 27570
+    },
+    {
+      "scenario": "S4",
+      "exchange": 5,
+      "status": "needs_clarification",
+      "action": "discover",
+      "elapsed_ms": 5532
+    },
+    {
+      "scenario": "S4",
+      "exchange": 6,
+      "status": "needs_clarification",
+      "action": "clarify",
+      "elapsed_ms": 14735
+    },
+    {
+      "scenario": "S5",
+      "exchange": 1,
+      "status": "matches",
+      "action": "new_search",
+      "elapsed_ms": 10813
+    },
+    {
+      "scenario": "S5",
+      "exchange": 2,
+      "status": "matches",
+      "action": "refine",
+      "elapsed_ms": 9902
+    },
+    {
+      "scenario": "S5",
+      "exchange": 3,
+      "status": "answered",
+      "action": "none",
+      "elapsed_ms": 10348
+    },
+    {
+      "scenario": "S5",
+      "exchange": 4,
+      "status": "no_match",
+      "action": "refine",
+      "elapsed_ms": 9822
+    },
+    {
+      "scenario": "S5",
+      "exchange": 5,
+      "status": "alternatives",
+      "action": "refine",
+      "elapsed_ms": 6867
+    },
+    {
+      "scenario": "S5",
+      "exchange": 6,
+      "status": "no_match",
+      "action": "cross_sell",
+      "elapsed_ms": 8662
+    }
+  ],
+  "scope": "Grounding and protocol checks only. Human scenario outcomes are assessed separately. Browser-only requests have no measured HTTP latency."
+}

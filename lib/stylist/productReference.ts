@@ -100,11 +100,21 @@ export function messageProductReference(context: z.infer<typeof ContextSchema>, 
   const ordinal = message.match(/^(?:the\s+|number\s+)?(first|second|third|fourth|fifth|[1-5])(?:\b|[,.])/i)
     ?? message.match(/\b(?:the|number)\s+(first|second|third|fourth|fifth|[1-5])\b/i);
   const position = ordinal ? ({ first: 1, second: 2, third: 3, fourth: 4, fifth: 5 }[ordinal[1].toLowerCase()] ?? Number(ordinal[1])) : null;
-  const role = message.match(/\b(?:the|that|this|first|second|third|fourth|fifth|[1-5])\s+(jacket|blazer|shirt|skirt|dress|bag|shoes?|necklace)\b/i)?.[1];
+  const role = message.match(/\b(?:the|that|this|first|second|third|fourth|fifth|[1-5])\s+(jacket|blazer|shirt|skirt|dress|bag|shoes?|necklace|sandals?|flats?|loafers?|mules?|scarves|scarf)\b/i)?.[1];
   const ordered = role ? [...context.latest, ...(context.complementary ?? [])].filter(product => matchesRole(product, role)) : context.latest;
   const numbered = position ? ordered[position - 1] : null;
   if (named.length > 1 || named.length && numbered && named[0].product_id !== numbered.product_id) return { status: "ambiguous" as const, reference: null, conflict: true };
   if (named.length === 1 || numbered) return { status: "resolved" as const, reference: { kind: "id" as const, value: (named[0] ?? numbered!).product_id }, conflict: false };
+  // Descriptive names such as "the sage sandals" can identify one displayed
+  // product without treating the colour as a new preference. Stay ambiguous
+  // when several known products match; never use a fuzzy first-result default.
+  const described = message.match(/\b(?:the|those|that|these)\s+([a-z]+)\s+(sandals?|shoes?|flats?|loafers?|mules?|jacket|blazer|shirt|skirt|dress|bag|necklace|scarf|scarves)\b/i);
+  if (described) {
+    const matches = [...new Map(pool.filter(product => matchesRole(product, described[2]) &&
+      product.product_name.toLowerCase().split(/[^a-z0-9]+/).includes(described[1].toLowerCase())).map(product => [product.product_id, product])).values()];
+    if (matches.length === 1) return { status: "resolved" as const, reference: { kind: "id" as const, value: matches[0].product_id }, conflict: false };
+    if (matches.length > 1) return { status: "ambiguous" as const, reference: null, conflict: false };
+  }
   const candidates = role ? [...context.latest, ...(context.complementary ?? [])].filter(product => matchesRole(product, role)) : [];
   return candidates.length === 1 ? { status: "resolved" as const, reference: { kind: "id" as const, value: candidates[0].product_id }, conflict: false }
     : { status: candidates.length > 1 ? "ambiguous" as const : "absent" as const, reference: null, conflict: false };

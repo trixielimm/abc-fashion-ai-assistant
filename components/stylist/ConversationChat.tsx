@@ -18,7 +18,6 @@ import { DressCodeChoices, OutfitGuidance } from "./OutfitGuidance";
 import { hasEventContext } from "@/lib/stylist/dressCode";
 import { suggestedOutfit } from "@/lib/stylist/outfitPresentation";
 import { outfitReviewSections } from "@/lib/stylist/outfitReview";
-import { ShoppingRequestSummary } from "./ShoppingRequestSummary";
 import { FinishingTouches } from "./FinishingTouches";
 import { restoreOfferMemory, saveOfferMemory, clearOfferMemory, dismissComplementaryOffer, browserOfferStorage } from "@/lib/stylist/offerMemory";
 
@@ -263,7 +262,6 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
       {!welcome && sessionState.styling ? <OutfitSummary styling={sessionState.styling} open={open} feedback={selectionFeedback} disabled={busy || Boolean(pending)}
         onRemoveExternal={description => send(`Remove the owned item I described as "${description}".`, undefined, undefined, false, undefined, "Owned item removed from your look.")}
         onRemove={(productId, productName) => send(`Remove ${productName} from my outfit.`, "remove", undefined, false, productId, `${productName} removed from your look.`)} /> : null}
-      {!welcome ? <ShoppingRequestSummary session={sessionState} /> : null}
       <div ref={transcript} role="log" aria-live="polite" aria-relevant="additions" aria-busy={busy}
         className={`${styles.transcript} ${welcome ? styles.transcriptWelcome : ""}`}>
         {welcome ? (
@@ -308,8 +306,8 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
                       ? `–A$${result.outfit_choices.maximum_total_aud.toFixed(2)}` : ""}</strong> combined</span>
                   <span>Within your <strong>A${result.outfit_budget.limit_aud.toFixed(2)}</strong> budget</span>
                 </div> : null}
-                {result?.purchase_budget ? <div className={styles.budgetSummary} aria-label="Selected purchases budget">
-                  <span>A${result.purchase_budget.fixed_total_aud.toFixed(2)} selected</span>
+                {result?.purchase_budget ? <div className={styles.budgetSummary} aria-label="Purchase plan budget">
+                  <span>A${result.purchase_budget.fixed_total_aud.toFixed(2)} {result.purchase_budget.example_items.length ? "selected / examples" : "selected"}</span>
                   <span>A${result.purchase_budget.remaining_aud.toFixed(2)} left of A${result.purchase_budget.limit_aud.toFixed(2)}</span>
                 </div> : null}
                 {result?.answer_sources.length ? <p className={styles.notice}>

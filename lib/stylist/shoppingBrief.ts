@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { statedCombinedBudget } from "./combinedShoppingRequest";
+import { ExcludedRoleSchema, recipientFromMessage, uncertainRecipientSize, shoppingRoleExclusions } from "./shoppingContext";
 
 // Customer context is distinct from catalogue filters and product claims.
 export const ShoppingBriefSchema = z.strictObject({
@@ -8,10 +9,19 @@ export const ShoppingBriefSchema = z.strictObject({
   budget_evidence: z.string().max(250).nullable().default(null),
   guidance: z.array(z.string().min(1).max(100)).max(6).default([]),
   deadline: z.string().max(100).nullable().default(null),
+  gift_recipient: z.string().min(1).max(100).nullable().default(null),
+  uncertain_recipient_size: z.boolean().default(false),
+  excluded_roles: z.array(ExcludedRoleSchema).max(7).default([]),
+  occasion_context: z.string().max(100).nullable().default(null),
 });
 export type ShoppingBrief = z.infer<typeof ShoppingBriefSchema>;
 export function updateShoppingBrief(previous: ShoppingBrief, message: string): ShoppingBrief {
   const brief = structuredClone(previous);
+  brief.gift_recipient = recipientFromMessage(message) ?? brief.gift_recipient;
+  if (brief.gift_recipient && uncertainRecipientSize(message)) brief.uncertain_recipient_size = true;
+  brief.excluded_roles = shoppingRoleExclusions(message, brief.excluded_roles);
+  const occasion = message.match(/\b(?:beach wedding|birthday dinner|dinner|office|(?:for|at|to) work|workplace|workwear|weekends?|everyday wear|wedding guest)\b/i);
+  if (occasion) brief.occasion_context = occasion[0];
   if (/\b(?:trip|travel|packing|wardrobe)\b/i.test(message) && /\b(?:warm|cool|layer|versatile|small|pieces)\b/i.test(message)) brief.goal = "travel_layers";
   if (/\b(?:want|need|try|show|something|look|like)\b[^.!?]{0,80}\b(?:bold|bolder|bright)\b/i.test(message)) brief.goal = "bolder_style";
   if (/\b(?:flexible fit|size may change|changing (?:body|size))\b/i.test(message)) brief.goal = "flexible_fit";

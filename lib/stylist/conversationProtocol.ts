@@ -85,6 +85,7 @@ export const TurnReplySchema = z.object({
     version: z.literal("purchase-v1"), limit_aud: z.number().nonnegative(),
     fixed_total_aud: z.number().nonnegative(), remaining_aud: z.number().nonnegative(),
     fixed_product_ids: z.array(z.string().min(1)).max(8),
+    example_items: z.array(z.object({ product_id: z.string().min(1), price_aud: z.number().nonnegative() })).max(8).default([]),
     minimum_total_aud: z.number().nonnegative().nullable(), maximum_total_aud: z.number().nonnegative().nullable(),
   }).nullable().default(null),
   intent_understood: z.boolean().default(true),
@@ -137,9 +138,14 @@ export const TurnReplySchema = z.object({
   const purchase = reply.purchase_budget;
   if (purchase) {
     const fixed = reply.styling.outfit.filter(piece => purchase.fixed_product_ids.includes(piece.product_id) && piece.ownership === "selected");
-    const fixedCents = fixed.reduce((sum, piece) => sum + priceCents(piece.price_aud ?? NaN), 0);
+    const examples = purchase.example_items;
+    const fixedCents = fixed.reduce((sum, piece) => sum + priceCents(piece.price_aud ?? NaN), 0) +
+      examples.reduce((sum, piece) => sum + priceCents(piece.price_aud), 0);
     const visiblePrices = all.map(product => priceCents(product.price_aud));
-    if (new Set(purchase.fixed_product_ids).size !== purchase.fixed_product_ids.length || fixed.length !== purchase.fixed_product_ids.length ||
+    if (new Set(purchase.fixed_product_ids).size !== purchase.fixed_product_ids.length || fixed.length + examples.length !== purchase.fixed_product_ids.length ||
+      new Set(examples.map(piece => piece.product_id)).size !== examples.length ||
+      examples.some(piece => !purchase.fixed_product_ids.includes(piece.product_id) || reply.styling.outfit.some(saved => saved.product_id === piece.product_id) ||
+        !reply.styling.purchase_budget?.example_product_ids.includes(piece.product_id)) ||
       fixedCents !== priceCents(purchase.fixed_total_aud) ||
       priceCents(purchase.remaining_aud) !== priceCents(purchase.limit_aud) - fixedCents ||
       visiblePrices.some(price => price > priceCents(purchase.remaining_aud)) ||
@@ -331,6 +337,12 @@ export function makeTurn(
 export function acceptReply(turn: ConversationTurn, input: unknown): { reply: TurnReply; session: Session } {
   const reply = TurnReplySchema.parse(input);
   if (reply.task_transition_applied) turn = prepareConversationTask(turn);
+  if (reply.purchase_budget?.example_items.length) {
+    const known = [turn.context.focused, ...turn.context.latest, ...(turn.context.previous?.flat() ?? []), ...(turn.context.selected ?? [])];
+    if (reply.purchase_budget.example_items.some(piece => !known.some(row => row?.product_id === piece.product_id))) {
+      throw new Error("An example purchase must belong to the current conversation; it has not been selected.");
+    }
+  }
   if (reply.offer_refresh && (!turn.offer_anchor_id || reply.complementary_offer &&
       reply.complementary_offer.anchor.product_id !== turn.offer_anchor_id)) throw new Error("Finishing touches can only refresh for the requested anchor.");
   if (reply.offer_refresh && (JSON.stringify(reply.proposed_scopes) !== JSON.stringify(turn.scopes) ||

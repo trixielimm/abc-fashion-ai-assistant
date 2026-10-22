@@ -19,16 +19,18 @@ export type CollectionState = z.infer<typeof CollectionStateSchema>;
 export const emptyCollectionState = (): CollectionState => ({ choice: null, current: null, checkpoint: null });
 
 export function shoppingBrief(message: string) {
-  const starts = [...message.matchAll(/\b(?:show(?: me)?|find(?: me)?|i want|i need|looking for|browse|let['’]s (?:try|start with))\b/gi)]
+  const starts = [...message.matchAll(/\b(?:show(?: me)?|find(?: me)?|i want|i need|i(?:['’]d| would) like|looking for|browse|let['’]s (?:try|start with)|i(?:(?:['’]d| would))? prefer(?=[^.!?;]{0,60}\b(?:tops?|shirts?|blouses?|dresses|dress|shoes?|flats?|sandals?|bags?|scarves|scarf|jackets?|skirts?|trousers|pants)\b))\b/gi)]
     .filter(match => !/\bwhat(?: i(?:['’]m| am| was)?)?\s*$/i.test(message.slice(0, match.index)));
   // A trailing "show me options" is a call to act on the earlier brief, not
   // a new target that erases its collection, garment or recipient.
-  const meaningful = starts.filter(match => !/^(?:show(?: me)?|find(?: me)?|browse)\s+(?:(?:some|any|the|a few|a few different) )?(?:options|ideas|matches|results)(?: (?:now|please|first))?[.!?\s]*$/i.test(message.slice(match.index)) &&
+  const meaningful = starts.filter(match => !/^(?:show(?: me)?|find(?: me)?|browse)\s+(?:(?:some|any|the|a few|a few different) )?(?:(?:best|closest|suitable|matching|available|eligible)\s+)?(?:options?|ideas|matches|match|results)(?: (?:now|please|first))?[.!?\s]*$/i.test(message.slice(match.index)) &&
     !/^browse (?:before|without) (?:choosing|picking|selecting) (?:a |my )?(?:size|colou?r)(?: or (?:size|colou?r))?[.!?\s]*$/i.test(message.slice(match.index)));
   return message.slice(meaningful.at(-1)?.index ?? 0);
 }
 export function shoppingTarget(message: string) {
-  return shoppingBrief(message).split(/\b(?:to match|to go with|with my|for my|for (?:this|that)|accompany)\b/i)[0];
+  return shoppingBrief(message).split(/\b(?:to match|to go with|(?:to )?wear with|with my|for my|for (?:this|that)|accompany)\b/i)[0]
+    .replace(/\b(?:I|we|he|she|they)\s+(?:don['’]?t|do not|doesn['’]?t|does not) know\s+(?:(?:his|her|their|my|clothing|shirt)\s+){0,3}size\b/gi, "")
+    .replace(/\bwith\s+[^.!?;]{0,80}\b(?:I|we|he|she|they)\s+(?:already\s+)?(?:own|have|bought)\b[^.!?;]*/gi, "");
 }
 
 // An allowlist of product categories, not an inference about the customer.
@@ -42,7 +44,7 @@ export function defaultCollectionCategory(preferences: ShoppingPreferences) {
 }
 export function requestedClothing(message: string) {
   const target = shoppingTarget(message);
-  const pattern = /\bdress[ -]+shirts?\b|\bdress[ -]+shoes?\b|\bdress(?:es)?\b|\bskirts?\b|\bshirts?\b|\b(?:trousers?|pants)\b|\bsuits?\b|\b(?:jackets?|blazers?)\b|\b(?:clothing|clothes)\b/gi;
+  const pattern = /\bdress[ -]+shirts?\b|\bdress[ -]+shoes?\b|\bdress(?:es)?\b|\bskirts?\b|\b(?:shirts?|tops?|blouses?|camisoles?|cardigans?)\b|\b(?:trousers?|pants)\b|\bsuits?\b|\b(?:jackets?|blazers?)\b|\b(?:clothing|clothes)\b/gi;
   for (const match of target.matchAll(pattern)) {
     const before = target.slice(0, match.index);
     if (/\b(?:no|not|without|except|excluding|avoid|rather than|don['’]?t want|do not want)(?:\s+(?:a|an|any|more|red|blue|black|white|work|formal|casual|midi|maxi|mini|pleated)){0,4}\s*$/i.test(before)) continue;
@@ -53,14 +55,14 @@ export function requestedClothing(message: string) {
     if (/\b(?:bags?|shoes?|necklaces?|accessories)\b/i.test(before)) return null;
     // Bare item phrases and tentative choices are searches. Questions about
     // an item and a dress used as a styling anchor are not target requests.
-    const request = /\b(?:show|find|want|need|browse|looking for|try|start with|maybe|perhaps|buying|shopping)\b/i.test(before) ||
+    const request = /\b(?:show|find|want|need|i(?:['’]d| would) like|browse|looking for|try|start with|maybe|perhaps|buying|shopping)\b/i.test(before) ||
       /^(?:(?:a|an|some|the|new|work|formal|casual|beach[ -]wedding|wedding(?: guest)?|cocktail|midi|maxi|mini|pleated|black|blue|red|men['’]?s|women['’]?s|unisex)\s+)*$/i.test(before.trimStart());
     if (!request) continue;
     const word = match[0];
     const after = target.slice(match.index! + word.length);
     if (/^dress[ -]+shoes?/i.test(word)) return { category: "Shoes" as const, subcategory: null, evidence: word, target };
     if (/^dress(?:es)?$/i.test(word) && /^\s+(?:code|me|us|you|him|her|them|up|down|like)\b/i.test(after)) continue;
-    const subcategory = /^dress[ -]+shirt|^shirts?/i.test(word) ? "Tops"
+    const subcategory = /^dress[ -]+shirt|^(?:shirts?|tops?|blouses?|camisoles?|cardigans?)$/i.test(word) ? "Tops"
       : /^dress/i.test(word) ? "Dresses" : /^(?:skirt|trouser|pant)/i.test(word) ? "Bottoms"
       : /^suit/i.test(word) ? "Sets" : /^(?:jacket|blazer)/i.test(word) ? "Outerwear" : null;
     return { category: "Clothing" as const, subcategory, evidence: word, target };

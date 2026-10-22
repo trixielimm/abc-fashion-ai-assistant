@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { contextualRequirement } from "./shoppingContext";
 import { ConversationIssueSchema, RecoverySchema, confirmedColourChoice, isRequirementInstruction } from "./conversationIssues";
 import { emptyShoppingPreferences } from "./preferenceScope";
 import { explicitCollection, requestedClothing, shoppingTarget } from "./collectionPreference";
@@ -61,9 +62,10 @@ export function prepareConversationTask<T extends ConversationPlanRequest>(input
   if (process.env.STYLIST_TASK_RECOVERY_ENABLED === "false") return input;
   const request = structuredClone(input);
   const task = TaskStateSchema.parse(request.task ?? {});
-  request.scopes.unresolved_item = request.scopes.unresolved_item.filter(value => !isRequirementInstruction(value));
-  request.scopes.unresolved_shared = request.scopes.unresolved_shared.filter(value => !isRequirementInstruction(value));
-  const instructions = task.issues.filter(value => value.code === "unverified_requirement" && typeof value.value === "string" && isRequirementInstruction(value.value));
+  const contextOnly = (value: string) => isRequirementInstruction(value) || contextualRequirement(value, task.brief.uncertain_recipient_size);
+  request.scopes.unresolved_item = request.scopes.unresolved_item.filter(value => !contextOnly(value));
+  request.scopes.unresolved_shared = request.scopes.unresolved_shared.filter(value => !contextOnly(value));
+  const instructions = task.issues.filter(value => value.code === "unverified_requirement" && typeof value.value === "string" && contextOnly(value.value));
   if (instructions.length) {
     if (instructions.length === task.issues.length) request.pending = null;
     task.issues = task.issues.filter(value => !instructions.includes(value));
