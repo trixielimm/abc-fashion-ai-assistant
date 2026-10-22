@@ -1,0 +1,40 @@
+.indicator,
+.value {
+  display: inline-grid;
+  place-items: center;
+  min-width: 20px;
+  height: 20px;
+}
+
+.value {
+  animation: appear 180ms ease-out;
+}
+
+.count,
+.compactCount {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.compactCount {
+  font-size: 12px;
+}
+
+.compact .count {
+  font-size: 12px;
+}
+
+.compact .compactCount {
+  font-size: 11px;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(3px) scale(.85); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .value { animation: none; }
+}

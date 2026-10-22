@@ -6,6 +6,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import { CheckIcon, ChevronIcon } from "@/components/ui/icons";
 import { addToCart } from "@/lib/cart";
 import { formatAud } from "@/lib/format-price";
+import productImageLoader from "@/lib/product-image-loader";
 import { automaticCartSize } from "@/lib/stylist/productActions";
 import { preferredCardSize, productCardReason } from "@/lib/stylist/productCardPresentation";
 import type { ShoppingPreferences } from "@/lib/ai/preferenceSchema";
@@ -57,7 +58,6 @@ function ProductCard({ product, preferences, featured, onOpen, onAction, onSimil
   const [feedback, setFeedback] = useState("");
   const [addedSize, setAddedSize] = useState<string | null>(null);
   const [failedImage, setFailedImage] = useState<string | null>(null);
-  const [imageRatio, setImageRatio] = useState<number | null>(null);
   const [choosingSize, setChoosingSize] = useState(false);
   const sizeInput = useRef<HTMLSelectElement>(null);
   const options = useRef<HTMLDivElement>(null);
@@ -92,43 +92,42 @@ function ProductCard({ product, preferences, featured, onOpen, onAction, onSimil
         category: product.category, size, quantity: 1, image: showImage ? image : null });
       onEvent?.("add_to_cart", product.product_id, position);
       setAddedSize(size);
-      setFeedback(`Added to cart · ${automatic ? size : `Size ${size}`}`);
+      setChoosingSize(false);
+      setFeedback(`Added · ${automatic ? size : `Size ${size}`}`);
     } catch { setFeedback("Couldn't update your cart. Please try again."); }
   }
   function productImage() {
-    return showImage ? <Image src={image} alt={product.product_name} fill unoptimized
+    return showImage ? <Image src={image} alt={product.product_name} fill
+      loader={image.startsWith("/api/products/") ? productImageLoader : undefined}
       sizes="(max-width: 639px) 104px, 232px"
       className={styles.productImage}
-      onLoad={event => {
-        const { naturalWidth, naturalHeight } = event.currentTarget;
-        if (naturalWidth && naturalHeight) setImageRatio(naturalWidth / naturalHeight);
-      }}
       onError={() => setFailedImage(image)} /> :
       <span className={styles.imagePlaceholder}><span aria-hidden="true" className={styles.placeholderMark}>ABC</span><span>Photo unavailable</span></span>;
   }
   function outfitButton() {
     if (!onAction) return null;
-    return <button type="button" className={styles.cardPrimary}
+    return <button type="button" className={styles.cardSecondary}
       aria-pressed={selected} disabled={actionDisabled}
       aria-label={`${selected ? "Remove from your look" : "Save to look"}: ${product.product_name}`}
-      onClick={selectForOutfit}>{selected ? <><CheckIcon /> In your look</> : "Save to look"}</button>;
+      onClick={selectForOutfit}>{selected ? <><CheckIcon /> Saved</> : "Save to look"}</button>;
   }
   function cartButton() {
-    return <button type="button" className={onAction ? styles.cardSecondary : styles.cardPrimary} disabled={actionDisabled || added}
+    return <button type="button" className={`${styles.cardPrimary} ${added && !actionDisabled ? styles.cardAdded : ""}`} disabled={actionDisabled || added}
+      aria-label={added ? `${product.product_name} added to cart` : undefined}
       onClick={size ? add : () => chooseSize()}>
-      {added ? <><CheckIcon /> Added to cart</> : "Add to cart"}
+      {added ? <><CheckIcon /> Added</> : "Add to cart"}
     </button>;
   }
   function cartFeedback() {
     return feedback ? <div className={styles.cardFeedback}>
       <p role="status">{feedback}</p>
-      {added ? <div><Link href="/cart" onClick={visitProduct}>View cart</Link><button type="button" disabled={actionDisabled} onClick={add}>Add another</button></div> : null}
+      {added ? <Link href="/cart" onClick={visitProduct}>View cart</Link> : null}
     </div> : null;
   }
 
   return <article className={`${styles.card} ${featured ? styles.featured : ""} ${selected ? styles.cardSelected : ""}`}>
     <div className={styles.cardLayout}>
-      <div className={styles.imageFrame} style={showImage && imageRatio ? { aspectRatio: imageRatio } : undefined}>
+      <div className={styles.imageFrame}>
         <Link className={styles.imageLink} href={href} onClick={visitProduct} aria-label={`View ${product.product_name}`}>{productImage()}</Link>
       </div>
       <div className={styles.productDetails}>
@@ -140,17 +139,20 @@ function ProductCard({ product, preferences, featured, onOpen, onAction, onSimil
         <p className={styles.productMeta}>{[product.brand_line, product.colour, automatic].filter(Boolean).join(" · ")}</p>
         {reason ? <p className={styles.cardReason}>{reason}</p> : null}
         <div className={styles.cardTools}>
-          {onAction || onSimilar ? <>
+          {onAction || onSimilar || added ? <>
             <button type="button" ref={optionsTrigger} className={styles.moreOptions} popoverTarget={`${id}-options`}
               disabled={actionDisabled} aria-label={`More options for ${product.product_name}`} title="More options"
               onClick={() => {
                 const rect = optionsTrigger.current?.getBoundingClientRect();
                 if (rect && options.current) {
-                  options.current.style.top = `${Math.max(8, Math.min(rect.bottom + 4, window.innerHeight - 160))}px`;
+                  const menuHeight = options.current.children.length * 44 + 8;
+                  options.current.style.top = `${Math.max(8, Math.min(rect.bottom + 4, window.innerHeight - menuHeight - 8))}px`;
                   options.current.style.left = `${Math.max(8, Math.min(rect.right - 200, window.innerWidth - 208))}px`;
                 }
               }}><span aria-hidden="true">···</span></button>
             <div ref={options} id={`${id}-options`} popover="auto" className={styles.cardOptions} aria-label={`Actions for ${product.product_name}`}>
+              {added ? <button type="button" disabled={actionDisabled} onClick={() => { closeOptions(); add(); }}>Add another</button> : null}
+              {added && !automatic ? <button type="button" disabled={actionDisabled} onClick={() => { closeOptions(); chooseSize(); }}>Change size</button> : null}
               {onSimilar ? <button type="button" disabled={actionDisabled} onClick={() => { closeOptions(); onSimilar(product); }}>More like this</button> : null}
               {onAction && allowOffers && product.extra_target ? <button type="button" disabled={actionDisabled} onClick={() => { closeOptions(); onAction("cross_sell", product); }}>
                 {product.extra_target.trim().toLowerCase() === "bags" ? "Style with a bag" : `Style with ${product.extra_target.toLowerCase()}`}</button> : null}
@@ -163,17 +165,19 @@ function ProductCard({ product, preferences, featured, onOpen, onAction, onSimil
         </div>
       </div>
       <ProductCautions product={product} outfitMode={outfitMode} />
-      {choosingSize && !automatic ? <label className={styles.cardSizePicker}>Choose a size
-        <span className={styles.sizeSelectControl}>
-          <select ref={sizeInput} value={size} className={styles.sizeSelect} aria-label={`Size for ${product.product_name}`} disabled={actionDisabled}
-            onChange={event => { setChosenSize(event.target.value); setFeedback(""); setAddedSize(null); }}>
-            <option value="">Choose size</option>{sizes.map(label => <option key={label}>{label}</option>)}
-          </select><ChevronIcon direction="right" className={styles.sizeSelectChevron} />
-        </span>
-      </label> : null}
-      <div className={styles.productActions}>{outfitButton()}{cartButton()}</div>
-      {size && !automatic && !choosingSize ? <button type="button" className={styles.changeSize} disabled={actionDisabled} onClick={chooseSize}>Size {size} · Change</button> : null}
-      {cartFeedback()}
+      <div className={styles.cardFooter}>
+        {choosingSize && !automatic ? <label className={styles.cardSizePicker}>Choose a size
+          <span className={styles.sizeSelectControl}>
+            <select ref={sizeInput} value={size} className={styles.sizeSelect} aria-label={`Size for ${product.product_name}`} disabled={actionDisabled}
+              onChange={event => { setChosenSize(event.target.value); setFeedback(""); setAddedSize(null); }}>
+              <option value="">Choose size</option>{sizes.map(label => <option key={label}>{label}</option>)}
+            </select><ChevronIcon direction="right" className={styles.sizeSelectChevron} />
+          </span>
+        </label> : null}
+        <div className={styles.productActions}>{outfitButton()}{cartButton()}</div>
+        {size && !automatic && !choosingSize && !added ? <button type="button" className={styles.changeSize} disabled={actionDisabled} onClick={chooseSize}>Size {size} · Change</button> : null}
+        {cartFeedback()}
+      </div>
       {product.explanation && product.explanation !== reason || product.pairing_evidence || product.value_comparison ? <details className={styles.cardDetails}>
         <summary>Why this item?</summary>
         {product.explanation && product.explanation !== reason ? <p>{product.explanation}</p> : null}

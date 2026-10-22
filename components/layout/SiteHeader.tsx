@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Container } from "@/components/layout/Container";
+import { CartIndicator } from "@/components/commerce/CartIndicator";
 import { useStylist } from "@/components/stylist/StylistProvider";
 import { IconButton } from "@/components/ui/IconButton";
 import {
@@ -86,10 +87,14 @@ function HeaderContent() {
 
         <div className="ml-auto flex items-center gap-2 lg:gap-2.5">
           <ProductSearch className="hidden w-[200px] shrink-0 md:flex" />
-          <IconButton href="/cart" label={`Bag, ${count} ${count === 1 ? "item" : "items"}`} onClick={() => setMenuOpen(false)}>
-            <BagIcon />
+          <IconButton compact href="/cart" label={`Bag, ${count} ${count === 1 ? "item" : "items"}`} onClick={() => setMenuOpen(false)}>
+            <CartIndicator compact count={count}><BagIcon className="h-3.5 w-3.5" /></CartIndicator>
           </IconButton>
+          <span role="status" aria-atomic="true" className="sr-only">
+            {count ? `${count} ${count === 1 ? "item" : "items"} in your bag` : "Your bag is empty"}
+          </span>
           <IconButton
+            compact
             label={menuOpen ? "Close menu" : "Open menu"}
             id="mobile-menu-toggle"
             className="lg:hidden"
@@ -97,7 +102,7 @@ function HeaderContent() {
             controls="mobile-menu"
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            {menuOpen ? <CloseIcon /> : <MenuIcon />}
+            {menuOpen ? <CloseIcon className="h-4 w-4" /> : <MenuIcon className="h-4 w-4" />}
           </IconButton>
         </div>
       </Container>

@@ -12,8 +12,8 @@ export function Hero() {
               src="/images/hero.jpg"
               alt="Model in a long wool coat"
               fill
-              priority
-              sizes="(max-width: 1024px) 100vw"
+              preload
+              sizes="(max-width: 639px) calc(100vw - 40px), (max-width: 1023px) calc(100vw - 64px), (max-width: 1439px) calc((100vw - 112px) * 0.693), 921px"
               className="object-cover object-[center_30%]"
             />
             {/* Anchors the masthead without putting a shadow on the letters. */}
