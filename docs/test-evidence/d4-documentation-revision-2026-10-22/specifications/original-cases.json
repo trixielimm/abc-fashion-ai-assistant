@@ -1,0 +1,407 @@
+[
+  {
+    "id": "TC-PD-01",
+    "description": "Product Details page loads correctly(UC0 5 )",
+    "input": "Select a product from the catalogue",
+    "expected": "Page displays product image(s), name, price, colours and sizes from the catalogue",
+    "original_result": "Product Details page loaded and displayed the product image, name, price, colour and size options as expected",
+    "original_status": "Pass",
+    "page": 2
+  },
+  {
+    "id": "TC-PD-02",
+    "description": "Colour selection (UC05)",
+    "input": "Click a different colour swatch",
+    "expected": "Selected colour is highlighted and product display updates accordingly",
+    "original_result": "Historical note: the tested product had only one colour variant, so the interaction was not exercised. Re-test when multiple variants are available.",
+    "original_status": "NotRun",
+    "page": 3
+  },
+  {
+    "id": "TC-PD-03",
+    "description": "Size selection (UC05)",
+    "input": "Click an available size",
+    "expected": "Selected size is highlighted",
+    "original_result": "Selected size was highlighted as expected",
+    "original_status": "Pass",
+    "page": 3
+  },
+  {
+    "id": "TC-PD-04",
+    "description": "Add to Cart with valid selection (UC07)",
+    "input": "Select colour and size, click Add to Cart",
+    "expected": "Item is added to the cart with the selected colour and size",
+    "original_result": "Item was added to the cart with the selected colour and size",
+    "original_status": "Pass",
+    "page": 3
+  },
+  {
+    "id": "TC-PD-05",
+    "description": "Add to Cart without size (invalid) (UC07)",
+    "input": "Click Add to Cart without selecting a size",
+    "expected": "Item is not added; user is prompted to select a size",
+    "original_result": "Item was not added to the cart and the user was prompted to select a size",
+    "original_status": "Pass",
+    "page": 3
+  },
+  {
+    "id": "TC-PD-06",
+    "description": "Product description section (UC05)",
+    "input": "Click the description section, then click again",
+    "expected": "Section expands to show details; clicking again collapses it",
+    "original_result": "Section expanded and collapsed as expected",
+    "original_status": "Pass",
+    "page": 3
+  },
+  {
+    "id": "TC-PD-07",
+    "description": "Mobile layout (UC05)",
+    "input": "Open the Product Details page on a mobile browser",
+    "expected": "Layout adjusts to the screen without overlapping or cut-off content",
+    "original_result": "Layout displayed correctly on a mobile browser with no overlapping or cut-off content",
+    "original_status": "Pass",
+    "page": 3
+  },
+  {
+    "id": "TC-PD-08",
+    "description": "Add same item to cart with different size (UC07)",
+    "input": "Select a product and size S, then add it to the cart. Then, select size M, and add it again",
+    "expected": "The cart shows two separate rows for the same product, one for size S and one for size M. The Order Summary update to reflect both items.",
+    "original_result": "Two items were added in separate rows in the cart. The Shopping Cart number and Order Summary updated correctly",
+    "original_status": "Pass",
+    "page": 4
+  },
+  {
+    "id": "TC-PD-09",
+    "description": "Add same item to cart twice (UC07)",
+    "input": "Select the same product and size, then click Add to Cart twice.",
+    "expected": "Its quantity increases to 2. The Shopping Cart number and Order Summary update.",
+    "original_result": "The quantity increased to 2, and the Shopping Cart number and Order Summary updated correctly.",
+    "original_status": "Pass",
+    "page": 4
+  },
+  {
+    "id": "TC-PD-10",
+    "description": "Remove item from cart (UC07)",
+    "input": "Click Remove on a cart item. .",
+    "expected": "The item disappears. The Shopping Cart number and Order Summary recalculate.",
+    "original_result": "The item was removed, and the Shopping Cart number and Order Summary updated correctly.",
+    "original_status": "Pass",
+    "page": 4
+  },
+  {
+    "id": "TC-PD-11",
+    "description": "Adjust item quantity using the + and \u2212 buttons (UC07)",
+    "input": "Click + , then \u2212 , on a cart item.",
+    "expected": "cart item.The quantity changes by one with each click. The Shopping Cart number and Order Summary update accordingly.",
+    "original_result": "The quantity changed as selected, and the Shopping Cart number and Order Summary updated correctly.",
+    "original_status": "Pass",
+    "page": 4
+  },
+  {
+    "id": "TC-PD-12",
+    "description": "Click to Products in cart (UC07)",
+    "input": "Click a product in the cart",
+    "expected": "The corresponding product details page opens.",
+    "original_result": "The correct product details page opened.",
+    "original_status": "Pass",
+    "page": 4
+  },
+  {
+    "id": "TC-PD-13",
+    "description": "Click to Continue Browsing Collection on cart page (UC07)",
+    "input": "Click Continue Browsing Collection.",
+    "expected": "The product browsing page opens.",
+    "original_result": "The product browsing page opened",
+    "original_status": "Pass",
+    "page": 5
+  },
+  {
+    "id": "TC-PD-14",
+    "description": "Click to Need personal styling advice? Contact Customer Concierge on cart page (UC07)",
+    "input": "Click the styling advice link.",
+    "expected": "The linked styling advice page opens.",
+    "original_result": "The linked styling advice page opened.",
+    "original_status": "Pass",
+    "page": 5
+  },
+  {
+    "id": "TC-AI-01",
+    "description": "Product catalogue retrieval",
+    "input": "Request catalogue products from Supabase",
+    "expected": "System retrieves available catalogue products successfully",
+    "original_result": "System retrieved 316 products from the Supabase catalogue",
+    "original_status": "Pass",
+    "page": 5
+  },
+  {
+    "id": "TC-AI-02",
+    "description": "Hard filtering by size and budget",
+    "input": "Size = 10, max price = $100",
+    "expected": "Only available, in-stock products containing size 10 and costing \u2264 $100 are returned",
+    "original_result": "60 products remained after filtering; returned samples all contained size 10 and were \u2264 $100",
+    "original_status": "Pass",
+    "page": 5
+  },
+  {
+    "id": "TC-AI-03",
+    "description": "Soft preference ranking",
+    "input": "Size 10, max $100, category Clothing, preferred colour Lavender",
+    "expected": "Products passing hard constraints are ranked by preference match",
+    "original_result": "3 exact matches were returned; all matched Clothing + Lavender with score 2/2",
+    "original_status": "Pass",
+    "page": 5
+  },
+  {
+    "id": "TC-AI-04",
+    "description": "Full recommendation pipeline",
+    "input": "\u201cShow me lavender clothing for a beach wedding, with a relaxed style, in size 10, costing no more than $100 per item.\u201d",
+    "expected": "Preferences are extracted, products filtered/ranked, and best recommendation returned",
+    "original_result": "Returned Lavender Co-ord Set (P1002) at $55 with size 10 available and",
+    "original_status": "Pass",
+    "page": 6
+  },
+  {
+    "id": "TC-AI-05",
+    "description": "Maximum budget boundary",
+    "input": "Lavender clothing, size 10, maximum price $75",
+    "expected": "Products above $75 are excluded; products at exactly $75 remain valid",
+    "original_result": "$55 Co-ord Set and $75 Cardigan returned; $100 Pleated Skirt excluded",
+    "original_status": "Pass",
+    "page": 6
+  },
+  {
+    "id": "TC-AI-06",
+    "description": "Fallback alternatives when no exact match",
+    "input": "Lavender clothing, size 10, max price $50",
+    "expected": "Hard constraints remain enforced; soft preferences may be relaxed and unmatched preferences identified",
+    "original_result": "Alternatives under $50 were returned; each matched Clothing but clearly reported Lavender as unmatched",
+    "original_status": "Pass",
+    "page": 6
+  },
+  {
+    "id": "TC-AI-07",
+    "description": "Explicit colour exclusion",
+    "input": "Lavender clothing, size 10, max $50, exclude Brown",
+    "expected": "Brown products must not be returned, even as alternatives",
+    "original_result": "Brown Linen Shirt was removed; only non Brown alternatives were returned",
+    "original_status": "Pass",
+    "page": 6
+  },
+  {
+    "id": "TC-AI-08",
+    "description": "Required size enforcement",
+    "input": "Lavender clothing, size 12, max $50",
+    "expected": "Products not available in size 12 must be excluded",
+    "original_result": "Brown Linen Shirt, which listed only sizes 6, 8 and 10, was not returned; all returned products listed size 12",
+    "original_status": "Pass",
+    "page": 6
+  },
+  {
+    "id": "TC-AI-09",
+    "description": "Occasion and style ranking",
+    "input": "Clothing, Lavender, Beach Wedding, Relaxed, size 10, max $100",
+    "expected": "Product matching all four soft preferences should rank as an exact match",
+    "original_result": "P1002 Lavender Co-ord Set returned with 4/4 matching Category,",
+    "original_status": "Pass",
+    "page": 7
+  },
+  {
+    "id": "TC-AI-10",
+    "description": "No product satisfies hard constraints",
+    "input": "Size 10, max price $1",
+    "expected": "No unsuitable or over budget product should be returned; response should indicate no match",
+    "original_result": "Filter returned 0 eligible products and recommendati o n API returned no_match with an empty product list",
+    "original_status": "Pass",
+    "page": 7
+  },
+  {
+    "id": "TC-AI-11",
+    "description": "Empty/invalid shopping request handling",
+    "input": "Blank or missing shopping message",
+    "expected": "API rejects invalid input without processing recommendation s",
+    "original_result": "Blank and missing messages were rejected with HTTP 400 during API validation testing",
+    "original_status": "Pass",
+    "page": 7
+  },
+  {
+    "id": "TC-AI-12",
+    "description": "Invalid recommendation limit",
+    "input": "Recommendation request with limit = 7",
+    "expected": "API rejects values above the supported limit of 6",
+    "original_result": "Request was rejected with HTTP 400",
+    "original_status": "Pass",
+    "page": 7
+  },
+  {
+    "id": "TC-AI-13",
+    "description": "Malformed JSON request",
+    "input": "Invalid JSON body",
+    "expected": "API returns controlled validation error instead of crashing",
+    "original_result": "Malformed JSON was rejected with HTTP 400",
+    "original_status": "Pass",
+    "page": 7
+  },
+  {
+    "id": "TC-AI-14",
+    "description": "Incorrect content type",
+    "input": "Send request using text/plain instead of application/json",
+    "expected": "API rejects unsupported content type",
+    "original_result": "Request was rejected with HTTP 415",
+    "original_status": "Pass",
+    "page": 7
+  },
+  {
+    "id": "TC-AI-15",
+    "description": "AI service unavailable",
+    "input": "Simulate OpenAI/API failure",
+    "expected": "System should return an understandable error without exposing sensitive details",
+    "original_result": "Not yet tested; failure-path simulation has not been evidenced in the supplied repository logs.",
+    "original_status": "NotRun",
+    "page": 8
+  },
+  {
+    "id": "TC-AI-16",
+    "description": "Database unavailable",
+    "input": "Simulate Supabase/databas e failure",
+    "expected": "System should return an appropriate catalogue unavailable error without returning fabricated product results.",
+    "original_result": "Not yet tested; database-outa ge simulation has not been evidenced in the supplied repository logs.",
+    "original_status": "NotRun",
+    "page": 8
+  },
+  {
+    "id": "TC-PE-01",
+    "description": "Extract dress, occasion, colour, size and budget",
+    "input": "\u201cI need a black dress under $150 for a wedding in size 10.\u201d",
+    "expected": "Structured preferences identify Clothing, Dresses, Wedding Guest, Black, size 10 and maximum price $150",
+    "original_result": "All specified values were extracted correctly; unspecified fields remained null or empty lists",
+    "original_status": "Pass",
+    "page": 8
+  },
+  {
+    "id": "TC-PE-02",
+    "description": "Avoid inferring an unstated product category",
+    "input": "\u201cI\u2019m going to a beach wedding and want something elegant, maybe sage or blue.\u201d",
+    "expected": "Extract Beach Wedding, Elegant, Sage and Blue without assuming a dress, category, gender or season",
+    "original_result": "Occasion, style and colours were extracted; category, subcategory, product type, gender and season remained null",
+    "original_status": "Pass",
+    "page": 8
+  },
+  {
+    "id": "TC-PE-03",
+    "description": "Extract a casual brunch request",
+    "input": "\u201cI need something casual for brunch under $100.\u201d",
+    "expected": "Extract Brunch, Casual and maximum price $100 without assuming a product category",
+    "original_result": "Returned occasion Brunch, style Casual and maximum price $100; category remained null",
+    "original_status": "Pass",
+    "page": 8
+  },
+  {
+    "id": "TC-PE-04",
+    "description": "Extract gender, category and size",
+    "input": "\u201cShow me men\u2019s shoes for work in size 11.\u201d",
+    "expected": "Extract Men, Shoes, Work and size 11 without inventing a shoe subcategory",
+    "original_result": "Returned Men, Shoes, Work and size 11; subcategory remained null",
+    "original_status": "Pass",
+    "page": 9
+  },
+  {
+    "id": "TC-PE-05",
+    "description": "Extract an excluded colour",
+    "input": "\u201cI want a romantic outfit for date night but nothing red.\u201d",
+    "expected": "Extract Romantic and Date Night; put Red in excluded colours, not preferred colours",
+    "original_result": "Returned Romantic, Date Night, excluded colours [\"Red\"] and an empty preferred-colours list",
+    "original_status": "Pass",
+    "page": 9
+  },
+  {
+    "id": "TC-PE-06",
+    "description": "Extract minimum and maximum prices",
+    "input": "\u201cA bag costing at least $100 and up to $150.\u201d",
+    "expected": "Extract Bags, minimum price $100 and maximum price $150",
+    "original_result": "Returned Bags with min_price: 100 and max_price: 150",
+    "original_status": "Pass",
+    "page": 9
+  },
+  {
+    "id": "TC-PE-07",
+    "description": "Reject empty extraction input",
+    "input": "Pass a whitespace-only message to extractPreferences ()",
+    "expected": "Function rejects the request before calling OpenAI",
+    "original_result": "Function rejected the blank message with \u201cCustomer message cannot be empty\u201d",
+    "original_status": "Pass",
+    "page": 9
+  },
+  {
+    "id": "TC-PE-08",
+    "description": "Reject invalid extraction API bodies",
+    "input": "Send malformed JSON, a missing message, a non-string message or a whitespace-only message to POST /api/extraction",
+    "expected": "API returns HTTP 400 with a controlled validation error",
+    "original_result": "Each invalid body returned HTTP 400 during API testing",
+    "original_status": "Pass",
+    "page": 9
+  },
+  {
+    "id": "TC-PV-01",
+    "description": "Normalise recognised catalogue values",
+    "input": "Style \u201c elegant \u201d and preferred colours [\" navy \", \"NAVY\"]",
+    "expected": "Return catalogue spelling Elegant and one Navy, without changing the original input",
+    "original_result": "Returned Elegant and [\"Navy\"]; the input object was unchanged",
+    "original_status": "Pass",
+    "page": 9
+  },
+  {
+    "id": "TC-PV-02",
+    "description": "Flag an unsupported soft preference",
+    "input": "Occasion Brunch and style Casual",
+    "expected": "Preserve both values and report Casual as an unsupported catalogue style without blocking the request",
+    "original_result": "Brunch and Casual were preserved; a non-blocking style issue was returned",
+    "original_status": "Pass",
+    "page": 10
+  },
+  {
+    "id": "TC-PV-03",
+    "description": "Flag an unknown size",
+    "input": "Size \u201c99\u201d",
+    "expected": "Preserve the requested size, report it as unsupported and require clarification",
+    "original_result": "Returned a blocking size issue and needs_clarifica t ion: true",
+    "original_status": "Pass",
+    "page": 10
+  },
+  {
+    "id": "TC-PV-04",
+    "description": "Flag an unknown excluded colour",
+    "input": "Exclude \u201cUltraviolet\u201d",
+    "expected": "Preserve the exclusion and require clarification so retrieval cannot silently ignore it",
+    "original_result": "Returned a blocking excluded-colou r issue and needs_clarifica t ion: true",
+    "original_status": "Pass",
+    "page": 10
+  },
+  {
+    "id": "TC-PV-05",
+    "description": "Detect a category mismatch",
+    "input": "Category Shoes with subcategory Dresses",
+    "expected": "Report that Dresses does not belong to Shoes and require clarification",
+    "original_result": "Returned a category-mismatch issue and needs_clarifica t ion: true",
+    "original_status": "Pass",
+    "page": 10
+  },
+  {
+    "id": "TC-PV-06",
+    "description": "Detect a conflicting budget",
+    "input": "Minimum price $200 and maximum price $100",
+    "expected": "Report the invalid price range and require clarification",
+    "original_result": "Returned an invalid-budget issue and needs_clarifica t ion: true",
+    "original_status": "Pass",
+    "page": 10
+  },
+  {
+    "id": "TC-PV-07",
+    "description": "Validate against the live Supabase vocabulary",
+    "input": "Occasion Brunch and style Casual, using the public catalogue connection",
+    "expected": "Recognise Brunch and flag Casual as an unsupported style",
+    "original_result": "Read 316 publicly visible products; recognised Brunch and returned a non-blocking issue for Casual",
+    "original_status": "Pass",
+    "page": 10
+  }
+]

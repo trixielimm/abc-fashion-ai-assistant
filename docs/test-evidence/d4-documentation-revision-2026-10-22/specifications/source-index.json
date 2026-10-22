@@ -1,0 +1,5996 @@
+{
+  "scenarios": [
+    {
+      "id": "S1-A",
+      "name": "Complete brief, cheaper, material",
+      "prompts": [
+        "Show me black dresses in size 10 under $150. I only need a dress, no other items.",
+        "Show me cheaper options than the first dress, keeping my other requirements.",
+        "What material is the first dress in the new results?"
+      ],
+      "start_line": 40,
+      "end_line": 49,
+      "assertions": "(n, r, s, b, run) => {\n  if (n < 3) { if (n === 1 || all(r).length) browse(r); else eq(r.status, 'no_match'); checkBrief(r, { category: 'Clothing', subcategory: 'Dresses', colour: 'Black', size: '10', max: 150 }); }\n  if (n === 1) { run.first = all(r)[0]; eq(s.styling.offers_paused, true, 'No extras must pause offers'); }\n  if (n === 2) assert.ok(all(r).every(p => p.price_aud < run.first.price_aud), 'Strictly cheaper than original first dress');\n  if (n === 3) { factual(r, b, b.context.latest[0].product_id); assert.match(r.message, /Polyester/); }\n}"
+    },
+    {
+      "id": "S1-B",
+      "name": "Change colour and price only",
+      "prompts": [
+        "Show me black dresses in size 10 under $150.",
+        "Actually, blue instead of black. Keep everything else.",
+        "My maximum is now $100."
+      ],
+      "start_line": 50,
+      "end_line": 52,
+      "assertions": "(n, r) => {\n  browse(r); checkBrief(r, { category: 'Clothing', subcategory: 'Dresses', colour: n === 1 ? 'Black' : 'Blue', size: '10', max: n === 3 ? 100 : 150 });\n}"
+    },
+    {
+      "id": "S1-C",
+      "name": "Deliberate no match",
+      "prompts": [
+        "Show me black dresses in size 10 under $1.",
+        "Keep the $1 limit. Don't show other colours or sizes."
+      ],
+      "start_line": 53,
+      "end_line": 55,
+      "assertions": "(_n, r) => {\n  none(r); checkBrief(r, { colour: 'Black', size: '10', max: 1 }); assert.match(r.message, /no|couldn't|cannot|can't/i);\n}"
+    },
+    {
+      "id": "S2-A",
+      "name": "Guided beach wedding shopping",
+      "prompts": [
+        "I need a dress for a beach wedding under $150, but I don't know which colour or style.",
+        "Let's try blue. I don't know my size yet; can I browse first?",
+        "Compare the first and second dresses and explain the differences.",
+        "I'd prefer something more relaxed. Keep blue and the same budget."
+      ],
+      "start_line": 56,
+      "end_line": 64,
+      "assertions": "(n, r, s, b) => {\n  if (n === 3) { eq(r.status, 'answered'); eq(new Set(r.answer_product_ids), new Set(b.context.latest.slice(0, 2).map(p => p.product_id))); none(r); }\n  else { browse(r); checkBrief(r, { max: 150, ...(n > 1 ? { colour: 'Blue' } : {}) }); eq(r.proposed_scopes.item.size, null, 'Do not invent size'); }\n  eqLabel(s.scopes.item.occasion, 'Beach Wedding', 'Occasion retained');\n}"
+    },
+    {
+      "id": "S2-B",
+      "name": "Reject a dress across searches",
+      "prompts": [
+        "Show me dresses for work under $120.",
+        "I don't like the first dress. Don't show it again.",
+        "Show me other options, still for work under $120."
+      ],
+      "start_line": 65,
+      "end_line": 69,
+      "assertions": "(n, r, s, b, run) => {\n  if (n === 1) { browse(r); run.rejected = all(r)[0].product_id; }\n  if (n === 2) has(s.styling.rejected_ids, run.rejected);\n  if (n === 3) { browse(r); assert.ok(all(r).every(p => p.product_id !== run.rejected)); checkBrief(r, { max: 120 }); eqLabel(s.scopes.item.occasion, 'Work'); }\n}"
+    },
+    {
+      "id": "S2-C",
+      "name": "Zip question becomes explicit must-have",
+      "prompts": [
+        "Show me bags under $100.",
+        "Does the first bag have a zip closure?",
+        "I only want bags with a zip closure. Keep the $100 limit."
+      ],
+      "start_line": 70,
+      "end_line": 74,
+      "assertions": "(n, r, s, b, run) => {\n  if (n === 1) browse(r);\n  if (n === 2) { factual(r, b, b.context.latest[0].product_id); eq(s.styling.required_features, [], 'Question is not a requirement'); assert.match(r.message, /Zip closure: (Yes|No)/); }\n  if (n === 3) { browse(r); has(s.styling.required_features, 'zip_closure'); checkBrief(r, { category: 'Bags', max: 100 }); assert.ok(all(r).every(p => getProductSpecification(run.catalogue.find(x => x.product_id === p.product_id)).zip_closure === true)); }\n}"
+    },
+    {
+      "id": "S3-A",
+      "name": "Uncertain customer to similar dresses",
+      "prompts": [
+        "I feel like buying something new, but I have no idea what I want.",
+        "Something for everyday wear. Maybe a dress, but I'm open to ideas.",
+        "Let's start with dresses. Any colour, and I haven't set a budget.",
+        "I like the first dress. Show me similar options under $100."
+      ],
+      "start_line": 75,
+      "end_line": 84,
+      "assertions": "(n, r, s) => {\n  if (n === 1) { eq(s.scopes.item.category, null); eq(s.scopes.item.gender, null); eq(s.scopes.item.max_price, null); assert.match(r.message, /everyday|occasion|what|which|start|browse/i); assert.doesNotMatch(r.message, /Could you rephrase|provide more details/i); }\n  if (n <= 3) { eq(s.scopes.item.size, null); eq(s.scopes.item.max_price, null); }\n  if (n === 2) { browse(r); assert.doesNotMatch(r.message, /Could you rephrase|provide more details/i); }\n  if (n === 3) { browse(r); checkBrief(r, { category: 'Clothing', subcategory: 'Dresses', max: null }); }\n  if (n === 4) { browse(r); checkBrief(r, { category: 'Clothing', subcategory: 'Dresses', max: 100 }); eq(s.styling.outfit, [], 'Liking is not selecting'); }\n}"
+    },
+    {
+      "id": "S3-B",
+      "name": "Browse without preferences",
+      "prompts": [
+        "I'd like to browse dresses for inspiration.",
+        "I'm not sure about colour, size or budget. Just show me some options."
+      ],
+      "start_line": 85,
+      "end_line": 87,
+      "assertions": "(_n, r, s) => {\n  browse(r); checkBrief(r, { category: 'Clothing', subcategory: 'Dresses', max: null }); eq(s.scopes.item.size, null);\n}"
+    },
+    {
+      "id": "S3-C",
+      "name": "Switch from dresses to bags",
+      "prompts": [
+        "Show me blue dresses in size 10 under $150.",
+        "Actually, forget dresses. I want a black bag under $80."
+      ],
+      "start_line": 88,
+      "end_line": 90,
+      "assertions": "(n, r, s) => {\n  browse(r); if (n === 2) { checkBrief(r, { category: 'Bags', colour: 'Black', max: 80 }); eq(s.scopes.item.size, null); eq(s.styling.outfit, []); }\n}"
+    },
+    {
+      "id": "S4-A",
+      "name": "Pair a bag with an owned catalogue dress",
+      "prompts": [
+        "Show me dresses under $150.",
+        "I already own the first dress. Keep it as an owned piece in my outfit.",
+        "Find a bag to go with my owned dress, under $80. I don't need another dress.",
+        "Why does the first bag go with my dress?"
+      ],
+      "start_line": 92,
+      "end_line": 97,
+      "assertions": "(n, r, s, b, run) => {\n  if (n === 1) { browse(r); run.anchor = all(r)[0].product_id; }\n  if (n >= 2) assert.ok(s.styling.outfit.some(p => p.product_id === run.anchor && p.ownership === 'owned'), 'Retain exact owned dress');\n  if (n === 3) { browse(r); checkBrief(r, { category: 'Bags', max: 80 }); assert.ok(all(r).every(p => p.pairing_evidence?.anchor_ids.includes(run.anchor))); }\n  if (n === 4) { factual(r, b, b.context.latest[0].product_id); assert.match(r.message, /styling|pairing|occasion|colour|style/i); }\n}"
+    },
+    {
+      "id": "S4-B",
+      "name": "Style an external owned garment",
+      "prompts": [
+        "I already own a plain navy midi dress from another shop. I want shoes to match it for a wedding, under $100.",
+        "I don't have a product link or photo. Please work from that description."
+      ],
+      "start_line": 98,
+      "end_line": 108,
+      "assertions": "(_n, r, s) => {\n  assert.ok(s.styling.outfit.every(p => catalogue.some(x => x.product_id === p.product_id)), 'Do not invent external product ID');\n  assert.ok(!/matches perfectly|verified match|perfect match/i.test(r.message));\n  browse(r); checkBrief(r, { category: 'Shoes', max: 100 });\n  eq(s.styling.external_items.length, 1, 'Keep a separate external garment description');\n  const garment = s.styling.external_items[0];\n  assert.match(garment.description, /plain navy midi dress/i); eqLabel(garment.colour, 'Navy');\n  assert.ok(!('product_id' in garment), 'An external garment is not an invented catalogue SKU');\n  for (const product of all(r)) has(product.pairing_evidence?.external_anchor_ids ?? [], garment.external_id);\n  assert.match(r.message, /description/i); assert.match(r.message, /suggest|can't verify|not.*verified/i);\n}"
+    },
+    {
+      "id": "S4-C",
+      "name": "Pair shoes with two owned pieces",
+      "prompts": [
+        "Show me dresses under $150.",
+        "I already own the first dress. Keep it as an owned piece in my outfit.",
+        "Show me bags.",
+        "I already own the first bag too. Keep it as an owned piece in my outfit.",
+        "Find shoes to go with both my owned dress and bag, under $120.",
+        "No extra recommendations after the shoes."
+      ],
+      "start_line": 109,
+      "end_line": 115,
+      "assertions": "(n, r, s, b, run) => {\n  if (n === 1) run.dress = all(r)[0]?.product_id;\n  if (n === 3) { browse(r); run.bag = all(r)[0].product_id; }\n  if (n >= 4) for (const id of [run.dress, run.bag]) assert.ok(s.styling.outfit.some(p => p.product_id === id && p.ownership === 'owned'), `Retain owned ${id}`);\n  if (n === 5) { browse(r); checkBrief(r, { category: 'Shoes', max: 120 }); for (const p of all(r)) for (const id of [run.dress, run.bag]) has(p.pairing_evidence?.anchor_ids ?? [], id); }\n  if (n === 6) { eq(s.styling.offers_paused, true); none(r); }\n}"
+    },
+    {
+      "id": "S5-A",
+      "name": "Pockets justify A$25 more",
+      "prompts": [
+        "Does this dress have pockets?",
+        "Compare a replacement with pockets under $150.",
+        "What does the extra cost give me?",
+        "Pockets would be useful."
+      ],
+      "start_line": 116,
+      "end_line": 120,
+      "assertions": "(n, r, s, b) => {\n  if (n === 1) { factual(r, b, 'VA-ORIGINAL'); assert.match(r.message, /Pockets: No/); eq(s.styling.required_features, []); }\n  if ([2, 4].includes(n)) { eq(all(r).map(p => p.product_id), ['VA-POCKETS']); eq(all(r)[0].value_comparison.extra_cost_aud, 25); eq(s.context.comparison.product_id, 'VA-ORIGINAL'); checkBrief(r, { max: 150 }); }\n  if (n === 3) { eq(r.status, 'answered'); assert.match(r.message, /pockets/i); assert.match(r.message, /25/); }\n}"
+    },
+    {
+      "id": "S5-B",
+      "name": "Replacement preserves all hard requirements",
+      "prompts": [
+        "I need a blue dress for a beach wedding in size 10, under $150.",
+        "Compare a replacement for VB-ORIGINAL Dress with pockets. Keep the beach wedding occasion, blue, size 10 and the $150 maximum as requirements.",
+        "Would this still meet my beach wedding requirements?"
+      ],
+      "start_line": 121,
+      "end_line": 125,
+      "assertions": "(n, r, s, b) => {\n  if (n === 1) { browse(r); has(all(r).map(p => p.product_id), 'VB-ORIGINAL'); }\n  if (n === 2) { eq(all(r).map(p => p.product_id), ['VB-ELIGIBLE']); checkBrief(r, { colour: 'Blue', size: '10', max: 150 }); eqLabel(s.scopes.item.occasion, 'Beach Wedding'); }\n  if (n === 3) { factual(r, b, 'VB-ELIGIBLE'); assert.match(r.message, /Beach Wedding/i); }\n}"
+    },
+    {
+      "id": "S5-C",
+      "name": "No demonstrated improvement",
+      "prompts": [
+        "Can you find a better replacement for this bag under $100?",
+        "A secure zip closure matters most. Does spending more improve that?",
+        "If there is no useful improvement, I'll keep this one."
+      ],
+      "start_line": 126,
+      "end_line": 129,
+      "assertions": "(n, r) => {\n  none(r); if (n === 2) { assert.ok(['answered', 'no_upsell'].includes(r.status), 'A supported closure priority must not block as unsupported'); assert.match(r.message, /no|same|cannot|can't|not/i); assert.match(r.message, /zip|closure/i, 'Explain the actual closure comparison rather than asking for a different priority'); }\n  assert.ok(!/better quality|higher quality/i.test(r.message) || /not|doesn't|cannot|can't/i.test(r.message));\n}"
+    },
+    {
+      "id": "S5-D",
+      "name": "Same-price and cheaper adjustable alternatives",
+      "prompts": [
+        "Find a replacement for this bag with an adjustable strap, at or below $80.",
+        "Which options improve adjustability without costing more?",
+        "Explain the price difference for the cheaper one."
+      ],
+      "start_line": 130,
+      "end_line": 134,
+      "assertions": "(n, r) => {\n  if (n === 1) { eq(new Set(all(r).map(p => p.product_id)), new Set(['VD-EQUAL', 'VD-CHEAPER'])); for (const p of all(r)) { eq(p.value_comparison.extra_cost_aud, p.product_id === 'VD-EQUAL' ? 0 : -15); eq(p.value_comparison.kind, 'alternative'); } }\n  if (n === 2) { eq(r.status, 'answered'); assert.match(r.message, /adjust/i); }\n  if (n === 3) { eq(r.status, 'answered'); assert.match(r.message, /15/); assert.match(r.message, /VD-CHEAPER/); assert.ok(!r.pending_answer, 'Resolve cheaper one without asking for two products'); }\n}"
+    },
+    {
+      "id": "S5-E",
+      "name": "Lining trade-off then both required",
+      "prompts": [
+        "Find a replacement with pockets under $150.",
+        "What would I gain and what would I lose with that replacement?",
+        "I need lining too. Keep both lining and pockets as must-haves, still under $150."
+      ],
+      "start_line": 135,
+      "end_line": 139,
+      "assertions": "(n, r, s) => {\n  if (n === 1) { eq(all(r).map(p => p.product_id), ['VE-TRADEOFF']); assert.ok(all(r)[0].value_comparison.tradeoffs.some(t => /lining/i.test(t))); }\n  if (n === 2) { eq(r.status, 'answered'); assert.match(r.message, /pockets/i); assert.match(r.message, /lining/i); assert.match(r.message, /25/); }\n  if (n === 3) { none(r); has(s.styling.required_features, 'lining'); has(s.styling.required_features, 'pockets'); checkBrief(r, { max: 150 }); }\n}"
+    },
+    {
+      "id": "S5-F",
+      "name": "Unknown lining cannot prove improvement",
+      "prompts": [
+        "Is this dress lined?",
+        "Find a replacement under $150 that adds lining compared with this dress.",
+        "Can you confirm that the original has no lining?"
+      ],
+      "start_line": 140,
+      "end_line": 142,
+      "assertions": "(n, r, s, b) => {\n  none(r); if (n === 1 || n === 3) { factual(r, b, 'VF-UNKNOWN'); assert.match(r.message, /not specified|not recorded|unknown|can't|cannot|don't/i); assert.doesNotMatch(r.message, /Lining: No/); }\n}"
+    },
+    {
+      "id": "S6-A",
+      "name": "Shoe size and construction details",
+      "prompts": [
+        "Show me black shoes for work in size 38 under $120. I only need shoes.",
+        "What are the heel height and sole material of the first pair?",
+        "Show me a cheaper option than the first pair, keeping black, work, size 38 and the same maximum."
+      ],
+      "start_line": 143,
+      "end_line": 148,
+      "assertions": "(n, r, s, b, run) => {\n  if (n !== 2) { if (n === 1 || all(r).length) browse(r); else eq(r.status, 'no_match'); checkBrief(r, { category: 'Shoes', colour: 'Black', size: '38', max: 120 }); eqLabel(s.scopes.item.occasion, 'Work'); }\n  if (n === 1) { run.first = all(r)[0]; assert.ok(all(r).every(p => p.category === 'Shoes'), 'No unrelated additions'); }\n  if (n === 2) { factual(r, b, run.first.product_id); assert.match(r.message, /Heel height: 4 cm/); assert.match(r.message, /Sole: Rubber/); }\n  if (n === 3) assert.ok(all(r).every(p => p.price_aud < run.first.price_aud));\n}"
+    },
+    {
+      "id": "S6-B",
+      "name": "Silver necklaces and fastening facts",
+      "prompts": [
+        "Show me silver necklaces under $80. I only need a necklace.",
+        "What material and fastening does the first necklace have?",
+        "Show me other necklaces, still silver and under $80."
+      ],
+      "start_line": 149,
+      "end_line": 153,
+      "assertions": "(n, r, s, b) => {\n  if (n !== 2) { browse(r); checkBrief(r, { category: 'Accessories', colour: 'Silver', max: 80 }); eq(s.scopes.item.size, null); assert.ok(all(r).every(p => p.product_type === 'Necklace')); }\n  if (n === 1) assert.ok(all(r).every(p => p.category === 'Accessories'), 'No unrelated clothing recommendations');\n  if (n === 2) { factual(r, b, b.context.latest[0].product_id); assert.match(r.message, /Silver-tone Metal/); assert.match(r.message, /Fastening: clasp/); assert.doesNotMatch(r.message, /sterling silver/i); }\n}"
+    },
+    {
+      "id": "B1",
+      "name": "Shared total for formal dress and shoes, then reduce total",
+      "prompts": [
+        "I want a dress and shoes for formal events, my budget for both of them is 400 aud",
+        "Make the combined budget $350 instead. Keep everything else.",
+        "Make the combined budget 400 aud again, keeping everything else.",
+        "What material is the dress in this set?"
+      ],
+      "start_line": 155,
+      "end_line": 167,
+      "assertions": "(n, r, s) => {\n  eq(s.styling.outfit_request.total_budget_aud, n === 2 ? 350 : 400);\n  eq(s.styling.outfit_request.items.length, 2); eq(s.scopes.item.occasion, 'Formal'); eq(s.scopes.item.max_price, null);\n  if (n === 4) { eq(r.status, 'answered'); eq(r.answer_product_ids, ['BUDGET-DRESS']); eq(r.pending_answer, null); }\n  else if (n !== 2) { eq(r.status, 'matches'); eq(new Set(r.products.map(p => p.category)), new Set(['Clothing', 'Shoes']));\n    eq(r.outfit_budget.total_aud, 400); eq(r.outfit_budget.remaining_aud, 0); }\n  else { eq(r.status, 'no_match'); none(r); }\n}"
+    },
+    {
+      "id": "B2",
+      "name": "Per-item affordability must not bypass combined total",
+      "prompts": [
+        "Find a dress and shoes for formal events under $400 total."
+      ],
+      "start_line": 168,
+      "end_line": 170,
+      "assertions": "(_n, r, s) => { eq(r.status, 'no_match'); none(r); eq(s.styling.outfit_request.total_budget_aud, 400); }"
+    },
+    {
+      "id": "B3",
+      "name": "Separate dress and shoe sizes and colours",
+      "prompts": [
+        "Find a black dress in size 10 and silver shoes in size 38 for formal events under $400 total.",
+        "Show the same set with a combined budget of $399. Keep the colours and sizes."
+      ],
+      "start_line": 171,
+      "end_line": 180,
+      "assertions": "(n, r, s) => {\n  const items = s.styling.outfit_request.items;\n  const d = items.find(p => p.category === 'Clothing'); const shoe = items.find(p => p.category === 'Shoes');\n  eqLabel(d.preferred_colours, ['Black']); eq(d.size, '10'); eqLabel(shoe.preferred_colours, ['Silver']); eq(shoe.size, '38');\n  if (n === 1) { eq(r.status, 'matches'); eq(r.outfit_budget.total_aud, 400); eq(r.products.length, 2); }\n  else { eq(r.status, 'no_match'); none(r); eq(s.styling.outfit_request.total_budget_aud, 399); }\n}"
+    },
+    {
+      "id": "B4",
+      "name": "Three-piece outfit under one total",
+      "prompts": [
+        "Build a complete outfit with a dress, shoes and bag for formal events under $350 total."
+      ],
+      "start_line": 181,
+      "end_line": 183,
+      "assertions": "(_n, r) => { eq(r.status, 'matches'); eq(r.products.length, 3); eq(r.outfit_budget.total_aud, 350); }"
+    },
+    {
+      "id": "B5",
+      "name": "Grouped broad discovery, optional refinement and memory through unclear intent",
+      "prompts": [
+        "I want a dress and shoes for formal events, my budget for both of them is 400 aud",
+        "I would like blue dresses. Keep the shoes as they are and the 400 AUD total.",
+        "zibble flomp splatch",
+        "Only show flat shoes. Keep the blue dress options and the $400 total.",
+        "What material is DISC-WRAP Dress from earlier?"
+      ],
+      "start_line": 184,
+      "end_line": 206,
+      "assertions": "(n, r, s, before) => {\n  if (n === 1) { eq(r.status, 'matches'); eq(r.products.length, 6);\n    eq(r.outfit_choices.groups.map(group => group.product_ids.length), [3, 3]);\n    assert.ok(r.outfit_choices.maximum_total_aud <= 400); assert.ok(r.optional_question); eq(r.pending, null); }\n  if (n === 2 || n === 4) {\n    eq(r.status, 'matches'); eq(s.styling.outfit_request.total_budget_aud, 400);\n    const d = s.styling.outfit_request.items.find(p => p.category === 'Clothing');\n    const shoes = s.styling.outfit_request.items.find(p => p.category === 'Shoes');\n    eqLabel(d.preferred_colours, ['Blue']);\n    if (n === 4) { eq(shoes.subcategory, 'Flats'); eq(s.history.filter(row => row.role === 'user').length, 3); }\n  }\n  if (n === 3) {\n    eq(r.intent_understood, false); none(r); eq(s.scopes, before.scopes); eq(s.styling, before.styling);\n    eq(s.context, before.context); eq(s.history, before.history);\n  }\n  if (n === 5) { eq(r.status, 'answered'); eq(r.answer_product_ids, ['DISC-WRAP']); eq(r.pending_answer, null); eq(s.scopes, before.scopes); }\n}"
+    },
+    {
+      "id": "CAT-A",
+      "name": "Default dress and short budget refinement",
+      "prompts": [
+        "I want a dress for work under 200 aud",
+        "Under 120 aud, please."
+      ],
+      "start_line": 241,
+      "end_line": 247,
+      "assertions": "(n, r, s) => {\n  browse(r); eq(r.pending, null); eq(r.applied_preferences.gender, 'Women');\n  checkBrief(r, { category: 'Clothing', subcategory: 'Dresses', max: n === 1 ? 200 : 120 });\n  eq(r.applied_preferences.occasion, 'Work'); eq(s.collection.choice, null);\n}"
+    },
+    {
+      "id": "CAT-B",
+      "name": "Skirt defaults use actual Bottoms hierarchy",
+      "prompts": [
+        "I want a skirt for work under 200 aud"
+      ],
+      "start_line": 248,
+      "end_line": 252,
+      "assertions": "(_n, r, s) => {\n  browse(r); eq(r.applied_preferences.gender, 'Women'); eq(r.applied_preferences.subcategory, 'Bottoms');\n  assert.match(r.applied_preferences.product_type, /skirt/i); eq(s.collection.current.source, 'category_default');\n  assert.ok(all(r).every(p => /skirt/i.test(p.product_type)));\n}"
+    },
+    {
+      "id": "CAT-C",
+      "name": "Legacy collection checkpoint recovers after repeating the complete dress request",
+      "prompts": [
+        "Men's, please.",
+        "I want a dress for work under 200 aud"
+      ],
+      "start_line": 253,
+      "end_line": 264,
+      "assertions": "(n, r, s) => {\n  if (n === 1) { none(r); eq(r.status, 'no_match'); eq(r.applied_preferences.gender, 'Men'); }\n  else { browse(r); eq(r.applied_preferences.gender, 'Women'); eq(s.collection.choice, 'Men'); checkBrief(r, { subcategory: 'Dresses', max: 200 }); }\n}"
+    },
+    {
+      "id": "CAT-D",
+      "name": "Explicit mens dresses stay Men until a new full dress request",
+      "prompts": [
+        "I want men's dresses for work under 200 aud",
+        "Show more dresses.",
+        "I want a dress for work under 200 aud"
+      ],
+      "start_line": 265,
+      "end_line": 271,
+      "assertions": "(n, r, s) => {\n  eq(r.applied_preferences.gender, n < 3 ? 'Men' : 'Women');\n  if (n < 3) { none(r); eq(r.status, 'no_match'); }\n  else { browse(r); eq(s.collection.choice, 'Men'); }\n}"
+    },
+    {
+      "id": "CAT-E",
+      "name": "Dress shirt remains ambiguous rather than being converted to Dresses",
+      "prompts": [
+        "I want a dress shirt for work under 200 aud"
+      ],
+      "start_line": 272,
+      "end_line": 276,
+      "assertions": "(_n, r, s) => {\n  none(r); eq(r.discovery.stage, 'collection'); eq(s.scopes.item.category, 'Clothing');\n  assert.ok(s.scopes.item.subcategory === null || s.scopes.item.subcategory === 'Tops');\n  assert.match(s.scopes.item.product_type, /shirt/i); eq(s.collection.choice, null);\n}"
+    },
+    {
+      "id": "CAT-F",
+      "name": "Shared Men restriction blocks an implicit women category switch",
+      "prompts": [
+        "Show men's clothing for all recommendations, for work under 200 aud",
+        "I want a dress for work under 200 aud"
+      ],
+      "start_line": 277,
+      "end_line": 283,
+      "assertions": "(n, r, s) => {\n  eq(s.scopes.shared.gender, 'Men');\n  if (n === 1) browse(r);\n  else { none(r); eq(r.status, 'needs_clarification'); assert.match(r.message, /shared collection restriction/); }\n}"
+    }
+  ],
+  "suites": [
+    {
+      "file": "test-adaptive-reliability-fixes.mjs",
+      "total_lines": 236,
+      "cases": [
+        {
+          "name": "Store navigation supplies a verified product link and honest prototype/bag steps",
+          "start": 40,
+          "end": 50
+        },
+        {
+          "name": "General checkout does not demand a product and navigation does not swallow a mixed search",
+          "start": 51,
+          "end": 54
+        },
+        {
+          "name": "Navigation keeps an unrelated pending search and rejects external source links",
+          "start": 55,
+          "end": 59
+        },
+        {
+          "name": "Work already volunteered is not asked again after collection selection",
+          "start": 60,
+          "end": 66
+        },
+        {
+          "name": "Gift discovery asks about the recipient without inferring a collection or size",
+          "start": 67,
+          "end": 73
+        },
+        {
+          "name": "Recipient dislikes and size uncertainty do not block recommendations or admit jewellery",
+          "start": 74,
+          "end": 81
+        },
+        {
+          "name": "Gift size uncertainty cannot discard an unknown physical requirement",
+          "start": 82,
+          "end": 87
+        },
+        {
+          "name": "Generic scarf is a supported umbrella over lightweight and silk scarves",
+          "start": 88,
+          "end": 94
+        },
+        {
+          "name": "A requested top overrides the model confusing owned trousers with the purchase",
+          "start": 95,
+          "end": 102
+        },
+        {
+          "name": "A unique descriptive product reference repairs a filtered-position model error",
+          "start": 103,
+          "end": 109
+        },
+        {
+          "name": "True filtered ordinals and ambiguous descriptions stay distinct from displayed ordinals",
+          "start": 110,
+          "end": 116
+        },
+        {
+          "name": "Short flats descriptions resolve the footwear rather than another mentioned dress",
+          "start": 117,
+          "end": 120
+        },
+        {
+          "name": "Recipient colours are retained even if the model omits plural colour words",
+          "start": 121,
+          "end": 129
+        },
+        {
+          "name": "A neutral colour direction asks a focused shade question without discarding it",
+          "start": 130,
+          "end": 135
+        },
+        {
+          "name": "Office wording uses Work context without changing preferences or inventing compatibility",
+          "start": 136,
+          "end": 141
+        },
+        {
+          "name": "Cotton update retains size, fit and occasion; rejected products remain rejected",
+          "start": 142,
+          "end": 151
+        },
+        {
+          "name": "Whole-purchase wording is a combined limit, not the bag maximum",
+          "start": 152,
+          "end": 156
+        },
+        {
+          "name": "An affordable bag is found within the remaining budget without selecting the example",
+          "start": 162,
+          "end": 169
+        },
+        {
+          "name": "No affordable bag explains the remaining amount rather than silently raising a cap",
+          "start": 170,
+          "end": 173
+        },
+        {
+          "name": "Example budgets refresh current prices and reject invented example references",
+          "start": 174,
+          "end": 178
+        },
+        {
+          "name": "Initial complete recommendations give recorded material/fit while preserving stock uncertainty",
+          "start": 179,
+          "end": 184
+        },
+        {
+          "name": "Polite garment briefs and trailing find-the-best-match retain the actual target",
+          "start": 185,
+          "end": 193
+        },
+        {
+          "name": "A model cannot omit colour, material or blouse identity from a complete polite brief",
+          "start": 194,
+          "end": 199
+        },
+        {
+          "name": "Explicit colour choices survive omitted model filters and broad flat shoes stay broad",
+          "start": 200,
+          "end": 207
+        },
+        {
+          "name": "Uncertain recipient sizing suppresses size-dependent optional purchases",
+          "start": 208,
+          "end": 213
+        },
+        {
+          "name": "A combined gift cap bounds discovery even when the model omits the item cap",
+          "start": 214,
+          "end": 220
+        },
+        {
+          "name": "The remaining combined cap survives more-options refinements without being repeated",
+          "start": 221,
+          "end": 225
+        },
+        {
+          "name": "Raising a combined total keeps a named example as the anchor rather than rebuilding it",
+          "start": 226,
+          "end": 233
+        }
+      ],
+      "assertion_lines": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        52,
+        53,
+        57,
+        58,
+        64,
+        65,
+        70,
+        72,
+        78,
+        79,
+        80,
+        86,
+        92,
+        99,
+        100,
+        101,
+        106,
+        108,
+        112,
+        113,
+        115,
+        119,
+        125,
+        128,
+        133,
+        134,
+        139,
+        140,
+        146,
+        147,
+        150,
+        153,
+        154,
+        155,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        171,
+        172,
+        176,
+        177,
+        182,
+        183,
+        187,
+        188,
+        191,
+        192,
+        197,
+        198,
+        203,
+        206,
+        212,
+        218,
+        219,
+        224,
+        228,
+        230,
+        231,
+        232
+      ],
+      "imports": [
+        "./fixtures/customer-scenarios.mjs"
+      ]
+    },
+    {
+      "file": "test-proactive-cross-sell.mjs",
+      "total_lines": 270,
+      "cases": [
+        {
+          "name": "The first beach-wedding result proactively shows actual bag and shoe products",
+          "start": 27,
+          "end": 37
+        },
+        {
+          "name": "Showing extras preserves primary ordering, focus, saved preferences and cart IDs",
+          "start": 38,
+          "end": 48
+        },
+        {
+          "name": "Additional-item size, colour, material and cap are independent of the dress",
+          "start": 49,
+          "end": 59
+        },
+        {
+          "name": "An initial new-search brief also includes extras without a second prompt",
+          "start": 60,
+          "end": 70
+        },
+        {
+          "name": "A trailing request to browse without choosing a size preserves the original dress and collection",
+          "start": 71,
+          "end": 75
+        },
+        {
+          "name": "No-extras variants suppress products and persist the preference",
+          "start": 76,
+          "end": 86
+        },
+        {
+          "name": "An existing pause and a local dismissal both suppress subsequent offers",
+          "start": 87,
+          "end": 94
+        },
+        {
+          "name": "Owned and selected accessory roles are not recommended again",
+          "start": 95,
+          "end": 106
+        },
+        {
+          "name": "Primary no-match, unknown occasion and unresolved requirements do not trigger offers",
+          "start": 107,
+          "end": 113
+        },
+        {
+          "name": "Explicit provisional consent resumes unchanged filters, discloses the unknown and suppresses offers",
+          "start": 114,
+          "end": 126
+        },
+        {
+          "name": "Missing rules, unavailable extras and corrupt optional rules preserve dress results",
+          "start": 127,
+          "end": 133
+        },
+        {
+          "name": "Unavailable first category falls through to the next approved category",
+          "start": 134,
+          "end": 137
+        },
+        {
+          "name": "Shared exclusions, material and per-item price restrictions apply to extras",
+          "start": 138,
+          "end": 145
+        },
+        {
+          "name": "Rejected/cart products and mismatched occasions cannot pad the offer",
+          "start": 146,
+          "end": 150
+        },
+        {
+          "name": "A combined cap covers the anchor and all proposed additions together",
+          "start": 151,
+          "end": 158
+        },
+        {
+          "name": "Selected anchors are counted once and owned anchors cost zero",
+          "start": 159,
+          "end": 168
+        },
+        {
+          "name": "Exact totals at the cap work; zero remaining allowance omits the offer",
+          "start": 169,
+          "end": 174
+        },
+        {
+          "name": "Refinements and truncated history do not repeat the same pitch",
+          "start": 175,
+          "end": 178
+        },
+        {
+          "name": "Reference groups keep ordinals primary and named/role references address extras",
+          "start": 179,
+          "end": 185
+        },
+        {
+          "name": "Changing the anchor refreshes extras without changing primary context or outfit",
+          "start": 186,
+          "end": 195
+        },
+        {
+          "name": "An unknown anchor cannot refresh, and another anchor cannot be substituted",
+          "start": 196,
+          "end": 202
+        },
+        {
+          "name": "Questions about an addition retain its pairing anchor and avoid the dress-only budget",
+          "start": 203,
+          "end": 213
+        },
+        {
+          "name": "Saving an addition retains recommendation context and leaves the dress unselected",
+          "start": 214,
+          "end": 222
+        },
+        {
+          "name": "Offer preferences survive reload without persisting shopping messages or identities",
+          "start": 223,
+          "end": 231
+        },
+        {
+          "name": "Explicit resumption clears dismissal but an explicit cross-sell keeps the pause",
+          "start": 232,
+          "end": 243
+        },
+        {
+          "name": "A new task can offer again while persistent pauses stay paused",
+          "start": 244,
+          "end": 256
+        },
+        {
+          "name": "Protocol rejects ungrounded, duplicate, mispriced and over-budget offers",
+          "start": 257,
+          "end": 263
+        },
+        {
+          "name": "The rollout switch suppresses only optional previews",
+          "start": 264,
+          "end": 268
+        }
+      ],
+      "assertion_lines": [
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        52,
+        53,
+        54,
+        57,
+        58,
+        69,
+        73,
+        74,
+        80,
+        82,
+        83,
+        85,
+        91,
+        92,
+        97,
+        98,
+        100,
+        103,
+        105,
+        108,
+        110,
+        112,
+        119,
+        122,
+        123,
+        124,
+        125,
+        131,
+        136,
+        140,
+        142,
+        144,
+        148,
+        149,
+        154,
+        155,
+        157,
+        164,
+        165,
+        166,
+        171,
+        173,
+        177,
+        181,
+        183,
+        191,
+        192,
+        193,
+        194,
+        200,
+        201,
+        210,
+        211,
+        212,
+        219,
+        220,
+        221,
+        226,
+        228,
+        229,
+        230,
+        238,
+        239,
+        242,
+        253,
+        255,
+        259,
+        266
+      ],
+      "imports": [
+        "./fixtures/collection-session.mjs",
+        "./fixtures/proactive-cross-sell.mjs"
+      ]
+    },
+    {
+      "file": "test-journey-remediation.mjs",
+      "total_lines": 167,
+      "cases": [
+        {
+          "name": "Combined totals support natural word order without mistaking each, negated totals or product prices for the budget",
+          "start": 31,
+          "end": 35
+        },
+        {
+          "name": "Cheaper cannot clear the saved cap, but explicit removal is supported",
+          "start": 36,
+          "end": 43
+        },
+        {
+          "name": "Travel guidance and a together budget survive without a bare-travel certification blocker",
+          "start": 44,
+          "end": 52
+        },
+        {
+          "name": "A pending new-search size blocker accepts a correction instead of rejecting its continuation action",
+          "start": 53,
+          "end": 61
+        },
+        {
+          "name": "New blue results are compared after searching, without asking which old shortlist is meant",
+          "start": 62,
+          "end": 69
+        },
+        {
+          "name": "A genuinely ambiguous comparison anchor still pauses and resumes the saved search after clarification",
+          "start": 70,
+          "end": 79
+        },
+        {
+          "name": "Selected dress plus new shoes consumes the total once and clears the old dress cap",
+          "start": 80,
+          "end": 89
+        },
+        {
+          "name": "An external owned anchor and ambiguous cap produce a typed yes/no confirmation that Yes can complete",
+          "start": 90,
+          "end": 104
+        },
+        {
+          "name": "Named delivery and returns policy questions resolve the product without rewriting the saved search",
+          "start": 105,
+          "end": 111
+        },
+        {
+          "name": "Global Black survives all openings, conflicts with Blue, and can be explicitly released",
+          "start": 112,
+          "end": 123
+        },
+        {
+          "name": "The UI summary distinguishes global restrictions, per-item limits and combined totals",
+          "start": 124,
+          "end": 129
+        },
+        {
+          "name": "A trailing max cap is grounded even when the model omits it",
+          "start": 130,
+          "end": 135
+        },
+        {
+          "name": "Cheaper accepts all five displayed references and searches below the lowest price",
+          "start": 136,
+          "end": 142
+        },
+        {
+          "name": "A beach-wedding brief is retained through optional browsing wording and Work skirts retain their occasion",
+          "start": 143,
+          "end": 151
+        },
+        {
+          "name": "Reaffirming firm limits after no-match reruns the exact saved brief instead of becoming unrecognised input",
+          "start": 152,
+          "end": 157
+        },
+        {
+          "name": "Provisional consent cannot delete a saved unknown requirement",
+          "start": 158,
+          "end": 165
+        }
+      ],
+      "assertion_lines": [
+        32,
+        33,
+        34,
+        39,
+        41,
+        42,
+        47,
+        48,
+        49,
+        51,
+        59,
+        60,
+        66,
+        67,
+        68,
+        76,
+        78,
+        85,
+        86,
+        87,
+        88,
+        95,
+        96,
+        98,
+        99,
+        101,
+        102,
+        103,
+        109,
+        116,
+        118,
+        121,
+        127,
+        128,
+        133,
+        141,
+        146,
+        150,
+        156,
+        162,
+        163,
+        164
+      ],
+      "imports": [
+        "./fixtures/customer-scenarios.mjs"
+      ]
+    },
+    {
+      "file": "test-stylist-journey-harness.mjs",
+      "total_lines": 217,
+      "cases": [
+        {
+          "name": "Independent family checks reject trousers offered as skirts",
+          "start": 14,
+          "end": 16
+        },
+        {
+          "name": "The full pack retains the original 50 journeys and adds four recommendation cases, three to everyday",
+          "start": 29,
+          "end": 36
+        },
+        {
+          "name": "Invalid flags and unsafe or unintended endpoints are rejected before requests",
+          "start": 37,
+          "end": 46
+        },
+        {
+          "name": "Generated manual guide is current and includes all 54 journeys and their review criteria",
+          "start": 47,
+          "end": 53
+        },
+        {
+          "name": "Each controlled recovery case executes and passes without any HTTP/model dependency",
+          "start": 54,
+          "end": 61
+        },
+        {
+          "name": "A complete journey follows actual returned product identity and uses the requested opening variant",
+          "start": 62,
+          "end": 77
+        },
+        {
+          "name": "No-match cannot count as a successful shopping journey and dependent turns are not sent",
+          "start": 78,
+          "end": 85
+        },
+        {
+          "name": "A single valid result blocks a two-product comparison rather than falsely failing or passing it",
+          "start": 86,
+          "end": 92
+        },
+        {
+          "name": "Wrong saved preferences are a failure even when products and schema are internally consistent",
+          "start": 93,
+          "end": 98
+        },
+        {
+          "name": "HTTP failures are errors with safe error codes, not no-match or model-quality passes",
+          "start": 99,
+          "end": 104
+        },
+        {
+          "name": "Malformed successful responses fail schema/contract evaluation",
+          "start": 105,
+          "end": 110
+        },
+        {
+          "name": "Missing fields or unresolved placeholders cannot accidentally pass an assertion",
+          "start": 111,
+          "end": 115
+        },
+        {
+          "name": "Independent product checks reject over-budget, same-price, wrong-size and rejected items",
+          "start": 116,
+          "end": 121
+        },
+        {
+          "name": "A missing group cannot pass as a complete shared-budget outfit",
+          "start": 122,
+          "end": 126
+        },
+        {
+          "name": "Required proactive products cannot silently pass when eligible primary results exist",
+          "start": 145,
+          "end": 154
+        },
+        {
+          "name": "Recommendation bindings use actual additions while the second dress keeps its primary ordinal",
+          "start": 155,
+          "end": 162
+        },
+        {
+          "name": "The independent offer checks reject inherited dress budgets, owned roles and changed primary order",
+          "start": 163,
+          "end": 173
+        },
+        {
+          "name": "The rematching journey sends the bound anchor control and accepts additions without primary cards",
+          "start": 174,
+          "end": 191
+        },
+        {
+          "name": "The no-extras journey explicitly requests the returned matching category and keeps the pause",
+          "start": 192,
+          "end": 207
+        },
+        {
+          "name": "Invalid product binding sources and indices are rejected before any requests",
+          "start": 208,
+          "end": 214
+        }
+      ],
+      "assertion_lines": [
+        15,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        42,
+        44,
+        45,
+        49,
+        50,
+        51,
+        52,
+        57,
+        58,
+        59,
+        65,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        83,
+        84,
+        90,
+        91,
+        96,
+        97,
+        102,
+        103,
+        108,
+        109,
+        112,
+        113,
+        114,
+        119,
+        124,
+        151,
+        152,
+        153,
+        159,
+        160,
+        161,
+        167,
+        170,
+        172,
+        182,
+        184,
+        185,
+        186,
+        187,
+        189,
+        204,
+        205,
+        206,
+        212
+      ],
+      "imports": [
+        "./fixtures/stylist-journeys.mjs",
+        "./fixtures/customer-scenarios.mjs",
+        "./fixtures/proactive-cross-sell.mjs"
+      ]
+    },
+    {
+      "file": "test-reactive-demo-fixes.mjs",
+      "total_lines": 167,
+      "cases": [
+        {
+          "name": "Compound collection answer survives a later shopping clause",
+          "start": 31,
+          "end": 35
+        },
+        {
+          "name": "Collection plus fit guidance resumes the search without a product-reference question",
+          "start": 36,
+          "end": 43
+        },
+        {
+          "name": "Saved-search availability does not ask for a nonexistent product",
+          "start": 44,
+          "end": 49
+        },
+        {
+          "name": "A referenced combination is an explicit answer operation",
+          "start": 50,
+          "end": 52
+        },
+        {
+          "name": "Named three-piece total is A$245 with A$155 remaining, without selection changes",
+          "start": 53,
+          "end": 60
+        },
+        {
+          "name": "Rejecting one dress does not save its Maxi Dress type",
+          "start": 61,
+          "end": 67
+        },
+        {
+          "name": "Jacket and shirt component extraction uses Outerwear and Tops",
+          "start": 68,
+          "end": 71
+        },
+        {
+          "name": "An owned blazer is a styling anchor rather than a purchase component",
+          "start": 72,
+          "end": 75
+        },
+        {
+          "name": "Named candidates are reviewed with an owned blazer without saving them",
+          "start": 76,
+          "end": 82
+        },
+        {
+          "name": "Duplicate references, quantities and current prices produce an exact total",
+          "start": 83,
+          "end": 91
+        },
+        {
+          "name": "A missing current price prevents a fabricated full total",
+          "start": 92,
+          "end": 96
+        },
+        {
+          "name": "Owned catalogue pieces cost zero in a new purchase total",
+          "start": 97,
+          "end": 100
+        },
+        {
+          "name": "Bright and flexible are guidance rather than literal hard labels",
+          "start": 101,
+          "end": 106
+        },
+        {
+          "name": "Green prompts recorded shade choices without changing the saved request",
+          "start": 107,
+          "end": 111
+        },
+        {
+          "name": "Confirmed shade choices survive compound wording while questions do not select a shade",
+          "start": 112,
+          "end": 119
+        },
+        {
+          "name": "Named-combination shortcuts do not swallow an explicit new search",
+          "start": 120,
+          "end": 123
+        },
+        {
+          "name": "Duplicate product names ask for a reference rather than summing both records",
+          "start": 124,
+          "end": 128
+        },
+        {
+          "name": "A model cannot omit a literal linen material or replace it with blend",
+          "start": 129,
+          "end": 134
+        },
+        {
+          "name": "Travel goal and combined total survive collection and accepted piece roles",
+          "start": 135,
+          "end": 143
+        },
+        {
+          "name": "Grouped provisional results label the unknown on every card and retain a deadline",
+          "start": 144,
+          "end": 150
+        },
+        {
+          "name": "Permission to browse softness unverified cannot make the requirement disappear",
+          "start": 151,
+          "end": 156
+        },
+        {
+          "name": "No substitutions is a scope instruction rather than a garment feature",
+          "start": 157,
+          "end": 165
+        }
+      ],
+      "assertion_lines": [
+        32,
+        33,
+        34,
+        41,
+        42,
+        48,
+        51,
+        58,
+        59,
+        65,
+        66,
+        70,
+        74,
+        80,
+        81,
+        86,
+        87,
+        90,
+        95,
+        99,
+        104,
+        105,
+        110,
+        116,
+        117,
+        118,
+        122,
+        127,
+        132,
+        139,
+        142,
+        148,
+        149,
+        154,
+        155,
+        160,
+        161,
+        164
+      ],
+      "imports": [
+        "./fixtures/customer-scenarios.mjs"
+      ]
+    },
+    {
+      "file": "test-stylist-remediation.mjs",
+      "total_lines": 148,
+      "cases": [
+        {
+          "name": "A trailing show-options phrase retains a complete mens shirt brief and canonical medium size",
+          "start": 29,
+          "end": 33
+        },
+        {
+          "name": "Jacket and flats umbrellas use the same catalogue family in search and reply validation",
+          "start": 34,
+          "end": 41
+        },
+        {
+          "name": "Named blockers carry exact values and a real shared conflict never disappears",
+          "start": 42,
+          "end": 45
+        },
+        {
+          "name": "An explicit group relaxation removes only local fabric, waist and length requirements",
+          "start": 46,
+          "end": 50
+        },
+        {
+          "name": "Provisional browsing needs explicit permission, retains unknowns and excludes known violations",
+          "start": 51,
+          "end": 57
+        },
+        {
+          "name": "Replacing a stuck task keeps the saved look and explicit global constraints",
+          "start": 58,
+          "end": 62
+        },
+        {
+          "name": "Compound name/number edits resume the validated draft without dropping its exclusions",
+          "start": 63,
+          "end": 71
+        },
+        {
+          "name": "A saved purchase uses current prices and a one-component addition cannot overspend",
+          "start": 72,
+          "end": 80
+        },
+        {
+          "name": "Keeping a named dress and requesting only shoes cannot rebuild the whole outfit",
+          "start": 81,
+          "end": 88
+        },
+        {
+          "name": "An explicit any-fit and any-colour refinement clears the local restrictions",
+          "start": 89,
+          "end": 93
+        },
+        {
+          "name": "Expired recovery controls cannot mutate a later task",
+          "start": 94,
+          "end": 100
+        },
+        {
+          "name": "Cancelling a pending outfit change restores task fields while keeping independently saved pieces",
+          "start": 101,
+          "end": 104
+        },
+        {
+          "name": "Work outfits have no event picker and old request shapes remain valid",
+          "start": 105,
+          "end": 110
+        },
+        {
+          "name": "A cocktail wedding is a supported event context rather than an unverified product feature",
+          "start": 111,
+          "end": 116
+        },
+        {
+          "name": "A collection answer followed by a volunteered routine does not repeat the collection question",
+          "start": 117,
+          "end": 124
+        },
+        {
+          "name": "The task rollback flag keeps legacy turns and hides new transition behavior",
+          "start": 125,
+          "end": 129
+        },
+        {
+          "name": "Requirement quotation repair uses only explicit literal requirements and rejects invented evidence",
+          "start": 130,
+          "end": 140
+        },
+        {
+          "name": "A scalar removal with null normalizes to the domain clear operation, without weakening other transport checks",
+          "start": 141,
+          "end": 146
+        }
+      ],
+      "assertion_lines": [
+        32,
+        36,
+        38,
+        39,
+        40,
+        44,
+        49,
+        53,
+        55,
+        56,
+        61,
+        69,
+        70,
+        76,
+        77,
+        79,
+        86,
+        87,
+        92,
+        97,
+        99,
+        103,
+        106,
+        107,
+        108,
+        109,
+        115,
+        119,
+        122,
+        123,
+        127,
+        133,
+        134,
+        135,
+        137,
+        139,
+        144,
+        145
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-conversation-recovery.mjs",
+      "total_lines": 140,
+      "cases": [
+        {
+          "name": "No size filter clears an invalid size without inventing filter",
+          "start": 34,
+          "end": 40
+        },
+        {
+          "name": "Set size to 12 replaces the size while retaining unrelated constraints",
+          "start": 41,
+          "end": 46
+        },
+        {
+          "name": "Dropping size 999 with a budget correction removes the old size",
+          "start": 47,
+          "end": 53
+        },
+        {
+          "name": "Size parsing does not fabricate labels from prose or execute a negated edit",
+          "start": 54,
+          "end": 59
+        },
+        {
+          "name": "Removed outfit components are not counted as new combined purchases",
+          "start": 60,
+          "end": 69
+        },
+        {
+          "name": "A complete single-dress restatement clears the active group even if the model says refine",
+          "start": 70,
+          "end": 75
+        },
+        {
+          "name": "An actual grouped request still cannot omit shoes or bypass the combined budget",
+          "start": 76,
+          "end": 85
+        },
+        {
+          "name": "Compound both-collections/weekend answers normalize item scope and browse immediately",
+          "start": 86,
+          "end": 94
+        },
+        {
+          "name": "A clear collection answer survives a failed interpretation of its other clauses",
+          "start": 95,
+          "end": 101
+        },
+        {
+          "name": "Detailed saved-dress shoes continuation uses only shoes and A$125 remaining",
+          "start": 102,
+          "end": 111
+        },
+        {
+          "name": "Purchase-budget confirmation plus options is not routed to a pure price answer",
+          "start": 112,
+          "end": 118
+        },
+        {
+          "name": "Owned anchors and selected purchases have different remaining budgets",
+          "start": 119,
+          "end": 124
+        },
+        {
+          "name": "Ambiguous saved dresses are not silently resolved to the first item",
+          "start": 125,
+          "end": 130
+        },
+        {
+          "name": "Exhausted model repair cannot turn task replacement into unverified retrieval",
+          "start": 131,
+          "end": 138
+        }
+      ],
+      "assertion_lines": [
+        38,
+        39,
+        44,
+        45,
+        50,
+        51,
+        52,
+        55,
+        56,
+        58,
+        62,
+        65,
+        66,
+        67,
+        68,
+        73,
+        74,
+        78,
+        79,
+        82,
+        84,
+        91,
+        92,
+        93,
+        98,
+        100,
+        107,
+        108,
+        109,
+        110,
+        116,
+        117,
+        122,
+        123,
+        129,
+        135,
+        137
+      ],
+      "imports": [
+        "./fixtures/customer-scenarios.mjs"
+      ]
+    },
+    {
+      "file": "test-matching-set-budget.mjs",
+      "total_lines": 136,
+      "cases": [
+        {
+          "name": "The exact prompt immediately searches two groups under one A$500 total",
+          "start": 37,
+          "end": 45
+        },
+        {
+          "name": "The reported model clarification is corrected before execution",
+          "start": 46,
+          "end": 51
+        },
+        {
+          "name": "Mistaking the total for a per-item limit cannot bypass the combined solver",
+          "start": 52,
+          "end": 57
+        },
+        {
+          "name": "Individually affordable pieces above the combined limit return no_match",
+          "start": 58,
+          "end": 63
+        },
+        {
+          "name": "Pairing evidence names the actual jacket and excludes incompatible candidates",
+          "start": 64,
+          "end": 67
+        },
+        {
+          "name": "An owned jacket is still a reference, never an A$800 new purchase",
+          "start": 68,
+          "end": 72
+        },
+        {
+          "name": "The look summary uses the same new-pieces budget when the reference was saved earlier",
+          "start": 73,
+          "end": 80
+        },
+        {
+          "name": "Budget-only refinement retains both requested roles and the jacket after history eviction",
+          "start": 81,
+          "end": 88
+        },
+        {
+          "name": "Missing or ambiguous jacket asks only for the jacket and remembers the set",
+          "start": 89,
+          "end": 105
+        },
+        {
+          "name": "A unique jacket can be resolved among a mixed shortlist",
+          "start": 106,
+          "end": 109
+        },
+        {
+          "name": "Genuine either/or wording is not converted into buying both",
+          "start": 110,
+          "end": 114
+        },
+        {
+          "name": "Compound qualifiers remain with the model and all component constraints are retained",
+          "start": 115,
+          "end": 126
+        },
+        {
+          "name": "A non-shortcut model cannot omit one requested component",
+          "start": 127,
+          "end": 130
+        },
+        {
+          "name": "Response contract rejects an inflated displayed combination",
+          "start": 131,
+          "end": 134
+        }
+      ],
+      "assertion_lines": [
+        28,
+        29,
+        31,
+        32,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        56,
+        61,
+        62,
+        66,
+        71,
+        76,
+        79,
+        86,
+        87,
+        94,
+        95,
+        96,
+        102,
+        112,
+        117,
+        124,
+        125,
+        129,
+        133
+      ],
+      "imports": [
+        "./fixtures/customer-scenarios.mjs"
+      ]
+    },
+    {
+      "file": "test-category-collection-defaults.mjs",
+      "total_lines": 193,
+      "cases": [
+        {
+          "name": "The exact dress prompt searches Women immediately with Work and A$200",
+          "start": 30,
+          "end": 38
+        },
+        {
+          "name": "Skirts have the same category default, including tentative choices",
+          "start": 39,
+          "end": 45
+        },
+        {
+          "name": "A repeated complete request overrides ordinary Men's browsing without overwriting that preference",
+          "start": 46,
+          "end": 52
+        },
+        {
+          "name": "The exact legacy checkpoint, Men's no-match, repeated dress request recovers",
+          "start": 53,
+          "end": 67
+        },
+        {
+          "name": "Explicit Men, Unisex and All beat category defaults",
+          "start": 68,
+          "end": 78
+        },
+        {
+          "name": "Budget, more, more dresses and cheaper retain the current default after history eviction",
+          "start": 79,
+          "end": 87
+        },
+        {
+          "name": "More dresses and price edits also preserve an explicit men's dress request",
+          "start": 88,
+          "end": 93
+        },
+        {
+          "name": "Defaults remain item-specific when switching to ambiguous clothing",
+          "start": 94,
+          "end": 111
+        },
+        {
+          "name": "A dress-shirt brief retains its shirt family through the collection checkpoint even when the model omits it",
+          "start": 112,
+          "end": 122
+        },
+        {
+          "name": "Ambiguous categories and dress compounds never default to Women",
+          "start": 123,
+          "end": 133
+        },
+        {
+          "name": "Broad formal clothing retains collection-first onboarding",
+          "start": 134,
+          "end": 137
+        },
+        {
+          "name": "Global Men's restrictions require clarification and cannot silently change",
+          "start": 138,
+          "end": 144
+        },
+        {
+          "name": "Model category-default evidence is allowed only for the supported requested item",
+          "start": 145,
+          "end": 152
+        },
+        {
+          "name": "No matching stock stays no_match without widening the collection or budget",
+          "start": 153,
+          "end": 158
+        },
+        {
+          "name": "Explicit men's no-match suggestions require a choice and preserve constraints",
+          "start": 159,
+          "end": 167
+        },
+        {
+          "name": "Product questions and external garment mentions do not change collection metadata",
+          "start": 168,
+          "end": 176
+        },
+        {
+          "name": "Earlier sessions migrate, reset clears provenance, and page focus cannot inherit the previous default",
+          "start": 177,
+          "end": 184
+        },
+        {
+          "name": "Retry replay preserves the resolved default",
+          "start": 185,
+          "end": 191
+        }
+      ],
+      "assertion_lines": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        42,
+        43,
+        50,
+        51,
+        61,
+        62,
+        65,
+        66,
+        73,
+        77,
+        83,
+        86,
+        91,
+        100,
+        101,
+        102,
+        103,
+        106,
+        110,
+        115,
+        116,
+        117,
+        120,
+        121,
+        127,
+        128,
+        132,
+        136,
+        141,
+        142,
+        143,
+        146,
+        147,
+        148,
+        150,
+        156,
+        157,
+        163,
+        165,
+        166,
+        173,
+        175,
+        180,
+        181,
+        183,
+        190
+      ],
+      "imports": [
+        "./fixtures/customer-scenarios.mjs"
+      ]
+    },
+    {
+      "file": "test-collection-first.mjs",
+      "total_lines": 184,
+      "cases": [
+        {
+          "name": "The exact request asks collection first and saves the full clothing brief",
+          "start": 31,
+          "end": 38
+        },
+        {
+          "name": "Every button resumes formal clothing and applies its own collection rules",
+          "start": 39,
+          "end": 49
+        },
+        {
+          "name": "Typed choices, apostrophes and explicit Unisex work",
+          "start": 50,
+          "end": 57
+        },
+        {
+          "name": "Explicit collections in an initial request bypass the question",
+          "start": 58,
+          "end": 64
+        },
+        {
+          "name": "A compound answer retains the old brief and all new restrictions",
+          "start": 65,
+          "end": 77
+        },
+        {
+          "name": "Both with a new budget is unrestricted browsing, not an unanswered collection",
+          "start": 78,
+          "end": 83
+        },
+        {
+          "name": "An owned garment's collection and personal identity do not filter the requested clothes",
+          "start": 84,
+          "end": 92
+        },
+        {
+          "name": "Pure uncertainty asks collection, then at most one more discovery question",
+          "start": 93,
+          "end": 102
+        },
+        {
+          "name": "Skipping or repeated uncertainty browses across collections without looping",
+          "start": 103,
+          "end": 110
+        },
+        {
+          "name": "A deterministic dress shortcut uses the category default and keeps its feature requirement",
+          "start": 111,
+          "end": 118
+        },
+        {
+          "name": "Guessing collection from formal, a name, or a size is rejected",
+          "start": 119,
+          "end": 125
+        },
+        {
+          "name": "Collection survives history eviction and a different clothing category",
+          "start": 126,
+          "end": 136
+        },
+        {
+          "name": "A confirmed choice in an older session is retained across a new search",
+          "start": 137,
+          "end": 142
+        },
+        {
+          "name": "Shared collection restrictions still block a conflicting choice",
+          "start": 143,
+          "end": 150
+        },
+        {
+          "name": "Greetings and policy answers preserve a checkpoint without interrogating the shopper",
+          "start": 151,
+          "end": 161
+        },
+        {
+          "name": "Cancelling clears the suspended clothing request",
+          "start": 162,
+          "end": 166
+        },
+        {
+          "name": "A genuinely different bag request clears the old collection checkpoint",
+          "start": 167,
+          "end": 172
+        },
+        {
+          "name": "Retry replay returns the same checkpoint and rejects altered content",
+          "start": 173,
+          "end": 182
+        }
+      ],
+      "assertion_lines": [
+        23,
+        33,
+        34,
+        35,
+        36,
+        37,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        54,
+        55,
+        62,
+        73,
+        74,
+        75,
+        76,
+        81,
+        82,
+        87,
+        91,
+        95,
+        97,
+        98,
+        100,
+        101,
+        107,
+        108,
+        114,
+        115,
+        117,
+        121,
+        131,
+        134,
+        135,
+        141,
+        147,
+        148,
+        149,
+        154,
+        155,
+        160,
+        165,
+        170,
+        171,
+        180,
+        181
+      ],
+      "imports": [
+        "./fixtures/customer-scenarios.mjs"
+      ]
+    },
+    {
+      "file": "test-product-card-presentation.mjs",
+      "total_lines": 61,
+      "cases": [
+        {
+          "name": "A lone clothing size still requires an explicit choice",
+          "start": 13,
+          "end": 16
+        },
+        {
+          "name": "Sizes are never transferred between clothing and shoes",
+          "start": 17,
+          "end": 20
+        },
+        {
+          "name": "Unavailable saved sizes do not become a purchase choice or an availability claim",
+          "start": 21,
+          "end": 25
+        },
+        {
+          "name": "One-size goods retain their catalogue spelling and automatic size",
+          "start": 26,
+          "end": 30
+        },
+        {
+          "name": "A size label matches without guessing size conversions",
+          "start": 31,
+          "end": 35
+        },
+        {
+          "name": "Reasons use supported catalogue occasion rather than asserting styling compatibility",
+          "start": 36,
+          "end": 39
+        },
+        {
+          "name": "Price reasons respect a zero cap and the inclusive boundary",
+          "start": 40,
+          "end": 45
+        },
+        {
+          "name": "Short supplied explanations remain intact, including their caveat",
+          "start": 46,
+          "end": 49
+        },
+        {
+          "name": "Long explanations are not cut mid-claim; unknown context produces no invented reason",
+          "start": 50,
+          "end": 54
+        },
+        {
+          "name": "Important dress-code cautions stay visible without repeating the occasion reason",
+          "start": 55,
+          "end": 59
+        }
+      ],
+      "assertion_lines": [
+        14,
+        15,
+        18,
+        19,
+        23,
+        24,
+        28,
+        29,
+        33,
+        34,
+        37,
+        38,
+        41,
+        42,
+        43,
+        44,
+        48,
+        52,
+        53,
+        56,
+        57,
+        58
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-guided-discovery.mjs",
+      "total_lines": 223,
+      "cases": [
+        {
+          "name": "The screenshot's uncertain request asks one easy question without inventing preferences",
+          "start": 27,
+          "end": 37
+        },
+        {
+          "name": "Everyday discovery asks one routine question, then browsing skips optional inputs",
+          "start": 38,
+          "end": 49
+        },
+        {
+          "name": "Repeated uncertainty moves to inspiration and never repeats a skipped question",
+          "start": 50,
+          "end": 58
+        },
+        {
+          "name": "The two-question limit survives short-history eviction",
+          "start": 59,
+          "end": 66
+        },
+        {
+          "name": "An unspecified occasion is never saved as a fabricated filter",
+          "start": 67,
+          "end": 74
+        },
+        {
+          "name": "Skipping immediately browses, and surprise me does not start a questionnaire",
+          "start": 75,
+          "end": 83
+        },
+        {
+          "name": "Fresh batches do not recycle rejected ideas and exhaustion is honest",
+          "start": 84,
+          "end": 95
+        },
+        {
+          "name": "None of these also skips the current shortlist before discovery has started",
+          "start": 96,
+          "end": 104
+        },
+        {
+          "name": "Discovery honours budgets, exclusions, sizes, features, rejected items and cart items",
+          "start": 105,
+          "end": 123
+        },
+        {
+          "name": "Unknown and conflicting restrictions still block inspiration",
+          "start": 124,
+          "end": 132
+        },
+        {
+          "name": "A blocking discovery requirement can be explicitly removed without losing other limits",
+          "start": 133,
+          "end": 141
+        },
+        {
+          "name": "Explicit feature requirements also filter broad ideas, and cannot be omitted",
+          "start": 142,
+          "end": 151
+        },
+        {
+          "name": "Choosing an item after discovery keeps the earlier budget and exclusions",
+          "start": 152,
+          "end": 161
+        },
+        {
+          "name": "A discovery answer is not a blocking continuation even if the model copies the prior question",
+          "start": 162,
+          "end": 169
+        },
+        {
+          "name": "More like this narrows the item without selecting it or guessing colour and budget",
+          "start": 170,
+          "end": 179
+        },
+        {
+          "name": "Compound uncertainty is interpreted instead of dropping trailing constraints or questions",
+          "start": 180,
+          "end": 187
+        },
+        {
+          "name": "Active combined-budget outfits and pending product questions are not hijacked",
+          "start": 188,
+          "end": 196
+        },
+        {
+          "name": "Pure answers and cancellation retain discovery memory without another discovery question",
+          "start": 197,
+          "end": 205
+        },
+        {
+          "name": "Broad discovery is an explicit search permission, never a global removal of search safeguards",
+          "start": 206,
+          "end": 211
+        },
+        {
+          "name": "Stylist prose removes em dashes, including model questions, without rewriting evidence",
+          "start": 212,
+          "end": 220
+        }
+      ],
+      "assertion_lines": [
+        21,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        41,
+        42,
+        43,
+        44,
+        46,
+        47,
+        48,
+        53,
+        54,
+        55,
+        56,
+        57,
+        64,
+        65,
+        70,
+        71,
+        73,
+        79,
+        80,
+        82,
+        88,
+        91,
+        92,
+        93,
+        94,
+        103,
+        120,
+        121,
+        122,
+        127,
+        128,
+        129,
+        131,
+        139,
+        140,
+        145,
+        150,
+        158,
+        159,
+        160,
+        167,
+        168,
+        175,
+        176,
+        177,
+        178,
+        182,
+        186,
+        192,
+        193,
+        195,
+        202,
+        204,
+        207,
+        208,
+        209,
+        217,
+        218,
+        219
+      ],
+      "imports": [
+        "./fixtures/collection-session.mjs",
+        "./fixtures/customer-scenarios.mjs"
+      ]
+    },
+    {
+      "file": "test-search-filters.mjs",
+      "total_lines": 95,
+      "cases": [
+        {
+          "name": "Audited catalogue and narrowing journey match real prototype facts",
+          "start": 13,
+          "end": 18
+        },
+        {
+          "name": "OR within facets, AND across facets, AND across required features",
+          "start": 19,
+          "end": 24
+        },
+        {
+          "name": "Facet counts exclude their own selection but preserve other requirements",
+          "start": 25,
+          "end": 30
+        },
+        {
+          "name": "Counts precede pagination and final page is clamped after stock changes",
+          "start": 31,
+          "end": 34
+        },
+        {
+          "name": "Duplicates in size/tag arrays count each product only once",
+          "start": 35,
+          "end": 39
+        },
+        {
+          "name": "Size values distinguish shoes from clothing and preserve legacy unscoped links",
+          "start": 40,
+          "end": 44
+        },
+        {
+          "name": "Case and whitespace normalize without merging different materials",
+          "start": 45,
+          "end": 48
+        },
+        {
+          "name": "False verified facts override synthetic true facts",
+          "start": 49,
+          "end": 53
+        },
+        {
+          "name": "Unknown, false and stale specifications do not satisfy feature requirements",
+          "start": 54,
+          "end": 58
+        },
+        {
+          "name": "Unknown measurements do not match ranges and zero is an inclusive boundary",
+          "start": 59,
+          "end": 64
+        },
+        {
+          "name": "Inactive availability, invalid prices and invalid stock cannot enter counts",
+          "start": 65,
+          "end": 68
+        },
+        {
+          "name": "Unknown selected options remain visible at zero instead of broadening results",
+          "start": 69,
+          "end": 71
+        },
+        {
+          "name": "Fastening zip aliases the shared feature state and keeps alternative fastening counts",
+          "start": 72,
+          "end": 76
+        },
+        {
+          "name": "Unavailable feature sources fail explicitly for feature queries",
+          "start": 77,
+          "end": 80
+        },
+        {
+          "name": "URLs round-trip every facet, range, repeated value and page",
+          "start": 81,
+          "end": 85
+        },
+        {
+          "name": "Malformed, unbounded and contradictory filters are rejected",
+          "start": 86,
+          "end": 88
+        },
+        {
+          "name": "Product response excludes private/raw specification and storage metadata",
+          "start": 89,
+          "end": 93
+        }
+      ],
+      "assertion_lines": [
+        14,
+        15,
+        16,
+        17,
+        20,
+        23,
+        27,
+        28,
+        29,
+        32,
+        33,
+        37,
+        38,
+        43,
+        47,
+        52,
+        56,
+        57,
+        61,
+        62,
+        63,
+        67,
+        70,
+        73,
+        74,
+        75,
+        78,
+        79,
+        83,
+        84,
+        87,
+        91,
+        92
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-selected-outfit-review.mjs",
+      "total_lines": 169,
+      "cases": [
+        {
+          "name": "Common current-outfit opinions, including the supplied wording, use the review intent",
+          "start": 38,
+          "end": 44
+        },
+        {
+          "name": "Compound requests and product comparisons are not swallowed by the shortcut",
+          "start": 45,
+          "end": 50
+        },
+        {
+          "name": "The review covers selected pieces instead of the newer shortlist or focused product",
+          "start": 51,
+          "end": 59
+        },
+        {
+          "name": "The answer has exactly three structured sections and an accurate combined budget",
+          "start": 60,
+          "end": 68
+        },
+        {
+          "name": "An opinion changes no selection, filters, pending search, cart or shortlist",
+          "start": 69,
+          "end": 77
+        },
+        {
+          "name": "With no selected pieces the assistant asks for selections, never substitutes displayed cards",
+          "start": 78,
+          "end": 83
+        },
+        {
+          "name": "Only one selected piece is explicitly insufficient to judge a combination",
+          "start": 84,
+          "end": 89
+        },
+        {
+          "name": "Already-owned pieces contribute to styling without being charged again",
+          "start": 90,
+          "end": 94
+        },
+        {
+          "name": "Customer-described owned pieces can be reviewed with clear evidence limits",
+          "start": 95,
+          "end": 103
+        },
+        {
+          "name": "A review based entirely on owned descriptions does not invent catalogue IDs",
+          "start": 104,
+          "end": 112
+        },
+        {
+          "name": "Missing or identity-changed catalogue records are disclosed instead of hallucinated",
+          "start": 113,
+          "end": 121
+        },
+        {
+          "name": "Current prices, availability and exceeding the budget appear as considerations",
+          "start": 122,
+          "end": 127
+        },
+        {
+          "name": "Conflicting dress codes are identified without changing the selected pieces",
+          "start": 128,
+          "end": 133
+        },
+        {
+          "name": "The review immediately reflects replacements and removals in the selected outfit",
+          "start": 134,
+          "end": 140
+        },
+        {
+          "name": "Eight selected catalogue pieces are all reviewed and cited",
+          "start": 141,
+          "end": 146
+        },
+        {
+          "name": "An explicit event is review context only and does not become a saved filter",
+          "start": 147,
+          "end": 155
+        },
+        {
+          "name": "Outfit opinions cannot silently select pieces or search for replacements",
+          "start": 156,
+          "end": 160
+        },
+        {
+          "name": "The reply contract rejects shopping results and reviews of unselected IDs",
+          "start": 161,
+          "end": 167
+        }
+      ],
+      "assertion_lines": [
+        31,
+        41,
+        42,
+        48,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        73,
+        74,
+        75,
+        76,
+        81,
+        82,
+        87,
+        88,
+        93,
+        100,
+        101,
+        102,
+        110,
+        111,
+        116,
+        117,
+        118,
+        119,
+        124,
+        125,
+        126,
+        131,
+        132,
+        139,
+        145,
+        153,
+        154,
+        158,
+        159,
+        163,
+        164,
+        166
+      ],
+      "imports": [
+        "./fixtures/customer-scenarios.mjs"
+      ]
+    },
+    {
+      "file": "test-outfit-interface.mjs",
+      "total_lines": 141,
+      "cases": [
+        {
+          "name": "Selected prices total exactly and leave A$15; owned items cost zero",
+          "start": 37,
+          "end": 41
+        },
+        {
+          "name": "Cent arithmetic, exact budget and over-budget amounts stay accurate",
+          "start": 42,
+          "end": 47
+        },
+        {
+          "name": "Missing prices cannot masquerade as a verified total or remaining budget",
+          "start": 48,
+          "end": 51
+        },
+        {
+          "name": "Empty and fully owned outfits leave the whole new-purchase budget",
+          "start": 52,
+          "end": 56
+        },
+        {
+          "name": "The suggested pairing is complete, affordable and favours a long silhouette with heels",
+          "start": 57,
+          "end": 62
+        },
+        {
+          "name": "Suggestions cannot exceed the limit or omit a requested group",
+          "start": 63,
+          "end": 66
+        },
+        {
+          "name": "Catalogue occasion is included on cards without fabrication",
+          "start": 67,
+          "end": 69
+        },
+        {
+          "name": "Black tie refinement keeps both roles, sizes and shared total, excluding minis and loafers",
+          "start": 70,
+          "end": 78
+        },
+        {
+          "name": "Wedding guest excludes cream dresses and loafers while dinner permits loafers",
+          "start": 79,
+          "end": 87
+        },
+        {
+          "name": "A dress code without eligible stock returns no match without relaxing the budget",
+          "start": 88,
+          "end": 94
+        },
+        {
+          "name": "Switching back to any formal event restores the wider shortlist",
+          "start": 95,
+          "end": 102
+        },
+        {
+          "name": "Structured dress-code shortcut cannot swallow trailing constraints",
+          "start": 103,
+          "end": 106
+        },
+        {
+          "name": "Dress-code refinement preserves independent colours and sizes on every component",
+          "start": 107,
+          "end": 116
+        },
+        {
+          "name": "A new unrelated search clears the outfit dress code and combined request",
+          "start": 117,
+          "end": 129
+        },
+        {
+          "name": "Selection and same-role replacement keep accurate prices without double counting",
+          "start": 130,
+          "end": 139
+        }
+      ],
+      "assertion_lines": [
+        40,
+        44,
+        46,
+        50,
+        53,
+        55,
+        59,
+        60,
+        61,
+        64,
+        65,
+        68,
+        73,
+        74,
+        75,
+        76,
+        77,
+        82,
+        83,
+        86,
+        91,
+        92,
+        93,
+        100,
+        101,
+        104,
+        105,
+        113,
+        114,
+        115,
+        126,
+        127,
+        128,
+        134,
+        138
+      ],
+      "imports": [
+        "./fixtures/customer-scenarios.mjs"
+      ]
+    },
+    {
+      "file": "test-grouped-discovery-memory.mjs",
+      "total_lines": 196,
+      "cases": [
+        {
+          "name": "Plentiful inventory shows exactly five per group and every combination fits the shared budget",
+          "start": 27,
+          "end": 38
+        },
+        {
+          "name": "Four groups retain all twenty displayed products in conversation context",
+          "start": 39,
+          "end": 47
+        },
+        {
+          "name": "Fifth dress and fifth shoes resolve within their groups, including a pending answer",
+          "start": 48,
+          "end": 65
+        },
+        {
+          "name": "A broad two-item request shows three dresses and three shoes without the removed style questionnaire",
+          "start": 67,
+          "end": 77
+        },
+        {
+          "name": "Broad discovery includes different recorded types and colours without inventing constraints",
+          "start": 78,
+          "end": 85
+        },
+        {
+          "name": "Every displayed dress/shoe combination meets the shared limit",
+          "start": 86,
+          "end": 94
+        },
+        {
+          "name": "A tighter budget constrains the highest priced displayed combination",
+          "start": 95,
+          "end": 100
+        },
+        {
+          "name": "A duplicated dress colour cannot become a colour requirement for the shoes",
+          "start": 101,
+          "end": 109
+        },
+        {
+          "name": "Keeping both requested item types during a budget edit does not select ambiguous SKUs",
+          "start": 110,
+          "end": 118
+        },
+        {
+          "name": "Sparse inventory returns actual counts rather than padding to five",
+          "start": 119,
+          "end": 124
+        },
+        {
+          "name": "Protocol rejects a forged range, over-budget choice or product assigned to the wrong group",
+          "start": 125,
+          "end": 132
+        },
+        {
+          "name": "Third shoes resolves within its own group, not the global card position",
+          "start": 133,
+          "end": 137
+        },
+        {
+          "name": "Three understood customer prompts and replies are carried with cumulative requirements",
+          "start": 142,
+          "end": 153
+        },
+        {
+          "name": "Repeated unclear intentions cannot evict the last three understood prompts or overwrite state",
+          "start": 154,
+          "end": 173
+        },
+        {
+          "name": "A known product from the first of three result sets remains answerable by exact name",
+          "start": 174,
+          "end": 185
+        },
+        {
+          "name": "An unclear reply is not allowed to mutate committed memory at the client boundary",
+          "start": 186,
+          "end": 190
+        },
+        {
+          "name": "New chat clears the history, previous product sets and saved outfit request",
+          "start": 191,
+          "end": 194
+        }
+      ],
+      "assertion_lines": [
+        29,
+        30,
+        32,
+        37,
+        44,
+        45,
+        46,
+        54,
+        55,
+        60,
+        63,
+        64,
+        69,
+        70,
+        71,
+        72,
+        74,
+        76,
+        82,
+        83,
+        90,
+        92,
+        93,
+        98,
+        99,
+        106,
+        107,
+        108,
+        116,
+        117,
+        122,
+        123,
+        130,
+        135,
+        146,
+        147,
+        149,
+        150,
+        151,
+        152,
+        164,
+        165,
+        166,
+        170,
+        171,
+        172,
+        183,
+        184,
+        189,
+        192,
+        193
+      ],
+      "imports": [
+        "./fixtures/customer-scenarios.mjs"
+      ]
+    },
+    {
+      "file": "test-outfit-budget.mjs",
+      "total_lines": 142,
+      "cases": [
+        {
+          "name": "Exact customer request returns a complete formal set at the inclusive A$400 boundary",
+          "start": 31,
+          "end": 40
+        },
+        {
+          "name": "Individually affordable items whose sum exceeds the total are not recommended",
+          "start": 41,
+          "end": 45
+        },
+        {
+          "name": "A feasible cheap candidate beyond the ordinary top four is still considered",
+          "start": 46,
+          "end": 50
+        },
+        {
+          "name": "Three requested components must all fit the same total",
+          "start": 51,
+          "end": 55
+        },
+        {
+          "name": "Missing shoe stock cannot be presented as a complete outfit",
+          "start": 56,
+          "end": 59
+        },
+        {
+          "name": "Each component retains its own colour and size",
+          "start": 60,
+          "end": 69
+        },
+        {
+          "name": "Budget refinement keeps both roles and the formal occasion",
+          "start": 70,
+          "end": 77
+        },
+        {
+          "name": "A new single-item search clears the combined request",
+          "start": 78,
+          "end": 83
+        },
+        {
+          "name": "Restoring the budget after no match is a refinement, not a pending continuation",
+          "start": 84,
+          "end": 92
+        },
+        {
+          "name": "Context for the requested outfit does not become a global restriction",
+          "start": 93,
+          "end": 101
+        },
+        {
+          "name": "Currency arithmetic is exact at the cent boundary",
+          "start": 102,
+          "end": 108
+        },
+        {
+          "name": "Cart and rejected items remain excluded from the complete set",
+          "start": 109,
+          "end": 112
+        },
+        {
+          "name": "A schema-valid single-item plan cannot silently swallow the combined request",
+          "start": 113,
+          "end": 115
+        },
+        {
+          "name": "Missing requested roles and invented total amounts are rejected",
+          "start": 116,
+          "end": 119
+        },
+        {
+          "name": "The protocol rejects a forged total, incomplete set or over-budget prices",
+          "start": 120,
+          "end": 126
+        },
+        {
+          "name": "Unknown requirements still block retrieval rather than being dropped for an outfit",
+          "start": 127,
+          "end": 132
+        },
+        {
+          "name": "A factual question resolves the unique dress within a mixed-item set",
+          "start": 133,
+          "end": 140
+        }
+      ],
+      "assertion_lines": [
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        43,
+        44,
+        49,
+        54,
+        58,
+        67,
+        68,
+        75,
+        76,
+        81,
+        82,
+        90,
+        91,
+        96,
+        100,
+        105,
+        107,
+        111,
+        114,
+        117,
+        118,
+        124,
+        131,
+        138,
+        139
+      ],
+      "imports": [
+        "./fixtures/customer-scenarios.mjs"
+      ]
+    },
+    {
+      "file": "test-customer-scenario-regressions.mjs",
+      "total_lines": 227,
+      "cases": [
+        {
+          "name": "An explicit occasion survives even if the model omits it from an otherwise clear broad brief",
+          "start": 32,
+          "end": 40
+        },
+        {
+          "name": "Any colour can browse without a preference, while an unrelated edit cannot erase saved colours",
+          "start": 41,
+          "end": 52
+        },
+        {
+          "name": "A pairing explanation targets the named ordinal product, not a second anchor comparison",
+          "start": 53,
+          "end": 61
+        },
+        {
+          "name": "A complete supported other-options request does not invent an unresolved other requirement",
+          "start": 62,
+          "end": 70
+        },
+        {
+          "name": "An omitted or misfiled explicit black constraint cannot return a beige bag",
+          "start": 72,
+          "end": 80
+        },
+        {
+          "name": "A shortlist budget refinement never requires selecting one of its products",
+          "start": 81,
+          "end": 88
+        },
+        {
+          "name": "A factual question cannot create a colour or budget filter",
+          "start": 89,
+          "end": 95
+        },
+        {
+          "name": "Broad bag, shoe and necklace ordinals resolve actual catalogue roles",
+          "start": 96,
+          "end": 103
+        },
+        {
+          "name": "An exact known name in an ID slot resolves safely; partial names still clarify",
+          "start": 104,
+          "end": 108
+        },
+        {
+          "name": "Liking a dress does not authorize a keep operation or cart mutation",
+          "start": 109,
+          "end": 115
+        },
+        {
+          "name": "Own followed by keep preserves one owned record",
+          "start": 116,
+          "end": 124
+        },
+        {
+          "name": "Interest cannot be promoted to ownership by a model annotation",
+          "start": 125,
+          "end": 131
+        },
+        {
+          "name": "Shoe pairing includes both owned anchors even after newer bag results",
+          "start": 132,
+          "end": 141
+        },
+        {
+          "name": "Described owned garments persist as descriptions and rank qualified suggestions",
+          "start": 142,
+          "end": 159
+        },
+        {
+          "name": "An external garment cannot acquire an unquoted material-like colour",
+          "start": 160,
+          "end": 165
+        },
+        {
+          "name": "Closure equality is explained without selling an identical expensive bag",
+          "start": 166,
+          "end": 173
+        },
+        {
+          "name": "Transport decoding rejects wrong slots and preserves typed domain validation",
+          "start": 174,
+          "end": 180
+        },
+        {
+          "name": "An explicit replacement must-have establishes the corresponding comparison priority",
+          "start": 181,
+          "end": 189
+        },
+        {
+          "name": "Value questions resolve the original, all alternatives, and the uniquely cheaper alternative",
+          "start": 190,
+          "end": 206
+        },
+        {
+          "name": "A limit confirmation acknowledges that no restrictions were relaxed",
+          "start": 207,
+          "end": 213
+        },
+        {
+          "name": "Supported typed features do not also remain unresolved; unknown qualifiers still block",
+          "start": 214,
+          "end": 225
+        }
+      ],
+      "assertion_lines": [
+        36,
+        39,
+        45,
+        48,
+        50,
+        51,
+        59,
+        60,
+        65,
+        67,
+        68,
+        69,
+        76,
+        77,
+        78,
+        86,
+        87,
+        94,
+        101,
+        106,
+        107,
+        114,
+        123,
+        130,
+        138,
+        139,
+        140,
+        147,
+        148,
+        149,
+        150,
+        153,
+        154,
+        158,
+        162,
+        171,
+        172,
+        178,
+        179,
+        188,
+        199,
+        200,
+        205,
+        211,
+        212,
+        221,
+        222,
+        223
+      ],
+      "imports": [
+        "./fixtures/customer-scenarios.mjs",
+        "./fixtures/collection-session.mjs"
+      ]
+    },
+    {
+      "file": "test-preference-validation.ts",
+      "total_lines": 39,
+      "cases": [],
+      "assertion_lines": [
+        14,
+        15,
+        16,
+        17,
+        19,
+        20,
+        21,
+        22,
+        24,
+        26,
+        27,
+        35
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-recommendation-contract.ts",
+      "total_lines": 80,
+      "cases": [],
+      "assertion_lines": [
+        55,
+        69,
+        77
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-grounded-recommendation.ts",
+      "total_lines": 38,
+      "cases": [],
+      "assertion_lines": [
+        19,
+        24,
+        25,
+        26,
+        27,
+        30,
+        33,
+        36
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-validation-search.mjs",
+      "total_lines": 224,
+      "cases": [
+        {
+          "name": "Recognised labels are normalised without changing the input",
+          "start": 80,
+          "end": 101
+        },
+        {
+          "name": "Unknown material, preferred colour and brand require clarification",
+          "start": 103,
+          "end": 118
+        },
+        {
+          "name": "Unknown style is retained and disclosed as a partial preference",
+          "start": 120,
+          "end": 127
+        },
+        {
+          "name": "Contradictory budgets request clarification",
+          "start": 129,
+          "end": 134
+        },
+        {
+          "name": "Incompatible category and subcategory request clarification",
+          "start": 136,
+          "end": 148
+        },
+        {
+          "name": "Price at the maximum is allowed; higher price is excluded",
+          "start": 150,
+          "end": 153
+        },
+        {
+          "name": "Zero-dollar and minimum-price filters are honoured",
+          "start": 155,
+          "end": 164
+        },
+        {
+          "name": "A defined but unavailable size produces no match",
+          "start": 166,
+          "end": 171
+        },
+        {
+          "name": "Size 10 does not match size 10.5",
+          "start": 173,
+          "end": 175
+        },
+        {
+          "name": "One Size matching ignores case and extra spaces only",
+          "start": 177,
+          "end": 184
+        },
+        {
+          "name": "Unavailable products and invalid stock are excluded",
+          "start": 186,
+          "end": 192
+        },
+        {
+          "name": "Preferred and excluded colours remain required filters",
+          "start": 194,
+          "end": 201
+        },
+        {
+          "name": "Missing product colour cannot bypass a colour exclusion",
+          "start": 203,
+          "end": 211
+        },
+        {
+          "name": "Malformed size lists are rejected without crashing",
+          "start": 213,
+          "end": 222
+        }
+      ],
+      "assertion_lines": [
+        68,
+        69,
+        93,
+        94,
+        98,
+        99,
+        100,
+        113,
+        114,
+        115,
+        116,
+        123,
+        124,
+        125,
+        126,
+        132,
+        133,
+        142,
+        143,
+        151,
+        158,
+        169,
+        183
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-guided-follow-ups.mjs",
+      "total_lines": 192,
+      "cases": [
+        {
+          "name": "Cheaper asks for a price without inventing a budget",
+          "start": 66,
+          "end": 71
+        },
+        {
+          "name": "A budget answer changes only the maximum price",
+          "start": 73,
+          "end": 82
+        },
+        {
+          "name": "Invalid, unchanged or increased cheaper budgets are rejected",
+          "start": 84,
+          "end": 91
+        },
+        {
+          "name": "The previous minimum price is not silently removed",
+          "start": 93,
+          "end": 99
+        },
+        {
+          "name": "A zero maximum is preserved as a real number",
+          "start": 101,
+          "end": 109
+        },
+        {
+          "name": "Different colour asks before replacing the saved colour",
+          "start": 111,
+          "end": 117
+        },
+        {
+          "name": "A colour answer preserves size, budget and exclusions",
+          "start": 119,
+          "end": 127
+        },
+        {
+          "name": "Unknown, excluded or unchanged colour answers need clarification",
+          "start": 129,
+          "end": 136
+        },
+        {
+          "name": "More casual asks instead of inventing a style mapping",
+          "start": 138,
+          "end": 143
+        },
+        {
+          "name": "A chosen catalogue style changes only the style",
+          "start": 145,
+          "end": 153
+        },
+        {
+          "name": "Unknown style answers do not change saved preferences",
+          "start": 155,
+          "end": 160
+        },
+        {
+          "name": "Cancel closes a pending question without removing constraints",
+          "start": 162,
+          "end": 173
+        },
+        {
+          "name": "Unrelated and compound messages still use the existing extractor",
+          "start": 175,
+          "end": 183
+        },
+        {
+          "name": "A new guided question replaces the pending question",
+          "start": 185,
+          "end": 190
+        }
+      ],
+      "assertion_lines": [
+        69,
+        70,
+        76,
+        77,
+        81,
+        88,
+        89,
+        97,
+        98,
+        104,
+        105,
+        108,
+        114,
+        115,
+        116,
+        122,
+        123,
+        133,
+        134,
+        141,
+        142,
+        148,
+        149,
+        158,
+        159,
+        170,
+        171,
+        181,
+        188,
+        189
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-cross-sell.mjs",
+      "total_lines": 298,
+      "cases": [
+        {
+          "name": "Recorded category returns a real complementary item",
+          "start": 91,
+          "end": 102
+        },
+        {
+          "name": "Unavailable or missing main product cannot start cross-selling",
+          "start": 104,
+          "end": 111
+        },
+        {
+          "name": "Missing and unknown rules do not invent a target category",
+          "start": 113,
+          "end": 123
+        },
+        {
+          "name": "Subcategory rule does not return a different subcategory",
+          "start": 125,
+          "end": 143
+        },
+        {
+          "name": "Missing additional-item size does not block discovery",
+          "start": 145,
+          "end": 154
+        },
+        {
+          "name": "A shoe size is supplied independently of clothing size",
+          "start": 156,
+          "end": 171
+        },
+        {
+          "name": "Budget boundary is inclusive and zero is not ignored",
+          "start": 173,
+          "end": 181
+        },
+        {
+          "name": "Wrong size and malformed stock or sizes are excluded",
+          "start": 183,
+          "end": 193
+        },
+        {
+          "name": "Colour exclusions also reject products without a recorded colour",
+          "start": 195,
+          "end": 204
+        },
+        {
+          "name": "Unknown required colour triggers clarification",
+          "start": 206,
+          "end": 213
+        },
+        {
+          "name": "Partial-match warning is preserved",
+          "start": 215,
+          "end": 220
+        },
+        {
+          "name": "Excluded product IDs are removed before shortlisting",
+          "start": 222,
+          "end": 238
+        },
+        {
+          "name": "Main item is never returned as its own cross-sell",
+          "start": 240,
+          "end": 247
+        },
+        {
+          "name": "Budget can be omitted but the target category is still server-controlled",
+          "start": 249,
+          "end": 273
+        },
+        {
+          "name": "Input preferences are not mutated and at most five products return",
+          "start": 275,
+          "end": 295
+        }
+      ],
+      "assertion_lines": [
+        79,
+        80,
+        94,
+        95,
+        96,
+        98,
+        109,
+        114,
+        119,
+        139,
+        148,
+        149,
+        150,
+        169,
+        174,
+        211,
+        212,
+        218,
+        219,
+        234,
+        254,
+        255,
+        263,
+        264,
+        266,
+        293,
+        294
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-cross-sell-client.mjs",
+      "total_lines": 222,
+      "cases": [
+        {
+          "name": "Additional budget and size are separate from the main request",
+          "start": 69,
+          "end": 75
+        },
+        {
+          "name": "Shared preferences and exclusions are copied without mutation",
+          "start": 77,
+          "end": 87
+        },
+        {
+          "name": "Invalid budgets and empty selections are rejected",
+          "start": 89,
+          "end": 103
+        },
+        {
+          "name": "Zero budget and an unanswered size are preserved",
+          "start": 105,
+          "end": 115
+        },
+        {
+          "name": "Unsupported saved preferences are not silently discarded",
+          "start": 117,
+          "end": 131
+        },
+        {
+          "name": "Valid product response is accepted",
+          "start": 133,
+          "end": 136
+        },
+        {
+          "name": "Responses for another main product or budget are rejected",
+          "start": 138,
+          "end": 158
+        },
+        {
+          "name": "Main product, over-budget items and wrong sizes are rejected",
+          "start": 160,
+          "end": 177
+        },
+        {
+          "name": "No-match and clarification responses remain empty",
+          "start": 179,
+          "end": 204
+        },
+        {
+          "name": "Duplicate IDs and unexpected budget scope are rejected",
+          "start": 206,
+          "end": 220
+        }
+      ],
+      "assertion_lines": [
+        70,
+        71,
+        72,
+        73,
+        74,
+        78,
+        79,
+        80,
+        81,
+        83,
+        91,
+        96,
+        100,
+        113,
+        114,
+        124,
+        135,
+        139,
+        146,
+        167,
+        195,
+        198,
+        207,
+        214
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-upsell.mjs",
+      "total_lines": 321,
+      "cases": [
+        {
+          "name": "Higher-priced replacement needs a specific added match",
+          "start": 112,
+          "end": 128
+        },
+        {
+          "name": "Higher price with identical matches is not an upsell",
+          "start": 130,
+          "end": 132
+        },
+        {
+          "name": "Existing matched preferences cannot be sacrificed",
+          "start": 134,
+          "end": 136
+        },
+        {
+          "name": "Maximum is inclusive; higher prices never pass",
+          "start": 138,
+          "end": 141
+        },
+        {
+          "name": "Equal-price and cheaper items are not upsells",
+          "start": 143,
+          "end": 147
+        },
+        {
+          "name": "Same category, subcategory, product type and collection are required",
+          "start": 149,
+          "end": 158
+        },
+        {
+          "name": "Wrong sizes, unavailable products and invalid stock are excluded",
+          "start": 160,
+          "end": 171
+        },
+        {
+          "name": "Colour, exclusions and material requirements remain enforced",
+          "start": 173,
+          "end": 183
+        },
+        {
+          "name": "Unknown size or budget does not block a qualifying replacement",
+          "start": 185,
+          "end": 206
+        },
+        {
+          "name": "A zero budget is not treated as unlimited",
+          "start": 208,
+          "end": 219
+        },
+        {
+          "name": "Main product must exist and still pass the request",
+          "start": 221,
+          "end": 231
+        },
+        {
+          "name": "No requested context improvement means no price-only upsell",
+          "start": 233,
+          "end": 239
+        },
+        {
+          "name": "Required values are validated and requests are not mutated",
+          "start": 241,
+          "end": 251
+        },
+        {
+          "name": "Remaining unmatched preferences are disclosed",
+          "start": 253,
+          "end": 265
+        },
+        {
+          "name": "Exclusions happen before the shortlist, not afterward",
+          "start": 267,
+          "end": 294
+        },
+        {
+          "name": "Price differences use cents; client price overrides are rejected",
+          "start": 296,
+          "end": 319
+        }
+      ],
+      "assertion_lines": [
+        100,
+        101,
+        115,
+        116,
+        117,
+        118,
+        120,
+        124,
+        139,
+        193,
+        194,
+        196,
+        201,
+        222,
+        227,
+        242,
+        250,
+        256,
+        258,
+        262,
+        279,
+        297,
+        304,
+        312
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-upsell-client.mjs",
+      "total_lines": 237,
+      "cases": [
+        {
+          "name": "Request preserves all preferences without mutating them",
+          "start": 54,
+          "end": 65
+        },
+        {
+          "name": "Invalid supplied values and missing reference product are rejected",
+          "start": 67,
+          "end": 87
+        },
+        {
+          "name": "Valid options and their comparison evidence are accepted",
+          "start": 89,
+          "end": 93
+        },
+        {
+          "name": "No-upsell and clarification statuses accept empty results",
+          "start": 95,
+          "end": 105
+        },
+        {
+          "name": "Results cannot belong to another main product",
+          "start": 107,
+          "end": 117
+        },
+        {
+          "name": "Applied preferences cannot silently change",
+          "start": 119,
+          "end": 131
+        },
+        {
+          "name": "Equal, cheaper and over-budget replacements are rejected",
+          "start": 133,
+          "end": 152
+        },
+        {
+          "name": "Size and like-for-like product identity are checked",
+          "start": 154,
+          "end": 163
+        },
+        {
+          "name": "Duplicate options and the main item are rejected",
+          "start": 165,
+          "end": 176
+        },
+        {
+          "name": "Price differences must agree and invalid precision is rejected",
+          "start": 178,
+          "end": 202
+        },
+        {
+          "name": "Options require evidence and status must agree with products",
+          "start": 204,
+          "end": 218
+        },
+        {
+          "name": "Remaining differences survive response validation",
+          "start": 220,
+          "end": 235
+        }
+      ],
+      "assertion_lines": [
+        55,
+        56,
+        57,
+        61,
+        74,
+        79,
+        81,
+        91,
+        92,
+        103,
+        108,
+        112,
+        124,
+        135,
+        143,
+        159,
+        166,
+        170,
+        179,
+        186,
+        193,
+        205,
+        212,
+        213,
+        215,
+        231
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-chat-request.mjs",
+      "total_lines": 190,
+      "cases": [
+        {
+          "name": "A successful request keeps the submitted preferences",
+          "start": 34,
+          "end": 53
+        },
+        {
+          "name": "No-match and clarification responses are normal results",
+          "start": 55,
+          "end": 67
+        },
+        {
+          "name": "HTTP failures are not converted into no-match results",
+          "start": 69,
+          "end": 84
+        },
+        {
+          "name": "Malformed success JSON becomes a controlled error",
+          "start": 86,
+          "end": 94
+        },
+        {
+          "name": "Network errors do not leak their original message",
+          "start": 96,
+          "end": 108
+        },
+        {
+          "name": "A cancelled request is not sent",
+          "start": 110,
+          "end": 131
+        },
+        {
+          "name": "A stalled request times out",
+          "start": 145,
+          "end": 153
+        },
+        {
+          "name": "Reset-style cancellation stops an active request",
+          "start": 155,
+          "end": 171
+        },
+        {
+          "name": "Failures do not start automatic retries",
+          "start": 173,
+          "end": 188
+        }
+      ],
+      "assertion_lines": [
+        40,
+        41,
+        42,
+        50,
+        51,
+        63,
+        64,
+        73,
+        89,
+        99,
+        118,
+        129,
+        148,
+        166,
+        178,
+        186
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-optional-discovery.mjs",
+      "total_lines": 250,
+      "cases": [
+        {
+          "name": "Cross-sell works without asking for size or budget",
+          "start": 99,
+          "end": 110
+        },
+        {
+          "name": "A stated cross-sell budget remains binding when size is unknown",
+          "start": 112,
+          "end": 123
+        },
+        {
+          "name": "A stated extra-item size remains binding when budget is unknown",
+          "start": 125,
+          "end": 133
+        },
+        {
+          "name": "Blank extra budget becomes null, not zero or the main budget",
+          "start": 135,
+          "end": 173
+        },
+        {
+          "name": "Unknown discovery inputs do not allow unavailable stock",
+          "start": 175,
+          "end": 190
+        },
+        {
+          "name": "Upsell can return a justified alternative without size or budget",
+          "start": 192,
+          "end": 206
+        },
+        {
+          "name": "An upsell still honours whichever constraints were supplied",
+          "start": 208,
+          "end": 238
+        },
+        {
+          "name": "No budget does not justify a higher-price-only upsell",
+          "start": 240,
+          "end": 248
+        }
+      ],
+      "assertion_lines": [
+        106,
+        107,
+        108,
+        109,
+        120,
+        121,
+        132,
+        149,
+        150,
+        151,
+        152,
+        156,
+        161,
+        188,
+        196,
+        197,
+        198,
+        199,
+        200,
+        202,
+        220,
+        221,
+        235,
+        247
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-card-actions.mjs",
+      "total_lines": 188,
+      "cases": [
+        {
+          "name": "The card supplies its product ID; missing budget and size stay null",
+          "start": 77,
+          "end": 84
+        },
+        {
+          "name": "An explicit maximum is retained, but clothing size is not copied to extras",
+          "start": 86,
+          "end": 99
+        },
+        {
+          "name": "Action construction leaves the original preferences unchanged",
+          "start": 101,
+          "end": 108
+        },
+        {
+          "name": "Cross-sell supplies the next active category without changing the main request",
+          "start": 110,
+          "end": 116
+        },
+        {
+          "name": "A response for a different reference product is rejected",
+          "start": 118,
+          "end": 125
+        },
+        {
+          "name": "No-rule responses remain normal empty results",
+          "start": 127,
+          "end": 138
+        },
+        {
+          "name": "Unsupported saved requirements are not silently removed",
+          "start": 140,
+          "end": 145
+        },
+        {
+          "name": "Upsell explanations survive response handling",
+          "start": 147,
+          "end": 172
+        },
+        {
+          "name": "Only an actual One Size label can be automatic",
+          "start": 174,
+          "end": 180
+        },
+        {
+          "name": "A numbered size or multi-size product still needs a customer choice",
+          "start": 182,
+          "end": 186
+        }
+      ],
+      "assertion_lines": [
+        80,
+        81,
+        82,
+        83,
+        92,
+        93,
+        94,
+        98,
+        105,
+        106,
+        107,
+        113,
+        114,
+        115,
+        119,
+        136,
+        137,
+        141,
+        168,
+        175,
+        176,
+        184
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-cheaper-search.mjs",
+      "total_lines": 293,
+      "cases": [
+        {
+          "name": "Recognises common standalone cheaper requests",
+          "start": 93,
+          "end": 104
+        },
+        {
+          "name": "Does not swallow negation or extra instructions",
+          "start": 106,
+          "end": 116
+        },
+        {
+          "name": "Searches below the reference without demanding budget or size",
+          "start": 118,
+          "end": 127
+        },
+        {
+          "name": "Never repeats the reference or equal-priced items",
+          "start": 129,
+          "end": 139
+        },
+        {
+          "name": "Keeps explicit budgets, zero and minimum prices",
+          "start": 141,
+          "end": 146
+        },
+        {
+          "name": "Preserves size, stock and colour checks",
+          "start": 148,
+          "end": 170
+        },
+        {
+          "name": "Uses the lowest price when comparing one shortlist",
+          "start": 172,
+          "end": 189
+        },
+        {
+          "name": "Checks reference prices against the catalogue",
+          "start": 191,
+          "end": 202
+        },
+        {
+          "name": "Keeps a known product type and clarifies mixed categories",
+          "start": 204,
+          "end": 227
+        },
+        {
+          "name": "Filters before shortlisting and retains partial warnings",
+          "start": 229,
+          "end": 250
+        },
+        {
+          "name": "No-match is normal, including a zero-priced reference",
+          "start": 252,
+          "end": 263
+        },
+        {
+          "name": "Context is copied and comparisons do not rewrite the saved budget",
+          "start": 265,
+          "end": 291
+        }
+      ],
+      "assertion_lines": [
+        102,
+        114,
+        121,
+        122,
+        126,
+        130,
+        135,
+        142,
+        143,
+        144,
+        145,
+        157,
+        163,
+        186,
+        187,
+        188,
+        192,
+        201,
+        205,
+        219,
+        244,
+        245,
+        249,
+        253,
+        255,
+        268,
+        277,
+        278,
+        282
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-viewed-product.mjs",
+      "total_lines": 244,
+      "cases": [
+        {
+          "name": "The page exposes only the defined public product fields",
+          "start": 47,
+          "end": 56
+        },
+        {
+          "name": "Missing or malformed catalogue records are not registered",
+          "start": 58,
+          "end": 74
+        },
+        {
+          "name": "Viewing an item supplies identity, not a guessed size or budget",
+          "start": 76,
+          "end": 85
+        },
+        {
+          "name": "Same-category size and explicit restrictions are retained",
+          "start": 87,
+          "end": 107
+        },
+        {
+          "name": "Zero maximum remains a real restriction",
+          "start": 109,
+          "end": 117
+        },
+        {
+          "name": "Clothing size is not transferred to a viewed shoe",
+          "start": 119,
+          "end": 141
+        },
+        {
+          "name": "Newly viewed page provides a price reference without a main search",
+          "start": 143,
+          "end": 159
+        },
+        {
+          "name": "After page use, the latest conversational results take priority",
+          "start": 161,
+          "end": 175
+        },
+        {
+          "name": "A new page visit takes priority over an older shortlist",
+          "start": 177,
+          "end": 202
+        },
+        {
+          "name": "Consumed page is not silently reused after an empty result",
+          "start": 204,
+          "end": 209
+        },
+        {
+          "name": "Away from a product page the current chat still works",
+          "start": 211,
+          "end": 223
+        },
+        {
+          "name": "Reset clears chat history but a visible page remains a reference",
+          "start": 225,
+          "end": 242
+        }
+      ],
+      "assertion_lines": [
+        29,
+        53,
+        54,
+        55,
+        59,
+        69,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        101,
+        102,
+        106,
+        110,
+        137,
+        138,
+        139,
+        140,
+        151,
+        153,
+        174,
+        197,
+        201,
+        205,
+        214,
+        219,
+        233,
+        238
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-conversation-foundation.mjs",
+      "total_lines": 339,
+      "cases": [
+        {
+          "name": "The second product uses the displayed order",
+          "start": 55,
+          "end": 63
+        },
+        {
+          "name": "The second dress uses the matching subcategory order",
+          "start": 65,
+          "end": 73
+        },
+        {
+          "name": "An exact product name is resolved without requiring its ID",
+          "start": 75,
+          "end": 82
+        },
+        {
+          "name": "An unknown ID or unavailable position is not replaced by a guess",
+          "start": 84,
+          "end": 101
+        },
+        {
+          "name": "Ambiguous context and duplicate names require clarification",
+          "start": 103,
+          "end": 124
+        },
+        {
+          "name": "A genuinely focused page or card is used for this item",
+          "start": 126,
+          "end": 142
+        },
+        {
+          "name": "Empty context and invalid positions cannot choose a product",
+          "start": 144,
+          "end": 160
+        },
+        {
+          "name": "Unknown size and budget stay unknown",
+          "start": 162,
+          "end": 167
+        },
+        {
+          "name": "Dress-specific colour, size and budget do not become bag requirements",
+          "start": 169,
+          "end": 194
+        },
+        {
+          "name": "Explicit shared colours, exclusions and per-item maximum survive category changes",
+          "start": 196,
+          "end": 213
+        },
+        {
+          "name": "A narrower item budget wins without raising a shared ceiling",
+          "start": 215,
+          "end": 226
+        },
+        {
+          "name": "Zero limits and conflicting price ranges are not ignored",
+          "start": 228,
+          "end": 240
+        },
+        {
+          "name": "Allowed colours are intersected rather than broadened",
+          "start": 242,
+          "end": 259
+        },
+        {
+          "name": "Exclusions combine and preferred/excluded conflicts are not hidden",
+          "start": 261,
+          "end": 278
+        },
+        {
+          "name": "Incompatible shared and item requirements require clarification",
+          "start": 280,
+          "end": 290
+        },
+        {
+          "name": "A clothing size cannot be stored as a universal shared size",
+          "start": 292,
+          "end": 304
+        },
+        {
+          "name": "Unsupported shared restrictions survive a new item and block unsafe search",
+          "start": 306,
+          "end": 321
+        },
+        {
+          "name": "Composition does not mutate either scope",
+          "start": 323,
+          "end": 335
+        }
+      ],
+      "assertion_lines": [
+        43,
+        62,
+        72,
+        81,
+        85,
+        93,
+        104,
+        123,
+        127,
+        135,
+        145,
+        153,
+        165,
+        166,
+        189,
+        190,
+        191,
+        192,
+        193,
+        210,
+        211,
+        212,
+        221,
+        225,
+        232,
+        236,
+        248,
+        255,
+        267,
+        274,
+        286,
+        295,
+        317,
+        318,
+        334
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-conversation-plan.mjs",
+      "total_lines": 431,
+      "cases": [
+        {
+          "name": "A new search sets only supplied item preferences",
+          "start": 95,
+          "end": 107
+        },
+        {
+          "name": "Refinement preserves every unmentioned preference",
+          "start": 109,
+          "end": 122
+        },
+        {
+          "name": "A bag for the second dress resolves the ID and clears dress-only constraints",
+          "start": 124,
+          "end": 143
+        },
+        {
+          "name": "Shared restrictions survive an additional-item request",
+          "start": 145,
+          "end": 165
+        },
+        {
+          "name": "An explicit shared ceiling can be added and item limits cannot raise it",
+          "start": 167,
+          "end": 187
+        },
+        {
+          "name": "Shared size or product identity is rejected",
+          "start": 189,
+          "end": 205
+        },
+        {
+          "name": "Unsupported exclusions remain recorded and block unsafe retrieval",
+          "start": 207,
+          "end": 228
+        },
+        {
+          "name": "Adding an exclusion does not erase previous exclusions",
+          "start": 230,
+          "end": 261
+        },
+        {
+          "name": "A stated removal deletes only the named restriction",
+          "start": 263,
+          "end": 286
+        },
+        {
+          "name": "Invented evidence, duplicate changes and invalid value types are rejected",
+          "start": 288,
+          "end": 315
+        },
+        {
+          "name": "Ambiguous and unknown references do not choose the first product",
+          "start": 317,
+          "end": 332
+        },
+        {
+          "name": "Cheaper and blue can be interpreted without inventing a budget",
+          "start": 334,
+          "end": 351
+        },
+        {
+          "name": "Changing category clears only incompatible identity and size",
+          "start": 353,
+          "end": 364
+        },
+        {
+          "name": "Zero maximum remains a real limit",
+          "start": 366,
+          "end": 374
+        },
+        {
+          "name": "Unrelated messages and clarification do not execute actions",
+          "start": 376,
+          "end": 404
+        },
+        {
+          "name": "Unexpected fields and invalid plans cannot be treated as recommendations",
+          "start": 406,
+          "end": 429
+        }
+      ],
+      "assertion_lines": [
+        102,
+        103,
+        104,
+        105,
+        106,
+        116,
+        117,
+        118,
+        138,
+        139,
+        140,
+        141,
+        142,
+        160,
+        161,
+        186,
+        190,
+        198,
+        222,
+        223,
+        224,
+        249,
+        254,
+        282,
+        289,
+        297,
+        308,
+        329,
+        330,
+        345,
+        346,
+        347,
+        360,
+        361,
+        362,
+        363,
+        373,
+        380,
+        385,
+        387,
+        397,
+        407,
+        415,
+        428
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-conversation-search.mjs",
+      "total_lines": 492,
+      "cases": [
+        {
+          "name": "A new search returns catalogue products without size or budget",
+          "start": 173,
+          "end": 184
+        },
+        {
+          "name": "Cross-sell clears dress-only colour and budget, not shared restrictions",
+          "start": 186,
+          "end": 206
+        },
+        {
+          "name": "Shared budget remains binding without becoming an item override",
+          "start": 208,
+          "end": 220
+        },
+        {
+          "name": "Cross-sell applies material and minimum-price restrictions before shortlisting",
+          "start": 222,
+          "end": 249
+        },
+        {
+          "name": "A shoes request cannot silently receive the recorded bag category",
+          "start": 251,
+          "end": 261
+        },
+        {
+          "name": "A general extra request uses the stored rule and remembers target identity",
+          "start": 263,
+          "end": 272
+        },
+        {
+          "name": "An ambiguous reference never falls back to the first product",
+          "start": 274,
+          "end": 287
+        },
+        {
+          "name": "Missing or changed reference records request refreshed context",
+          "start": 289,
+          "end": 310
+        },
+        {
+          "name": "Cheaper and blue uses catalogue results without inventing a budget",
+          "start": 312,
+          "end": 334
+        },
+        {
+          "name": "Cheaper checks the displayed price and does not fabricate a missing one",
+          "start": 336,
+          "end": 356
+        },
+        {
+          "name": "The relative search still honours a narrower shared ceiling",
+          "start": 358,
+          "end": 372
+        },
+        {
+          "name": "Upsell reuses the benefit rule rather than treating price as a benefit",
+          "start": 374,
+          "end": 404
+        },
+        {
+          "name": "Unresolved requirements and questions never produce products",
+          "start": 406,
+          "end": 427
+        },
+        {
+          "name": "Unknown required catalogue values trigger clarification",
+          "start": 429,
+          "end": 445
+        },
+        {
+          "name": "An explicit requested category works without a default rule, while genuine no-matches stay empty",
+          "start": 447,
+          "end": 463
+        },
+        {
+          "name": "No-action preserves state and returned IDs come from the catalogue",
+          "start": 465,
+          "end": 489
+        }
+      ],
+      "assertion_lines": [
+        180,
+        181,
+        182,
+        183,
+        198,
+        199,
+        200,
+        201,
+        205,
+        214,
+        218,
+        219,
+        242,
+        248,
+        258,
+        259,
+        260,
+        269,
+        270,
+        271,
+        285,
+        286,
+        305,
+        328,
+        329,
+        333,
+        353,
+        354,
+        370,
+        371,
+        391,
+        392,
+        396,
+        400,
+        410,
+        425,
+        426,
+        443,
+        444,
+        454,
+        462,
+        476,
+        477,
+        478,
+        484
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-plan-evidence.mjs",
+      "total_lines": 177,
+      "cases": [
+        {
+          "name": "Valid evidence needs only one generation",
+          "start": 68,
+          "end": 82
+        },
+        {
+          "name": "Invalid intent evidence permits one correction",
+          "start": 84,
+          "end": 97
+        },
+        {
+          "name": "Invalid change evidence identifies the failing field",
+          "start": 99,
+          "end": 119
+        },
+        {
+          "name": "Two invalid responses ask for clarification without applying the bad plan",
+          "start": 121,
+          "end": 132
+        },
+        {
+          "name": "Other invalid plans get one correction without weakening scope safeguards",
+          "start": 134,
+          "end": 159
+        },
+        {
+          "name": "Provider failures are not retried by the evidence helper",
+          "start": 161,
+          "end": 174
+        }
+      ],
+      "assertion_lines": [
+        75,
+        80,
+        81,
+        95,
+        96,
+        113,
+        118,
+        127,
+        128,
+        129,
+        130,
+        131,
+        152,
+        155,
+        156,
+        157,
+        158,
+        165,
+        173
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-plan-recovery.mjs",
+      "total_lines": 233,
+      "cases": [
+        {
+          "name": "The model schema binds list, number and enum values to their fields",
+          "start": 28,
+          "end": 47
+        },
+        {
+          "name": "A malformed unresolved list can be corrected before an outfit request is executed",
+          "start": 49,
+          "end": 70
+        },
+        {
+          "name": "No-leather requirements stay recorded and cannot retrieve unchecked products",
+          "start": 72,
+          "end": 87
+        },
+        {
+          "name": "Invalid shoe categories get a correction and still obey cross-sell rules",
+          "start": 89,
+          "end": 120
+        },
+        {
+          "name": "Two invalid plans clarify without changing saved limits or selecting references",
+          "start": 122,
+          "end": 151
+        },
+        {
+          "name": "Well-shaped plans cannot hide a material exclusion in a soft style or omit it",
+          "start": 153,
+          "end": 171
+        },
+        {
+          "name": "A well-shaped outfit plan cannot silently reinterpret the total as a per-item limit",
+          "start": 173,
+          "end": 179
+        },
+        {
+          "name": "Explicitly removing an unsupported requirement or switching to a single item still works",
+          "start": 181,
+          "end": 202
+        },
+        {
+          "name": "SDK parse errors and invalid JSON get the same bounded recovery",
+          "start": 204,
+          "end": 219
+        },
+        {
+          "name": "Invalid requests and unexpected application failures are not concealed",
+          "start": 221,
+          "end": 230
+        }
+      ],
+      "assertion_lines": [
+        37,
+        38,
+        39,
+        43,
+        44,
+        45,
+        46,
+        59,
+        60,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        103,
+        107,
+        108,
+        109,
+        110,
+        111,
+        118,
+        119,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        149,
+        150,
+        161,
+        162,
+        165,
+        166,
+        167,
+        168,
+        169,
+        175,
+        189,
+        190,
+        192,
+        200,
+        201,
+        216,
+        217,
+        223,
+        224,
+        226,
+        229
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-conversation-answers.mjs",
+      "total_lines": 328,
+      "cases": [
+        {
+          "name": "Recommendation answers identify the requested product and factual occasion match",
+          "start": 37,
+          "end": 48
+        },
+        {
+          "name": "An occasion mismatch and a stale budget are disclosed",
+          "start": 50,
+          "end": 57
+        },
+        {
+          "name": "Questions preserve shortlist order, preferences and input immutability",
+          "start": 59,
+          "end": 69
+        },
+        {
+          "name": "A subsequent matching-bag request resolves it to the discussed dress",
+          "start": 71,
+          "end": 80
+        },
+        {
+          "name": "Comparisons use both authoritative records and a real price difference",
+          "start": 82,
+          "end": 92
+        },
+        {
+          "name": "Duplicate comparison references clarify instead of comparing one product to itself",
+          "start": 94,
+          "end": 100
+        },
+        {
+          "name": "Friday delivery answers use shared policy without inventing an ETA",
+          "start": 102,
+          "end": 112
+        },
+        {
+          "name": "Returns preserve published limits and do not promise eligibility or free postage",
+          "start": 114,
+          "end": 121
+        },
+        {
+          "name": "Fit, sizes, care and quality answers acknowledge missing evidence",
+          "start": 123,
+          "end": 131
+        },
+        {
+          "name": "Unknown product questions are answered with their information limit",
+          "start": 133,
+          "end": 136
+        },
+        {
+          "name": "Unavailable and unknown stock are differentiated, and stock is never reserved",
+          "start": 138,
+          "end": 143
+        },
+        {
+          "name": "Missing or changed products cannot produce stale factual answers",
+          "start": 145,
+          "end": 153
+        },
+        {
+          "name": "A forged product snapshot price cannot affect the answer",
+          "start": 155,
+          "end": 161
+        },
+        {
+          "name": "Ambiguous questions retain the original goal and accept a short reference answer",
+          "start": 163,
+          "end": 173
+        },
+        {
+          "name": "A policy interjection preserves a pending product question",
+          "start": 175,
+          "end": 183
+        },
+        {
+          "name": "Policy and product questions do not consume a pending shopping clarification",
+          "start": 185,
+          "end": 194
+        },
+        {
+          "name": "Cancelling an answer clarification preserves the unfinished search",
+          "start": 196,
+          "end": 204
+        },
+        {
+          "name": "Mixed explanation and cheaper search performs both with the explicit reference",
+          "start": 206,
+          "end": 213
+        },
+        {
+          "name": "Ambiguous mixed requests resume both the answer and saved shopping action",
+          "start": 215,
+          "end": 229
+        },
+        {
+          "name": "Resolving an explanation does not replace a separately specified cheaper reference",
+          "start": 231,
+          "end": 239
+        },
+        {
+          "name": "A new ambiguous question does not inherit a previous mixed shopping action",
+          "start": 241,
+          "end": 247
+        },
+        {
+          "name": "Simple clarification selections resolve deterministically without losing the saved question",
+          "start": 249,
+          "end": 262
+        },
+        {
+          "name": "Malformed question continuations retain the original question and mixed action",
+          "start": 264,
+          "end": 274
+        },
+        {
+          "name": "A policy question combined with an explicit search supersedes an old product clarification",
+          "start": 276,
+          "end": 287
+        },
+        {
+          "name": "An answer cannot sneak in preferences, a forged purpose or change the pending question",
+          "start": 289,
+          "end": 298
+        },
+        {
+          "name": "Pure questions cannot save their occasion as a preference and get actionable correction feedback",
+          "start": 300,
+          "end": 313
+        },
+        {
+          "name": "Answer retries reuse interpretation and duplicate requests reuse the same answer",
+          "start": 315,
+          "end": 324
+        }
+      ],
+      "assertion_lines": [
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        54,
+        55,
+        56,
+        64,
+        65,
+        66,
+        67,
+        68,
+        76,
+        78,
+        79,
+        85,
+        86,
+        87,
+        88,
+        89,
+        91,
+        97,
+        98,
+        99,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        117,
+        118,
+        119,
+        120,
+        126,
+        127,
+        128,
+        129,
+        130,
+        135,
+        140,
+        141,
+        142,
+        149,
+        150,
+        151,
+        159,
+        160,
+        166,
+        168,
+        171,
+        172,
+        182,
+        191,
+        192,
+        202,
+        203,
+        209,
+        210,
+        211,
+        212,
+        218,
+        219,
+        220,
+        223,
+        225,
+        226,
+        227,
+        228,
+        236,
+        237,
+        238,
+        246,
+        256,
+        258,
+        259,
+        261,
+        270,
+        271,
+        272,
+        273,
+        283,
+        284,
+        285,
+        286,
+        291,
+        292,
+        295,
+        296,
+        297,
+        306,
+        310,
+        311,
+        312,
+        320,
+        322,
+        323
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-conversation-production.mjs",
+      "total_lines": 93,
+      "cases": [
+        {
+          "name": "The customer conversation route accepts a valid request in production",
+          "start": 33,
+          "end": 37
+        },
+        {
+          "name": "The customer UI envelope works in production",
+          "start": 38,
+          "end": 43
+        },
+        {
+          "name": "The commerce kill switch disables new comparisons without model or catalogue access",
+          "start": 44,
+          "end": 57
+        },
+        {
+          "name": "Same-origin requests remain accepted",
+          "start": 58,
+          "end": 60
+        },
+        {
+          "name": "Production cancellation restores pending preferences",
+          "start": 61,
+          "end": 71
+        },
+        {
+          "name": "Cross-origin requests remain rejected",
+          "start": 72,
+          "end": 74
+        },
+        {
+          "name": "Malformed origins remain rejected",
+          "start": 75,
+          "end": 77
+        },
+        {
+          "name": "Unsupported content types remain rejected",
+          "start": 78,
+          "end": 80
+        },
+        {
+          "name": "Malformed JSON remains rejected",
+          "start": 81,
+          "end": 81
+        },
+        {
+          "name": "Invalid conversation input remains rejected",
+          "start": 82,
+          "end": 82
+        },
+        {
+          "name": "Oversized bodies remain rejected",
+          "start": 83,
+          "end": 83
+        },
+        {
+          "name": "Expired retries still return a useful conflict instead of running a new model call",
+          "start": 84,
+          "end": 87
+        }
+      ],
+      "assertion_lines": [
+        8,
+        27,
+        28,
+        35,
+        36,
+        42,
+        51,
+        52,
+        53,
+        69,
+        70,
+        86,
+        88
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-stylist-commerce.mjs",
+      "total_lines": 255,
+      "cases": [
+        {
+          "name": "Changing the anchor changes rankings on an occasion/style counterfactual",
+          "start": 33,
+          "end": 38
+        },
+        {
+          "name": "An explicit Shoes request overrides the default Bags rule without substituting a bag",
+          "start": 39,
+          "end": 43
+        },
+        {
+          "name": "Explicit requested roles work when there is no default pairing rule",
+          "start": 44,
+          "end": 47
+        },
+        {
+          "name": "A generic extra uses the next approved role instead of an already-owned category",
+          "start": 48,
+          "end": 51
+        },
+        {
+          "name": "Stock cannot override a stronger compatibility score",
+          "start": 52,
+          "end": 55
+        },
+        {
+          "name": "Compatibility never relaxes hard colours, exclusions, size or budget",
+          "start": 56,
+          "end": 60
+        },
+        {
+          "name": "Limited evidence stays labelled instead of becoming a confident match",
+          "start": 61,
+          "end": 64
+        },
+        {
+          "name": "A verified relevant feature can justify an upgrade without an extra context label",
+          "start": 65,
+          "end": 71
+        },
+        {
+          "name": "Unknown original features cannot establish an improvement",
+          "start": 72,
+          "end": 74
+        },
+        {
+          "name": "Draft, malformed and mismatched-product evidence cannot qualify",
+          "start": 75,
+          "end": 79
+        },
+        {
+          "name": "Feature value types and source review dates are checked",
+          "start": 80,
+          "end": 85
+        },
+        {
+          "name": "More expensive identical features never establish a benefit",
+          "start": 86,
+          "end": 88
+        },
+        {
+          "name": "Same-price and cheaper benefits are honest alternatives, ranked before more expensive equivalents",
+          "start": 89,
+          "end": 97
+        },
+        {
+          "name": "Feature losses are disclosed and explicit must-haves cannot be sacrificed",
+          "start": 98,
+          "end": 102
+        },
+        {
+          "name": "Upgrades preserve the budget including zero and the exact inclusive boundary",
+          "start": 103,
+          "end": 107
+        },
+        {
+          "name": "Previously matched context still cannot be sacrificed for a feature",
+          "start": 108,
+          "end": 110
+        },
+        {
+          "name": "Related types require internal permission and stay in the same functional subcategory",
+          "start": 111,
+          "end": 116
+        },
+        {
+          "name": "Required features fail closed instead of inferring facts from descriptions",
+          "start": 117,
+          "end": 120
+        },
+        {
+          "name": "Keeping a card stores an outfit choice without adding it to the cart or auto-selecting other cards",
+          "start": 121,
+          "end": 127
+        },
+        {
+          "name": "Outfit choices survive new results, product questions and cancellation",
+          "start": 128,
+          "end": 142
+        },
+        {
+          "name": "A later keep replaces the selected item in the same outfit role",
+          "start": 143,
+          "end": 148
+        },
+        {
+          "name": "Owned items and rejected products are retained and not repeated as additions",
+          "start": 149,
+          "end": 158
+        },
+        {
+          "name": "Unlisted owned roles and no-extras are explicit, evidence-backed preferences",
+          "start": 159,
+          "end": 164
+        },
+        {
+          "name": "Outfit actions preserve an unrelated pending shopping question",
+          "start": 165,
+          "end": 169
+        },
+        {
+          "name": "Shared context checks happen before the display cap",
+          "start": 170,
+          "end": 182
+        },
+        {
+          "name": "The active conversation preserves typed feature comparisons on cards",
+          "start": 183,
+          "end": 197
+        },
+        {
+          "name": "An unfulfilled feature requirement stays saved with a useful information-limit answer",
+          "start": 198,
+          "end": 209
+        },
+        {
+          "name": "No-benefit comparisons retain the reference for a subsequent priority answer",
+          "start": 210,
+          "end": 225
+        },
+        {
+          "name": "Repeated category requests retain the item scope without a second model call",
+          "start": 226,
+          "end": 233
+        },
+        {
+          "name": "Finding a feature-based replacement is not blocked by a spurious two-product comparison question",
+          "start": 234,
+          "end": 247
+        },
+        {
+          "name": "Telemetry accepts only minimal typed interaction data, never transcripts or sales claims",
+          "start": 248,
+          "end": 253
+        }
+      ],
+      "assertion_lines": [
+        36,
+        37,
+        41,
+        42,
+        46,
+        50,
+        54,
+        59,
+        63,
+        66,
+        68,
+        69,
+        70,
+        73,
+        77,
+        81,
+        82,
+        83,
+        84,
+        87,
+        93,
+        94,
+        95,
+        96,
+        100,
+        101,
+        104,
+        105,
+        106,
+        109,
+        113,
+        114,
+        115,
+        118,
+        119,
+        124,
+        125,
+        126,
+        135,
+        137,
+        138,
+        141,
+        147,
+        154,
+        157,
+        162,
+        163,
+        168,
+        175,
+        181,
+        187,
+        188,
+        190,
+        192,
+        193,
+        195,
+        196,
+        200,
+        202,
+        203,
+        206,
+        207,
+        208,
+        213,
+        216,
+        217,
+        218,
+        220,
+        224,
+        232,
+        239,
+        246,
+        250,
+        251,
+        252
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-stylist-feature-import.mjs",
+      "total_lines": 57,
+      "cases": [
+        {
+          "name": "The real starter pack remains unknown and produces no import",
+          "start": 11,
+          "end": 15
+        },
+        {
+          "name": "Both confirmed presence and confirmed absence survive without inference",
+          "start": 16,
+          "end": 20
+        },
+        {
+          "name": "Draft and rejected facts never become published rows",
+          "start": 21,
+          "end": 24
+        },
+        {
+          "name": "Approval requires evidence, source version, reviewer and review date",
+          "start": 25,
+          "end": 30
+        },
+        {
+          "name": "Typed feature values and duplicate approved facts are checked",
+          "start": 31,
+          "end": 37
+        },
+        {
+          "name": "Obvious demo evidence and signed/credential-bearing sources cannot be public facts",
+          "start": 38,
+          "end": 42
+        },
+        {
+          "name": "Generated SQL is transactional, validates identity and refuses conflicting updates",
+          "start": 43,
+          "end": 49
+        },
+        {
+          "name": "Apostrophes and backslashes remain data inside one escaped JSON literal",
+          "start": 50,
+          "end": 55
+        }
+      ],
+      "assertion_lines": [
+        13,
+        14,
+        17,
+        18,
+        19,
+        23,
+        27,
+        28,
+        32,
+        33,
+        35,
+        36,
+        40,
+        45,
+        46,
+        47,
+        48,
+        54
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-product-specifications.mjs",
+      "total_lines": 43,
+      "cases": [
+        {
+          "name": "Every saved generated specification satisfies category and identity rules",
+          "start": 12,
+          "end": 15
+        },
+        {
+          "name": "Wrong-product, stale identity, malformed provenance and invalid feature data fail closed",
+          "start": 16,
+          "end": 22
+        },
+        {
+          "name": "Supplier-verified facts take precedence over synthetic fields",
+          "start": 23,
+          "end": 27
+        },
+        {
+          "name": "Synthetic feature benefits remain explicitly synthetic and unknown never becomes absence",
+          "start": 28,
+          "end": 33
+        },
+        {
+          "name": "Product questions and care use the same stored specifications as product pages",
+          "start": 34,
+          "end": 41
+        }
+      ],
+      "assertion_lines": [
+        13,
+        14,
+        17,
+        18,
+        19,
+        20,
+        21,
+        25,
+        26,
+        31,
+        32,
+        38,
+        39,
+        40
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-stylist-telemetry.mjs",
+      "total_lines": 46,
+      "cases": [
+        {
+          "name": "Telemetry is opt-in and performs no database writes when disabled",
+          "start": 17,
+          "end": 17
+        },
+        {
+          "name": "Fifth-position events pass validation; sixth-position events are rejected",
+          "start": 20,
+          "end": 23
+        },
+        {
+          "name": "Complementary placement and dismissal have bounded typed metadata",
+          "start": 24,
+          "end": 29
+        },
+        {
+          "name": "Cross-origin telemetry is rejected",
+          "start": 30,
+          "end": 30
+        },
+        {
+          "name": "Requests without a usable origin are rejected",
+          "start": 31,
+          "end": 31
+        },
+        {
+          "name": "Unsupported content types are rejected",
+          "start": 32,
+          "end": 32
+        },
+        {
+          "name": "Raw messages, prices, and purchase events cannot enter the telemetry schema",
+          "start": 33,
+          "end": 35
+        },
+        {
+          "name": "Batches cannot mix session IDs",
+          "start": 36,
+          "end": 36
+        },
+        {
+          "name": "Oversized telemetry is rejected before database access",
+          "start": 37,
+          "end": 37
+        },
+        {
+          "name": "Missing privileged server configuration fails without exposing credentials",
+          "start": 38,
+          "end": 38
+        }
+      ],
+      "assertion_lines": [
+        17,
+        21,
+        22,
+        26,
+        28,
+        30,
+        31,
+        32,
+        34,
+        36,
+        37,
+        38,
+        39
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-conversation-integration.mjs",
+      "total_lines": 253,
+      "cases": [
+        {
+          "name": "New searches do not require size or budget",
+          "start": 44,
+          "end": 50
+        },
+        {
+          "name": "A card supplies the exact reference and bypasses AI interpretation",
+          "start": 52,
+          "end": 59
+        },
+        {
+          "name": "Shared restrictions survive shortcuts without inheriting dress-only colour",
+          "start": 61,
+          "end": 70
+        },
+        {
+          "name": "An ambiguous cross-sell stores the unfinished bag request",
+          "start": 72,
+          "end": 79
+        },
+        {
+          "name": "The second-product answer resumes that cross-sell instead of searching for dresses",
+          "start": 81,
+          "end": 91
+        },
+        {
+          "name": "Cancel restores the state before the pending request",
+          "start": 93,
+          "end": 100
+        },
+        {
+          "name": "An unrelated turn does not delete a pending question",
+          "start": 102,
+          "end": 110
+        },
+        {
+          "name": "Continuation without a matching pending request is rejected",
+          "start": 112,
+          "end": 115
+        },
+        {
+          "name": "Compound cheaper-and-blue keeps the saved maximum",
+          "start": 117,
+          "end": 123
+        },
+        {
+          "name": "After bag results the context refers to bags",
+          "start": 125,
+          "end": 132
+        },
+        {
+          "name": "Empty results preserve reference memory without recommending stale products",
+          "start": 134,
+          "end": 143
+        },
+        {
+          "name": "A different page product does not inherit an old item's budget or colour",
+          "start": 145,
+          "end": 152
+        },
+        {
+          "name": "Opening an already-recommended product preserves applicable item restrictions",
+          "start": 154,
+          "end": 158
+        },
+        {
+          "name": "Invented shortcut IDs cannot choose an unrelated product",
+          "start": 160,
+          "end": 163
+        },
+        {
+          "name": "A changed product reference requires refreshed context",
+          "start": 165,
+          "end": 169
+        },
+        {
+          "name": "Unsupported shared restrictions remain blocking after a category change",
+          "start": 171,
+          "end": 175
+        },
+        {
+          "name": "Suggestions use real stored cross-sell labels, not invented mappings",
+          "start": 177,
+          "end": 181
+        },
+        {
+          "name": "Response validation rejects an over-budget product",
+          "start": 183,
+          "end": 187
+        },
+        {
+          "name": "No-match does not become a technical error or contain products",
+          "start": 189,
+          "end": 195
+        },
+        {
+          "name": "History is bounded and Reset creates an empty conversation",
+          "start": 197,
+          "end": 206
+        },
+        {
+          "name": "A catalogue retry reuses the validated interpretation",
+          "start": 208,
+          "end": 215
+        },
+        {
+          "name": "Duplicate in-flight requests coalesce",
+          "start": 217,
+          "end": 226
+        },
+        {
+          "name": "A request ID cannot be reused for different input",
+          "start": 228,
+          "end": 232
+        },
+        {
+          "name": "Expired retries do not silently make a new model call",
+          "start": 234,
+          "end": 241
+        },
+        {
+          "name": "An interpretation failure can be manually retried, never automatically",
+          "start": 243,
+          "end": 250
+        }
+      ],
+      "assertion_lines": [
+        47,
+        48,
+        49,
+        55,
+        56,
+        57,
+        58,
+        66,
+        67,
+        68,
+        69,
+        75,
+        76,
+        77,
+        78,
+        88,
+        89,
+        90,
+        98,
+        99,
+        108,
+        109,
+        114,
+        120,
+        121,
+        122,
+        129,
+        130,
+        131,
+        139,
+        140,
+        141,
+        142,
+        148,
+        149,
+        150,
+        151,
+        156,
+        157,
+        162,
+        168,
+        174,
+        180,
+        186,
+        192,
+        193,
+        194,
+        203,
+        204,
+        205,
+        212,
+        213,
+        214,
+        225,
+        231,
+        239,
+        240,
+        246,
+        247,
+        249
+      ],
+      "imports": []
+    },
+    {
+      "file": "test-shopping-presentation.mjs",
+      "total_lines": 243,
+      "cases": [
+        {
+          "name": "A single exact product uses its real name and price in the message",
+          "start": 48,
+          "end": 57
+        },
+        {
+          "name": "No budget and size stay unknown instead of becoming a questionnaire",
+          "start": 58,
+          "end": 63
+        },
+        {
+          "name": "Exact products and softer context alternatives are separate",
+          "start": 64,
+          "end": 70
+        },
+        {
+          "name": "Partial-only results are alternatives, not exact matches",
+          "start": 71,
+          "end": 76
+        },
+        {
+          "name": "A missing context attribute is labelled unverified, not invented",
+          "start": 77,
+          "end": 81
+        },
+        {
+          "name": "A verified image source is mapped by exact product ID",
+          "start": 82,
+          "end": 85
+        },
+        {
+          "name": "Storage keys use the catalogue-authorised product image route",
+          "start": 86,
+          "end": 91
+        },
+        {
+          "name": "Image responses accept only local photos or stable product image routes",
+          "start": 92,
+          "end": 99
+        },
+        {
+          "name": "A response cannot attach another product's image route",
+          "start": 100,
+          "end": 104
+        },
+        {
+          "name": "External, traversal, query and SVG image paths are rejected",
+          "start": 105,
+          "end": 109
+        },
+        {
+          "name": "Only a recognised, unambiguous stored cross-sell target is offered",
+          "start": 110,
+          "end": 113
+        },
+        {
+          "name": "An optional occasion question appears alongside products without pending state",
+          "start": 114,
+          "end": 121
+        },
+        {
+          "name": "The optional question enters history and does not overwrite preferences",
+          "start": 122,
+          "end": 130
+        },
+        {
+          "name": "A recent occasion question is not repeatedly appended",
+          "start": 131,
+          "end": 138
+        },
+        {
+          "name": "A missing requested colour does not silently become another colour",
+          "start": 139,
+          "end": 145
+        },
+        {
+          "name": "Explicit colour preview returns labelled alternatives without mutating scopes",
+          "start": 146,
+          "end": 156
+        },
+        {
+          "name": "The browser rejects an unrequested colour preview",
+          "start": 157,
+          "end": 160
+        },
+        {
+          "name": "A shared required colour is not bypassed by the preview flag",
+          "start": 161,
+          "end": 167
+        },
+        {
+          "name": "Preview still enforces maximum including zero and minimum price",
+          "start": 168,
+          "end": 174
+        },
+        {
+          "name": "Preview keeps the requested size and rejects invalid stock",
+          "start": 175,
+          "end": 179
+        },
+        {
+          "name": "Preview preserves colour exclusions including missing colours",
+          "start": 180,
+          "end": 184
+        },
+        {
+          "name": "Preview never relaxes material or item category",
+          "start": 185,
+          "end": 188
+        },
+        {
+          "name": "Unsupported requirements remain unverified and blocking",
+          "start": 189,
+          "end": 197
+        },
+        {
+          "name": "Pending questions cannot be bypassed by colour-preview shortcuts",
+          "start": 198,
+          "end": 203
+        },
+        {
+          "name": "Response checks reject weakened alternative size, price or material filters",
+          "start": 204,
+          "end": 209
+        },
+        {
+          "name": "Response checks reject duplicate IDs across result sections",
+          "start": 210,
+          "end": 213
+        },
+        {
+          "name": "Alternative cards must explicitly disclose their differences",
+          "start": 214,
+          "end": 217
+        },
+        {
+          "name": "Conversation references follow displayed exact-then-alternative order",
+          "start": 218,
+          "end": 221
+        },
+        {
+          "name": "Technical or blocking results cannot contain an alternatives list",
+          "start": 222,
+          "end": 225
+        },
+        {
+          "name": "No photo is a valid result, not a fabricated category photograph",
+          "start": 226,
+          "end": 228
+        },
+        {
+          "name": "A shared context requirement is not relaxed into an alternative",
+          "start": 229,
+          "end": 235
+        },
+        {
+          "name": "The colour preview also retains shared context requirements",
+          "start": 236,
+          "end": 241
+        }
+      ],
+      "assertion_lines": [
+        50,
+        51,
+        54,
+        55,
+        56,
+        60,
+        61,
+        62,
+        66,
+        67,
+        68,
+        69,
+        73,
+        74,
+        75,
+        79,
+        80,
+        83,
+        84,
+        87,
+        88,
+        89,
+        90,
+        94,
+        97,
+        102,
+        103,
+        107,
+        111,
+        112,
+        118,
+        119,
+        120,
+        128,
+        129,
+        137,
+        141,
+        142,
+        143,
+        144,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        159,
+        165,
+        166,
+        171,
+        173,
+        177,
+        182,
+        186,
+        187,
+        193,
+        194,
+        195,
+        196,
+        202,
+        207,
+        212,
+        216,
+        220,
+        224,
+        227,
+        233,
+        234,
+        240
+      ],
+      "imports": [
+        "./fixtures/collection-session.mjs"
+      ]
+    },
+    {
+      "file": "test-friendly-shopping-message.mjs",
+      "total_lines": 84,
+      "cases": [
+        {
+          "name": "Multiple products get paragraphs with the real displayed price range",
+          "start": 22,
+          "end": 28
+        },
+        {
+          "name": "Unknown budget and size are not invented or requested",
+          "start": 29,
+          "end": 32
+        },
+        {
+          "name": "A single product keeps its exact name and price",
+          "start": 33,
+          "end": 35
+        },
+        {
+          "name": "A supplied inclusive limit and listed size can be described",
+          "start": 36,
+          "end": 41
+        },
+        {
+          "name": "Wording does not assert a price or size condition the cards do not meet",
+          "start": 42,
+          "end": 45
+        },
+        {
+          "name": "Cross-sell names the actual reference without inventing styling claims",
+          "start": 46,
+          "end": 50
+        },
+        {
+          "name": "Cheaper wording uses a verified reference and does not change it into a budget",
+          "start": 51,
+          "end": 55
+        },
+        {
+          "name": "Unverified alternative details are not called exact matches",
+          "start": 56,
+          "end": 61
+        },
+        {
+          "name": "Colour previews preserve the original colour request",
+          "start": 62,
+          "end": 66
+        },
+        {
+          "name": "No-match keeps the real reason and offers the existing preview only when eligible",
+          "start": 67,
+          "end": 72
+        },
+        {
+          "name": "Necessary questions are preserved and unsupported details are not a stock claim",
+          "start": 73,
+          "end": 78
+        },
+        {
+          "name": "Formatting changes neither product data nor saved preferences",
+          "start": 79,
+          "end": 83
+        }
+      ],
+      "assertion_lines": [
+        24,
+        25,
+        26,
+        27,
+        31,
+        34,
+        38,
+        39,
+        40,
+        44,
+        48,
+        49,
+        53,
+        54,
+        58,
+        59,
+        60,
+        64,
+        65,
+        69,
+        70,
+        71,
+        74,
+        76,
+        77,
+        82
+      ],
+      "imports": []
+    }
+  ]
+}
