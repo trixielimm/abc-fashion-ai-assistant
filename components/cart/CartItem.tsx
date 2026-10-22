@@ -5,6 +5,7 @@ import type { CartRow } from "@/lib/cart";
 
 type CartItemProps = {
   row: CartRow;
+  maxQuantity: number | null;
   onQuantityChange: (quantity: number) => void;
   onRemove: () => void;
 };
@@ -12,9 +13,15 @@ type CartItemProps = {
 // Displays a cart item and uses parent callbacks to update its quantity or remove it.
 export function CartItem({
   row,
+  maxQuantity,
   onQuantityChange,
   onRemove,
 }: CartItemProps) {
+  const atLimit =
+    maxQuantity !== null && row.quantity >= maxQuantity;
+
+  const outOfStock = maxQuantity === 0;
+
   return (
     <article className="grid grid-cols-[100px_minmax(0,1fr)] gap-4 border-b border-border py-7 sm:grid-cols-[150px_minmax(0,1fr)] sm:gap-8">
       <Link
@@ -50,10 +57,22 @@ export function CartItem({
 
             <p className="mt-3 flex items-center gap-2 text-xs text-muted">
               <span
-                className="h-1.5 w-1.5 rounded-full bg-emerald-600"
+                className={`h-1.5 w-1.5 rounded-full ${
+                  outOfStock
+                    ? "bg-red-600"
+                    : maxQuantity === null
+                      ? "bg-neutral-400"
+                      : "bg-emerald-600"
+                }`}
                 aria-hidden="true"
               />
-              In Stock
+              {outOfStock
+                ? "Out of stock"
+                : maxQuantity === null
+                  ? "Stock quantity unavailable"
+                  : atLimit
+                    ? "Available quantity reached"
+                    : "Within stock limit"}
             </p>
           </div>
 
@@ -91,10 +110,14 @@ export function CartItem({
             <button
               type="button"
               aria-label={`Increase quantity of ${row.name}`}
-              onClick={() =>
-                onQuantityChange(row.quantity + 1)
-              }
-              className="h-full w-11"
+              disabled={atLimit}
+              title={atLimit ? "Available quantity reached" : undefined}
+              onClick={() => {
+                if (!atLimit) {
+                  onQuantityChange(row.quantity + 1);
+                }
+              }}
+              className="h-full w-11 disabled:cursor-not-allowed disabled:text-neutral-300"
             >
               +
             </button>
