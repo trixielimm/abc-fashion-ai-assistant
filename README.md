@@ -1,7 +1,7 @@
 # ABC Fashion AI Assistant
 
 A Next.js storefront with catalogue search, a local shopping cart and an AI
-stylist grounded in the Supabase product catalogue.
+stylist grounded in the Supabase product catalogue. 
 
 ## Getting Started
 
