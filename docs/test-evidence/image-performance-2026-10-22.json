@@ -1,0 +1,181 @@
+{
+  "checked_at": "2026-10-22T12:10:31.353Z",
+  "scope": "Local development and local production servers using the configured live catalogue. Read-only requests; no artificial network throttling.",
+  "notes": [
+    "These samples are image-transfer measurements, not a whole-page speed score.",
+    "The production browser may have warmed image caches before the first HTTP probe.",
+    "Production was built with the supported webpack compiler because Turbopack could not bind a worker port in this environment."
+  ],
+  "measurements": [
+    {
+      "id": "P1031",
+      "label": "original",
+      "status": 200,
+      "bytes": 1427663,
+      "width": 1144,
+      "height": 1375,
+      "format": "png",
+      "routeMs": 1072,
+      "elapsedMs": 2635,
+      "cache": "max-age=3600"
+    },
+    {
+      "id": "P1031",
+      "label": "card-cold",
+      "status": 200,
+      "bytes": 11822,
+      "width": 384,
+      "height": 462,
+      "format": "webp",
+      "routeMs": 1196,
+      "elapsedMs": 1196,
+      "cache": "private, no-store"
+    },
+    {
+      "id": "P1031",
+      "label": "card-warm",
+      "status": 200,
+      "bytes": 11822,
+      "width": 384,
+      "height": 462,
+      "format": "webp",
+      "routeMs": 231,
+      "elapsedMs": 232,
+      "cache": "private, no-store"
+    },
+    {
+      "id": "P1031",
+      "label": "gallery",
+      "status": 200,
+      "bytes": 33354,
+      "width": 828,
+      "height": 995,
+      "format": "webp",
+      "routeMs": 302,
+      "elapsedMs": 302,
+      "cache": "private, no-store"
+    },
+    {
+      "id": "P1032",
+      "label": "original",
+      "status": 200,
+      "bytes": 1862384,
+      "width": 1122,
+      "height": 1402,
+      "format": "png",
+      "routeMs": 235,
+      "elapsedMs": 770,
+      "cache": "no-cache"
+    },
+    {
+      "id": "P1032",
+      "label": "card-cold",
+      "status": 200,
+      "bytes": 9294,
+      "width": 384,
+      "height": 480,
+      "format": "webp",
+      "routeMs": 688,
+      "elapsedMs": 688,
+      "cache": "private, no-store"
+    },
+    {
+      "id": "P1032",
+      "label": "card-warm",
+      "status": 200,
+      "bytes": 9294,
+      "width": 384,
+      "height": 480,
+      "format": "webp",
+      "routeMs": 248,
+      "elapsedMs": 248,
+      "cache": "private, no-store"
+    },
+    {
+      "id": "P1032",
+      "label": "gallery",
+      "status": 200,
+      "bytes": 31384,
+      "width": 828,
+      "height": 1035,
+      "format": "webp",
+      "routeMs": 662,
+      "elapsedMs": 662,
+      "cache": "private, no-store"
+    }
+  ],
+  "production": [
+    {
+      "path": "/",
+      "status": 200,
+      "elapsedMs": 539,
+      "responsiveImageMarkup": true
+    },
+    {
+      "path": "/search",
+      "status": 200,
+      "elapsedMs": 572,
+      "responsiveImageMarkup": true
+    },
+    {
+      "path": "/products/P1031",
+      "status": 200,
+      "elapsedMs": 808,
+      "responsiveImageMarkup": true
+    },
+    {
+      "path": "/cart",
+      "status": 200,
+      "elapsedMs": 474,
+      "responsiveImageMarkup": true
+    },
+    {
+      "id": "P1031",
+      "pass": "first-probe",
+      "status": 200,
+      "bytes": 11822,
+      "width": 384,
+      "height": 462,
+      "elapsedMs": 253
+    },
+    {
+      "id": "P1031",
+      "pass": "warm",
+      "status": 200,
+      "bytes": 11822,
+      "width": 384,
+      "height": 462,
+      "elapsedMs": 265
+    },
+    {
+      "id": "P1032",
+      "pass": "first-probe",
+      "status": 200,
+      "bytes": 9294,
+      "width": 384,
+      "height": 480,
+      "elapsedMs": 763
+    },
+    {
+      "id": "P1032",
+      "pass": "warm",
+      "status": 200,
+      "bytes": 9294,
+      "width": 384,
+      "height": 480,
+      "elapsedMs": 210
+    },
+    {
+      "path": "/api/products/NO_SUCH_PRODUCT/image?w=384",
+      "status": 404
+    },
+    {
+      "path": "/api/products/P1031/image?w=99999999",
+      "status": 400
+    },
+    {
+      "path": "/api/products/P1031/image",
+      "status": 307
+    }
+  ]
+}

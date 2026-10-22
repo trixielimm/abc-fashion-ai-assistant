@@ -36,6 +36,8 @@ function record(text) {
 }
 
 const suites = [
+  ["image-delivery", "test-image-delivery.ts"],
+  ["product-images", "test-product-images.ts"],
   ["adaptive-reliability", "test-adaptive-reliability-fixes.mjs"],
   ["proactive-cross-sell", "test-proactive-cross-sell.mjs"],
   ["journey-remediation", "test-journey-remediation.mjs"],
@@ -116,7 +118,7 @@ for (const suite of suites) {
 
   const args = ["--import", "tsx", script];
 
-  if (["test-grounded-recommendation.ts", "test-conversation-production.mjs", "test-stylist-telemetry.mjs"].includes(suite.file)) {
+  if (["test-image-delivery.ts", "test-grounded-recommendation.ts", "test-conversation-production.mjs", "test-stylist-telemetry.mjs"].includes(suite.file)) {
     args.unshift("--conditions=react-server");
   }
 

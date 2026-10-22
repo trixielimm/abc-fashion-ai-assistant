@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { ProductVisual } from "@/components/commerce/ProductVisual";
 import { cn } from "@/lib/cn";
+import productImageLoader from "@/lib/product-image-loader";
 
 export function ProductImage({
   src,
@@ -38,7 +39,7 @@ export function ProductImage({
         fill
         sizes={sizes}
         preload={preload}
-        unoptimized={src.startsWith("/api/products/")}
+        loader={src.startsWith("/api/products/") ? productImageLoader : undefined}
         className="object-cover"
         onError={() => setFailedSrc(src)}
       />

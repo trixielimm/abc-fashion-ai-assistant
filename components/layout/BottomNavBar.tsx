@@ -12,6 +12,7 @@ import {
 import { useStylist } from "@/components/stylist/StylistProvider";
 import { cn } from "@/lib/cn";
 import { useCartCount } from "@/lib/use-cart-count";
+import { CartIndicator } from "@/components/commerce/CartIndicator";
 
 type NavItem = {
   label: string;
@@ -39,12 +40,9 @@ function NavTab({ item, active }: { item: NavItem; active: boolean }) {
         className="flex h-16 flex-col items-center justify-center gap-1.5 focus-visible:outline-2 focus-visible:outline-offset-[-4px]"
       >
         <span className={cn("relative", active ? "text-foreground" : "text-[#444444]")}>
-          <Icon className="h-5 w-5" />
-          {badge ? (
-            <span className="absolute -top-[7px] -right-[7px] flex h-4 w-4 items-center justify-center rounded-full bg-foreground text-[9px] leading-none font-semibold text-background ring-2 ring-panel">
-              {badge > 99 ? "99+" : badge}
-            </span>
-          ) : null}
+          {badge !== undefined
+            ? <CartIndicator count={badge}><Icon className="h-5 w-5" /></CartIndicator>
+            : <Icon className="h-5 w-5" />}
         </span>
         <span
           className={cn(

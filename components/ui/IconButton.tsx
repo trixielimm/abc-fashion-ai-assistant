@@ -2,7 +2,7 @@ import Link from "next/link";
 import { cn } from "@/lib/cn";
 
 const baseClass =
-  "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-foreground text-foreground transition-opacity hover:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground";
+  "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-foreground transition-opacity hover:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground";
 
 type IconButtonProps = {
   label: string;
@@ -14,6 +14,7 @@ type IconButtonProps = {
   expanded?: boolean;
   controls?: string;
   id?: string;
+  compact?: boolean;
 };
 
 export function IconButton({
@@ -26,8 +27,11 @@ export function IconButton({
   expanded,
   controls,
   id,
+  compact = false,
 }: IconButtonProps) {
-  const classes = cn(baseClass, className);
+  const classes = cn(baseClass, compact
+    ? "relative before:pointer-events-none before:absolute before:inset-1 before:rounded-full before:border before:border-foreground before:content-['']"
+    : "border border-foreground", className);
 
   if (href) {
     return (

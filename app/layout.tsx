@@ -3,7 +3,6 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { BottomNavBar } from "@/components/layout/BottomNavBar";
 import { OverlayScrollbar } from "@/components/layout/OverlayScrollbar";
-import { PageLoadingOverlay } from "@/components/layout/PageLoadingOverlay";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { StylistLauncher } from "@/components/stylist/StylistLauncher";
@@ -46,7 +45,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${inter.variable} ${cormorant.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background pb-[calc(64px+env(safe-area-inset-bottom))] font-sans text-foreground lg:pb-0">
-        <PageLoadingOverlay />
         <OverlayScrollbar />
         <noscript>
           <style>{".site-page-loader { display: none !important; }"}</style>

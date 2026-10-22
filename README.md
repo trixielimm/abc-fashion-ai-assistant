@@ -113,9 +113,14 @@ eligible options when the audit is current. It never drops a shopping constraint
 to obtain a photo. Missing source files still need real product photography;
 the audit does not upload files or change storage permissions.
 
-Storage photos bypass Next.js image optimization so the browser can follow
-fresh storage signatures without caching them in the optimizer. Upload suitably
-sized product photos (such as 1200px on the longest side). Local demo photos
-still use Next.js optimization. The homepage uses live catalogue data. Related
+Product photo components request responsive widths through the same authorised
+image route. The server returns a resized WebP (or PNG for browsers without
+WebP), preserving proportions and transparency. Original downloads and resized
+bytes use bounded, short-lived process caches, but every request still checks
+current catalogue access. Responses remain `private, no-store`; signed URLs and
+private images are never put in Next.js's shared image cache. Direct image URLs
+without a width still redirect to a fresh original, and failed or unsupported
+transforms also fall back to the original. Local demo photos continue to use
+Next.js optimization. The homepage uses live catalogue data. Related
 products and cart suggestions retain the demo catalogue in `lib/mock-data.ts`;
 `lib/product-detail-mock.ts` supplies the matching demo product pages.
