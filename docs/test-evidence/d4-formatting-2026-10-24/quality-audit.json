@@ -1,8 +1,8 @@
 {
-  "version": "1.6",
+  "version": "1.7",
   "date": "24 October 2026",
   "author": "Minh",
-  "pages": 46,
+  "pages": 41,
   "tables": 26,
   "numbered_titles": 26,
   "body_references": 26,
@@ -20,7 +20,9 @@
   "external_link_instances": 334,
   "original_contents_links": 14,
   "sha256": {
-    "D4 Testing Report Revised.docx": "14ec7b7a27e9a79f675ca8f5684c88ff3f3925dd93cded7544d199c03fdc2135",
-    "D4 Testing Report Revised.pdf": "3ae79e6ec2fe17c49146196130a054acf77b58fe097eacd6da15ed88875415b5"
-  }
+    "D4 Testing Report Revised.docx": "a3836f5aaad020740e7fb6267278ea0ddb138281a4b7605c15227bf1962d08d9",
+    "D4 Testing Report Revised.pdf": "a04fc233dd33a8596364491ee2d220f12d5f2c867e2e521c45fa52c5938b95f9"
+  },
+  "page_orientation": "Portrait throughout",
+  "landscape_pages": 0
 }
