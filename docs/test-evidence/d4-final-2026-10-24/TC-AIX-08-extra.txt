@@ -1,0 +1,141 @@
+Browser tab: 3, Title: "ABC Fashion", URL: "https://abcandco.vercel.app/".
+1 AXWebArea ABC Fashion, URL: abcandco.vercel.app/
+	2 container AI Stylist
+		3 container
+			4 text PERSONAL SHOPPING
+			5 heading AI Stylist, Value: 2
+				6 text AI Stylist
+			7 button New chat
+			8 button Close AI Stylist
+		26 container Your look
+			27 text Your look
+			28 text 0 items
+			29 text Save pieces here to build a look.
+			30 container
+				31 text A$0.00 total
+			32 button (collapsed) View look, Secondary Actions: Expand
+		9 container
+			33 text YOU Show me women's clothing under 150 AUD and keep my size unknown. AI STYLIST I've found 5 clothing options for you to explore.
+			34 button (collapsed) Details about these picks, Secondary Actions: Expand
+				35 text Details about these picks
+			36 container Recommended products
+				37 text 5 pieces 1 – 5  of  5
+				38 button (disabled) Previous products
+				39 button Next products
+				40 content list Recommended products
+					41 container
+						42 link Description: View Burgundy Maxi Dress, Value: abcandco.vercel.app/products/P1254
+						43 link Description: Burgundy Maxi Dress, Value: abcandco.vercel.app/products/P1254
+						44 text A$120.00 ABC Casual · Burgundy Within your A$150.00 limit.
+						47 button Add to cart
+					48 container
+						49 link Description: View Navy Maxi Dress, Value: abcandco.vercel.app/products/P1178
+						50 link Description: Navy Maxi Dress, Value: abcandco.vercel.app/products/P1178
+						51 text A$95.00 ABC Occasion · Navy Within your A$150.00 limit.
+						54 button Add to cart
+					55 container
+						56 link Description: View Lavender Co-ord Set, Value: abcandco.vercel.app/products/P1002
+						57 link Description: Lavender Co-ord Set, Value: abcandco.vercel.app/products/P1002
+						58 text A$55.00 ABC Occasion · Lavender Within your A$150.00 limit.
+						61 button Add to cart
+					62 container
+						63 link Description: View Black Trench Coat, Value: abcandco.vercel.app/products/P1270
+						64 link Description: Black Trench Coat, Value: abcandco.vercel.app/products/P1270
+						65 text A$55.00 ABC Occasion · Black Within your A$150.00 limit.
+						68 button Add to cart
+					69 container
+						70 link Description: View Lavender Pleated Skirt, Value: abcandco.vercel.app/products/P1295
+						71 link Description: Lavender Pleated Skirt, Value: abcandco.vercel.app/products/P1295
+						72 text A$100.00 ABC Occasion · Lavender Within your A$150.00 limit.
+						75 button Add to cart
+			76 text What occasion are you shopping for? You can also keep browsing these options. YOU Explain the fit labels while I browse. Does Regular guarantee that it will fit me? AI STYLIST Fit labels describe a garment's cut, not how it will fit your body. I can show recorded fit and size labels, but they don't verify stretch, an adjustable waist, softness or future fit. Your size can remain unknown while you browse; unverified construction requirements stay labelled and need your permission for provisional browsing. YOU Why is the first item suitable for my occasion? AI STYLIST Burgundy Maxi Dress
+The catalogue lists this item for Brunch. Its recorded styling details are colour: Burgundy, style: Relaxed, season: Summer. At A$120.00, it is within your A$150.00 maximum. Those are catalogue-based reasons; they don't establish comfort, fabric performance or how it will fit you. Sources: 
+			87 link Description: Burgundy Maxi Dress: catalogue details, Value: abcandco.vercel.app/products/P1254
+			88 text YOU Give me its product link and explain where I choose a listed size and save it to my bag. Is checkout available? No other products. AI STYLIST ABC Fashion is a browsing prototype. Checkout, payment and order placement are unavailable, so adding a piece to your bag does not place an order.
+
+Open Burgundy Maxi Dress using the product link below. Choose a listed size and quantity on its page, then use Add to bag. This answer hasn't added or reserved anything. Listed sizes do not confirm stock for an individual size. Sources: 
+			99 link Description: Open Burgundy Maxi Dress, Value: abcandco.vercel.app/products/P1254
+			100 text  · 
+			101 link Description: Open your bag, Value: abcandco.vercel.app/cart
+			102 text  · 
+			103 link Description: Shopping and checkout help, Value: abcandco.vercel.app/help#orders
+			104 text YOU Find an extra for Burgundy Maxi Dress. AI STYLIST What type of extra would you like, such as shoes, a bag or accessories? YOU A bag please, still under 150 AUD. AI STYLIST To go with Burgundy Maxi Dress, here's one option to consider: Lavender Sling Bag at A$150.00.
+			105 button (collapsed) Details about these picks, Secondary Actions: Expand
+				106 text Details about these picks
+			107 container Recommended products
+				108 content list Recommended products
+					109 container
+						110 link Description: View Lavender Sling Bag, Value: abcandco.vercel.app/products/P1201
+						111 link Description: Lavender Sling Bag, Value: abcandco.vercel.app/products/P1201
+						112 text A$150.00 ABC Accessories · Lavender · One Size Within your A$150.00 limit.
+						113 button (collapsed) Description: More options for Lavender Sling Bag, Help: More options, Secondary Actions: Expand
+						114 text The recorded occasion differs from Burgundy Maxi Dress. Pairing uses recorded attributes; visual compatibility is unverified.
+						115 checkbox Description: Save to look: Lavender Sling Bag, Value: 0
+						116 button Add to cart
+						117 button (collapsed) Why this item?, Secondary Actions: Expand
+							118 text Why this item?
+			119 heading Alternatives Details differ, Value: 3
+				120 text Alternatives Details differ
+			121 container Alternative products with disclosed differences
+				122 text 4 pieces
+				123 content list Alternative products with disclosed differences
+					124 container
+						125 link Description: View Burgundy Mini Clutch, Value: abcandco.vercel.app/products/P1170
+						126 link Description: Burgundy Mini Clutch, Value: abcandco.vercel.app/products/P1170
+						127 text A$85.00 ABC Accessories · Burgundy · One Size Within your A$150.00 limit.
+						128 button (collapsed) Description: More options for Burgundy Mini Clutch, Help: More options, Secondary Actions: Expand
+						129 text Alternative: details differ
+						130 content list
+							131 text Outfit compatibility has limited catalogue evidence; this is an available alternative.
+						132 text The recorded occasion differs from Burgundy Maxi Dress. Its Elegant style differs from Burgundy Maxi Dress's Relaxed label. Pairing uses recorded attributes; visual compatibility is unverified.
+						133 checkbox Description: Save to look: Burgundy Mini Clutch, Value: 0
+						134 button Add to cart
+						135 button (collapsed) Why this item?, Secondary Actions: Expand
+							136 text Why this item?
+					137 container
+						138 link Description: View Beige Envelope Clutch, Value: abcandco.vercel.app/products/P1304
+						139 link Description: Beige Envelope Clutch, Value: abcandco.vercel.app/products/P1304
+						140 text A$90.00 ABC Accessories · Beige · One Size Within your A$150.00 limit.
+						141 button (collapsed) Description: More options for Beige Envelope Clutch, Help: More options, Secondary Actions: Expand
+						142 text Alternative: details differ
+						143 content list
+							144 text Outfit compatibility has limited catalogue evidence; this is an available alternative.
+						145 text The recorded occasion differs from Burgundy Maxi Dress. Its Elegant style differs from Burgundy Maxi Dress's Relaxed label. Pairing uses recorded attributes; visual compatibility is unverified.
+						146 checkbox Description: Save to look: Beige Envelope Clutch, Value: 0
+						147 button Add to cart
+						148 button (collapsed) Why this item?, Secondary Actions: Expand
+							149 text Why this item?
+					150 container
+						151 link Description: View Cream Envelope Clutch, Value: abcandco.vercel.app/products/P1144
+						152 link Description: Cream Envelope Clutch, Value: abcandco.vercel.app/products/P1144
+						153 text A$125.00 ABC Accessories · Cream · One Size Within your A$150.00 limit.
+						154 button (collapsed) Description: More options for Cream Envelope Clutch, Help: More options, Secondary Actions: Expand
+						155 text Alternative: details differ
+						156 content list
+							157 text Outfit compatibility has limited catalogue evidence; this is an available alternative.
+						158 text The recorded occasion differs from Burgundy Maxi Dress. Its Elegant style differs from Burgundy Maxi Dress's Relaxed label. Pairing uses recorded attributes; visual compatibility is unverified.
+						159 checkbox Description: Save to look: Cream Envelope Clutch, Value: 0
+						160 button Add to cart
+						161 button (collapsed) Why this item?, Secondary Actions: Expand
+							162 text Why this item?
+					163 container
+						164 link Description: View Black Crossbody Bag, Value: abcandco.vercel.app/products/P1190
+						165 link Description: Black Crossbody Bag, Value: abcandco.vercel.app/products/P1190
+						166 text A$75.00 ABC Accessories · Black · One Size Within your A$150.00 limit.
+						167 button (collapsed) Description: More options for Black Crossbody Bag, Help: More options, Secondary Actions: Expand
+						168 text Alternative: details differ
+						169 content list
+							170 text Outfit compatibility has limited catalogue evidence; this is an available alternative.
+						171 text The recorded occasion differs from Burgundy Maxi Dress. Its Minimalist style differs from Burgundy Maxi Dress's Relaxed label. Pairing uses recorded attributes; visual compatibility is unverified.
+						172 checkbox Description: Save to look: Black Crossbody Bag, Value: 0
+						173 button Add to cart
+						174 button (collapsed) Why this item?, Secondary Actions: Expand
+							175 text Why this item?
+		20 container
+			21 text entry area (settable) Message your stylist
+			22 button (disabled) Send message
+		23 text Messages may be sent to OpenAI.
+		24 button (collapsed) Privacy & details, Secondary Actions: Expand
+			25 text Privacy & details
+
+The focused UI element is 21 text entry area (settable) Message your stylist

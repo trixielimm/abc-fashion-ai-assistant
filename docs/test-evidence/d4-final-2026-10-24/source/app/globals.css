@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #111111;
+  --muted: #6b6b6b;
+  --border: #e8e8e8;
+  --surface: #f3f2ef;
+  /* Hairline + near-white used by app chrome (bottom nav, stylist modal). */
+  --hairline: #c6c6c8;
+  --panel: #f9f9f9;
+}
+
+/* Touch devices never fire `hover:`/`group-hover:` (Tailwind gates them behind
+   `(hover: hover)`), so `no-hover:` lets those cards rest in their rich state. */
+@custom-variant no-hover (@media (hover: none));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-surface: var(--surface);
+  --color-hairline: var(--hairline);
+  --color-panel: var(--panel);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-cormorant);
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+.page-scrollbar-thumb {
+  position: fixed;
+  right: 0;
+  z-index: 30;
+  width: 14px;
+  cursor: grab;
+  opacity: 0;
+  touch-action: none;
+  transition: opacity 220ms ease;
+}
+
+.page-scrollbar-thumb::before {
+  position: absolute;
+  inset-block: 0;
+  right: 3px;
+  width: 5px;
+  border-radius: 999px;
+  background: rgb(17 17 17 / 50%);
+  content: "";
+  transition: width 150ms ease, background-color 150ms ease;
+}
+
+.page-scrollbar-thumb[data-visible="true"] {
+  opacity: 1;
+}
+
+.page-scrollbar-thumb[data-visible="false"] {
+  pointer-events: none;
+}
+
+.page-scrollbar-thumb:hover::before,
+.page-scrollbar-thumb:focus-visible::before {
+  width: 7px;
+  background: rgb(17 17 17 / 72%);
+}
+
+.page-scrollbar-thumb:active {
+  cursor: grabbing;
+}
+
+.page-scrollbar-thumb:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 2px;
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+.stylist-dialog {
+  position: fixed;
+  top: var(--stylist-viewport-top, 0px);
+  inset-inline: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  width: 100%;
+  max-width: none;
+  height: var(--stylist-viewport-height, 100dvh);
+  max-height: none;
+  overflow: hidden;
+}
+
+/* Keep text-entry controls legible and avoid focus zoom on iOS. */
+@media (pointer: coarse) {
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 640px) {
+  .stylist-dialog {
+    margin-inline: auto;
+    margin-top: max(1.5rem, calc((var(--stylist-viewport-height, 100dvh) - 780px) / 2));
+    width: min(1100px, calc(100vw - 3rem));
+    height: min(780px, calc(var(--stylist-viewport-height, 100dvh) - 3rem));
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+}
+
+::selection {
+  background: #111111;
+  color: #ffffff;
+}
+
+@keyframes site-loading-progress {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(400%);
+  }
+}
+
+@keyframes site-loading-mark {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.site-loading-progress {
+  animation: site-loading-progress 0.75s ease-in-out infinite;
+}
+
+.site-loading-mark {
+  animation: site-loading-mark 0.9s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .site-loading-progress,
+  .site-loading-mark {
+    animation: none;
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "abc-fashion-ai-assistant",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test": "node scripts/run-regression.mjs",
+    "test:scenarios": "node --env-file=.env.local --conditions=react-server --import tsx scripts/test-customer-scenarios.mjs",
+    "test:answers:live": "node --env-file=.env.local --import tsx scripts/test-conversation-answers-live.mjs",
+    "test:journeys:everyday": "node --import tsx scripts/run-stylist-journeys.mjs --suite everyday",
+    "test:journeys:prerelease": "node --import tsx scripts/run-stylist-journeys.mjs --suite prerelease",
+    "test:journeys:check": "node --import tsx scripts/run-stylist-journeys.mjs --check",
+    "test:journeys:guide": "node --import tsx scripts/run-stylist-journeys.mjs --write-guide"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1150.0",
+    "@aws-sdk/s3-request-presigner": "^3.1150.0",
+    "@supabase/ssr": "^0.12.6",
+    "@supabase/supabase-js": "^2.115.0",
+    "@vercel/analytics": "^2.0.1",
+    "next": "16.3.8",
+    "openai": "^7.23.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "server-only": "^0.0.1",
+    "sharp": "^0.35.4",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.8",
+    "supabase": "^2.118.0",
+    "tailwindcss": "^4",
+    "tsx": "^4.23.15",
+    "typescript": "^5"
+  }
+}

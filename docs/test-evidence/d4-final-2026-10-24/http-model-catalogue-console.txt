@@ -1,0 +1,33 @@
+Fail TC-AI-01 `cookies` was called outside a request scope. Read more: https://nextjs.org/docs/messages/next-dynamic-api-wrong-context
+Fail TC-AI-02 0 == true
+Fail TC-AI-03 0 == true
+Fail TC-AI-05 0 == true
+Fail TC-AI-06 0 == true
+Fail TC-AI-07 0 == true
+Fail TC-AI-08 0 == true
+Fail TC-AI-09 0 == true
+Pass TC-AI-10 
+Pass TC-AI-04 
+Pass TC-PE-01 
+Pass TC-PE-02 
+Pass TC-PE-03 
+Pass TC-PE-04 
+Pass TC-PE-05 
+Pass TC-PE-06 
+Pass TC-PE-07 
+Pass TC-PE-08 
+Pass TC-PV-07 
+Pass TC-HTTP-01-local 
+Pass TC-HTTP-02-local 
+Pass TC-HTTP-03-local 
+Pass TC-HTTP-04-local 
+Pass TC-HTTP-05-local 
+Pass TC-HTTP-01-deployed 
+Pass TC-HTTP-02-deployed 
+Pass TC-HTTP-03-deployed 
+Pass TC-HTTP-04-deployed 
+Pass TC-HTTP-05-deployed 
+Pass TC-HTTP-05-boundary 
+Pass TC-DEP-01-http 
+Fail TC-INT-03 undefined == true
+{"Pass":23,"Fail":9}

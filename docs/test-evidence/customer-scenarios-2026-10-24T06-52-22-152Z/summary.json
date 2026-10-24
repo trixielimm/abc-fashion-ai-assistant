@@ -1,0 +1,121 @@
+{
+  "started": "2026-10-24T06:52:22.152Z",
+  "commit": "85d4f1b5e0a22e5dd86445005ebb585055eae7e0",
+  "node": "v24.22.1",
+  "model": "gpt-5.6-luna",
+  "reasoning": "low",
+  "fixture_sha256": "c8da1240549e568d8f4b2252325633f7f5d8f9d9094376d2ed04228bef245889",
+  "scope": "Real model + shortcutPlan + finishConversationTurn + acceptReply; in-process with isolated synthetic fixtures. Not HTTP/browser acceptance.",
+  "human_review": "Pairing taste, aesthetic variety and end-user usefulness require human assessment.",
+  "runs": [
+    {
+      "id": "S3-B",
+      "name": "Browse without preferences",
+      "repeat": 3,
+      "started": "2026-10-24T06:52:22.184Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Shopper already chose all collections",
+      "finished": "2026-10-24T06:52:26.941Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S3-B",
+      "name": "Browse without preferences",
+      "repeat": 1,
+      "started": "2026-10-24T06:52:22.164Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Shopper already chose all collections",
+      "finished": "2026-10-24T06:52:28.814Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S3-B",
+      "name": "Browse without preferences",
+      "repeat": 2,
+      "started": "2026-10-24T06:52:22.180Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Shopper already chose all collections",
+      "finished": "2026-10-24T06:52:29.102Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S3-C",
+      "name": "Switch from dresses to bags",
+      "repeat": 1,
+      "started": "2026-10-24T06:52:26.941Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Shopper already chose all collections",
+      "finished": "2026-10-24T06:52:33.392Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S3-C",
+      "name": "Switch from dresses to bags",
+      "repeat": 2,
+      "started": "2026-10-24T06:52:28.815Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Shopper already chose all collections",
+      "finished": "2026-10-24T06:52:35.284Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S3-C",
+      "name": "Switch from dresses to bags",
+      "repeat": 3,
+      "started": "2026-10-24T06:52:29.103Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Shopper already chose all collections",
+      "finished": "2026-10-24T06:52:35.763Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "S4-A",
+      "name": "Pair a bag with an owned catalogue dress",
+      "repeat": 1,
+      "started": "2026-10-24T06:52:33.393Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Shopper already chose all collections",
+      "anchor": "D-BLACK-120",
+      "finished": "2026-10-24T06:52:46.813Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S4-A",
+      "name": "Pair a bag with an owned catalogue dress",
+      "repeat": 2,
+      "started": "2026-10-24T06:52:35.285Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Shopper already chose all collections",
+      "anchor": "D-BLACK-120",
+      "finished": "2026-10-24T06:52:48.544Z",
+      "turns_recorded": 4
+    },
+    {
+      "id": "S4-A",
+      "name": "Pair a bag with an owned catalogue dress",
+      "repeat": 3,
+      "started": "2026-10-24T06:52:35.764Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Shopper already chose all collections",
+      "anchor": "D-BLACK-120",
+      "finished": "2026-10-24T06:52:48.635Z",
+      "turns_recorded": 4
+    }
+  ],
+  "finished": "2026-10-24T06:52:48.635Z",
+  "counts": {
+    "Pass": 9,
+    "Fail": 0,
+    "Blocked": 0,
+    "Feature gap": 0
+  }
+}

@@ -1,0 +1,86 @@
+Browser tab: 4, Title: "ABC Fashion", URL: "https://abcandco.vercel.app/".
+1 AXWebArea ABC Fashion, URL: abcandco.vercel.app/
+	2 scroll bar Description: Page scroll, Value: 0
+	72 container
+		73 link Description: ABC Fashion, Value: abcandco.vercel.app/
+		74 container Primary
+			75 link Description: Shop, Value: abcandco.vercel.app/search
+			76 link Description: Collections, Value: abcandco.vercel.app/#featured-categories
+			77 link Description: For him, Value: abcandco.vercel.app/search?gender=men
+			78 link Description: For her, Value: abcandco.vercel.app/search?gender=women
+			79 button AI STYLIST
+		80 container Product search
+			81 button Search products
+			82 search text field (settable) Search
+		83 link Description: Bag, 2 items, Value: abcandco.vercel.app/cart
+		84 text 2 items in your bag
+	85 container
+		86 container
+			87 image Model in a long wool coat
+			88 text VOLUME
+			89 text One
+		90 text AUTUMN | WINTER 2024
+		91 heading Refined Simplicity in Every Thread., Value: 1
+			92 text Refined Simplicity in Every Thread.
+		93 text For those who believe that true style is found in the details and in the quality of materials.
+		94 link Description: SHOP NEW ARRIVALS →, Value: abcandco.vercel.app/#this-season
+		95 link Description: SEE MORE, Value: abcandco.vercel.app/#featured-categories
+		96 container featured-categories
+			97 text FEATURED CATEGORIES
+			98 link Description: SHOP ALL →, Value: abcandco.vercel.app/search
+			99 link Description: Shop The Essentials, Value: abcandco.vercel.app/search?category=clothing
+			100 link Description: Shop Accessories, Value: abcandco.vercel.app/search?category=accessories
+			101 link Description: Shop Outerwear, Value: abcandco.vercel.app/search?category=clothing&subcategory=outerwear
+		102 container this-season
+			103 text THIS SEASON
+			104 button Previous products
+			105 button Next products
+			106 container
+				107 link Description: Blue Fitted Tee, $45.00, Value: abcandco.vercel.app/products/P1016
+				108 link Description: Gold Trench Coat, $90.00, Value: abcandco.vercel.app/products/P1031
+				109 link Description: Lavender Wrap Dress, $150.00, Value: abcandco.vercel.app/products/P1004
+				110 link Description: Pink Crossbody Bag, $50.00, Value: abcandco.vercel.app/products/P1003
+				111 link Description: Pink Chinos, $70.00, Value: abcandco.vercel.app/products/P1041
+				112 link Description: Beige Silk Scarf, $85.00, Value: abcandco.vercel.app/products/P1001
+				113 link Description: Grey Loafers, $105.00, Value: abcandco.vercel.app/products/P1007
+				114 link Description: Black Cropped Jacket, $130.00, Value: abcandco.vercel.app/products/P1010
+		115 container collection-spotlight
+			116 text COLLECTION SPOTLIGHT
+			117 heading GOLD TRENCH COAT, Value: 2
+				118 text GOLD TRENCH COAT
+			119 text minimalist trench coat in gold, suited to wedding guest styling. regular fit/shape with polyester construction.
+			120 text $90.00
+			121 link Description: VIEW PRODUCT →, Value: abcandco.vercel.app/products/P1031
+			122 image Gold Trench Coat
+		123 text HERE TO HELP
+		124 heading A little direction for your next find., Value: 2
+			125 text A little direction for your next find.
+		126 text Explore our guide to browsing the collection, choosing a size and getting help from the AI Stylist.
+		127 link Description: SHOPPING HELP →, Value: abcandco.vercel.app/help
+	47 container
+		48 text ABC Fashion COPENHAGEN & STOCKHOLM
+		49 text LONDON / PARIS / NEW YORK FROM THE COLLECTION
+		50 link Description: Blue Fitted Tee, Value: abcandco.vercel.app/products/P1016
+		51 link Description: Gold Trench Coat, Value: abcandco.vercel.app/products/P1031
+		52 link Description: Lavender Wrap Dress, Value: abcandco.vercel.app/products/P1004
+		53 link Description: Pink Crossbody Bag, Value: abcandco.vercel.app/products/P1003
+		54 text SHOP
+		55 content list
+			56 link Description: All products, Value: abcandco.vercel.app/search
+			57 link Description: Women's collection, Value: abcandco.vercel.app/search?gender=women
+			58 link Description: Men's collection, Value: abcandco.vercel.app/search?gender=men
+			59 link Description: Accessories, Value: abcandco.vercel.app/search?category=accessories
+		60 text HELP & INFORMATION
+		61 content list
+			62 link Description: Shopping help, Value: abcandco.vercel.app/help
+			63 link Description: Sizes & fit, Value: abcandco.vercel.app/help#sizes-fit
+			64 link Description: Orders & delivery, Value: abcandco.vercel.app/help#orders
+			65 link Description: Using the AI Stylist, Value: abcandco.vercel.app/help#ai-stylist
+			66 link Description: Recommendations & extras, Value: abcandco.vercel.app/help#recommendations
+			67 link Description: Your look & budget, Value: abcandco.vercel.app/help#your-look
+		68 text © 2026 ABC FASHION INC. ALL RIGHTS RESERVED. Prototype store — sample products and AI-generated specifications.
+		69 link Description: AI TERMS, Value: abcandco.vercel.app/terms-of-service
+		70 link Description: AI PRIVACY, Value: abcandco.vercel.app/terms-of-service#privacy
+	71 button CHAT WITH STYLIST
+
+The focused UI element is 1 AXWebArea ABC Fashion, URL: abcandco.vercel.app/

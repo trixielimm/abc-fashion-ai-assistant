@@ -1,0 +1,101 @@
+diff --git a/components/search/SearchExplorer.tsx b/components/search/SearchExplorer.tsx
+index 5371acb..0188562 100644
+--- a/components/search/SearchExplorer.tsx
++++ b/components/search/SearchExplorer.tsx
+@@ -130,7 +130,7 @@ export function SearchExplorer({ initialState, initial }: { initialState: Filter
+           </Link>)}
+         </div> : <div className={styles.emptyState}>
+           <h2>{selections ? "No pieces match these filters" : "No products found"}</h2><p>{selections ? "Try removing a filter or widening your price range." : "Try a broader term, another colour or a product category."}</p>
+-          <div>{canUndo ? <button type="button" className={styles.textButton} onClick={undo}>Undo last filter</button> : null}{selections ? <button type="button" className={styles.textButton} onClick={clear}>Clear filters</button> : <Link className={styles.textButton} href="/search">Browse all products</Link>}</div>
++          <div>{canUndo ? <button type="button" className={styles.textButton} onClick={undo}>Undo last filter</button> : null}{selections ? <button type="button" className={styles.textButton} onClick={clear}>Clear filters</button> : <Link className={styles.textButton} href="/search" onNavigate={event => { event.preventDefault(); queryDraft.current = ""; navigate(emptyFilters()); }}>Browse all products</Link>}</div>
+         </div>}
+         {snapshot.pageCount > 1 ? <nav className={styles.pagination} aria-label="Search result pages">
+           {(["Previous", "Next"] as const).map((label, index) => {
+diff --git a/lib/stylist/combinedShoppingRequest.ts b/lib/stylist/combinedShoppingRequest.ts
+index e30342e..6220b77 100644
+--- a/lib/stylist/combinedShoppingRequest.ts
++++ b/lib/stylist/combinedShoppingRequest.ts
+@@ -5,7 +5,7 @@ import type { OutfitRequest } from "./outfitBudgetSchema";
+ // Remove the styling anchor, not the requested components after its clause.
+ export function requestedComponents(message: string) {
+   const brief = message
+-    .replace(/\b(?:to match|to go with)\s+(?:(?:the|this|that|my)\s+)?(?:jacket|blazer)\b/gi, "")
++    .replace(/\b(?:to match|(?:that )?(?:to )?go with)\s+(?:(?:the|this|that|my)\s+)?(?:jacket|blazer)\b/gi, "")
+     .replace(/\b(?:to match|to go with|with my|my owned)\b[^,;]*(?=[,;]|$)/gi, "");
+   const components = new Map<string, ShoppingPreferences>();
+   for (const match of brief.matchAll(/\bdress(?:es)?(?![ -]+(?:shirts?|shoes?|code)\b)|\b(?:bottoms?|trousers?|pants)\b|\bshirts?\b|\b(?:jackets?|blazers?)\b|\b(?:shoes?|flats?)\b|\bbags?\b|\bnecklaces?\b/gi)) {
+@@ -74,7 +74,9 @@ export function additiveCombinedRequest(message: string) {
+ // Exact, complete grammar only. Extra colours, sizes and other qualifiers go
+ // through the interpreter, so a shortcut can never discard those requirements.
+ export function simpleMatchingSet(message: string) {
+-  if (!/^(?:(?:can|could|would) you )?(?:find|show)(?: me)? (?:some )?bottoms? (?:to )?(?:match|go with) (?:the|this|that|my) (?:jacket|blazer),? (?:or|and|plus) (?:some |a )?shirts?(?: as well| too)?[,;.]?\s*(?:my )?(?:total|combined) budget (?:is |of |=?\s*)?(?:A?\$\s*)?\d+(?:\.\d{1,2})?(?:\s*(?:aud|dollars?))?[.!?]*$/i.test(message.trim())) return null;
++  const anchorFirst = /^(?:(?:can|could|would) you )?(?:find|show)(?: me)? (?:some )?bottoms? (?:to )?(?:match|go with) (?:the|this|that|my) (?:jacket|blazer),? (?:or|and|plus) (?:some |a )?shirts?(?: as well| too)?[,;.]?\s*(?:my )?(?:total|combined) budget (?:is |of |=?\s*)?(?:A?\$\s*)?\d+(?:\.\d{1,2})?(?:\s*(?:aud|dollars?))?[.!?]*$/i;
++  const componentsFirst = /^(?:(?:please )?(?:find|show)(?: me)?|can i get) (?:some )?bottoms?,? (?:and|plus)(?: also)? (?:some |a )?shirts? (?:that go with|to match|to go with) (?:the|this|that|my) (?:jacket|blazer)[,;.!?]?\s*(?:my )?(?:total|combined) budget (?:is |of |=?\s*)?(?:A?\$\s*)?\d+(?:\.\d{1,2})?(?:\s*(?:aud|dollars?))?[.!?]*$/i;
++  if (![anchorFirst, componentsFirst].some(pattern => pattern.test(message.trim()))) return null;
+   const request = additiveCombinedRequest(message);
+   return request?.total !== null && request?.total !== undefined ? {
+     total_budget_aud: request.total, items: [...request.components.values()], evidence: message.slice(0, 250),
+diff --git a/lib/stylist/conversationTurn.ts b/lib/stylist/conversationTurn.ts
+index 4fe8a69..61b5238 100644
+--- a/lib/stylist/conversationTurn.ts
++++ b/lib/stylist/conversationTurn.ts
+@@ -57,6 +57,16 @@ export function shortcutPlan(input: ConversationTurn): z.infer<typeof Conversati
+       changes: [], question: null, continuation: false,
+       outfit_request: confirmedBudget });
+   }
++  // A complete budget-only edit preserves the already resolved components and
++  // anchors. It does not need a new product reference or model interpretation.
++  const budgetOnly = /^(?:make|change|set) (?:the )?(?:combined|total) budget (?:to |is |now )?(?:A?\$\s*)?\d+(?:\.\d{1,2})?(?:\s*(?:aud|dollars?))?[,;.]?\s*(?:keep (?:everything else|the same (?:pieces|items)(?: and (?:the )?(?:jacket|blazer))?))?[.!?]*$/i;
++  const editedTotal = statedCombinedBudget(turn.message);
++  if (!turn.shortcut && !turn.preview_other_colours && !turn.pending_answer &&
++      turn.styling?.outfit_request && editedTotal !== null && budgetOnly.test(turn.message.trim())) {
++    return ConversationPlanSchema.parse({ action: "refine", intent_evidence: turn.message.slice(0, 250),
++      reference: null, changes: [], question: null, continuation: false,
++      outfit_request: { ...turn.styling.outfit_request, total_budget_aud: editedTotal, evidence: turn.message.slice(0, 250) } });
++  }
+   const colourChoice = confirmedColourChoice(turn.message, turn.task?.issues ?? []);
+   if (colourChoice && new RegExp(`^(?:let['’]s try |try )?${colourChoice.value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?: instead| is fine|,? please)?[.!?]*$`, "i").test(turn.message.trim())) {
+     return ConversationPlanSchema.parse({ action: "refine", intent_evidence: turn.message.slice(0, 250),
+diff --git a/scripts/test-customer-scenarios.mjs b/scripts/test-customer-scenarios.mjs
+index 7f2e3a7..42b66d7 100644
+--- a/scripts/test-customer-scenarios.mjs
++++ b/scripts/test-customer-scenarios.mjs
+@@ -190,7 +190,10 @@ scenario('B5', 'Grouped broad discovery, optional refinement and memory through
+ ], (n, r, s, before) => {
+   if (n === 1) { eq(r.status, 'matches'); eq(r.products.length, 6);
+     eq(r.outfit_choices.groups.map(group => group.product_ids.length), [3, 3]);
+-    assert.ok(r.outfit_choices.maximum_total_aud <= 400); assert.ok(r.optional_question); eq(r.pending, null); }
++    assert.ok(r.outfit_choices.maximum_total_aud <= 400);
++    // Grouped results replaced the former style questionnaire with complete
++    // choice groups. Match the current grouped-discovery contract.
++    eq(r.optional_question, null); assert.match(r.message, /choose one item from each group/i); eq(r.pending, null); }
+   if (n === 2 || n === 4) {
+     eq(r.status, 'matches'); eq(s.styling.outfit_request.total_budget_aud, 400);
+     const d = s.styling.outfit_request.items.find(p => p.category === 'Clothing');
+diff --git a/scripts/test-matching-set-budget.mjs b/scripts/test-matching-set-budget.mjs
+index 48791e2..239affc 100644
+--- a/scripts/test-matching-set-budget.mjs
++++ b/scripts/test-matching-set-budget.mjs
+@@ -132,4 +132,22 @@ check("Response contract rejects an inflated displayed combination", () => {
+   const reply = structuredClone(send().reply); reply.products[0].price_aud = 501;
+   assert.equal(TurnReplySchema.safeParse(reply).success, false);
+ });
++check("Components before the jacket retain two purchase roles and one anchor", () => {
++  for (const message of [
++    "Please find some bottoms and a shirt that go with this jacket, total budget 500 aud.",
++    "Can I get some bottoms, and also a shirt to match the jacket? My total budget is 500 AUD.",
++  ]) {
++    const result = send(seed(), message); verifyBudget(result.reply);
++    assert.deepEqual(result.session.styling.outfit_request.anchor_product_ids, ["JACKET"]);
++    const next = send(result.session, "Make the combined budget 600 aud, keep the same pieces and jacket.");
++    verifyBudget(next.reply, 600);
++    assert.deepEqual(next.session.styling.outfit_request.anchor_product_ids, ["JACKET"]);
++    assert.deepEqual(next.session.styling.outfit, []);
++  }
++});
++check("Budget edits with an additional requirement still require full interpretation", () => {
++  const state = send().session;
++  assert.equal(shortcutPlan(makeTurn(state, "Make the combined budget 600 aud, keep the same pieces and jacket, but only black.")), null);
++  assert.equal(simpleMatchingSet("Please find some bottoms and a shirt that go with this jacket, total budget 500 aud, only black."), null);
++});
+ console.log(`\n${passed} matching-set combined-budget checks passed.`);

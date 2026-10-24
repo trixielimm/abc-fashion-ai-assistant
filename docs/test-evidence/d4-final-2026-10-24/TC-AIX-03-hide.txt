@@ -1,0 +1,61 @@
+Browser tab: 1, Title: "ABC Fashion", URL: "https://abcandco.vercel.app/".
+0 AXWebArea ABC Fashion, URL: abcandco.vercel.app/
+	1 container AI Stylist
+		2 container
+			36 text PERSONAL SHOPPING
+			3 heading AI Stylist, Value: 2
+				4 text AI Stylist
+			5 button New chat
+			6 button Close AI Stylist
+		24 container Your look
+			25 text Your look
+			26 text 0 items
+			27 text Save pieces here to build a look.
+			28 container
+				29 text A$0.00 total
+			37 button (collapsed) View look, Secondary Actions: Expand
+		7 container
+			31 text YOU I do not know what I am looking for. AI STYLIST Sure. Would you like men's clothing, women's clothing, or both? YOU Women's, please. AI STYLIST Perfect! Would you like something for everyday wear, something for an occasion, or a few different ideas to react to? YOU Show me women's dresses for a beach wedding under 200 AUD. Let me browse without choosing a size. AI STYLIST I've found 2 clothing options for you to explore. I've also included optional finishing touches for Navy Maxi Dress below.
+			38 button (collapsed) Details about these picks, Secondary Actions: Expand
+				39 text Details about these picks
+			40 container Recommended products
+				41 text 2 pieces
+				42 content list Recommended products
+					43 container
+						44 link Description: View Navy Maxi Dress, Value: abcandco.vercel.app/products/P1178
+						45 link Description: Navy Maxi Dress, Value: abcandco.vercel.app/products/P1178
+						46 text A$95.00 ABC Occasion · Navy Listed for beach wedding occasions.
+						49 button Add to cart
+					50 container
+						51 link Description: View Cream Mini Dress, Value: abcandco.vercel.app/products/P1162
+						52 link Description: Cream Mini Dress, Value: abcandco.vercel.app/products/P1162
+						53 text A$105.00 ABC Occasion · Cream Listed for beach wedding occasions.
+						56 button Add to cart
+			57 text YOU Show other dresses with the same requirements. AI STYLIST I've found 2 clothing options for you to explore.
+			58 button (collapsed) Details about these picks, Secondary Actions: Expand
+				59 text Details about these picks
+			60 container Recommended products
+				61 text 2 pieces
+				62 content list Recommended products
+					63 container
+						64 link Description: View Navy Maxi Dress, Value: abcandco.vercel.app/products/P1178
+						65 link Description: Navy Maxi Dress, Value: abcandco.vercel.app/products/P1178
+						66 text A$95.00 ABC Occasion · Navy Listed for beach wedding occasions.
+						67 button (collapsed) Description: More options for Navy Maxi Dress, Help: More options, Secondary Actions: Expand
+						68 checkbox Description: Save to look: Navy Maxi Dress, Value: 0
+						69 button Add to cart
+					70 container
+						71 link Description: View Cream Mini Dress, Value: abcandco.vercel.app/products/P1162
+						72 link Description: Cream Mini Dress, Value: abcandco.vercel.app/products/P1162
+						73 text A$105.00 ABC Occasion · Cream Listed for beach wedding occasions.
+						74 button (collapsed) Description: More options for Cream Mini Dress, Help: More options, Secondary Actions: Expand
+						75 checkbox Description: Save to look: Cream Mini Dress, Value: 0
+						76 button Add to cart
+		18 container
+			19 text entry area (settable) Message your stylist
+			20 button (disabled) Send message
+		21 text Messages may be sent to OpenAI.
+		22 button (collapsed) Privacy & details, Secondary Actions: Expand
+			23 text Privacy & details
+
+The focused UI element is 0 AXWebArea ABC Fashion, URL: abcandco.vercel.app/

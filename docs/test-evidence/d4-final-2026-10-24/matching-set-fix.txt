@@ -1,0 +1,18 @@
+PASS: The exact prompt immediately searches two groups under one A$500 total
+PASS: The reported model clarification is corrected before execution
+PASS: Mistaking the total for a per-item limit cannot bypass the combined solver
+PASS: Individually affordable pieces above the combined limit return no_match
+PASS: Pairing evidence names the actual jacket and excludes incompatible candidates
+PASS: An owned jacket is still a reference, never an A$800 new purchase
+PASS: The look summary uses the same new-pieces budget when the reference was saved earlier
+PASS: Budget-only refinement retains both requested roles and the jacket after history eviction
+PASS: Missing or ambiguous jacket asks only for the jacket and remembers the set
+PASS: A unique jacket can be resolved among a mixed shortlist
+PASS: Genuine either/or wording is not converted into buying both
+PASS: Compound qualifiers remain with the model and all component constraints are retained
+PASS: A non-shortcut model cannot omit one requested component
+PASS: Response contract rejects an inflated displayed combination
+PASS: Components before the jacket retain two purchase roles and one anchor
+PASS: Budget edits with an additional requirement still require full interpretation
+
+16 matching-set combined-budget checks passed.

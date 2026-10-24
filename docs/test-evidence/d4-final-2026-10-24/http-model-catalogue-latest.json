@@ -1,0 +1,1482 @@
+{
+  "scope": "Latest result for each ID; first framework-context setup failures retained under attempt-1. Retest used standalone read-only public Supabase client.",
+  "checks": [
+    {
+      "id": "TC-AI-01",
+      "description": "Retrieve live configured catalogue",
+      "started": "2026-10-24T06:11:30.222Z",
+      "actual": {
+        "rows": 318,
+        "available": 316
+      },
+      "status": "Pass",
+      "finished": "2026-10-24T06:11:40.537Z"
+    },
+    {
+      "id": "TC-AI-02",
+      "description": "Live size 10 maximum A$100",
+      "started": "2026-10-24T06:11:40.538Z",
+      "actual": {
+        "count": 60,
+        "ids": [
+          "P1002",
+          "P1006",
+          "P1008",
+          "P1009",
+          "P1012",
+          "P1016",
+          "P1019",
+          "P1021",
+          "P1023",
+          "P1032",
+          "P1040",
+          "P1042",
+          "P1043",
+          "P1046",
+          "P1052",
+          "P1064",
+          "P1065",
+          "P1071",
+          "P1072",
+          "P1085",
+          "P1089",
+          "P1095",
+          "P1096",
+          "P1106",
+          "P1110",
+          "P1120",
+          "P1122",
+          "P1124",
+          "P1129",
+          "P1135",
+          "P1137",
+          "P1143",
+          "P1158",
+          "P1173",
+          "P1176",
+          "P1178",
+          "P1186",
+          "P1194",
+          "P1195",
+          "P1209",
+          "P1210",
+          "P1211",
+          "P1212",
+          "P1213",
+          "P1216",
+          "P1217",
+          "P1223",
+          "P1228",
+          "P1230",
+          "P1243",
+          "P1253",
+          "P1256",
+          "P1257",
+          "P1270",
+          "P1274",
+          "P1295",
+          "P1299",
+          "P1300",
+          "P1311",
+          "P1315"
+        ]
+      },
+      "status": "Pass",
+      "finished": "2026-10-24T06:11:40.540Z"
+    },
+    {
+      "id": "TC-AI-03",
+      "description": "Filter and rank current live catalogue",
+      "started": "2026-10-24T06:11:40.540Z",
+      "actual": [
+        {
+          "id": "P1002",
+          "price": 55,
+          "score": 2,
+          "possible": 2,
+          "unmatched": []
+        },
+        {
+          "id": "P1120",
+          "price": 75,
+          "score": 2,
+          "possible": 2,
+          "unmatched": []
+        },
+        {
+          "id": "P1295",
+          "price": 100,
+          "score": 2,
+          "possible": 2,
+          "unmatched": []
+        },
+        {
+          "id": "P1209",
+          "price": 40,
+          "score": 1,
+          "possible": 2,
+          "unmatched": [
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1228",
+          "price": 40,
+          "score": 1,
+          "possible": 2,
+          "unmatched": [
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1016",
+          "price": 45,
+          "score": 1,
+          "possible": 2,
+          "unmatched": [
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1135",
+          "price": 45,
+          "score": 1,
+          "possible": 2,
+          "unmatched": [
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1257",
+          "price": 45,
+          "score": 1,
+          "possible": 2,
+          "unmatched": [
+            "Colour: Lavender"
+          ]
+        }
+      ],
+      "status": "Pass",
+      "finished": "2026-10-24T06:11:40.553Z"
+    },
+    {
+      "id": "TC-AI-05",
+      "description": "Filter and rank current live catalogue",
+      "started": "2026-10-24T06:11:40.554Z",
+      "actual": [
+        {
+          "id": "P1002",
+          "price": 55,
+          "score": 2,
+          "possible": 2,
+          "unmatched": []
+        },
+        {
+          "id": "P1120",
+          "price": 75,
+          "score": 2,
+          "possible": 2,
+          "unmatched": []
+        },
+        {
+          "id": "P1209",
+          "price": 40,
+          "score": 1,
+          "possible": 2,
+          "unmatched": [
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1228",
+          "price": 40,
+          "score": 1,
+          "possible": 2,
+          "unmatched": [
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1016",
+          "price": 45,
+          "score": 1,
+          "possible": 2,
+          "unmatched": [
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1135",
+          "price": 45,
+          "score": 1,
+          "possible": 2,
+          "unmatched": [
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1257",
+          "price": 45,
+          "score": 1,
+          "possible": 2,
+          "unmatched": [
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1124",
+          "price": 55,
+          "score": 1,
+          "possible": 2,
+          "unmatched": [
+            "Colour: Lavender"
+          ]
+        }
+      ],
+      "status": "Pass",
+      "finished": "2026-10-24T06:11:40.554Z"
+    },
+    {
+      "id": "TC-AI-06",
+      "description": "Filter and rank current live catalogue",
+      "started": "2026-10-24T06:11:40.554Z",
+      "actual": [
+        {
+          "id": "P1209",
+          "price": 40,
+          "score": 1,
+          "possible": 2,
+          "unmatched": [
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1228",
+          "price": 40,
+          "score": 1,
+          "possible": 2,
+          "unmatched": [
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1016",
+          "price": 45,
+          "score": 1,
+          "possible": 2,
+          "unmatched": [
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1135",
+          "price": 45,
+          "score": 1,
+          "possible": 2,
+          "unmatched": [
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1257",
+          "price": 45,
+          "score": 1,
+          "possible": 2,
+          "unmatched": [
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1243",
+          "price": 45,
+          "score": 0,
+          "possible": 2,
+          "unmatched": [
+            "Category: Clothing",
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1023",
+          "price": 50,
+          "score": 0,
+          "possible": 2,
+          "unmatched": [
+            "Category: Clothing",
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1089",
+          "price": 50,
+          "score": 0,
+          "possible": 2,
+          "unmatched": [
+            "Category: Clothing",
+            "Colour: Lavender"
+          ]
+        }
+      ],
+      "status": "Pass",
+      "finished": "2026-10-24T06:11:40.554Z"
+    },
+    {
+      "id": "TC-AI-07",
+      "description": "Filter and rank current live catalogue",
+      "started": "2026-10-24T06:11:40.554Z",
+      "actual": [
+        {
+          "id": "P1228",
+          "price": 40,
+          "score": 1,
+          "possible": 2,
+          "unmatched": [
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1016",
+          "price": 45,
+          "score": 1,
+          "possible": 2,
+          "unmatched": [
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1135",
+          "price": 45,
+          "score": 1,
+          "possible": 2,
+          "unmatched": [
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1257",
+          "price": 45,
+          "score": 1,
+          "possible": 2,
+          "unmatched": [
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1243",
+          "price": 45,
+          "score": 0,
+          "possible": 2,
+          "unmatched": [
+            "Category: Clothing",
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1023",
+          "price": 50,
+          "score": 0,
+          "possible": 2,
+          "unmatched": [
+            "Category: Clothing",
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1089",
+          "price": 50,
+          "score": 0,
+          "possible": 2,
+          "unmatched": [
+            "Category: Clothing",
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1106",
+          "price": 50,
+          "score": 0,
+          "possible": 2,
+          "unmatched": [
+            "Category: Clothing",
+            "Colour: Lavender"
+          ]
+        }
+      ],
+      "status": "Pass",
+      "finished": "2026-10-24T06:11:40.555Z"
+    },
+    {
+      "id": "TC-AI-08",
+      "description": "Filter and rank current live catalogue",
+      "started": "2026-10-24T06:11:40.555Z",
+      "actual": [
+        {
+          "id": "P1228",
+          "price": 40,
+          "score": 1,
+          "possible": 2,
+          "unmatched": [
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1016",
+          "price": 45,
+          "score": 1,
+          "possible": 2,
+          "unmatched": [
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1135",
+          "price": 45,
+          "score": 1,
+          "possible": 2,
+          "unmatched": [
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1257",
+          "price": 45,
+          "score": 1,
+          "possible": 2,
+          "unmatched": [
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1243",
+          "price": 45,
+          "score": 0,
+          "possible": 2,
+          "unmatched": [
+            "Category: Clothing",
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1023",
+          "price": 50,
+          "score": 0,
+          "possible": 2,
+          "unmatched": [
+            "Category: Clothing",
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1089",
+          "price": 50,
+          "score": 0,
+          "possible": 2,
+          "unmatched": [
+            "Category: Clothing",
+            "Colour: Lavender"
+          ]
+        }
+      ],
+      "status": "Pass",
+      "finished": "2026-10-24T06:11:40.555Z"
+    },
+    {
+      "id": "TC-AI-09",
+      "description": "Filter and rank current live catalogue",
+      "started": "2026-10-24T06:11:40.555Z",
+      "actual": [
+        {
+          "id": "P1002",
+          "price": 55,
+          "score": 4,
+          "possible": 4,
+          "unmatched": []
+        },
+        {
+          "id": "P1274",
+          "price": 70,
+          "score": 3,
+          "possible": 4,
+          "unmatched": [
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1209",
+          "price": 40,
+          "score": 2,
+          "possible": 4,
+          "unmatched": [
+            "Style: Relaxed",
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1228",
+          "price": 40,
+          "score": 2,
+          "possible": 4,
+          "unmatched": [
+            "Style: Relaxed",
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1253",
+          "price": 55,
+          "score": 2,
+          "possible": 4,
+          "unmatched": [
+            "Occasion: Beach Wedding",
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1270",
+          "price": 55,
+          "score": 2,
+          "possible": 4,
+          "unmatched": [
+            "Occasion: Beach Wedding",
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1071",
+          "price": 65,
+          "score": 2,
+          "possible": 4,
+          "unmatched": [
+            "Category: Clothing",
+            "Colour: Lavender"
+          ]
+        },
+        {
+          "id": "P1195",
+          "price": 70,
+          "score": 2,
+          "possible": 4,
+          "unmatched": [
+            "Style: Relaxed",
+            "Colour: Lavender"
+          ]
+        }
+      ],
+      "status": "Pass",
+      "finished": "2026-10-24T06:11:40.555Z"
+    },
+    {
+      "id": "TC-AI-10",
+      "description": "Deliberate no match at A$1",
+      "started": "2026-10-24T06:11:40.555Z",
+      "actual": {
+        "count": 0
+      },
+      "status": "Pass",
+      "finished": "2026-10-24T06:11:40.555Z"
+    },
+    {
+      "id": "TC-AI-04",
+      "description": "Actual legacy recommendation HTTP pipeline",
+      "started": "2026-10-24T05:57:01.652Z",
+      "actual": {
+        "http": 200,
+        "body": {
+          "success": true,
+          "request_id": "afa4d2d7-431e-46ce-a4ad-d6cea19e8d87",
+          "status": "recommendations",
+          "message": "These products meet the applied filters and supplied soft preferences.",
+          "preferences": {
+            "gender": null,
+            "category": "Clothing",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Beach Wedding",
+            "style": "Relaxed",
+            "preferred_colours": [
+              "Lavender"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": "10",
+            "min_price": null,
+            "max_price": 100,
+            "brand_line": null
+          },
+          "applied_preference_fields": [
+            "category",
+            "occasion",
+            "style",
+            "preferred_colours",
+            "size",
+            "max_price"
+          ],
+          "budget_scope": "per_product",
+          "products": [
+            {
+              "product_id": "P1002",
+              "product_name": "Lavender Co-ord Set",
+              "category": "Clothing",
+              "subcategory": "Sets",
+              "product_type": "Co-ord Set",
+              "colour": "Lavender",
+              "occasion": "Beach Wedding",
+              "style": "Relaxed",
+              "price_aud": 55,
+              "sizes_available": [
+                "6",
+                "8",
+                "10",
+                "12",
+                "14",
+                "16"
+              ],
+              "stock_qty": 81,
+              "is_available": true,
+              "image_key": "sets/P1002.png",
+              "score": 4,
+              "possible_score": 4,
+              "matched_preferences": [
+                "Category: Clothing",
+                "Occasion: Beach Wedding",
+                "Style: Relaxed",
+                "Colour: Lavender"
+              ],
+              "unmatched_preferences": [],
+              "explanation": "Available and in stock. Matches Category: Clothing; Occasion: Beach Wedding; Style: Relaxed; Colour: Lavender."
+            }
+          ],
+          "warnings": [
+            "Single-message prototype: conversation memory is not implemented.",
+            "Budgets apply to each product, not the combined cost of an outfit.",
+            "Matching uses catalogue labels, not semantic similarity or size conversions."
+          ]
+        },
+        "bytes": 140
+      },
+      "status": "Pass",
+      "finished": "2026-10-24T05:57:15.114Z"
+    },
+    {
+      "id": "TC-PE-01",
+      "description": "Fresh real-model preference extraction",
+      "started": "2026-10-24T05:57:15.115Z",
+      "actual": {
+        "message": "I need a black dress under $150 for a wedding in size 10.",
+        "preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": "Dresses",
+          "product_type": null,
+          "occasion": "Wedding Guest",
+          "style": null,
+          "preferred_colours": [
+            "Black"
+          ],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": "10",
+          "min_price": null,
+          "max_price": 150,
+          "brand_line": null
+        }
+      },
+      "status": "Pass",
+      "finished": "2026-10-24T05:57:18.204Z"
+    },
+    {
+      "id": "TC-PE-02",
+      "description": "Fresh real-model preference extraction",
+      "started": "2026-10-24T05:57:18.205Z",
+      "actual": {
+        "message": "I\u2019m going to a beach wedding and want something elegant, maybe sage or blue.",
+        "preferences": {
+          "gender": null,
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Beach Wedding",
+          "style": "Elegant",
+          "preferred_colours": [
+            "Sage",
+            "Blue"
+          ],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        }
+      },
+      "status": "Pass",
+      "finished": "2026-10-24T05:57:20.832Z"
+    },
+    {
+      "id": "TC-PE-03",
+      "description": "Fresh real-model preference extraction",
+      "started": "2026-10-24T05:57:20.832Z",
+      "actual": {
+        "message": "I need something casual for brunch under $100.",
+        "preferences": {
+          "gender": null,
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Brunch",
+          "style": "Casual",
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": 100,
+          "brand_line": null
+        }
+      },
+      "status": "Pass",
+      "finished": "2026-10-24T05:57:23.645Z"
+    },
+    {
+      "id": "TC-PE-04",
+      "description": "Fresh real-model preference extraction",
+      "started": "2026-10-24T05:57:23.645Z",
+      "actual": {
+        "message": "Show me men\u2019s shoes for work in size 11.",
+        "preferences": {
+          "gender": "Men",
+          "category": "Shoes",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Work",
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": "11",
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        }
+      },
+      "status": "Pass",
+      "finished": "2026-10-24T05:57:26.865Z"
+    },
+    {
+      "id": "TC-PE-05",
+      "description": "Fresh real-model preference extraction",
+      "started": "2026-10-24T05:57:26.866Z",
+      "actual": {
+        "message": "I want a romantic outfit for date night but nothing red.",
+        "preferences": {
+          "gender": null,
+          "category": "Clothing",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": "Date Night",
+          "style": "Romantic",
+          "preferred_colours": [],
+          "excluded_colours": [
+            "Red"
+          ],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        }
+      },
+      "status": "Pass",
+      "finished": "2026-10-24T05:57:29.482Z"
+    },
+    {
+      "id": "TC-PE-06",
+      "description": "Fresh real-model preference extraction",
+      "started": "2026-10-24T05:57:29.482Z",
+      "actual": {
+        "message": "A bag costing at least $100 and up to $150.",
+        "preferences": {
+          "gender": null,
+          "category": "Bags",
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": 100,
+          "max_price": 150,
+          "brand_line": null
+        }
+      },
+      "status": "Pass",
+      "finished": "2026-10-24T05:57:32.307Z"
+    },
+    {
+      "id": "TC-PE-07",
+      "description": "Whitespace extraction rejected",
+      "started": "2026-10-24T05:57:32.307Z",
+      "actual": {
+        "input": "   ",
+        "error": "Customer message cannot be empty."
+      },
+      "status": "Pass",
+      "finished": "2026-10-24T05:57:32.308Z"
+    },
+    {
+      "id": "TC-PE-08",
+      "description": "Four invalid extraction HTTP bodies",
+      "started": "2026-10-24T05:57:32.308Z",
+      "actual": [
+        {
+          "http": 400,
+          "body": {
+            "error": "Request body must be valid JSON."
+          },
+          "bytes": 11
+        },
+        {
+          "http": 400,
+          "body": {
+            "error": "message must be between 1 and 2000 characters."
+          },
+          "bytes": 2
+        },
+        {
+          "http": 400,
+          "body": {
+            "error": "message must be between 1 and 2000 characters."
+          },
+          "bytes": 13
+        },
+        {
+          "http": 400,
+          "body": {
+            "error": "message must be between 1 and 2000 characters."
+          },
+          "bytes": 17
+        }
+      ],
+      "status": "Pass",
+      "finished": "2026-10-24T05:57:32.390Z"
+    },
+    {
+      "id": "TC-PV-07",
+      "description": "Current live Supabase vocabulary validation",
+      "started": "2026-10-24T05:57:32.390Z",
+      "actual": {
+        "vocabulary_rows": 318,
+        "result": {
+          "preferences": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Brunch",
+            "style": "Casual",
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "issues": [
+            {
+              "field": "style",
+              "value": "Casual",
+              "code": "unsupported_value",
+              "blocking": false,
+              "reason": "Not recognised as an exact catalogue label. Keep the preference and explain any mismatch."
+            }
+          ],
+          "needs_clarification": false
+        }
+      },
+      "status": "Pass",
+      "finished": "2026-10-24T05:57:36.429Z"
+    },
+    {
+      "id": "TC-HTTP-01-local",
+      "description": "HTTP boundary http://127.0.0.1:3000",
+      "started": "2026-10-24T05:57:36.429Z",
+      "actual": {
+        "http": 415,
+        "body": {
+          "error": "Send JSON."
+        },
+        "bytes": 2
+      },
+      "status": "Pass",
+      "finished": "2026-10-24T05:57:36.475Z"
+    },
+    {
+      "id": "TC-HTTP-02-local",
+      "description": "HTTP boundary http://127.0.0.1:3000",
+      "started": "2026-10-24T05:57:36.476Z",
+      "actual": {
+        "http": 400,
+        "body": {
+          "error": "Invalid JSON."
+        },
+        "bytes": 8
+      },
+      "status": "Pass",
+      "finished": "2026-10-24T05:57:36.481Z"
+    },
+    {
+      "id": "TC-HTTP-03-local",
+      "description": "HTTP boundary http://127.0.0.1:3000",
+      "started": "2026-10-24T05:57:36.481Z",
+      "actual": {
+        "http": 400,
+        "body": {
+          "error": "Invalid conversation request."
+        },
+        "bytes": 2
+      },
+      "status": "Pass",
+      "finished": "2026-10-24T05:57:36.488Z"
+    },
+    {
+      "id": "TC-HTTP-04-local",
+      "description": "HTTP boundary http://127.0.0.1:3000",
+      "started": "2026-10-24T05:57:36.488Z",
+      "actual": {
+        "http": 403,
+        "body": {
+          "error": "Origin not allowed."
+        },
+        "bytes": 2
+      },
+      "status": "Pass",
+      "finished": "2026-10-24T05:57:36.492Z"
+    },
+    {
+      "id": "TC-HTTP-05-local",
+      "description": "HTTP boundary http://127.0.0.1:3000",
+      "started": "2026-10-24T05:57:36.492Z",
+      "actual": {
+        "http": 413,
+        "body": {
+          "error": "Request is too long."
+        },
+        "bytes": 64001
+      },
+      "status": "Pass",
+      "finished": "2026-10-24T05:57:36.497Z"
+    },
+    {
+      "id": "TC-HTTP-01-deployed",
+      "description": "HTTP boundary https://abcandco.vercel.app",
+      "started": "2026-10-24T05:57:36.497Z",
+      "actual": {
+        "http": 415,
+        "body": {
+          "error": "Send JSON."
+        },
+        "bytes": 2
+      },
+      "status": "Pass",
+      "finished": "2026-10-24T05:57:37.652Z"
+    },
+    {
+      "id": "TC-HTTP-02-deployed",
+      "description": "HTTP boundary https://abcandco.vercel.app",
+      "started": "2026-10-24T05:57:37.652Z",
+      "actual": {
+        "http": 400,
+        "body": {
+          "error": "Invalid JSON."
+        },
+        "bytes": 8
+      },
+      "status": "Pass",
+      "finished": "2026-10-24T05:57:39.882Z"
+    },
+    {
+      "id": "TC-HTTP-03-deployed",
+      "description": "HTTP boundary https://abcandco.vercel.app",
+      "started": "2026-10-24T05:57:39.883Z",
+      "actual": {
+        "http": 400,
+        "body": {
+          "error": "Invalid conversation request."
+        },
+        "bytes": 2
+      },
+      "status": "Pass",
+      "finished": "2026-10-24T05:57:40.496Z"
+    },
+    {
+      "id": "TC-HTTP-04-deployed",
+      "description": "HTTP boundary https://abcandco.vercel.app",
+      "started": "2026-10-24T05:57:40.497Z",
+      "actual": {
+        "http": 403,
+        "body": {
+          "error": "Origin not allowed."
+        },
+        "bytes": 2
+      },
+      "status": "Pass",
+      "finished": "2026-10-24T05:57:40.836Z"
+    },
+    {
+      "id": "TC-HTTP-05-deployed",
+      "description": "HTTP boundary https://abcandco.vercel.app",
+      "started": "2026-10-24T05:57:40.837Z",
+      "actual": {
+        "http": 413,
+        "body": {
+          "error": "Request is too long."
+        },
+        "bytes": 64001
+      },
+      "status": "Pass",
+      "finished": "2026-10-24T05:57:42.322Z"
+    },
+    {
+      "id": "TC-HTTP-05-boundary",
+      "description": "Valid envelope padded to exactly 64000 bytes",
+      "started": "2026-10-24T05:57:42.323Z",
+      "actual": {
+        "http": 200,
+        "body": {
+          "complementary_offer": null,
+          "offer_refresh": false,
+          "task_transition_applied": true,
+          "task": {
+            "generation": 0,
+            "complementary_shown": false,
+            "complementary_dismissed": false,
+            "prepared_key": "11m2ht3",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null,
+              "gift_recipient": null,
+              "uncertain_recipient_size": false,
+              "excluded_roles": [],
+              "occasion_context": null
+            }
+          },
+          "issues": [],
+          "unverified_requirements": [],
+          "purchase_budget": null,
+          "intent_understood": true,
+          "outfit_budget": null,
+          "outfit_choices": null,
+          "outfit_review": null,
+          "combination_summary": null,
+          "status": "no_match",
+          "action": "new_search",
+          "discovery": null,
+          "collection": {
+            "choice": null,
+            "current": null,
+            "checkpoint": null
+          },
+          "suggested_replies": [],
+          "message": "I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged.\n\nOne way to broaden the search is to use \"Explore other colours\" below. That preview keeps your other restrictions and leaves your original colour request saved.",
+          "proposed_scopes": {
+            "item": {
+              "gender": null,
+              "category": "Bags",
+              "subcategory": null,
+              "product_type": null,
+              "occasion": "Wedding Guest",
+              "style": null,
+              "preferred_colours": [
+                "Blue"
+              ],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 80,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "applied_preferences": {
+            "gender": null,
+            "category": "Bags",
+            "subcategory": null,
+            "product_type": null,
+            "occasion": "Wedding Guest",
+            "style": null,
+            "preferred_colours": [
+              "Blue"
+            ],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 80,
+            "brand_line": null
+          },
+          "products": [],
+          "alternatives": [],
+          "alternatives_preferences": null,
+          "alternative_kind": null,
+          "optional_question": null,
+          "can_preview_other_colours": true,
+          "pending": null,
+          "pending_answer": null,
+          "answer_sources": [],
+          "answer_product_ids": [],
+          "styling": {
+            "dress_code": "wedding_guest",
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "commerce_policy": "stylist-commerce-v1",
+          "feature_data_status": "available",
+          "comparison_reference_id": null
+        },
+        "bytes": 64000
+      },
+      "status": "Pass",
+      "finished": "2026-10-24T05:57:52.655Z"
+    },
+    {
+      "id": "TC-DEP-01-http",
+      "description": "Deployment HTTP and legacy production boundary",
+      "started": "2026-10-24T05:57:52.656Z",
+      "actual": {
+        "url": "https://abcandco.vercel.app/",
+        "http": 200,
+        "html_sha256": "c893adf9bf730169d1ca8eda0693982784b81e8863e8c2c7b87d7846c99311b5",
+        "headers": {
+          "x-vercel-id": "syd1::iad1::75nbg-1792821474629-0d3af47edc86",
+          "x-vercel-cache": "MISS",
+          "etag": null
+        },
+        "legacy_http": 404,
+        "build_markers": []
+      },
+      "status": "Pass",
+      "finished": "2026-10-24T05:57:57.824Z"
+    },
+    {
+      "id": "TC-INT-03",
+      "description": "Ground deployed response against current catalogue",
+      "started": "2026-10-24T06:11:40.555Z",
+      "actual": {
+        "http": 200,
+        "body": {
+          "complementary_offer": {
+            "anchor": {
+              "product_id": "P1178",
+              "product_name": "Navy Maxi Dress",
+              "price_aud": 95,
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "brand_line": "ABC Occasion",
+              "colour": "Navy",
+              "occasion": "Beach Wedding",
+              "style": "Minimalist",
+              "sizes_available": [
+                "6",
+                "8",
+                "10",
+                "12",
+                "14",
+                "16"
+              ],
+              "unverified_requirements": [],
+              "extra_target": "Bags",
+              "image_src": "/api/products/P1178/image"
+            },
+            "anchor_ownership": "example",
+            "items": [
+              {
+                "product": {
+                  "product_id": "P1250",
+                  "product_name": "Blue Sling Bag",
+                  "price_aud": 100,
+                  "category": "Bags",
+                  "subcategory": "Crossbody",
+                  "product_type": "Sling Bag",
+                  "brand_line": "ABC Accessories",
+                  "colour": "Blue",
+                  "occasion": "Beach Wedding",
+                  "style": "Bohemian",
+                  "sizes_available": [
+                    "One Size"
+                  ],
+                  "explanation": "Its recorded occasion matches Beach Wedding.",
+                  "unverified_requirements": [],
+                  "extra_target": null,
+                  "image_src": "/api/products/P1250/image",
+                  "pairing_evidence": {
+                    "policy_version": "stylist-commerce-v1",
+                    "anchor_ids": [
+                      "P1178"
+                    ],
+                    "reasons": [
+                      "Its recorded occasion matches Beach Wedding.",
+                      "The season labels are compatible with Navy Maxi Dress; this does not verify weather performance.",
+                      "Styling suggestion: its Blue colour gives a coordinated palette with Navy Maxi Dress."
+                    ],
+                    "limitations": [
+                      "Its Bohemian style differs from Navy Maxi Dress's Minimalist label."
+                    ],
+                    "level": "catalogue_supported"
+                  }
+                },
+                "preferences": {
+                  "gender": "Women",
+                  "category": "Bags",
+                  "subcategory": null,
+                  "product_type": null,
+                  "occasion": "Beach Wedding",
+                  "style": null,
+                  "preferred_colours": [],
+                  "excluded_colours": [],
+                  "season": null,
+                  "material": null,
+                  "fit": null,
+                  "size": null,
+                  "min_price": null,
+                  "max_price": null,
+                  "brand_line": null
+                }
+              }
+            ],
+            "combined_limit_aud": null,
+            "base_total_aud": 95,
+            "extras_total_aud": 100,
+            "total_aud": 195
+          },
+          "offer_refresh": false,
+          "task_transition_applied": true,
+          "task": {
+            "generation": 0,
+            "complementary_shown": true,
+            "complementary_dismissed": false,
+            "prepared_key": "1e4q8l",
+            "preview_unverified": false,
+            "blocker_signature": "",
+            "blocker_repeats": 0,
+            "issues": [],
+            "brief": {
+              "goal": null,
+              "total_budget_aud": null,
+              "budget_evidence": null,
+              "guidance": [],
+              "deadline": null,
+              "gift_recipient": null,
+              "uncertain_recipient_size": false,
+              "excluded_roles": [],
+              "occasion_context": "beach wedding"
+            }
+          },
+          "issues": [],
+          "unverified_requirements": [],
+          "purchase_budget": null,
+          "intent_understood": true,
+          "outfit_budget": null,
+          "outfit_choices": null,
+          "outfit_review": null,
+          "combination_summary": null,
+          "status": "matches",
+          "action": "new_search",
+          "discovery": null,
+          "collection": {
+            "choice": "Women",
+            "current": {
+              "choice": "Women",
+              "source": "explicit"
+            },
+            "checkpoint": null
+          },
+          "suggested_replies": [],
+          "message": "I've found 2 clothing options for you to explore. I've also included optional finishing touches for Navy Maxi Dress below.\n\nThese options range from A$95.00 to A$105.00. The selection includes maxi dress and mini dress options. I've kept this selection within your A$200.00 per-item limit.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.",
+          "proposed_scopes": {
+            "item": {
+              "gender": "Women",
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": null,
+              "occasion": "Beach Wedding",
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": 200,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "applied_preferences": {
+            "gender": "Women",
+            "category": "Clothing",
+            "subcategory": "Dresses",
+            "product_type": null,
+            "occasion": "Beach Wedding",
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": 200,
+            "brand_line": null
+          },
+          "products": [
+            {
+              "product_id": "P1178",
+              "product_name": "Navy Maxi Dress",
+              "price_aud": 95,
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Maxi Dress",
+              "brand_line": "ABC Occasion",
+              "colour": "Navy",
+              "occasion": "Beach Wedding",
+              "style": "Minimalist",
+              "sizes_available": [
+                "6",
+                "8",
+                "10",
+                "12",
+                "14",
+                "16"
+              ],
+              "unverified_requirements": [],
+              "extra_target": "Bags",
+              "image_src": "/api/products/P1178/image"
+            },
+            {
+              "product_id": "P1162",
+              "product_name": "Cream Mini Dress",
+              "price_aud": 105,
+              "category": "Clothing",
+              "subcategory": "Dresses",
+              "product_type": "Mini Dress",
+              "brand_line": "ABC Occasion",
+              "colour": "Cream",
+              "occasion": "Beach Wedding",
+              "style": "Romantic",
+              "sizes_available": [
+                "6",
+                "8",
+                "10",
+                "12",
+                "14",
+                "16"
+              ],
+              "unverified_requirements": [],
+              "extra_target": "Accessories",
+              "image_src": "/api/products/P1162/image"
+            }
+          ],
+          "alternatives": [],
+          "alternatives_preferences": null,
+          "alternative_kind": null,
+          "optional_question": null,
+          "can_preview_other_colours": false,
+          "pending": null,
+          "pending_answer": null,
+          "answer_sources": [],
+          "answer_product_ids": [],
+          "styling": {
+            "dress_code": "wedding_guest",
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "commerce_policy": "stylist-commerce-v1",
+          "feature_data_status": "available",
+          "comparison_reference_id": null
+        },
+        "bytes": 1470
+      },
+      "status": "Pass",
+      "finished": "2026-10-24T06:11:56.122Z"
+    }
+  ],
+  "counts": {
+    "Pass": 32,
+    "Fail": 0
+  }
+}

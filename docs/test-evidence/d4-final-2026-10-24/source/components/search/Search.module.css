@@ -1,0 +1,92 @@
+.intro { border-bottom: 1px solid var(--border); padding-bottom: 40px; }
+.overline { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); line-height: 1.6; }
+.intro h1 { margin-top: 16px; font: 400 clamp(2.5rem, 7vw, 5rem)/.95 var(--font-cormorant), serif; letter-spacing: -.035em; }
+.description { max-width: 36rem; margin-top: 20px; font-size: 14px; line-height: 1.8; color: var(--muted); }
+.searchForm { margin-top: 28px; display: flex; max-width: 42rem; border-bottom: 1px solid var(--foreground); }
+.searchForm input { width: 100%; min-width: 0; padding: 16px 0; background: transparent; outline-offset: 4px; font-size: 16px; }
+.searchForm button { width: 48px; display: grid; place-items: center; flex-shrink: 0; }
+.catalogue { padding-top: 28px; }
+.rail { display: none; }
+.results { min-width: 0; scroll-margin-top: 24px; }
+.toolbar { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; padding-bottom: 24px; }
+.resultTitle { margin-top: 3px; font: 400 28px/1.2 var(--font-cormorant), serif; overflow-wrap: anywhere; }
+.total { display: none; font-size: 12px; color: var(--muted); text-align: right; min-width: 125px; font-variant-numeric: tabular-nums; }
+.updating { display: block; font-size: 11px; margin-top: 6px; }
+.mobileToolbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 0 0 20px; font-size: 12px; color: var(--muted); }
+.filterButton { display: flex; align-items: center; gap: 10px; border: 1px solid var(--foreground); min-height: 44px; padding: 0 16px; color: var(--foreground); font-size: 13px; }
+.refine { height: 70px; font: 400 28px/1.2 var(--font-cormorant), serif; display: flex; align-items: flex-start; padding-top: 16px; }
+.group { border-top: 1px solid var(--border); }
+.groupHeading { min-height: 52px; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 12px; text-align: left; font-size: 14px; line-height: 1.4; padding: 10px 0; }
+.plus { color: var(--muted); font-size: 18px; font-weight: 300; flex-shrink: 0; }
+.summary { display: block; font-size: 12px; color: var(--muted); margin-top: 4px; max-width: 190px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.groupBody { padding-bottom: 16px; }
+.groupBody[hidden] { display: none; }
+.groupBody .group { margin-left: 8px; }
+.option { position: relative; display: flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer; font-size: 13px; line-height: 1.45; }
+.option input, .sizeOption input { position: absolute; width: 100%; height: 100%; inset: 0; opacity: 0; cursor: inherit; margin: 0; }
+.check { width: 15px; height: 15px; border: 1px solid var(--muted); flex-shrink: 0; font-size: 11px; line-height: 13px; text-align: center; }
+.selected .check { background: var(--foreground); border-color: var(--foreground); color: var(--background); }
+.selected .optionLabel { font-weight: 500; }
+.optionLabel { overflow-wrap: anywhere; }
+.count { margin-left: auto; color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; min-width: 24px; text-align: right; flex-shrink: 0; }
+.unavailable { color: var(--muted); cursor: not-allowed; }
+.unavailable .check { border-color: var(--border); }
+.option:has(input:focus-visible), .sizeOption:has(input:focus-visible) { outline: 2px solid var(--foreground); outline-offset: 3px; }
+.swatch { width: 14px; height: 14px; flex-shrink: 0; border: 1px solid var(--muted); border-radius: 50%; }
+.sizes { display: grid; grid-template-columns: repeat(auto-fill, minmax(48px, 1fr)); gap: 8px; padding-top: 8px; }
+.sizeOption { position: relative; min-height: 54px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2px; font-size: 13px; cursor: pointer; }
+.sizeOption .count { margin: 0; text-align: center; font-size: 11px; }
+.sizeOption.selected { color: var(--background); background: var(--foreground); border-color: var(--foreground); }
+.sizeOption.selected .count { color: var(--background); }
+.sizeSection + .sizeSection { margin-top: 16px; }
+.textButton { min-height: 44px; font-size: 12px; text-decoration: underline; text-underline-offset: 4px; color: var(--foreground); display: inline-flex; align-items: center; }
+.textButton:disabled { color: var(--muted); cursor: default; }
+.helper { font-size: 12px; line-height: 1.6; color: var(--muted); }
+.findInput { width: 100%; min-height: 44px; padding: 8px 10px; border: 1px solid var(--border); background: var(--background); margin-bottom: 8px; font-size: 16px; }
+.rangeInputs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 10px; }
+.rangeInputs label { min-width: 0; font-size: 12px; color: var(--muted); }
+.rangeInputs input { display: block; width: 100%; min-width: 0; min-height: 44px; border: 1px solid var(--border); padding: 8px 10px; margin-top: 8px; font-size: 16px; color: var(--foreground); }
+.rangeInputs input[aria-invalid="true"] { border-color: var(--foreground); }
+.validation { font-size: 12px; line-height: 1.6; margin-top: 8px; }
+.subcategories { padding-left: 12px; }
+.chips { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding-bottom: 24px; }
+.chip { display: inline-flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; max-width: 100%; border: 1px solid var(--border); background: var(--surface); padding: 8px 12px; font-size: 12px; }
+.chip > span:first-child { overflow-wrap: anywhere; }
+.chip > span:last-child { font-size: 18px; font-weight: 300; }
+.extraChip { display: none; }
+.showChips { min-height: 44px; font-size: 12px; text-decoration: underline; text-underline-offset: 4px; }
+.productGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 16px; row-gap: 40px; }
+.productCard { display: block; min-width: 0; }
+.productDetails { margin-top: 12px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.productDetails h3 { font: 400 19px/1.15 var(--font-cormorant), serif; margin-top: 4px; overflow-wrap: anywhere; }
+.productColour { margin-top: 5px; font-size: 12px; color: var(--muted); }
+.price { font-size: 13px; white-space: nowrap; }
+.pagination { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 12px; }
+.pagination > span:last-child { order: 1; }
+.pagination > span:nth-child(2) { order: 2; }
+.pagination a { min-height: 44px; display: inline-flex; align-items: center; text-decoration: underline; text-underline-offset: 4px; }
+.emptyState, .unavailableState { padding: 64px 16px; text-align: center; border-top: 1px solid var(--border); }
+.emptyState h2 { font: 400 32px/1.2 var(--font-cormorant), serif; }
+.emptyState p, .unavailableState p { margin-top: 14px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.emptyState > div { display: flex; gap: 24px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+.error { padding: 12px 0 20px; font-size: 13px; line-height: 1.6; }
+.drawer { margin: 0; padding: 0; inset: var(--filter-viewport-top, 0px) 0 auto; border: 0; width: 100%; max-width: none; height: var(--filter-viewport-height, 100dvh); max-height: var(--filter-viewport-height, 100dvh); background: var(--background); color: var(--foreground); }
+.drawer::backdrop { background: rgb(17 17 17 / 35%); }
+.drawerContent { height: 100%; display: flex; flex-direction: column; }
+.drawerHeader { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px; border-bottom: 1px solid var(--border); flex-shrink: 0; }
+.drawerHeader h2 { font: 400 32px/1 var(--font-cormorant), serif; }
+.drawerHeader p { font-size: 12px; color: var(--muted); margin-top: 8px; }
+.drawerHeader button { width: 44px; height: 44px; font-size: 28px; font-weight: 300; }
+.drawerBody { flex: 1; min-height: 0; overflow-y: auto; padding: 0 20px 24px; scrollbar-width: thin; }
+.drawerBody .panel > .group:first-child { border-top: 0; }
+.drawerFooter { display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 16px 20px calc(16px + env(safe-area-inset-bottom)); border-top: 1px solid var(--border); flex-shrink: 0; }
+.drawerFooter > p { flex-basis: 100%; font-size: 12px; color: var(--muted); }
+.viewResults { min-height: 48px; flex: 1; margin-left: 12px; padding: 12px 16px; background: var(--foreground); color: var(--background); font-size: 12px; }
+.panel button:focus-visible, .results button:focus-visible, .searchForm button:focus-visible, .drawer button:focus-visible { outline: 2px solid var(--foreground); outline-offset: 3px; }
+.searchForm input:focus-visible, .panel input:not([type="checkbox"]):focus-visible { outline: 2px solid var(--foreground); outline-offset: 3px; }
+@media (hover: hover) { .option:not(.unavailable):hover .optionLabel { text-decoration: underline; text-underline-offset: 3px; } .productCard:hover h3 { text-decoration: underline; text-underline-offset: 4px; } }
+@media (min-width: 640px) { .intro { padding-bottom: 48px; } .productGrid { column-gap: 24px; } .drawer { left: auto; width: 420px; } .drawerHeader, .drawerBody { padding-left: 28px; padding-right: 28px; } .drawerFooter { padding-inline: 28px; } }
+@media (min-width: 768px) { .productGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .catalogue { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 32px; } .rail { display: block; } .mobileToolbar { display: none; } .total { display: block; } .toolbar { min-height: 70px; } .productGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 48px; } .extraChip { display: inline-flex; } .showChips { display: none; } .productDetails { flex-direction: row; justify-content: space-between; gap: 12px; } }
+@media (min-width: 1200px) { .productGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1440px) { .productGrid { grid-template-columns: repeat(4, minmax(0, 1fr)); } .productDetails { flex-direction: column; } }

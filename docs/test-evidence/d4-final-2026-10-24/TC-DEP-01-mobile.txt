@@ -1,0 +1,29 @@
+Browser tab: 4, Title: "Search | ABC Fashion", URL: "https://abcandco.vercel.app/search".
+1 AXWebArea Search | ABC Fashion, URL: abcandco.vercel.app/search
+	2 container AI Stylist
+		3 container
+			4 heading AI Stylist, Value: 2
+				5 text AI Stylist
+			6 button New chat
+			7 button Close AI Stylist
+		25 container Your look
+			26 text Your look
+			27 text 0 items
+			28 text Save pieces here to build a look.
+			29 container
+				30 text A$0.00 total
+			31 pop up button View look
+		8 container
+			32 text YOU Show me a blue bag under 80 aud for a wedding. AI STYLIST I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged.
+
+One way to broaden the search is to use "Explore other colours" below. That preview keeps your other restrictions and leaves your original colour request saved.
+			33 button Explore other colours
+			34 text Preview only. Your original colour and other restrictions stay saved.
+		19 container
+			20 text entry area (settable) Message your stylist
+			21 button (disabled) Send message
+		22 text Messages may be sent to OpenAI.
+		23 button (collapsed) Privacy & details, Secondary Actions: Expand
+			24 text Privacy & details
+
+The focused UI element is 20 text entry area (settable) Message your stylist

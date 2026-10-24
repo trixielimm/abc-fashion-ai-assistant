@@ -1,0 +1,104 @@
+Browser tab: 3, Title: "ABC Fashion", URL: "https://abcandco.vercel.app/".
+1 AXWebArea ABC Fashion, URL: abcandco.vercel.app/
+	2 container AI Stylist
+		3 container
+			4 text PERSONAL SHOPPING
+			5 heading AI Stylist, Value: 2
+				6 text AI Stylist
+			7 button New chat
+			8 button Close AI Stylist
+		26 container Your look
+			27 text Your look
+			112 text 2 items
+			29 text Blue Strappy Heels added to your look.
+			30 container
+				31 text A$385.00 total
+			34 text A$15.00 remaining
+			32 button (collapsed) View look, Secondary Actions: Expand
+		9 container
+			33 text YOU Find a women's dress and shoes for formal events under 400 AUD total. AI STYLIST I’d start with the 
+			35 text Lavender Maxi Dress and Blue Strappy Heels
+			36 text . Together, they come to 
+			37 container
+				38 text A$385.00  total
+			39 text , leaving  A$15.00  of your  A$400.00  budget. You can also mix and match one item from each group below.
+			40 button (collapsed) Why this pairing?, Secondary Actions: Expand
+				41 text Why this pairing?
+			42 container Combined outfit budget
+				43 container
+					44 text A$ 135.00 –A$385.00
+				45 text  combined Within your 
+				46 container
+					47 text A$ 400.00
+				48 text  budget
+			49 container Dresses options
+				50 heading Dresses, Value: 3
+					51 text Dresses
+				52 text 4 options
+				53 content list Dresses options
+					54 container
+						55 link Description: View Cream Slip Dress, Value: abcandco.vercel.app/products/P1021
+						56 link Description: Cream Slip Dress, Value: abcandco.vercel.app/products/P1021
+						57 text A$75.00 ABC Occasion · Cream Listed for formal occasions.
+						58 button (collapsed) Description: More options for Cream Slip Dress, Help: More options, Secondary Actions: Expand
+						59 checkbox Description: Save to look: Cream Slip Dress, Value: 0
+						60 button Add to cart
+					61 container
+						62 link Description: View Sage Midi Dress, Value: abcandco.vercel.app/products/P1235
+						63 link Description: Sage Midi Dress, Value: abcandco.vercel.app/products/P1235
+						64 text A$135.00 ABC Occasion · Sage Listed for formal occasions.
+						65 button (collapsed) Description: More options for Sage Midi Dress, Help: More options, Secondary Actions: Expand
+						66 checkbox Description: Save to look: Sage Midi Dress, Value: 0
+						67 button Add to cart
+					68 container
+						69 link Description: View Pink Mini Dress, Value: abcandco.vercel.app/products/P1214
+						70 link Description: Pink Mini Dress, Value: abcandco.vercel.app/products/P1214
+						71 text A$160.00 ABC Occasion · Pink Listed for formal occasions.
+						72 button (collapsed) Description: More options for Pink Mini Dress, Help: More options, Secondary Actions: Expand
+						73 text A shorter option for cocktail-style events; check the invitation’s dress code.
+						74 checkbox Description: Save to look: Pink Mini Dress, Value: 0
+						75 button Add to cart
+					76 container
+						77 link Description: View Lavender Maxi Dress, Value: abcandco.vercel.app/products/P1284
+						78 text Suggested pairing
+						79 link Description: Lavender Maxi Dress, Value: abcandco.vercel.app/products/P1284
+						80 text A$240.00 ABC Occasion · Lavender Listed for formal occasions.
+						81 button (collapsed) Description: More options for Lavender Maxi Dress, Help: More options, Secondary Actions: Expand
+						82 checkbox Description: Remove from your look: Lavender Maxi Dress, Value: 1
+						83 button Add to cart
+			84 container Shoes options
+				85 heading Shoes, Value: 3
+					86 text Shoes
+				87 text 3 options
+				88 content list Shoes options
+					89 container
+						90 link Description: View Red Block Heels, Value: abcandco.vercel.app/products/P1085
+						91 link Description: Red Block Heels, Value: abcandco.vercel.app/products/P1085
+						92 text A$60.00 ABC Footwear · Red Listed for formal occasions.
+						93 button (collapsed) Description: More options for Red Block Heels, Help: More options, Secondary Actions: Expand
+						94 checkbox Description: Save to look: Red Block Heels, Value: 0
+						95 button Add to cart
+					96 container
+						97 link Description: View Grey Loafers, Value: abcandco.vercel.app/products/P1212
+						98 link Description: Grey Loafers, Value: abcandco.vercel.app/products/P1212
+						99 text A$90.00 ABC Footwear · Grey Listed for formal occasions.
+						100 button (collapsed) Description: More options for Grey Loafers, Help: More options, Secondary Actions: Expand
+						101 text A tailored flat option for dinner settings; check whether the event calls for dressier footwear.
+						102 checkbox Description: Save to look: Grey Loafers, Value: 0
+						103 button Add to cart
+					104 container
+						105 link Description: View Blue Strappy Heels, Value: abcandco.vercel.app/products/P1138
+						106 text Suggested pairing
+						107 link Description: Blue Strappy Heels, Value: abcandco.vercel.app/products/P1138
+						108 text A$145.00 ABC Footwear · Blue Listed for formal occasions.
+						109 button (collapsed) Description: More options for Blue Strappy Heels, Help: More options, Secondary Actions: Expand
+						110 checkbox Description: Remove from your look: Blue Strappy Heels, Value: 1
+						111 button Add to cart
+		20 container
+			21 text entry area (settable) Message your stylist
+			22 button (disabled) Send message
+		23 text Messages may be sent to OpenAI.
+		24 button (collapsed) Privacy & details, Secondary Actions: Expand
+			25 text Privacy & details
+
+The focused UI element is 1 AXWebArea ABC Fashion, URL: abcandco.vercel.app/

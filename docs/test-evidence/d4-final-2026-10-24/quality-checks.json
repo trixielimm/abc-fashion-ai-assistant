@@ -1,0 +1,22 @@
+{
+  "operator": "Codex at Salvi request",
+  "checks": [
+    {
+      "command": "npm test",
+      "exit_code": 0
+    },
+    {
+      "command": "npm run typecheck",
+      "exit_code": 0
+    },
+    {
+      "command": "npm run lint",
+      "exit_code": 0
+    },
+    {
+      "command": "npm run build -- --webpack",
+      "exit_code": 0
+    }
+  ],
+  "note": "Final offline npm run used Node v24.14.0; earlier scenario summaries record their own Node runtime. Local source changes are not asserted deployed."
+}

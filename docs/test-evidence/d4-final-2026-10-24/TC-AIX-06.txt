@@ -1,0 +1,69 @@
+Browser tab: 3, Title: "ABC Fashion", URL: "https://abcandco.vercel.app/".
+1 AXWebArea ABC Fashion, URL: abcandco.vercel.app/
+	2 container AI Stylist
+		3 container
+			4 text PERSONAL SHOPPING
+			5 heading AI Stylist, Value: 2
+				6 text AI Stylist
+			7 button New chat
+			8 button Close AI Stylist
+		26 container Your look
+			27 text Your look
+			28 text 0 items
+			29 text Save pieces here to build a look.
+			30 container
+				31 text A$0.00 total
+			32 button (collapsed) View look, Secondary Actions: Expand
+		9 container
+			33 text YOU Show me women's clothing under 150 AUD and keep my size unknown. AI STYLIST I've found 5 clothing options for you to explore.
+			34 button (collapsed) Details about these picks, Secondary Actions: Expand
+				35 text Details about these picks
+			36 container Recommended products
+				37 text 5 pieces 1 – 5  of  5
+				38 button (disabled) Previous products
+				39 button Next products
+				40 content list Recommended products
+					41 container
+						42 link Description: View Burgundy Maxi Dress, Value: abcandco.vercel.app/products/P1254
+						43 link Description: Burgundy Maxi Dress, Value: abcandco.vercel.app/products/P1254
+						44 text A$120.00 ABC Casual · Burgundy Within your A$150.00 limit.
+						77 button (collapsed) Description: More options for Burgundy Maxi Dress, Help: More options, Secondary Actions: Expand
+						78 checkbox Description: Save to look: Burgundy Maxi Dress, Value: 0
+						47 button Add to cart
+					48 container
+						49 link Description: View Navy Maxi Dress, Value: abcandco.vercel.app/products/P1178
+						50 link Description: Navy Maxi Dress, Value: abcandco.vercel.app/products/P1178
+						51 text A$95.00 ABC Occasion · Navy Within your A$150.00 limit.
+						79 button (collapsed) Description: More options for Navy Maxi Dress, Help: More options, Secondary Actions: Expand
+						80 checkbox Description: Save to look: Navy Maxi Dress, Value: 0
+						54 button Add to cart
+					55 container
+						56 link Description: View Lavender Co-ord Set, Value: abcandco.vercel.app/products/P1002
+						57 link Description: Lavender Co-ord Set, Value: abcandco.vercel.app/products/P1002
+						58 text A$55.00 ABC Occasion · Lavender Within your A$150.00 limit.
+						81 button (collapsed) Description: More options for Lavender Co-ord Set, Help: More options, Secondary Actions: Expand
+						82 checkbox Description: Save to look: Lavender Co-ord Set, Value: 0
+						61 button Add to cart
+					62 container
+						63 link Description: View Black Trench Coat, Value: abcandco.vercel.app/products/P1270
+						64 link Description: Black Trench Coat, Value: abcandco.vercel.app/products/P1270
+						65 text A$55.00 ABC Occasion · Black Within your A$150.00 limit.
+						83 button (collapsed) Description: More options for Black Trench Coat, Help: More options, Secondary Actions: Expand
+						84 checkbox Description: Save to look: Black Trench Coat, Value: 0
+						68 button Add to cart
+					69 container
+						70 link Description: View Lavender Pleated Skirt, Value: abcandco.vercel.app/products/P1295
+						71 link Description: Lavender Pleated Skirt, Value: abcandco.vercel.app/products/P1295
+						72 text A$100.00 ABC Occasion · Lavender Within your A$150.00 limit.
+						85 button (collapsed) Description: More options for Lavender Pleated Skirt, Help: More options, Secondary Actions: Expand
+						86 checkbox Description: Save to look: Lavender Pleated Skirt, Value: 0
+						75 button Add to cart
+			76 text What occasion are you shopping for? You can also keep browsing these options. YOU Explain the fit labels while I browse. Does Regular guarantee that it will fit me? AI STYLIST Fit labels describe a garment's cut, not how it will fit your body. I can show recorded fit and size labels, but they don't verify stretch, an adjustable waist, softness or future fit. Your size can remain unknown while you browse; unverified construction requirements stay labelled and need your permission for provisional browsing.
+		20 container
+			21 text entry area (settable) Message your stylist
+			22 button (disabled) Send message
+		23 text Messages may be sent to OpenAI.
+		24 button (collapsed) Privacy & details, Secondary Actions: Expand
+			25 text Privacy & details
+
+The focused UI element is 21 text entry area (settable) Message your stylist

@@ -1,0 +1,119 @@
+Browser tab: 5, Title: "Search | ABC Fashion", URL: "http://127.0.0.1:3000/search".
+0 AXWebArea Search | ABC Fashion, URL: 127.0.0.1:3000/search
+	1 scroll bar Description: Page scroll, Value: 0
+	2 container
+		3 link Description: ABC Fashion, Value: 127.0.0.1:3000/
+		4 container Primary
+			5 link Description: Shop, Value: 127.0.0.1:3000/search
+			6 link Description: Collections, Value: 127.0.0.1:3000/#featured-categories
+			7 link Description: For him, Value: 127.0.0.1:3000/search?gender=men
+			8 link Description: For her, Value: 127.0.0.1:3000/search?gender=women
+			9 button AI STYLIST
+		10 container Product search
+			11 button Search products
+			12 search text field (settable) Search
+		13 link Description: Bag, 1 item, Value: 127.0.0.1:3000/cart
+		14 text 1 item in your bag
+	40 container
+		41 text ABC FASHION / DISCOVER
+		42 heading Search the collection, Value: 1
+			43 text Search the collection
+		44 text Explore clothing, shoes, bags and accessories from our current catalogue.
+		45 text Search products
+		46 search text field (settable) Search products, ID: catalogue-search
+		47 button Search products
+		48 container Product filters
+			49 heading Refine, Value: 2
+				50 text Refine
+			51 container
+				52 button (expanded) Gender, Secondary Actions: Collapse
+				53 container
+					54 checkbox (settable, integer) Description: Men, 75 products, Value: 0
+					55 text Men 75
+				56 container
+					57 checkbox (settable, integer) Description: Unisex, 58 products, Value: 0
+					58 text Unisex 58
+				59 container
+					60 checkbox (settable, integer) Description: Women, 183 products, Value: 0
+					61 text Women 183
+			62 container
+				63 button (expanded) Category, Secondary Actions: Collapse
+				64 container
+					65 checkbox (settable, integer) Description: Accessories, 40 products, Value: 0
+					66 text Accessories 40
+				67 container
+					68 checkbox (settable, integer) Description: Bags, 38 products, Value: 0
+					69 text Bags 38
+				70 container
+					71 checkbox (settable, integer) Description: Clothing, 180 products, Value: 0
+					72 text Clothing 180
+				73 container
+					74 checkbox (settable, integer) Description: Shoes, 58 products, Value: 0
+					75 text Shoes 58
+			76 button (collapsed) Size, Secondary Actions: Expand
+			77 button (collapsed) Colour, Secondary Actions: Expand
+			78 button (collapsed) Price, Secondary Actions: Expand
+			79 button (collapsed) Features, Secondary Actions: Expand
+			80 button (collapsed) More details, Secondary Actions: Expand
+		81 text ALL PRODUCTS
+		82 heading The collection, Value: 2
+			83 text The collection
+		84 text 316 products
+		85 text 316 products
+		120 link Description: Beige Ballet Flats ABC FOOTWEAR Beige Ballet Flats Beige $165, Value: 127.0.0.1:3000/products/P1312
+		121 link Description: Beige Block Heels ABC FOOTWEAR Beige Block Heels Beige $125, Value: 127.0.0.1:3000/products/P1242
+		122 link Description: Beige Bomber Jacket ABC CASUAL Beige Bomber Jacket Beige $150, Value: 127.0.0.1:3000/products/P1185
+		123 link Description: Beige Bomber Jacket ABC CASUAL Beige Bomber Jacket Beige $165, Value: 127.0.0.1:3000/products/P1238
+		124 link Description: Beige Co-ord Set ABC OCCASION Beige Co-ord Set Beige $90, Value: 127.0.0.1:3000/products/P1065
+		125 link Description: Beige Co-ord Set ABC OCCASION Beige Co-ord Set Beige $200, Value: 127.0.0.1:3000/products/P1204
+		126 link Description: Beige Cropped Jacket ABC CASUAL Beige Cropped Jacket Beige $210, Value: 127.0.0.1:3000/products/P1241
+		127 link Description: Beige Denim Jacket ABC ESSENTIALS Beige Denim Jacket Beige $190, Value: 127.0.0.1:3000/products/P1252
+		128 link Description: Beige Envelope Clutch ABC ACCESSORIES Beige Envelope Clutch Beige $90, Value: 127.0.0.1:3000/products/P1304
+		129 link Description: Beige Lightweight Scarf ABC ACCESSORIES Beige Lightweight Scarf Beige $40, Value: 127.0.0.1:3000/products/P1296
+		130 link Description: Beige Linen Shirt ABC CASUAL Beige Linen Shirt Beige $100, Value: 127.0.0.1:3000/products/P1210
+		131 link Description: Beige Loafers ABC FOOTWEAR Beige Loafers Beige $50, Value: 127.0.0.1:3000/products/P1089
+		132 link Description: Beige Maxi Dress ABC OCCASION Beige Maxi Dress Beige $155, Value: 127.0.0.1:3000/products/P1287
+		133 link Description: Beige Maxi Dress ABC CASUAL Beige Maxi Dress Beige $170, Value: 127.0.0.1:3000/products/P1293
+		134 link Description: Beige Pendant Necklace ABC ACCESSORIES Beige Pendant Necklace Beige $60, Value: 127.0.0.1:3000/products/P1227
+		135 link Description: Beige Pleated Trousers ABC ESSENTIALS Beige Pleated Trousers Beige $60, Value: 127.0.0.1:3000/products/P1177
+		136 link Description: Beige Retro Sneakers ABC FOOTWEAR Beige Retro Sneakers Beige $90, Value: 127.0.0.1:3000/products/P1301
+		137 link Description: Beige Satin Camisole ABC CASUAL Beige Satin Camisole Beige $220, Value: 127.0.0.1:3000/products/P1294
+		138 link Description: Beige Silk Scarf ABC ACCESSORIES Beige Silk Scarf Beige $85, Value: 127.0.0.1:3000/products/P1001
+		139 link Description: Beige Tailored Shorts ABC OCCASION Beige Tailored Shorts Beige $100, Value: 127.0.0.1:3000/products/P1246
+		140 link Description: Beige Trench Coat ABC OCCASION Beige Trench Coat Beige $220, Value: 127.0.0.1:3000/products/P1077
+		141 link Description: Beige Trench Coat ABC CASUAL Beige Trench Coat Beige $55, Value: 127.0.0.1:3000/products/P1082
+		142 link Description: Beige Wide-Leg Pants ABC OCCASION Beige Wide-Leg Pants Beige $95, Value: 127.0.0.1:3000/products/P1006
+		143 link Description: Beige Wide-Leg Pants ABC CASUAL Beige Wide-Leg Pants Beige $175, Value: 127.0.0.1:3000/products/P1029
+		144 container Search result pages
+			145 text Previous
+			146 link Description: Next, Value: 127.0.0.1:3000/search?page=2
+			147 text Page  1  of  14
+	18 container
+		19 text ABC Fashion COPENHAGEN & STOCKHOLM
+		20 text LONDON / PARIS / NEW YORK FROM THE COLLECTION
+		114 link Description: Blue Fitted Tee, Value: 127.0.0.1:3000/products/P1016
+		115 link Description: Gold Trench Coat, Value: 127.0.0.1:3000/products/P1031
+		116 link Description: Lavender Wrap Dress, Value: 127.0.0.1:3000/products/P1004
+		117 link Description: Pink Crossbody Bag, Value: 127.0.0.1:3000/products/P1003
+		22 text SHOP
+		23 content list
+			24 link Description: All products, Value: 127.0.0.1:3000/search
+			25 link Description: Women's collection, Value: 127.0.0.1:3000/search?gender=women
+			26 link Description: Men's collection, Value: 127.0.0.1:3000/search?gender=men
+			27 link Description: Accessories, Value: 127.0.0.1:3000/search?category=accessories
+		28 text HELP & INFORMATION
+		29 content list
+			30 link Description: Shopping help, Value: 127.0.0.1:3000/help
+			31 link Description: Sizes & fit, Value: 127.0.0.1:3000/help#sizes-fit
+			32 link Description: Orders & delivery, Value: 127.0.0.1:3000/help#orders
+			33 link Description: Using the AI Stylist, Value: 127.0.0.1:3000/help#ai-stylist
+			34 link Description: Recommendations & extras, Value: 127.0.0.1:3000/help#recommendations
+			35 link Description: Your look & budget, Value: 127.0.0.1:3000/help#your-look
+		36 text © 2026 ABC FASHION INC. ALL RIGHTS RESERVED. Prototype store — sample products and AI-generated specifications.
+		37 link Description: AI TERMS, Value: 127.0.0.1:3000/terms-of-service
+		38 link Description: AI PRIVACY, Value: 127.0.0.1:3000/terms-of-service#privacy
+	39 button CHAT WITH STYLIST
+	118 pop up button (collapsed) Description: Open Next.js Dev Tools, ID: next-logo, Secondary Actions: Expand
+		119 image
+
+The focused UI element is 0 AXWebArea Search | ABC Fashion, URL: 127.0.0.1:3000/search

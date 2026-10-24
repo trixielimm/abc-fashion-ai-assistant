@@ -1,0 +1,22 @@
+(node:7673) ExperimentalWarning: Module mocking is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:7673) DeprecationWarning: mock.module(): options.namedExports is deprecated. Use options.exports instead.
+Conversation request failed: {
+  stage: 'interpretation',
+  type: 'Error',
+  evidence_field: undefined,
+  provider_status: undefined,
+  provider_code: undefined,
+  provider_param: undefined
+}
+Pass TC-INT-01
+Conversation request failed: {
+  stage: 'catalogue',
+  type: 'Error',
+  evidence_field: undefined,
+  provider_status: undefined,
+  provider_code: undefined,
+  provider_param: undefined
+}
+Pass TC-INT-02
+Pass recovery

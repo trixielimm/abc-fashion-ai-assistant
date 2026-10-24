@@ -1,0 +1,1188 @@
+{
+  "id": "SET-B",
+  "name": "Matching bottoms and shirt with one total budget",
+  "repeat": 1,
+  "turns": [
+    {
+      "number": 1,
+      "message": "Please find some bottoms and a shirt that go with this jacket, total budget 500 aud.",
+      "input": {
+        "message": "Please find some bottoms and a shirt that go with this jacket, total budget 500 aud.",
+        "collection": {
+          "choice": "Men",
+          "current": null,
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": {
+            "product_id": "SET-JACKET",
+            "product_name": "Navy Denim Jacket",
+            "category": "Clothing",
+            "subcategory": "Outerwear",
+            "product_type": "Denim Jacket",
+            "price_aud": 800
+          },
+          "latest": [
+            {
+              "product_id": "SET-JACKET",
+              "product_name": "Navy Denim Jacket",
+              "category": "Clothing",
+              "subcategory": "Outerwear",
+              "product_type": "Denim Jacket",
+              "price_aud": 800
+            }
+          ]
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null,
+            "gift_recipient": null,
+            "uncertain_recipient_size": false,
+            "excluded_roles": [],
+            "occasion_context": null
+          }
+        }
+      },
+      "began": "2026-10-24T05:38:42.796Z",
+      "plan_source": "live model",
+      "plan": {
+        "action": "clarify",
+        "intent_evidence": "Please find some bottoms and a shirt that go with this jacket, total budget 500 aud.",
+        "reference": null,
+        "changes": [],
+        "question": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.",
+        "continuation": false
+      },
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "xliuo7",
+          "preview_unverified": false,
+          "blocker_signature": "interpretation_failed:task:request:null",
+          "blocker_repeats": 1,
+          "issues": [
+            {
+              "id": "interpretation_failed:task:request:null",
+              "code": "interpretation_failed",
+              "field": "request",
+              "scope": "task",
+              "value": null,
+              "saved_value": null,
+              "options": []
+            }
+          ],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 500,
+            "budget_evidence": "Please find some bottoms and a shirt that go with this jacket, total budget 500 aud.",
+            "guidance": [],
+            "deadline": null,
+            "gift_recipient": null,
+            "uncertain_recipient_size": false,
+            "excluded_roles": [],
+            "occasion_context": null
+          }
+        },
+        "issues": [
+          {
+            "id": "interpretation_failed:task:request:null",
+            "code": "interpretation_failed",
+            "field": "request",
+            "scope": "task",
+            "value": null,
+            "saved_value": null,
+            "options": []
+          }
+        ],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": false,
+        "outfit_budget": null,
+        "outfit_choices": null,
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "needs_clarification",
+        "action": "clarify",
+        "discovery": null,
+        "collection": {
+          "choice": "Men",
+          "current": null,
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "I couldn't reliably interpret the requested change. No unverified changes were applied. You can clarify the item and change, or start a new shopping task below.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": {
+          "action": "clarify",
+          "reference": null,
+          "goal": "Please find some bottoms and a shirt that go with this jacket, total budget 500 aud.",
+          "question": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "before_styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "before_collection": {
+            "choice": "Men",
+            "current": null,
+            "checkpoint": null
+          }
+        },
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 9888,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": {
+          "action": "clarify",
+          "reference": null,
+          "goal": "Please find some bottoms and a shirt that go with this jacket, total budget 500 aud.",
+          "question": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "before_styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "before_collection": {
+            "choice": "Men",
+            "current": null,
+            "checkpoint": null
+          }
+        },
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Men",
+          "current": null,
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "xliuo7",
+          "preview_unverified": false,
+          "blocker_signature": "interpretation_failed:task:request:null",
+          "blocker_repeats": 1,
+          "issues": [
+            {
+              "id": "interpretation_failed:task:request:null",
+              "code": "interpretation_failed",
+              "field": "request",
+              "scope": "task",
+              "value": null,
+              "saved_value": null,
+              "options": []
+            }
+          ],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 500,
+            "budget_evidence": "Please find some bottoms and a shirt that go with this jacket, total budget 500 aud.",
+            "guidance": [],
+            "deadline": null,
+            "gift_recipient": null,
+            "uncertain_recipient_size": false,
+            "excluded_roles": [],
+            "occasion_context": null
+          }
+        },
+        "context": {
+          "focused": {
+            "product_id": "SET-JACKET",
+            "product_name": "Navy Denim Jacket",
+            "category": "Clothing",
+            "subcategory": "Outerwear",
+            "product_type": "Denim Jacket",
+            "price_aud": 800
+          },
+          "latest": [
+            {
+              "product_id": "SET-JACKET",
+              "product_name": "Navy Denim Jacket",
+              "category": "Clothing",
+              "subcategory": "Outerwear",
+              "product_type": "Denim Jacket",
+              "price_aud": 800
+            }
+          ]
+        },
+        "history": []
+      },
+      "checks": "Fail",
+      "failure": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ 'needs_clarification'\n- 'matches'\n"
+    },
+    {
+      "number": 2,
+      "message": "Make the combined budget 600 aud, keep the same pieces and jacket.",
+      "input": {
+        "message": "Make the combined budget 600 aud, keep the same pieces and jacket.",
+        "collection": {
+          "choice": "Men",
+          "current": null,
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": {
+            "product_id": "SET-JACKET",
+            "product_name": "Navy Denim Jacket",
+            "category": "Clothing",
+            "subcategory": "Outerwear",
+            "product_type": "Denim Jacket",
+            "price_aud": 800
+          },
+          "latest": [
+            {
+              "product_id": "SET-JACKET",
+              "product_name": "Navy Denim Jacket",
+              "category": "Clothing",
+              "subcategory": "Outerwear",
+              "product_type": "Denim Jacket",
+              "price_aud": 800
+            }
+          ]
+        },
+        "history": [],
+        "pending": {
+          "action": "clarify",
+          "reference": null,
+          "goal": "Please find some bottoms and a shirt that go with this jacket, total budget 500 aud.",
+          "question": "Could you rephrase what you'd like me to find or change? I haven't changed your saved preferences or searched with unverified requirements.",
+          "before_scopes": {
+            "item": {
+              "gender": null,
+              "category": null,
+              "subcategory": null,
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "shared": {
+              "gender": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            "unresolved_item": [],
+            "unresolved_shared": []
+          },
+          "before_styling": {
+            "dress_code": null,
+            "outfit_request": null,
+            "purchase_budget": null,
+            "outfit": [],
+            "external_items": [],
+            "rejected_ids": [],
+            "priorities": [],
+            "required_features": [],
+            "offers_paused": false,
+            "owned_categories": []
+          },
+          "before_collection": {
+            "choice": "Men",
+            "current": null,
+            "checkpoint": null
+          }
+        },
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "xliuo7",
+          "preview_unverified": false,
+          "blocker_signature": "interpretation_failed:task:request:null",
+          "blocker_repeats": 1,
+          "issues": [
+            {
+              "id": "interpretation_failed:task:request:null",
+              "code": "interpretation_failed",
+              "field": "request",
+              "scope": "task",
+              "value": null,
+              "saved_value": null,
+              "options": []
+            }
+          ],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 500,
+            "budget_evidence": "Please find some bottoms and a shirt that go with this jacket, total budget 500 aud.",
+            "guidance": [],
+            "deadline": null,
+            "gift_recipient": null,
+            "uncertain_recipient_size": false,
+            "excluded_roles": [],
+            "occasion_context": null
+          }
+        }
+      },
+      "began": "2026-10-24T05:38:52.684Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": {
+          "total_budget_aud": 600,
+          "items": [
+            {
+              "gender": "Men",
+              "category": "Clothing",
+              "subcategory": "Bottoms",
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            {
+              "gender": "Men",
+              "category": "Clothing",
+              "subcategory": "Tops",
+              "product_type": "Shirt",
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            }
+          ],
+          "evidence": "Make the combined budget 600 aud, keep the same pieces and jacket."
+        },
+        "action": "new_search",
+        "discovery_intent": null,
+        "intent_evidence": "Make the combined budget 600 aud, keep the same pieces and jacket.",
+        "reference": {
+          "kind": "id",
+          "value": "SET-JACKET"
+        },
+        "changes": [],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": null
+      },
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "1en7y1y",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 600,
+            "budget_evidence": "Make the combined budget 600 aud, keep the same pieces and jacket.",
+            "guidance": [],
+            "deadline": null,
+            "gift_recipient": null,
+            "uncertain_recipient_size": false,
+            "excluded_roles": [],
+            "occasion_context": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": {
+          "limit_aud": 600,
+          "total_aud": 500,
+          "remaining_aud": 100,
+          "items": [
+            {
+              "product_id": "SET-BOTTOM",
+              "preferences": {
+                "gender": "Men",
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "product_id": "SET-SHIRT",
+              "preferences": {
+                "gender": "Men",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Shirt",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ]
+        },
+        "outfit_choices": {
+          "groups": [
+            {
+              "label": "Bottoms",
+              "product_ids": [
+                "SET-BOTTOM"
+              ],
+              "preferences": {
+                "gender": "Men",
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "label": "Shirts",
+              "product_ids": [
+                "SET-SHIRT"
+              ],
+              "preferences": {
+                "gender": "Men",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Shirt",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ],
+          "maximum_total_aud": 500
+        },
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "matches",
+        "action": "new_search",
+        "discovery": null,
+        "collection": {
+          "choice": "Men",
+          "current": {
+            "choice": "Men",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "Here are choices for bottoms and shirts. Choose one item from each group; every displayed combination stays within your A$600.00 combined budget. Combinations range from A$500.00 to A$500.00.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "SET-BOTTOM",
+            "product_name": "SET-BOTTOM Dress",
+            "price_aud": 240,
+            "category": "Clothing",
+            "subcategory": "Bottoms",
+            "product_type": "Tailored Trousers",
+            "brand_line": null,
+            "colour": "Black",
+            "occasion": "Work",
+            "style": "Classic",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "unverified_requirements": [],
+            "extra_target": null,
+            "image_src": null
+          },
+          {
+            "product_id": "SET-SHIRT",
+            "product_name": "SET-SHIRT Dress",
+            "price_aud": 260,
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Oxford Shirt",
+            "brand_line": null,
+            "colour": "White",
+            "occasion": "Work",
+            "style": "Classic",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "unverified_requirements": [],
+            "extra_target": null,
+            "image_src": null
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 600,
+            "items": [
+              {
+                "gender": "Men",
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": "Men",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Shirt",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "Make the combined budget 600 aud, keep the same pieces and jacket."
+          },
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 7026,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 600,
+            "items": [
+              {
+                "gender": "Men",
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": "Men",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Shirt",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "Make the combined budget 600 aud, keep the same pieces and jacket."
+          },
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Men",
+          "current": {
+            "choice": "Men",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "1en7y1y",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 600,
+            "budget_evidence": "Make the combined budget 600 aud, keep the same pieces and jacket.",
+            "guidance": [],
+            "deadline": null,
+            "gift_recipient": null,
+            "uncertain_recipient_size": false,
+            "excluded_roles": [],
+            "occasion_context": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "SET-BOTTOM",
+              "product_name": "SET-BOTTOM Dress",
+              "category": "Clothing",
+              "subcategory": "Bottoms",
+              "product_type": "Tailored Trousers",
+              "price_aud": 240
+            },
+            {
+              "product_id": "SET-SHIRT",
+              "product_name": "SET-SHIRT Dress",
+              "category": "Clothing",
+              "subcategory": "Tops",
+              "product_type": "Oxford Shirt",
+              "price_aud": 260
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "SET-JACKET",
+                "product_name": "Navy Denim Jacket",
+                "category": "Clothing",
+                "subcategory": "Outerwear",
+                "product_type": "Denim Jacket",
+                "price_aud": 800
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "Make the combined budget 600 aud, keep the same pieces and jacket."
+          },
+          {
+            "role": "assistant",
+            "content": "Here are choices for bottoms and shirts. Choose one item from each group; every displayed combination stays within your A$600.00 combined budget. Combinations range from A$500.00 to A$500.00."
+          }
+        ]
+      },
+      "checks": "Fail",
+      "failure": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ undefined\n- [\n-   'SET-JACKET'\n- ]\n"
+    }
+  ],
+  "started": "2026-10-24T05:38:42.796Z",
+  "result": "Fail",
+  "issues": [
+    {
+      "turn": 1,
+      "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ 'needs_clarification'\n- 'matches'\n"
+    },
+    {
+      "turn": 2,
+      "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ undefined\n- [\n-   'SET-JACKET'\n- ]\n"
+    }
+  ],
+  "collection_setup": "Fresh session; collection unanswered",
+  "finished": "2026-10-24T05:38:59.711Z"
+}
