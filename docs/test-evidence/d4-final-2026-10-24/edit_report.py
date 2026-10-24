@@ -9,9 +9,9 @@ from docx.oxml.ns import qn
 from docx.shared import Pt, Inches
 from docx.opc.constants import RELATIONSHIP_TYPE as RT
 
-ROOT=Path('/Users/salvi/MQ/abc-fashion-ai-assistant')
+ROOT=next((p for p in Path(__file__).resolve().parents if (p/'package.json').exists()), Path.cwd())
 E=ROOT/'docs/test-evidence/d4-final-2026-10-24'
-BASE=Path('/private/tmp/d4-final/v1.4/D4 Testing Report Revised.docx')
+BASE=E/'template-report-v1.4.docx'
 OUT=ROOT/'output/docx/D4 Testing Report Revised.docx'
 PUB=(E/'publication-commit.txt').read_text().strip() if (E/'publication-commit.txt').exists() else 'codex/d4-evidence-links'
 REPO='https://github.com/trixielimm/abc-fashion-ai-assistant'
@@ -29,6 +29,8 @@ def link(p,label,target):
     h=OxmlElement('w:hyperlink');h.set(qn('r:id'),p.part.relate_to(target,RT.HYPERLINK,is_external=True))
     r=OxmlElement('w:r');pr=OxmlElement('w:rPr');s=OxmlElement('w:rStyle');s.set(qn('w:val'),'Hyperlink');pr.append(s)
     size=OxmlElement('w:sz');size.set(qn('w:val'),'18');pr.append(size);r.append(pr)
+    color=OxmlElement('w:color');color.set(qn('w:val'),'0563C1');pr.append(color)
+    underline=OxmlElement('w:u');underline.set(qn('w:val'),'single');pr.append(underline)
     t=OxmlElement('w:t');t.text=label;r.append(t);h.append(r);p._p.append(h)
 def result(c,text,file=''):
     cell(c,text+' ');link(c.paragraphs[-1],'[24 Oct evidence]',evidence(file))
@@ -40,6 +42,9 @@ def newtable_before(anchor,headers,rows,widths=None):
     for c,s in zip(table.rows[0].cells,headers):cell(c,s)
     for values in rows:
         for c,s in zip(table.add_row().cells,values):cell(c,s)
+    if widths:
+        for row in table.rows:
+            for c,w in zip(row.cells,widths):c.width=Inches(w)
     # Match the existing report's repeated dark blue header and row spacing.
     for c,source in zip(table.rows[0].cells,T[2].rows[0].cells):
         src=source._tc.tcPr
@@ -108,12 +113,16 @@ for row in list(T[2].rows)[1:]:T[2]._tbl.remove(row._tr)
 for c,s in zip(T[2].rows[0].cells,['Use case','Behaviour under test','Requirement / source','Test coverage']):cell(c,s)
 for row in uc:
     for c,s in zip(T[2].add_row().cells,row):cell(c,s)
+for col,w in zip(T[2].columns,[1.5,1.8,1.25,2.3]):col.width=Inches(w)
+for row in T[2].rows:
+    for c,w in zip(row.cells,[1.5,1.8,1.25,2.3]):c.width=Inches(w)
 
 # Revision history and execution schedule.
 for row in T[1].rows[1:]:
     if row.cells[0].text=='Not Run':
         cell(row.cells[0],'Coverage gap');cell(row.cells[1],'A required behaviour has no executed evidence here. It is disclosed explicitly and is not counted as a pass.')
 cell(T[4].rows[0].cells[1],'Use and evidence boundary')
+cell(T[3].rows[6].cells[1],'After each repair rerun the failing case and affected suites; rerun all 48 offline scripts before freezing the candidate. Recheck high-risk customer journeys on that same candidate.')
 cell(T[4].rows[1].cells[1],'Read-only public Supabase client retrieved the live snapshot. No shared catalogue record was changed; no dashboard CRUD execution is claimed.')
 cell(T[4].rows[2].cells[1],'Browser screenshots, accessibility state and captured console logs accompany observed actions. The embedded browser engine version was not exposed.')
 cell(T[4].rows[3].cells[1],'Confirmed submission URL https://abcandco.vercel.app/: HTTP and browser behaviour observed. Source commit/deployment equality with local fixes is unverified.')
@@ -140,6 +149,17 @@ for row in T[6].rows[1:]:
     if '22 Oct' in text:cell(row.cells[-1],'Completed historical baseline; superseded by the 24 October run.')
     elif '23 Oct' in text:cell(row.cells[-1],'Reconciled on 24 October using the newly supplied final D4 document; original planned date retained.')
     elif '24 Oct' in text:cell(row.cells[-1],'Execution and report revision completed as recorded; independent technical review remains Sarah’s responsibility.')
+for row in list(T[6].rows)[1:]:T[6]._tbl.remove(row._tr)
+for values in [
+('21 Oct 2026','Client demonstration, approval and feedback.','Peyton Bernhardt and all team members; Salvi supplied acceptance/minutes.','Accepted; final D4 records meeting at 6:00 pm. Demonstrated source revision not supplied.'),
+('22 Oct 2026','Earlier report and 46-script baseline.','Codex operated; Sarah accountable for team review.','Historical evidence retained as E0–E13; superseded by current execution results.'),
+('24 Oct 2026','Run all 38 real-model customer scenarios three times; retain failures and retests.','Codex operated at Salvi’s request; configured model and synthetic catalogue.','Full run 108 Pass / 6 provider timeouts; affected scenarios repeated three times, 9/9 Pass. All attempts retained.'),
+('24 Oct 2026','Execute product/cart, search and AI controls on deployed desktop/mobile browser.','Codex operated; saved screenshots, accessibility state and logs.','Observed results recorded; DF6–DF8 retained. Search recovery fixed and retested locally.'),
+('24 Oct 2026','Execute catalogue/model/HTTP and controlled dependency failures; run final quality checks.','Codex operated; read-only Supabase, local development and isolated HTTP processes.','32 latest checks Pass; 3 failure/recovery checks Pass; 48 suites, typecheck, lint and build Pass.'),
+('24 Oct 2026','Align report to eight use cases and final SRS; export and inspect evidence links.','Codex prepares; Sarah remains final team reviewer.','Revised report and evidence package produced. Known failures and unproved coverage remain explicit.'),
+('24 Oct 2026','Final technical decision and institutional submission.','Sarah Thomas / designated team submitter.','An all-passing technical decision is not supported while DF6–DF8 and the stated coverage limits remain unresolved. No submission or review signature is asserted.'),
+]:
+    for c,s in zip(T[6].add_row().cells,values):cell(c,s)
 
 # Actual original-case results; no conversion of old unexecuted variant tests.
 pd={
@@ -243,29 +263,24 @@ for vals in defects:
 
 # Explicit main/alternative coverage, including gaps rather than false passes.
 before(35,'Use case flow coverage and limits','Heading 2')
-before(35,'The eight-case matrix establishes traceability. The following flow review distinguishes executed behaviours from requirements that the current evidence does not establish. A coverage gap is not an unexecuted test disguised as a pass. Detailed requirement IDs remain those in the supplied D4 source.')
+before(35,'The eight-case matrix establishes traceability. The following review maps the described alternative flows and identifies the limits of the execution evidence. A coverage gap is not counted as a pass.').paragraph_format.keep_with_next=True
 flowrows=[
-('BR','Search/browse, exact product-name match, no-results message and recovery; search filter logic has offline assertions.','TC-BR-01–03 and search-filters suite. Browser filter/pagination breadth is limited to the actions recorded.'),
-('UC01','Main conversation and UC03 handoff; clarification and controlled technical failures.','Pass at the recorded model/domain, browser and HTTP layers; not a guarantee for arbitrary language.'),
-('UC02','Missing preferences, unknown optional size, known/conflicting constraints and latest explicit values.','Guided-discovery, validation, scope and repeated scenarios Pass. Human judgement of every unclear paraphrase is not established.'),
-('UC03','Live filtering/ranking, grounded details/explanations, soft alternatives, hard no-match, unknown-size browsing.','TC-AI/PV/INT and AIX Pass for stated inputs. No complete catalogue-wide recommendation relevance audit is claimed.'),
-('UC04','Optional extras, anchor switch, pause/resume, combined roles/budgets, saved look and value alternatives.','See AIX outcomes. One intermittent deployed occasion-conflict failure retained as DF6; later successes do not erase it.'),
-('UC05','Main details/navigation; incomplete attributes and missing-image fallback have deterministic coverage.','Fixed-colour browser case Pass. Live mutation of product availability and live catalogue retrieval-error UI alternatives were not injected.'),
-('UC06','Cheaper/colour/category/collection/budget changes, preserved context, rejection and latest-value scope.','Repeated scenario and deterministic suites Pass. Explicit global constraints are retained until explicitly changed.'),
-('UC07','Add, required-size prompt, view, separate variants bysize, quantity, remove, persistence and empty state.','Desktop/mobile browser Pass. Availability changing between display and add, and client-cart storage failure alternatives are coverage gaps; no write was made to shared production stock.'),
-('Supporting roles / SRS','Sponsor acceptance; team regression/build and requirements review.','Client acceptance recorded. AdminFR34–40 are additional SRS requirements and have no demonstrated CRUD/auth execution here; the customer diagram does not establish their implementation.'),
-('Non-functional requirements','Responsive views, controlled errors and relevant quality checks.','Physical-device Safari/Chrome/Edge, sustained response-time/99%availability, full security and load thresholds are not certified by these runs.'),
+('UC01 / UC02 / UC06','UC01 A1–A3: clarification, rephrasing and technical failure. UC02 A1–A4: unclear/conflicting/known/unknown answers. UC06 A1–A4: newest value, rejection, ambiguity and retained preferences.','PE/PV, guided-discovery, scoped-state and repeated S1–S3/S6 tests; AIX01/06; controlled INT01/02. Pass for recorded inputs, not arbitrary language.'),
+('UC03','A1–A2: soft alternatives and disclosed mismatches; A3: hard no-match; A4: browse without size/budget.','AI06–10, AIX06 and DEP no-match checks Pass. No catalogue-wide human relevance audit is claimed.'),
+('UC04','A1: coordinated roles/budget; A2: cross-sell; A3–A4: value/upsell with budget consent; A5: no eligible extra.','AIX02–05/08 and budget/cross-sell suites. AIX04 has intermittent DF6; AIX08 fails saved-budget/value comparison (DF8). No-eligible-extra domain assertions Pass.'),
+('UC05','A1: changed availability; A2: incomplete data; A3: retrieval error; A4: missing-image placeholder.','Details/navigation and fixed-colour browser checks Pass; incomplete facts and image fallbacks have offline coverage. Live availability mutation and product-page retrieval-error UI are coverage gaps.'),
+('UC07','A1: remove; A2: availability changes before add; A3: technical cart failure; A4: empty cart.','Remove/empty state, size selection, quantity and persistence Pass on desktop/mobile. Availability race and client storage failure alternatives lack injected execution evidence.'),
 ]
 newtable_before(P[35],['Use case / scope','Flows addressed','Evidence disposition / limit'],flowrows,[0.8,2.7,2.9])
 
 before(75,'Browse / Search Products — eighth customer use case','Heading 2')
-before(75,'BR is a report alias for the unnumbered customer function in Figure7. These cases are separate from conversational discovery and retain their own browser evidence.')
+before(75,'BR is a report alias for the unnumbered customer function in Figure7. These cases are separate from conversational discovery and retain their own browser evidence.').paragraph_format.keep_with_next=True
 brrows=[
 ('TC-BR-01 — product search','Open Shop; query “Gold Trench Coat”.','Matching catalogue cards and links; accurate names/prices; bag unchanged.','Pass — P1031A$90 and P1093A$215 returned on mobile.'),
 ('TC-BR-02 — no results','Search “zzzd4nomatch2026”.','Zero products, understandable no-results message and recovery action.','Pass — 0products; “No products found”; broader-term guidance and Browse all products link.'),
 ('TC-BR-03 — recovery','Activate Browse all products after no results.','Return to the unfiltered collection with selectable product cards.','Fail deployed: query/results remained. Pass local retest after fix: cleared query,316 products and restored cards. DF7; deployment not established.'),
 ]
-bt=newtable_before(P[75],['Case / use case','Input / action','Expected output','Actual output'],brrows,[1.0,1.65,1.8,1.95])
+bt=newtable_before(P[75],['Case / use case','Input / action','Expected output','Actual output'],brrows,[1.45,2.65,2.65,3.65])
 for row in bt.rows[1:]:link(row.cells[3].paragraphs[0],' [E16]',evidence())
 
 for vals in [
@@ -275,13 +290,49 @@ for vals in [
 ('E17','Final supplied D4 document: Figure7p.62, UCdescriptionspp.63–72, SRSpp.38–53; eight-case alignment and explicit coverage limits',evidence('use-case-alignment.md')),
 ]:
     row=T[23].add_row();cell(row.cells[0],vals[0]);cell(row.cells[1],'');link(row.cells[1].paragraphs[0],vals[1],vals[2])
+link(T[23].rows[-1].cells[1].paragraphs[0],' — source PDF extract',evidence('final-d4-srs-and-use-cases.pdf'))
 
 # Update residual version/date tokens in footer/header only.
 for sec in d.sections:
     for part in [sec.header,sec.footer]:
         for p in part.paragraphs:
             for run in p.runs:
-                run.text=run.text.replace('v1.4','v1.5').replace('V1.4','V1.5').replace('22 October 2026','24 October 2026')
+                updated=run.text.replace('v1.4','v1.5').replace('V1.4','V1.5').replace('Version 1.4','Version 1.5').replace('22 October 2026','24 October 2026')
+                if updated!=run.text:run.text=updated
+# Correct compact prose while retaining run formatting and hyperlinks.
+spacing={'Figure7':'Figure 7','Table50':'Table 50','24October':'24 October','24Oct':'24 Oct',
+ '21Oct2026':'21 October 2026','6pm':'6:00 pm','timeBlock':'time Block','48/48Pass':'48/48 Pass',
+ '38scenario':'38 scenario','108Pass':'108 Pass','0Fail':'0 Fail','6provider':'6 provider',
+ 'timeoutBlocked':'timeout Blocked','3times':'3 times','9/9Pass':'9/9 Pass','all38scenarios':'all 38 scenarios',
+ 'three scenarios repeated3':'three scenarios repeated 3','316products':'316 products','316 products':'316 products',
+ 'displayed316':'displayed 316','query,316':'query, 316','0products':'0 products','P1031A$':'P1031 A$',
+ 'P1093A$':'P1093 A$','atA$':'at A$','savedA$':'saved A$','maximum A$':'maximum A$',
+ 'returned502':'returned 502','returned503':'returned 503','returned200':'returned 200',
+ 'route404':'route 404','exactly64000':'exactly 64000','returned413':'returned 413',
+ 'side0':'side 0','code0':'code 0','Size10':'Size 10','size10':'size 10','quantity1':'quantity 1','quantity2':'quantity 2',
+ 'units3':'units 3','count2':'count 2','column2':'column 2','pp.62':'pp. 62','p.62':'p. 62',
+ 'customercases':'customer cases','eightcustomercases':'eight customer cases','adminFR':'admin FR',
+ 'AdministratorFR':'Administrator FR','AdminFR':'Admin FR','FR34':'FR-34','FR01':'FR-01','FR40':'FR-40',
+ 'catalogue503':'catalogue 503','provider502':'provider 502','recovery200':'recovery 200',
+ 'byname':'by name','bysize':'by size','21Oct':'21 Oct','full38':'full 38','latest checks Pass':'latest checks Pass',
+ 'on24':'on 24','run108':'run 108','All38':'All 38','Accepted21':'Accepted 21','records6':'records 6',
+ 'execution:48':'execution: 48','Current38':'Current 38','assertions,12/12targeted':'assertions, 12/12 targeted',
+ 'D4Figure':'D4 Figure','7pp.':'7, pp.','Eightcustomer':'Eight customer','38cases':'38 cases',
+ 'UCdescriptionspp.':'UC descriptions, pp.','SRSpp.':'SRS, pp.','times,9/9':'times, 9/9',
+ 'First live-':'First live-','the24':'the 24','FR-01–40':'FR-01–FR-40',
+ 'role0':'role 0','maximum-budget':'maximum budget','fixed-colour':'fixed-colour'}
+for node in d.element.body.iter(qn('w:t')):
+    if node.text:
+        for a,b in spacing.items():node.text=node.text.replace(a,b)
+for table in d.tables:
+    for row in table.rows:
+        pr=row._tr.get_or_add_trPr()
+        if pr.find(qn('w:cantSplit')) is None:pr.append(OxmlElement('w:cantSplit'))
+    for c in table.rows[0].cells:
+        for run in c.paragraphs[0].runs:
+            run.bold=True
+            from docx.shared import RGBColor
+            run.font.color.rgb=RGBColor(255,255,255)
 OUT.parent.mkdir(parents=True,exist_ok=True)
 d.save(OUT)
 print(OUT)
