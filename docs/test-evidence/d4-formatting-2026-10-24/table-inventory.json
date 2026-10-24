@@ -1,0 +1,184 @@
+[
+  {
+    "number": 1,
+    "title": "Report revision history",
+    "bookmark": "D4Table001",
+    "body_reference": "(see TABLE 1)",
+    "rows": 8
+  },
+  {
+    "number": 2,
+    "title": "Test result status definitions",
+    "bookmark": "D4Table002",
+    "body_reference": "(see TABLE 2)",
+    "rows": 7
+  },
+  {
+    "number": 3,
+    "title": "Customer use cases and test coverage",
+    "bookmark": "D4Table003",
+    "body_reference": "(see TABLE 3)",
+    "rows": 9
+  },
+  {
+    "number": 4,
+    "title": "Alternative use case flows and coverage limits",
+    "bookmark": "D4Table004",
+    "body_reference": "(see TABLE 4)",
+    "rows": 6
+  },
+  {
+    "number": 5,
+    "title": "Testing strategy by execution layer",
+    "bookmark": "D4Table005",
+    "body_reference": "(see TABLE 5)",
+    "rows": 8
+  },
+  {
+    "number": 6,
+    "title": "Testing tools and environments",
+    "bookmark": "D4Table006",
+    "body_reference": "(see TABLE 6)",
+    "rows": 5
+  },
+  {
+    "number": 7,
+    "title": "Team roles and responsibilities",
+    "bookmark": "D4Table007",
+    "body_reference": "(see TABLE 7)",
+    "rows": 7
+  },
+  {
+    "number": 8,
+    "title": "Testing schedule and review responsibilities",
+    "bookmark": "D4Table008",
+    "body_reference": "(see TABLE 8)",
+    "rows": 8
+  },
+  {
+    "number": 9,
+    "title": "Execution commands and conditions",
+    "bookmark": "D4Table009",
+    "body_reference": "(see TABLE 9)",
+    "rows": 7
+  },
+  {
+    "number": 10,
+    "title": "Testing risks and contingencies",
+    "bookmark": "D4Table010",
+    "body_reference": "(see TABLE 10)",
+    "rows": 6
+  },
+  {
+    "number": 11,
+    "title": "Product details and shopping cart test cases",
+    "bookmark": "D4Table011",
+    "body_reference": "(see TABLE 11)",
+    "rows": 15
+  },
+  {
+    "number": 12,
+    "title": "Recommendation and API test cases",
+    "bookmark": "D4Table012",
+    "body_reference": "(see TABLE 12)",
+    "rows": 17
+  },
+  {
+    "number": 13,
+    "title": "Preference extraction test cases",
+    "bookmark": "D4Table013",
+    "body_reference": "(see TABLE 13)",
+    "rows": 9
+  },
+  {
+    "number": 14,
+    "title": "Preference validation test cases",
+    "bookmark": "D4Table014",
+    "body_reference": "(see TABLE 14)",
+    "rows": 8
+  },
+  {
+    "number": 15,
+    "title": "Browse and search product test cases",
+    "bookmark": "D4Table015",
+    "body_reference": "(see TABLE 15)",
+    "rows": 4
+  },
+  {
+    "number": 16,
+    "title": "Automated regression suite specifications",
+    "bookmark": "D4Table016",
+    "body_reference": "(see TABLE 16)",
+    "rows": 49
+  },
+  {
+    "number": 17,
+    "title": "Concrete automated test examples",
+    "bookmark": "D4Table017",
+    "body_reference": "(see TABLE 17)",
+    "rows": 11
+  },
+  {
+    "number": 18,
+    "title": "Baseline customer scenario specifications and results",
+    "bookmark": "D4Table018",
+    "body_reference": "(see TABLE 18)",
+    "rows": 21
+  },
+  {
+    "number": 19,
+    "title": "Extended customer scenario specifications and results",
+    "bookmark": "D4Table019",
+    "body_reference": "(see TABLE 19)",
+    "rows": 19
+  },
+  {
+    "number": 20,
+    "title": "AI feature coverage and linked tests",
+    "bookmark": "D4Table020",
+    "body_reference": "(see TABLE 20)",
+    "rows": 7
+  },
+  {
+    "number": 21,
+    "title": "AI suggestion and guidance browser test cases",
+    "bookmark": "D4Table021",
+    "body_reference": "(see TABLE 21)",
+    "rows": 9
+  },
+  {
+    "number": 22,
+    "title": "Integration deployment and acceptance test cases",
+    "bookmark": "D4Table022",
+    "body_reference": "(see TABLE 22)",
+    "rows": 13
+  },
+  {
+    "number": 23,
+    "title": "Latest test execution summary",
+    "bookmark": "D4Table023",
+    "body_reference": "(see TABLE 23)",
+    "rows": 8
+  },
+  {
+    "number": 24,
+    "title": "Defects and retest outcomes",
+    "bookmark": "D4Table024",
+    "body_reference": "(see TABLE 24)",
+    "rows": 9
+  },
+  {
+    "number": 25,
+    "title": "Client feedback and team responses",
+    "bookmark": "D4Table025",
+    "body_reference": "(see TABLE 25)",
+    "rows": 6
+  },
+  {
+    "number": 26,
+    "title": "Evidence register and source links",
+    "bookmark": "D4Table026",
+    "body_reference": "(see TABLE 26)",
+    "rows": 19
+  }
+]
