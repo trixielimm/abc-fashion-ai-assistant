@@ -1,0 +1,28 @@
+Browser tab: 4, Title: "ABC Fashion", URL: "https://abcandco.vercel.app/cart".
+1 AXWebArea ABC Fashion, URL: abcandco.vercel.app/cart
+	2 container AI Stylist
+		3 container
+			4 text PERSONAL SHOPPING
+			5 heading AI Stylist, Value: 2
+				6 text AI Stylist
+			7 button New chat
+			8 button Close AI Stylist
+		9 container
+			10 text A LITTLE INSPIRATION, JUST FOR YOU
+			11 heading Find your next favourite., Value: 3
+				12 text Find your next
+				13 text favourite.
+			14 text Tell me an item, a style or an occasion.
+			15 text Not sure yet? I’ll help you explore.
+			16 button Find a dress
+			17 button Something for work
+			18 button Help me choose
+			19 text Have a colour, size or budget in mind? Start there.
+		20 container
+			21 text entry area (settable) Message your stylist
+			22 button (disabled) Send message
+		23 text Messages may be sent to OpenAI.
+		24 button (collapsed) Privacy & details, Secondary Actions: Expand
+			25 text Privacy & details
+
+The focused UI element is 7 button New chat

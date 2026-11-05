@@ -1,0 +1,200 @@
+- dialog "AI Stylist":
+  - banner:
+    - generic: ABC
+    - heading "AI Stylist" [level=2]
+    - button "New chat"
+    - button "Close AI Stylist":
+  - complementary "Your look":
+    - strong: Your look
+    - generic: 1 item
+    - status: Saved for styling · Separate from your cart.
+    - strong: A$0.00 total
+    - button "View look":
+      - text: View look
+      - generic: ⌄
+  - log:
+    - generic: You
+    - paragraph: I already own black trousers. Find me a women's work shirt to wear with them, under A$150.
+    - generic: AI Stylist
+    - paragraph: Based on your description of black trousers, these are styling suggestions. I can't verify the exact shade, material or visual match of the item you own.
+    - generic "Details about these picks"
+    - heading "Alternatives Details differ" [level=3]:
+      - text: Alternatives
+      - generic: Details differ
+    - region "Alternative products with disclosed differences":
+      - generic: 4 pieces
+      - list "Alternative products with disclosed differences":
+        - article:
+          - link "View Black Linen Shirt":
+            - /url: /products/P1186
+            - img "Black Linen Shirt"
+          - link "Black Linen Shirt":
+            - /url: /products/P1186
+          - paragraph: A$95.00
+          - paragraph: ABC Occasion · Black
+          - paragraph: Within your A$150.00 limit.
+          - strong: "Alternative: details differ"
+          - list:
+            - listitem: "Occasion: Beach Wedding; you requested Work."
+            - listitem: Outfit compatibility has limited catalogue evidence; this is an available alternative.
+          - paragraph: The owned garment details are customer-provided; its exact shade, material and visual match have not been verified.
+          - paragraph: Its occasion is Beach Wedding; Work is not confirmed.
+          - paragraph: Pairing uses recorded attributes; visual compatibility is unverified.
+          - button "Add to cart"
+          - generic "Why this item?"
+        - article:
+          - link "View Beige Linen Shirt":
+            - /url: /products/P1210
+            - img "Beige Linen Shirt"
+          - link "Beige Linen Shirt":
+            - /url: /products/P1210
+          - paragraph: A$100.00
+          - paragraph: ABC Casual · Beige
+          - paragraph: Within your A$150.00 limit.
+          - strong: "Alternative: details differ"
+          - list:
+            - listitem: "Occasion: Brunch; you requested Work."
+            - listitem: Outfit compatibility has limited catalogue evidence; this is an available alternative.
+          - paragraph: The owned garment details are customer-provided; its exact shade, material and visual match have not been verified.
+          - paragraph: Its occasion is Brunch; Work is not confirmed.
+          - paragraph: Pairing uses recorded attributes; visual compatibility is unverified.
+          - button "Add to cart"
+          - generic "Why this item?"
+        - article:
+          - link "View Brown Linen Shirt":
+            - /url: /products/P1209
+            - img "Brown Linen Shirt"
+          - link "Brown Linen Shirt":
+            - /url: /products/P1209
+          - paragraph: A$40.00
+          - paragraph: ABC Occasion · Brown
+          - paragraph: Within your A$150.00 limit.
+          - strong: "Alternative: details differ"
+          - list:
+            - listitem: "Occasion: Beach Wedding; you requested Work."
+            - listitem: Outfit compatibility has limited catalogue evidence; this is an available alternative.
+          - paragraph: The owned garment details are customer-provided; its exact shade, material and visual match have not been verified.
+          - paragraph: Its occasion is Beach Wedding; Work is not confirmed.
+          - paragraph: Pairing uses recorded attributes; visual compatibility is unverified.
+          - button "Add to cart"
+          - generic "Why this item?"
+        - article:
+          - link "View Yellow Oversized Shirt":
+            - /url: /products/P1013
+            - img "Yellow Oversized Shirt"
+          - link "Yellow Oversized Shirt":
+            - /url: /products/P1013
+          - paragraph: A$95.00
+          - paragraph: ABC Occasion · Yellow
+          - paragraph: Within your A$150.00 limit.
+          - strong: "Alternative: details differ"
+          - list:
+            - listitem: "Occasion: Formal; you requested Work."
+            - listitem: Outfit compatibility has limited catalogue evidence; this is an available alternative.
+          - paragraph: The owned garment details are customer-provided; its exact shade, material and visual match have not been verified.
+          - paragraph: Its occasion is Formal; Work is not confirmed.
+          - paragraph: Pairing uses recorded attributes; visual compatibility is unverified.
+          - button "Add to cart"
+          - generic "Why this item?"
+    - generic: You
+    - paragraph: Find a bag to go with the shirt. The shirt and bag must cost no more than A$200 together. I already own the trousers.
+    - generic: AI Stylist
+    - paragraph: Which shirt would you like the bag to go with?
+    - generic: You
+    - paragraph: Reduce the combined budget for the shirt and bag to A$150.
+    - generic: AI Stylist
+    - paragraph: Which shirt would you like the bag to go with? We're still blocked on the same detail. You can change that requirement or start a new shopping task below.
+    - generic: You
+    - paragraph: Use Black Linen Shirt as an example and find a bag that keeps both within A$150. I haven't selected either item yet.
+    - generic: AI Stylist
+    - paragraph: Based on your description of black trousers, these are styling suggestions. I can't verify the exact shade, material or visual match of the item you own.
+    - generic "Details about these picks"
+    - region "Recommended products":
+      - generic: 5 pieces
+      - list "Recommended products":
+        - article:
+          - link "View Grey Sling Bag":
+            - /url: /products/P1081
+            - img "Grey Sling Bag"
+          - link "Grey Sling Bag":
+            - /url: /products/P1081
+          - paragraph: A$130.00
+          - paragraph: ABC Accessories · Grey · One Size
+          - button "More options for Grey Sling Bag":
+            - generic: ···
+          - paragraph: The owned garment details are customer-provided; its exact shade, material and visual match have not been verified.
+          - paragraph: Its Streetwear style differs from Black Linen Shirt's Minimalist label.
+          - paragraph: Pairing uses recorded attributes; visual compatibility is unverified.
+          - 'button "Save to look: Grey Sling Bag"': Save to look
+          - button "Add to cart"
+          - generic "Why this item?"
+        - article:
+          - link "View Blue Sling Bag":
+            - /url: /products/P1250
+            - img "Blue Sling Bag"
+          - link "Blue Sling Bag":
+            - /url: /products/P1250
+          - paragraph: A$100.00
+          - paragraph: ABC Accessories · Blue · One Size
+          - button "More options for Blue Sling Bag":
+            - generic: ···
+          - paragraph: The owned garment details are customer-provided; its exact shade, material and visual match have not been verified.
+          - paragraph: Its Bohemian style differs from Black Linen Shirt's Minimalist label.
+          - paragraph: Pairing uses recorded attributes; visual compatibility is unverified.
+          - 'button "Save to look: Blue Sling Bag"': Save to look
+          - button "Add to cart"
+          - generic "Why this item?"
+        - article:
+          - link "View Pink Crossbody Bag":
+            - /url: /products/P1179
+            - img "Pink Crossbody Bag"
+          - link "Pink Crossbody Bag":
+            - /url: /products/P1179
+          - paragraph: A$120.00
+          - paragraph: ABC Accessories · Pink · One Size
+          - button "More options for Pink Crossbody Bag":
+            - generic: ···
+          - paragraph: The owned garment details are customer-provided; its exact shade, material and visual match have not been verified.
+          - paragraph: Its Elegant style differs from Black Linen Shirt's Minimalist label.
+          - paragraph: Pairing uses recorded attributes; visual compatibility is unverified.
+          - 'button "Save to look: Pink Crossbody Bag"': Save to look
+          - button "Add to cart"
+          - generic "Why this item?"
+        - article:
+          - link "View Gold Crossbody Bag":
+            - /url: /products/P1182
+            - img "Gold Crossbody Bag"
+          - link "Gold Crossbody Bag":
+            - /url: /products/P1182
+          - paragraph: A$60.00
+          - paragraph: ABC Accessories · Gold · One Size
+          - button "More options for Gold Crossbody Bag":
+            - generic: ···
+          - paragraph: The owned garment details are customer-provided; its exact shade, material and visual match have not been verified.
+          - paragraph: Its Streetwear style differs from Black Linen Shirt's Minimalist label.
+          - paragraph: Pairing uses recorded attributes; visual compatibility is unverified.
+          - 'button "Save to look: Gold Crossbody Bag"': Save to look
+          - button "Add to cart"
+          - generic "Why this item?"
+        - article:
+          - link "View Black Crossbody Bag":
+            - /url: /products/P1190
+            - img "Black Crossbody Bag"
+          - link "Black Crossbody Bag":
+            - /url: /products/P1190
+          - paragraph: A$75.00
+          - paragraph: ABC Accessories · Black · One Size
+          - button "More options for Black Crossbody Bag":
+            - generic: ···
+          - paragraph: The owned garment details are customer-provided; its exact shade, material and visual match have not been verified.
+          - paragraph: The recorded occasion differs from Black Linen Shirt.
+          - paragraph: Pairing uses recorded attributes; visual compatibility is unverified.
+          - 'button "Save to look: Black Crossbody Bag"': Save to look
+          - button "Add to cart"
+          - generic "Why this item?"
+  - textbox "Message your stylist":
+    - /placeholder: What can I help you find?
+  - button "Send message" [disabled]: Send
+  - generic: Messages may be sent to OpenAI.
+  - generic "Privacy & details"
+- alert

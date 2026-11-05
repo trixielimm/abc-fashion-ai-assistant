@@ -1,0 +1,116 @@
+- dialog "AI Stylist":
+  - banner:
+    - generic: ABC
+    - heading "AI Stylist" [level=2]
+    - button "New chat"
+    - button "Close AI Stylist":
+  - complementary "Your look":
+    - strong: Your look
+    - generic: 1 item
+    - status: Saved for styling · Separate from your cart.
+    - strong: A$0.00 total
+    - button "View look":
+      - text: View look
+      - generic: ⌄
+  - log:
+    - generic: You
+    - paragraph: I already own black trousers. Find me a women's work shirt to wear with them, under A$150.
+    - generic: AI Stylist
+    - paragraph: Based on your description of black trousers, these are styling suggestions. I can't verify the exact shade, material or visual match of the item you own.
+    - generic "Details about these picks"
+    - heading "Alternatives Details differ" [level=3]:
+      - text: Alternatives
+      - generic: Details differ
+    - region "Alternative products with disclosed differences":
+      - generic: 4 pieces
+      - list "Alternative products with disclosed differences":
+        - article:
+          - link "View Black Linen Shirt":
+            - /url: /products/P1186
+            - img "Black Linen Shirt"
+          - link "Black Linen Shirt":
+            - /url: /products/P1186
+          - paragraph: A$95.00
+          - paragraph: ABC Occasion · Black
+          - paragraph: Within your A$150.00 limit.
+          - button "More options for Black Linen Shirt":
+            - generic: ···
+          - strong: "Alternative: details differ"
+          - list:
+            - listitem: "Occasion: Beach Wedding; you requested Work."
+            - listitem: Outfit compatibility has limited catalogue evidence; this is an available alternative.
+          - paragraph: The owned garment details are customer-provided; its exact shade, material and visual match have not been verified.
+          - paragraph: Its occasion is Beach Wedding; Work is not confirmed.
+          - paragraph: Pairing uses recorded attributes; visual compatibility is unverified.
+          - 'button "Save to look: Black Linen Shirt"': Save to look
+          - button "Add to cart"
+          - generic "Why this item?"
+        - article:
+          - link "View Beige Linen Shirt":
+            - /url: /products/P1210
+            - img "Beige Linen Shirt"
+          - link "Beige Linen Shirt":
+            - /url: /products/P1210
+          - paragraph: A$100.00
+          - paragraph: ABC Casual · Beige
+          - paragraph: Within your A$150.00 limit.
+          - button "More options for Beige Linen Shirt":
+            - generic: ···
+          - strong: "Alternative: details differ"
+          - list:
+            - listitem: "Occasion: Brunch; you requested Work."
+            - listitem: Outfit compatibility has limited catalogue evidence; this is an available alternative.
+          - paragraph: The owned garment details are customer-provided; its exact shade, material and visual match have not been verified.
+          - paragraph: Its occasion is Brunch; Work is not confirmed.
+          - paragraph: Pairing uses recorded attributes; visual compatibility is unverified.
+          - 'button "Save to look: Beige Linen Shirt"': Save to look
+          - button "Add to cart"
+          - generic "Why this item?"
+        - article:
+          - link "View Brown Linen Shirt":
+            - /url: /products/P1209
+            - img "Brown Linen Shirt"
+          - link "Brown Linen Shirt":
+            - /url: /products/P1209
+          - paragraph: A$40.00
+          - paragraph: ABC Occasion · Brown
+          - paragraph: Within your A$150.00 limit.
+          - button "More options for Brown Linen Shirt":
+            - generic: ···
+          - strong: "Alternative: details differ"
+          - list:
+            - listitem: "Occasion: Beach Wedding; you requested Work."
+            - listitem: Outfit compatibility has limited catalogue evidence; this is an available alternative.
+          - paragraph: The owned garment details are customer-provided; its exact shade, material and visual match have not been verified.
+          - paragraph: Its occasion is Beach Wedding; Work is not confirmed.
+          - paragraph: Pairing uses recorded attributes; visual compatibility is unverified.
+          - 'button "Save to look: Brown Linen Shirt"': Save to look
+          - button "Add to cart"
+          - generic "Why this item?"
+        - article:
+          - link "View Yellow Oversized Shirt":
+            - /url: /products/P1013
+            - img "Yellow Oversized Shirt"
+          - link "Yellow Oversized Shirt":
+            - /url: /products/P1013
+          - paragraph: A$95.00
+          - paragraph: ABC Occasion · Yellow
+          - paragraph: Within your A$150.00 limit.
+          - button "More options for Yellow Oversized Shirt":
+            - generic: ···
+          - strong: "Alternative: details differ"
+          - list:
+            - listitem: "Occasion: Formal; you requested Work."
+            - listitem: Outfit compatibility has limited catalogue evidence; this is an available alternative.
+          - paragraph: The owned garment details are customer-provided; its exact shade, material and visual match have not been verified.
+          - paragraph: Its occasion is Formal; Work is not confirmed.
+          - paragraph: Pairing uses recorded attributes; visual compatibility is unverified.
+          - 'button "Save to look: Yellow Oversized Shirt"': Save to look
+          - button "Add to cart"
+          - generic "Why this item?"
+  - textbox "Message your stylist":
+    - /placeholder: What can I help you find?
+  - button "Send message" [disabled]: Send
+  - generic: Messages may be sent to OpenAI.
+  - generic "Privacy & details"
+- alert

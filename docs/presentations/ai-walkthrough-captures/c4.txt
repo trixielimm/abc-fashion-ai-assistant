@@ -1,0 +1,102 @@
+- dialog "AI Stylist":
+  - banner:
+    - generic: ABC
+    - paragraph: Personal shopping
+    - heading "AI Stylist" [level=2]
+    - button "New chat"
+    - button "Close AI Stylist":
+  - complementary "Your look":
+    - strong: Your look
+    - generic: 0 items
+    - status: Save pieces here to build a look.
+    - strong: A$0.00 total
+    - button "View look":
+      - text: View look
+      - generic: ⌄
+  - log:
+    - generic: You
+    - paragraph: Show me women's black dresses in size 10 under A$200.
+    - generic: AI Stylist
+    - paragraph: I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged. One way to broaden the search is to use "Explore other colours" below. That preview keeps your other restrictions and leaves your original colour request saved.
+    - generic: You
+    - paragraph: Actually, blue instead of black. Keep the same size and budget.
+    - generic: AI Stylist
+    - paragraph: I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged. One way to broaden the search is to use "Explore other colours" below. That preview keeps your other restrictions and leaves your original colour request saved.
+    - generic: You
+    - paragraph: Any colour and any listed size are fine now. Show me women's dresses under A$200.
+    - generic: AI Stylist
+    - paragraph: I've found 5 clothing options for you to explore.
+    - generic "Details about these picks"
+    - region "Recommended products":
+      - generic: 5 pieces
+      - generic: 1–5 of 5
+      - button "Previous products" [disabled]:
+      - button "Next products":
+      - list "Recommended products":
+        - article:
+          - link "View Burgundy Maxi Dress":
+            - /url: /products/P1254
+            - img "Burgundy Maxi Dress"
+          - link "Burgundy Maxi Dress":
+            - /url: /products/P1254
+          - paragraph: A$120.00
+          - paragraph: ABC Casual · Burgundy
+          - paragraph: Within your A$200.00 limit.
+          - button "Add to cart"
+        - article:
+          - link "View Navy Maxi Dress":
+            - /url: /products/P1178
+            - img "Navy Maxi Dress"
+          - link "Navy Maxi Dress":
+            - /url: /products/P1178
+          - paragraph: A$95.00
+          - paragraph: ABC Occasion · Navy
+          - paragraph: Within your A$200.00 limit.
+          - button "Add to cart"
+        - article:
+          - link "View Beige Maxi Dress":
+            - /url: /products/P1293
+            - img "Beige Maxi Dress"
+          - link "Beige Maxi Dress":
+            - /url: /products/P1293
+          - paragraph: A$170.00
+          - paragraph: ABC Casual · Beige
+          - paragraph: Within your A$200.00 limit.
+          - button "Add to cart"
+        - article:
+          - link "View Grey Wrap Dress":
+            - /url: /products/P1040
+            - img "Grey Wrap Dress"
+          - link "Grey Wrap Dress":
+            - /url: /products/P1040
+          - paragraph: A$60.00
+          - paragraph: ABC Occasion · Grey
+          - paragraph: Within your A$200.00 limit.
+          - button "Add to cart"
+        - article:
+          - link "View Beige Maxi Dress":
+            - /url: /products/P1287
+            - img "Beige Maxi Dress"
+          - link "Beige Maxi Dress":
+            - /url: /products/P1287
+          - paragraph: A$155.00
+          - paragraph: ABC Occasion · Beige
+          - paragraph: Within your A$200.00 limit.
+          - button "Add to cart"
+    - paragraph: What occasion are you shopping for? You can also keep browsing these options.
+    - generic: You
+    - paragraph: I don't like Burgundy Maxi Dress. Don't show it again. Show me other options.
+    - generic: AI Stylist
+    - paragraph: I can't verify exclude product P1254 from the product information. Keep it as a hard requirement, remove it, or explicitly ask to browse with that detail unverified. Known violations will still be excluded.
+    - group "Resolve shopping request":
+      - paragraph: Let’s update that detail
+      - paragraph: Your other preferences are still saved.
+      - button "Remove exclude product P1254"
+      - button "Browse with unknown details labelled"
+      - button "Start a new shopping task"
+  - textbox "Message your stylist":
+    - /placeholder: What can I help you find?
+  - button "Send message" [disabled]: Send
+  - generic: Messages may be sent to OpenAI.
+  - generic "Privacy & details"
+- alert

@@ -1,0 +1,40 @@
+Browser tab: 3, Title: "ABC Fashion", URL: "https://abcandco.vercel.app/".
+1 AXWebArea ABC Fashion, URL: abcandco.vercel.app/
+	2 container AI Stylist
+		3 container
+			4 text PERSONAL SHOPPING
+			5 heading AI Stylist, Value: 2
+				6 text AI Stylist
+			7 button New chat
+			8 button Close AI Stylist
+		26 container Your look
+			27 text Your look
+			28 text 0 items
+			29 text Choose one item from each group.
+			30 container
+				31 text A$0.00 total
+			34 text A$200.00 remaining
+			32 button (collapsed) View look, Secondary Actions: Expand
+		9 container
+			33 text YOU Find a women's dress and a bag for a beach wedding under 200 AUD altogether. AI STYLIST Wedding guest: Focus on midi or maxi dresses and dress shoes, excluding white, ivory and cream dresses. Follow the couple’s dress code.
+
+The item request conflicts with saved shared restrictions: occasion. Please clarify which restriction to change.
+			35 container Event dress code
+				36 heading Wedding guest guidance, Value: 3
+					37 text Wedding guest guidance
+				38 text You can change the dress code below.
+				39 container Choose a dress code
+					40 checkbox (disabled) Any formal event, Value: 0
+					41 checkbox (disabled) Black tie, Value: 0
+					42 checkbox (disabled) Wedding guest, Value: 1
+					43 checkbox (disabled) Formal dinner, Value: 0
+					44 checkbox (disabled) Cocktail, Value: 0
+				45 text Focus on midi or maxi dresses and dress shoes, excluding white, ivory and cream dresses. Follow the couple’s dress code.
+		20 container
+			21 text entry area (settable) Message your stylist
+			22 button (disabled) Send message
+		23 text Messages may be sent to OpenAI.
+		24 button (collapsed) Privacy & details, Secondary Actions: Expand
+			25 text Privacy & details
+
+The focused UI element is 1 AXWebArea ABC Fashion, URL: abcandco.vercel.app/

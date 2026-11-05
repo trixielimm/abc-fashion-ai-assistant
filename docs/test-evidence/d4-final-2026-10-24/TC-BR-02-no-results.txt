@@ -1,0 +1,63 @@
+Browser tab: 4, Title: "Search | ABC Fashion", URL: "https://abcandco.vercel.app/search?q=zzzd4nomatch2026".
+1 AXWebArea Search | ABC Fashion, URL: abcandco.vercel.app/search?q=zzzd4nomatch2026
+	2 scroll bar Description: Page scroll, Value: 0
+	72 container
+		73 link Description: ABC Fashion, Value: abcandco.vercel.app/
+		74 link Description: Bag, 0 items, Value: abcandco.vercel.app/cart
+		75 text Your bag is empty
+		76 button (collapsed) Description: Open menu, ID: mobile-menu-toggle, Secondary Actions: Expand
+		77 container Product search
+			78 button Search products
+			79 search text field (settable) Search
+	84 container
+		85 text ABC FASHION / DISCOVER
+		86 heading Search the collection, Value: 1
+			87 text Search the collection
+		88 text Explore clothing, shoes, bags and accessories from our current catalogue.
+		89 text Search products
+		90 search text field (settable) Search products, Value: zzzd4nomatch2026, ID: catalogue-search
+		91 button Search products
+		92 text SEARCH RESULTS
+		93 heading “zzzd4nomatch2026”, Value: 2
+			94 text “zzzd4nomatch2026”
+		95 pop up button (collapsed) Filters, Secondary Actions: Expand
+		96 text 0 products
+		97 text 0 products
+		98 heading No products found, Value: 2
+			99 text No products found
+		100 text Try a broader term, another colour or a product category.
+		101 button Undo last filter
+		102 link Description: Browse all products, Value: abcandco.vercel.app/search
+	42 container
+		43 text ABC Fashion COPENHAGEN & STOCKHOLM
+		44 text LONDON / PARIS / NEW YORK FROM THE COLLECTION
+		45 link Description: Blue Fitted Tee, Value: abcandco.vercel.app/products/P1016
+		46 link Description: Gold Trench Coat, Value: abcandco.vercel.app/products/P1031
+		47 link Description: Lavender Wrap Dress, Value: abcandco.vercel.app/products/P1004
+		48 link Description: Pink Crossbody Bag, Value: abcandco.vercel.app/products/P1003
+		49 text SHOP
+		50 content list
+			51 link Description: All products, Value: abcandco.vercel.app/search
+			52 link Description: Women's collection, Value: abcandco.vercel.app/search?gender=women
+			53 link Description: Men's collection, Value: abcandco.vercel.app/search?gender=men
+			54 link Description: Accessories, Value: abcandco.vercel.app/search?category=accessories
+		55 text HELP & INFORMATION
+		56 content list
+			57 link Description: Shopping help, Value: abcandco.vercel.app/help
+			58 link Description: Sizes & fit, Value: abcandco.vercel.app/help#sizes-fit
+			59 link Description: Orders & delivery, Value: abcandco.vercel.app/help#orders
+			60 link Description: Using the AI Stylist, Value: abcandco.vercel.app/help#ai-stylist
+			61 link Description: Recommendations & extras, Value: abcandco.vercel.app/help#recommendations
+			62 link Description: Your look & budget, Value: abcandco.vercel.app/help#your-look
+		63 text © 2026 ABC FASHION INC. ALL RIGHTS RESERVED. Prototype store — sample products and AI-generated specifications.
+		64 link Description: AI TERMS, Value: abcandco.vercel.app/terms-of-service
+		65 link Description: AI PRIVACY, Value: abcandco.vercel.app/terms-of-service#privacy
+	66 container Primary mobile
+		67 content list
+			68 link Description: HOME, Value: abcandco.vercel.app/
+			69 link Description: SHOP, Value: abcandco.vercel.app/search
+			70 button STYLIST
+			71 link Description: Bag, 0 items, Value: abcandco.vercel.app/cart
+	83 text Search | ABC Fashion
+
+The focused UI element is 90 search text field (settable) Search products, Value: zzzd4nomatch2026, ID: catalogue-search

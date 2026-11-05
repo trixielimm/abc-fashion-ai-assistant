@@ -11,12 +11,14 @@ import { ConversationStore, RequestConflictError, RetryExpiredError } from "@/li
 import { cancellationReply, finishConversationTurn, interpreterInput, resumesAnswerSearch, shortcutPlan } from "@/lib/stylist/conversationTurn";
 import { prepareConversationTask } from "@/lib/stylist/taskState";
 import { conversationDiagnostic, withConversationDiagnostics } from "@/lib/stylist/conversationDiagnostics";
+import { PRESENTATION_MODE } from "@/lib/demo/config";
 
 export const runtime = "nodejs";
 const headers = { "Cache-Control": "no-store" };
 const store = new ConversationStore();
 
 export async function POST(request: Request) {
+  if (PRESENTATION_MODE) return Response.json({ error: "Presentation replies run locally in the chat." }, { status: 404, headers });
   const origin = request.headers.get("origin");
   if (origin) {
     try {

@@ -1,0 +1,296 @@
+{
+  "title": "ABC Fashion AI Stylist Walkthrough",
+  "stories": [
+    {
+      "id": "a",
+      "letter": "A",
+      "title": "Finding the right outfit",
+      "short": "Outfit discovery",
+      "direction": "East",
+      "steps": [
+        {
+          "id": "a1",
+          "title": "An incomplete brief",
+          "position": [
+            1500,
+            0
+          ],
+          "observation": "The reply offers two dresses and optional finishing touches, without requiring a size or colour first."
+        },
+        {
+          "id": "a2",
+          "title": "A colour choice",
+          "position": [
+            2800,
+            0
+          ],
+          "observation": "There is no exact blue match for this occasion. The reply preserves the request and offers a way to explore other colours.",
+          "vote": {
+            "options": [
+              {
+                "label": "Blue / captured",
+                "prompt": "Show me blue dresses. Keep the beach wedding and the same budget."
+              },
+              {
+                "label": "Black / live option",
+                "prompt": "Show me black dresses. Keep the beach wedding and the same budget."
+              }
+            ]
+          }
+        },
+        {
+          "id": "a3",
+          "title": "One more requirement",
+          "position": [
+            2800,
+            -850
+          ],
+          "observation": "Adding size 10 keeps the blue colour and occasion in place. The reply still reports no exact match."
+        },
+        {
+          "id": "a4",
+          "title": "A deliberate change",
+          "position": [
+            4100,
+            -850
+          ],
+          "observation": "Changing blue to navy returns Navy Maxi Dress at A$95. Size 10 is listed, and the budget remains A$200."
+        },
+        {
+          "id": "a5",
+          "title": "A cheaper option?",
+          "position": [
+            4100,
+            0
+          ],
+          "observation": "The reply reports no lower-priced match while keeping the remaining requirements unchanged."
+        },
+        {
+          "id": "a6",
+          "title": "The reason for a match",
+          "position": [
+            4100,
+            850
+          ],
+          "observation": "The answer names polyester and the recorded Beach Wedding occasion, with a link back to the product. It distinguishes catalogue details from fit or performance guarantees."
+        }
+      ]
+    },
+    {
+      "id": "b",
+      "letter": "B",
+      "title": "One total budget",
+      "short": "Owned items and budget",
+      "direction": "North",
+      "steps": [
+        {
+          "id": "b1",
+          "title": "Something already owned",
+          "position": [
+            0,
+            -1000
+          ],
+          "observation": "The trousers become an owned styling reference with A$0 new purchase cost. Shirt alternatives disclose differences in occasion."
+        },
+        {
+          "id": "b2",
+          "title": "Two purchases, one limit",
+          "position": [
+            0,
+            -1900
+          ],
+          "observation": "The reply asks which shirt to use before matching a bag, instead of silently choosing one."
+        },
+        {
+          "id": "b3",
+          "title": "A different total",
+          "position": [
+            1300,
+            -1900
+          ],
+          "observation": "The reply still needs a specific shirt. Changing the total does not resolve that product reference.",
+          "vote": {
+            "options": [
+              {
+                "label": "A$150 total / captured",
+                "prompt": "Reduce the combined budget for the shirt and bag to A$150."
+              },
+              {
+                "label": "A$250 total / live option",
+                "prompt": "Increase the combined budget for the shirt and bag to A$250."
+              }
+            ]
+          }
+        },
+        {
+          "id": "b4",
+          "title": "An example, not a selection",
+          "position": [
+            1300,
+            -2800
+          ],
+          "observation": "Naming Black Linen Shirt resolves the reference, but this reply includes bags that would exceed A$150 for the pair. The next prompt makes the remaining allowance explicit."
+        },
+        {
+          "id": "b5",
+          "title": "The remaining allowance",
+          "position": [
+            0,
+            -2800
+          ],
+          "observation": "The purchase plan now shows A$95 for the shirt example and A$55 left for a bag. The listed bag alternatives cost A$55 or less."
+        },
+        {
+          "id": "b6",
+          "title": "The price of the pair",
+          "position": [
+            -1300,
+            -2800
+          ],
+          "observation": "Black Linen Shirt costs A$95 and White Mini Clutch costs A$50. The reply calculates A$145 together and A$5 left from A$150."
+        }
+      ]
+    },
+    {
+      "id": "c",
+      "letter": "C",
+      "title": "Changing your mind",
+      "short": "Conversation memory",
+      "direction": "West",
+      "steps": [
+        {
+          "id": "c1",
+          "title": "Several requirements",
+          "position": [
+            -1500,
+            0
+          ],
+          "observation": "The reply finds no exact match for black dresses in size 10 under A$200. It keeps those requirements saved."
+        },
+        {
+          "id": "c2",
+          "title": "Only the colour changes",
+          "position": [
+            -2800,
+            0
+          ],
+          "observation": "Changing black to blue also returns no exact match. Size 10 and the A$200 limit stay in place."
+        },
+        {
+          "id": "c3",
+          "title": "Permission to broaden",
+          "position": [
+            -2800,
+            -850
+          ],
+          "observation": "Explicitly allowing any colour and any listed size returns five dresses under A$200."
+        },
+        {
+          "id": "c4",
+          "title": "A rejected suggestion",
+          "position": [
+            -4100,
+            -850
+          ],
+          "observation": "This reply treats the product rejection as an unverified requirement and asks how to continue. The capture preserves that unexpected clarification."
+        },
+        {
+          "id": "c5",
+          "title": "A new shopping goal",
+          "position": [
+            -4100,
+            0
+          ],
+          "observation": "Switching the goal returns Black Shoulder Bag at A$90 and Black Crossbody Bag at A$75. The new limit is A$100."
+        },
+        {
+          "id": "c6",
+          "title": "The next question",
+          "position": [
+            -4100,
+            850
+          ],
+          "observation": "The answer lists a zip closure and 30 × 22 × 8 cm dimensions. It labels those specifications as synthetic prototype data.",
+          "vote": {
+            "options": [
+              {
+                "label": "Product details / captured",
+                "prompt": "What are the dimensions and closure of Black Shoulder Bag?"
+              },
+              {
+                "label": "A cheaper bag / live option",
+                "prompt": "Show me a cheaper bag than Black Shoulder Bag, keeping the same requirements."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "d",
+      "letter": "D",
+      "title": "Difficult product questions",
+      "short": "Product facts and limits",
+      "direction": "South",
+      "steps": [
+        {
+          "id": "d1",
+          "title": "Browsing before sizing",
+          "position": [
+            0,
+            1000
+          ],
+          "observation": "The reply offers Black Platform Sandals at A$120 and Black Low-Top Sneakers at A$70, without requiring a size first."
+        },
+        {
+          "id": "d2",
+          "title": "A specific product",
+          "position": [
+            0,
+            1900
+          ],
+          "observation": "The answer lists sizes 5 to 10 and distinguishes catalogue labels from measurements or a fit guarantee."
+        },
+        {
+          "id": "d3",
+          "title": "A guarantee request",
+          "position": [
+            -1300,
+            1900
+          ],
+          "observation": "The reply explains why it cannot guarantee delivery tomorrow and gives catalogue limitations. It does not directly resolve waterproofing."
+        },
+        {
+          "id": "d4",
+          "title": "Continuing the search",
+          "position": [
+            -1300,
+            2800
+          ],
+          "observation": "Removing the extra requirements returns the two black shoe options again, within the A$150 limit."
+        },
+        {
+          "id": "d5",
+          "title": "Facts or another option?",
+          "position": [
+            0,
+            2800
+          ],
+          "observation": "The answer names leather and labels its construction and measurement details as synthetic prototype specifications.",
+          "vote": {
+            "options": [
+              {
+                "label": "Material details / captured",
+                "prompt": "What material are Black Platform Sandals made from, and which details are unavailable?"
+              },
+              {
+                "label": "A cheaper option / live option",
+                "prompt": "Show me a cheaper alternative to Black Platform Sandals, keeping the same requirements."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

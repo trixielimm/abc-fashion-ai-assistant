@@ -1,0 +1,197 @@
+{
+  "routes": [
+    {
+      "route": 1,
+      "occasion": "beach",
+      "refinement": "budget",
+      "followUp": "bag",
+      "status": "pass"
+    },
+    {
+      "route": 2,
+      "occasion": "beach",
+      "refinement": "budget",
+      "followUp": "cheaper",
+      "status": "pass"
+    },
+    {
+      "route": 3,
+      "occasion": "beach",
+      "refinement": "budget",
+      "followUp": "compare",
+      "status": "pass"
+    },
+    {
+      "route": 4,
+      "occasion": "beach",
+      "refinement": "budget",
+      "followUp": "material",
+      "status": "pass"
+    },
+    {
+      "route": 5,
+      "occasion": "beach",
+      "refinement": "colour",
+      "followUp": "bag",
+      "status": "pass"
+    },
+    {
+      "route": 6,
+      "occasion": "beach",
+      "refinement": "colour",
+      "followUp": "cheaper",
+      "status": "pass"
+    },
+    {
+      "route": 7,
+      "occasion": "beach",
+      "refinement": "colour",
+      "followUp": "compare",
+      "status": "pass"
+    },
+    {
+      "route": 8,
+      "occasion": "beach",
+      "refinement": "colour",
+      "followUp": "material",
+      "status": "pass"
+    },
+    {
+      "route": 9,
+      "occasion": "beach",
+      "refinement": "size",
+      "followUp": "bag",
+      "status": "pass"
+    },
+    {
+      "route": 10,
+      "occasion": "beach",
+      "refinement": "size",
+      "followUp": "cheaper",
+      "status": "pass"
+    },
+    {
+      "route": 11,
+      "occasion": "beach",
+      "refinement": "size",
+      "followUp": "compare",
+      "status": "pass"
+    },
+    {
+      "route": 12,
+      "occasion": "beach",
+      "refinement": "size",
+      "followUp": "material",
+      "status": "pass"
+    },
+    {
+      "route": 13,
+      "occasion": "work",
+      "refinement": "budget",
+      "followUp": "bag",
+      "status": "pass"
+    },
+    {
+      "route": 14,
+      "occasion": "work",
+      "refinement": "budget",
+      "followUp": "cheaper",
+      "status": "pass"
+    },
+    {
+      "route": 15,
+      "occasion": "work",
+      "refinement": "budget",
+      "followUp": "compare",
+      "status": "pass"
+    },
+    {
+      "route": 16,
+      "occasion": "work",
+      "refinement": "budget",
+      "followUp": "material",
+      "status": "pass"
+    },
+    {
+      "route": 17,
+      "occasion": "work",
+      "refinement": "colour",
+      "followUp": "bag",
+      "status": "pass"
+    },
+    {
+      "route": 18,
+      "occasion": "work",
+      "refinement": "colour",
+      "followUp": "cheaper",
+      "status": "pass"
+    },
+    {
+      "route": 19,
+      "occasion": "work",
+      "refinement": "colour",
+      "followUp": "compare",
+      "status": "pass"
+    },
+    {
+      "route": 20,
+      "occasion": "work",
+      "refinement": "colour",
+      "followUp": "material",
+      "status": "pass"
+    },
+    {
+      "route": 21,
+      "occasion": "work",
+      "refinement": "size",
+      "followUp": "bag",
+      "status": "pass"
+    },
+    {
+      "route": 22,
+      "occasion": "work",
+      "refinement": "size",
+      "followUp": "cheaper",
+      "status": "pass"
+    },
+    {
+      "route": 23,
+      "occasion": "work",
+      "refinement": "size",
+      "followUp": "compare",
+      "status": "pass"
+    },
+    {
+      "route": 24,
+      "occasion": "work",
+      "refinement": "size",
+      "followUp": "material",
+      "status": "pass"
+    }
+  ],
+  "externalOrUnexpectedRequests": [],
+  "pageErrors": [],
+  "checks": [
+    "24 browser routes",
+    "cart on every route",
+    "all photos local",
+    "live cart unchanged",
+    "cancel",
+    "reset during buffer",
+    "keyboard choices",
+    "cart page",
+    "product page",
+    "search page",
+    "mobile four-option vote"
+  ],
+  "status": "pass",
+  "completed_at": "2026-11-05T09:11:46.805Z",
+  "source_hashes": {
+    "lib/demo/catalogue.json": "98881819ed461abae5efa33fdd048cdac0574ffc73623e621f618ece973fec48",
+    "lib/demo/journey.ts": "5318a3196bd59e11a05ee0a89a51b1061977d03e0f9c45fdf4d5d23eb05b7297",
+    "lib/demo/transport.ts": "7d718b5f849a55b34458ad9ad186fda5ac7a6be89653af7ea1579e07d1bf88b1",
+    "components/stylist/ConversationChat.tsx": "b8d4da858e7bcc585f0d7e9faa50ad66119116618538544aa762a40e88eb0504",
+    "components/stylist/DemoAudienceChoices.tsx": "4eacd05499841aaf54ee236fe64ce3c66bfa3cd5a7de550f784def413620e908"
+  },
+  "note": "All 24 route/cart checks passed in the first browser run. Supporting page-navigation checks passed after correcting the harness to await navigation. The application build was unchanged between those runs."
+}

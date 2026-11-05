@@ -3,8 +3,11 @@ import "server-only";
 import { cache } from "react";
 import { createClient } from "@/lib/supabase/server";
 import { buildLandingContent, type LandingCatalogueRow } from "./storefront";
+import { PRESENTATION_MODE } from "../demo/config";
+import { demoCatalogue } from "../demo/catalogue";
 
 export const getLandingContent = cache(async function getLandingContent() {
+  if (PRESENTATION_MODE) return buildLandingContent(demoCatalogue);
   const db = await createClient();
   const rows: LandingCatalogueRow[] = [];
   const pageSize = 200;

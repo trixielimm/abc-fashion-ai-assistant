@@ -17,6 +17,7 @@ output
 
 # next.js
 /.next/
+/.next-demo/
 /out/
 
 # production

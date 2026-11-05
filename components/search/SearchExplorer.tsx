@@ -130,7 +130,7 @@ export function SearchExplorer({ initialState, initial }: { initialState: Filter
           </Link>)}
         </div> : <div className={styles.emptyState}>
           <h2>{selections ? "No pieces match these filters" : "No products found"}</h2><p>{selections ? "Try removing a filter or widening your price range." : "Try a broader term, another colour or a product category."}</p>
-          <div>{canUndo ? <button type="button" className={styles.textButton} onClick={undo}>Undo last filter</button> : null}{selections ? <button type="button" className={styles.textButton} onClick={clear}>Clear filters</button> : <Link className={styles.textButton} href="/search">Browse all products</Link>}</div>
+          <div>{canUndo ? <button type="button" className={styles.textButton} onClick={undo}>Undo last filter</button> : null}{selections ? <button type="button" className={styles.textButton} onClick={clear}>Clear filters</button> : <Link className={styles.textButton} href="/search" onNavigate={event => { event.preventDefault(); queryDraft.current = ""; navigate(emptyFilters()); }}>Browse all products</Link>}</div>
         </div>}
         {snapshot.pageCount > 1 ? <nav className={styles.pagination} aria-label="Search result pages">
           {(["Previous", "Next"] as const).map((label, index) => {

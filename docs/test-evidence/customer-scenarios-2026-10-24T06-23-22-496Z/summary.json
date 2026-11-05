@@ -1,0 +1,151 @@
+{
+  "started": "2026-10-24T06:23:22.496Z",
+  "commit": "85d4f1b5e0a22e5dd86445005ebb585055eae7e0",
+  "node": "v24.22.1",
+  "model": "gpt-5.6-luna",
+  "reasoning": "low",
+  "fixture_sha256": "c8da1240549e568d8f4b2252325633f7f5d8f9d9094376d2ed04228bef245889",
+  "scope": "Real model + shortcutPlan + finishConversationTurn + acceptReply; in-process with isolated synthetic fixtures. Not HTTP/browser acceptance.",
+  "human_review": "Pairing taste, aesthetic variety and end-user usefulness require human assessment.",
+  "runs": [
+    {
+      "id": "B5",
+      "name": "Grouped broad discovery, optional refinement and memory through unclear intent",
+      "repeat": 3,
+      "started": "2026-10-24T06:23:22.528Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Shopper already chose all collections",
+      "finished": "2026-10-24T06:23:49.713Z",
+      "turns_recorded": 5
+    },
+    {
+      "id": "SET-A",
+      "name": "Matching bottoms and shirt with one total budget",
+      "repeat": 1,
+      "started": "2026-10-24T06:23:49.714Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Fresh session; collection unanswered",
+      "finished": "2026-10-24T06:23:49.723Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "SET-A",
+      "name": "Matching bottoms and shirt with one total budget",
+      "repeat": 2,
+      "started": "2026-10-24T06:23:49.724Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Fresh session; collection unanswered",
+      "finished": "2026-10-24T06:23:49.728Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "SET-A",
+      "name": "Matching bottoms and shirt with one total budget",
+      "repeat": 3,
+      "started": "2026-10-24T06:23:49.729Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Fresh session; collection unanswered",
+      "finished": "2026-10-24T06:23:49.733Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "SET-B",
+      "name": "Matching bottoms and shirt with one total budget",
+      "repeat": 1,
+      "started": "2026-10-24T06:23:49.734Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Fresh session; collection unanswered",
+      "finished": "2026-10-24T06:23:49.737Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "SET-B",
+      "name": "Matching bottoms and shirt with one total budget",
+      "repeat": 2,
+      "started": "2026-10-24T06:23:49.737Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Fresh session; collection unanswered",
+      "finished": "2026-10-24T06:23:49.740Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "SET-B",
+      "name": "Matching bottoms and shirt with one total budget",
+      "repeat": 3,
+      "started": "2026-10-24T06:23:49.740Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Fresh session; collection unanswered",
+      "finished": "2026-10-24T06:23:49.743Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "SET-C",
+      "name": "Matching bottoms and shirt with one total budget",
+      "repeat": 1,
+      "started": "2026-10-24T06:23:49.743Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Fresh session; collection unanswered",
+      "finished": "2026-10-24T06:23:49.746Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "SET-C",
+      "name": "Matching bottoms and shirt with one total budget",
+      "repeat": 2,
+      "started": "2026-10-24T06:23:49.746Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Fresh session; collection unanswered",
+      "finished": "2026-10-24T06:23:49.752Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "SET-C",
+      "name": "Matching bottoms and shirt with one total budget",
+      "repeat": 3,
+      "started": "2026-10-24T06:23:49.752Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Fresh session; collection unanswered",
+      "finished": "2026-10-24T06:23:49.755Z",
+      "turns_recorded": 2
+    },
+    {
+      "id": "B5",
+      "name": "Grouped broad discovery, optional refinement and memory through unclear intent",
+      "repeat": 1,
+      "started": "2026-10-24T06:23:22.507Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Shopper already chose all collections",
+      "finished": "2026-10-24T06:23:51.991Z",
+      "turns_recorded": 5
+    },
+    {
+      "id": "B5",
+      "name": "Grouped broad discovery, optional refinement and memory through unclear intent",
+      "repeat": 2,
+      "started": "2026-10-24T06:23:22.524Z",
+      "result": "Pass",
+      "issues": [],
+      "collection_setup": "Shopper already chose all collections",
+      "finished": "2026-10-24T06:23:52.185Z",
+      "turns_recorded": 5
+    }
+  ],
+  "finished": "2026-10-24T06:23:52.187Z",
+  "counts": {
+    "Pass": 12,
+    "Fail": 0,
+    "Blocked": 0,
+    "Feature gap": 0
+  }
+}

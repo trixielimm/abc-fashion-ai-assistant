@@ -36,6 +36,7 @@ function record(text) {
 }
 
 const suites = [
+  ["stage-demo", "test-stage-demo.mjs"],
   ["image-delivery", "test-image-delivery.ts"],
   ["product-images", "test-product-images.ts"],
   ["adaptive-reliability", "test-adaptive-reliability-fixes.mjs"],

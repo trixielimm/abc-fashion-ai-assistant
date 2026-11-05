@@ -1,0 +1,83 @@
+{
+  "method_version": 1,
+  "source_snapshot": "current working tree; includes any local edits",
+  "base_commit": "85d4f1b5e0a22e5dd86445005ebb585055eae7e0",
+  "typescript_version": "5.9.3",
+  "scope": "Six core request-understanding and validation functions, including their nested helper bodies.",
+  "method": "Count each TypeScript AST IfStatement once. Count ConditionalExpression nodes separately. Repeated calls and loop iterations do not multiply a source location.",
+  "exclusions": "No prompt text, comments, tests, schema fields, boolean subexpressions, loop-control conditions, implicit else outcomes, model-internal reasoning, product retrieval, response formatting, transport or UI functions are added to the tally.",
+  "interpretation": "Static conditional-code sites, not independent business rules, separate decision trees, AI calls, or decisions executed for every message. This narrow scope is not a whole-system total.",
+  "functions": [
+    {
+      "file": "lib/stylist/conversationTurn.ts",
+      "absolute_path": "/Users/salvi/MQ/abc-fashion-ai-assistant/lib/stylist/conversationTurn.ts",
+      "function": "shortcutPlan",
+      "purpose": "Recognise supported requests and choose a plan",
+      "start_line": 32,
+      "end_line": 263,
+      "source_sha256": "a68529f5ad7aa04c5eb57135c800adbe6f0079122403b7904e1c7deeec8a238d",
+      "if_statements": 38,
+      "ternary_expressions": 34
+    },
+    {
+      "file": "lib/stylist/conversationGrounding.ts",
+      "absolute_path": "/Users/salvi/MQ/abc-fashion-ai-assistant/lib/stylist/conversationGrounding.ts",
+      "function": "groundConversationPlan",
+      "purpose": "Ground intent, references and literal constraints",
+      "start_line": 57,
+      "end_line": 611,
+      "source_sha256": "982cb6428e178ce3759721d5a8895352d454a4fda975c82e0de350f150383ea6",
+      "if_statements": 112,
+      "ternary_expressions": 55
+    },
+    {
+      "file": "lib/stylist/conversationPlan.ts",
+      "absolute_path": "/Users/salvi/MQ/abc-fashion-ai-assistant/lib/stylist/conversationPlan.ts",
+      "function": "checkConversationPlan",
+      "purpose": "Validate intent, evidence and state changes",
+      "start_line": 99,
+      "end_line": 579,
+      "source_sha256": "b3c281e94c29141fd01dba43198da0d3b53f9a4690d62daa80e1bbc44dbec544",
+      "if_statements": 95,
+      "ternary_expressions": 46
+    },
+    {
+      "file": "lib/stylist/preferenceScope.ts",
+      "absolute_path": "/Users/salvi/MQ/abc-fashion-ai-assistant/lib/stylist/preferenceScope.ts",
+      "function": "composePreferences",
+      "purpose": "Reconcile item and shared restrictions",
+      "start_line": 102,
+      "end_line": 238,
+      "source_sha256": "d85fee4d052e2177acef926756257947b80eb010bd8f2ce7d757cf4e71cd9d1e",
+      "if_statements": 7,
+      "ternary_expressions": 6
+    },
+    {
+      "file": "lib/stylist/productReference.ts",
+      "absolute_path": "/Users/salvi/MQ/abc-fashion-ai-assistant/lib/stylist/productReference.ts",
+      "function": "resolveProductReference",
+      "purpose": "Resolve which product the customer means",
+      "start_line": 123,
+      "end_line": 192,
+      "source_sha256": "ec783176ffb273e76f102747bcfc1fea8e67352b4d8a3db2962d299021f838d7",
+      "if_statements": 3,
+      "ternary_expressions": 10
+    },
+    {
+      "file": "lib/stylist/taskState.ts",
+      "absolute_path": "/Users/salvi/MQ/abc-fashion-ai-assistant/lib/stylist/taskState.ts",
+      "function": "prepareConversationTask",
+      "purpose": "Prepare context, task changes and recovery",
+      "start_line": 61,
+      "end_line": 125,
+      "source_sha256": "065ce68badef08a38a38e7fb096052b27e815b1cdcc3f3ff1f1ed234fa98ffed",
+      "if_statements": 16,
+      "ternary_expressions": 1
+    }
+  ],
+  "totals": {
+    "if_statements": 271,
+    "ternary_expressions": 152
+  },
+  "combined_conditional_sites": 423
+}

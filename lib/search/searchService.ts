@@ -6,8 +6,11 @@ import { VerifiedFeatureSchema } from "../stylist/commerceSchema";
 import { SyntheticSpecificationSchema } from "../stylist/productSpecifications";
 import { runFacetedSearch } from "./facetedSearch";
 import type { FilterState } from "./filterState";
+import { PRESENTATION_MODE } from "../demo/config";
+import { demoCatalogue } from "../demo/catalogue";
 
 export async function loadSearchCatalogue(requestSignal?: AbortSignal) {
+  if (PRESENTATION_MODE) return { products: demoCatalogue, featureDataAvailable: false };
   const { url, publishableKey } = getSupabaseEnv();
   const db = createClient(url, publishableKey, { auth: { persistSession: false, autoRefreshToken: false },
     global: { fetch: (input, init) => fetch(input, { ...init, cache: "no-store" }) } });

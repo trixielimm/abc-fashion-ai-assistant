@@ -1,0 +1,89 @@
+Browser tab: 3, Title: "ABC Fashion", URL: "https://abcandco.vercel.app/".
+1 AXWebArea ABC Fashion, URL: abcandco.vercel.app/
+	2 container AI Stylist
+		3 container
+			4 text PERSONAL SHOPPING
+			5 heading AI Stylist, Value: 2
+				6 text AI Stylist
+			7 button New chat
+			8 button Close AI Stylist
+		26 container Your look
+			27 text Your look
+			28 text 0 items
+			29 text Save pieces here to build a look.
+			30 container
+				31 text A$0.00 total
+			32 button (collapsed) View look, Secondary Actions: Expand
+		9 container
+			33 text YOU Show me women's dresses for a beach wedding under 200 AUD. Let me browse without choosing a size. AI STYLIST I've found 2 clothing options for you to explore.
+			34 button (collapsed) Details about these picks, Secondary Actions: Expand
+				35 text Details about these picks
+			36 container Recommended products
+				37 text 2 pieces
+				38 content list Recommended products
+					39 container
+						40 link Description: View Navy Maxi Dress, Value: abcandco.vercel.app/products/P1178
+						41 link Description: Navy Maxi Dress, Value: abcandco.vercel.app/products/P1178
+						42 text A$95.00 ABC Occasion · Navy Listed for beach wedding occasions.
+						45 button Add to cart
+					46 container
+						47 link Description: View Cream Mini Dress, Value: abcandco.vercel.app/products/P1162
+						48 link Description: Cream Mini Dress, Value: abcandco.vercel.app/products/P1162
+						49 text A$105.00 ABC Occasion · Cream Listed for beach wedding occasions.
+						52 button Add to cart
+			53 text YOU Resume extra suggestions. AI STYLIST Updated your outfit choices and styling preferences. Your cart is unchanged. YOU Show me women's dresses for a beach wedding under 200 AUD. Let me browse without choosing a size. AI STYLIST I've found 2 clothing options for you to explore. I've also included optional finishing touches for Navy Maxi Dress below.
+			54 button (collapsed) Details about these picks, Secondary Actions: Expand
+				55 text Details about these picks
+			56 container Recommended products
+				57 text 2 pieces
+				58 content list Recommended products
+					59 container
+						60 link Description: View Navy Maxi Dress, Value: abcandco.vercel.app/products/P1178
+						61 link Description: Navy Maxi Dress, Value: abcandco.vercel.app/products/P1178
+						62 text A$95.00 ABC Occasion · Navy Listed for beach wedding occasions.
+						63 button (collapsed) Description: More options for Navy Maxi Dress, Help: More options, Secondary Actions: Expand
+						64 checkbox Description: Save to look: Navy Maxi Dress, Value: 0
+						65 button Add to cart
+					66 container
+						67 link Description: View Cream Mini Dress, Value: abcandco.vercel.app/products/P1162
+						68 link Description: Cream Mini Dress, Value: abcandco.vercel.app/products/P1162
+						69 text A$105.00 ABC Occasion · Cream Listed for beach wedding occasions.
+						70 button (collapsed) Description: More options for Cream Mini Dress, Help: More options, Secondary Actions: Expand
+						71 checkbox Description: Save to look: Cream Mini Dress, Value: 0
+						72 button Add to cart
+			73 container Optional finishing touches
+				74 text COMPLETE THE LOOK
+				75 heading Optional finishing touches, Value: 3
+					76 text Optional finishing touches
+				77 container
+					78 text To help complete your look, here  is an optional addition  for  Navy Maxi Dress .
+				79 text This is a styling example; you haven't selected this item.
+				80 text Priced separately · Your item budget stays unchanged.
+				81 container Optional complementary products
+					82 content list Optional complementary products
+						83 container
+							84 link Description: View Blue Sling Bag, Value: abcandco.vercel.app/products/P1250
+							85 link Description: Blue Sling Bag, Value: abcandco.vercel.app/products/P1250
+							86 text A$100.00 ABC Accessories · Blue · One Size Its recorded occasion matches Beach Wedding.
+							87 button (collapsed) Description: More options for Blue Sling Bag, Help: More options, Secondary Actions: Expand
+							88 text Its Bohemian style differs from Navy Maxi Dress's Minimalist label. Pairing uses recorded attributes; visual compatibility is unverified.
+							89 checkbox Description: Save to look: Blue Sling Bag, Value: 0
+							90 button Add to cart
+							91 button (collapsed) Why this item?, Secondary Actions: Expand
+								92 text Why this item?
+				93 container
+					94 text Match a different  dress
+					95 pop up button (collapsed, settable) Match a different dress, Value: Navy Maxi Dress, Secondary Actions: Expand
+						96 menu
+							97 (selected) Navy Maxi Dress
+							98 Cream Mini Dress
+				99 button Hide these suggestions
+				100 button No more extras
+		20 container
+			21 text entry area (settable) Message your stylist
+			22 button (disabled) Send message
+		23 text Messages may be sent to OpenAI.
+		24 button (collapsed) Privacy & details, Secondary Actions: Expand
+			25 text Privacy & details
+
+The focused UI element is 1 AXWebArea ABC Fashion, URL: abcandco.vercel.app/

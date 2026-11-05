@@ -1,0 +1,84 @@
+Browser tab: 4, Title: "ABC Fashion", URL: "https://abcandco.vercel.app/products/P1031".
+1 AXWebArea ABC Fashion, URL: abcandco.vercel.app/products/P1031
+	2 scroll bar Description: Page scroll, Value: 530
+	86 container
+		87 link Description: ABC Fashion, Value: abcandco.vercel.app/
+		97 link Description: Bag, 2 items, Value: abcandco.vercel.app/cart
+		98 text 2 items in your bag
+		139 button (collapsed) Description: Open menu, ID: mobile-menu-toggle, Secondary Actions: Expand
+		140 container Product search
+			141 button Search products
+			142 search text field (settable) Search
+	85 container
+		99 container Breadcrumb
+			100 content list
+				101 text Men
+				102 text Clothing
+				103 text Outerwear
+				104 text Gold Trench Coat
+		105 image Gold Trench Coat, view 1
+		106 text CLOTHING
+		107 heading Gold Trench Coat, Value: 1
+			108 text Gold Trench Coat
+		109 text $90.00
+		110 container
+			111 text Colour  —  Gold
+		112 container Gold
+		113 container product-size-label
+			114 text Size —  S
+		115 container Size — S
+			116 checkbox Description: XS, Value: 0
+			117 checkbox Description: S, Value: 1
+			118 checkbox Description: M, Value: 0
+			119 checkbox Description: L, Value: 0
+			120 checkbox Description: XL, Value: 0
+		121 container Quantity: 1
+			122 button (disabled) Decrease quantity
+			123 text 1
+			124 button Increase quantity
+		125 button Add to bag
+		126 button (disabled) WISHLIST COMING SOON
+		127 text Minimalist gold trench coat with a regular fit, clean storm flap, structured shoulder line and polyester construction. Designed for polished wedding guest styling.
+		128 container
+			129 text Product ID:  P1031
+		130 button (collapsed) Details, Secondary Actions: Expand
+		131 button (collapsed) Material and Care, Secondary Actions: Expand
+		132 button (collapsed) Delivery and Returns, Secondary Actions: Expand
+		133 heading YOU MAY ALSO LIKE, Value: 2
+			134 text YOU MAY ALSO LIKE
+		135 link Description: Silk Blend Blouse Silk Blend Blouse $129.00, Value: abcandco.vercel.app/products/silk-blend-blouse
+		136 link Description: Tailored Trouser Tailored Trouser $159.00, Value: abcandco.vercel.app/products/tailored-trouser
+		137 link Description: Silver Chain, Long Drop Silver Chain, Long Drop $79.00, Value: abcandco.vercel.app/products/silver-chain
+		138 link Description: Structured Blazer Structured Blazer $289.00, Value: abcandco.vercel.app/products/structured-blazer
+	47 container
+		48 text ABC Fashion COPENHAGEN & STOCKHOLM
+		49 text LONDON / PARIS / NEW YORK FROM THE COLLECTION
+		50 link Description: Blue Fitted Tee, Value: abcandco.vercel.app/products/P1016
+		51 link Description: Gold Trench Coat, Value: abcandco.vercel.app/products/P1031
+		52 link Description: Lavender Wrap Dress, Value: abcandco.vercel.app/products/P1004
+		53 link Description: Pink Crossbody Bag, Value: abcandco.vercel.app/products/P1003
+		54 text SHOP
+		55 content list
+			56 link Description: All products, Value: abcandco.vercel.app/search
+			57 link Description: Women's collection, Value: abcandco.vercel.app/search?gender=women
+			58 link Description: Men's collection, Value: abcandco.vercel.app/search?gender=men
+			59 link Description: Accessories, Value: abcandco.vercel.app/search?category=accessories
+		60 text HELP & INFORMATION
+		61 content list
+			62 link Description: Shopping help, Value: abcandco.vercel.app/help
+			63 link Description: Sizes & fit, Value: abcandco.vercel.app/help#sizes-fit
+			64 link Description: Orders & delivery, Value: abcandco.vercel.app/help#orders
+			65 link Description: Using the AI Stylist, Value: abcandco.vercel.app/help#ai-stylist
+			66 link Description: Recommendations & extras, Value: abcandco.vercel.app/help#recommendations
+			67 link Description: Your look & budget, Value: abcandco.vercel.app/help#your-look
+		68 text © 2026 ABC FASHION INC. ALL RIGHTS RESERVED. Prototype store — sample products and AI-generated specifications.
+		69 link Description: AI TERMS, Value: abcandco.vercel.app/terms-of-service
+		70 link Description: AI PRIVACY, Value: abcandco.vercel.app/terms-of-service#privacy
+	143 container Primary mobile
+		144 content list
+			145 link Description: HOME, Value: abcandco.vercel.app/
+			146 link Description: SHOP, Value: abcandco.vercel.app/search
+			147 button STYLIST
+			148 link Description: Bag, 2 items, Value: abcandco.vercel.app/cart
+
+The focused UI element is 117 checkbox Description: S, Value: 1

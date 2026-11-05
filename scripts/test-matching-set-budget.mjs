@@ -132,4 +132,22 @@ check("Response contract rejects an inflated displayed combination", () => {
   const reply = structuredClone(send().reply); reply.products[0].price_aud = 501;
   assert.equal(TurnReplySchema.safeParse(reply).success, false);
 });
+check("Components before the jacket retain two purchase roles and one anchor", () => {
+  for (const message of [
+    "Please find some bottoms and a shirt that go with this jacket, total budget 500 aud.",
+    "Can I get some bottoms, and also a shirt to match the jacket? My total budget is 500 AUD.",
+  ]) {
+    const result = send(seed(), message); verifyBudget(result.reply);
+    assert.deepEqual(result.session.styling.outfit_request.anchor_product_ids, ["JACKET"]);
+    const next = send(result.session, "Make the combined budget 600 aud, keep the same pieces and jacket.");
+    verifyBudget(next.reply, 600);
+    assert.deepEqual(next.session.styling.outfit_request.anchor_product_ids, ["JACKET"]);
+    assert.deepEqual(next.session.styling.outfit, []);
+  }
+});
+check("Budget edits with an additional requirement still require full interpretation", () => {
+  const state = send().session;
+  assert.equal(shortcutPlan(makeTurn(state, "Make the combined budget 600 aud, keep the same pieces and jacket, but only black.")), null);
+  assert.equal(simpleMatchingSet("Please find some bottoms and a shirt that go with this jacket, total budget 500 aud, only black."), null);
+});
 console.log(`\n${passed} matching-set combined-budget checks passed.`);

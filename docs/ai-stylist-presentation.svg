@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="840" viewBox="0 0 1440 840" role="img" aria-labelledby="title description">
+<title id="title">AI Stylist: from user prompt to response</title>
+<desc id="description">The user prompt leads to understanding the request and checking the catalogue. A static source audit found 271 if statements across six core understanding and validation functions; different messages take different paths. Understanding includes interpreting intent and product references, separating firm limits from flexible preferences, retaining earlier choices and checking uncertainty. Responses are clarification, recommendation, alternatives, answer or comparison, or no match. A recommendation may also include an optional offer of matching extras.</desc>
+<style>
+text{font-family:Arial,Helvetica,sans-serif;fill:#20242a}
+.heading{font-size:24px;font-weight:600}
+.label{font-size:21px;font-weight:600}
+.description{font-size:15px;fill:#59616c}
+.column{font-size:13px;font-weight:600;letter-spacing:2px;fill:#6a717b}
+</style>
+<rect width="1440" height="840" fill="#ffffff"/>
+<text x="60" y="43" class="heading">AI Stylist: from prompt to response</text>
+<text x="60" y="90" class="column">USER PROMPT</text>
+<text x="480" y="90" class="column">DECISION</text>
+<text x="1030" y="65" class="column">RESPONSE TYPES</text>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#89919c" stroke-width="1.4"/></marker></defs>
+<g fill="none" stroke="#b9bdc3" stroke-width="1.5">
+<path d="M350 395 H430" marker-end="url(#arrow)"/>
+<path d="M800 395 H905 V133 M905 395 V708"/>
+</g>
+<g fill="none" stroke="#b9bdc3" stroke-width="1.5" marker-end="url(#arrow)">
+<path d="M905 133 H1020" />
+<path d="M905 248 H1020" />
+<path d="M905 478 H1020" />
+<path d="M905 593 H1020" />
+<path d="M905 708 H1020" />
+</g>
+<rect x="60" y="330" width="290" height="130" rx="8" fill="#f5f6f8" stroke="#b9bdc3"/>
+<text x="84" y="368" class="label">User prompt</text>
+<text x="84" y="402" class="description">“Find a dress for a beach wedding</text>
+<text x="84" y="426" class="description">under A$200.”</text>
+<path d="M620 285 L800 395 L620 505 L440 395 Z" fill="#f5f6f8" stroke="#89919c" stroke-width="1.5"/>
+<text x="620" y="387" text-anchor="middle" class="label">Understand request</text>
+<text x="620" y="415" text-anchor="middle" class="label">&amp; check catalogue</text>
+<g id="understanding-note" aria-label="The layers behind understanding a customer request">
+  <path d="M620 505 V548" fill="none" stroke="#b9bdc3" stroke-dasharray="4 4"/>
+  <text x="440" y="579" font-size="19" font-weight="600">271 if statements</text>
+  <text x="440" y="610" font-size="17" font-weight="600">112</text>
+  <text x="488" y="610" font-size="16" fill="#59616c">Intent &amp; constraint grounding</text>
+  <text x="440" y="636" font-size="17" font-weight="600">95</text>
+  <text x="488" y="636" font-size="16" fill="#59616c">Plan &amp; state validation</text>
+  <text x="440" y="662" font-size="17" font-weight="600">38</text>
+  <text x="488" y="662" font-size="16" fill="#59616c">Supported request recognition</text>
+  <text x="440" y="688" font-size="17" font-weight="600">26</text>
+  <text x="488" y="688" font-size="16" fill="#59616c">Preferences, references &amp; task context</text>
+</g>
+<g>
+  <rect x="1030" y="90" width="350" height="86" rx="8" fill="#ffffff" stroke="#b9bdc3"/>
+  <text x="1052" y="124" class="label">Clarification</text>
+  <text x="1052" y="151" class="description">Ask for a missing or unclear detail.</text>
+</g>
+<g>
+  <rect x="1030" y="205" width="350" height="86" rx="8" fill="#ffffff" stroke="#b9bdc3"/>
+  <text x="1052" y="239" class="label">Recommendation</text>
+  <text x="1052" y="266" class="description">Show products matching the request.</text>
+</g>
+<g>
+  <rect x="1030" y="320" width="350" height="86" rx="8" fill="#ffffff" stroke="#b9bdc3"/>
+  <text x="1052" y="354" class="label">Optional offer</text>
+  <text x="1052" y="381" class="description">Suggest matching extras.</text>
+</g>
+<g>
+  <rect x="1030" y="435" width="350" height="86" rx="8" fill="#ffffff" stroke="#b9bdc3"/>
+  <text x="1052" y="469" class="label">Alternatives</text>
+  <text x="1052" y="496" class="description">Show close options and explain differences.</text>
+</g>
+<g>
+  <rect x="1030" y="550" width="350" height="86" rx="8" fill="#ffffff" stroke="#b9bdc3"/>
+  <text x="1052" y="584" class="label">Answer / comparison</text>
+  <text x="1052" y="611" class="description">Explain product details or compare options.</text>
+</g>
+<g>
+  <rect x="1030" y="665" width="350" height="86" rx="8" fill="#ffffff" stroke="#b9bdc3"/>
+  <text x="1052" y="699" class="label">No match</text>
+  <text x="1052" y="726" class="description">Explain why nothing suitable was found.</text>
+</g>
+<path d="M1205 291 V312" fill="none" stroke="#89919c" stroke-dasharray="4 4" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="1220" y="310" class="description">when helpful</text>
+<text x="60" y="800" class="description">Optional offers can accompany a recommendation.</text>
+</svg>
+

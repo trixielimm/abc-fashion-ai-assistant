@@ -1,0 +1,10 @@
+Pass: S3-B run 3 (2/2 turns) 
+Pass: S3-B run 1 (2/2 turns) 
+Pass: S3-B run 2 (2/2 turns) 
+Pass: S3-C run 1 (2/2 turns) 
+Pass: S3-C run 2 (2/2 turns) 
+Pass: S3-C run 3 (2/2 turns) 
+Pass: S4-A run 1 (4/4 turns) 
+Pass: S4-A run 2 (4/4 turns) 
+Pass: S4-A run 3 (4/4 turns) 
+{"counts":{"Pass":9,"Fail":0,"Blocked":0,"Feature gap":0},"evidence":"/Users/salvi/MQ/abc-fashion-ai-assistant/docs/test-evidence/customer-scenarios-2026-10-24T06-52-22-152Z/"}
