@@ -86,6 +86,10 @@ export function ProductControls({
         productId,
         size: selectedSize ?? "One Size",
         quantity,
+        sizeStock: selectedSize
+          ? sizeStock?.[selectedSize] ?? null
+          : null,
+        productStock: stockQty,
         name: productName,
         price: productPrice,
         image: productImage,
@@ -93,9 +97,14 @@ export function ProductControls({
       });
 
       showFeedback("Added to bag");
-    } catch (error) {
+        } catch (error) {
       console.error("Add to bag failed:", error);
-      showFeedback("Could not add to bag. Please try again.");
+
+      showFeedback(
+        error instanceof Error
+          ? error.message
+          : "Could not add to bag. Please try again.",
+      );
     }
   }
 
@@ -152,7 +161,18 @@ export function ProductControls({
           </div>
         </div>
       ) : null}
-
+      <p className="mt-4 text-sm text-muted" role="status">
+        {hasSizes && !selectedSize
+          ? "Select a size to check availability."
+          : selectedStock === null
+            ? "Stock quantity unavailable."
+            : selectedStock === 0
+              ? "Out of stock."
+              : selectedSize && sizeStock?.[selectedSize] != null
+                ? `${selectedStock} available in size ${selectedSize}.`
+                : `${selectedStock} available across all sizes.`}
+      </p>
+      
       <div className="mt-7 flex w-full gap-3">
         <div
           className="flex h-[44px] shrink-0 items-center border border-border bg-background"

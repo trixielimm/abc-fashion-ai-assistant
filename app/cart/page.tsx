@@ -1,16 +1,17 @@
 "use client";
 
-import { useMemo, useSyncExternalStore } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { CartItem } from "@/components/cart/CartItem";
 import { OrderSummary } from "@/components/cart/OrderSummary";
 import { useStylist } from "@/components/stylist/StylistProvider";
-import { readCart, subscribeToCart, writeCart, type CartRow, type StoredCartItem } from "@/lib/cart";
+import { readCart, subscribeToCart, writeCart, getCartExpiresAt, type CartRow, type StoredCartItem } from "@/lib/cart";
 import { featuredProducts } from "@/lib/mock-data";
 import { formatPrice } from "@/lib/format-price";
 import { getProductImageEndpoint } from "@/lib/product-image";
+
 
 const recommendations = featuredProducts.slice(0, 4);
 
@@ -25,6 +26,11 @@ function getServerCartSnapshot() {
 
 export default function CartPage() {
   const { openStylist } = useStylist();
+  const [cartError, setCartError] = useState("");
+  const [remainingSeconds, setRemainingSeconds] =
+  useState<number | null>(null);
+
+  const [cartExpired, setCartExpired] = useState(false);
 
   const snapshot = useSyncExternalStore(
     subscribeToCart,
@@ -38,6 +44,51 @@ export default function CartPage() {
     () => (snapshot ? JSON.parse(snapshot) : []),
     [snapshot],
   );
+
+  useEffect(() => {
+    function tick() {
+      const expiresAt = getCartExpiresAt();
+
+      if (expiresAt === null) {
+        setRemainingSeconds(null);
+        return;
+      }
+
+      const remaining = Math.max(
+        0,
+        Math.ceil((expiresAt - Date.now()) / 1000),
+      );
+
+      setRemainingSeconds(remaining);
+
+      if (remaining === 0) {
+        setCartExpired(true);
+
+        try {
+          writeCart([]);
+        } catch {
+          setCartError("Could not clear your expired bag.");
+        }
+      } else {
+        setCartExpired(false);
+      }
+    }
+
+    tick();
+
+    const intervalId = window.setInterval(tick, 1000);
+
+    return () => window.clearInterval(intervalId);
+  }, [snapshot]);
+
+  const countdown =
+    remainingSeconds === null
+      ? null
+      : `${Math.floor(remainingSeconds / 60)
+          .toString()
+          .padStart(2, "0")}:${(remainingSeconds % 60)
+          .toString()
+          .padStart(2, "0")}`;
 
   const rows: CartRow[] = items.flatMap((item) => {
     const product = featuredProducts.find(
@@ -68,25 +119,72 @@ export default function CartPage() {
     0,
   );
 
+  function getMaxQuantity(row: CartRow): number | null {
+    const sameProduct = items.filter(
+      (item) => item.productId === row.productId,
+    );
+
+    const otherSizesQuantity = sameProduct.reduce(
+      (total, item) =>
+        item.size === row.size
+          ? total
+          : total + item.quantity,
+      0,
+    );
+
+    const limits: number[] = [];
+
+    if (row.sizeStock != null) {
+      limits.push(row.sizeStock);
+    }
+
+    for (const item of sameProduct) {
+      if (item.productStock != null) {
+        limits.push(
+          Math.max(0, item.productStock - otherSizesQuantity),
+        );
+      }
+    }
+
+    return limits.length > 0 ? Math.min(...limits) : null;
+  }
+
   function update(
     productId: string,
     size: string,
     quantity: number,
   ) {
-    const updated = items.flatMap((item) => {
-      if (
-        item.productId !== productId ||
-        item.size !== size
-      ) {
-        return [item];
-      }
+    setCartError("");
 
-      return quantity > 0
-        ? [{ ...item, quantity }]
-        : [];
-    });
+    if (!Number.isInteger(quantity) || quantity < 0) {
+      setCartError("Quantity must be a whole number of 0 or more.");
+      return;
+    }
 
-    writeCart(updated);
+    try {
+      const current = readCart();
+
+      const updated = current.flatMap((item) => {
+        if (
+          item.productId !== productId ||
+          item.size !== size
+        ) {
+          return [item];
+        }
+
+        return quantity === 0
+          ? []
+          : [{ ...item, quantity }];
+      });
+
+      writeCart(updated);
+    } catch (error) {
+      setCartError(
+        error instanceof Error
+          ? error.message
+          : "Could not update your bag. Please try again.",
+      );
+    }
   }
 
   return (
@@ -110,8 +208,31 @@ export default function CartPage() {
           Continue browsing collection
         </Link>
       </div>
+       {cartError && (
+        <p
+          role="alert"
+          className="mt-4 text-sm text-red-700"
+        >
+          {cartError}
+        </p>
+      )}
 
+      {ready && rows.length > 0 && countdown !== null && (
+        <p className="mb-1 mt-3 text-[11px] text-muted">
+          Bag clears in{" "}
+          <span className="tabular-nums">{countdown}</span>
+          <span className="mx-2" aria-hidden="true">·</span>
+          Items are not reserved.
+        </p>
+      )}
+      {cartExpired && (
+        <p role="status" className="mt-3 text-xs text-muted">
+          Your bag expired after 20 minutes. Please add your items again.
+        </p>
+      )}
+      
       {!ready ? (
+        
         <p className="py-10 text-sm text-muted">
           Loading bag…
         </p>
@@ -135,6 +256,7 @@ export default function CartPage() {
               <CartItem
                 key={`${row.productId}:${row.size}`}
                 row={row}
+                maxQuantity={getMaxQuantity(row)}
                 onQuantityChange={(quantity) =>
                   update(
                     row.productId,
