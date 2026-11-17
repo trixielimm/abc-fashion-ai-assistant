@@ -1,0 +1,562 @@
+{
+  "date": "2026-11-17",
+  "source": "Read-only public product_catalog view configured by this repository",
+  "visible_rows": 318,
+  "relevant_products": [
+    {
+      "product_id": "P1004",
+      "product_name": "Lavender Wrap Dress",
+      "category": "Clothing",
+      "subcategory": "Dresses",
+      "product_type": "Wrap Dress",
+      "colour": "Lavender",
+      "price_aud": 150,
+      "is_available": true,
+      "stock_qty": 15,
+      "sizes_available": [
+        "6",
+        "8",
+        "10",
+        "12",
+        "14",
+        "16"
+      ]
+    },
+    {
+      "product_id": "P1008",
+      "product_name": "Black Low-Top Sneakers",
+      "category": "Shoes",
+      "subcategory": "Sneakers",
+      "product_type": "Low-Top Sneakers",
+      "colour": "Black",
+      "price_aud": 70,
+      "is_available": true,
+      "stock_qty": 22,
+      "sizes_available": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    },
+    {
+      "product_id": "P1039",
+      "product_name": "Brown Midi Skirt",
+      "category": "Clothing",
+      "subcategory": "Bottoms",
+      "product_type": "Midi Skirt",
+      "colour": "Brown",
+      "price_aud": 145,
+      "is_available": true,
+      "stock_qty": 46,
+      "sizes_available": [
+        "6",
+        "8",
+        "10",
+        "12",
+        "14",
+        "16"
+      ]
+    },
+    {
+      "product_id": "P1047",
+      "product_name": "Silver Retro Sneakers",
+      "category": "Shoes",
+      "subcategory": "Sneakers",
+      "product_type": "Retro Sneakers",
+      "colour": "Silver",
+      "price_aud": 135,
+      "is_available": true,
+      "stock_qty": 13,
+      "sizes_available": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ]
+    },
+    {
+      "product_id": "P1052",
+      "product_name": "Brown Low-Top Sneakers",
+      "category": "Shoes",
+      "subcategory": "Sneakers",
+      "product_type": "Low-Top Sneakers",
+      "colour": "Brown",
+      "price_aud": 90,
+      "is_available": true,
+      "stock_qty": 56,
+      "sizes_available": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    },
+    {
+      "product_id": "P1059",
+      "product_name": "Pink Pleated Skirt",
+      "category": "Clothing",
+      "subcategory": "Bottoms",
+      "product_type": "Pleated Skirt",
+      "colour": "Pink",
+      "price_aud": 155,
+      "is_available": true,
+      "stock_qty": 57,
+      "sizes_available": [
+        "6",
+        "8",
+        "10",
+        "12",
+        "14",
+        "16"
+      ]
+    },
+    {
+      "product_id": "P1103",
+      "product_name": "Red Low-Top Sneakers",
+      "category": "Shoes",
+      "subcategory": "Sneakers",
+      "product_type": "Low-Top Sneakers",
+      "colour": "Red",
+      "price_aud": 140,
+      "is_available": true,
+      "stock_qty": 31,
+      "sizes_available": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ]
+    },
+    {
+      "product_id": "P1111",
+      "product_name": "Burgundy Pleated Skirt",
+      "category": "Clothing",
+      "subcategory": "Bottoms",
+      "product_type": "Pleated Skirt",
+      "colour": "Burgundy",
+      "price_aud": 200,
+      "is_available": true,
+      "stock_qty": 78,
+      "sizes_available": [
+        "6",
+        "8",
+        "10",
+        "12",
+        "14",
+        "16"
+      ]
+    },
+    {
+      "product_id": "P1123",
+      "product_name": "Red Midi Skirt",
+      "category": "Clothing",
+      "subcategory": "Bottoms",
+      "product_type": "Midi Skirt",
+      "colour": "Red",
+      "price_aud": 120,
+      "is_available": true,
+      "stock_qty": 57,
+      "sizes_available": [
+        "6",
+        "8",
+        "10",
+        "12",
+        "14",
+        "16"
+      ]
+    },
+    {
+      "product_id": "P1125",
+      "product_name": "Brown Low-Top Sneakers",
+      "category": "Shoes",
+      "subcategory": "Sneakers",
+      "product_type": "Low-Top Sneakers",
+      "colour": "Brown",
+      "price_aud": 160,
+      "is_available": true,
+      "stock_qty": 72,
+      "sizes_available": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ]
+    },
+    {
+      "product_id": "P1148",
+      "product_name": "Black Low-Top Sneakers",
+      "category": "Shoes",
+      "subcategory": "Sneakers",
+      "product_type": "Low-Top Sneakers",
+      "colour": "Black",
+      "price_aud": 125,
+      "is_available": true,
+      "stock_qty": 26,
+      "sizes_available": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ]
+    },
+    {
+      "product_id": "P1159",
+      "product_name": "Navy Pleated Skirt",
+      "category": "Clothing",
+      "subcategory": "Bottoms",
+      "product_type": "Pleated Skirt",
+      "colour": "Navy",
+      "price_aud": 115,
+      "is_available": true,
+      "stock_qty": 37,
+      "sizes_available": [
+        "6",
+        "8",
+        "10",
+        "12",
+        "14",
+        "16"
+      ]
+    },
+    {
+      "product_id": "P1191",
+      "product_name": "Grey Retro Sneakers",
+      "category": "Shoes",
+      "subcategory": "Sneakers",
+      "product_type": "Retro Sneakers",
+      "colour": "Grey",
+      "price_aud": 145,
+      "is_available": true,
+      "stock_qty": 29,
+      "sizes_available": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    },
+    {
+      "product_id": "P1195",
+      "product_name": "Yellow Blouse",
+      "category": "Clothing",
+      "subcategory": "Tops",
+      "product_type": "Blouse",
+      "colour": "Yellow",
+      "price_aud": 70,
+      "is_available": true,
+      "stock_qty": 24,
+      "sizes_available": [
+        "6",
+        "8",
+        "10",
+        "12",
+        "14",
+        "16"
+      ]
+    },
+    {
+      "product_id": "P1203",
+      "product_name": "Brown Retro Sneakers",
+      "category": "Shoes",
+      "subcategory": "Sneakers",
+      "product_type": "Retro Sneakers",
+      "colour": "Brown",
+      "price_aud": 115,
+      "is_available": true,
+      "stock_qty": 13,
+      "sizes_available": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    },
+    {
+      "product_id": "P1216",
+      "product_name": "Pink Midi Skirt",
+      "category": "Clothing",
+      "subcategory": "Bottoms",
+      "product_type": "Midi Skirt",
+      "colour": "Pink",
+      "price_aud": 75,
+      "is_available": true,
+      "stock_qty": 40,
+      "sizes_available": [
+        "6",
+        "8",
+        "10",
+        "12",
+        "14",
+        "16"
+      ]
+    },
+    {
+      "product_id": "P1219",
+      "product_name": "Lavender Maxi Dress",
+      "category": "Clothing",
+      "subcategory": "Dresses",
+      "product_type": "Maxi Dress",
+      "colour": "Lavender",
+      "price_aud": 240,
+      "is_available": true,
+      "stock_qty": 82,
+      "sizes_available": [
+        "6",
+        "8",
+        "10",
+        "12",
+        "14",
+        "16"
+      ]
+    },
+    {
+      "product_id": "P1224",
+      "product_name": "Red Low-Top Sneakers",
+      "category": "Shoes",
+      "subcategory": "Sneakers",
+      "product_type": "Low-Top Sneakers",
+      "colour": "Red",
+      "price_aud": 120,
+      "is_available": true,
+      "stock_qty": 47,
+      "sizes_available": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ]
+    },
+    {
+      "product_id": "P1243",
+      "product_name": "White Retro Sneakers",
+      "category": "Shoes",
+      "subcategory": "Sneakers",
+      "product_type": "Retro Sneakers",
+      "colour": "White",
+      "price_aud": 45,
+      "is_available": true,
+      "stock_qty": 51,
+      "sizes_available": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ]
+    },
+    {
+      "product_id": "P1259",
+      "product_name": "Silver Blouse",
+      "category": "Clothing",
+      "subcategory": "Tops",
+      "product_type": "Blouse",
+      "colour": "Silver",
+      "price_aud": 170,
+      "is_available": true,
+      "stock_qty": 60,
+      "sizes_available": [
+        "6",
+        "8",
+        "10",
+        "12",
+        "14",
+        "16"
+      ]
+    },
+    {
+      "product_id": "P1267",
+      "product_name": "Lavender Low-Top Sneakers",
+      "category": "Shoes",
+      "subcategory": "Sneakers",
+      "product_type": "Low-Top Sneakers",
+      "colour": "Lavender",
+      "price_aud": 145,
+      "is_available": true,
+      "stock_qty": 40,
+      "sizes_available": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    },
+    {
+      "product_id": "P1276",
+      "product_name": "Sage Midi Skirt",
+      "category": "Clothing",
+      "subcategory": "Bottoms",
+      "product_type": "Midi Skirt",
+      "colour": "Sage",
+      "price_aud": 135,
+      "is_available": true,
+      "stock_qty": 23,
+      "sizes_available": [
+        "6",
+        "8",
+        "10",
+        "12",
+        "14",
+        "16"
+      ]
+    },
+    {
+      "product_id": "P1277",
+      "product_name": "Blue Midi Skirt",
+      "category": "Clothing",
+      "subcategory": "Bottoms",
+      "product_type": "Midi Skirt",
+      "colour": "Blue",
+      "price_aud": 185,
+      "is_available": true,
+      "stock_qty": 44,
+      "sizes_available": [
+        "6",
+        "8",
+        "10",
+        "12",
+        "14",
+        "16"
+      ]
+    },
+    {
+      "product_id": "P1278",
+      "product_name": "Red Midi Skirt",
+      "category": "Clothing",
+      "subcategory": "Bottoms",
+      "product_type": "Midi Skirt",
+      "colour": "Red",
+      "price_aud": 115,
+      "is_available": true,
+      "stock_qty": 53,
+      "sizes_available": [
+        "6",
+        "8",
+        "10",
+        "12",
+        "14",
+        "16"
+      ]
+    },
+    {
+      "product_id": "P1284",
+      "product_name": "Lavender Maxi Dress",
+      "category": "Clothing",
+      "subcategory": "Dresses",
+      "product_type": "Maxi Dress",
+      "colour": "Lavender",
+      "price_aud": 240,
+      "is_available": true,
+      "stock_qty": 68,
+      "sizes_available": [
+        "6",
+        "8",
+        "10",
+        "12",
+        "14",
+        "16"
+      ]
+    },
+    {
+      "product_id": "P1295",
+      "product_name": "Lavender Pleated Skirt",
+      "category": "Clothing",
+      "subcategory": "Bottoms",
+      "product_type": "Pleated Skirt",
+      "colour": "Lavender",
+      "price_aud": 100,
+      "is_available": true,
+      "stock_qty": 81,
+      "sizes_available": [
+        "6",
+        "8",
+        "10",
+        "12",
+        "14",
+        "16"
+      ]
+    },
+    {
+      "product_id": "P1301",
+      "product_name": "Beige Retro Sneakers",
+      "category": "Shoes",
+      "subcategory": "Sneakers",
+      "product_type": "Retro Sneakers",
+      "colour": "Beige",
+      "price_aud": 90,
+      "is_available": true,
+      "stock_qty": 2,
+      "sizes_available": [
+        "5",
+        "6"
+      ]
+    },
+    {
+      "product_id": "P1306",
+      "product_name": "Lavender Low-Top Sneakers",
+      "category": "Shoes",
+      "subcategory": "Sneakers",
+      "product_type": "Low-Top Sneakers",
+      "colour": "Lavender",
+      "price_aud": 155,
+      "is_available": true,
+      "stock_qty": 27,
+      "sizes_available": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ]
+    },
+    {
+      "product_id": "P1315",
+      "product_name": "Burgundy Blouse",
+      "category": "Clothing",
+      "subcategory": "Tops",
+      "product_type": "Blouse",
+      "colour": "Burgundy",
+      "price_aud": 90,
+      "is_available": true,
+      "stock_qty": 48,
+      "sizes_available": [
+        "6",
+        "8",
+        "10",
+        "12",
+        "14",
+        "16"
+      ]
+    }
+  ]
+}

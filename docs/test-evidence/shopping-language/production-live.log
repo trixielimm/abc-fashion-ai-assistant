@@ -1,0 +1,31 @@
+
+> abc-fashion-ai-assistant@0.1.0 test:shopping:live
+> node --import tsx scripts/test-shopping-language-live.mjs
+
+PASS: i want a lavendar dress -> matches (2 products)
+PASS: I want a lavender dress -> matches (2 products)
+PASS: I want a lavendar dres -> matches (2 products)
+PASS: I WANT A LAVENDAR DRES -> matches (2 products)
+PASS: Show me a burgandy dress -> matches (2 products)
+PASS: Show me a burgandy skrit -> matches (1 products)
+PASS: Show me white sneekers -> matches (1 products)
+PASS: Show me women's burgandy blous -> matches (1 products)
+PASS: Show me women's cotten shrits -> matches (4 products)
+PASS: I want a black handbg -> matches (1 products)
+PASS: I want a dress for a weddding -> matches (2 products)
+PASS: Show me a black skrit -> no_match (0 products)
+PASS: Show me women's white blous -> no_match (0 products)
+PASS: Show me womens shirts -> matches (5 products)
+PASS: i want a lavendar dress -> matches (2 products)
+PASS: I want a lavender dress -> matches (2 products)
+PASS: Show me dresses under $100 -> matches (4 products)
+PASS: i want a lavendar dress -> no_match (0 products)
+PASS: I want a lavender dress -> no_match (0 products)
+PASS: Show other colours as clearly labelled alternatives, keeping my original preferences saved. -> alternatives (4 products)
+PASS: I want a dress, no lavendar -> matches (5 products)
+PASS: I want a dress in meduim -> no_match (0 products)
+PASS: I want a waterproof lavendar dres -> needs_clarification (0 products)
+PASS: I want a lavendar dress, no polyster -> needs_clarification (0 products)
+PASS: I want a lilac dress -> needs_clarification (0 products)
+
+20/20 live scenarios passed. Evidence: docs/test-evidence/shopping-language/2026-11-17T09-15-25-642Z/results.json

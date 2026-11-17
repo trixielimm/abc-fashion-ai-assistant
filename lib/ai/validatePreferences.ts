@@ -1,6 +1,7 @@
 import { ShoppingPreferencesSchema, type ShoppingPreferences } from "./preferenceSchema";
 import type { CataloguePreferenceValues } from "../catalogue/preferenceValues";
 import { canonicalSize, matchesProductType, productFamily } from "../catalogue/productFamilies";
+import { canonicalShoppingValue } from "../catalogue/shoppingLanguage";
 
 export type PreferenceIssue = {
   field: keyof ShoppingPreferences;
@@ -33,6 +34,7 @@ export function validatePreferences(input: ShoppingPreferences, catalogue: Catal
     "brand_line",
   ]);
     function check(field: keyof ShoppingPreferences, value: string, allowed: string[]) {
+    value = canonicalShoppingValue(field, value);
     const match = allowed.find(
       (candidate) => normalise(candidate) === normalise(value)
     );
@@ -55,7 +57,7 @@ export function validatePreferences(input: ShoppingPreferences, catalogue: Catal
     return value;
   }
   for (const field of fields) {
-    const value = field === "size" && preferences.size ? canonicalSize(preferences.size, catalogue.sizes) : preferences[field];
+    const value = field === "size" && preferences.size ? canonicalSize(canonicalShoppingValue(field, preferences.size), catalogue.sizes) : preferences[field];
     if (value === null) continue;
     const allowed = field === "size" ? catalogue.sizes
       : field === "category" || field === "subcategory" ? catalogue.categories.map(row => row[field])

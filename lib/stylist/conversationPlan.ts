@@ -17,7 +17,8 @@ import { CollectionStateSchema, emptyCollectionState, explicitCollection, collec
 import { additiveCombinedRequest, requestedComponents, jacketPairingRequest, isJacket, confirmedBudgetRequest } from "./combinedShoppingRequest";
 import { TaskStateSchema, prepareConversationTask } from "./taskState";
 import { issue } from "./conversationIssues";
-import { matchesProductType } from "../catalogue/productFamilies";
+import { matchesProductType, productFamily } from "../catalogue/productFamilies";
+import { canonicalShoppingValue, shoppingSpellingView } from "../catalogue/shoppingLanguage";
 import { hasSharedScope, permitsBudgetRemoval } from "./sharedScope";
 export { ConversationChangeSchema } from "./conversationChanges";
 
@@ -87,6 +88,7 @@ export type ConversationPlanRequest = z.infer<typeof ConversationPlanRequestSche
 const normalise = (value: string) => value.trim().replace(/\s+/g, " ").toLowerCase();
 
 function unsupportedRequestDetails(message: string) {
+  message = shoppingSpellingView(message).text;
   const negativeMaterial = message.match(
     /\b(?:no|without|avoid|exclude|excluding)\s+(?:any\s+)?(leather|suede|fur|wool|silk|cotton|polyester|linen|nylon|cashmere)\b/i
   ) ?? message.match(/\b(leather|suede|fur|wool|silk|cotton|polyester|linen|nylon|cashmere)[ -]free\b/i);
@@ -348,6 +350,7 @@ export function checkConversationPlan(input: unknown, output: unknown) {
   }
 
   const beforeCategory = scopes.item.category;
+  const beforeSubcategory = scopes.item.subcategory;
   const touched = new Set<string>();
 
   for (const change of plan.changes) {
@@ -415,6 +418,16 @@ export function checkConversationPlan(input: unknown, output: unknown) {
     for (const field of ["subcategory", "product_type", "size"] as const) {
       if (!touched.has(`item.${field}`)) scopes.item[field] = null;
     }
+  } else if (scopes.item.subcategory !== beforeSubcategory && !touched.has("item.product_type")) {
+    // Switching between garments within Clothing must not search Dresses with
+    // the previous Shirt type. Unmentioned budgets, sizes and exclusions stay.
+    scopes.item.product_type = null;
+  }
+  const previousFamily = productFamily(scopes.item.product_type ?? "");
+  if (touched.has("item.subcategory") && !touched.has("item.product_type") && previousFamily?.subcategory &&
+      scopes.item.subcategory !== previousFamily.subcategory) {
+    // Also repair an inconsistent type already saved by an older app version.
+    scopes.item.product_type = null;
   }
 
   const searching = ["new_search", "refine", "discover", "cross_sell", "cheaper", "upsell"].includes(plan.action);
@@ -469,9 +482,10 @@ export function checkConversationPlan(input: unknown, output: unknown) {
     const unresolved = [...scopes.unresolved_item, ...scopes.unresolved_shared];
     const { material, completeOutfit } = unsupportedRequestDetails(request.message);
     if (material) {
-      const mentionsMaterial = (label: string) => normalise(label).includes(material);
+      const mentionsMaterial = (label: string) => normalise(canonicalShoppingValue("material", label)).includes(material);
+      const materialMessage = shoppingSpellingView(request.message).text;
       const removalPermission = new RegExp(`\\b(?:(?:remove|drop)\\s+(?:(?:my|the|that)\\s+)?(?:no\\s+|without\\s+)?${material}|(?:stop excluding|no longer exclude|allow)\\s+${material})\\b`, "i");
-      const explicitRemoval = (removalPermission.test(request.message) || new RegExp(`\\bremove\\b[^.!?]{0,70}\\brequirement[^.!?]{0,20}\\b${material}\\b`, "i").test(request.message)) &&
+      const explicitRemoval = (removalPermission.test(materialMessage) || new RegExp(`\\bremove\\b[^.!?]{0,70}\\brequirement[^.!?]{0,20}\\b${material}\\b`, "i").test(materialMessage)) &&
         [...request.scopes.unresolved_item, ...request.scopes.unresolved_shared].some(mentionsMaterial) &&
         plan.changes.some(change => change.field === "unresolved" && change.operation === "remove" &&
           change.value.some(mentionsMaterial));

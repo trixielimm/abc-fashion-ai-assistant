@@ -5,6 +5,7 @@ import { groundRequirementEvidence } from "../stylist/conversationGrounding";
 import { zodTextFormat } from "openai/helpers/zod";
 import { decodeModelPlan, ModelPlanSchema } from "./conversationModelPlan";
 import { OPTIONS_PER_COMPONENT } from "../stylist/conversationLimits";
+import { shoppingSpellingView } from "../catalogue/shoppingLanguage";
 import {
   generateValidatedConversationPlan,
   PlanValidationError,
@@ -363,6 +364,11 @@ Evidence:
 The FINAL user message is the raw latest turn. Everything before it is context only.
 intent_evidence and every change.evidence must be short contiguous quotations from that FINAL message.
 Values may be normalised, evidence may not be paraphrased or taken from history.
+Recognise obvious shopping spelling mistakes, including the supplied spelling_hints.
+For "lavendar dres", values are Lavender and Dresses, but evidence quotes "lavendar"
+and "dres" exactly. A typo does not remove budgets, exclusions or hard requirements.
+Generic sneakers, sandals, heels and boots are supported product families, not an
+instruction to choose one specific silhouette from the catalogue.
 For "lavender clothing under $100": Clothing uses "clothing", Lavender uses "lavender",
 100 uses "under $100". Use examples only when their words actually occur in the latest turn.
 A short pending answer needs only its new evidence; do not re-emit unchanged old preferences.
@@ -451,6 +457,7 @@ export async function interpretConversation(input: ConversationPlanRequest, sign
           discovery: input.discovery ?? null,
           collection: input.collection ?? null,
           task: input.task ?? null,
+          spelling_hints: shoppingSpellingView(input.message).corrections,
         }) },
         { role: "user", content: input.message },
       ],

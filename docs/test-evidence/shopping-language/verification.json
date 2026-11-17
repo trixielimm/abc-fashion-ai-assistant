@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-17",
+  "git_commit": "50c7222464983c278a5fd08fef1939b90f30f860",
+  "working_tree": "Uncommitted implementation in this workspace",
+  "production_build_id": "28OAO5LOla6LQ_rvfwutL",
+  "configured_conversation_model": "gpt-5.6-luna",
+  "checks": {
+    "npm test": {
+      "exit_code": 0,
+      "scripts_passed": 50,
+      "scripts_total": 50,
+      "shopping_language_checks": 40
+    },
+    "npm run lint": {
+      "exit_code": 0
+    },
+    "npm run typecheck": {
+      "exit_code": 0
+    },
+    "npm run build -- --webpack": {
+      "exit_code": 0
+    }
+  },
+  "browser_review": {
+    "surface": "Local development app at 127.0.0.1:3002, narrow viewport",
+    "flows": [
+      "Shirts, optional occasion question, then i want a lavendar dres returned Lavender Maxi Dress and Lavender Wrap Dress",
+      "A lavender dress under A$100 explained the A$150 minimum without changing the cap",
+      "Explore other colours displayed four labelled alternatives at or below A$100"
+    ],
+    "screenshots": [
+      "browser-dresses.jpg",
+      "browser-budget.jpg",
+      "browser-colour-preview.jpg"
+    ]
+  },
+  "limitations": [
+    "Live checks cover only the listed prompts and current public stock",
+    "Typo correction uses explicit shopping spellings rather than general fuzzy matching",
+    "The original pasted browser session was unavailable; equivalent failure paths were reproduced",
+    "The initial sandboxed build could not fetch existing Google Fonts; the successful production build used network access"
+  ],
+  "production_live": {
+    "results": "2026-11-17T09-15-25-642Z/results.json",
+    "scenarios_passed": 20,
+    "scenarios_total": 20,
+    "turns_checked": 25,
+    "source_hashes_match_current_files": true,
+    "runtime": "Final Next.js production build via npm run start"
+  }
+}

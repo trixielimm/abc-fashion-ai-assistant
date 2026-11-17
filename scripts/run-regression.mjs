@@ -36,6 +36,7 @@ function record(text) {
 }
 
 const suites = [
+  ["shopping-language", "test-shopping-language.mjs"],
   ["stage-demo", "test-stage-demo.mjs"],
   ["image-delivery", "test-image-delivery.ts"],
   ["product-images", "test-product-images.ts"],

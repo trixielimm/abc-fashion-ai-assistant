@@ -8,6 +8,7 @@ type Product = {
   colour: string | null;
   sizes_available: readonly string[];
   product_type?: string | null;
+  subcategory?: string | null;
 };
 
 type Input = {
@@ -84,7 +85,10 @@ function optionLabel(products: readonly Product[]): string {
     Accessories: "accessory options",
   };
   const category = categories.size === 1 ? products[0]?.category : null;
-  const kind = category ? labels[category] ?? "options" : "options";
+  const subcategories = [...new Set(products.map(product => product.subcategory))];
+  const specific: Record<string, string> = { Dresses: "dresses", Sneakers: "sneakers", Sandals: "sandals", Heels: "heels", Boots: "boots", Handbags: "handbags", Clutches: "clutches", Scarves: "scarves" };
+  const subcategory = subcategories.length === 1 ? subcategories[0] : null;
+  const kind = subcategory && specific[subcategory] ? specific[subcategory] : category ? labels[category] ?? "options" : "options";
   const colours = [...new Set(products.map(product => product.colour?.trim() || ""))];
   const colour = colours.length === 1 && colours[0] ? `${colours[0].toLowerCase()} ` : "";
   return colour + kind;
@@ -162,8 +166,8 @@ export function friendlyShoppingMessage(input: Input): string {
   if (status === "no_match") {
     // Preserve the actual no-match reason rather than inventing missing stock.
     return paragraphs(input.baseMessage, input.canPreviewOtherColours
-      ? 'One way to broaden the search is to use "Explore other colours" below. That preview keeps your other restrictions and leaves your original colour request saved.'
-      : "You can tell me which detail you're happy to change, and I'll use that in the next search. I haven't changed the request for you.");
+      ? 'You can preview the available alternatives with "Explore other colours" below.'
+      : /\?\s*$/.test(input.baseMessage) ? "" : "You can tell me which detail you're happy to change, and I'll use that in the next search. I haven't changed the request for you.");
   }
 
   if (status === "no_upsell") {
