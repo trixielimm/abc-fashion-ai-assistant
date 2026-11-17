@@ -1,0 +1,88 @@
+Browser tab: 4, Title: "ABC Fashion", URL: "https://abcandco.vercel.app/cart".
+1 AXWebArea ABC Fashion, URL: abcandco.vercel.app/cart
+	2 scroll bar Description: Page scroll, Value: 129
+	149 container
+		150 link Description: ABC Fashion, Value: abcandco.vercel.app/
+		151 link Description: Bag, 3 items, Value: abcandco.vercel.app/cart
+		152 text 3 items in your bag
+		153 button (collapsed) Description: Open menu, ID: mobile-menu-toggle, Secondary Actions: Expand
+		154 container Product search
+			155 button Search products
+			156 search text field (settable) Search
+	85 container
+		157 heading Shopping Cart, Value: 1
+			158 text Shopping Cart
+		159 text ( 3  SELECTED ITEMS )
+		160 link Description: CONTINUE BROWSING COLLECTION, Value: abcandco.vercel.app/
+		161 link Description: View Gold Trench Coat, Value: abcandco.vercel.app/products/P1031
+		162 link Description: Gold Trench Coat, Value: abcandco.vercel.app/products/P1031
+		163 container
+			164 text SIZE:  M
+		165 container
+			166 text $90.00  AUD
+		167 text In Stock
+		168 button Remove Gold Trench Coat from bag
+		169 container Quantity for Gold Trench Coat
+			170 button Decrease quantity of Gold Trench Coat
+			171 text 2
+			172 button Increase quantity of Gold Trench Coat
+		173 text SUBTOTAL $180.00  AUD
+		174 link Description: View Gold Trench Coat, Value: abcandco.vercel.app/products/P1031
+		175 link Description: Gold Trench Coat, Value: abcandco.vercel.app/products/P1031
+		176 container
+			177 text SIZE:  S
+		178 container
+			179 text $90.00  AUD
+		180 text In Stock
+		181 button Remove Gold Trench Coat from bag
+		182 container Quantity for Gold Trench Coat
+			183 button (disabled) Decrease quantity of Gold Trench Coat
+			184 text 1
+			185 button Increase quantity of Gold Trench Coat
+		186 text SUBTOTAL $90.00  AUD Your bag is saved on this device
+		187 button Need styling advice? Ask the AI Stylist
+		188 heading Order Summary, Value: 2
+			189 text Order Summary
+		190 text ITEM(S) SUBTOTAL ( 3 ) $270.00  AUD SHIPPING FREE ORDER TOTAL $270.00  AUD
+		191 button (disabled) CHECKOUT COMING SOON, Help: Checkout is not available yet
+		192 container Curated to Pair With Your Selection
+			193 heading Curated to Pair With Your Selection, Value: 2, ID: cart-recommendations
+				194 text Curated to Pair With Your Selection
+			195 link Description: VIEW ALL ESSENTIALS, Value: abcandco.vercel.app/
+			196 link Description: Silk Blend Blouse ABC FASHION Silk Blend Blouse $129.00 AUD, Value: abcandco.vercel.app/products/silk-blend-blouse
+			197 link Description: Tailored Trouser ABC FASHION Tailored Trouser $159.00 AUD, Value: abcandco.vercel.app/products/tailored-trouser
+			198 link Description: Silver Chain, Long Drop ABC FASHION Silver Chain, Long Drop $79.00 AUD, Value: abcandco.vercel.app/products/silver-chain
+			199 link Description: Structured Blazer ABC FASHION Structured Blazer $289.00 AUD, Value: abcandco.vercel.app/products/structured-blazer
+	47 container
+		48 text ABC Fashion COPENHAGEN & STOCKHOLM
+		49 text LONDON / PARIS / NEW YORK FROM THE COLLECTION
+		50 link Description: Blue Fitted Tee, Value: abcandco.vercel.app/products/P1016
+		51 link Description: Gold Trench Coat, Value: abcandco.vercel.app/products/P1031
+		52 link Description: Lavender Wrap Dress, Value: abcandco.vercel.app/products/P1004
+		53 link Description: Pink Crossbody Bag, Value: abcandco.vercel.app/products/P1003
+		54 text SHOP
+		55 content list
+			56 link Description: All products, Value: abcandco.vercel.app/search
+			57 link Description: Women's collection, Value: abcandco.vercel.app/search?gender=women
+			58 link Description: Men's collection, Value: abcandco.vercel.app/search?gender=men
+			59 link Description: Accessories, Value: abcandco.vercel.app/search?category=accessories
+		60 text HELP & INFORMATION
+		61 content list
+			62 link Description: Shopping help, Value: abcandco.vercel.app/help
+			63 link Description: Sizes & fit, Value: abcandco.vercel.app/help#sizes-fit
+			64 link Description: Orders & delivery, Value: abcandco.vercel.app/help#orders
+			65 link Description: Using the AI Stylist, Value: abcandco.vercel.app/help#ai-stylist
+			66 link Description: Recommendations & extras, Value: abcandco.vercel.app/help#recommendations
+			67 link Description: Your look & budget, Value: abcandco.vercel.app/help#your-look
+		68 text © 2026 ABC FASHION INC. ALL RIGHTS RESERVED. Prototype store — sample products and AI-generated specifications.
+		69 link Description: AI TERMS, Value: abcandco.vercel.app/terms-of-service
+		70 link Description: AI PRIVACY, Value: abcandco.vercel.app/terms-of-service#privacy
+	143 container Primary mobile
+		144 content list
+			145 link Description: HOME, Value: abcandco.vercel.app/
+			146 link Description: SHOP, Value: abcandco.vercel.app/search
+			147 button STYLIST
+			148 link Description: Bag, 3 items, Value: abcandco.vercel.app/cart
+	200 text Shopping Cart
+
+The focused UI element is 148 link Description: Bag, 3 items, URL: abcandco.vercel.app/cart

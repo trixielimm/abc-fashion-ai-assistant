@@ -124,3 +124,14 @@ transforms also fall back to the original. Local demo photos continue to use
 Next.js optimization. The homepage uses live catalogue data. Related
 products and cart suggestions retain the demo catalogue in `lib/mock-data.ts`;
 `lib/product-detail-mock.ts` supplies the matching demo product pages.
+
+## Audience presentation mode
+
+Run `npm run build:demo` followed by `npm run start:demo`, then open
+[the stage demo](http://127.0.0.1:3001/demo). This separate local build has 24
+scripted audience journeys, fixed response delays, bundled product photos and
+an isolated demo cart. The regular app commands retain the live mode.
+
+See [the stage guide](docs/stage-demo.md) for audience choices, presenter
+shortcuts, timing and rehearsal instructions. Run `npm run test:demo` to verify
+all 24 paths without model or database calls.

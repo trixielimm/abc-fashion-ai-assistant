@@ -190,7 +190,10 @@ scenario('B5', 'Grouped broad discovery, optional refinement and memory through 
 ], (n, r, s, before) => {
   if (n === 1) { eq(r.status, 'matches'); eq(r.products.length, 6);
     eq(r.outfit_choices.groups.map(group => group.product_ids.length), [3, 3]);
-    assert.ok(r.outfit_choices.maximum_total_aud <= 400); assert.ok(r.optional_question); eq(r.pending, null); }
+    assert.ok(r.outfit_choices.maximum_total_aud <= 400);
+    // Grouped results replaced the former style questionnaire with complete
+    // choice groups. Match the current grouped-discovery contract.
+    eq(r.optional_question, null); assert.match(r.message, /choose one item from each group/i); eq(r.pending, null); }
   if (n === 2 || n === 4) {
     eq(r.status, 'matches'); eq(s.styling.outfit_request.total_budget_aud, 400);
     const d = s.styling.outfit_request.items.find(p => p.category === 'Clothing');

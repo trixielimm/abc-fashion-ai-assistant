@@ -14,6 +14,10 @@ const families: Record<string, { category: string; subcategory?: string; pattern
   blouse: { category: "Clothing", subcategory: "Tops", pattern: /\bblouse\b/i },
   camisole: { category: "Clothing", subcategory: "Tops", pattern: /\bcamisole\b/i },
   cardigan: { category: "Clothing", subcategory: "Tops", pattern: /\bcardigan\b/i },
+  sneaker: { category: "Shoes", subcategory: "Sneakers", pattern: /\bsneakers?\b/i },
+  sandal: { category: "Shoes", subcategory: "Sandals", pattern: /\bsandals?\b/i },
+  heel: { category: "Shoes", subcategory: "Heels", pattern: /\bheels?\b/i },
+  boot: { category: "Shoes", subcategory: "Boots", pattern: /\bboots?\b/i },
 };
 export function productFamily(value: string) { return families[normalise(value)] ?? null; }
 export function matchesProductType(product: { category?: string | null; subcategory?: string | null; product_type: string | null }, requested: string) {

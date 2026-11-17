@@ -7,6 +7,7 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { StylistLauncher } from "@/components/stylist/StylistLauncher";
 import { StylistProvider } from "@/components/stylist/StylistProvider";
+import { PRESENTATION_MODE } from "@/lib/demo/config";
 import "./globals.css";
 
 const inter = Inter({
@@ -56,7 +57,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <BottomNavBar />
           <StylistLauncher />
         </StylistProvider>
-        <Analytics />
+        {!PRESENTATION_MODE ? <Analytics /> : null}
       </body>
     </html>
   );

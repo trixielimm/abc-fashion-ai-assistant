@@ -1,0 +1,103 @@
+- dialog "AI Stylist":
+  - banner:
+    - generic: ABC
+    - paragraph: Personal shopping
+    - heading "AI Stylist" [level=2]
+    - button "New chat"
+    - button "Close AI Stylist":
+  - complementary "Your look":
+    - strong: Your look
+    - generic: 0 items
+    - status: Save pieces here to build a look.
+    - strong: A$0.00 total
+    - button "View look":
+      - text: View look
+      - generic: ⌄
+  - log:
+    - generic: You
+    - paragraph: Show me women's black shoes under A$150. I haven't picked a size yet.
+    - generic: AI Stylist
+    - paragraph: I've found 2 black shoe options for you to explore.
+    - generic "Details about these picks"
+    - region "Recommended products":
+      - generic: 2 pieces
+      - list "Recommended products":
+        - article:
+          - link "View Black Platform Sandals":
+            - /url: /products/P1180
+            - img "Black Platform Sandals"
+          - link "Black Platform Sandals":
+            - /url: /products/P1180
+          - paragraph: A$120.00
+          - paragraph: ABC Footwear · Black
+          - paragraph: Within your A$150.00 limit.
+          - button "Add to cart"
+        - article:
+          - link "View Black Low-Top Sneakers":
+            - /url: /products/P1008
+            - img "Black Low-Top Sneakers"
+          - link "Black Low-Top Sneakers":
+            - /url: /products/P1008
+          - paragraph: A$70.00
+          - paragraph: ABC Footwear · Black
+          - paragraph: Within your A$150.00 limit.
+          - button "Add to cart"
+    - generic: You
+    - paragraph: What sizes are listed for Black Platform Sandals?
+    - generic: AI Stylist
+    - paragraph: "Black Platform Sandals Recorded sizes: 5, 6, 7, 8, 9, 10. These are catalogue size labels; I can't convert them to body measurements or guarantee fit."
+    - paragraph:
+      - text: "Sources:"
+      - 'link "Black Platform Sandals: catalogue details"':
+        - /url: /products/P1180
+    - generic: You
+    - paragraph: Can you guarantee that Black Platform Sandals are waterproof and will arrive in Sydney tomorrow?
+    - generic: AI Stylist
+    - paragraph: "ABC Fashion is a browsing prototype. Checkout, payment and order placement are unavailable, so adding a piece to your bag does not place an order. Standard delivery is available across Australia. I can't confirm arrival on a requested date: I don't have live delivery estimates, dispatch cut-offs or carrier information. I also can't confirm other destinations, express delivery or shipping fees from the available policy. A postcode alone won't let me calculate an arrival date yet. Black Platform Sandals The catalogue doesn't verify comfort, breathability, durability, sustainability or manufacturing quality. I can't infer those claims from price, material or brand alone."
+    - paragraph:
+      - text: "Sources:"
+      - 'link "Black Platform Sandals: catalogue details"':
+        - /url: /products/P1180
+      - text: ·
+      - link "Published delivery and returns copy":
+        - /url: /products/P1180#delivery-returns
+    - generic: You
+    - paragraph: Continue with black shoes under A$150. Waterproofing and delivery tomorrow are no longer requirements.
+    - generic: AI Stylist
+    - paragraph: I've found 2 black shoe options for you to explore.
+    - generic "Details about these picks"
+    - region "Recommended products":
+      - generic: 2 pieces
+      - list "Recommended products":
+        - article:
+          - link "View Black Platform Sandals":
+            - /url: /products/P1180
+            - img "Black Platform Sandals"
+          - link "Black Platform Sandals":
+            - /url: /products/P1180
+          - paragraph: A$120.00
+          - paragraph: ABC Footwear · Black
+          - paragraph: Within your A$150.00 limit.
+          - button "More options for Black Platform Sandals":
+            - generic: ···
+          - 'button "Save to look: Black Platform Sandals"': Save to look
+          - button "Add to cart"
+        - article:
+          - link "View Black Low-Top Sneakers":
+            - /url: /products/P1008
+            - img "Black Low-Top Sneakers"
+          - link "Black Low-Top Sneakers":
+            - /url: /products/P1008
+          - paragraph: A$70.00
+          - paragraph: ABC Footwear · Black
+          - paragraph: Within your A$150.00 limit.
+          - button "More options for Black Low-Top Sneakers":
+            - generic: ···
+          - 'button "Save to look: Black Low-Top Sneakers"': Save to look
+          - button "Add to cart"
+  - textbox "Message your stylist":
+    - /placeholder: What can I help you find?
+  - button "Send message" [disabled]: Send
+  - generic: Messages may be sent to OpenAI.
+  - generic "Privacy & details"
+- alert

@@ -5,7 +5,7 @@ import type { OutfitRequest } from "./outfitBudgetSchema";
 // Remove the styling anchor, not the requested components after its clause.
 export function requestedComponents(message: string) {
   const brief = message
-    .replace(/\b(?:to match|to go with)\s+(?:(?:the|this|that|my)\s+)?(?:jacket|blazer)\b/gi, "")
+    .replace(/\b(?:to match|(?:that )?(?:to )?go with)\s+(?:(?:the|this|that|my)\s+)?(?:jacket|blazer)\b/gi, "")
     .replace(/\b(?:to match|to go with|with my|my owned)\b[^,;]*(?=[,;]|$)/gi, "");
   const components = new Map<string, ShoppingPreferences>();
   for (const match of brief.matchAll(/\bdress(?:es)?(?![ -]+(?:shirts?|shoes?|code)\b)|\b(?:bottoms?|trousers?|pants)\b|\bshirts?\b|\b(?:jackets?|blazers?)\b|\b(?:shoes?|flats?)\b|\bbags?\b|\bnecklaces?\b/gi)) {
@@ -74,7 +74,9 @@ export function additiveCombinedRequest(message: string) {
 // Exact, complete grammar only. Extra colours, sizes and other qualifiers go
 // through the interpreter, so a shortcut can never discard those requirements.
 export function simpleMatchingSet(message: string) {
-  if (!/^(?:(?:can|could|would) you )?(?:find|show)(?: me)? (?:some )?bottoms? (?:to )?(?:match|go with) (?:the|this|that|my) (?:jacket|blazer),? (?:or|and|plus) (?:some |a )?shirts?(?: as well| too)?[,;.]?\s*(?:my )?(?:total|combined) budget (?:is |of |=?\s*)?(?:A?\$\s*)?\d+(?:\.\d{1,2})?(?:\s*(?:aud|dollars?))?[.!?]*$/i.test(message.trim())) return null;
+  const anchorFirst = /^(?:(?:can|could|would) you )?(?:find|show)(?: me)? (?:some )?bottoms? (?:to )?(?:match|go with) (?:the|this|that|my) (?:jacket|blazer),? (?:or|and|plus) (?:some |a )?shirts?(?: as well| too)?[,;.]?\s*(?:my )?(?:total|combined) budget (?:is |of |=?\s*)?(?:A?\$\s*)?\d+(?:\.\d{1,2})?(?:\s*(?:aud|dollars?))?[.!?]*$/i;
+  const componentsFirst = /^(?:(?:please )?(?:find|show)(?: me)?|can i get) (?:some )?bottoms?,? (?:and|plus)(?: also)? (?:some |a )?shirts? (?:that go with|to match|to go with) (?:the|this|that|my) (?:jacket|blazer)[,;.!?]?\s*(?:my )?(?:total|combined) budget (?:is |of |=?\s*)?(?:A?\$\s*)?\d+(?:\.\d{1,2})?(?:\s*(?:aud|dollars?))?[.!?]*$/i;
+  if (![anchorFirst, componentsFirst].some(pattern => pattern.test(message.trim()))) return null;
   const request = additiveCombinedRequest(message);
   return request?.total !== null && request?.total !== undefined ? {
     total_budget_aud: request.total, items: [...request.components.values()], evidence: message.slice(0, 250),

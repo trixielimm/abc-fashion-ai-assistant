@@ -12,6 +12,8 @@ import { ProductInfo } from "@/components/product/ProductInfo";
 import { RelatedProducts } from "@/components/product/RelatedProducts";
 import { enrichCommercialCatalogue } from "@/lib/stylist/commerceCatalogue";
 import { getProductSpecification } from "@/lib/stylist/productSpecifications";
+import { PRESENTATION_MODE } from "@/lib/demo/config";
+import { getDemoProduct } from "@/lib/demo/catalogue";
 
 export default async function ProductDetailPage({
   params,
@@ -22,8 +24,8 @@ export default async function ProductDetailPage({
   const mockProduct = productDetailMocks.find(
     (item) => item.product_id === productId,
   );
-  const catalogueProduct = mockProduct ? null : await getCatalogueProductById(productId);
-  const product = mockProduct ?? (catalogueProduct ? (await enrichCommercialCatalogue([catalogueProduct]))[0] : null);
+  const catalogueProduct = PRESENTATION_MODE ? getDemoProduct(productId) : mockProduct ? null : await getCatalogueProductById(productId);
+  const product = PRESENTATION_MODE ? catalogueProduct : mockProduct ?? (catalogueProduct ? (await enrichCommercialCatalogue([catalogueProduct]))[0] : null);
   const listingProduct = featuredProducts.find((item) => item.id === productId);
   const productName = listingProduct?.name ?? product?.product_name;
 

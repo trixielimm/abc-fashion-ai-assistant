@@ -1,3 +1,6 @@
+import { PRESENTATION_MODE } from "./demo/config";
+import { demoCatalogue } from "./demo/catalogue";
+
 export type Product = {
   id: string;
   name: string;
@@ -6,7 +9,7 @@ export type Product = {
   href: string;
 };
 
-export const featuredProducts: Product[] = [
+const mockFeaturedProducts: Product[] = [
   {
     id: "silk-blend-blouse",
     name: "Silk Blend Blouse",
@@ -50,3 +53,8 @@ export const featuredProducts: Product[] = [
     href: "/products/work-shirt",
   },
 ];
+
+export const featuredProducts: Product[] = PRESENTATION_MODE ? demoCatalogue.map(product => ({
+  id: product.product_id!, name: product.product_name!, price: product.price_aud!,
+  image: product.image_key!, href: `/products/${encodeURIComponent(product.product_id!)}`,
+})) : mockFeaturedProducts;

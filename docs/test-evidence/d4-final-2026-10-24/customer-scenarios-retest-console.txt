@@ -1,0 +1,13 @@
+Pass: B5 run 3 (5/5 turns) 
+Pass: SET-A run 1 (2/2 turns) 
+Pass: SET-A run 2 (2/2 turns) 
+Pass: SET-A run 3 (2/2 turns) 
+Pass: SET-B run 1 (2/2 turns) 
+Pass: SET-B run 2 (2/2 turns) 
+Pass: SET-B run 3 (2/2 turns) 
+Pass: SET-C run 1 (2/2 turns) 
+Pass: SET-C run 2 (2/2 turns) 
+Pass: SET-C run 3 (2/2 turns) 
+Pass: B5 run 1 (5/5 turns) 
+Pass: B5 run 2 (5/5 turns) 
+{"counts":{"Pass":12,"Fail":0,"Blocked":0,"Feature gap":0},"evidence":"/Users/salvi/MQ/abc-fashion-ai-assistant/docs/test-evidence/customer-scenarios-2026-10-24T06-23-22-496Z/"}

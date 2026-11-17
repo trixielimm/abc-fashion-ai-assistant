@@ -1,0 +1,1467 @@
+{
+  "id": "SET-A",
+  "name": "Matching bottoms and shirt with one total budget",
+  "repeat": 2,
+  "turns": [
+    {
+      "number": 1,
+      "message": "can you find me bottoms to match the jacket, or some shirt as well, total budget is 500 aud",
+      "input": {
+        "message": "can you find me bottoms to match the jacket, or some shirt as well, total budget is 500 aud",
+        "collection": {
+          "choice": "Men",
+          "current": null,
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": {
+            "product_id": "SET-JACKET",
+            "product_name": "Navy Denim Jacket",
+            "category": "Clothing",
+            "subcategory": "Outerwear",
+            "product_type": "Denim Jacket",
+            "price_aud": 800
+          },
+          "latest": [
+            {
+              "product_id": "SET-JACKET",
+              "product_name": "Navy Denim Jacket",
+              "category": "Clothing",
+              "subcategory": "Outerwear",
+              "product_type": "Denim Jacket",
+              "price_aud": 800
+            }
+          ]
+        },
+        "history": [],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": null,
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": null,
+            "budget_evidence": null,
+            "guidance": [],
+            "deadline": null,
+            "gift_recipient": null,
+            "uncertain_recipient_size": false,
+            "excluded_roles": [],
+            "occasion_context": null
+          }
+        }
+      },
+      "began": "2026-10-24T05:38:39.556Z",
+      "plan_source": "production shortcut",
+      "plan": {
+        "outfit_request": {
+          "total_budget_aud": 500,
+          "items": [
+            {
+              "gender": null,
+              "category": "Clothing",
+              "subcategory": "Bottoms",
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            {
+              "gender": null,
+              "category": "Clothing",
+              "subcategory": "Tops",
+              "product_type": "Shirt",
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            }
+          ],
+          "evidence": "can you find me bottoms to match the jacket, or some shirt as well, total budget is 500 aud"
+        },
+        "action": "new_search",
+        "intent_evidence": "can you find me bottoms to match the jacket, or some shirt as well, total budget is 500 aud",
+        "reference": {
+          "kind": "id",
+          "value": "SET-JACKET"
+        },
+        "changes": [],
+        "question": null,
+        "continuation": false,
+        "discovery_intent": null
+      },
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "10z5gdn",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 500,
+            "budget_evidence": "can you find me bottoms to match the jacket, or some shirt as well, total budget is 500 aud",
+            "guidance": [],
+            "deadline": null,
+            "gift_recipient": null,
+            "uncertain_recipient_size": false,
+            "excluded_roles": [],
+            "occasion_context": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": {
+          "limit_aud": 500,
+          "total_aud": 500,
+          "remaining_aud": 0,
+          "items": [
+            {
+              "product_id": "SET-BOTTOM",
+              "preferences": {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "product_id": "SET-SHIRT",
+              "preferences": {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Shirt",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ]
+        },
+        "outfit_choices": {
+          "groups": [
+            {
+              "label": "Bottoms",
+              "product_ids": [
+                "SET-BOTTOM"
+              ],
+              "preferences": {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "label": "Shirts",
+              "product_ids": [
+                "SET-SHIRT"
+              ],
+              "preferences": {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Shirt",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ],
+          "maximum_total_aud": 500
+        },
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "matches",
+        "action": "new_search",
+        "discovery": null,
+        "collection": {
+          "choice": "Men",
+          "current": {
+            "choice": "Men",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "Here are choices for bottoms and shirts to style with Navy Denim Jacket. Choose one item from each group; every displayed combination stays within your A$500.00 combined budget. Combinations range from A$500.00 to A$500.00. The jacket is a styling reference; this total covers the new pieces only.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "SET-BOTTOM",
+            "product_name": "SET-BOTTOM Dress",
+            "price_aud": 240,
+            "category": "Clothing",
+            "subcategory": "Bottoms",
+            "product_type": "Tailored Trousers",
+            "brand_line": null,
+            "colour": "Black",
+            "occasion": "Work",
+            "style": "Classic",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "explanation": "It shares the recorded Work occasion with Navy Denim Jacket. Its Classic style coordinates with the recorded style of Navy Denim Jacket. The season labels are compatible with Navy Denim Jacket; this does not verify weather performance. Styling suggestion: its Black colour can act as a neutral alongside Navy Denim Jacket.",
+            "unverified_requirements": [],
+            "extra_target": null,
+            "image_src": null,
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [
+                "SET-JACKET"
+              ],
+              "reasons": [
+                "It shares the recorded Work occasion with Navy Denim Jacket.",
+                "Its Classic style coordinates with the recorded style of Navy Denim Jacket.",
+                "The season labels are compatible with Navy Denim Jacket; this does not verify weather performance.",
+                "Styling suggestion: its Black colour can act as a neutral alongside Navy Denim Jacket."
+              ],
+              "limitations": [],
+              "level": "catalogue_supported"
+            }
+          },
+          {
+            "product_id": "SET-SHIRT",
+            "product_name": "SET-SHIRT Dress",
+            "price_aud": 260,
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Oxford Shirt",
+            "brand_line": null,
+            "colour": "White",
+            "occasion": "Work",
+            "style": "Classic",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "explanation": "It shares the recorded Work occasion with Navy Denim Jacket. Its Classic style coordinates with the recorded style of Navy Denim Jacket. The season labels are compatible with Navy Denim Jacket; this does not verify weather performance. Styling suggestion: its White colour can act as a neutral alongside Navy Denim Jacket.",
+            "unverified_requirements": [],
+            "extra_target": null,
+            "image_src": null,
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [
+                "SET-JACKET"
+              ],
+              "reasons": [
+                "It shares the recorded Work occasion with Navy Denim Jacket.",
+                "Its Classic style coordinates with the recorded style of Navy Denim Jacket.",
+                "The season labels are compatible with Navy Denim Jacket; this does not verify weather performance.",
+                "Styling suggestion: its White colour can act as a neutral alongside Navy Denim Jacket."
+              ],
+              "limitations": [],
+              "level": "catalogue_supported"
+            }
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 500,
+            "items": [
+              {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Shirt",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "can you find me bottoms to match the jacket, or some shirt as well, total budget is 500 aud",
+            "anchor_product_ids": [
+              "SET-JACKET"
+            ]
+          },
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 1,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 500,
+            "items": [
+              {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Shirt",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "can you find me bottoms to match the jacket, or some shirt as well, total budget is 500 aud",
+            "anchor_product_ids": [
+              "SET-JACKET"
+            ]
+          },
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Men",
+          "current": {
+            "choice": "Men",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "10z5gdn",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 500,
+            "budget_evidence": "can you find me bottoms to match the jacket, or some shirt as well, total budget is 500 aud",
+            "guidance": [],
+            "deadline": null,
+            "gift_recipient": null,
+            "uncertain_recipient_size": false,
+            "excluded_roles": [],
+            "occasion_context": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "SET-BOTTOM",
+              "product_name": "SET-BOTTOM Dress",
+              "category": "Clothing",
+              "subcategory": "Bottoms",
+              "product_type": "Tailored Trousers",
+              "price_aud": 240,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "SET-JACKET"
+                ],
+                "primary_product_id": null
+              }
+            },
+            {
+              "product_id": "SET-SHIRT",
+              "product_name": "SET-SHIRT Dress",
+              "category": "Clothing",
+              "subcategory": "Tops",
+              "product_type": "Oxford Shirt",
+              "price_aud": 260,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "SET-JACKET"
+                ],
+                "primary_product_id": null
+              }
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "SET-JACKET",
+                "product_name": "Navy Denim Jacket",
+                "category": "Clothing",
+                "subcategory": "Outerwear",
+                "product_type": "Denim Jacket",
+                "price_aud": 800
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "can you find me bottoms to match the jacket, or some shirt as well, total budget is 500 aud"
+          },
+          {
+            "role": "assistant",
+            "content": "Here are choices for bottoms and shirts to style with Navy Denim Jacket. Choose one item from each group; every displayed combination stays within your A$500.00 combined budget. Combinations range from A$500.00 to A$500.00. The jacket is a styling reference; this total covers the new pieces only."
+          }
+        ]
+      },
+      "checks": "Pass"
+    },
+    {
+      "number": 2,
+      "message": "Make the combined budget 600 aud, keep the same pieces and jacket.",
+      "input": {
+        "message": "Make the combined budget 600 aud, keep the same pieces and jacket.",
+        "collection": {
+          "choice": "Men",
+          "current": {
+            "choice": "Men",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "discovery": null,
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "SET-BOTTOM",
+              "product_name": "SET-BOTTOM Dress",
+              "category": "Clothing",
+              "subcategory": "Bottoms",
+              "product_type": "Tailored Trousers",
+              "price_aud": 240,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "SET-JACKET"
+                ],
+                "primary_product_id": null
+              }
+            },
+            {
+              "product_id": "SET-SHIRT",
+              "product_name": "SET-SHIRT Dress",
+              "category": "Clothing",
+              "subcategory": "Tops",
+              "product_type": "Oxford Shirt",
+              "price_aud": 260,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "SET-JACKET"
+                ],
+                "primary_product_id": null
+              }
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "SET-JACKET",
+                "product_name": "Navy Denim Jacket",
+                "category": "Clothing",
+                "subcategory": "Outerwear",
+                "product_type": "Denim Jacket",
+                "price_aud": 800
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "can you find me bottoms to match the jacket, or some shirt as well, total budget is 500 aud"
+          },
+          {
+            "role": "assistant",
+            "content": "Here are choices for bottoms and shirts to style with Navy Denim Jacket. Choose one item from each group; every displayed combination stays within your A$500.00 combined budget. Combinations range from A$500.00 to A$500.00. The jacket is a styling reference; this total covers the new pieces only."
+          }
+        ],
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 500,
+            "items": [
+              {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Shirt",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "can you find me bottoms to match the jacket, or some shirt as well, total budget is 500 aud",
+            "anchor_product_ids": [
+              "SET-JACKET"
+            ]
+          },
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "10z5gdn",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 500,
+            "budget_evidence": "can you find me bottoms to match the jacket, or some shirt as well, total budget is 500 aud",
+            "guidance": [],
+            "deadline": null,
+            "gift_recipient": null,
+            "uncertain_recipient_size": false,
+            "excluded_roles": [],
+            "occasion_context": null
+          }
+        }
+      },
+      "began": "2026-10-24T05:38:39.557Z",
+      "plan_source": "live model",
+      "plan": {
+        "outfit_request": {
+          "total_budget_aud": 600,
+          "items": [
+            {
+              "gender": null,
+              "category": "Clothing",
+              "subcategory": "Bottoms",
+              "product_type": null,
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            },
+            {
+              "gender": null,
+              "category": "Clothing",
+              "subcategory": "Tops",
+              "product_type": "Shirt",
+              "occasion": null,
+              "style": null,
+              "preferred_colours": [],
+              "excluded_colours": [],
+              "season": null,
+              "material": null,
+              "fit": null,
+              "size": null,
+              "min_price": null,
+              "max_price": null,
+              "brand_line": null
+            }
+          ],
+          "evidence": "Make the combined budget 600 aud, keep the same pieces and jacket."
+        },
+        "action": "refine",
+        "discovery_intent": null,
+        "intent_evidence": "Make the combined budget 600 aud, keep the same pieces and jacket.",
+        "reference": {
+          "kind": "id",
+          "value": "SET-JACKET"
+        },
+        "changes": [],
+        "question": null,
+        "continuation": false,
+        "answer": null,
+        "styling_intent": null
+      },
+      "reply": {
+        "complementary_offer": null,
+        "offer_refresh": false,
+        "task_transition_applied": true,
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "1en7y1y",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 600,
+            "budget_evidence": "Make the combined budget 600 aud, keep the same pieces and jacket.",
+            "guidance": [],
+            "deadline": null,
+            "gift_recipient": null,
+            "uncertain_recipient_size": false,
+            "excluded_roles": [],
+            "occasion_context": null
+          }
+        },
+        "issues": [],
+        "unverified_requirements": [],
+        "purchase_budget": null,
+        "intent_understood": true,
+        "outfit_budget": {
+          "limit_aud": 600,
+          "total_aud": 500,
+          "remaining_aud": 100,
+          "items": [
+            {
+              "product_id": "SET-BOTTOM",
+              "preferences": {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "product_id": "SET-SHIRT",
+              "preferences": {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Shirt",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ]
+        },
+        "outfit_choices": {
+          "groups": [
+            {
+              "label": "Bottoms",
+              "product_ids": [
+                "SET-BOTTOM"
+              ],
+              "preferences": {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            },
+            {
+              "label": "Shirts",
+              "product_ids": [
+                "SET-SHIRT"
+              ],
+              "preferences": {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Shirt",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            }
+          ],
+          "maximum_total_aud": 500
+        },
+        "outfit_review": null,
+        "combination_summary": null,
+        "status": "matches",
+        "action": "refine",
+        "discovery": null,
+        "collection": {
+          "choice": "Men",
+          "current": {
+            "choice": "Men",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "suggested_replies": [],
+        "message": "Here are choices for bottoms and shirts to style with Navy Denim Jacket. Choose one item from each group; every displayed combination stays within your A$600.00 combined budget. Combinations range from A$500.00 to A$500.00. The jacket is a styling reference; this total covers the new pieces only.",
+        "proposed_scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "applied_preferences": {
+          "gender": null,
+          "category": null,
+          "subcategory": null,
+          "product_type": null,
+          "occasion": null,
+          "style": null,
+          "preferred_colours": [],
+          "excluded_colours": [],
+          "season": null,
+          "material": null,
+          "fit": null,
+          "size": null,
+          "min_price": null,
+          "max_price": null,
+          "brand_line": null
+        },
+        "products": [
+          {
+            "product_id": "SET-BOTTOM",
+            "product_name": "SET-BOTTOM Dress",
+            "price_aud": 240,
+            "category": "Clothing",
+            "subcategory": "Bottoms",
+            "product_type": "Tailored Trousers",
+            "brand_line": null,
+            "colour": "Black",
+            "occasion": "Work",
+            "style": "Classic",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "explanation": "It shares the recorded Work occasion with Navy Denim Jacket. Its Classic style coordinates with the recorded style of Navy Denim Jacket. The season labels are compatible with Navy Denim Jacket; this does not verify weather performance. Styling suggestion: its Black colour can act as a neutral alongside Navy Denim Jacket.",
+            "unverified_requirements": [],
+            "extra_target": null,
+            "image_src": null,
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [
+                "SET-JACKET"
+              ],
+              "reasons": [
+                "It shares the recorded Work occasion with Navy Denim Jacket.",
+                "Its Classic style coordinates with the recorded style of Navy Denim Jacket.",
+                "The season labels are compatible with Navy Denim Jacket; this does not verify weather performance.",
+                "Styling suggestion: its Black colour can act as a neutral alongside Navy Denim Jacket."
+              ],
+              "limitations": [],
+              "level": "catalogue_supported"
+            }
+          },
+          {
+            "product_id": "SET-SHIRT",
+            "product_name": "SET-SHIRT Dress",
+            "price_aud": 260,
+            "category": "Clothing",
+            "subcategory": "Tops",
+            "product_type": "Oxford Shirt",
+            "brand_line": null,
+            "colour": "White",
+            "occasion": "Work",
+            "style": "Classic",
+            "sizes_available": [
+              "10",
+              "12"
+            ],
+            "explanation": "It shares the recorded Work occasion with Navy Denim Jacket. Its Classic style coordinates with the recorded style of Navy Denim Jacket. The season labels are compatible with Navy Denim Jacket; this does not verify weather performance. Styling suggestion: its White colour can act as a neutral alongside Navy Denim Jacket.",
+            "unverified_requirements": [],
+            "extra_target": null,
+            "image_src": null,
+            "pairing_evidence": {
+              "policy_version": "stylist-commerce-v1",
+              "anchor_ids": [
+                "SET-JACKET"
+              ],
+              "reasons": [
+                "It shares the recorded Work occasion with Navy Denim Jacket.",
+                "Its Classic style coordinates with the recorded style of Navy Denim Jacket.",
+                "The season labels are compatible with Navy Denim Jacket; this does not verify weather performance.",
+                "Styling suggestion: its White colour can act as a neutral alongside Navy Denim Jacket."
+              ],
+              "limitations": [],
+              "level": "catalogue_supported"
+            }
+          }
+        ],
+        "alternatives": [],
+        "alternatives_preferences": null,
+        "alternative_kind": null,
+        "optional_question": null,
+        "can_preview_other_colours": false,
+        "pending": null,
+        "pending_answer": null,
+        "answer_sources": [],
+        "answer_product_ids": [],
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 600,
+            "items": [
+              {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Shirt",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "Make the combined budget 600 aud, keep the same pieces and jacket.",
+            "anchor_product_ids": [
+              "SET-JACKET"
+            ]
+          },
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "commerce_policy": "stylist-commerce-v1",
+        "feature_data_status": "available",
+        "comparison_reference_id": null
+      },
+      "elapsed_ms": 3268,
+      "state": {
+        "scopes": {
+          "item": {
+            "gender": null,
+            "category": null,
+            "subcategory": null,
+            "product_type": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "size": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "shared": {
+            "gender": null,
+            "occasion": null,
+            "style": null,
+            "preferred_colours": [],
+            "excluded_colours": [],
+            "season": null,
+            "material": null,
+            "fit": null,
+            "min_price": null,
+            "max_price": null,
+            "brand_line": null
+          },
+          "unresolved_item": [],
+          "unresolved_shared": []
+        },
+        "pending": null,
+        "pending_answer": null,
+        "styling": {
+          "dress_code": null,
+          "outfit_request": {
+            "total_budget_aud": 600,
+            "items": [
+              {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": null,
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              },
+              {
+                "gender": null,
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Shirt",
+                "occasion": null,
+                "style": null,
+                "preferred_colours": [],
+                "excluded_colours": [],
+                "season": null,
+                "material": null,
+                "fit": null,
+                "size": null,
+                "min_price": null,
+                "max_price": null,
+                "brand_line": null
+              }
+            ],
+            "evidence": "Make the combined budget 600 aud, keep the same pieces and jacket.",
+            "anchor_product_ids": [
+              "SET-JACKET"
+            ]
+          },
+          "purchase_budget": null,
+          "outfit": [],
+          "external_items": [],
+          "rejected_ids": [],
+          "priorities": [],
+          "required_features": [],
+          "offers_paused": false,
+          "owned_categories": []
+        },
+        "discovery": null,
+        "collection": {
+          "choice": "Men",
+          "current": {
+            "choice": "Men",
+            "source": "saved"
+          },
+          "checkpoint": null
+        },
+        "cart_product_ids": [],
+        "task": {
+          "generation": 0,
+          "complementary_shown": false,
+          "complementary_dismissed": false,
+          "prepared_key": "1en7y1y",
+          "preview_unverified": false,
+          "blocker_signature": "",
+          "blocker_repeats": 0,
+          "issues": [],
+          "brief": {
+            "goal": null,
+            "total_budget_aud": 600,
+            "budget_evidence": "Make the combined budget 600 aud, keep the same pieces and jacket.",
+            "guidance": [],
+            "deadline": null,
+            "gift_recipient": null,
+            "uncertain_recipient_size": false,
+            "excluded_roles": [],
+            "occasion_context": null
+          }
+        },
+        "context": {
+          "focused": null,
+          "latest": [
+            {
+              "product_id": "SET-BOTTOM",
+              "product_name": "SET-BOTTOM Dress",
+              "category": "Clothing",
+              "subcategory": "Bottoms",
+              "product_type": "Tailored Trousers",
+              "price_aud": 240,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "SET-JACKET"
+                ],
+                "primary_product_id": null
+              }
+            },
+            {
+              "product_id": "SET-SHIRT",
+              "product_name": "SET-SHIRT Dress",
+              "category": "Clothing",
+              "subcategory": "Tops",
+              "product_type": "Oxford Shirt",
+              "price_aud": 260,
+              "recommendation_context": {
+                "anchor_ids": [
+                  "SET-JACKET"
+                ],
+                "primary_product_id": null
+              }
+            }
+          ],
+          "previous": [
+            [
+              {
+                "product_id": "SET-BOTTOM",
+                "product_name": "SET-BOTTOM Dress",
+                "category": "Clothing",
+                "subcategory": "Bottoms",
+                "product_type": "Tailored Trousers",
+                "price_aud": 240,
+                "recommendation_context": {
+                  "anchor_ids": [
+                    "SET-JACKET"
+                  ],
+                  "primary_product_id": null
+                }
+              },
+              {
+                "product_id": "SET-SHIRT",
+                "product_name": "SET-SHIRT Dress",
+                "category": "Clothing",
+                "subcategory": "Tops",
+                "product_type": "Oxford Shirt",
+                "price_aud": 260,
+                "recommendation_context": {
+                  "anchor_ids": [
+                    "SET-JACKET"
+                  ],
+                  "primary_product_id": null
+                }
+              }
+            ],
+            [
+              {
+                "product_id": "SET-JACKET",
+                "product_name": "Navy Denim Jacket",
+                "category": "Clothing",
+                "subcategory": "Outerwear",
+                "product_type": "Denim Jacket",
+                "price_aud": 800
+              }
+            ]
+          ]
+        },
+        "history": [
+          {
+            "role": "user",
+            "content": "can you find me bottoms to match the jacket, or some shirt as well, total budget is 500 aud"
+          },
+          {
+            "role": "assistant",
+            "content": "Here are choices for bottoms and shirts to style with Navy Denim Jacket. Choose one item from each group; every displayed combination stays within your A$500.00 combined budget. Combinations range from A$500.00 to A$500.00. The jacket is a styling reference; this total covers the new pieces only."
+          },
+          {
+            "role": "user",
+            "content": "Make the combined budget 600 aud, keep the same pieces and jacket."
+          },
+          {
+            "role": "assistant",
+            "content": "Here are choices for bottoms and shirts to style with Navy Denim Jacket. Choose one item from each group; every displayed combination stays within your A$600.00 combined budget. Combinations range from A$500.00 to A$500.00. The jacket is a styling reference; this total covers the new pieces only."
+          }
+        ]
+      },
+      "checks": "Pass"
+    }
+  ],
+  "started": "2026-10-24T05:38:39.556Z",
+  "result": "Pass",
+  "issues": [],
+  "collection_setup": "Fresh session; collection unanswered",
+  "finished": "2026-10-24T05:38:42.825Z"
+}

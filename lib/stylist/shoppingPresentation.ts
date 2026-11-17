@@ -3,7 +3,6 @@ import type { CatalogueProduct } from "../recommendations/catalogue";
 import type { CataloguePreferenceValues } from "../catalogue/preferenceValues";
 import { ShoppingPreferencesSchema, type ShoppingPreferences } from "../ai/preferenceSchema";
 import { relatedLabel } from "../search/preferenceSearch";
-import { searchWithValidatedPreferences } from "../search/validatedPreferenceSearch";
 import type { executeConversationSearch } from "./conversationSearch";
 import { ChatProductSchema, type AlternativeProduct, type ChatProduct, type ConversationTurn } from "./conversationProtocol";
 import { catalogueImageSource } from "./catalogueImages";
@@ -13,6 +12,8 @@ import { issueMessage } from "./conversationIssues";
 import { auditedImagePresent } from "../catalogue/imageHealth";
 import { pairingCategoryNames, resolvePairingTarget } from "../search/pairingTargets";
 import { excludedByShoppingContext } from "./shoppingContext";
+import { shoppingSpellingView } from "../catalogue/shoppingLanguage";
+import { shoppingRequestLabel } from "../search/noMatchReason";
 
 type SearchResult = ReturnType<typeof executeConversationSearch>;
 
@@ -124,7 +125,7 @@ export function presentShoppingResult(
     (["occasion", "style", "fit", "season"] as const).every(field =>
       scopes.shared[field] === null || relatedLabel(record[field], scopes.shared[field]!));
 
-   const products: ChatProduct[] = [];
+  const products: ChatProduct[] = [];
   let alternatives: AlternativeProduct[] = [];
   let alternativePreferences: ShoppingPreferences | null = null;
   let alternativeKind: "context_difference" | "colour_preview" | "unverified_preview" | null = null;
@@ -132,24 +133,19 @@ export function presentShoppingResult(
   if (preview && previewEligible && applied) {
     // A one-turn preview after an explicit click. Saved scopes never change.
     const filters = ShoppingPreferencesSchema.parse({ ...applied, preferred_colours: [] });
-    const otherColours = catalogue.filter(row => meetsSharedContext(row) && row.colour &&
-      !applied.preferred_colours.some(colour => relatedLabel(row.colour, colour)));
-    const searched = searchWithValidatedPreferences(otherColours, filters, vocabulary);
-    if (!searched.validation.needs_clarification) {
-      alternatives = searched.result.products.map(product => {
-        const record = otherColours.find(row => row.product_id === product.product_id)!;
-        return {
-          ...decorate(product),
-          differences: [
-            `Colour: ${record.colour}; your original request was ${applied.preferred_colours.join(" or ")}.`,
-            ...contextDifferences(record, applied),
-          ],
-        };
-      });
-      if (alternatives.length) {
-        alternativePreferences = filters;
-        alternativeKind = "colour_preview";
-      }
+    alternatives = result.colour_preview_products.map(product => {
+      const record = catalogue.find(row => row.product_id === product.product_id)!;
+      return {
+        ...decorate(product),
+        differences: [
+          `Colour: ${record.colour}; your original request was ${applied.preferred_colours.join(" or ")}.`,
+          ...contextDifferences(record, applied),
+        ],
+      };
+    });
+    if (alternatives.length) {
+      alternativePreferences = filters;
+      alternativeKind = "colour_preview";
     }
   } else if (!preview && applied) {
     // Split existing soft-context matches; do not relax required filters.
@@ -216,7 +212,11 @@ export function presentShoppingResult(
   } else if (result.status === "no_match") {
     message = result.styling.required_features.length ? result.message : result.action === "cheaper"
       ? "I couldn't find a lower-priced option that meets the preferences you've kept. I haven't raised your budget or changed your restrictions."
-      : "I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged.";
+      : result.no_match_message ?? "I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged.";
+    const sameRequest = (text: string) => shoppingSpellingView(text).text.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+    if (applied && result.no_match_message && turn.history.some(entry => entry.role === "user" && sameRequest(entry.content) === sameRequest(turn.message))) {
+      message = `I understood your request for ${shoppingRequestLabel(applied)}. ${message}`;
+    }
   } else if (result.status === "no_upsell") {
     message = result.message;
   } else if (result.status === "no_rule" || result.status === "rule_unavailable") {
@@ -251,8 +251,8 @@ export function presentShoppingResult(
     };
   }
 
-   const canPreviewOtherColours =
-    !preview && result.status === "no_match" && previewEligible;
+  const canPreviewOtherColours =
+    !preview && result.status === "no_match" && previewEligible && result.colour_preview_products.length > 0;
 
   return {
     status,

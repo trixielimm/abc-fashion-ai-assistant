@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-22T09:48:46.988Z",
+  "checked_at": "2026-10-31T12:01:58.671Z",
   "images": {
     "P1001": {
       "key_fingerprint": "115r76",
@@ -59,7 +59,7 @@
     },
     "P1015": {
       "key_fingerprint": "1s2iame",
-      "object_present": false
+      "object_present": true
     },
     "P1016": {
       "key_fingerprint": "1uuiv59",
@@ -75,7 +75,7 @@
     },
     "P1019": {
       "key_fingerprint": "4ru45v",
-      "object_present": false
+      "object_present": true
     },
     "P1020": {
       "key_fingerprint": "9r21cg",
@@ -91,7 +91,7 @@
     },
     "P1023": {
       "key_fingerprint": "1bq99jm",
-      "object_present": false
+      "object_present": true
     },
     "P1024": {
       "key_fingerprint": "rdhdd7",
@@ -115,7 +115,7 @@
     },
     "P1029": {
       "key_fingerprint": "upygi1",
-      "object_present": false
+      "object_present": true
     },
     "P1030": {
       "key_fingerprint": "grltj",
@@ -143,7 +143,7 @@
     },
     "P1036": {
       "key_fingerprint": "2m8xcs",
-      "object_present": false
+      "object_present": true
     },
     "P1037": {
       "key_fingerprint": "kxreji",
@@ -171,7 +171,7 @@
     },
     "P1043": {
       "key_fingerprint": "10q0ycc",
-      "object_present": false
+      "object_present": true
     },
     "P1044": {
       "key_fingerprint": "s99ser",
@@ -183,7 +183,7 @@
     },
     "P1046": {
       "key_fingerprint": "vu8fkz",
-      "object_present": false
+      "object_present": true
     },
     "P1047": {
       "key_fingerprint": "wizvg0",
@@ -195,7 +195,7 @@
     },
     "P1049": {
       "key_fingerprint": "1hz5z43",
-      "object_present": false
+      "object_present": true
     },
     "P1050": {
       "key_fingerprint": "1829mx4",
@@ -239,7 +239,7 @@
     },
     "P1060": {
       "key_fingerprint": "1yi0zur",
-      "object_present": false
+      "object_present": true
     },
     "P1061": {
       "key_fingerprint": "11rbruk",
@@ -283,7 +283,7 @@
     },
     "P1071": {
       "key_fingerprint": "c96c0t",
-      "object_present": false
+      "object_present": true
     },
     "P1072": {
       "key_fingerprint": "tzc5w2",
@@ -299,7 +299,7 @@
     },
     "P1075": {
       "key_fingerprint": "1evkott",
-      "object_present": false
+      "object_present": true
     },
     "P1076": {
       "key_fingerprint": "1t53tdx",
@@ -351,19 +351,19 @@
     },
     "P1088": {
       "key_fingerprint": "aimj41",
-      "object_present": false
+      "object_present": true
     },
     "P1089": {
       "key_fingerprint": "af6e4u",
-      "object_present": false
+      "object_present": true
     },
     "P1090": {
       "key_fingerprint": "14a3hw3",
-      "object_present": false
+      "object_present": true
     },
     "P1091": {
       "key_fingerprint": "1n2n2qm",
-      "object_present": false
+      "object_present": true
     },
     "P1092": {
       "key_fingerprint": "1o8idyk",
@@ -379,11 +379,11 @@
     },
     "P1095": {
       "key_fingerprint": "vy3on3",
-      "object_present": false
+      "object_present": true
     },
     "P1096": {
       "key_fingerprint": "dmh8k2",
-      "object_present": false
+      "object_present": true
     },
     "P1097": {
       "key_fingerprint": "1qkvdo1",
@@ -391,7 +391,7 @@
     },
     "P1098": {
       "key_fingerprint": "18jfmq3",
-      "object_present": false
+      "object_present": true
     },
     "P1099": {
       "key_fingerprint": "x6zft2",
@@ -399,7 +399,7 @@
     },
     "P1100": {
       "key_fingerprint": "j0lnbr",
-      "object_present": false
+      "object_present": true
     },
     "P1101": {
       "key_fingerprint": "mag78e",

@@ -57,6 +57,16 @@ export function shortcutPlan(input: ConversationTurn): z.infer<typeof Conversati
       changes: [], question: null, continuation: false,
       outfit_request: confirmedBudget });
   }
+  // A complete budget-only edit preserves the already resolved components and
+  // anchors. It does not need a new product reference or model interpretation.
+  const budgetOnly = /^(?:make|change|set) (?:the )?(?:combined|total) budget (?:to |is |now )?(?:A?\$\s*)?\d+(?:\.\d{1,2})?(?:\s*(?:aud|dollars?))?[,;.]?\s*(?:keep (?:everything else|the same (?:pieces|items)(?: and (?:the )?(?:jacket|blazer))?))?[.!?]*$/i;
+  const editedTotal = statedCombinedBudget(turn.message);
+  if (!turn.shortcut && !turn.preview_other_colours && !turn.pending_answer &&
+      turn.styling?.outfit_request && editedTotal !== null && budgetOnly.test(turn.message.trim())) {
+    return ConversationPlanSchema.parse({ action: "refine", intent_evidence: turn.message.slice(0, 250),
+      reference: null, changes: [], question: null, continuation: false,
+      outfit_request: { ...turn.styling.outfit_request, total_budget_aud: editedTotal, evidence: turn.message.slice(0, 250) } });
+  }
   const colourChoice = confirmedColourChoice(turn.message, turn.task?.issues ?? []);
   if (colourChoice && new RegExp(`^(?:let['’]s try |try )?${colourChoice.value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?: instead| is fine|,? please)?[.!?]*$`, "i").test(turn.message.trim())) {
     return ConversationPlanSchema.parse({ action: "refine", intent_evidence: turn.message.slice(0, 250),

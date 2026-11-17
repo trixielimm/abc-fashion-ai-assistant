@@ -5,7 +5,11 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { CloseIcon, ChevronIcon, StopIcon } from "@/components/ui/icons";
 import { ChatRequestError, postChatJson } from "@/lib/ai/chatRequest";
 import type { ViewedPageContext } from "@/lib/stylist/viewedProduct";
-import { readCart } from "@/lib/cart";
+import { readCart, writeCart } from "@/lib/cart";
+import { PRESENTATION_MODE } from "@/lib/demo/config";
+import { newDemoProgress } from "@/lib/demo/journey";
+import { postDemoTurn } from "@/lib/demo/transport";
+import { DemoAudienceChoices } from "./DemoAudienceChoices";
 import { trackRecommendationEvents } from "@/lib/stylist/recommendationTelemetry";
 import {
   acceptReply, makeTurn, newSession, snapshot,
@@ -62,6 +66,8 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
   const [retry, setRetry] = useState<{ envelope: TurnEnvelope; quietMessage?: string; offerEntryId?: string } | null>(null);
   const [activeReply, setActiveReply] = useState<string | null>(null);
   const [sessionState, setSessionState] = useState(() => restoreOfferMemory(newSession(), browserOfferStorage()));
+  const [demoProgress, setDemoProgress] = useState(newDemoProgress);
+  const demoProgressRef = useRef(demoProgress);
   const session = useRef(sessionState);
   const requestRef = useRef<AbortController | null>(null);
   const usedPageKey = useRef<number | null>(null);
@@ -122,11 +128,16 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
     if (quietMessage) setSelectionFeedback(offerEntryId ? "Updating finishing touches…" : "Updating your look…");
     setRetry(null);
     try {
-      const raw = await postChatJson("/api/conversation-search", envelope, {
+      const demoResult = PRESENTATION_MODE ? await postDemoTurn(envelope, demoProgressRef.current, { signal: controller.signal }) : null;
+      const raw = demoResult ? demoResult.reply : await postChatJson("/api/conversation-search", envelope, {
         signal: controller.signal, timeoutMs: 120_000,
       });
       if (requestRef.current !== controller || controller.signal.aborted) return;
       const result = acceptReply(envelope.turn, raw);
+      if (demoResult) {
+        demoProgressRef.current = demoResult.progress;
+        setDemoProgress(demoResult.progress);
+      }
       session.current = result.session;
       setSessionState(result.session);
       const id = crypto.randomUUID();
@@ -235,6 +246,14 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
     void run({ request_id: crypto.randomUUID(), retry: false, turn }, "Finishing touches updated.", entryId);
   }
   function close() { requestRef.current?.abort(); onClose(); }
+  function reset() {
+    requestRef.current?.abort(); requestRef.current = null;
+    clearOfferMemory(browserOfferStorage());
+    if (PRESENTATION_MODE) {
+      try { writeCart([]); } catch { /* Chat reset still works without browser storage. */ }
+    }
+    onReset();
+  }
   const pending = sessionState.pending || sessionState.pending_answer;
   const welcome = entries.length === 1;
 
@@ -251,9 +270,7 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
           </span> : null}
         </div>
         <div className={styles.headerActions}>
-          <button type="button" className={styles.newChat} onClick={() => {
-            requestRef.current?.abort(); requestRef.current = null; clearOfferMemory(browserOfferStorage()); onReset();
-          }}>New chat</button>
+          <button type="button" className={styles.newChat} onClick={reset}>{PRESENTATION_MODE ? "Reset demo" : "New chat"}</button>
           <button type="button" className={styles.iconButton} onClick={close} aria-label="Close AI Stylist" title="Close AI Stylist">
             <CloseIcon />
           </button>
@@ -269,13 +286,13 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
             <p className={styles.eyebrow}>A little inspiration, just for you</p>
             <h3>Find your next<br /><em>favourite.</em></h3>
             <p className={styles.welcomeDescription}>Tell me an item, a style or an occasion.<br />Not sure yet? I’ll help you explore.</p>
-            <div className={styles.welcomeStarters}>
+            {!PRESENTATION_MODE ? <div className={styles.welcomeStarters}>
               {["Find a dress", "Something for work", "Help me choose"].map(text => (
                 <button key={text} type="button" className={styles.starter} onClick={() => send(text)}>
                   {text}<ChevronIcon direction="right" />
                 </button>
               ))}
-            </div>
+            </div> : null}
             <p className={styles.welcomeHint}>Have a colour, size or budget in mind? Start there.</p>
           </div>
         ) : entries.map((entry, index) => {
@@ -411,6 +428,8 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
         <button type="button" className={styles.textButton} onClick={() => void run(retry.envelope, retry.quietMessage, retry.offerEntryId)}>Retry this request</button>
       </div> : null}
       <div className={styles.composerArea}>
+        {PRESENTATION_MODE ? <DemoAudienceChoices progress={demoProgress} session={sessionState} disabled={busy} open={open}
+          onChoose={send} onReset={reset} /> : null}
         <form className={styles.composer} onSubmit={event => { event.preventDefault(); send(draft); }}>
           <textarea ref={input} rows={1} aria-label="Message your stylist" value={draft} onChange={event => setDraft(event.target.value)}
             maxLength={2000} placeholder="What can I help you find?" className={styles.input}
@@ -426,10 +445,10 @@ export function ConversationChat({ onClose, onReset, viewedPage = null, open = t
           </button>
         </form>
         <div className={styles.legal}>
-          <span>Messages may be sent to OpenAI.</span>
+          <span>{PRESENTATION_MODE ? "Presentation mode · Scripted shopping journey." : "Messages may be sent to OpenAI."}</span>
           <details className={styles.privacyDetails}>
             <summary>Privacy & details</summary>
-            <p>Your message and recent shopping context may be sent to OpenAI. Product details can change. {" "}
+            <p>{PRESENTATION_MODE ? "This presentation uses fixed sample products and local replies. No messages are sent to OpenAI." : "Your message and recent shopping context may be sent to OpenAI. Product details can change."}{" "}
               <Link href="/terms-of-service" target="_blank" rel="noopener noreferrer">Read the terms and privacy information</Link>.
             </p>
           </details>

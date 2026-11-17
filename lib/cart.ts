@@ -5,8 +5,10 @@
  */
 
 // Notifies other components when the cart changes so they can update.
+import { PRESENTATION_MODE } from "./demo/config";
+
 const CART_UPDATED_EVENT = "cart-updated";
-const CART_KEY = "abc-fashion-cart";
+const CART_KEY = PRESENTATION_MODE ? "abc-fashion-demo-cart" : "abc-fashion-cart";
 
 // Defines the product details stored in the cart in localStorage.
 export type StoredCartItem = {

@@ -1,0 +1,11 @@
+{
+  "TC-AIX-01": "Pass \u2014 discovery displayed Men/Women/Both; Women submitted once, busy choices disabled, then Everyday wear/An occasion/Show ideas. No unstated size/colour/budget was invented.",
+  "TC-AIX-02": "Pass \u2014 primary P1178 A$95 and P1162 A$105; optional P1250 A$100 anchored to P1178, labelled styling example and priced separately. Look remained zero.",
+  "TC-AIX-03": "Pass \u2014 Hide removed current extras; No more extras persisted across reload/repeated eligible request; explicit Resume extra suggestions restored a later eligible offer.",
+  "TC-AIX-04": "Mixed \u2014 anchor selector changed P1178 to P1162 and refreshed extras to P1097 without changing primary order/selection. Combined A$200 request once failed with false saved-occasion conflict; later fresh local and deployed HTTP probes returned complete A$155\u2013195 combinations. Intermittent failure retained (DF6).",
+  "TC-AIX-05": "Pass \u2014 P1284 A$240 + P1138 A$145 totalled A$385, A$15 remaining. Suggested set did not auto-select; saved-look review named actual pieces and limitations. Removing shoes left A$240/A$160. No Add to cart action.",
+  "TC-AIX-06": "Pass \u2014 fit guidance explained cut labels and disclaimed personal fit/stretch/adjustability. Size stayed unknown; existing cards stayed within A$150. No product-reference loop blocked browsing.",
+  "TC-AIX-07": "Pass \u2014 explanation for P1254 used recorded Brunch/Relaxed/Summer/A$120 facts. Product/bag/help links and listed-size/quantity/Add to bag instructions were provided. Checkout, payment, order placement and individual-size stock guarantees were explicitly unavailable; bag unchanged.",
+  "TC-AIX-08": "Fail \u2014 extra request correctly clarified category and returned P1201 A$150 with disclosed pairing mismatches. The subsequent exact value-alternatives prompt was misread as an occasion and displayed A$200/A$240 products despite the saved A$150 maximum, without the required value comparison (DF8).",
+  "TC-DEP-01": "Partial \u2014 root HTTP200; catalogue/stylist and exact blue-bag A$80 wedding request worked on desktop/mobile, returning an honest no-match. Browser log captures retained. Deployed source revision was not exposed; the local fixes are not proven deployed."
+}

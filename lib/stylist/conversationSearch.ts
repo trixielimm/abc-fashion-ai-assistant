@@ -23,6 +23,7 @@ import { dressCodes, meetsDressCode } from "./dressCode";
 import { issue, type ConversationIssue } from "./conversationIssues";
 import { preparePurchaseBudget, completePurchaseBudget, type PurchaseBudgetSummary } from "./purchaseBudget";
 import { excludedByShoppingContext } from "./shoppingContext";
+import { explainNoMatch } from "../search/noMatchReason";
 
 type Status =
   | "matches"
@@ -58,6 +59,8 @@ export function executeConversationSearch(
   let outfitBudget: OutfitBudget | null = null;
   let outfitChoices: OutfitChoices | null = null;
   let purchaseBudget: PurchaseBudgetSummary | null = null;
+  let noMatchMessage: string | null = null;
+  let colourPreviewProducts: StylistProduct[] = [];
   const excluded = new Set([...styling.rejected_ids, ...(request.cart_product_ids ?? [])]);
   if (checked.action === "refine" && /\b(?:more like|similar)\b/i.test(request.message)) {
     checked.reference_product_ids.forEach(id => excluded.add(id));
@@ -131,6 +134,8 @@ export function executeConversationSearch(
 
       target_category: targetCategory,
       products,
+      no_match_message: noMatchMessage,
+      colour_preview_products: colourPreviewProducts,
     };
   }
 
@@ -465,6 +470,12 @@ export function executeConversationSearch(
   );
 
   applied = result.validation.preferences;
+
+  if (result.result.status === "no_match" && ["new_search", "refine"].includes(checked.action)) {
+    const explanation = explainNoMatch(catalogue, applied, { eligible }, !checked.proposed_scopes.shared.preferred_colours.length);
+    noMatchMessage = explanation.message;
+    colourPreviewProducts = explanation.colourPreviewProducts;
+  }
 
   return reply(
     result.result.status === "needs_more_detail"

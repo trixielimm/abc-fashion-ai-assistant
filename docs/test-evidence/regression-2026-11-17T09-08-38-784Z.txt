@@ -1,0 +1,344 @@
+ABC Fashion - offline regression run
+Started (UTC): 2026-11-17T09:08:38.784Z
+Node: v24.14.0; platform: darwin
+Scope: listed offline test scripts only. No live/API/browser tests.
+
+RUN: test-shopping-language.mjs | Tasks shopping-language
+PASS: Recognises lavendar without changing original quotation evidence
+PASS: Recognises burgandy without changing original quotation evidence
+PASS: Recognises dres without changing original quotation evidence
+PASS: Recognises skrit without changing original quotation evidence
+PASS: Recognises shrit without changing original quotation evidence
+PASS: Recognises jaket without changing original quotation evidence
+PASS: Recognises blous without changing original quotation evidence
+PASS: Recognises sneekers without changing original quotation evidence
+PASS: Recognises sandles without changing original quotation evidence
+PASS: Recognises handbg without changing original quotation evidence
+PASS: Recognises neckalce without changing original quotation evidence
+PASS: Recognises cotten without changing original quotation evidence
+PASS: Recognises polyster without changing original quotation evidence
+PASS: Recognises weddding without changing original quotation evidence
+PASS: Recognises meduim without changing original quotation evidence
+PASS: Legitimate terms, identifiers, budgets and unknown words are not fuzzy matched
+PASS: Preference validation corrects known spelling for colours, material and size only
+PASS: A complete request returns dresses: i want a lavendar dress
+PASS: A complete request returns dresses: I want a lavendar dres
+PASS: A complete request returns dresses: I WANT A LAVENDAR DRES
+PASS: Invented corrected quotation evidence still fails validation
+PASS: Grounds common garment and material typos: Show me a white blous
+PASS: Grounds common garment and material typos: Show me a black skrit
+PASS: Grounds common garment and material typos: Show me a white cotten shrit
+PASS: Generic sneakers match recorded Low-Top Sneakers
+PASS: A misspelled shoe request survives an empty model change list
+PASS: A misspelled catalogue colour is grounded even when the model omits it
+PASS: Switching shirts to dresses clears the stale shirt type and retains saved limits
+PASS: Same-family colour refinements retain a previously requested dress type
+PASS: An incompatible shirt type saved by the older app is repaired on a repeated dress request
+PASS: A misspelled colour exclusion is retained and never becomes a preference
+PASS: Unsupported physical requirements survive spelling correction
+PASS: A misspelled material exclusion cannot be silently omitted
+PASS: A real budget blocker states the verified minimum without raising the cap
+PASS: Correcting a repeated spelling acknowledges the request and explains the saved cap
+PASS: Size blockers are explained without changing the requested size
+PASS: No colour-preview button appears when every alternative is ineligible
+PASS: A colour preview respects rejected products and keeps the original preferences
+PASS: Unavailable products do not generate a claimed minimum or a colour preview
+
+39 shopping-language checks passed.
+PASS: test-shopping-language.mjs (exit: 0)
+
+RUN: test-stage-demo.mjs | Tasks stage-demo
+PASS route 01: beach / budget / bag
+PASS route 02: beach / budget / cheaper
+PASS route 03: beach / budget / compare
+PASS route 04: beach / budget / material
+PASS route 05: beach / colour / bag
+PASS route 06: beach / colour / cheaper
+PASS route 07: beach / colour / compare
+PASS route 08: beach / colour / material
+PASS route 09: beach / size / bag
+PASS route 10: beach / size / cheaper
+PASS route 11: beach / size / compare
+PASS route 12: beach / size / material
+PASS route 13: work / budget / bag
+PASS route 14: work / budget / cheaper
+PASS route 15: work / budget / compare
+PASS route 16: work / budget / material
+PASS route 17: work / colour / bag
+PASS route 18: work / colour / cheaper
+PASS route 19: work / colour / compare
+PASS route 20: work / colour / material
+PASS route 21: work / size / bag
+PASS route 22: work / size / cheaper
+PASS route 23: work / size / compare
+PASS route 24: work / size / material
+PASS: all 24 routes, product controls, reference integrity, cancellation, retry, assets and cart isolation (345 checks plus protocol assertions).
+PASS: test-stage-demo.mjs (exit: 0)
+
+RUN: test-image-delivery.ts | Tasks image-delivery
+PASS: Concurrent requests share one download and subsequent requests use its bytes
+PASS: Cached files expire and least-recently-used files leave the memory budget
+PASS: Failures and oversized files are never retained in the cache
+PASS: Resizing preserves image proportions and transparency without changing the crop
+PASS: Warm resized images still check access and different widths share the original
+PASS: A hidden product cannot read previously cached image bytes
+PASS: Browsers without WebP receive a transparent PNG, and small originals are not enlarged
+PASS: Old cart and direct-image URLs still redirect to a fresh original
+PASS: Invalid or duplicate widths cannot trigger arbitrary transformations
+PASS: Transform errors preserve original delivery and a transient failure can recover
+PASS: Unsupported formats retain their original delivery
+PASS: Local image references keep their existing redirect and never access storage
+PASS: Catalogue failures return a generic non-cacheable error without storage details
+13 image delivery checks passed.
+PASS: test-image-delivery.ts (exit: 0)
+
+RUN: test-product-images.ts | Tasks product-images
+Product image references, expired URLs, and storage boundaries passed.
+PASS: test-product-images.ts (exit: 0)
+
+RUN: test-adaptive-reliability-fixes.mjs | Tasks adaptive-reliability
+PASS: Store navigation supplies a verified product link and honest prototype/bag steps
+PASS: General checkout does not demand a product and navigation does not swallow a mixed search
+PASS: Navigation keeps an unrelated pending search and rejects external source links
+PASS: Work already volunteered is not asked again after collection selection
+PASS: Gift discovery asks about the recipient without inferring a collection or size
+PASS: Recipient dislikes and size uncertainty do not block recommendations or admit jewellery
+PASS: Gift size uncertainty cannot discard an unknown physical requirement
+PASS: Generic scarf is a supported umbrella over lightweight and silk scarves
+PASS: A requested top overrides the model confusing owned trousers with the purchase
+PASS: A unique descriptive product reference repairs a filtered-position model error
+PASS: True filtered ordinals and ambiguous descriptions stay distinct from displayed ordinals
+PASS: Short flats descriptions resolve the footwear rather than another mentioned dress
+PASS: Recipient colours are retained even if the model omits plural colour words
+PASS: A neutral colour direction asks a focused shade question without discarding it
+PASS: Office wording uses Work context without changing preferences or inventing compatibility
+PASS: Cotton update retains size, fit and occasion; rejected products remain rejected
+PASS: Whole-purchase wording is a combined limit, not the bag maximum
+PASS: An affordable bag is found within the remaining budget without selecting the example
+PASS: No affordable bag explains the remaining amount rather than silently raising a cap
+PASS: Example budgets refresh current prices and reject invented example references
+PASS: Initial complete recommendations give recorded material/fit while preserving stock uncertainty
+PASS: Polite garment briefs and trailing find-the-best-match retain the actual target
+PASS: A model cannot omit colour, material or blouse identity from a complete polite brief
+PASS: Explicit colour choices survive omitted model filters and broad flat shoes stay broad
+PASS: Uncertain recipient sizing suppresses size-dependent optional purchases
+PASS: A combined gift cap bounds discovery even when the model omits the item cap
+PASS: The remaining combined cap survives more-options refinements without being repeated
+PASS: Raising a combined total keeps a named example as the anchor rather than rebuilding it
+
+28 checks passed; 0 failed.
+PASS: test-adaptive-reliability-fixes.mjs (exit: 0)
+
+RUN: test-proactive-cross-sell.mjs | Tasks proactive-cross-sell
+PASS: The first beach-wedding result proactively shows actual bag and shoe products
+PASS: Showing extras preserves primary ordering, focus, saved preferences and cart IDs
+PASS: Additional-item size, colour, material and cap are independent of the dress
+PASS: An initial new-search brief also includes extras without a second prompt
+PASS: A trailing request to browse without choosing a size preserves the original dress and collection
+PASS: No-extras variants suppress products and persist the preference
+PASS: An existing pause and a local dismissal both suppress subsequent offers
+PASS: Owned and selected accessory roles are not recommended again
+PASS: Primary no-match, unknown occasion and unresolved requirements do not trigger offers
+PASS: Explicit provisional consent resumes unchanged filters, discloses the unknown and suppresses offers
+PASS: Missing rules, unavailable extras and corrupt optional rules preserve dress results
+PASS: Unavailable first category falls through to the next approved category
+PASS: Shared exclusions, material and per-item price restrictions apply to extras
+PASS: Rejected/cart products and mismatched occasions cannot pad the offer
+PASS: A combined cap covers the anchor and all proposed additions together
+PASS: Selected anchors are counted once and owned anchors cost zero
+PASS: Exact totals at the cap work; zero remaining allowance omits the offer
+PASS: Refinements and truncated history do not repeat the same pitch
+PASS: Reference groups keep ordinals primary and named/role references address extras
+PASS: Changing the anchor refreshes extras without changing primary context or outfit
+PASS: An unknown anchor cannot refresh, and another anchor cannot be substituted
+PASS: Questions about an addition retain its pairing anchor and avoid the dress-only budget
+PASS: Saving an addition retains recommendation context and leaves the dress unselected
+PASS: Offer preferences survive reload without persisting shopping messages or identities
+PASS: Explicit resumption clears dismissal but an explicit cross-sell keeps the pause
+PASS: A new task can offer again while persistent pauses stay paused
+PASS: Protocol rejects ungrounded, duplicate, mispriced and over-budget offers
+PASS: The rollout switch suppresses only optional previews
+
+28 proactive cross-sell checks passed. No network calls.
+PASS: test-proactive-cross-sell.mjs (exit: 0)
+
+RUN: test-journey-remediation.mjs | Tasks journey-remediation
+PASS: Combined totals support natural word order without mistaking each, negated totals or product prices for the budget
+PASS: Cheaper cannot clear the saved cap, but explicit removal is supported
+PASS: Travel guidance and a together budget survive without a bare-travel certification blocker
+PASS: A pending new-search size blocker accepts a correction instead of rejecting its continuation action
+PASS: New blue results are compared after searching, without asking which old shortlist is meant
+PASS: A genuinely ambiguous comparison anchor still pauses and resumes the saved search after clarification
+PASS: Selected dress plus new shoes consumes the total once and clears the old dress cap
+PASS: An external owned anchor and ambiguous cap produce a typed yes/no confirmation that Yes can complete
+PASS: Named delivery and returns policy questions resolve the product without rewriting the saved search
+PASS: Global Black survives all openings, conflicts with Blue, and can be explicitly released
+PASS: The UI summary distinguishes global restrictions, per-item limits and combined totals
+PASS: A trailing max cap is grounded even when the model omits it
+PASS: Cheaper accepts all five displayed references and searches below the lowest price
+PASS: A beach-wedding brief is retained through optional browsing wording and Work skirts retain their occasion
+PASS: Reaffirming firm limits after no-match reruns the exact saved brief instead of becoming unrecognised input
+PASS: Provisional consent cannot delete a saved unknown requirement
+16 journey-remediation checks passed.
+PASS: test-journey-remediation.mjs (exit: 0)
+
+RUN: test-stylist-journey-harness.mjs | Tasks journey-harness
+PASS: Independent family checks reject trousers offered as skirts
+PASS: The full pack retains the original 50 journeys and adds four recommendation cases, three to everyday
+PASS: Invalid flags and unsafe or unintended endpoints are rejected before requests
+PASS: Generated manual guide is current and includes all 54 journeys and their review criteria
+PASS: Each controlled recovery case executes and passes without any HTTP/model dependency
+PASS: A complete journey follows actual returned product identity and uses the requested opening variant
+PASS: No-match cannot count as a successful shopping journey and dependent turns are not sent
+PASS: A single valid result blocks a two-product comparison rather than falsely failing or passing it
+PASS: Wrong saved preferences are a failure even when products and schema are internally consistent
+PASS: HTTP failures are errors with safe error codes, not no-match or model-quality passes
+PASS: Malformed successful responses fail schema/contract evaluation
+PASS: Missing fields or unresolved placeholders cannot accidentally pass an assertion
+PASS: Independent product checks reject over-budget, same-price, wrong-size and rejected items
+PASS: A missing group cannot pass as a complete shared-budget outfit
+PASS: Required proactive products cannot silently pass when eligible primary results exist
+PASS: Recommendation bindings use actual additions while the second dress keeps its primary ordinal
+PASS: The independent offer checks reject inherited dress budgets, owned roles and changed primary order
+PASS: The rematching journey sends the bound anchor control and accepts additions without primary cards
+PASS: The no-extras journey explicitly requests the returned matching category and keeps the pause
+PASS: Invalid product binding sources and indices are rejected before any requests
+
+20 journey-harness checks passed. No live model or catalogue calls.
+PASS: test-stylist-journey-harness.mjs (exit: 0)
+
+RUN: test-reactive-demo-fixes.mjs | Tasks reactive-demo-fixes
+PASS: Compound collection answer survives a later shopping clause
+PASS: Collection plus fit guidance resumes the search without a product-reference question
+PASS: Saved-search availability does not ask for a nonexistent product
+PASS: A referenced combination is an explicit answer operation
+PASS: Named three-piece total is A$245 with A$155 remaining, without selection changes
+PASS: Rejecting one dress does not save its Maxi Dress type
+PASS: Jacket and shirt component extraction uses Outerwear and Tops
+PASS: An owned blazer is a styling anchor rather than a purchase component
+PASS: Named candidates are reviewed with an owned blazer without saving them
+PASS: Duplicate references, quantities and current prices produce an exact total
+PASS: A missing current price prevents a fabricated full total
+PASS: Owned catalogue pieces cost zero in a new purchase total
+PASS: Bright and flexible are guidance rather than literal hard labels
+PASS: Green prompts recorded shade choices without changing the saved request
+PASS: Confirmed shade choices survive compound wording while questions do not select a shade
+PASS: Named-combination shortcuts do not swallow an explicit new search
+PASS: Duplicate product names ask for a reference rather than summing both records
+PASS: A model cannot omit a literal linen material or replace it with blend
+PASS: Travel goal and combined total survive collection and accepted piece roles
+PASS: Grouped provisional results label the unknown on every card and retain a deadline
+PASS: Permission to browse softness unverified cannot make the requirement disappear
+PASS: No substitutions is a scope instruction rather than a garment feature
+22 passed; 0 failed.
+PASS: test-reactive-demo-fixes.mjs (exit: 0)
+
+RUN: test-stylist-remediation.mjs | Tasks stylist-remediation
+PASS: A trailing show-options phrase retains a complete mens shirt brief and canonical medium size
+PASS: Jacket and flats umbrellas use the same catalogue family in search and reply validation
+PASS: Named blockers carry exact values and a real shared conflict never disappears
+PASS: An explicit group relaxation removes only local fabric, waist and length requirements
+PASS: Provisional browsing needs explicit permission, retains unknowns and excludes known violations
+PASS: Replacing a stuck task keeps the saved look and explicit global constraints
+PASS: Compound name/number edits resume the validated draft without dropping its exclusions
+PASS: A saved purchase uses current prices and a one-component addition cannot overspend
+PASS: Keeping a named dress and requesting only shoes cannot rebuild the whole outfit
+PASS: An explicit any-fit and any-colour refinement clears the local restrictions
+PASS: Expired recovery controls cannot mutate a later task
+PASS: Cancelling a pending outfit change restores task fields while keeping independently saved pieces
+PASS: Work outfits have no event picker and old request shapes remain valid
+PASS: A cocktail wedding is a supported event context rather than an unverified product feature
+PASS: A collection answer followed by a volunteered routine does not repeat the collection question
+PASS: The task rollback flag keeps legacy turns and hides new transition behavior
+PASS: Requirement quotation repair uses only explicit literal requirements and rejects invented evidence
+PASS: A scalar removal with null normalizes to the domain clear operation, without weakening other transport checks
+18 stylist remediation state and budget checks passed.
+PASS: test-stylist-remediation.mjs (exit: 0)
+
+RUN: test-conversation-recovery.mjs | Tasks conversation-recovery
+PASS: No size filter clears an invalid size without inventing filter
+PASS: Set size to 12 replaces the size while retaining unrelated constraints
+PASS: Dropping size 999 with a budget correction removes the old size
+PASS: Size parsing does not fabricate labels from prose or execute a negated edit
+PASS: Removed outfit components are not counted as new combined purchases
+PASS: A complete single-dress restatement clears the active group even if the model says refine
+PASS: An actual grouped request still cannot omit shoes or bypass the combined budget
+PASS: Compound both-collections/weekend answers normalize item scope and browse immediately
+PASS: A clear collection answer survives a failed interpretation of its other clauses
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: {"status":"no_match","message":"I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged.\n\nYou can tell me which detail you're happy to change, and I'll use that in the next search. I haven't changed the request for you.\n\nYour selected purchases count as A$155.00 of the A$280.00 combined budget, leaving A$125.00 for this addition. Delivery and discounts are not included.","preferences":{"gender":null,"category":"Shoes","subcategory":null,"product_type":"Flats","occasion":null,"style":null,"preferred_colours":["Olive"],"excluded_colours":[],"season":null,"material":null,"fit":null,"size":null,"min_price":null,"max_price":125,"brand_line":null}}
+
+null !== 265
+
+    at file:///Users/salvi/MQ/abc-fashion-ai-assistant/scripts/test-conversation-recovery.mjs:108:73
+    at check (file:///Users/salvi/MQ/abc-fashion-ai-assistant/scripts/test-conversation-recovery.mjs:32:41)
+    at file:///Users/salvi/MQ/abc-fashion-ai-assistant/scripts/test-conversation-recovery.mjs:102:7 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: null,
+  expected: 265,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.14.0
+FAIL: test-conversation-recovery.mjs (exit: 1)
+
+SCRIPT SUMMARY
+PASS: test-shopping-language.mjs
+PASS: test-stage-demo.mjs
+PASS: test-image-delivery.ts
+PASS: test-product-images.ts
+PASS: test-adaptive-reliability-fixes.mjs
+PASS: test-proactive-cross-sell.mjs
+PASS: test-journey-remediation.mjs
+PASS: test-stylist-journey-harness.mjs
+PASS: test-reactive-demo-fixes.mjs
+PASS: test-stylist-remediation.mjs
+FAIL: test-conversation-recovery.mjs
+NOT RUN: test-matching-set-budget.mjs
+NOT RUN: test-category-collection-defaults.mjs
+NOT RUN: test-collection-first.mjs
+NOT RUN: test-product-card-presentation.mjs
+NOT RUN: test-guided-discovery.mjs
+NOT RUN: test-search-filters.mjs
+NOT RUN: test-selected-outfit-review.mjs
+NOT RUN: test-outfit-interface.mjs
+NOT RUN: test-grouped-discovery-memory.mjs
+NOT RUN: test-outfit-budget.mjs
+NOT RUN: test-customer-scenario-regressions.mjs
+NOT RUN: test-preference-validation.ts
+NOT RUN: test-recommendation-contract.ts
+NOT RUN: test-grounded-recommendation.ts
+NOT RUN: test-validation-search.mjs
+NOT RUN: test-guided-follow-ups.mjs
+NOT RUN: test-cross-sell.mjs
+NOT RUN: test-cross-sell-client.mjs
+NOT RUN: test-upsell.mjs
+NOT RUN: test-upsell-client.mjs
+NOT RUN: test-chat-request.mjs
+NOT RUN: test-optional-discovery.mjs
+NOT RUN: test-card-actions.mjs
+NOT RUN: test-cheaper-search.mjs
+NOT RUN: test-viewed-product.mjs
+NOT RUN: test-conversation-foundation.mjs
+NOT RUN: test-conversation-plan.mjs
+NOT RUN: test-conversation-search.mjs
+NOT RUN: test-plan-evidence.mjs
+NOT RUN: test-plan-recovery.mjs
+NOT RUN: test-conversation-answers.mjs
+NOT RUN: test-conversation-production.mjs
+NOT RUN: test-stylist-commerce.mjs
+NOT RUN: test-stylist-feature-import.mjs
+NOT RUN: test-product-specifications.mjs
+NOT RUN: test-stylist-telemetry.mjs
+NOT RUN: test-conversation-integration.mjs
+NOT RUN: test-shopping-presentation.mjs
+NOT RUN: test-friendly-shopping-message.mjs
+
+10/50 test scripts completed successfully.
+Finished (UTC): 2026-11-17T09:08:41.481Z
+Not covered by this run: live stock, browser journeys, security audit, acceptance testing.

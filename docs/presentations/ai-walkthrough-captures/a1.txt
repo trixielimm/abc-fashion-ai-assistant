@@ -1,0 +1,264 @@
+- scrollbar "Page scroll"
+- banner:
+  - link "ABC Fashion":
+    - /url: /
+    - generic: ABC Fashion
+  - link "Bag, 0 items":
+    - /url: /cart
+  - status: Your bag is empty
+  - button "Open menu":
+  - search "Product search":
+    - button "Search products":
+    - searchbox "Search"
+- main:
+  - img "Model in a long wool coat"
+  - paragraph: VOLUME
+  - paragraph: One
+  - paragraph: Autumn | Winter 2024
+  - heading "Refined Simplicity in Every Thread." [level=1]
+  - paragraph: For those who believe that true style is found in the details and in the quality of materials.
+  - link "Shop New Arrivals →":
+    - /url: "#this-season"
+  - link "See more":
+    - /url: "#featured-categories"
+  - paragraph: Featured Categories
+  - link "Shop all →":
+    - /url: /search
+  - link "Shop The Essentials":
+    - /url: /search?category=clothing
+    - article:
+      - img "Lavender Co-ord Set"
+      - paragraph: The Essentials
+      - heading "The Essentials" [level=3]
+      - paragraph: Explore everyday pieces from our clothing collection.
+      - generic: See more →
+  - link "Shop Accessories":
+    - /url: /search?category=accessories
+    - article:
+      - img "Beige Silk Scarf"
+      - paragraph: Accessories
+      - heading "Accessories" [level=3]
+      - paragraph: Discover the finishing touches in our accessories collection.
+      - generic: See more →
+  - link "Shop Outerwear":
+    - /url: /search?category=clothing&subcategory=outerwear
+    - article:
+      - img "Black Cropped Jacket"
+      - paragraph: Outerwear
+      - heading "Outerwear" [level=3]
+      - paragraph: Find your next layer in our current outerwear collection.
+      - generic: See more →
+  - paragraph: This Season
+  - button "Previous products":
+  - button "Next products":
+  - link "Blue Fitted Tee, $45.00":
+    - /url: /products/P1016
+    - article:
+      - img "Blue Fitted Tee"
+      - heading "Blue Fitted Tee" [level=3]
+      - paragraph: $45.00
+  - link "Gold Trench Coat, $90.00":
+    - /url: /products/P1031
+    - article:
+      - img "Gold Trench Coat"
+      - heading "Gold Trench Coat" [level=3]
+      - paragraph: $90.00
+  - link "Lavender Wrap Dress, $150.00":
+    - /url: /products/P1004
+    - article:
+      - img "Lavender Wrap Dress"
+      - heading "Lavender Wrap Dress" [level=3]
+      - paragraph: $150.00
+  - link "Pink Crossbody Bag, $50.00":
+    - /url: /products/P1003
+    - article:
+      - img "Pink Crossbody Bag"
+      - heading "Pink Crossbody Bag" [level=3]
+      - paragraph: $50.00
+  - link "Pink Chinos, $70.00":
+    - /url: /products/P1041
+    - article:
+      - img "Pink Chinos"
+      - heading "Pink Chinos" [level=3]
+      - paragraph: $70.00
+  - link "Beige Silk Scarf, $85.00":
+    - /url: /products/P1001
+    - article:
+      - img "Beige Silk Scarf"
+      - heading "Beige Silk Scarf" [level=3]
+      - paragraph: $85.00
+  - link "Grey Loafers, $105.00":
+    - /url: /products/P1007
+    - article:
+      - img "Grey Loafers"
+      - heading "Grey Loafers" [level=3]
+      - paragraph: $105.00
+  - link "Black Cropped Jacket, $130.00":
+    - /url: /products/P1010
+    - article:
+      - img "Black Cropped Jacket"
+      - heading "Black Cropped Jacket" [level=3]
+      - paragraph: $130.00
+  - paragraph: Collection spotlight
+  - heading "Gold Trench Coat" [level=2]
+  - paragraph: minimalist trench coat in gold, suited to wedding guest styling. regular fit/shape with polyester construction.
+  - paragraph: $90.00
+  - link "View product →":
+    - /url: /products/P1031
+  - img "Gold Trench Coat"
+  - paragraph: Here to help
+  - heading "A little direction for your next find." [level=2]
+  - paragraph: Explore our guide to browsing the collection, choosing a size and getting help from the AI Stylist.
+  - link "Shopping help →":
+    - /url: /help
+- contentinfo:
+  - paragraph:
+    - text: ABC Fashion
+  - paragraph:
+    - text: Copenhagen & Stockholm
+    - text: London / Paris / New York
+  - paragraph: From the collection
+  - link "Blue Fitted Tee":
+    - /url: /products/P1016
+    - img "Blue Fitted Tee"
+  - link "Gold Trench Coat":
+    - /url: /products/P1031
+    - img "Gold Trench Coat"
+  - link "Lavender Wrap Dress":
+    - /url: /products/P1004
+    - img "Lavender Wrap Dress"
+  - link "Pink Crossbody Bag":
+    - /url: /products/P1003
+    - img "Pink Crossbody Bag"
+  - paragraph: Shop
+  - list:
+    - link "All products":
+      - /url: /search
+    - link "Women's collection":
+      - /url: /search?gender=women
+    - link "Men's collection":
+      - /url: /search?gender=men
+    - link "Accessories":
+      - /url: /search?category=accessories
+  - paragraph: Help & information
+  - list:
+    - link "Shopping help":
+      - /url: /help
+    - link "Sizes & fit":
+      - /url: /help#sizes-fit
+    - link "Orders & delivery":
+      - /url: /help#orders
+    - link "Using the AI Stylist":
+      - /url: /help#ai-stylist
+    - link "Recommendations & extras":
+      - /url: /help#recommendations
+    - link "Your look & budget":
+      - /url: /help#your-look
+  - paragraph: © 2026 ABC Fashion Inc. All rights reserved.
+  - paragraph: Prototype store — sample products and AI-generated specifications.
+  - paragraph:
+    - link "AI Terms":
+      - /url: /terms-of-service
+    - link "AI Privacy":
+      - /url: /terms-of-service#privacy
+- navigation "Primary mobile":
+  - list:
+    - link "Home":
+      - /url: /
+      - generic: Home
+    - link "Shop":
+      - /url: /search
+      - generic: Shop
+    - button "Stylist":
+      - generic: Stylist
+    - link "Bag, 0 items":
+      - /url: /cart
+      - generic: Bag
+- dialog "AI Stylist":
+  - banner:
+    - generic: ABC
+    - heading "AI Stylist" [level=2]
+    - button "New chat"
+    - button "Close AI Stylist":
+  - complementary "Your look":
+    - strong: Your look
+    - generic: 0 items
+    - status: Save pieces here to build a look.
+    - strong: A$0.00 total
+    - button "View look":
+      - text: View look
+      - generic: ⌄
+  - log:
+    - generic: You
+    - paragraph: I need a women's dress for a beach wedding, under A$200. I haven't chosen a colour or size yet.
+    - generic: AI Stylist
+    - paragraph: I've found 2 clothing options for you to explore. I've also included optional finishing touches for Navy Maxi Dress below.
+    - generic "Details about these picks"
+    - region "Recommended products":
+      - generic: 2 pieces
+      - list "Recommended products":
+        - article:
+          - link "View Navy Maxi Dress":
+            - /url: /products/P1178
+            - img "Navy Maxi Dress"
+          - link "Navy Maxi Dress":
+            - /url: /products/P1178
+          - paragraph: A$95.00
+          - paragraph: ABC Occasion · Navy
+          - paragraph: Listed for beach wedding occasions.
+          - button "More options for Navy Maxi Dress":
+            - generic: ···
+          - 'button "Save to look: Navy Maxi Dress"': Save to look
+          - button "Add to cart"
+        - article:
+          - link "View Cream Mini Dress":
+            - /url: /products/P1162
+            - img "Cream Mini Dress"
+          - link "Cream Mini Dress":
+            - /url: /products/P1162
+          - paragraph: A$105.00
+          - paragraph: ABC Occasion · Cream
+          - paragraph: Listed for beach wedding occasions.
+          - button "More options for Cream Mini Dress":
+            - generic: ···
+          - 'button "Save to look: Cream Mini Dress"': Save to look
+          - button "Add to cart"
+    - region "Optional finishing touches":
+      - paragraph: Complete the look
+      - heading "Optional finishing touches" [level=3]
+      - paragraph:
+        - text: To help complete your look, here is an optional addition for
+        - strong: Navy Maxi Dress
+        - text: .
+      - paragraph: This is a styling example; you haven't selected this item.
+      - paragraph: Priced separately · Your item budget stays unchanged.
+      - region "Optional complementary products":
+        - list "Optional complementary products":
+          - article:
+            - link "View Blue Sling Bag":
+              - /url: /products/P1250
+              - img "Blue Sling Bag"
+            - link "Blue Sling Bag":
+              - /url: /products/P1250
+            - paragraph: A$100.00
+            - paragraph: ABC Accessories · Blue · One Size
+            - paragraph: Its recorded occasion matches Beach Wedding.
+            - button "More options for Blue Sling Bag":
+              - generic: ···
+            - paragraph: Its Bohemian style differs from Navy Maxi Dress's Minimalist label.
+            - paragraph: Pairing uses recorded attributes; visual compatibility is unverified.
+            - 'button "Save to look: Blue Sling Bag"': Save to look
+            - button "Add to cart"
+            - generic "Why this item?"
+      - text: Match a different dress
+      - combobox "Match a different dress":
+        - option "Navy Maxi Dress" [selected]
+        - option "Cream Mini Dress"
+      - button "Hide these suggestions"
+      - button "No more extras"
+  - textbox "Message your stylist":
+    - /placeholder: What can I help you find?
+  - button "Send message" [disabled]: Send
+  - generic: Messages may be sent to OpenAI.
+  - generic "Privacy & details"
+- alert

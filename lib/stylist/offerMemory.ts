@@ -1,8 +1,9 @@
 import type { Session } from "./conversationProtocol";
 import { emptyTaskState } from "./taskState";
 import { emptyStylingState } from "./commerceSchema";
+import { PRESENTATION_MODE } from "../demo/config";
 
-const key = "abc-stylist-offers-v1";
+const key = PRESENTATION_MODE ? "abc-stylist-demo-offers-v1" : "abc-stylist-offers-v1";
 type Storage = Pick<globalThis.Storage, "getItem" | "setItem" | "removeItem">;
 export function browserOfferStorage() {
   try { return typeof window === "undefined" ? undefined : window.sessionStorage; } catch { return undefined; }

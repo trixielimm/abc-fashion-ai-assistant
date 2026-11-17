@@ -1,0 +1,134 @@
+Pass: S1-A run 2 (3/3 turns) 
+Pass: S1-A run 1 (3/3 turns) 
+Pass: S1-A run 3 (3/3 turns) 
+Pass: S1-B run 1 (3/3 turns) 
+Pass: S1-B run 2 (3/3 turns) 
+Pass: S1-B run 3 (3/3 turns) 
+Pass: S1-C run 1 (2/2 turns) 
+Pass: S1-C run 2 (2/2 turns) 
+Pass: S1-C run 3 (2/2 turns) 
+Pass: S2-A run 3 (4/4 turns) 
+Pass: S2-A run 1 (4/4 turns) 
+Pass: S2-A run 2 (4/4 turns) 
+Pass: S2-B run 2 (3/3 turns) 
+Pass: S2-B run 1 (3/3 turns) 
+Pass: S2-B run 3 (3/3 turns) 
+Pass: S2-C run 1 (3/3 turns) 
+Pass: S2-C run 3 (3/3 turns) 
+Pass: S2-C run 2 (3/3 turns) 
+Pass: S3-A run 1 (4/4 turns) 
+Pass: S3-B run 1 (2/2 turns) 
+Pass: S3-A run 2 (4/4 turns) 
+Pass: S3-A run 3 (4/4 turns) 
+Pass: S3-B run 2 (2/2 turns) 
+Pass: S3-B run 3 (2/2 turns) 
+Pass: S3-C run 1 (2/2 turns) 
+Pass: S3-C run 2 (2/2 turns) 
+Pass: S3-C run 3 (2/2 turns) 
+Pass: S4-A run 3 (4/4 turns) 
+Pass: S4-A run 1 (4/4 turns) 
+Pass: S4-B run 1 (2/2 turns) 
+Pass: S4-B run 2 (2/2 turns) 
+Pass: S4-A run 2 (4/4 turns) 
+Pass: S4-B run 3 (2/2 turns) 
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Pass: S4-C run 1 (6/6 turns) 
+Pass: S4-C run 3 (6/6 turns) 
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Pass: S4-C run 2 (6/6 turns) 
+Pass: S5-A run 3 (4/4 turns) 
+Pass: S5-A run 1 (4/4 turns) 
+Pass: S5-A run 2 (4/4 turns) 
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Pass: S5-B run 1 (3/3 turns) 
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Pass: S5-B run 3 (3/3 turns) 
+Pass: S5-B run 2 (3/3 turns) 
+Pass: S5-C run 2 (3/3 turns) 
+Pass: S5-C run 1 (3/3 turns) 
+Pass: S5-D run 1 (3/3 turns) 
+Pass: S5-D run 2 (3/3 turns) 
+Pass: S5-E run 1 (3/3 turns) 
+Pass: S5-D run 3 (3/3 turns) 
+Pass: S5-C run 3 (3/3 turns) 
+Pass: S5-E run 2 (3/3 turns) 
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Pass: S5-E run 3 (3/3 turns) 
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Pass: S5-F run 1 (3/3 turns) 
+Pass: S5-F run 2 (3/3 turns) 
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Pass: S5-F run 3 (3/3 turns) 
+Pass: S6-A run 1 (3/3 turns) 
+Pass: S6-B run 1 (3/3 turns) 
+Pass: S6-A run 2 (3/3 turns) 
+Pass: S6-A run 3 (3/3 turns) 
+Pass: S6-B run 2 (3/3 turns) 
+Pass: S6-B run 3 (3/3 turns) 
+Pass: B1 run 1 (4/4 turns) 
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Pass: B2 run 1 (1/1 turns) 
+Pass: B1 run 2 (4/4 turns) 
+Pass: B2 run 2 (1/1 turns) 
+Pass: B2 run 3 (1/1 turns) 
+Pass: B1 run 3 (4/4 turns) 
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Pass: B3 run 1 (2/2 turns) 
+Pass: B3 run 2 (2/2 turns) 
+Pass: B3 run 3 (2/2 turns) 
+Pass: B4 run 1 (1/1 turns) 
+Pass: B4 run 2 (1/1 turns) 
+Pass: B4 run 3 (1/1 turns) 
+Fail: B5 run 2 (4/5 turns) T1: null == true
+Fail: B5 run 1 (4/5 turns) T1: null == true
+Pass: COL-A run 1 (2/2 turns) 
+Pass: COL-A run 2 (2/2 turns) 
+Pass: COL-A run 3 (2/2 turns) 
+Pass: COL-B run 1 (2/2 turns) 
+Pass: COL-B run 2 (2/2 turns) 
+Pass: COL-C run 1 (2/2 turns) 
+Pass: COL-C run 2 (2/2 turns) 
+Pass: COL-B run 3 (2/2 turns) 
+Pass: COL-C run 3 (2/2 turns) 
+Fail: B5 run 3 (4/5 turns) T1: null == true
+Pass: COL-D run 1 (2/2 turns) 
+Pass: COL-D run 3 (2/2 turns) 
+Pass: CAT-A run 1 (2/2 turns) 
+Pass: COL-D run 2 (2/2 turns) 
+Pass: CAT-B run 1 (1/1 turns) 
+Pass: CAT-A run 2 (2/2 turns) 
+Pass: CAT-B run 2 (1/1 turns) 
+Pass: CAT-A run 3 (2/2 turns) 
+Pass: CAT-B run 3 (1/1 turns) 
+Pass: CAT-C run 1 (2/2 turns) 
+Pass: CAT-C run 2 (2/2 turns) 
+Pass: CAT-C run 3 (2/2 turns) 
+Pass: CAT-D run 1 (3/3 turns) 
+Pass: CAT-E run 1 (1/1 turns) 
+Pass: CAT-D run 2 (3/3 turns) 
+Pass: CAT-D run 3 (3/3 turns) 
+Pass: CAT-E run 2 (1/1 turns) 
+Pass: CAT-E run 3 (1/1 turns) 
+Pass: CAT-F run 2 (2/2 turns) 
+Pass: SET-A run 1 (2/2 turns) 
+Pass: CAT-F run 1 (2/2 turns) 
+Pass: CAT-F run 3 (2/2 turns) 
+Pass: SET-A run 2 (2/2 turns) 
+Pass: SET-A run 3 (2/2 turns) 
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Conversation plan rejected { attempt: 2, type: 'PlanValidationError', field: null }
+Conversation plan rejected { attempt: 2, type: 'PlanValidationError', field: null }
+Conversation plan rejected { attempt: 2, type: 'PlanValidationError', field: null }
+Fail: SET-B run 2 (1/2 turns) T1: Expected values to be strictly deep-equal:
+Fail: SET-B run 3 (1/2 turns) T1: Expected values to be strictly deep-equal:
+Fail: SET-B run 1 (0/2 turns) T1: Expected values to be strictly deep-equal:; T2: Expected values to be strictly deep-equal:
+Pass: SET-C run 1 (2/2 turns) 
+Conversation plan rejected { attempt: 1, type: 'PlanValidationError', field: null }
+Pass: SET-C run 3 (2/2 turns) 
+Fail: SET-C run 2 (1/2 turns) T2: Expected values to be strictly deep-equal:
+{"counts":{"Pass":107,"Fail":7,"Blocked":0,"Feature gap":0},"evidence":"/Users/salvi/MQ/abc-fashion-ai-assistant/docs/test-evidence/customer-scenarios-2026-10-24T05-29-53-244Z/"}

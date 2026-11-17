@@ -1,0 +1,28 @@
+{
+  "version": "1.7",
+  "date": "24 October 2026",
+  "author": "Minh",
+  "pages": 41,
+  "tables": 26,
+  "numbered_titles": 26,
+  "body_references": 26,
+  "reference_style": "(see TABLE X)",
+  "field_types": [
+    "SEQ TABLE",
+    "REF with hyperlink"
+  ],
+  "document_author": "Minh",
+  "document_last_modified_by": "Minh",
+  "pdf_author": "Minh",
+  "unwanted_contributor_occurrences_in_report": 0,
+  "original_case_and_evidence_tables": "Content unchanged",
+  "page_numbering": "Continuous and verified",
+  "external_link_instances": 334,
+  "original_contents_links": 14,
+  "sha256": {
+    "D4 Testing Report Revised.docx": "a3836f5aaad020740e7fb6267278ea0ddb138281a4b7605c15227bf1962d08d9",
+    "D4 Testing Report Revised.pdf": "a04fc233dd33a8596364491ee2d220f12d5f2c867e2e521c45fa52c5938b95f9"
+  },
+  "page_orientation": "Portrait throughout",
+  "landscape_pages": 0
+}

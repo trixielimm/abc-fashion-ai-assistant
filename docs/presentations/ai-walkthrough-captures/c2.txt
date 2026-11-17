@@ -1,0 +1,32 @@
+- dialog "AI Stylist":
+  - banner:
+    - generic: ABC
+    - paragraph: Personal shopping
+    - heading "AI Stylist" [level=2]
+    - button "New chat"
+    - button "Close AI Stylist":
+  - complementary "Your look":
+    - strong: Your look
+    - generic: 0 items
+    - status: Save pieces here to build a look.
+    - strong: A$0.00 total
+    - button "View look":
+      - text: View look
+      - generic: ⌄
+  - log:
+    - generic: You
+    - paragraph: Show me women's black dresses in size 10 under A$200.
+    - generic: AI Stylist
+    - paragraph: I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged. One way to broaden the search is to use "Explore other colours" below. That preview keeps your other restrictions and leaves your original colour request saved.
+    - generic: You
+    - paragraph: Actually, blue instead of black. Keep the same size and budget.
+    - generic: AI Stylist
+    - paragraph: I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged. One way to broaden the search is to use "Explore other colours" below. That preview keeps your other restrictions and leaves your original colour request saved.
+    - button "Explore other colours"
+    - paragraph: Preview only. Your original colour and other restrictions stay saved.
+  - textbox "Message your stylist":
+    - /placeholder: What can I help you find?
+  - button "Send message" [disabled]: Send
+  - generic: Messages may be sent to OpenAI.
+  - generic "Privacy & details"
+- alert

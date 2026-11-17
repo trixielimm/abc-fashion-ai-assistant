@@ -298,3 +298,10 @@
 .cardDetails { color: var(--muted); font-size: 12px; line-height: 1.6; overflow-wrap: anywhere; }
 .cardDetails summary { display: flex; align-items: center; min-height: 44px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 .cardDetails p { margin: 8px 0; }
+
+.demoAudience { margin-bottom: 12px; }
+.demoQuestion { margin: 4px 0 0; font-size: 13px; line-height: 1.5; }
+.demoAudience .starters { margin-top: 8px; gap: 8px; }
+.demoAudience .chip { gap: 8px; padding: 8px 12px; min-height: 40px; }
+.demoAudience .chip:disabled { cursor: wait; opacity: .5; }
+.demoOptionNumber { font-size: 10px; color: var(--muted); }

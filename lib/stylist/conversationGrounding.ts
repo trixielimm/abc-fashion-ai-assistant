@@ -11,11 +11,12 @@ import { confirmedColourChoice, isRequirementInstruction } from "./conversationI
 import { hasSharedScope } from "./sharedScope";
 import { explicitNoExtras, ownedAccessoryStatement } from "./offerPreferences";
 import { contextualRequirement } from "./shoppingContext";
+import { canonicalShoppingValue, mapShoppingEvidence, shoppingSpellingView } from "../catalogue/shoppingLanguage";
 
 type Plan = z.infer<typeof ConversationPlanSchema>;
 type Change = z.infer<typeof ConversationChangeSchema>;
-const colours = "black|white|ivory|cream|blue|navy|red|pink|green|beige|brown|silver|gold|grey|gray|lavender|purple|yellow|orange|taupe";
-const rolePattern = /\b(dress(?:es)?(?![ -]+(?:shirts?|shoes?|code|me|us|up|down)\b)|skirts?|jackets?|blazers?|shirts?|tops?|blouses?|camisoles?|cardigans?|trousers?|pants|bags?|shoes?|flats?|scarves|scarf|necklaces?|accessories|accessory|clothing|clothes)\b/i;
+const colours = "black|white|ivory|cream|blue|navy|red|pink|green|beige|brown|silver|gold|grey|gray|lavender|purple|yellow|orange|taupe|burgundy|sage|olive|khaki|tan|blush|teal|lilac|turquoise|fuchsia";
+const rolePattern = /\b(dress(?:es)?(?![ -]+(?:shirts?|shoes?|code|me|us|up|down)\b)|skirts?|jackets?|blazers?|shirts?|tops?|blouses?|camisoles?|cardigans?|trousers?|pants|bags?|handbags?|clutches?|shoes?|flats?|sneakers?|sandals?|heels?|boots?|scarves|scarf|necklaces?|accessories|accessory|clothing|clothes)\b/i;
 
 function groundOwnedAccessories(message: string, plan: Plan) {
   const owned = ownedAccessoryStatement(message);
@@ -55,7 +56,28 @@ export function groundRequirementEvidence(message: string, candidate: Plan): Pla
 // This is deliberately not a general language parser: unknown/compound requests
 // still go through the interpreter and the existing fail-closed validation.
 export function groundConversationPlan(request: ConversationPlanRequest, candidate: Plan): Plan {
+  const protectedPhrases = [request.context.focused, ...request.context.latest,
+    ...(request.context.previous?.flat() ?? []), ...(request.context.selected ?? []),
+    ...(request.context.complementary ?? [])].flatMap(product => product ? [product.product_name, product.product_id] : []);
+  const view = shoppingSpellingView(request.message, protectedPhrases);
+  if (!view.corrections.length) return groundLiteralConversationPlan(request, candidate);
+  const literalPlan = mapShoppingEvidence(candidate, quote => shoppingSpellingView(quote, protectedPhrases).text);
+  const grounded = groundLiteralConversationPlan({ ...request, message: view.text }, literalPlan);
+  return mapShoppingEvidence(grounded, view.originalQuote);
+}
+
+function groundLiteralConversationPlan(request: ConversationPlanRequest, candidate: Plan): Plan {
   const plan = structuredClone(candidate);
+  plan.changes = plan.changes.map(change => {
+    if (change.field === "preferred_colours" || change.field === "excluded_colours") {
+      return { ...change, value: change.value.map(value => canonicalShoppingValue(change.field, value)) };
+    }
+    if ((change.field === "product_type" || change.field === "subcategory" || change.field === "material" ||
+        change.field === "occasion" || change.field === "size" || change.field === "fit") && typeof change.value === "string") {
+      return { ...change, value: canonicalShoppingValue(change.field, change.value) };
+    }
+    return change;
+  });
   const message = request.message;
   // Exhausted interpretation repair must remain fail-closed. In particular,
   // recognizing a task replacement does not verify its remaining constraints.
@@ -455,7 +477,7 @@ export function groundConversationPlan(request: ConversationPlanRequest, candida
   const clothing = savedAddition ? null : requestedClothing(message);
   const role = (savedAddition?.evidence ?? shoppingTarget(message)).match(rolePattern);
   const category = savedAddition?.category ?? clothing?.category ?? (role ? /dress|skirt|cloth|jacket|blazer|shirt|top|blouse|camisole|cardigan|trouser|pant/i.test(role[1]) ? "Clothing"
-    : /bag/i.test(role[1]) ? "Bags" : /shoe|flat/i.test(role[1]) ? "Shoes" : "Accessories" : null);
+    : /bag|clutch/i.test(role[1]) ? "Bags" : /shoe|flat|sneaker|sandal|heel|boot/i.test(role[1]) ? "Shoes" : "Accessories" : null);
   const put = (change: Change) => {
     plan.changes = plan.changes.filter(old => old.scope !== change.scope || old.field !== change.field);
     plan.changes.push(change);
@@ -565,17 +587,29 @@ export function groundConversationPlan(request: ConversationPlanRequest, candida
     if (category === "Shoes" && /\bflat shoes\b/i.test(shoppingTarget(message))) {
       put({ scope: "item", field: "product_type", operation: "set", value: "Flats", evidence: shoppingTarget(message).match(/\bflat shoes\b/i)![0] });
     }
+    const shoeFamily = role?.[0].match(/^(sneaker|sandal|heel|boot)s?$/i)?.[1];
+    if (category === "Shoes" && shoeFamily && !plan.changes.some(change => change.scope === "item" && change.field === "product_type")) {
+      put({ scope: "item", field: "product_type", operation: "set", value: shoeFamily[0].toUpperCase() + shoeFamily.slice(1).toLowerCase(), evidence });
+    }
+    if (category === "Bags" && role && /^(?:handbags?|clutches?)$/i.test(role[0]) && !plan.changes.some(change => change.scope === "item" && change.field === "subcategory")) {
+      put({ scope: "item", field: "subcategory", operation: "set", value: /handbag/i.test(role[0]) ? "Handbags" : "Clutches", evidence });
+    }
   }
 
   // Only positive colour constructions in the requested brief are repaired.
   // A colour in a question, exclusion, comparison anchor or owned description
   // must not become a new preference.
-  const prefix = new RegExp(`\\b(${colours})\\s+(?:dress(?:es)?|bags?|shoes?|necklaces?|clothing)\\b`, "i");
+  const prefix = new RegExp(`\\b(${colours})\\s+(?:dress(?:es)?|skirts?|bags?|handbags?|clutches?|shoes?|flats?|sneakers?|sandals?|heels?|boots?|necklaces?|clothing)\\b`, "i");
   const edit = new RegExp(`\\b(?:try|keep|still|prefer)\\s+(${colours})\\b|\\b(${colours})\\s+instead of\\b`, "i");
   const garmentPrefix = /\b(?:show|find|want|need|i(?:['’]d| would) like)\b/i.test(shoppingTarget(message))
     ? shoppingTarget(message).match(new RegExp(`\\b(${colours})\\s+(?:(?:cotton|linen(?: blend)?|silk|wool|polyester|viscose)\\s+)?(?:shirts?|blouses?|tops?|camisoles?|cardigans?)\\b`, "i")) : null;
-  const match = brief.match(edit) ?? (plan.action === "upsell" ? null : garmentPrefix ?? brief.match(prefix));
-  if (match && !/\b(?:no|not|without|exclude|avoid)\s*$/i.test(brief.slice(0, match.index))) {
+  const colourTarget = shoppingTarget(message);
+  const match = colourTarget.match(edit) ?? (plan.action === "upsell" ? null : garmentPrefix ?? colourTarget.match(prefix));
+  const colourItem = match?.[0].match(rolePattern)?.[0];
+  const colourCategory = colourItem ? /bag|clutch/i.test(colourItem) ? "Bags"
+    : /shoe|flat|sneaker|sandal|heel|boot/i.test(colourItem) ? "Shoes"
+      : /necklace|accessor/i.test(colourItem) ? "Accessories" : "Clothing" : null;
+  if (match && (!colourCategory || colourCategory === category) && !/\b(?:no|not|without|exclude|avoid)\s*$/i.test(colourTarget.slice(0, match.index))) {
     const value = match[1] ?? match[2];
     const canonical = value[0].toUpperCase() + value.slice(1).toLowerCase();
     put({ scope, field: "preferred_colours", operation: "set", value: [canonical], evidence: value });

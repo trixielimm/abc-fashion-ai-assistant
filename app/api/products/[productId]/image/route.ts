@@ -1,6 +1,8 @@
 import { createClient } from "@/lib/supabase/server";
 import { createProductImageHandler } from "@/lib/storage/product-image-delivery";
 import { getProductStorageUrl, readProductStorageImage } from "@/lib/storage/product-images";
+import { PRESENTATION_MODE } from "@/lib/demo/config";
+import { getDemoProduct } from "@/lib/demo/catalogue";
 
 export const runtime = "nodejs";
 const serveImage = createProductImageHandler({
@@ -21,5 +23,9 @@ export async function GET(
   { params }: { params: Promise<{ productId: string }> },
 ) {
   const { productId } = await params;
+  if (PRESENTATION_MODE) {
+    const image = getDemoProduct(productId)?.image_key;
+    return image ? Response.redirect(new URL(image, request.url)) : new Response(null, { status: 404 });
+  }
   return serveImage(request, productId);
 }

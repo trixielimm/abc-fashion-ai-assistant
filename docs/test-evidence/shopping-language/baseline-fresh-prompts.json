@@ -1,0 +1,557 @@
+[
+  {
+    "message": "i want a lavendar dress",
+    "http": 200,
+    "status": "matches",
+    "action": "new_search",
+    "preferences": {
+      "gender": "Women",
+      "category": "Clothing",
+      "subcategory": "Dresses",
+      "product_type": null,
+      "occasion": null,
+      "style": null,
+      "preferred_colours": [
+        "Lavender"
+      ],
+      "excluded_colours": [],
+      "season": null,
+      "material": null,
+      "fit": null,
+      "size": null,
+      "min_price": null,
+      "max_price": null,
+      "brand_line": null
+    },
+    "scopes": {
+      "item": {
+        "gender": "Women",
+        "category": "Clothing",
+        "subcategory": "Dresses",
+        "product_type": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [
+          "Lavender"
+        ],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "size": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      },
+      "shared": {
+        "gender": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      },
+      "unresolved_item": [],
+      "unresolved_shared": []
+    },
+    "products": [
+      {
+        "id": "P1219",
+        "name": "Lavender Maxi Dress"
+      },
+      {
+        "id": "P1004",
+        "name": "Lavender Wrap Dress"
+      }
+    ],
+    "messageOut": "I've found 2 lavender clothing options for you to explore.\n\nThese options range from A$150.00 to A$240.00. The selection includes maxi dress and wrap dress options.\n\nHave a look at the options below and see what catches your eye.",
+    "issues": []
+  },
+  {
+    "message": "I want a lavender dress",
+    "http": 200,
+    "status": "matches",
+    "action": "new_search",
+    "preferences": {
+      "gender": "Women",
+      "category": "Clothing",
+      "subcategory": "Dresses",
+      "product_type": null,
+      "occasion": null,
+      "style": null,
+      "preferred_colours": [
+        "Lavender"
+      ],
+      "excluded_colours": [],
+      "season": null,
+      "material": null,
+      "fit": null,
+      "size": null,
+      "min_price": null,
+      "max_price": null,
+      "brand_line": null
+    },
+    "scopes": {
+      "item": {
+        "gender": "Women",
+        "category": "Clothing",
+        "subcategory": "Dresses",
+        "product_type": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [
+          "Lavender"
+        ],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "size": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      },
+      "shared": {
+        "gender": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      },
+      "unresolved_item": [],
+      "unresolved_shared": []
+    },
+    "products": [
+      {
+        "id": "P1219",
+        "name": "Lavender Maxi Dress"
+      },
+      {
+        "id": "P1004",
+        "name": "Lavender Wrap Dress"
+      }
+    ],
+    "messageOut": "I've found 2 lavender clothing options for you to explore.\n\nThese options range from A$150.00 to A$240.00. The selection includes maxi dress and wrap dress options.\n\nHave a look at the options below and see what catches your eye.",
+    "issues": []
+  },
+  {
+    "message": "I want a lavendar dres",
+    "http": 200,
+    "status": "needs_clarification",
+    "action": "new_search",
+    "preferences": {
+      "gender": null,
+      "category": null,
+      "subcategory": null,
+      "product_type": null,
+      "occasion": null,
+      "style": null,
+      "preferred_colours": [],
+      "excluded_colours": [],
+      "season": null,
+      "material": null,
+      "fit": null,
+      "size": null,
+      "min_price": null,
+      "max_price": null,
+      "brand_line": null
+    },
+    "scopes": {
+      "item": {
+        "gender": null,
+        "category": null,
+        "subcategory": null,
+        "product_type": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "size": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      },
+      "shared": {
+        "gender": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      },
+      "unresolved_item": [],
+      "unresolved_shared": []
+    },
+    "products": [],
+    "messageOut": "What kind of item are you looking for? Try adding a product, colour, style, or occasion.",
+    "issues": []
+  },
+  {
+    "message": "Show me a burgandy dress",
+    "http": 200,
+    "status": "matches",
+    "action": "new_search",
+    "preferences": {
+      "gender": "Women",
+      "category": "Clothing",
+      "subcategory": "Dresses",
+      "product_type": null,
+      "occasion": null,
+      "style": null,
+      "preferred_colours": [
+        "Burgundy"
+      ],
+      "excluded_colours": [],
+      "season": null,
+      "material": null,
+      "fit": null,
+      "size": null,
+      "min_price": null,
+      "max_price": null,
+      "brand_line": null
+    },
+    "scopes": {
+      "item": {
+        "gender": "Women",
+        "category": "Clothing",
+        "subcategory": "Dresses",
+        "product_type": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [
+          "Burgundy"
+        ],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "size": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      },
+      "shared": {
+        "gender": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      },
+      "unresolved_item": [],
+      "unresolved_shared": []
+    },
+    "products": [
+      {
+        "id": "P1254",
+        "name": "Burgundy Maxi Dress"
+      },
+      {
+        "id": "P1248",
+        "name": "Burgundy Midi Dress"
+      }
+    ],
+    "messageOut": "I've found 2 burgundy clothing options for you to explore.\n\nThese options range from A$120.00 to A$260.00. The selection includes maxi dress and midi dress options.\n\nHave a look at the options below and see what catches your eye.",
+    "issues": []
+  },
+  {
+    "message": "Show me white sneekers",
+    "http": 200,
+    "status": "needs_clarification",
+    "action": "new_search",
+    "preferences": {
+      "gender": null,
+      "category": "Shoes",
+      "subcategory": null,
+      "product_type": "Sneakers",
+      "occasion": null,
+      "style": null,
+      "preferred_colours": [
+        "White"
+      ],
+      "excluded_colours": [],
+      "season": null,
+      "material": null,
+      "fit": null,
+      "size": null,
+      "min_price": null,
+      "max_price": null,
+      "brand_line": null
+    },
+    "scopes": {
+      "item": {
+        "gender": null,
+        "category": "Shoes",
+        "subcategory": null,
+        "product_type": "Sneakers",
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [
+          "White"
+        ],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "size": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      },
+      "shared": {
+        "gender": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      },
+      "unresolved_item": [],
+      "unresolved_shared": []
+    },
+    "products": [],
+    "messageOut": "I couldn't apply product type: Sneakers. That value isn't supported by the current catalogue; recorded options include Silk Scarf, Co-ord Set, Crossbody Bag, Wrap Dress, Bracelet, Wide-Leg Pants, Loafers, Low-Top Sneakers. Please change that detail; your other requirements are still saved.",
+    "issues": [
+      {
+        "id": "invalid_preference:item:product_type:\"Sneakers\"",
+        "code": "invalid_preference",
+        "field": "product_type",
+        "scope": "item",
+        "value": "Sneakers",
+        "saved_value": null,
+        "options": [
+          "Silk Scarf",
+          "Co-ord Set",
+          "Crossbody Bag",
+          "Wrap Dress",
+          "Bracelet",
+          "Wide-Leg Pants",
+          "Loafers",
+          "Low-Top Sneakers"
+        ]
+      }
+    ]
+  },
+  {
+    "message": "Show me a white blous",
+    "http": 200,
+    "status": "needs_clarification",
+    "action": "new_search",
+    "preferences": {
+      "gender": null,
+      "category": null,
+      "subcategory": null,
+      "product_type": null,
+      "occasion": null,
+      "style": null,
+      "preferred_colours": [],
+      "excluded_colours": [],
+      "season": null,
+      "material": null,
+      "fit": null,
+      "size": null,
+      "min_price": null,
+      "max_price": null,
+      "brand_line": null
+    },
+    "scopes": {
+      "item": {
+        "gender": null,
+        "category": null,
+        "subcategory": null,
+        "product_type": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "size": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      },
+      "shared": {
+        "gender": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      },
+      "unresolved_item": [],
+      "unresolved_shared": []
+    },
+    "products": [],
+    "messageOut": "What kind of item are you looking for? Try adding a product, colour, style, or occasion.",
+    "issues": []
+  },
+  {
+    "message": "I want a black handbg",
+    "http": 200,
+    "status": "matches",
+    "action": "new_search",
+    "preferences": {
+      "gender": null,
+      "category": "Bags",
+      "subcategory": "Handbags",
+      "product_type": null,
+      "occasion": null,
+      "style": null,
+      "preferred_colours": [
+        "Black"
+      ],
+      "excluded_colours": [],
+      "season": null,
+      "material": null,
+      "fit": null,
+      "size": null,
+      "min_price": null,
+      "max_price": null,
+      "brand_line": null
+    },
+    "scopes": {
+      "item": {
+        "gender": null,
+        "category": "Bags",
+        "subcategory": "Handbags",
+        "product_type": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [
+          "Black"
+        ],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "size": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      },
+      "shared": {
+        "gender": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      },
+      "unresolved_item": [],
+      "unresolved_shared": []
+    },
+    "products": [
+      {
+        "id": "P1260",
+        "name": "Black Shoulder Bag"
+      }
+    ],
+    "messageOut": "I found Black Shoulder Bag for A$90.00.\n\nHave a look below. You can keep browsing, or tell me something like \"cheaper\" or \"a different colour\" to refine the selection.\n\nThe catalogue records material Woven, fit Standard, occasion Travel. Those labels do not guarantee personal fit or fabric performance.",
+    "issues": []
+  },
+  {
+    "message": "I want a lavender dress under $100",
+    "http": 200,
+    "status": "no_match",
+    "action": "new_search",
+    "preferences": {
+      "gender": "Women",
+      "category": "Clothing",
+      "subcategory": "Dresses",
+      "product_type": null,
+      "occasion": null,
+      "style": null,
+      "preferred_colours": [
+        "Lavender"
+      ],
+      "excluded_colours": [],
+      "season": null,
+      "material": null,
+      "fit": null,
+      "size": null,
+      "min_price": null,
+      "max_price": 100,
+      "brand_line": null
+    },
+    "scopes": {
+      "item": {
+        "gender": "Women",
+        "category": "Clothing",
+        "subcategory": "Dresses",
+        "product_type": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [
+          "Lavender"
+        ],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "size": null,
+        "min_price": null,
+        "max_price": 100,
+        "brand_line": null
+      },
+      "shared": {
+        "gender": null,
+        "occasion": null,
+        "style": null,
+        "preferred_colours": [],
+        "excluded_colours": [],
+        "season": null,
+        "material": null,
+        "fit": null,
+        "min_price": null,
+        "max_price": null,
+        "brand_line": null
+      },
+      "unresolved_item": [],
+      "unresolved_shared": []
+    },
+    "products": [],
+    "messageOut": "I couldn't find an available product that meets those details right now. Your stated limits and exclusions are unchanged.\n\nOne way to broaden the search is to use \"Explore other colours\" below. That preview keeps your other restrictions and leaves your original colour request saved.",
+    "issues": []
+  }
+]

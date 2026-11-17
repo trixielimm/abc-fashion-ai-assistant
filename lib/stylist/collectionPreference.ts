@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { DiscoveryIntentSchema } from "./discovery";
 import type { ShoppingPreferences } from "../ai/preferenceSchema";
+import { shoppingSpellingView } from "../catalogue/shoppingLanguage";
 
 export const CollectionChoiceSchema = z.enum(["Men", "Women", "Unisex", "All"]);
 export const CollectionStateSchema = z.strictObject({
@@ -19,7 +20,7 @@ export type CollectionState = z.infer<typeof CollectionStateSchema>;
 export const emptyCollectionState = (): CollectionState => ({ choice: null, current: null, checkpoint: null });
 
 export function shoppingBrief(message: string) {
-  const starts = [...message.matchAll(/\b(?:show(?: me)?|find(?: me)?|i want|i need|i(?:['’]d| would) like|looking for|browse|let['’]s (?:try|start with)|i(?:(?:['’]d| would))? prefer(?=[^.!?;]{0,60}\b(?:tops?|shirts?|blouses?|dresses|dress|shoes?|flats?|sandals?|bags?|scarves|scarf|jackets?|skirts?|trousers|pants)\b))\b/gi)]
+  const starts = [...message.matchAll(/\b(?:show(?: me)?|find(?: me)?|i (?:still )?(?:want|need)|i(?:['’]d| would) like|looking for|browse|let['’]s (?:try|start with)|i(?:(?:['’]d| would))? prefer(?=[^.!?;]{0,60}\b(?:tops?|shirts?|blouses?|dresses|dress|shoes?|flats?|sandals?|bags?|scarves|scarf|jackets?|skirts?|trousers|pants)\b))\b/gi)]
     .filter(match => !/\bwhat(?: i(?:['’]m| am| was)?)?\s*$/i.test(message.slice(0, match.index)));
   // A trailing "show me options" is a call to act on the earlier brief, not
   // a new target that erases its collection, garment or recipient.
@@ -43,7 +44,8 @@ export function defaultCollectionCategory(preferences: ShoppingPreferences) {
   return null;
 }
 export function requestedClothing(message: string) {
-  const target = shoppingTarget(message);
+  const view = shoppingSpellingView(shoppingTarget(message));
+  const target = view.text;
   const pattern = /\bdress[ -]+shirts?\b|\bdress[ -]+shoes?\b|\bdress(?:es)?\b|\bskirts?\b|\b(?:shirts?|tops?|blouses?|camisoles?|cardigans?)\b|\b(?:trousers?|pants)\b|\bsuits?\b|\b(?:jackets?|blazers?)\b|\b(?:clothing|clothes)\b/gi;
   for (const match of target.matchAll(pattern)) {
     const before = target.slice(0, match.index);
@@ -59,13 +61,14 @@ export function requestedClothing(message: string) {
       /^(?:(?:a|an|some|the|new|work|formal|casual|beach[ -]wedding|wedding(?: guest)?|cocktail|midi|maxi|mini|pleated|black|blue|red|men['’]?s|women['’]?s|unisex)\s+)*$/i.test(before.trimStart());
     if (!request) continue;
     const word = match[0];
+    const evidence = view.originalQuote(word);
     const after = target.slice(match.index! + word.length);
-    if (/^dress[ -]+shoes?/i.test(word)) return { category: "Shoes" as const, subcategory: null, evidence: word, target };
+    if (/^dress[ -]+shoes?/i.test(word)) return { category: "Shoes" as const, subcategory: null, evidence, target };
     if (/^dress(?:es)?$/i.test(word) && /^\s+(?:code|me|us|you|him|her|them|up|down|like)\b/i.test(after)) continue;
     const subcategory = /^dress[ -]+shirt|^(?:shirts?|tops?|blouses?|camisoles?|cardigans?)$/i.test(word) ? "Tops"
       : /^dress/i.test(word) ? "Dresses" : /^(?:skirt|trouser|pant)/i.test(word) ? "Bottoms"
       : /^suit/i.test(word) ? "Sets" : /^(?:jacket|blazer)/i.test(word) ? "Outerwear" : null;
-    return { category: "Clothing" as const, subcategory, evidence: word, target };
+    return { category: "Clothing" as const, subcategory, evidence, target };
   }
   return null;
 }
@@ -74,7 +77,7 @@ export function categoryCollectionDefault(message: string, preferences: Shopping
   const item = requestedClothing(message);
   const family = defaultCollectionCategory(preferences);
   if (!item || !family || item.subcategory !== preferences.subcategory ||
-      family === "Skirts" && !/^skirts?$/i.test(item.evidence)) return null;
+      family === "Skirts" && !/^skirts?$/i.test(shoppingSpellingView(item.evidence).text)) return null;
   // "More dresses" refines the current collection; a new full dress request
   // (including a repeated one after no_match) establishes the category default.
   if (refining && /\b(?:more|other|similar|cheaper|lower[ -]priced|replacement|same)\b/i.test(item.target)) return null;

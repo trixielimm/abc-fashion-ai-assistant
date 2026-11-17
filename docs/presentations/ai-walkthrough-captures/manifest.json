@@ -1,0 +1,186 @@
+[
+  {
+    "id": "a1",
+    "prompt": "I need a women's dress for a beach wedding, under A$200. I haven't chosen a colour or size yet.",
+    "source": "https://abcandco.vercel.app/",
+    "capturedAt": "2026-11-04T12:42:00.607Z",
+    "image": "a1.jpg",
+    "transcript": "a1.txt"
+  },
+  {
+    "id": "a2",
+    "prompt": "Show me blue dresses. Keep the beach wedding and the same budget.",
+    "source": "https://abcandco.vercel.app/",
+    "capturedAt": "2026-11-04T12:42:32.695Z",
+    "image": "a2.jpg",
+    "transcript": "a2.txt"
+  },
+  {
+    "id": "a3",
+    "prompt": "Show me options in size 10. Keep everything else the same.",
+    "source": "https://abcandco.vercel.app/",
+    "capturedAt": "2026-11-04T12:45:47.906Z",
+    "image": "a3.jpg",
+    "transcript": "a3.txt"
+  },
+  {
+    "id": "a4",
+    "prompt": "Navy is fine instead of blue. Keep the beach wedding, size 10, and A$200 budget.",
+    "source": "https://abcandco.vercel.app/",
+    "capturedAt": "2026-11-04T12:46:12.998Z",
+    "image": "a4.jpg",
+    "transcript": "a4.txt"
+  },
+  {
+    "id": "a5",
+    "prompt": "Show me a cheaper dress than Navy Maxi Dress, keeping my other requirements.",
+    "source": "https://abcandco.vercel.app/",
+    "capturedAt": "2026-11-04T12:46:32.247Z",
+    "image": "a5.jpg",
+    "transcript": "a5.txt"
+  },
+  {
+    "id": "a6",
+    "prompt": "What material is Navy Maxi Dress made from, and why might it suit a beach wedding?",
+    "source": "https://abcandco.vercel.app/",
+    "capturedAt": "2026-11-04T12:47:02.706Z",
+    "image": "a6.jpg",
+    "transcript": "a6.txt"
+  },
+  {
+    "id": "b1",
+    "prompt": "I already own black trousers. Find me a women's work shirt to wear with them, under A$150.",
+    "source": "https://abcandco.vercel.app/",
+    "capturedAt": "2026-11-04T12:47:35.564Z",
+    "image": "b1.jpg",
+    "transcript": "b1.txt"
+  },
+  {
+    "id": "b2",
+    "prompt": "Find a bag to go with the shirt. The shirt and bag must cost no more than A$200 together. I already own the trousers.",
+    "source": "https://abcandco.vercel.app/",
+    "capturedAt": "2026-11-04T12:48:05.523Z",
+    "image": "b2.jpg",
+    "transcript": "b2.txt"
+  },
+  {
+    "id": "b3",
+    "prompt": "Reduce the combined budget for the shirt and bag to A$150.",
+    "source": "https://abcandco.vercel.app/",
+    "capturedAt": "2026-11-04T12:49:30.385Z",
+    "image": "b3.jpg",
+    "transcript": "b3.txt"
+  },
+  {
+    "id": "b4",
+    "prompt": "Use Black Linen Shirt as an example and find a bag that keeps both within A$150. I haven't selected either item yet.",
+    "source": "https://abcandco.vercel.app/",
+    "capturedAt": "2026-11-04T12:49:54.784Z",
+    "image": "b4.jpg",
+    "transcript": "b4.txt"
+  },
+  {
+    "id": "c1",
+    "prompt": "Show me women's black dresses in size 10 under A$200.",
+    "source": "https://abcandco.vercel.app/",
+    "capturedAt": "2026-11-04T12:50:46.850Z",
+    "image": "c1.jpg",
+    "transcript": "c1.txt"
+  },
+  {
+    "id": "d1",
+    "prompt": "Show me women's black shoes under A$150. I haven't picked a size yet.",
+    "source": "https://abcandco.vercel.app/",
+    "capturedAt": "2026-11-04T12:50:47.369Z",
+    "image": "d1.jpg",
+    "transcript": "d1.txt"
+  },
+  {
+    "id": "b5",
+    "prompt": "A$150 is the total for both new purchases, not per item. Black Linen Shirt costs A$95, leaving A$55 for a bag. Please show matching bags at A$55 or less.",
+    "source": "https://abcandco.vercel.app/",
+    "capturedAt": "2026-11-04T12:50:55.650Z",
+    "image": "b5.jpg",
+    "transcript": "b5.txt"
+  },
+  {
+    "id": "c2",
+    "prompt": "Actually, blue instead of black. Keep the same size and budget.",
+    "source": "https://abcandco.vercel.app/",
+    "capturedAt": "2026-11-04T12:51:01.586Z",
+    "image": "c2.jpg",
+    "transcript": "c2.txt"
+  },
+  {
+    "id": "d2",
+    "prompt": "What sizes are listed for Black Platform Sandals?",
+    "source": "https://abcandco.vercel.app/",
+    "capturedAt": "2026-11-04T12:51:06.551Z",
+    "image": "d2.jpg",
+    "transcript": "d2.txt"
+  },
+  {
+    "id": "b6",
+    "prompt": "What would Black Linen Shirt and White Mini Clutch cost together, and how much remains from my A$150 budget?",
+    "source": "https://abcandco.vercel.app/",
+    "capturedAt": "2026-11-04T12:51:33.845Z",
+    "image": "b6.jpg",
+    "transcript": "b6.txt"
+  },
+  {
+    "id": "c3",
+    "prompt": "Any colour and any listed size are fine now. Show me women's dresses under A$200.",
+    "source": "https://abcandco.vercel.app/",
+    "capturedAt": "2026-11-04T12:51:33.982Z",
+    "image": "c3.jpg",
+    "transcript": "c3.txt"
+  },
+  {
+    "id": "d3",
+    "prompt": "Can you guarantee that Black Platform Sandals are waterproof and will arrive in Sydney tomorrow?",
+    "source": "https://abcandco.vercel.app/",
+    "capturedAt": "2026-11-04T12:51:38.310Z",
+    "image": "d3.jpg",
+    "transcript": "d3.txt"
+  },
+  {
+    "id": "c4",
+    "prompt": "I don't like Burgundy Maxi Dress. Don't show it again. Show me other options.",
+    "source": "https://abcandco.vercel.app/",
+    "capturedAt": "2026-11-04T12:52:12.381Z",
+    "image": "c4.jpg",
+    "transcript": "c4.txt"
+  },
+  {
+    "id": "d4",
+    "prompt": "Continue with black shoes under A$150. Waterproofing and delivery tomorrow are no longer requirements.",
+    "source": "https://abcandco.vercel.app/",
+    "capturedAt": "2026-11-04T12:52:12.885Z",
+    "image": "d4.jpg",
+    "transcript": "d4.txt"
+  },
+  {
+    "id": "c5",
+    "prompt": "Forget dresses. I want a black bag under A$100.",
+    "source": "https://abcandco.vercel.app/",
+    "capturedAt": "2026-11-04T12:53:12.416Z",
+    "image": "c5.jpg",
+    "transcript": "c5.txt"
+  },
+  {
+    "id": "d5",
+    "prompt": "What material are Black Platform Sandals made from, and which details are unavailable?",
+    "source": "https://abcandco.vercel.app/",
+    "capturedAt": "2026-11-04T12:53:12.620Z",
+    "image": "d5.jpg",
+    "transcript": "d5.txt"
+  },
+  {
+    "id": "c6",
+    "prompt": "What are the dimensions and closure of Black Shoulder Bag?",
+    "source": "https://abcandco.vercel.app/",
+    "capturedAt": "2026-11-04T12:53:56.563Z",
+    "image": "c6.jpg",
+    "transcript": "c6.txt"
+  }
+]
